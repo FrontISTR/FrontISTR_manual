@@ -1,4 +1,4 @@
-# FrontISTR ver. 5.0 リリースノート
+# FrontISTR ver. 4.5 リリースノート
 <!-- this is a comment. -->
 
 <!-- 文部科学省次世代ＩＴ基盤構築のための研究開発
@@ -9,7 +9,7 @@
 
 <img src="./image/FrontISTR_logo.png" width="300px">
 
-| FrontISTR | Version 5.0 |
+| FrontISTR | Version 4.5 |
 |:---------:|:------------|
 | ライセンス形態 | MIT License |
 | 問い合わせ先   | FrontISTR研究会<br> 〒277-8563 千葉県柏市柏の葉5-1-5<br> 東京大学大学院新領域創成科学研究科 奥田研究室（気付）<br> E-mail：fstr_seminar@multi.k.u-tokyo.ac.jp |
@@ -18,22 +18,78 @@
 
 * [1. はじめに](#section1)
     - [1.1 本書の位置づけ](#section1.1)
-    - [1.2 本書の目的](#section1.2)
-    - [1.3 version 5.0における更新内容](#section1.3)
+* [2. FrontISTRの更新内容](#section2)
+    - [FrontISTR ver.3.7における更新内容 (FrontISTR ver. 4.5に付随)](#update3.7)
+    - [FrontISTR ver.3.6における更新内容 (FrontISTR ver. 4.4に付随)](#update3.6)
+    - [FrontISTR ver.3.5における更新内容 (FrontISTR ver. 4.3に付随)](#update3.5)
 
 <a id="section1"></a>
-## 1.  はじめに
+## 1. はじめに
+<a id="section1.1"></a>
 ### 1.1 本書の位置づけ
 
-FrontISTRが対象範囲とする解析に関するデータの入力方法の解説およびFrontISTRの実行方法について記述したものである。
+FrontISTRが対象範囲とする解析機能のアップデート内容について記述したものです．
 
-### 1.2 本書の目的
+<a id="section2"></a>
+## 2. FrontISTRの更新内容
+<a id="update3.7"></a>
+### FrontISTR ver.3.7における更新内容 (FrontISTR ver. 4.5に付随)
 
-本書では、ユーザーがFrontISTRを実行するにあたり、プログラム特有のデータ構造と解析機能の基本的な内容について記述する。FrontISTRでの解析実行制御は、全体制御データ、計算制御データを指定する必要がある。またメッシュに関するデータについては分散メッシュファイルを入力し解析を実行する。以下の章より、これらの制御データの入力方法および入力データの関連についてその詳細を説明する。
+FrontISTR ver.3.7において、以下に示す機能が追加されました．
 
-### 1.3 ver.3.6における更新内容
+* 入出力
+    - 6自由度ソルバにおける応力値計算部分の修正
+    - 主応力・主ひずみの算出機能の追加
+    - 積層シェル要素の出力部分の修正
+    - 解析ファイル (cntファイル)のINCLUDE機能追加
+    - !EQUATIONのMPC入力にLINKカードを追加
+    - UCD出力にMaterial ID (要素形状ID)を出力するよう変更
+    - !SOLVERにSTEPLOG機能の追加
+    - 行列の非零要素プロット機能の追加
+    - !SUBDIRフラグのMONITOR出力機能の追加
+    - 刺激係数と有効質量の出力機能の追加 (固有値解析)
+    - 大規模メッシュへの対応
+    - !AMPLITUDEの入力時にTYPE=TIMEVALUEを追加
+    - Abaqus用インプット関数の改良
+    - 解析ファイル (cntファイル)に設定されたMATERIAL関数の名前検索部分の修正
+    - Logfileアウトプットの修正
+    - Global summaryの修正
+* リファイナ
+    - 接触問題のリファイン機能を追加
+    - リファイン時のUCD出力の修正
+* 解析
+    - バネ境界条件機能の修正
+    - 接触解析の接触ペア探索の高速化 (アルゴリズムの更新、OpenMP並列化を実施)
+* 要素
+    - TLOAD_C3D8IC機能の追加 (熱応力荷重の付加)
+    - トラス要素 (301要素)と4面体1次要素 (341要素)を並列接触解析への対応
+* 材料
+    - OpenMP有効時の弾塑性材料の計算に関する不具合の修正
+* 機能
+    - flushテストの修正
+* 線形ソルバ
+    - ISAINV前処理・ IRIF前処理の追加
+    - Intel PARDISOインターフェースの追加
+    - OpenMP atomic記述子に関する部分の不具合修正
+    - !SOLVERのUSEJADカードの不具合修正
+    - METIS ver. 5.0への対応
+    - hecmw_solver_direct ルーチンの修正
+    - OpenMP=1の場合のSSOR前処理の不具合修正
+    - ML前処理の剛体モードの算出部分の自由度混在要素対応
+* 例題・チュートリアル
+    - 自由度混在用シェル要素（761要素・781要素）の例題追加
+    - バネ境界条件機能の例題追加
+    - 付属チュートリアル例題の全てが正しく実行できることを確認
+* パーティショナ
+    - パーティショナが1領域の分散メッシュを正しく生成するよう修正
+* その他軽微な修正
+    - fstr_setup_util.f90における初期化忘れの修正
+    - intent文の修正
 
-FrontISTR ver.3.6において、以下に示す機能が追加された：
+<a id="update3.6"></a>
+### FrontISTR ver.3.6における更新内容 (FrontISTR ver. 4.4に付随)
+
+FrontISTR ver.3.6において、以下に示す機能が追加されました．
 
 * 入出力
     - ファイル読込の高速化
@@ -71,9 +127,10 @@ FrontISTR ver.3.6において、以下に示す機能が追加された：
     - ログ出力の機能拡張
     - 分散メッシュ作成ループのOpenMP並列化
 
-### 1.4 ver.3.5における更新内容
+<a id="update3.5"></a>
+### FrontISTR ver.3.5における更新内容 (FrontISTR ver. 4.3に付随)
 
-FrontISTR ver.3.5において、以下に示す機能が追加された：
+FrontISTR ver.3.5において、以下に示す機能が追加されました．
 
 * 解析機能関連
     - シェル・梁要素とソリッド要素の混在解析対応
