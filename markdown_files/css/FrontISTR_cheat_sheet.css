@@ -1,0 +1,53 @@
+div.block_1 {
+   float: left;
+   width: 33%;
+}
+div.block_2 {
+   float: left;
+   width: 33%;
+}
+div.block_3 {
+   float: left;
+   width: 33%;
+}
+div.clear {
+   clear: both;
+   width: 100%;
+}
+
+
+h1 {
+  color: #999999;
+  background-color: #0d376b;
+}
+
+img {
+  background-color: #FFFFFF;
+}
+
+pre {
+  padding: 0.5em;
+  margin-left: 10px;
+  color: #444444;
+  background-color: #ACD6FF;
+  white-space: pre-wrap;
+}
+
+code {
+  font-family: monospace;
+  font-weight: normal;
+  text-align: left;
+}
+
+table, td, th {
+  border: 1px #444444 solid;
+}
+
+table {
+  font-family: monospace;
+  margin-left: 10px;
+  color: #444444;
+  background-color: #FFD5AC;
+  border-collapse: collapse;
+  margin-bottom: 5px
+}
