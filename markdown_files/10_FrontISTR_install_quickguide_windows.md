@@ -130,15 +130,15 @@ FrontISTRで有効にする機能は
 
 FrontISTRと必要なライブラリをダウンロードしてください。
 
-ライブラリ名          | ダウンロード先                                    | 備考
---------------- | ------------------------------------------------------- | ------------------
-FrontISTR_V45.tar.gz   | <http://www.multi.k.u-tokyo.ac.jp/FrontISTR> | 要ユーザ登録
-REVOCAP_Refiner-1.1.04 | <http://www.multi.k.u-tokyo.ac.jp/FrontISTR> | 要ユーザ登録
-OpenBLAS-0.2.18 | <http://www.openblas.net>                               | ソースをダウンロード
-metis-5.1.0     | <http://glaros.dtc.umn.edu/gkhome/metis/metis/download> | scotch-metisも利用可
-scalapack-2.0.2 | <http://www.netlib.org/scalapack/>                      | MUMPSで利用
-MUMPS_5.0.1     | <http://mumps.enseeiht.fr/>                             | 要ユーザ登録
-trilinos-12.6.2 | <https://trilinos.org/download/>                        | 要ユーザ登録
+|ライブラリ名          |ダウンロード先                                         |備考                |
+|----------------------|-------------------------------------------------------|--------------------|
+|FrontISTR_V45.tar.gz  |<http://www.multi.k.u-tokyo.ac.jp/FrontISTR>           |要ユーザ登録        |
+|REVOCAP_Refiner-1.1.04|<http://www.multi.k.u-tokyo.ac.jp/FrontISTR>           |要ユーザ登録        |
+|OpenBLAS-0.2.18       |<http://www.openblas.net>                              |ソースをダウンロード|
+|metis-5.1.0           |<http://glaros.dtc.umn.edu/gkhome/metis/metis/download>|scotch-metisも利用可|
+|scalapack-2.0.2       |<http://www.netlib.org/scalapack/>                     |MUMPSで利用         |
+|MUMPS_5.0.1           |<http://mumps.enseeiht.fr/>                            |要ユーザ登録        |
+|trilinos-12.6.4       |<https://trilinos.org/download/>                       |要ユーザ登録        |
 
 ダウンロードしたファイルは``$HOME/work``に置いてください。
 
