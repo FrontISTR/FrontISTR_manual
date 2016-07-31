@@ -1,0 +1,56 @@
+﻿site_name: FrontISTR Documentation
+pages:
+- ホーム: index.md
+- インストール:
+    - はじめに: install/install_01.md
+    - 動作環境: install/install_02.md
+    - アーカイブファイルの解凍・展開: install/install_03.md
+    - インストール: install/install_04.md
+    - 付録: install/install_05.md
+- チュートリアル:
+    - はじめに: tutorial/tutorial_00.md
+    - 利用上の注意: tutorial/tutorial_01.md
+    - 解析手順: tutorial/tutorial_02.md
+    - 解析例:
+        - 静解析（弾性）: tutorial/tutorial_03_01.md
+        - 静解析（弾性、並列）: tutorial/tutorial_03_02.md
+        - 静解析（超弾性その１）: tutorial/tutorial_03_03.md
+        - 静解析（超弾性その２）: tutorial/tutorial_03_04.md
+        - 静解析（弾塑性その１）: tutorial/tutorial_03_05.md
+        - 静解析（弾塑性その２）: tutorial/tutorial_03_06.md
+        - 静解析（粘弾性）: tutorial/tutorial_03_07.md
+        - 静解析（クリープ）: tutorial/tutorial_03_08.md
+        - 接触解析（その１）: tutorial/tutorial_03_09.md
+        - 接触解析（その２）: tutorial/tutorial_03_10.md
+        - 接触解析（その３）: tutorial/tutorial_03_11.md
+        - 線形動解析: tutorial/tutorial_03_12.md
+        - 非線形動解析: tutorial/tutorial_03_13.md
+        - 非線形接触動解析: tutorial/tutorial_03_14.md
+        - 固有値解析: tutorial/tutorial_03_15.md
+        - 熱伝導解析: tutorial/tutorial_03_16.md
+        - 周波数応答解析: tutorial/tutorial_03_17.md
+- ユーザーマニュアル:
+    - はじめに: user/user_01.md
+    - 有限要素法解析理論:
+        - 有限要素法解析理論: user/theory_00.md
+        - 微小変形線形弾性静解析: user/theory_01.md
+        - 非線形静解析手法: user/theory_02.md
+        - 固有値解析: user/theory_03.md
+        - 熱伝導解析: user/theory_04.md
+        - 動的解析手法: user/theory_05.md
+        - 周波数応答解析: user/theory_06.md
+    - 解析の流れと入出力ファイル: user/user_02.md
+    - 要素ライブラリおよび材料データ: user/user_03.md
+    - 全体制御データ: user/user_04.md
+    - 単一領域メッシュデータ: user/user_05.md
+    - 解析制御データ: user/user_06.md
+    - ユーザーサブルーチン: user/user_07.md
+    - 例題検証:
+        - 単純形状モデルによる検証: user/example_01.md
+        - 弾性静解析用実モデル例題: user/example_02.md
+        - 固有値解析用実モデル例題: user/example_03.md
+        - 熱伝導解析用実モデル例題: user/example_04.md
+        - 線形動的解析用実モデル例題: user/example_05.md
+
+theme: mkdocs
+use_directory_urls: false

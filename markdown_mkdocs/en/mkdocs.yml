@@ -1,0 +1,56 @@
+﻿site_name: FrontISTR Documentation
+pages:
+- Home: index.md
+- Install:
+    - 'Introduction': install/install_01.md
+    - 'Operating Environment': install/install_02.md
+    - 'Extracting the Archive File': install/install_03.md
+    - 'Installation': install/install_04.md
+    - 'Appendix': install/install_05.md
+- Tutorial:
+    - 'Introduction': tutorial/tutorial_00.md
+    - 'Notes for Use in this Release': tutorial/tutorial_01.md
+    - 'Analysis Procedure': tutorial/tutorial_02.md
+    - 'Example of Analysis':
+        - 'Static Analysis (Elasticity)': tutorial/tutorial_03_01.md
+        - 'Static Analysis (Elasticity, Parallel)': tutorial/tutorial_03_02.md
+        - 'Static Analysis (Hyperelasticity Part 1)': tutorial/tutorial_03_03.md
+        - 'Static Analysis (Hyperelasticity Part 2)': tutorial/tutorial_03_04.md
+        - 'Static Analysis (Elastoplasticity Part 1)': tutorial/tutorial_03_05.md
+        - 'Static Analysis (Elastoplasticity Part 2)': tutorial/tutorial_03_06.md
+        - 'Static Analysis (Viscoelasticity)': tutorial/tutorial_03_07.md
+        - 'Static Analysis (Creep)': tutorial/tutorial_03_08.md
+        - 'Contact Analysis (Part 1)': tutorial/tutorial_03_09.md
+        - ' Contact Analysis (Part 2)': tutorial/tutorial_03_10.md
+        - ' Contact Analysis (Part 3)': tutorial/tutorial_03_11.md
+        - ' Linear Dynamic Analysis': tutorial/tutorial_03_12.md
+        - ' Nonlinear Dynamic Analysis': tutorial/tutorial_03_13.md
+        - ' Nonlinear Contact Dynamic Analysis': tutorial/tutorial_03_14.md
+        - ' Eigenvalue Analysis': tutorial/tutorial_03_15.md
+        - ' Heat Conduction Analysis': tutorial/tutorial_03_16.md
+        - 'Frequency Response Analysis': tutorial/tutorial_03_17.md
+- 'User manual':
+    - 'Introduction': user/user_01.md
+    - 'Finite Element Method Analysis Theory':
+        - 'Finite Element Method Analysis Theory': user/theory_00.md
+        - 'Infinitesimal Deformation Linear Elasticity Static Analysis': user/theory_01.md
+        - 'Nonlinear Static Analysis Method': user/theory_02.md
+        - 'Eigenvalue Analysis': user/theory_03.md
+        - 'Heat Conduction Analysis': user/theory_04.md
+        - 'Dynamic Analysis Method': user/theory_05.md
+        - 'Frequency Response Analysis': user/theory_06.md
+    - 'Analysis Flow and Input/Output File': user/user_02.md
+    - 'Element Library and Material Data': user/user_03.md
+    - 'Overall Control Data': user/user_04.md
+    - 'Single Domain Mesh Data': user/user_05.md
+    - 'Analysis Control Data': user/user_06.md
+    - 'User Subroutines': user/user_07.md
+    - 'Example Verification':
+        - 'Verification by Simple Geometric Model': user/example_01.md
+        - 'Example of Actual Model for Elastic Static Analysis': user/example_02.md
+        - 'Example of Actual Model for Eigenvalue Analysis': user/example_03.md
+        - 'Example of Actual Model for Heat Conduction Analysis': user/example_04.md
+        - 'Example of Actual Model for Linear Dynamic Analysis': user/example_05.md
+
+theme: mkdocs
+use_directory_urls: false
