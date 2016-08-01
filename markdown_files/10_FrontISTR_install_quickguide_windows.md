@@ -1,4 +1,4 @@
-﻿# FrontISTR v4.5のインストール (Windows10 - MinGW-w64)
+# FrontISTR v4.5のインストール (Windows10 - MinGW-w64)
 
 ここでは、Windowsで動くFrontISTRの構築方法を紹介します。
 
@@ -8,31 +8,40 @@ Windowsの場合、開発環境を整えるところから始める必要があ�
 
 > REVOCAP_PrePost は、FrontISTR等で使えるプリポスト用のソフトウェアでFrontISTRが同梱されています。
 
-# MSYS2のインストール
+# Git for windows SDK を用いたMSYS2のインストール
 
-windows用の開発環境として、MSYS2でインストールしたMinGW-w64を使います。
+windows用の開発環境として、Git for windows SDKのMinGW-w64を用います。
 
-[MSYS2 Installer](https://msys2.github.io)から、msys2-x86_64-20160205.exe をダウンロードしてインストールして下さい。
+<https://github.com/git-for-windows/build-extra/releases>
 
-インストールが完了したら、MSYS2を最新の状態にアップデートします。
+から `git-sdk-installer-1.0.3.7z.exe` をダウンロードして、インストールしてください。
 
-> アップデートは
->
-> - [Qiita：MSYS2における正しいパッケージの更新方法](http://qiita.com/k-takata/items/373ec7f23d5d7541f982)
-> - [Qiita：MSYS2の更新に伴う起動用ショートカットの修正](http://qiita.com/k-takata/items/2220ba2e8dd5bcba3961)
->
-> を参考にしてしてください。正しくアップデートをしないとターミナルの起動が失敗することがあります。
+インストールの最後に
+
+```sh
+Generating catalog po/ru.msg
+msgfmt --statistics --tcl po/ru.po -l ru -d po/
+307 ﾂﾌ|bZ[W.
+make[1]: *** [Makefile:76: po/ru.msg] エラー 1
+make: *** [Makefile:1656: all] エラー 2
+続行するには何かキーを押してください . . .
+```
+
+というエラーが出ますが、これは無視して構いません。
+
+インストールが終了すると、デスクトップに「Git SDK 64-bit」というアイコンが現れます。
+
+> 以前は、MSYS2を直接インストールする方法を書いていましたが、Git for windows SDKを使った方が簡単に環境整備が出来ることが分かりました。
 
 次に、コンパイルに必要なパッケージをインストールします。
 
 ```sh
-(MSYS) pacman -S base-devel mingw-w64-x86_64-toolchain mingw-w64-x86_64-cmake \
-       mingw-w64-x86_64-extra-cmake-modules
+(MSYS) pacman -S mingw-w64-x86_64-cmake mingw-w64-x86_64-qt5
 ```
 
-``cmake-gui``を使う場合、``mingw-w64-x86_64-qt5``パッケージもインストールしてください。
+`cmake-gui`を使う場合、`mingw-w64-x86_64-qt5`パッケージもインストールしてください。
 
-> Tips : ``cmake``でライブラリが見つからないなどのトラブルがあるとき、``cmake-gui``が役立ちます。
+> Tips : `mingw-w64-x86_64-qt5` のインストールは必ずしも必要ありませんが、`cmake`でライブラリが見つからないなどのトラブルがあるとき、`cmake-gui`が役立ちます。
 
 これでコンパイラなどがインストールされますので、念のため確認をして下さい。
 
@@ -42,8 +51,7 @@ windows用の開発環境として、MSYS2でインストールしたMinGW-w64�
 (MSYS) cmake --version
 ```
 
-作業に先立ち、ディレクトリを作成してください。
-作業ディレクトリは``$HOME/work``とし、ライブラリは``$HOME/local``以下にインストールします。
+作業に先立ち、ディレクトリを作成してください。 作業ディレクトリは`$HOME/work`とし、ライブラリは`$HOME/local`以下にインストールします。
 
 ```sh
 (MSYS) mkdir $HOME/work
@@ -57,18 +65,16 @@ MPIにはMicrosoft MPIを使います。
 
 [Download Microsoft MPI v7.1 from Official Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=52981)
 
-から、SDKの``msmpisdk.msi``とランタイムの``MSMpiSetup.exe``をダウンロードしインストールをしてください。
+から、SDKの`msmpisdk.msi`とランタイムの`MSMpiSetup.exe`をダウンロードしインストールをしてください。
 
 ## Microsoft MPIをリンクするための準備
 
-Microsoft MPIをMinGW-w64の``gcc``や``gfortran``でリンクするための作業をします。
-
-先ほど起動した「MSYS2 Shell」を閉じて、「MinGW-w64 Win64 Shell」を起動してください。
+Microsoft MPIをMinGW-w64の`gcc`や`gfortran`でリンクするための作業をします。
 
 ```sh
 (MINGW64) cd $HOME/local/lib/
 (MINGW64) gendef /c/Windows/System32/msmpi.dll
-(MINGW64) dlltools -d msmpi.def -l libmsmpi.a -D /c/Windows/System32/msmpi.dll
+(MINGW64) dlltool -d msmpi.def -l libmsmpi.a -D /c/Windows/System32/msmpi.dll
 (MINGW64) ls
 libmsmpi.a  msmpi.def
 ```
@@ -85,10 +91,10 @@ MinGW-w64環境でリンクできるMicrosoft MPIのライブラリが作成さ�
 mpi.h  mpif.h  mpifptr.h  mpio.h  mspms.h  pmidbg.h
 ```
 
-``mpi.h``に変更を加えます。
+`mpi.h`に変更を加えます。
 
 ```sh
-(MINGW64) vim mpi.h
+(MINGW64) vi mpi.h
 
 #ifndef MPI_INCLUDED
 #define MPI_INCLUDED
@@ -97,12 +103,12 @@ mpi.h  mpif.h  mpifptr.h  mpio.h  mspms.h  pmidbg.h
 を追加する。
 ```
 
-更に``mpif.h``に変更を加えます。
+更に`mpif.h`に変更を加えます。
 
 ```sh
-(MINGW64) vim mpif.h
+(MINGW64) vi mpif.h
 
-36行目
+407行目
 PARAMETER (MPI_ADDRESS_KIND=INT_PTR_KIND())
 を
 PARAMETER (MPI_ADDRESS_KIND=8)
@@ -130,17 +136,17 @@ FrontISTRで有効にする機能は
 
 FrontISTRと必要なライブラリをダウンロードしてください。
 
-|ライブラリ名          |ダウンロード先                                         |備考                |
-|----------------------|-------------------------------------------------------|--------------------|
-|FrontISTR_V45.tar.gz  |<http://www.multi.k.u-tokyo.ac.jp/FrontISTR>           |要ユーザ登録        |
-|REVOCAP_Refiner-1.1.04|<http://www.multi.k.u-tokyo.ac.jp/FrontISTR>           |要ユーザ登録        |
-|OpenBLAS-0.2.18       |<http://www.openblas.net>                              |ソースをダウンロード|
-|metis-5.1.0           |<http://glaros.dtc.umn.edu/gkhome/metis/metis/download>|scotch-metisも利用可|
-|scalapack-2.0.2       |<http://www.netlib.org/scalapack/>                     |MUMPSで利用         |
-|MUMPS_5.0.1           |<http://mumps.enseeiht.fr/>                            |要ユーザ登録        |
-|trilinos-12.6.4       |<https://trilinos.org/download/>                       |要ユーザ登録        |
+ライブラリ名                 | ダウンロード先                                                 | 備考
+---------------------- | ------------------------------------------------------- | ----------------
+FrontISTR_V45.tar.gz   | <http://www.multi.k.u-tokyo.ac.jp/FrontISTR>            | 要ユーザ登録
+REVOCAP_Refiner-1.1.04 | <http://www.multi.k.u-tokyo.ac.jp/FrontISTR>            | 要ユーザ登録
+OpenBLAS-0.2.18        | <http://www.openblas.net>                               | ソースをダウンロード
+metis-5.1.0            | <http://glaros.dtc.umn.edu/gkhome/metis/metis/download> | scotch-metisも利用可
+scalapack-2.0.2        | <http://www.netlib.org/scalapack/>                      | MUMPSで利用
+MUMPS_5.0.1            | <http://mumps.enseeiht.fr/>                             | 要ユーザ登録
+trilinos-12.6.4        | <https://trilinos.org/download/>                        | 要ユーザ登録
 
-ダウンロードしたファイルは``$HOME/work``に置いてください。
+ダウンロードしたファイルは`$HOME/work`に置いてください。
 
 「MinGW-w64 Win64 Shell」上で構築していきます。
 
@@ -156,7 +162,7 @@ OpenBLASは、高速なLAPACK/BLASのフリーの実装です。OpenMPを有効�
 (MINGW64) make PREFIX=$HOME/local install
 ```
 
-``make install``をすると、
+`make install`をすると、
 
 ```sh
 cp: cannot stat 'libopenblas.dll': No such file or directory
@@ -164,9 +170,10 @@ make[1]: [Makefile.install:52: install] Error 1 (ignored)
 cp: cannot stat 'libopenblas.dll.a': No such file or directory
 make[1]: [Makefile.install:53: install] Error 1 (ignored)
 ```
+
 というエラーが表示されますが、今回はDLLを作成していないので無視してください。
 
-OpenBLASにはLAPACKも含まれます。リンクするには ``-llapack``の代わりに``-lopenblas``を指定してください。
+OpenBLASにはLAPACKも含まれます。リンクするには `-llapack`の代わりに`-lopenblas`を指定してください。
 
 ## METISの構築
 
@@ -183,16 +190,16 @@ OpenMPを有効にしたライブラリを構築します。
 
 コンパイルをする前に
 
-  - CMakeLists.txt
-  - GKlib/gk_arch.h
-  - GKlib/gk_getopt.h
+- CMakeLists.txt
+- GKlib/gk_arch.h
+- GKlib/gk_getopt.h
 
 をMinGW-w64用の修正をします。
 
 #### CMakeLists.txt
 
 ```sh
-(MINGW64) vim CMakeLists.txt
+(MINGW64) vi CMakeLists.txt
 set(GKLIB_PATH "GKlib" CACHE PATH "path to GKlib")
 と書かれている部分を
 set(GKLIB_PATH "${CMAKE_SOUCE_DIR}/GKlib" CACHE PATH "path to GKlib")
@@ -202,7 +209,7 @@ set(GKLIB_PATH "${CMAKE_SOUCE_DIR}/GKlib" CACHE PATH "path to GKlib")
 #### GKlib/gk_arch.h
 
 ```sh
-(MINGW64) vim GKlib/gk_arch.h
+(MINGW64) vi GKlib/gk_arch.h
 #include <sys/resource.h>
 を削除
 ```
@@ -241,11 +248,11 @@ scalapackは、この後説明をするMUMPSの構築に必要となります。
 (MINGW64) cd scalapack-2.0.2
 ```
 
-サンプルの``SLmake.inc.example``を``SLmake.inc``としてコピーして書き換えます。
+サンプルの`SLmake.inc.example`を`SLmake.inc`としてコピーして書き換えます。
 
 ```sh
 (MINGW64) cp SLmake.inc.example SLmake.inc
-(MINGW64) vim SLmake.inc
+(MINGW64) vi SLmake.inc
 
 #
 #  The fortran and C compilers, loaders, and their flags
@@ -276,7 +283,7 @@ LIBS          = $(LAPACKLIB) $(BLASLIB)
 (MINGW64) make
 ```
 
-``make``をするとエラーが出ますが、``BLACS/TESTING``のエラーなので無視します。
+`make`をするとエラーが出ますが、`BLACS/TESTING`のエラーなので無視します。
 
 ```sh
 (MINGW64) cp libscalapack.a $HOME/local/lib
@@ -296,7 +303,7 @@ MUMPSは直接法のソルバです。
 
 ```sh
 (MINGW64) cp Make.inc/Makefile.inc.generic Makefile.inc
-(MINGW64) vim Makefile.inc
+(MINGW64) vi Makefile.inc
 
 LMETISDIR = $(HOME)/local
 IMETIS    = -I$(LMETISDIR)/include
@@ -384,17 +391,17 @@ REVOCAP_Refinerをコンパイルします。
 (MINGW64) cd FrontISTR_V45
 ```
 
-サンプルの``Makefile.conf.org``を``Makefile.conf``としてコピーして書き換えます。
+サンプルの`Makefile.conf.org`を`Makefile.conf`としてコピーして書き換えます。
 
 ```sh
 (MINGW64) cp Makefile.conf.org Makefile.conf
-(MINGW64) vim Makefile.conf
+(MINGW64) vi Makefile.conf
 ```
 
 以下の内容で`Makefile.conf`を編集してください。
 
 ```
-(MINGW64) vim Makefile.conf
+(MINGW64) vi Makefile.conf
 
 ##################################################
 #                                                #
@@ -485,11 +492,10 @@ MKDIR          = mkdir -p
 > - gfortranのプリプロセッサ指定は `-cpp`です。`F90FPP = -cpp`を指定してください。
 > - `REFINERLIBDIR`に`x86_64-linux`と書かれていますが、間違いではありません?
 
-
 さらに`Makefile.am`を編集し構築する必要のない部分を除外します。
 
 ```sh
-(MINGW64) vim Makefile.am
+(MINGW64) vi Makefile.am
 
 PREFIX     = @prefix@
 BINDIR     = @bindir@
@@ -565,7 +571,7 @@ hec2rcap.exe  hecmw_vis1.exe   rconv.exe
 
 などのバイナリがコピーされます。
 
-作成されたバイナリは、MSYS2やMinGWが無くても動作しますが、各種DLLをコピーして``PATH``を通しておく必要があります。
+作成されたバイナリは、MSYS2やMinGWが無くても動作しますが、各種DLLをコピーして`PATH`を通しておく必要があります。
 
 必要なDLLは
 
@@ -578,5 +584,4 @@ libstdc++-6.dll
 libquadmath-0.dll
 ```
 
-と``msmpi.dll``および``mpiexec.exe``になりますが、これらはインストーラで``MSMpiSetup.exe``
-を実行した時点で``PATH``が通っています。
+と`msmpi.dll`および`mpiexec.exe`になりますが、これらはインストーラで`MSMpiSetup.exe` を実行した時点で`PATH`が通っています。
