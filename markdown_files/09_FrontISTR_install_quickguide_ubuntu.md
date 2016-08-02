@@ -1,79 +1,79 @@
-# FrontISTR v4.5�̃C���X�g�[�� (ubuntu 16.04 LTS)
+# FrontISTR v4.5のインストール (ubuntu 16.04 LTS)
 
-�����ł́AFrontISTR��Ubuntu 16.04 LTS�Ŏ�y�ɍ\�z������@���Љ�܂��B
+ここでは、FrontISTRをUbuntu 16.04 LTSで手軽に構築する方法を紹介します。
 
-FrontISTR���\�z����ɂ́A�l�X�ȃ��C�u�������K�v�ɂȂ�܂����A�o�C�i���p�b�P�[�W�𗘗p���邱�ƂŎ�Ԃ��Ȃ��܂��B
+FrontISTRを構築するには、様々なライブラリが必要になりますが、バイナリパッケージを利用することで手間を省きます。
 
-�����ɏ�����Ă�����@�́AUbuntu 16.04 LTS�ɑΉ����܂��B
+ここに書かれている方法は、Ubuntu 16.04 LTSに対応します。
 
-���C�u�������\�[�X����\�z����ꍇ�́A[�y�Q�l�z���C�u���������͂ō\�z������@](#build-from-source)���Q�l�ɂ��Ă��������B
+ライブラリをソースから構築する場合は、[【参考】ライブラリを自力で構築する方法](#build-from-source)を参考にしてください。
 
-# �͂��߂�
+## はじめに
 
-FrontISTR��[������w ���c������](http://www.multi.k.u-tokyo.ac.jp/)�ŊJ������Ă���A�{�i�I�ȍ\����̓v���O�����ł��B[FrontISTR������](http://www.multi.k.u-tokyo.ac.jp/FrontISTR/)����A������̈ē��⎑���A�\�t�g�E�F�A������ł��܂��B
-�X�p�R������Windows�p�\�R���܂œ��������Ƃ��o����_�������̈�ł��B
+FrontISTRは[東京大学 奥田研究室](http://www.multi.k.u-tokyo.ac.jp/)で開発されている、本格的な構造解析プログラムです。[FrontISTR研究会](http://www.multi.k.u-tokyo.ac.jp/FrontISTR/)から、研究会の案内や資料、ソフトウェアが入手できます。
+スパコンからWindowsパソコンまで動かすことが出来る点が特徴の一つです。
 
-# ����
+## 準備
 
-�\��ubuntu 16.04 LTS���C���X�g�[�����AOS������\�ȏ�Ԃɂ��Ă��������B
+予めubuntu 16.04 LTSをインストールし、OSが動作可能な状態にしてください。
 
-# �_�E�����[�h
+## ダウンロード
 
-�ȉ��̃\�t�g����肵�Ă��������B
+以下のソフトを入手してください。
 
-|�\�t�g�E�F�A           | �����                                      |
+|ソフトウェア           | 入手先                                      |
 |---------------------- | --------------------------------------------|
 |FrontISTR_V45.tar.gz   | <http://www.multi.k.u-tokyo.ac.jp/FrontISTR>|
 |REVOCAP_Refiner-1.1.04 | <http://www.multi.k.u-tokyo.ac.jp/FrontISTR>|
 
-# �K�v�ȃ��C�u�����̓���
+## 必要なライブラリの導入
 
-## �o�C�i���p�b�P�[�W�̓���
+### バイナリパッケージの導入
 
-��L�ȊO�̃\�t�g�̓o�C�i���p�b�P�[�W���瓱�����܂��B
+上記以外のソフトはバイナリパッケージから導入します。
 
-```sh
+```txt
 % sudo apt install build-essensial
 % sudo apt install libtrilinos-ml-dev
 % sudo apt install libtrilinos-aztecoo-dev libtrilinos-zoltan-dev
 % sudo apt install libopenblas-dev libmumps-dev libmetis-dev
 ```
 
-## REVOCAP_Refiner�̍\�z
+### REVOCAP_Refinerの構築
 
-REVOCAP_Refiner���R���p�C�����܂��B
+REVOCAP_Refinerをコンパイルします。
 
-```sh
+```txt
 % tar xvf REVOCAP_Refiner-1.1.04.tar.gz
 % cd REVOCAP_Refiner-1.1.04
 % make
 ```
 
-# FrontISTR�̍\�z
+## FrontISTRの構築
 
-�K�v�ȃ��C�u�����̓������ς񂾂�FrontISTR���\�z���܂��B
+必要なライブラリの導入が済んだらFrontISTRを構築します。
 
-FrontISTR�ŗL���ɂ���@�\��
+FrontISTRで有効にする機能は
 
-- hecmw_part1�̈敪���c�[���Ȃǂ̃c�[���Q����
-- REVOCAP_Refiner (���b�V���̍ו����@�\)
-- MPI (PC�N���X�^���̕�����s���j
-- OpenMP (�}���`�R�ACPU�𗘗p)
-- METIS (���b�V���̗̈敪���̂��߂ɕK�v)
-- MUMPS (���ږ@�\���o�[)
-- LAPACK �iCG�@��GMRES�@��p�����O�����K�p��̏���������@�\�𗘗p�j
-- Trilinos-ML �i�㐔�}���`�O���b�h�@�Ɋ�Â��O�����j
+- hecmw_part1領域分割ツールなどのツール群生成
+- REVOCAP_Refiner (メッシュの細分化機能)
+- MPI (PCクラスタ等の並列実行環境）
+- OpenMP (マルチコアCPUを利用)
+- METIS (メッシュの領域分割のために必要)
+- MUMPS (直接法ソルバー)
+- LAPACK （CG法やGMRES法を用いた前処理適用後の条件数推定機能を利用）
+- Trilinos-ML （代数マルチグリッド法に基づく前処理）
 
-�ł��B�����̋@�\��L���ɂ����o�C�i�����쐬���܂��B
+です。これらの機能を有効にしたバイナリを作成します。
 
-```sh
+```txt
 % tar xvf FrontISTR_V45.tar.gz
 % cd FrontISTR_V45
 ```
 
-�����`Makefile.am`��ҏW���\�z����K�v�̂Ȃ����������O���܂��B
+さらに`Makefile.am`を編集し構築する必要のない部分を除外します。
 
-```sh
+```txt
 % vi Makefile.am
 PREFIX     = @prefix@
 BINDIR     = @bindir@
@@ -124,18 +124,18 @@ install:
         @cd fistr  && $(MAKE) install
 ```
 
-> `hecmw2`�����`fistr2`�͍\�z���܂���̂ŁA�R�����g�A�E�g���Ă��������B
+> `hecmw2`および`fistr2`は構築しませんので、コメントアウトしてください。
 
-## Makefile.conf�̕ҏW
+### Makefile.confの編集
 
-```sh
+```txt
 % cp Makefile.conf.org Makefile.conf
 % vi Makefile.conf
 ```
 
-�ȉ��̓��e��`Makefile.conf`��ҏW���Ă��������B
+以下の内容で`Makefile.conf`を編集してください。
 
-```
+```txt
 ##################################################
 #                                                #
 #     Setup Configulation File for FrontISTR     #
@@ -220,115 +220,115 @@ RM             = rm -f
 MKDIR          = mkdir -p
 ```
 
-> ���̎菇�ŗp����METIS��Version5.1.0�ł��B`HECMW_METIS_VER = 5`���w�肵�Ă��������B
+> この手順で用いるMETISはVersion5.1.0です。`HECMW_METIS_VER = 5`を指定してください。
 
-> gfortran�̃v���v���Z�b�T�w��� `-cpp`�ł��B`F90FPP = -cpp`���w�肵�Ă��������B
+> gfortranのプリプロセッサ指定は `-cpp`です。`F90FPP = -cpp`を指定してください。
 
-�ҏW���o������`setup.sh`�����s���Ă��������B
+編集が出来たら`setup.sh`を実行してください。
 
-```sh
+```txt
 % ./setup.sh -p --with-tools --with-refiner --with-metis --with-mumps --with-lapack --with-ml
 ```
 
-`setup.sh`�̎��s���ς񂾂�R���p�C�����ăo�C�i�����쐬���܂��B
+`setup.sh`の実行が済んだらコンパイルしてバイナリを作成します。
 
-```sh
+```txt
 % make
 % make install
 ```
 
-�\�z�����o�C�i�����C���X�g�[��������ƁA`$(HOME)/FrontISTR/bin`�ȉ���
+構築したバイナリをインストールをすると、`$(HOME)/FrontISTR/bin`以下に
 
-```sh
+```txt
 % ls $HOME/FrontISTR/bin
 fistr1  hec2rcap  hecmw_part1  hecmw_vis1  neu2fstr  rconv  rmerge
 ```
 
-�Ȃǂ̃o�C�i�����R�s�[������s�ł����ԂɂȂ�܂��B
+などのバイナリがコピーされ実行できる状態になります。
 
-�ʏ�͂����܂ł̎菇�ŏ\���ł��B
+通常はここまでの手順で十分です。
 
 ---
 
-# �y�Q�l�z���C�u���������͂ō\�z������@�@<a name="build-from-source">
+## 【参考】ライブラリを自力で構築する方法　<a name="build-from-source">
 
-FrontISTR���\�z����̂ɕK�v�ȃ��C�u������
+FrontISTRを構築するのに必要なライブラリは
 
 - OpenMPI (MPI)
-- OpenBLAS (LAPACK�j
+- OpenBLAS (LAPACK）
 - Metis
 - MUMPS
 - Scalapack
 - Trilinos ML
 
-�ł��B Ubuntu-16.04��ō\�z�����������܂��B
+です。 Ubuntu-16.04上で構築する例を示します。
 
-�������AMPI�̍\�z���@�ɂ��Ă͏Ȃ��܂��BOS�t����MPI�𗘗p���邱�Ƃ��������߂��܂��B
+ただし、MPIの構築方法については省きます。OS付属のMPIを利用することをおすすめします。
 
-## �_�E�����[�h
+### ダウンロード
 
-|���C�u������    |�_�E�����[�h��                                         |���l                          |
+|ライブラリ名    |ダウンロード先                                         |備考                          |
 |----------------|-------------------------------------------------------|------------------------------|
-|OpenBLAS-0.2.18 |<http://www.openblas.net>                              |���t�@�����X��LAPACK��������|
-|metis-5.1.0     |<http://glaros.dtc.umn.edu/gkhome/metis/metis/download>|scotch-metis�����p��          |
-|scalapack-2.0.2 |<http://www.netlib.org/scalapack/>                     |MUMPS�ŗ��p                   |
-|MUMPS_5.0.1     |<http://mumps.enseeiht.fr/>                            |�v���[�U�o�^                  |
-|trilinos-12.6.4 |<https://trilinos.org/download/>                       |�v���[�U�o�^                  |
+|OpenBLAS-0.2.18 |<http://www.openblas.net>                              |リファレンスのLAPACKよりも速い|
+|metis-5.1.0     |<http://glaros.dtc.umn.edu/gkhome/metis/metis/download>|scotch-metisも利用可          |
+|scalapack-2.0.2 |<http://www.netlib.org/scalapack/>                     |MUMPSで利用                   |
+|MUMPS_5.0.1     |<http://mumps.enseeiht.fr/>                            |要ユーザ登録                  |
+|trilinos-12.6.4 |<https://trilinos.org/download/>                       |要ユーザ登録                  |
 
-## OpenBLAS�̍\�z
+### OpenBLASの構築
 
-OpenBLAS�́A������LAPACK/BLAS�̃t���[�̎����ł��B
+OpenBLASは、高速なLAPACK/BLASのフリーの実装です。
 
-OpenMP��L���ɂ������C�u�������\�z���܂��B
+OpenMPを有効にしたライブラリを構築します。
 
-```sh
+```txt
 % tar xvf OpenBLAS-0.2.18.tar.gz
 % cd OpenBLAS-0.2.18
 % make BINARY=64 NO_SHARED=1 USE_OPENMP=1
 % make PREFIX=$HOME/local install
 ```
 
-OpenBLAS��LAPACK�Ƃ��ė��p����ꍇ�A`-llapack`�̑����`-lopenblas`�Ǝw�肵�Ă��������B
+OpenBLASをLAPACKとして利用する場合、`-llapack`の代わりに`-lopenblas`と指定してください。
 
-## METIS�̍\�z
+### METISの構築
 
-�O���t�p�[�e�B�V���i�̃��C�u�����ł��B���̑��AScotch�ɓ��������metis�݊��w�����p�ł��܂��B
+グラフパーティショナのライブラリです。この他、Scotchに同梱されるmetis互換層も利用できます。
 
-OpenMP��L���ɂ������C�u�������\�z���܂��B
+OpenMPを有効にしたライブラリを構築します。
 
-METIS�̍\�z�ɂ�`cmake`���K�v�ł��̂ŁA�\�߃C���X�g�[�����Ă����Ă��������B
+METISの構築には`cmake`が必要ですので、予めインストールしておいてください。
 
-```sh
+```txt
 % tar xvf metis-5.1.0.tar.gz
 % cd metis-5.1.0
 ```
 
-metis�̃g�b�v�f�B���N�g���ɂ���`CMakeLists.txt`�ɂ̓o�O������܂��̂ŁA�C�������Ă��������B
+metisのトップディレクトリにある`CMakeLists.txt`にはバグがありますので、修正をしてください。
 
-```sh
+```txt
 % vi CMakeLists.txt
 set(GKLIB_PATH "GKlib" CACHE PATH "path to GKlib")
-�Ə�����Ă��镔����
+と書かれている部分を
 set(GKLIB_PATH "${CMAKE_SOUCE_DIR}/GKlib" CACHE PATH "path to GKlib")
-�ɏC��
+に修正
 ```
 
-`CMakeLists.txt`���C��������`cmake`�����s���ă��C�u�������\�z���܂��B
+`CMakeLists.txt`を修正したら`cmake`を実行してライブラリを構築します。
 
-```sh
+```txt
 % cd build
 % cmake -DCMAKE_INSTALL_PREFIX=$HOME/local -DCMAKE_BUILD_TYPE="Release" -DOPENMP=ON ..
 % make
 % make install
 ```
 
-## Scalapack�̍\�z
+### Scalapackの構築
 
-scalapack�́A���̌����������MUMPS�̍\�z�ɕK�v�ƂȂ�܂��B
+scalapackは、この後説明をするMUMPSの構築に必要となります。
 
-�܂��Ascalapack�̍\�z�ɂ́A�\��MPI���C���X�g�[������Ă���K�v������܂��B
+また、scalapackの構築には、予めMPIがインストールされている必要があります。
 
-```sh
+```txt
 % tar xvf scalapack-2.0.2.tgz
 % cd scalapack-2.0.2
 % mkdir build
@@ -338,18 +338,18 @@ scalapack�́A���̌����������MUMPS�̍\�z�ɕK�v�ƂȂ�܂��B
 % make install
 ```
 
-## MUMPS�̍\�z
+### MUMPSの構築
 
-MUMPS�͒��ږ@�̃\���o�ł��B
+MUMPSは直接法のソルバです。
 
-```sh
+```txt
 % tar xvf MUMPS_5.0.1.tar.gz
 % cd MUMPS_5.0.1
 ```
 
-`Make.inc`�f�B���N�g���ɂ���A`Makefile.inc.generic`������`Makefile.inc`�����ɍ��킹�����e�֏��������܂��B
+`Make.inc`ディレクトリにある、`Makefile.inc.generic`を元に`Makefile.inc`を環境に合わせた内容へ書き換えます。
 
-```sh
+```txt
 % cp Make.inc/Makefile.inc.generic Makefile.inc
 % vi Makefile.inc
 LMETISDIR = $(HOME)/local
@@ -373,17 +373,17 @@ OPTC    = -O -I. -DMUMPS_OPENMP
 OPTL    = -O
 ```
 
-�t�@�C���̏C�����ς񂾂烉�C�u�������\�z���܂��B
+ファイルの修正が済んだらライブラリを構築します。
 
-```sh
+```txt
 % make
 ```
 
-## Trilinos ML�̍\�z
+### Trilinos MLの構築
 
-Trilinos�ɂ͑����̃��C�u�����܂܂�Ă��܂����AFrontISTR�ɕK�v�Ȃ̂�`ML`��`zoltan`�����ł��B
+Trilinosには多くのライブラリ含まれていますが、FrontISTRに必要なのは`ML`と`zoltan`だけです。
 
-```sh
+```txt
 % tar xvf trilinos-12.6.4-Source.tar.gz
 % cd trilinos-12.6.4-Source
 % mkdir build
@@ -402,4 +402,4 @@ Trilinos�ɂ͑����̃��C�u�����܂܂�Ă��܂����AFrontISTR�ɕK�v�Ȃ̂�`ML`��`zoltan
 % make install
 ```
 
-�����Ŏ������菇�ł́A���C�u������`$HOME/local`�ȉ��ɃC���X�g�[�������܂����BUbuntu�ȊO��OS�ł���{�I�ɂ͓��l�ɍ\�z���邱�Ƃ��ł��܂��B
+ここで示した手順では、ライブラリを`$HOME/local`以下にインストールをしました。Ubuntu以外のOSでも基本的には同様に構築することができます。
