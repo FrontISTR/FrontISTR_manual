@@ -1,4 +1,4 @@
-﻿site_name: FrontISTR Documentation
+﻿site_name: 目次
 pages:
 - ホーム: index.md
 - インストール:
@@ -29,28 +29,30 @@ pages:
         - 固有値解析: tutorial/tutorial_03_15.md
         - 熱伝導解析: tutorial/tutorial_03_16.md
         - 周波数応答解析: tutorial/tutorial_03_17.md
-- ユーザーマニュアル:
-    - はじめに: user/user_01.md
-    - 有限要素法解析理論:
-        - 有限要素法解析理論: user/theory_00.md
-        - 微小変形線形弾性静解析: user/theory_01.md
-        - 非線形静解析手法: user/theory_02.md
-        - 固有値解析: user/theory_03.md
-        - 熱伝導解析: user/theory_04.md
-        - 動的解析手法: user/theory_05.md
-        - 周波数応答解析: user/theory_06.md
-    - 解析の流れと入出力ファイル: user/user_02.md
-    - 要素ライブラリおよび材料データ: user/user_03.md
-    - 全体制御データ: user/user_04.md
-    - 単一領域メッシュデータ: user/user_05.md
-    - 解析制御データ: user/user_06.md
-    - ユーザーサブルーチン: user/user_07.md
-    - 例題検証:
-        - 単純形状モデルによる検証: user/example_01.md
-        - 弾性静解析用実モデル例題: user/example_02.md
-        - 固有値解析用実モデル例題: user/example_03.md
-        - 熱伝導解析用実モデル例題: user/example_04.md
-        - 線形動的解析用実モデル例題: user/example_05.md
+- 理論:
+    - 有限要素法解析理論: theory/theory_00.md
+    - 微小変形線形弾性静解析: theory/theory_01.md
+    - 非線形静解析手法: theory/theory_02.md
+    - 固有値解析: theory/theory_03.md
+    - 熱伝導解析: theory/theory_04.md
+    - 動的解析手法: theory/theory_05.md
+    - 周波数応答解析: theory/theory_06.md
+- 解析:
+    - はじめに: reference/user_01.md
+    - 解析の流れと入出力ファイル: reference/user_02.md
+    - 要素ライブラリおよび材料データ: reference/user_03.md
+    - 全体制御データ: reference/user_04.md
+    - 単一領域メッシュデータ: reference/user_05.md
+    - 解析制御データ: reference/user_06.md
+    - ユーザーサブルーチン: reference/user_07.md
+- 例題:
+    - 単純形状モデルによる検証: examples/example_01.md
+    - 弾性静解析用実モデル例題: examples/example_02.md
+    - 固有値解析用実モデル例題: examples/example_03.md
+    - 熱伝導解析用実モデル例題: examples/example_04.md
+    - 線形動的解析用実モデル例題: examples/example_05.md
+- 更新履歴:
+    - 更新履歴: release/release.md
 
-theme: mkdocs
+theme: bootstrap
 use_directory_urls: false
