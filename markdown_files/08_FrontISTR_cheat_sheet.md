@@ -3,7 +3,7 @@
 <title>FrontISTR_CheatSheet_V4_5</title>
 <link rel="stylesheet" type="text/css" href="css/FrontISTR_cheat_sheet.css"/>
 </head>
-# FrontISTR Ver.4.5 Cheat Sheet (2016/8/11) <img src="image/FrontISTR_logo.png" alt="FrontISTR_logo" width="6%" height="3%">
+# FrontISTR Ver.4.5 (3.7) Cheat Sheet (2016/8/11) <img src="image/FrontISTR_logo.png" alt="FrontISTR_logo" width="6%" height="3%">
 <div class="block_1">
 ## インストール
 ~~~
@@ -77,7 +77,7 @@ $ mpirun -np <4> fistr1
 ## 解析制御ファイル（共通）
 ~~~
 !VERSION
- 4.4
+ 3.7
 !WRITE,VISUAL,FREQUENCY=<出力間隔>
 !WRITE,RESULT,FREQUENCY=<出力間隔>
 !OUTPUT_VIS
@@ -115,7 +115,7 @@ $ mpirun -np <4> fistr1
 !CLOAD,GRPID=<1>
  NODE_ID, <自由度>, <荷重値>
 !DLOAD,GRPID=<1>
-　SGRP, <荷重タイプ>, <荷重パラメータ>
+ SGRP, <荷重タイプ>, <荷重パラメータ>
 !SPRING,GRPID=<1>
  NODE_ID, <拘束自由度>, <ばね定数>
 ~~~
