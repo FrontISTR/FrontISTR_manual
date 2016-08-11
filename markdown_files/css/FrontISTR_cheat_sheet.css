@@ -15,10 +15,13 @@ div.clear {
    width: 100%;
 }
 
-
 h1 {
   color: #999999;
   background-color: #0d376b;
+}
+
+h2 {
+  font-size: 80%;	
 }
 
 img {
@@ -45,6 +48,7 @@ table, td, th {
 
 table {
   font-family: monospace;
+  font-size: 80%;
   margin-left: 10px;
   color: #444444;
   background-color: #FFD5AC;
