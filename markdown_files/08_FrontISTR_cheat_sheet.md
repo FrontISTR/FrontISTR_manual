@@ -1,4 +1,4 @@
-# FrontISTR Ver.4.5 (3.7) Cheat Sheet (2016/8/11)
+# FrontISTR Ver.4.5 (3.7)<br>Cheat Sheet (2016/8/11)
 
 ## インストール
 
@@ -12,7 +12,7 @@ $ make install
 
 ~~~txt
 $ hecmw_part1
-$ mpirun -np <4> fistr1
+$ mpiexec -np <4> fistr1
 ~~~
 
 ## 入出力
@@ -343,3 +343,4 @@ $ mpirun -np <4> fistr1
 | 静解析     | !SOLUTION, TYPE=NLSTATIC<BR>!STEP                                 |
 | 動解析     | !DYNAMIC, TYPE=NONLINEAR<BR>!STEP                                 |
 | 材料非線形 | !MATERIAL<BR>!PLASTIC<BR>!HYPERELASTIC<BR>!VISCOELASTIC<BR>!CREEP |
+
