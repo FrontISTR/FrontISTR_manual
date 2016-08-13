@@ -18,7 +18,7 @@
 
 ## チートシート (コマンド早見表)
 
-  - [チートシート](a.html)
+  - [チートシート](md_markdown_files_08_FrontISTR_cheat_sheet.html)
 
 ## クイックインストールガイド等
 
