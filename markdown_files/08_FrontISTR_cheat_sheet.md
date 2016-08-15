@@ -176,6 +176,8 @@ $ mpiexec -np <4> fistr1
 　SGRP, <輻射係数>, <雰囲気温度>
 ~~~
 
+<div style="page-break-before: left;"></div>
+
 ## 解析制御ファイル (動解析共通)
 
 ~~~txt
@@ -231,6 +233,8 @@ $ mpiexec -np <4> fistr1
 | BOUNDARY     | !BOUNDARY, !SPRING           |
 | LOAD         | !CLOAD, !DLOAD, !TEMPERATURE |
 | CONTACT      | !MATERIAL                    |
+
+<div style="page-break-before: left;"></div>
 
 ## 材料物性値
 
