@@ -208,7 +208,7 @@ $ mpirun -np <4> fistr1
 |:-|:-|
 | BOUNDARY | !BOUNDARY, !SPRING |
 | LOAD | !CLOAD, !DLOAD, !TEMPERATURE |
-| CONTACT | !MATERIAL |
+| CONTACT | !CONTACT |
 ## 材料物性値
 ~~~
 !MATERIAL,NAME=<材料名>
