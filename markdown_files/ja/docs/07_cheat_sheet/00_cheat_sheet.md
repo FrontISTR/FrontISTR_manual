@@ -1,6 +1,4 @@
-# FrontISTR Ver.4.5 (3.7) Cheat Sheet
-
-## (2016/8/11)
+# チートシート
 
 ## インストール
 
@@ -28,7 +26,8 @@ $ mpirun -np <4> fistr1
 |ログファイル|\<0\>.log|出|
 |解析結果ファイル|\<ModelName\>.res|出|
 
-## 全体制御ファイル（hecmw_ctrl.dat）
+## 全体制御ファイル
+###（hecmw_ctrl.dat）
 
 ~~~
 !MESH, NAME=part_in, TYPE=HECMW-ENTIRE
@@ -43,7 +42,8 @@ $ mpirun -np <4> fistr1
  <ModelName>.res
 ~~~
 
-## 領域分割制御データ(hecmw_part_ctrl.dat)
+## 領域分割制御データ
+###(hecmw_part_ctrl.dat)
 
 ~~~
 !PARTITION, TYPE=NODE-BASED, METHOD=PMETIS, DOMAIN=<4>
@@ -183,7 +183,7 @@ $ mpirun -np <4> fistr1
  Node_ID, <自由度>, <自由度>, <拘束値>
 ~~~
 
-## 解析制御ファイル（動解析時刻歴応答）
+## 解析制御ファイル（時刻歴応答）
 
 ~~~
 !DYNAMIC, TYPE=NONLINEAR
@@ -195,7 +195,7 @@ $ mpirun -np <4> fistr1
  <変位>, <速度>, <加速度>, <反力>, <ひずみ>, <応力>
 ~~~
 
-## 解析制御ファイル（動解析周波数応答）
+## 解析制御ファイル（周波数応答）
 
 ~~~
 !DYNAMIC, TYPE=NONLINEAR
@@ -317,7 +317,7 @@ $ mpirun -np <4> fistr1
 !output_type=COMPLETE_REORDER_AVS
 ~~~
 
-## ポスト処理（境界面BMP画像出力）
+## ポスト処理（BMP画像出力）
 
 ~~~
 !VISUAL, method=PSR
