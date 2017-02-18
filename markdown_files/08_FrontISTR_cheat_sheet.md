@@ -53,9 +53,6 @@ $ mpirun -np <4> fistr1
 !ELEMENT,TYPE=<341>
  ELEM_ID, node1, node2, node3, ...
 !SECTION,TYPE=<SOLID>,EGRP=<EG1>,MATERIAL=<MAT1>
-~~~
-</div><div class="block_2">
-~~~
 !NGROUP,NGRP=<NG1>
  node1, node2, ...
 !SGROUP,SGRP=<SG1>
@@ -149,9 +146,6 @@ $ mpirun -np <4> fistr1
 　ELEMENT_ID, <荷重タイプ>, <熱流束>
 !SFLUX
 　SGRP, <熱流束>
-~~~
-</div><div class="clear"/><div class="block_1">
-~~~
 !FILM
 　ELEMENT_ID, <荷重タイプ>, <熱伝達係数>, <雰囲気温度>
 !SFLIM
@@ -208,7 +202,7 @@ $ mpirun -np <4> fistr1
 |:-|:-|
 | BOUNDARY | !BOUNDARY, !SPRING |
 | LOAD | !CLOAD, !DLOAD, !TEMPERATURE |
-| CONTACT | !MATERIAL |
+| CONTACT | !CONTACT |
 ## 材料物性値
 ~~~
 !MATERIAL,NAME=<材料名>
