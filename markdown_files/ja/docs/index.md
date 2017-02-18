@@ -1,26 +1,39 @@
-\mainpage
+<!-- 表記は FrontISTR ver. 0.0 で統一します -->
+# FrontISTR ユーザーマニュアル
 
-## マニュアル等
+本ソフトウェアは文部科学省次世代ＩＴ基盤構築のための研究開発「イノベーション基盤シミュレーションソフトウェアの研究開発」プロジェクトによる成果物です。
+本ソフトウェアを無償または営利目的でご使用になる場合、「MITライセンス」をご了承頂くことが前提となります。
 
-  - [FrontISTR ver. 5.0 ユーザーマニュアル](md_markdown_files_01_FrontISTR_install_manual.html)
-  - [FrontISTR ver. 5.0 理論マニュアル](md_markdown_files_02_FrontISTR_theory_manual.html)
-  - [FrontISTR ver. 5.0 リファレンス](md_markdown_files_03_FrontISTR_reference.html)
+<img src="./image/FrontISTR_logo.png" width="350px">
 
-## チュートリアル等
+| 項目 | 説明 |
+|:---------:|:---------|
+| ソフトウェア名称 | FrontISTR |
+| バージョン | 5.0 |
+| ライセンス形態 | MIT License |
+| 問い合わせ先 | FrontISTR研究会<br> 〒277-8563 千葉県柏市柏の葉5-1-5<br> 東京大学大学院新領域創成科学研究科 奥田研究室（気付）<br> E-mail：fstr_seminar@multi.k.u-tokyo.ac.jp |
 
-  - [FrontISTR ver. 5.0 例題マニュアル](md_markdown_files_04_FrontISTR_example_manual.html)
-  - [FrontISTR ver. 5.0 チュートリアルマニュアル](md_markdown_files_05_FrontISTR_tutorial_manual.html)
+## マニュアル
 
-## リリースノート等
+  - [FrontISTR ver. 5.0 インストールマニュアル](01_install/install_00/index.html)
+  - [FrontISTR ver. 5.0 理論マニュアル](02_theory/theory_00/index.html)
+  - [FrontISTR ver. 5.0 解析マニュアル](03_analysis/analysis_00/index.html)
 
-  - [FrontISTR ver. 4.5 リリースノート](md_markdown_files_06_FrontISTR_release_note.html)
-  - [FrontISTR v5.0に向けた今後の開発方針](md_markdown_files_07_FrontISTR_release_schedule.html)
+## チュートリアル例題
+
+  - [FrontISTR ver. 5.0 チュートリアルマニュアル](04_tutorial/tutorial_00/index.html)
+  - [FrontISTR ver. 5.0 例題マニュアル](05_example/example_00/index.html)
+
+## リリースノート
+
+  - [FrontISTR ver. 4.5 リリースノート](06_release_note/00_release_note/index.html)
+  - [FrontISTR 次期バージョンに向けた今後の開発方針](06_release_note/01_release_schedule/index.html)
 
 ## チートシート (コマンド早見表)
 
-  - [チートシート](md_markdown_files_08_FrontISTR_cheat_sheet.html)
+  - [チートシート](07_cheat_sheet/00_cheat_sheet/index.html)
 
-## クイックインストールガイド等
+## クイックインストールガイド
 
-  - [FrontISTR v4.5のインストール (ubuntu 16.04 LTS)](md_markdown_files_09_FrontISTR_install_quickguide_ubuntu.html)
-  - [FrontISTR v4.5のインストール (Windows10 - MinGW-w64)](md_markdown_files_10_FrontISTR_install_quickguide_windows.html)
+  - [FrontISTR ver. 4.5のインストール (ubuntu 16.04 LTS)](08_quick_guide/00_FrontISTR_install_quickguide_ubuntu/index.html)
+  - [FrontISTR ver. 4.5のインストール (Windows10 - MinGW-w64)](08_quick_guide/01_FrontISTR_install_quickguide_windows/index.html)
