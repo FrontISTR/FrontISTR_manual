@@ -1,0 +1,113 @@
+@page {
+  size: A4 landscape;
+  margin: 5mm;
+}
+@font-face {
+  font-family: 'rounded-mgenplus-1pp-regular';
+  src: url('/fonts/rounded-mgenplus-1pp-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'rounded-mgenplus-1pp-bold';
+  src: url('/fonts/rounded-mgenplus-1pp-bold.woff') format('woff');
+}
+@font-face {
+  font-family: 'rounded-mgenplus-1m-regular';
+  src: url('/fonts/rounded-mgenplus-1m-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'rounded-mgenplus-1m-bold';
+  src: url('/fonts/rounded-mgenplus-1m-bold.woff') format('woff');
+}
+
+body * {
+  font-size: 7.2pt;
+  font-family: 'rounded-mgenplus-1pp-regular';
+}
+#wrapper {
+  -moz-column-count: 3;
+  -webkit-column-: 3;
+  column-count: 3;
+  -moz-column-gap: 3mm;
+  -webkit-column-gap: 3mm;
+  column-gap: 3mm;
+  -moz-column-rule: dashed #69d 1px;
+  -webkit-column-rule: dashed #69d 1px;
+  column-rule: dashed #69d 1px;
+}
+h1 {
+  font-family: 'rounded-mgenplus-1pp-bold';
+  height: 160px;
+  text-align: center;
+  text-shadow:0 -1px 0 rgba(34,85,136,0.9);
+  font-size: 200%;
+  color: #eeeeee;
+  background: #285397 url('/image/FrontISTR_logo.svg') no-repeat center 80%;
+  background-size: 100%;
+  box-shadow: 3px 3px rgba(0,0,0,0.1);
+  margin: 0;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  border-radius: 5px 5px 5px 5px;
+}
+h2 {
+  font-size: 115%;
+  color: #eeeeee;
+  background-color: #5c9fb8;
+  margin-top: 1.0em;
+  margin-bottom: 0;
+  padding: 0.2em;
+  border-radius: 5px 5px 0px 0px;
+}
+pre {
+  font-family: 'rounded-mgenplus-1m-regular';
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  border: solid 1px #5c9fb8;
+  border-radius: 0px 0px 5px 5px;
+  background-color: #eef0ff;
+  margin-top: 0;
+  white-space: pre-wrap;
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.1);
+}
+table {
+  width: 100%;
+  border-spacing: 0;
+  margin-bottom: 1em;
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.1);
+}
+table th {
+  color: #fff;
+  background: #258;
+  font-weight: bold;
+  text-align: center;
+}
+
+table th:first-child {
+  border-radius: 0px 0 0 0;
+}
+table th:last-child {
+  border-radius: 0 0px 0 0;
+  border-right: 1px solid #258;
+}
+table td {
+  padding-left: 0.2em;
+}
+table tr td {
+  border-bottom: 1px solid #84b2e0;
+  border-left: 1px solid #84b2e0;
+}
+table tr td:last-child {
+  border-right: 1px solid #84b2e0;
+}
+table tr {
+  background: #fff;
+}
+table tr:nth-child(2n+1) {
+  background: #f1f6fc;
+}
+table tr:last-child td:first-child {
+  border-radius: 0 0 0 5px;
+}
+table tr:last-child td:last-child {
+  border-radius: 0 0 5px 0;
+}
