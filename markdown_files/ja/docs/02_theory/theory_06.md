@@ -1,127 +1,138 @@
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+  },
+  CommonHTML: { matchFontHeight: false },
+  displayAlign: "left",
+  displayIndent: "2em"
+});
+</script>
+<script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+
 ## 周波数応答解析
 
 ### 定式化
 
 減衰を考慮しない場合の周波数応答解析の運動方程式は式のようになる。
 
-  $$\mathbf{M}\ \ddot{\mathbf{U}} + \mathbf{\text{KU}} = \mathbf{0}$$   (2.6.1)
-  --------------------------------------------------------------------- ---------
+$$
+\mathbf{M}\ \ddot{\mathbf{U}} + \mathbf{\text{KU}} = \mathbf{0}
+\tag{2.6.1}$$
 
 これを固有モードごとに展開すると、
 
-  $$\mathbf{U} = \mathbf{U}_{j}e^{i\omega_{j}t}$$   (2.6.2)
-  ------------------------------------------------- ---------
+$$
+\mathbf{U} = \mathbf{U}_{j}e^{i\omega_{j}t}
+\tag{2.6.2}$$
 
 となる。これを式(2.6.1)に代入すると、
 
-  $$\mathbf{K}\mathbf{U}_{j} = \omega_{j}^{2}\mathbf{M}\mathbf{U}_{j}$$   (2.6.3)
-  ----------------------------------------------------------------------- ---------
+$$
+\mathbf{K}\mathbf{U}_{j} = \omega_{j}^{2}\mathbf{M}\mathbf{U}_{j}
+\tag{2.6.3}$$
 
-を得る。この固有振動数が実数になることを以下のように証明する。$\omega_{j}^{2} = \lambda_{j}$とおき、式(2.6.3)の複素共役をとると式(2.6.4)を得る。
+を得る。この固有振動数が実数になることを以下のように証明する。$\omega\_{j}^{2} = \lambda\_{j}$とおき、式(2.6.3)の複素共役をとると式(2.6.4)を得る。
 
-  ---------------------------------------------------------------------------------------------------------------------------------------------------
-  $$\mathbf{K}\ \mathbf{U}_{j} = \lambda_{j}\mathbf{M}\mathbf{U}_{j}$$                                                                      (2.6.4)
+$$
+\mathbf{K}\ \mathbf{U}_{j} = \lambda_{j}\mathbf{M}\mathbf{U}_{j}
+\\
+\mathbf{K}
+\overline{{\mathbf{U}_{J}} }= \overline{{\lambda_{J}}}\mathbf{M}\overline{{\mathbf{U}_{J}}}
+\tag{2.6.4}$$
 
-  $$\mathbf{K}\overset{\overline{}}{\mathbf{U}_{j}} = \overset{\overline{}}{\lambda_{j}}\mathbf{M}\overset{\overline{}}{\mathbf{U}_{j}}$$   
-  ----------------------------------------------------------------------------------------------------------------------------------------- ---------
-  ---------------------------------------------------------------------------------------------------------------------------------------------------
+これに${\overline{\mathbf{U}\_{J}}}^{T}$をかけると、
 
-　これに${\overset{\overline{}}{\mathbf{U}_{j}}}^{T}$をかけると、
-
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  $$\mathbf{U}_{j}^{T}\mathbf{K}\overset{\overline{}}{\mathbf{U}_{j}} = \overset{\overline{}}{\lambda_{j}}\mathbf{U}_{j}^{T}\mathbf{M}\overset{\overline{}}{\mathbf{U}_{j}}$$   (2.6.5)
-
-  $${\overset{\overline{}}{\mathbf{U}_{j}}}^{T}\mathbf{K}\mathbf{U}_{j} = {\lambda_{j}\overset{\overline{}}{\mathbf{U}_{j}}}^{T}\mathbf{M}\mathbf{U}_{j}$$                      
-  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+$$
+\mathbf{U}_{j}^{T}\mathbf{K}\overline{{\mathbf{U}_{J}}} = \overline{\lambda_{J}}
+\mathbf{U}_{j}^{T}\mathbf{M}\overline{\mathbf{U}_{J}}\\
+\overline{\mathbf{U}_{J}}^{T}\mathbf{K}\mathbf{U}_{j} = \lambda_{j}\overline{\mathbf{U}_{J}}^T\mathbf{M}\mathbf{U}_{j}
+\tag{2.6.5}$$
 
 を得る。式(2.6.5)より、
 
-  $$0 = \left( \lambda_{j} - \overset{\overline{}}{\lambda_{j}} \right){\overset{\overline{}}{\mathbf{U}_{j}}}^{T}\mathbf{M}\mathbf{U}_{j}$$   (2.6.6)
-  -------------------------------------------------------------------------------------------------------------------------------------------- ---------
+$$
+0 = \left( \lambda_{j} - \overline{\lambda_{J}} \right)\overline{\mathbf{U}_{J}}^{T}\mathbf{M}\mathbf{U}_{j}
+\tag{2.6.6}$$
 
 となる。ここで、質量マトリクスは正定値対称なのでゼロベクトルでない固有ベクトルについて
 
-  $$\overset{\overline{}}{\mathbf{U}_{j}}\ \mathbf{M}\mathbf{U}_{j}\  > 0$$   (2.6.7)
-  --------------------------------------------------------------------------- ---------
+$$
+\overline{\mathbf{U}_{J}} \mathbf{M}\mathbf{U}_{j}\  > 0
+\tag{2.6.7}$$
 
 が成り立つ。ゆえに、
 
-  $$\lambda_{j} = \overset{\overline{}}{\lambda_{j}}$$   (2.6.8)
-  ------------------------------------------------------ ---------
+$$
+\lambda_{j} =\overline{\lambda_{J}}
+\tag{2.6.8}$$
 
-となり、$\omega_{j}^{2} = \lambda_{j}$は実数となる。ここで、2つの違うモードについて考える。
+となり、$\omega\_{j}^{2} = \lambda\_{j}$は実数となる。ここで、2つの違うモードについて考える。
 
-  -------------------------------------------------------------------------------------------
-  $$\mathbf{K}\mathbf{U}_{i} = \lambda_{i}\ \mathbf{\text{M\ }}\mathbf{U}_{i}$$     (2.6.9)
-
-  $$\mathbf{K}\mathbf{U}_{j}\  = \lambda_{j}\ \mathbf{\text{M\ }}\mathbf{U}_{j}$$   
-  --------------------------------------------------------------------------------- ---------
-  -------------------------------------------------------------------------------------------
+$$
+\mathbf{K}\mathbf{U}_{i} = \lambda_{i}\ \mathbf{\text{M}}\mathbf{U}_{i}\\
+\mathbf{K}\mathbf{U}_{j}\  = \lambda_{j}\ \mathbf{\text{M }}\mathbf{U}_{j}
+\tag{2.6.9}$$
 
 これより、
 
-  $$\left( \lambda_{i} - \lambda_{j} \right)\mathbf{U}_{j}^{T}\mathbf{M}\mathbf{U}_{i} = 0$$   (2.6.10)
-  -------------------------------------------------------------------------------------------- ----------
+$$
+\left( \lambda_{i} - \lambda_{j} \right)\mathbf{U}_{j}^{T}\mathbf{M}\mathbf{U}_{i} = 0
+\tag{2.6.10}$$
 
 が得られ、固有値が異なる場合には、
 
-  $$\mathbf{U}_{j}^{T}\mathbf{\text{M\ }}\mathbf{U}_{i} = 0$$   (2.6.11)
-  ------------------------------------------------------------- ----------
+$$
+\mathbf{U}_{j}^{T}\mathbf{\text{M}}\mathbf{U}_{i} = 0
+\tag{2.6.11}$$
 
 となる。すなわち異なる固有モードは質量マトリクスについて直交する。同じモードについては質量マトリクスについて規格化する(式(2.6.12))ことによって取り扱いが容易になる利点がある。
 
-  $$\mathbf{U}_{i}^{T}\ \mathbf{M}\mathbf{U}_{i}\  = 1$$   (2.6.12)
-  -------------------------------------------------------- ----------
+$$
+\mathbf{U}_{i}^{T}\ \mathbf{M}\mathbf{U}_{i}\  = 1
+\tag{2.6.12}$$
 
 次に、減衰を考慮した場合の周波数応答解析についての定式化を示す。対象とする運動方程式を式(2.6.13)に示す。
 
-  ![](media/image195.png)   (2.6.13)
-  ------------------------- ----------
+$$
+\mathbf{M}\ \ddot{\mathbf{U}} + \mathbf{C}\ \dot{\mathbf{U}} +\mathbf{\text{KU}} = \mathbf{F}
+\tag{2.6.13}$$
 
 ここでの減衰項はRayleigh型を想定して(2.6.14)のようにして表せるものとする。
 
-  ![](media/image196.png)   (2.6.14)
-  ------------------------- ----------
+$$
+\mathbf{C} = \alpha \mathbf{M} + \beta \mathbf{K}
+\tag{2.6.14}$$
 
 固有値解析で得られた固有ベクトルにより変位ベクトルは時刻*t*において式(2.6.15)のように展開できる。
 
-  ![](media/image197.png)   (2.6.15)
-  ------------------------- ----------
+$$
+\mathbf{U}(t) = \sum_{i}^{}b_{i}(t) \mathbf{U}_{i}
+\tag{2.6.15}$$
 
 このとき、外力項が調和振動子式の
 
-  ![](media/image198.png)   (2.6.16)
-  ------------------------- ----------
+$$
+\mathbf{F}(t) =\left\{ \mathbf{F}_{R}+i \mathbf{F}_{I} \right\}e^{i \Omega t}
+\tag{2.6.16}$$
 
-場合において![](media/image199.png)を決定する。運動方程式(2.6.13)は強制振動の形になるので
+場合において$b_{j}(t)$を決定する。運動方程式(2.6.13)は強制振動の形になるので
 
-  ![](media/image200.png)   (2.6.17)
-  ------------------------- ----------
+$$
+b_{j}(t) =(b_{jR}+b_{jI})e^{i \Omega t}
+\tag{2.6.17}$$
 
-が成り立つ。![](media/image199.png)の展開係数の実部および虚部を求めると式(2.6.18)および式(2.6.19)の形になる。
+が成り立つ。$b_{j}(t)$の展開係数の実部および虚部を求めると式(2.6.18)および式(2.6.19)の形になる。
 
-  ![](media/image201.png)   (2.6.18)
-  ------------------------- ----------
-  ![](media/image202.png)   (2.6.19)
+$$
+b_{jR} =\frac{ \mathbf{U}^{T}_{j} \mathbf{F}_{R}(\omega^{2}_{j}-\Omega^{2})+\mathbf{U}^{T}_{j} \mathbf{F}_{I}(\alpha
+  + \beta \omega_{j}^{2})\Omega}{ (\omega^{2}_{j}-\Omega^{2})^{2}+(\alpha + \beta\omega_{j}^{2})^{2}\Omega^{2}}
+\tag{2.6.18}$$
+
+$$
+b_{jI} =\frac{ \mathbf{U}^{T}_{j} \mathbf{F}_{I}(\omega^{2}_{j}-\Omega^{2})-\mathbf{U}^{T}_{j} \mathbf{F}_{R}(\alpha
+  + \beta \omega_{j}^{2})\Omega}{ (\omega^{2}_{j}-\Omega^{2})^{2}+(\alpha + \beta\omega_{j}^{2})^{2}\Omega^{2}}
+\tag{2.6.19}$$
 
 となる。
-
-参考文献
-
-・久田・野口、非線形有限要素法の基礎と応用、丸善(1995).
-
-・O.C.Zienkiewicz, R.L.Taylor: The Finite Element Method, 6^th^ Ed.,
-Vol.2: McGraw-Hill, 2005
-
-・計算力学ハンドブック　第I巻　有限要素法（構造編）、日本機械学会(1998).
-
-・鷲津久一郎・宮本博・山田嘉昭・山本善之・川井忠彦、有限要素法ハンドブック,（I基礎編）、培風館(1982).
-
-・森正武・杉原正顕・室田一雄、線形計算、岩波書店(1994)．
-
-・Lois Komzsik:The Lanczos Method Evolution and Application:Siam、2003.
-
-・戸川隼人、有限要素法による振動解析、サイエンス社(1997)
-
-・矢川元基・宮崎則幸、有限要素法による熱応力・クリープ。熱伝導解析、サイエンス社（1985）

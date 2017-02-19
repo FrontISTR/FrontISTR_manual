@@ -1,4 +1,6 @@
-﻿site_name: 目次
+﻿site_name: FrontISTR ver. 5.0
+theme: bootstrap
+
 pages:
 - ホーム: index.md
 - 導入:
@@ -11,9 +13,9 @@ pages:
     - はじめに: 02_theory/theory_00.md
     - 微小変形線形弾性静解析: 02_theory/theory_01.md
     - 非線形静解析手法: 02_theory/theory_02.md
-    - 固有値解析: 02_theory/theory_03.md
-    - 熱伝導解析: 02_theory/theory_04.md
     - 動的解析手法: 02_theory/theory_05.md
+    - 熱伝導解析: 02_theory/theory_04.md
+    - 固有値解析: 02_theory/theory_03.md
     - 周波数応答解析: 02_theory/theory_06.md
 - 解析:
     - はじめに: 03_analysis/analysis_00.md
@@ -30,15 +32,15 @@ pages:
     - 解析例:
         - 静解析（弾性）: 04_tutorial/tutorial_03_01.md
         - 静解析（弾性、並列）: 04_tutorial/tutorial_03_02.md
-        - 静解析（超弾性その１）: 04_tutorial/tutorial_03_03.md
-        - 静解析（超弾性その２）: 04_tutorial/tutorial_03_04.md
-        - 静解析（弾塑性その１）: 04_tutorial/tutorial_03_05.md
-        - 静解析（弾塑性その２）: 04_tutorial/tutorial_03_06.md
+        - 静解析（超弾性１）: 04_tutorial/tutorial_03_03.md
+        - 静解析（超弾性２）: 04_tutorial/tutorial_03_04.md
+        - 静解析（弾塑性１）: 04_tutorial/tutorial_03_05.md
+        - 静解析（弾塑性２）: 04_tutorial/tutorial_03_06.md
         - 静解析（粘弾性）: 04_tutorial/tutorial_03_07.md
         - 静解析（クリープ）: 04_tutorial/tutorial_03_08.md
-        - 接触解析（その１）: 04_tutorial/tutorial_03_09.md
-        - 接触解析（その２）: 04_tutorial/tutorial_03_10.md
-        - 接触解析（その３）: 04_tutorial/tutorial_03_11.md
+        - 接触解析（１）: 04_tutorial/tutorial_03_09.md
+        - 接触解析（２）: 04_tutorial/tutorial_03_10.md
+        - 接触解析（３）: 04_tutorial/tutorial_03_11.md
         - 線形動解析: 04_tutorial/tutorial_03_12.md
         - 非線形動解析: 04_tutorial/tutorial_03_13.md
         - 非線形接触動解析: 04_tutorial/tutorial_03_14.md
@@ -52,12 +54,9 @@ pages:
     - 固有値解析用実モデル例題: 05_example/example_03.md
     - 熱伝導解析用実モデル例題: 05_example/example_04.md
     - 線形動的解析用実モデル例題: 05_example/example_05.md
-- リリースノートなど:
+- 付録:
     - リリースノート: 06_release_note/00_release_note.md
     - 今後の開発方針: 06_release_note/01_release_schedule.md
     - チートシート (コマンド早見表): 07_cheat_sheet/00_cheat_sheet.md
     - FrontISTR ver. 4.5のインストール (ubuntu 16.04 LTS): 08_quick_guide/00_FrontISTR_install_quickguide_ubuntu.md
     - FrontISTR ver. 4.5のインストール (Windows10 - MinGW-w64): 08_quick_guide/01_FrontISTR_install_quickguide_windows.md
-
-theme: bootstrap
-use_directory_urls: false
