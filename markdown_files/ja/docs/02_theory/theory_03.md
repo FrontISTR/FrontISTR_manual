@@ -61,10 +61,10 @@ $$
  M ( -\frac{1}{\beta \Delta t^2} U(t) -\frac{1}{\beta \Delta t}\dot U(t) - \frac{2\beta}{1-2\beta} \ddot U(t)) + C( - \frac{\gamma}{\beta \Delta t} U(t) + (1 - \frac{\gamma}{\beta}) \dot U(t) + \Delta{t}\frac{ 2\beta-\gamma}{2\beta}\ddot U(t)) + \frac{1}{\beta \Delta{t}^2} M + \frac{\gamma}{\beta \Delta{t}} C + K_L U(t+\Delta{t}) = F(t+\Delta{t})
 \tag{2.5.5}$$
 
-尚、幾何学的境界条件として加速度が指定されている箇所では、式(2.5.2)から次式の変位を得る。
+なお、幾何学的境界条件として加速度が指定されている箇所では、式(2.5.2)から次式の変位を得る。
 
 $$
-u_{is} (t+\Delta{t}) = u_{is} (t) + \Delta t \dot{u(t)} + \Delta t^2 (\frac{1}{2} -\beta ) {\ddot{u}}_{is} (t + \Delta t)
+u_{is} (t+\Delta{t}) = u_{is} (t) + \Delta t \dot{u}(t) + \Delta t^2 (\frac{1}{2} -\beta ) {\ddot{u}}_{is} (t + \Delta t)
 \tag{2.5.6}$$
 
 同様に、速度が指定されている箇所では、式(2.76)から次式の変位を得る。
@@ -78,10 +78,17 @@ u_{is}(t+\Delta{t})= u_{is}(t)+\Delta t
 \tag{2.5.7}$$
 
 ここで、
-$u_{is}(t+\Delta{t})$：時刻$t+\Delta{t}$における節点変位
-$\dot{u_{is}}(t+\Delta{t})$：時刻$t+\Delta{t}$節点速度
-$\ddot{u_{is}}(t+\Delta{t})$：時刻$t+\Delta{t}$節点加速度
-$i$:節点自由度番号（１〜１節点あたりの自由度数）
+$u_{is}(t+\Delta{t})$
+時刻$t+\Delta{t}$における節点変位
+
+$\dot{u_{is}}(t+\Delta{t})$
+時刻$t+\Delta{t}$節点速度
+
+$\ddot{u_{is}}(t+\Delta{t})$
+時刻$t+\Delta{t}$節点加速度
+
+$i$:節点自由度番号
+
 $s$:節点番号
 また、質量項及び減衰項の取り扱いは次のとおりとした。
 
@@ -99,7 +106,9 @@ C = R_m M + R_k K_L
 
 ここで、
 
-$R_m, R_k$：パラメータ
+$R_m$, $R_k$
+
+：パラメータ
 
 ### 陽解法の定式化について
 
@@ -137,13 +146,13 @@ $$
 式(2.5.12)及び式(2.5.13)を式(2.5.9)に代入すると次式が得られる。
 
 $$
-( \frac{1}{\Delta t^{2}} M + \frac{1}{2\Delta t} C ) U ( t + \Delta t ) = F(t) - Q(t) - \frac{1}{\Delta t^{2}} M 2 U(t) - U( t - \Delta t) - \frac{1}{2\Delta t} C U(t - \Delta t)
+( \frac{1}{\Delta t^{2}} M + \frac{1}{2\Delta t} C ) U ( t + \Delta t ) = F(t) - Q(t) - \frac{1}{\Delta t^{2}} 2 U(t) - U( t - \Delta t) - \frac{1}{2\Delta t} C U(t - \Delta t)
 \tag{2.5.14}$$
 
 特に、線形問題に対しては$Q(t) = K_L U(t)$となり、上式は以下になる
 
 $$
-( \frac{1}{\Delta t^{2}} M + \frac{1}{2\Delta t} C ) U( t + \Delta t ) = F(t) - K_L U(t) - \frac{1}{\Delta t^{2}} M 2 U(t) - U(t - \Delta t) - \frac{1}{2\Delta t} C (t - \Delta t) U
+( \frac{1}{\Delta t^{2}} M + \frac{1}{2\Delta t} C ) U( t + \Delta t ) = F(t) - K_L U(t) - \frac{1}{\Delta t^{2}} M U(t) - U(t - \Delta t) - \frac{1}{2\Delta t} C U (t - \Delta t)
 \tag{2.5.15}$$
 
 ここで、質量マトリックス及び減衰マトリックスを次のようにおくと、式(2.5.15)は連立方程式の求解操作を不要とする。
@@ -159,5 +168,5 @@ $R_m$: パラメータ
 従って、式(2.5.15)から$U(t+\Delta t)$は次式により求めることができる。
 
 $$
-U( t + \Delta t ) = \frac{1}{( \frac{1}{\Delta t^{2}} M + \frac{1}{2\Delta t} C )} \{ F(t) - Q(t) - \frac{1}{\Delta t^{2}} M 2 U(t) - U(t - \Delta t) - \frac{1}{2\Delta t} C (t - \Delta t) U \}
+U( t + \Delta t ) = \frac{1}{( \frac{1}{\Delta t^{2}} M + \frac{1}{2\Delta t} C )} \{ F(t) - Q(t) - \frac{1}{\Delta t^{2}} M U(t) - U(t - \Delta t) - \frac{1}{2\Delta t} C U(t - \Delta t) \}
 \tag{2.5.17}$$
