@@ -4,174 +4,180 @@ MathJax.Hub.Config({
     inlineMath: [['$','$'], ['\\(','\\)']],
     processEscapes: true
   },
-  CommonHTML: { matchFontHeight: false },
-  displayAlign: "left",
-  displayIndent: "2em"
+  CommonHTML: { matchFontHeight: true },
+  displayAlign: "center"
 });
 </script>
 <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
 
-## 動的解析手法
+## 固有値解析
 
-本節では直接時間積分法を適用した動的問題解析手法について示す。以下に示すように、本開発コードでは、陰解法及び陽解法による時刻歴応答解析が可能である。
+### 一般化固有値問題
 
-### 陰解法の定式化について
-
-動的問題を対象として、下式に示す運動方程式の解法に直接時間積分法を適用した。
-
-$$
-\mathbf{M}\left( t + \Delta t \right)\ddot{\mathbf{U}}(t + \Delta t) + \mathbf{C}\left( t + \Delta t \right)\dot{\mathbf{U}}(t + \Delta t) + \mathbf{Q}\left( t + \Delta t \right) = \mathbf{F}\left( t + \Delta t \right)
-\tag{2.5.1}$$
-
-ここでは、**M**と**C**は
-質量マトリクスと減衰マトリクス、**Q**と**Ｆ**は内力ベクトルと
-外力ベクトルである。なお、本ソフトは質量の変化を考慮せず、質量マトリクスは非線形において変形によらず一定となる。
-
-時間増分Δt内での変位、速度及び加速度の変化は、Newmark-β法を用いて式(2.5.2)及び式(2.5.3)に示すように近似している。
+連続体の自由振動解析を行う場合、空間的離散化を行い、図2.3.1に示すような集中質点による多自由度系でモデル化さられる。
+減衰のない自由振動問題の場合、支配方程式（運動方程式）は以下のとおりである。
 
 $$
-\dot{\mathbf{U}}(t + \Delta t) =
-\frac{\gamma}{\beta \Delta t} \Delta \mathbf{U}\left( t + \Delta t \right)-\frac{\gamma -
-  \beta}{\beta}\dot{\mathbf{U}}\left( t \right) - \Delta t\frac{\gamma - 2\beta}{2\beta}\ddot{\mathbf{U}}(t)
-\tag{2.5.2}$$
+\mathbf{M} \mathbf{u} + \mathbf{K} \mathbf{\ddot{u}} = 0
+\tag{2.3.1}$$
+
+ただし、**u** は一般化変位ベクトル、**M** は質量マトリックス、**Ｋ**
+は剛性マトリックスである。ところで、固有角振動数を *ω* とし、*a*，*b*
+を任意定数、**x** をベクトルとして、関数
 
 $$
-\ddot{\mathbf{U}}(t + \Delta t) = \frac{1}{\text{βΔ}t^{2}}\Delta\mathbf{U}(t + \Delta t) - \frac{1}{\text{βΔt}}\dot{\mathbf{U}}(t) - \frac{1 - 2\beta}{2\beta}\ddot{\mathbf{U}}(t)
-\tag{2.5.3}$$
+\mathbf{u}(t)=\left(a \mathbf{sin}\omega t + b \mathbf{cos}\omega t \right)\mathbf{x}
+\tag{2.3.2}$$
 
-ここで、$\gamma$,$\beta$:パラメータ
-
-よく知られているように、γ及びβを以下の値にした場合、線形加速度法あるいは台形則に一致する。
-
-γ=1/2、β=1/6（線形加速度法）
-
-γ=1/2、β=1/4（台形則）
-
-式(2.5.2)及び式(2.5.3)を式(2.5.1)に代入すると次式が得られる。
+を定義する。ここで、この式と、この2階の微分、すなわち、
 
 $$
-\begin{align}
-\left( \frac{1}{\text{βΔ}t^{2}}\mathbf{M} + \frac{\gamma}{\text{βΔt}}\mathbf{C} + \mathbf{K} \right)\Delta\mathbf{U}\left( t + \Delta t \right)\qquad\qquad\qquad\qquad\\
- =\mathbf{F}\left( t + \Delta t \right) - \mathbf{Q}\left( t + \Delta t \right) + \frac{1}{\text{βΔt}}\mathbf{M}\dot{\mathbf{U}}\left( t \right)
-+ \frac{1 - 2\beta}{2\beta}\mathbf{M}\ddot{\mathbf{U}}\left( t \right)
-\\+ \frac{\gamma - \beta}{\beta}\mathbf{C}\dot{\mathbf{U}}\left( t \right)
-+ \Delta t\frac{\gamma - 2\beta}{2\beta}\mathbf{C}\ddot{\mathbf{U}}(t)\qquad\qquad\qquad\qquad\qquad
-\end{align}
-\tag{2.5.4}$$
+\ddot{\mathbf{u}}(t)=-\omega^2\left(a \mathbf{sin}\omega t + b \mathbf{cos}\omega t \right)\mathbf{x}
+\tag{2.3.3}$$
 
-特に、線形問題に対しては$\mathbf{{K}}\_{L}$は線形剛性マトリクスとし、$\mathbf{Q}\left( t + \Delta t \right) = \mathbf{K}\_{L}\mathbf{U}(t + \Delta t)$となり、この式を上式に代入すると次式が得られる。
+を式(2.3.1)に代入すれば、
 
 $$
-\left \{M \left( -\frac{ 1}{ (\Delta t)^2\beta }U(t) -\frac{ 1}{ (\Delta t)\beta }\dot U(t)-\frac{ 2\beta}{
-    1-2\beta}\ddot U(t)\right)\right  \}\\
-+C\left(
--\frac{ \gamma}{ (\Delta t)\beta }U(t) +\left(1-\frac{\gamma}{\beta}\right)\dot U(t)+\Delta{t}\frac{ 2\beta-\gamma}{
-    2\beta}\ddot U(t)
-\right)\\
-+
-\left\{
-\frac{1}{(\Delta{t})^2\beta}M+
-\frac{\gamma}{(\Delta{t})\beta}C+K_L
-\right\}U(t+\Delta{t})=F(t+\Delta{t})
-\tag{2.5.5}$$
+\mathbf{M}\mathbf{u}+\mathbf{K}\mathbf{ \ddot{u}}=\left(a \mathbf{sin}\omega t + b \mathbf{cos}\omega t
+  \right)\left(-\omega^2\mathbf{M}+\mathbf{K}\mathbf{x}\right)=\left(-\lambda \mathbf{M}+\mathbf{K}\mathbf{x}\right)=0
+\tag{2.3.4}$$
 
-尚、幾何学的境界条件として加速度が指定されている箇所では、式(2.5.2)から次式の変位を得る。
+となる。すなわち、
 
 $$
-u_{is}(t+\Delta{t})= u_{is}(t)+\Delta t \dot{u(t)}_{is}
-+(\Delta t)^2 \left(\frac{ 1}{ 2}-\beta  \right)\ddot{u_{is}}(t+\Delta{t})
-\tag{2.5.6}$$
+\mathbf{K}\mathbf{x}=\lambda \mathbf{Mx}
+\tag{2.3.5}$$
 
-同様に、速度が指定されている箇所では、式(2.76)から次式の変位を得る。
+を得る。つまり、方程式(2.3.5)を満たす係数 λ (= $ω ^2$)
+およびベクトル**x** を見つけられれば、関数**u**(t)
+は、方程式(2.3.1)の解となっている。係数 *λ　*を固有値、ベクトル**x**
+を固有ベクトルと呼び、これらを式(2.3.1)から求める問題を一般化固有値問題と呼ぶ。
 
-$$
-u_{is}(t+\Delta{t})= u_{is}(t)+\Delta t
-\frac{ \gamma - \beta}{ \gamma}\dot{u_{is}}(t)
-+(\Delta{t})^2 \frac{ \gamma - 2\beta}{ 2\gamma}
-\ddot{u_{is}}(t)
-+\Delta t \frac{\beta}{ \gamma}\dot{u_{is}}(t+\Delta{t})
-\tag{2.5.7}$$
+![](media/image120.png){width="4.593167104111986in"
+height="0.9520002187226597in"}
 
-ここで、
-$u_{is}(t+\Delta{t})$：時刻$t+\Delta{t}$における節点変位
-$\dot{u_{is}}(t+\Delta{t})$：時刻$t+\Delta{t}$節点速度
-$\ddot{u_{is}}(t+\Delta{t})$：時刻$t+\Delta{t}$節点加速度
-$i$:節点自由度番号（１〜１節点あたりの自由度数）
-$s$:節点番号
-また、質量項及び減衰項の取り扱いは次のとおりとした。
+図 2.3.1　減衰のない自由振動の多自由度系の例
 
-##### 質量項の取り扱い
+### 問題設定
 
-　　　質量マトリックスについては原則として集中質量マトリックスとして扱っている。
-
-##### 減衰項の取り扱い
-
-　　　減衰項については式(2.5.8)で表されるRayleigh減衰として扱っている。
+式(2.3.5)は任意の次数に拡張でき、多くの場面で登場する。多くの物理問題を扱う上では行列はエルミート（対称）であることが多い。即ち、複素行列においては、転置行列が共役複素数になっており、実行列においては対称行列である。つまり、行列*K*の*ij*成分を $k\_{ij}$とした時、 *k*の共役複素数を$\bar{k}$とおけば、
 
 $$
-\boldsymbol{\it{C}}=\boldsymbol{\it{R}}_{m}\boldsymbol{\it{M}}+\boldsymbol{\it{R}}_{k}\boldsymbol{\it{K}}_L
-\tag{2.5.8}$$
+k_{ij}=\bar{k}_{ji}
+\tag{2.3.6}$$
 
-ここで、
+の関係にある。
 
-$\mathbf{\it{R}}\_{m},\mathbf{\it{R}}\_{k}$：パラメータ
-
-### 陽解法の定式化について
-
-陽解法では下式に示す時刻tにおける運動方程式を基にする。
+このマニュアル内では、行列は対称で正定値を仮定する。正定値とは固有値がすべて正、言い換えれば下記の式(2.3.7)を常に満足する行列である。
 
 $$
-\mathbf{M}\ddot{\mathbf{U}}(t) + \mathbf{C}\left( t \right)\dot{\mathbf{U}}(t) + \mathbf{Q}\left( t \right) = \mathbf{F}\left( t \right)
-\tag{2.5.9}$$
+\mathbf{x}^{T}\mathbf{A}\mathbf{x}>0
+\tag{2.3.7}$$
 
-ここでは、時刻t+Δt及び時刻t-Δtにおける変位を時刻tにおけるTaylor展開により表し、Δtに関する2次項までとると、次のようになる。
+### シフト付逆反復法
 
-$$
-U(t+\Delta{t})=U(t)+\dot{U}(t)(\Delta{t})
-+\frac{ 1}{ 2!}\ddot{U}(\Delta{t})^2
-\tag{2.5.10}$$
+有限要素法による構造解析では、実用上、全ての固有値は必要とせず、高々数個の低次の固有値で十分な場合が多い。ところで、HEC-MWでは大規模な問題を扱うことを想定しており、行列はサイズが大きく非常に疎（零要素が多い）である。したがって、この事を念頭に低次のモードの固有値を効率よく求めることが重要である。
 
-$$
-U(t-\Delta{t})=U(t)-\dot{U}(t)(\Delta{t})
-+\frac{ 1}{ 2!}\ddot{U}(\Delta{t})^2
-\tag{2.5.11}$$
-
-式(2.83)及び式(2.84)の差及び和から次式が得られる。
+固有値の下限をσとした時、式(2.3.5)を次式のように変形する（数学的には等価な式である）。
 
 $$
-\dot{U}(t)=\frac{ 1}{ 2\Delta{t}}
-\left(U(t+\Delta{t})-U(t-\Delta{t})\right)
-\tag{2.5.12}$$
+\left(\mathbf{K}-\sigma \mathbf{M}\right)^{-1} \mathbf{M}\mathbf{x} = \left[1/(\lambda-\sigma)\right]\mathbf{x}
+\tag{2.3.8}$$
+
+この時、計算に当たっては次のような好都合な性質がある。
+
+1.  モードが反転している。
+
+2.  *ρ　*周辺の固有値が最大化されている。
+
+実際の計算では最大固有値が最初に求まることが多い。そのため主要な収束計算を式(2.3.5)よりむしろ式(2.3.8)に適用し、ρ周辺の固有値から求めることを狙うものとする。この手法は、シフト付逆反復と呼ばれている。
+
+### 固有値解法のための算法
+
+古典的な方法ではJacobi法がよく知られている。この方法は、行列サイズが小さく密行列である時、有効である。しかしながら、HEC-MWで扱う行列は大規模で疎であるため、この方法は採用せずランチョス(Lanczos)反復解法を採用している。
+
+### ランチョス法
+
+1950年台にC.
+Lanczosにより提案されたこの手法は、行列を3重対角化する計算算法であり、下記のような特徴を有している。
+
+> ①反復収束解法であり、行列を疎のまま計算を進めることができる。
+>
+> ②算法は行列、ベクトル積が中心となっており並列化に適している。
+>
+> ③有限要素メッシュに伴う幾何学的領域分割法に適している。
+>
+> ④求める固有値の個数やモード範囲を限定して効率よい計算を行える。
+
+ランチョス法は、初期ベクトルからスタートして順次直交ベクトルを作成し部分空間の基底を求める計算を行うものである。この方法は、別の反復解法であるサブスペース法より高速であると言われ、有限要素法プログラムにて広く使われている。しかしこの手法では、計算機の誤差の影響を受けやすく、ベクトルの直交性が損なわれ、途中で破綻する恐れを避けられない。そのため誤差に対する対策は不可欠である。
+
+### ランチョス法が持つ幾何学的意味
+
+式(2.3.8)を次のように変数変換することにより
 
 $$
-\ddot{U}=
-\frac{ 1}{ (2\Delta{t})^2}
-\left(U(t+\Delta{t})-2U(t)+U(t-\Delta{t})\right)
-\tag{2.5.13}$$
+\mathbf{A}=\left(\mathbf{K}-\sigma \mathbf{M}\right)^{-1} \mathbf{M}, \qquad \left[1/(\lambda-\sigma)\right]=\zeta
+\tag{2.3.9}$$
 
-式(2.5.12)及び式(2.5.13)を式(2.5.9)に代入すると次式が得られる。
+問題を書き直すと
 
 $$
-\left( \frac{1}{\Delta t^{2}}\mathbf{M} + \frac{1}{2\Delta t}\mathbf{C} \right)\mathbf{U}\left( t + \Delta t \right) = \mathbf{F}(t) - \mathbf{Q}(t) - \frac{1}{\Delta t^{2}}\mathbf{M\lbrack}2\mathbf{U}\left( t \right)\mathbf{- U}\left( t - \Delta t \right)\rbrack - \frac{1}{2\Delta t}\mathbf{\text{CU}}(t - \Delta t)
-\tag{2.5.14}$$
+\mathbf{A}\mathbf{x}=\zeta\mathbf{x}
+\tag{2.3.10}$$
 
-特に、線形問題に対しては$\mathbf{Q}\left( t \right) = \mathbf{K}_{L}\mathbf{U}(t)$となり、上式は以下になる
+を得る。
+
+適当なベクトル $\mathbf{q_{0}}$ に対して行列**A** による一次変換を行う（図2.3.2参照）。
+
+図 2.3.2　行列**A**による$\mathbf{q_{0}}$ の一次変換
+
+変換されたベクトルは、元のベクトルとつくる空間の中で直交化される。すなわち、図
+2.3.2のようないわゆるグラム・シュミットの直交化を行う。そうして得られたベクトルを$\mathbf{r_{1}}$
+としてそれを正規化（長さ１に）して $\mathbf{q_{1}}$　を得る（図
+2.3.3）。同様な算法により$\mathbf{q_{1}}$から$\mathbf{q_{2}}$を得る。このとき$\mathbf{q_{2}}$
+は　$\mathbf{q_{1}}$, $\mathbf{q_{0}}$ 両方に直交している（図
+2.3.4）。同様の計算を続けると互いに直交するベクトルが最大行列の次数まで求まる。
+
+図 2.3.3　 $\mathbf{q_{0}}$ に直交なベクトル$\mathbf{q_{1}}$
+
+図 2.3.4　 $\mathbf{q_{1}}$ と$\mathbf{q_{0}}$ に直交なベクトル$\mathbf{q_{2}}$
+
+特にランチョス法の算法はベクトル列 {$\mathbf{A}\mathbf{q_{0}}$, $\mathbf{A}\mathbf{q_{1}}$,$\mathbf{A}\mathbf{q_{2}}$, …
+}言い換えて {$\mathbf{A}\mathbf{q_{0}}$, $\mathbf{A}^{2}\mathbf{q_{0}}$,$\mathbf{A}^{3}\mathbf{q_{0}}$, … ,
+$\mathbf{A}^{n}\mathbf{q_{0}}$}
+に対するグラム・シュミットの直交化である。このベクトル列をKrylov
+列と呼び、それがつくる空間をKrylov
+部分空間とよぶ。この空間においてグラム・シュミットの直交化を行うと、直近の２つのベクトルを用いることによりベクトルが求まる。これをランチョスの原理と呼ぶ。
+
+### 三重対角化
+
+上記繰り返しの中でi+1番目の計算は
 
 $$
-\left( \frac{1}{\Delta t^{2}}\mathbf{M} + \frac{1}{2\Delta t}\mathbf{C} \right)\mathbf{U}\left( t + \Delta t \right) = \mathbf{F}(t) - \mathbf{K}_{L}\mathbf{U}(t) - \frac{1}{\Delta t^{2}}\mathbf{M\lbrack}2\mathbf{U}\left( t \right)\mathbf{- U}\left( t - \Delta t \right)\rbrack - \frac{1}{2\Delta t}\mathbf{C}(t - \Delta t)\mathbf{U}
-\tag{2.5.15}$$
+\beta_{i+1}q_{i+1}+\alpha_{i+1}q_{i}+\gamma_{i+1}q_{i-1}=Aq_{i}
+\tag{2.3.11}$$
 
-ここで、質量マトリックス及び減衰マトリックスを次のようにおくと、式(2.5.15)は連立方程式の求解操作を不要とする。
-
-$\mathbf{M}$:質量マトリックス
-           　集中質量マトリックス
-$\mathbf{C}$:減衰マトリックス　　　　　　　　　 (2.5.16)
-           　比例減衰マトリックス $\mathbf{C}=\mathbf{\it{R}}_{m}\mathbf{M}$
-
-$\mathbf{\it{R}}_{m}$: パラメータ
-
-従って、式(2.5.15)から**U**(t+Δt)は次式により求めることができる。
+と表せる。ただし、
 
 $$
-\mathbf{U}\left( t + \Delta t \right) = \frac{1}{\left( \frac{1}{\Delta t^{2}}\mathbf{M} + \frac{1}{2\Delta t}\mathbf{C} \right)}\left\{ \mathbf{F}(t) - \mathbf{Q}(t) - \frac{1}{\Delta t^{2}}\mathbf{M\lbrack}2\mathbf{U}\left( t \right)\mathbf{- U}\left( t - \Delta t \right)\rbrack - \frac{1}{2\Delta t}\mathbf{C}(t - \Delta t)\mathbf{U} \right\}
-\tag{2.5.17}$$
+\beta_{i+1}=\frac{1}{|r_{i+1}|},\alpha_{i+1}=\frac{(q_{i},Aq_{i})}{(q_{i},q_{i})},\gamma_{i+1}=\frac{(q_{i-1},Aq_{i})}{(q_{i-1},q_{i-1})}
+\tag{2.3.12}$$
+
+である。これを行列表記すると
+
+$$
+AQ_{m}=Q_{m}T_{m}
+\tag{2.3.13}$$
+
+となる。ここで、
+
+$$
+Q_{m}=[q_{1},q_{2},q_{3}...q_{m}],T=\begin{pmatrix}
+  \alpha_{1} & \gamma_{1}& & &\\
+  \beta_{2} &\alpha_{2}&\gamma_{2}& &  \\
+   & \cdots & \\
+   &&&\beta_{m}&\alpha_{m}
+   \end{pmatrix}
+\tag{2.3.14}$$
+
+である。すなわち、式(2.3.13)で得られる3重対角行列について固有値計算を行うことにより固有値が得られる。

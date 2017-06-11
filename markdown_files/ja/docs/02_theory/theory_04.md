@@ -4,9 +4,8 @@ MathJax.Hub.Config({
     inlineMath: [['$','$'], ['\\(','\\)']],
     processEscapes: true
   },
-  CommonHTML: { matchFontHeight: false },
-  displayAlign: "left",
-  displayIndent: "2em"
+  CommonHTML: { matchFontHeight: true },
+  displayAlign: "center"
 });
 </script>
 <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>

@@ -104,10 +104,10 @@ $ ./setup.sh –p --with-metis --with_mumps --with_paracon
 
 ## makeの実行
 
-\${FSTRBUILDDIR}にて、以下のようにmakeを実行します。
+`\${FSTRBUILDDIR}`にて、以下のようにmakeを実行します。
 
 ```txt
-$ make 2&gt;&1 | tee make.log
+$ make 2 > & 1 | tee make.log
 ```
 
 makeの実行には、計算機環境によっては数十分かかる場合があります。実行中にエラーが生じた場合は、Makefile.confの設定の見直し等を行なってください。

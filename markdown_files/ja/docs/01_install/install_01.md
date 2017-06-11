@@ -14,7 +14,7 @@
 本ソフトウェアのC++ソースコードのコンパイルには、Boostライブラリが必要です。
 インストールする環境にBoostライブラリがインストールされていない場合、下記のWEBサイトからダウンロードすることができます。
 
-[link: http://www.boost.org/](http://www.boost.org/)
+[http://www.boost.org/](http://www.boost.org/)
 
 ### Intel MKL（Math Kernel Library）
 
@@ -28,7 +28,7 @@ MKLがインストールされていない場合、接触解析の一部の機�
 MPIを実装したフリーで利用できるライブラリの代表的なものには、MPICHやOpenMPIなどがあります。
 MPICHは下記のWEBサイトからダウンロードすることができます。
 
-[link: http://www.mcs.anl.gov/research/projects/mpich2](http://www.mcs.anl.gov/research/projects/mpich2)
+[http://www.mcs.anl.gov/research/projects/mpich2](http://www.mcs.anl.gov/research/projects/mpich2)
 
 ### METIS
 
@@ -38,7 +38,7 @@ MPICHは下記のWEBサイトからダウンロードすることができます
 また、METISがインストールされていない環境でも、RCBアルゴリズムによる領域分割は可能です。
 METISは下記のWEBサイトからダウンロードすることができます。
 
-[link: http://glaros.dtc.umn.edu/gkhome/views/metis/index.html](http://glaros.dtc.umn.edu/gkhome/views/metis/index.html)
+[http://glaros.dtc.umn.edu/gkhome/views/metis/index.html](http://glaros.dtc.umn.edu/gkhome/views/metis/index.html)
 
 ### ParMETIS
 
@@ -57,13 +57,13 @@ METISは下記のWEBサイトからダウンロードすることができます
 メッシュ細分化機能を利用する場合にはREVOCAP\_Refinerが必要となります。
 REVOCAP\_Refinerは下記のWEBサイトからダウンロードすることができます。
 
-[link: http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php](http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php)
+[http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php](http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php)
 
 ### REVOCAP\_Coupler
 
 本ソフトウェアは、「イノベーション基盤シミュレーションソフトウェアの研究開発」プロジェクトで開発された連成解析ツールREVOCAP\_Couplerに対応しています。連成解析機能を利用する場合にはREVOCAP\_Couplerが必要となります。REVOCAP\_Couplerは下記のWEBサイトからダウンロードすることができます。
 
-[link: http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php](http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php)
+[http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php](http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php)
 
 ### MUMPS
 
@@ -74,7 +74,7 @@ Solver）に対応しています。MUMPSは、Esprit IV European project PARASO
 Lyon, INPT(ENSEEIHT)-IRIT, INRIA, および University of
 Bordeauxの各機関により研究開発されたものです。MUMPSは下記のWEBサイトからダウンロードすることができます。
 
-[link: http://graal.ens-lyon.fr/MUMPS](http://graal.ens-lyon.fr/MUMPS)
+[http://graal.ens-lyon.fr/MUMPS](http://graal.ens-lyon.fr/MUMPS)
 
 ### ML
 
@@ -83,7 +83,7 @@ Preconditioner）に対応しています。MLは、Sandia National
 Laboratoriesで進められているTrilinosプロジェクトで開発されているパッケージのひとつです。
 MLは下記のWEBサイトからダウンロードすることができます。
 
-[link: http://trilinos.org/packages/ml](http://trilinos.org/packages/ml)
+[http://trilinos.org/packages/ml](http://trilinos.org/packages/ml)
 
 ## 動作確認環境
 

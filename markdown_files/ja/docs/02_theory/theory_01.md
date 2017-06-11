@@ -2,7 +2,8 @@
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
-    processEscapes: true},
+    processEscapes: true
+  },
   CommonHTML: { matchFontHeight: true },
   displayAlign: "center"
 });
@@ -19,11 +20,11 @@ MathJax.Hub.Config({
 2.1.1参照）。
 
 $$
-\nabla \bullet \boldsymbol{\sigma} + \overline{\mathbf{b}} = 0 \quad in \quad V
+\nabla \cdot \boldsymbol{\sigma} + \overline{\mathbf{b}} = 0 \quad in \quad V
 \tag{2.1.1}$$
 
 $$
-\boldsymbol{\sigma} \bullet \mathbf{n} = \overline{\mathbf{t}} \quad on \quad S_t
+\boldsymbol{\sigma} \cdot \mathbf{n} = \overline{\mathbf{t}} \quad on \quad S_t
 \tag{2.1.2}$$
 
 $$
@@ -56,8 +57,8 @@ $$
 基礎方程式(2.1)(2.1.2)(2.1.3)と等価である、微小変形線形弾性問題についての仮想仕事の原理は次式のように表される。
 
 $$
-\int_{V}\boldsymbol{\sigma :} \delta \boldsymbol{\varepsilon}dV = \int_{S_{t}} \overline{\mathbf{t}} \bullet
-  \delta \mathbf{u} dS + \int_{V} \overline{\mathbf{b}} \bullet \delta \mathbf{u} dV
+\int_{V}\boldsymbol{\sigma :} \delta \boldsymbol{\varepsilon}dV = \int_{S_{t}} \overline{\mathbf{t}} \cdot
+  \delta \mathbf{u} dS + \int_{V} \overline{\mathbf{b}} \cdot \delta \mathbf{u} dV
 \tag{2.1.6}$$
 
 $$
@@ -68,7 +69,7 @@ $$
 
 $$
 \int_V (\mathbf{C}\boldsymbol{: \varepsilon} ) : \delta \boldsymbol{\varepsilon} dV = \int_{S_t}
-  \overline{\mathbf{t}} \bullet \delta \mathbf{u} dS + \int_V \overline{\mathbf{b}} \bullet \delta \mathbf{u}
+  \overline{\mathbf{t}} \cdot \delta \mathbf{u} dS + \int_V \overline{\mathbf{b}} \cdot \delta \mathbf{u}
   dV
 \tag{2.1.8}$$
 
@@ -116,7 +117,7 @@ $$
 
 $$
 \sum_{e}\delta \mathbf{U^T}\left(\int_{V^e}\mathbf{B^T DB}dV\right)
-\mathbf{U}=\sum_{e}\delta \mathbf{U^T}\bullet\int_{S^e_t}
+\mathbf{U}=\sum_{e}\delta \mathbf{U^T} \cdot \int_{S^e_t}
 \mathbf{N^T} \overline{\mathbf{t}} dS + \sum_{e}\delta \mathbf{U^T}\int_{V^e} \mathbf{N^T}
 \overline{\mathbf{b}}dV
 \tag{2.1.14}$$

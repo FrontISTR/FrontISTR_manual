@@ -4,9 +4,8 @@ MathJax.Hub.Config({
     inlineMath: [['$','$'], ['\\(','\\)']],
     processEscapes: true
   },
-  CommonHTML: { matchFontHeight: false },
-  displayAlign: "left",
-  displayIndent: "2em"
+  CommonHTML: { matchFontHeight: true },
+  displayAlign: "center"
 });
 </script>
 <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
@@ -28,18 +27,18 @@ Lagrange法の双方を採用している。
 2.2.1参照）静的境界値問題の平衡方程式、力学的境界条件、幾何学的境界条件（基本境界条件）は次の通りである。
 
 $$
-\nabla_{t'_{\mathbf x}} \bullet ^{t'}\boldsymbol{\sigma} +^{t'} \overline{\mathbf{b}} =0\quad in \quad {V}
+\nabla_{t'_{\mathbf x}} \cdot ^{t'}\boldsymbol{\sigma} +^{t'} \overline{\mathbf{b}} =0\quad in \quad {V}
 \tag{2.2.1}$$
 
 $$
-^{t'}\boldsymbol{\sigma} \bullet^{t'}\mathbf{ n}= ^{t'}\overline{\mathbf{t}} \quad on \quad ^{t'}s_{t}
+^{t'}\boldsymbol{\sigma} \cdot^{t'}\mathbf{ n}= ^{t'}\overline{\mathbf{t}} \quad on \quad ^{t'}s_{t}
 \tag{2.2.2}$$
 
 $$
 ^{t'}\mathbf{u}= ^{t'} \overline{\mathbf{u}}\quad on \quad^{t'} s_{u}
 \tag{2.2.3}$$
 
-ただし$^{t'}\boldsymbol{\sigma},^{t'} \overline{\mathbf{b}},^{t'}\mathbf{ n},^{t'}\overline{\mathbf{t}}, ^{t'} \overline{\mathbf{u}}$は、それぞれ時刻t’におけるCauchy応力（真応力）、物体力、物体表面での外向き単位法線ベクトル、既定された表面力、既定された変位である。これらの式は、時刻t’での配置$^{t'}v,^{t'}s\_{t},^{t'}s\_{u}$に対して記述されるものである。
+ただし$^{t'}\boldsymbol{\sigma}$，$^{t'} \overline{\mathbf{b}}$，$^{t'}\mathbf{ n}$，$^{t'}\overline{\mathbf{t}}$，$^{t'} \overline{\mathbf{u}}$は、それぞれ時刻t’におけるCauchy応力（真応力）、物体力、物体表面での外向き単位法線ベクトル、既定された表面力、既定された変位である。これらの式は、時刻t’での配置$^{t'}v,^{t'}s\_{t},^{t'}s\_{u}$に対して記述されるものである。
 
 ![](media/image38.png){width="3.40625in" height="1.5833333333333333in"}
 
@@ -50,7 +49,7 @@ $$
 式(2.2.1)の平衡方程式と式(2.2.2)の力学的境界条件と等価な仮想仕事の原理は次式で与えられる。
 
 $$
-\int_{^{t'}v}{^{t'}\boldsymbol{\sigma :}} \delta^{t'}\mathbf{A}_{(L)} d^{t'}v = \int_{^{t'}s_{t}}{^{t'}\overline{\mathbf{t}}}\bullet\delta \mathbf{u} d^{t'}s+ \int_{V} {^{t'}\overline{\mathbf{b}} }\bullet \delta \mathbf{u} d^{t'}v
+\int_{^{t'}v}{^{t'}\boldsymbol{\sigma}} : \delta^{t'}\mathbf{A}_{(L)} d^{t'}v = \int_{^{t'}s_{t}}{^{t'}\overline{\mathbf{t}}} \cdot \delta \mathbf{u} d^{t'}s+ \int_{V} {^{t'}\overline{\mathbf{b}} } \cdot \delta \mathbf{u} d^{t'}v
 \tag{2.2.4}$$
 
 ここで、$^{t'}\mathbf{A}\_{(L)}$はAlmansiひずみテンソルの線形部分であり、具体的には次式で表される。
@@ -73,7 +72,7 @@ $$
 \tag{2.2.6}$$
 
 $$
-^{t'}\delta\mathbf{R}=\int_{S_t}\,^{t'}_{0}\overline{\mathbf{t}}\bullet\delta\mathbf{u}dS+\int_{V}\,^{t'}_{0}\overline{\mathbf{b}}\bullet\delta\mathbf{u}dV
+^{t'}\delta\mathbf{R}=\int_{S_t}\,^{t'}_{0}\overline{\mathbf{t}} \cdot \delta\mathbf{u}dS+\int_{V}\,^{t'}_{0}\overline{\mathbf{b}} \cdot \delta\mathbf{u}dV
 \tag{2.2.7}$$
 
 ただし$^{t'}\_{0}\mathbf{S},\,^{t'}\_{0}\mathbf{E}$は、それぞれ時刻0の初期配置を基準とする時刻t’での2nd
@@ -92,7 +91,7 @@ $$
 $$
 ^{t'}_0\mathbf{E}=\frac{1}{2}\left\{\frac{\partial ^{t}\mathbf{u}}{\partial \mathbf{X}}+\left(\frac{\partial
 ^{t}\mathbf{u}}{\partial \mathbf{X}}\right)^T+\left(\frac{\partial ^{t}\mathbf{u}}{\partial
-\mathbf{X}}\right)^T\bullet\frac{\partial ^{t}\mathbf{u}}{\partial \mathbf{X}}\right\}
+\mathbf{X}}\right)^T \cdot \frac{\partial ^{t}\mathbf{u}}{\partial \mathbf{X}}\right\}
 \tag{2.2.10}$$
 
 ここで、時刻t’における変位、2nd
@@ -119,14 +118,14 @@ $$
 $$
 \Delta \mathbf{E}_L=\frac{1}{2}\left\{\frac{\partial \Delta\mathbf{u}}{\partial \mathbf{X}}+\left(\frac{\partial
 \Delta\mathbf{u}}{\partial \mathbf{X}}\right)^T+\left(\frac{\partial \Delta\mathbf{u}}{\partial
-\mathbf{X}}\right)^T\bullet\frac{\partial ^{t}\mathbf{u}}{\partial \mathbf{X}}+\left(\frac{\partial
-^{t}\mathbf{u}}{\partial \mathbf{X}}\right)^T\bullet\frac{\partial \Delta\mathbf{u}}{\partial
+\mathbf{X}}\right)^T\cdot\frac{\partial ^{t}\mathbf{u}}{\partial \mathbf{X}}+\left(\frac{\partial
+^{t}\mathbf{u}}{\partial \mathbf{X}}\right)^T\cdot\frac{\partial \Delta\mathbf{u}}{\partial
 \mathbf{X}}\right\}
 \tag{2.2.15}$$
 
 $$
 \Delta \mathbf{E}_{NL}=\frac{1}{2}\left(\frac{\partial \Delta\mathbf{u}}{\partial
-\mathbf{X}}\right)^T\bullet\frac{\partial \Delta\mathbf{u}}{\partial \mathbf{X}}
+\mathbf{X}}\right)^T\cdot\frac{\partial \Delta\mathbf{u}}{\partial \mathbf{X}}
 \tag{2.2.16}$$
 
 式(2.2.11)(2.2.12)(2.2.13)(2.2.14)(2.2.15)(2.2.16)を、式(2.2.6)(2.2.7)に代入して次式を得る。
@@ -182,7 +181,7 @@ $$
 \tag{2.2.21}$$
 
 $$
-^{t'}\delta\mathbf{R}=\int_{S_t}\,^{t'}_{t}\overline{\mathbf{t}}\bullet\delta\mathbf{u}dS+\int_{V}\,^{t'}_{t}\overline{\mathbf{b}}\bullet\delta\mathbf{u}dV
+^{t'}\delta\mathbf{R}=\int_{S_t}\,^{t'}_{t}\overline{\mathbf{t}}\cdot\delta\mathbf{u}dS+\int_{V}\,^{t'}_{t}\overline{\mathbf{b}}\cdot\delta\mathbf{u}dV
 \tag{2.2.22}$$
 
 ただし
@@ -211,7 +210,7 @@ $$
 
 $$
 \Delta_t\mathbf{E}_{NL}=\frac{1}{2}\left(\frac{\partial \Delta\mathbf{u}}{\partial
-^t\,x}\right)^T\bullet\frac{\partial \Delta\mathbf{u}}{\partial^t\,x}
+^t\,x}\right)^T\cdot\frac{\partial \Delta\mathbf{u}}{\partial^t\,x}
 \tag{2.2.27}$$
 
 の形になる。一方
@@ -559,7 +558,7 @@ $$
 2つの物体が接触すると、接触面を介して接触力$\mathbf{t}_{c}$が伝達される。仮想仕事の原理式（2.2.4）を以下のように書きかえる。
 
 $$
-\int^{t'}_{^{t'}v}\,^{t'}\boldsymbol{\sigma}: \delta^{t'}\mathbf{A}_{(L)} d^{t'}v = \int^{t'}_{^{t'}S_{t}}\,^{t'}\overline{\mathbf{t}} \bullet\delta \mathbf{u} d^{t'}s+ \int^{t'}_{V} \overline{\mathbf{b}} \bullet \delta \mathbf{u} d^{t'}v+\int^{t'}_{^{t'}S_{c}}\mathbf{t}_{c}\left[\delta \mathbf{u}^{(1)}-\mathbf{u}^{(2)}\right]
+\int^{t'}_{^{t'}v}\,^{t'}\boldsymbol{\sigma}: \delta^{t'}\mathbf{A}_{(L)} d^{t'}v = \int^{t'}_{^{t'}S_{t}}\,^{t'}\overline{\mathbf{t}} \cdot\delta \mathbf{u} d^{t'}s+ \int^{t'}_{V} \overline{\mathbf{b}} \cdot \delta \mathbf{u} d^{t'}v+\int^{t'}_{^{t'}S_{c}}\mathbf{t}_{c}\left[\delta \mathbf{u}^{(1)}-\mathbf{u}^{(2)}\right]
 \tag{2.2.70}$$
 
 ここで、$S_{c}$は接触面積、$\mathbf{u}^{(1)}$^と$\mathbf{u}^{(2)}$はそれぞれ接触物体1と接触物体2の変位を表している。
