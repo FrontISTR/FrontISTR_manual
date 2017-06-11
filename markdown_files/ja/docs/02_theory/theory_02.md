@@ -49,13 +49,19 @@ $$
 式(2.2.1)の平衡方程式と式(2.2.2)の力学的境界条件と等価な仮想仕事の原理は次式で与えられる。
 
 $$
-\int_{^{t'}v}{^{t'}\boldsymbol{\sigma}} : \delta^{t'}\mathbf{A}_{(L)} d^{t'}v = \int_{^{t'}s_{t}}{^{t'}\overline{\mathbf{t}}} \cdot \delta \mathbf{u} d^{t'}s+ \int_{V} {^{t'}\overline{\mathbf{b}} } \cdot \delta \mathbf{u} d^{t'}v
+\int_{^{t'}v}{^{t'}\boldsymbol{\sigma}} : \delta^{t'}\mathbf{A}\_{(L)} d^{t'}v = 
+\int_{^{t'} s\_{t}}^{t'}
+\overline{\mathbf{t}}
+\cdot \delta \mathbf{u} d^{t'}s + 
+\int_{V}^{t'}
+\overline{\mathbf{b}} \cdot \delta \mathbf{u} d^{t'}v
 \tag{2.2.4}$$
 
 ここで、$^{t'}\mathbf{A}\_{(L)}$はAlmansiひずみテンソルの線形部分であり、具体的には次式で表される。
 
 $$
-^{t'}\mathbf{A}_{(L)}=\frac{ 1}{ 2}\left\{\frac{\partial ^{t'}\mathbf u}{\partial ^{t'}\mathbf x}+\left(\frac{\partial ^{t'}\mathbf u}{\partial ^{t'}\mathbf x}\right)^T\right\}
+^{t'}\mathbf{A}_{(L)}=\frac{ 1}{ 2}
+( \frac{\partial ^{t'}\mathbf u}{\partial ^{t'}\mathbf x}+(\frac{\partial ^{t'}\mathbf u}{\partial ^{t'}\mathbf x})^T )
 \tag{2.2.5}$$
 
 式(2.2.4)を幾何学的境界条件、ひずみ変位関係式、応力ひずみ関係式とともに解けばよいのであるが、式(2.2.4)は時刻t’の配置で記述されており、現段階で時刻t’の配置は未知である。そこで、時刻0の配置Ｖまたは時刻ｔでの配置$^{t'}v$を参照した定式化が行われる。
@@ -72,26 +78,30 @@ $$
 \tag{2.2.6}$$
 
 $$
-^{t'}\delta\mathbf{R}=\int_{S_t}\,^{t'}_{0}\overline{\mathbf{t}} \cdot \delta\mathbf{u}dS+\int_{V}\,^{t'}_{0}\overline{\mathbf{b}} \cdot \delta\mathbf{u}dV
+^{t'}\delta\mathbf{R}=
+\int_{S_t}\,
+^{t'}\_{0} \overline{\mathbf{t}} \cdot \delta\mathbf{u}dS+
+\int_{V}\,
+^{t'}\_{0} \overline{\mathbf{b}} \cdot \delta\mathbf{u}dV
 \tag{2.2.7}$$
 
 ただし$^{t'}\_{0}\mathbf{S},\,^{t'}\_{0}\mathbf{E}$は、それぞれ時刻0の初期配置を基準とする時刻t’での2nd
 Piola-Kirchhoff応力テンソル、Green-Lagrangeひずみテンソルを表す。また、$_{0}^{t'}\overline{\mathbf{t}}$,$\,\_{0}^{t'}\overline{\mathbf{b}}$は、公称表面力ベクトル、初期配置の単位体積あたりに換算した物体力であり、式(2.2.1)(2.2.2)(2.2.3)と関連させて、次式で与えられる。
 
 $$
-^{t'}_0\overline{\mathbf{t}}=\frac{d^{t'}s_{t'}}{dS}\overline{\mathbf{t}}
+^{t'}\_0\overline{\mathbf{t}}=\frac{d^{t'}s\_{t'}}{dS}\overline{\mathbf{t}}
 \tag{2.2.8}$$
 
 $$
-^{t'}_0\overline{\mathbf{b}}=\frac{d^{t'}v_{t'}}{dV}\overline{\mathbf{b}}
+^{t'}\_0\overline{\mathbf{b}}=\frac{d^{t'}v\_{t'}}{dV}\overline{\mathbf{b}}
 \tag{2.2.9}$$
 
 時刻tにおけるGreen-Lagrangeひずみテンソルは次式で定義される。
 
 $$
-^{t'}_0\mathbf{E}=\frac{1}{2}\left\{\frac{\partial ^{t}\mathbf{u}}{\partial \mathbf{X}}+\left(\frac{\partial
+^{t'}\_{0} \mathbf{E}=\frac{1}{2} ( \frac{\partial ^{t}\mathbf{u}}{\partial \mathbf{X}}+\left(\frac{\partial
 ^{t}\mathbf{u}}{\partial \mathbf{X}}\right)^T+\left(\frac{\partial ^{t}\mathbf{u}}{\partial
-\mathbf{X}}\right)^T \cdot \frac{\partial ^{t}\mathbf{u}}{\partial \mathbf{X}}\right\}
+\mathbf{X}}\right)^T \cdot \frac{\partial ^{t}\mathbf{u}}{\partial \mathbf{X}} )
 \tag{2.2.10}$$
 
 ここで、時刻t’における変位、2nd
@@ -102,25 +112,25 @@ $$
 \tag{2.2.11}$$
 
 $$
-_{0}^{t'}\mathbf{S}=_{0}^{t}\mathbf{S}+\Delta \mathbf{S}
+\_{0}^{t'}\mathbf{S}=_{0}^{t}\mathbf{S}+\Delta \mathbf{S}
 \tag{2.2.12}$$
 
 このとき、変位増分に関連して、Green-Lagrangeひずみの増分は次式で定義される。
 
 $$
-_{0}^{t'}\mathbf{E}=_{0}^{t}\mathbf{E}+\Delta \mathbf{E}
+\_{0}^{t'}\mathbf{E}=_{0}^{t}\mathbf{E}+\Delta \mathbf{E}
 \tag{2.2.13}$$
 
 $$
-\Delta \mathbf{E}=\Delta \mathbf{E}_L+\Delta \mathbf{E}_{NL}
+\Delta \mathbf{E}=\Delta \mathbf{E}\_{L} + \Delta \mathbf{E}_{NL}
 \tag{2.2.14}$$
 
 $$
-\Delta \mathbf{E}_L=\frac{1}{2}\left\{\frac{\partial \Delta\mathbf{u}}{\partial \mathbf{X}}+\left(\frac{\partial
+\Delta \mathbf{E}\_{L}=\frac{1}{2} ( \frac{\partial \Delta\mathbf{u}}{\partial \mathbf{X}}+\left(\frac{\partial
 \Delta\mathbf{u}}{\partial \mathbf{X}}\right)^T+\left(\frac{\partial \Delta\mathbf{u}}{\partial
 \mathbf{X}}\right)^T\cdot\frac{\partial ^{t}\mathbf{u}}{\partial \mathbf{X}}+\left(\frac{\partial
 ^{t}\mathbf{u}}{\partial \mathbf{X}}\right)^T\cdot\frac{\partial \Delta\mathbf{u}}{\partial
-\mathbf{X}}\right\}
+\mathbf{X}} )
 \tag{2.2.15}$$
 
 $$
@@ -131,7 +141,7 @@ $$
 式(2.2.11)(2.2.12)(2.2.13)(2.2.14)(2.2.15)(2.2.16)を、式(2.2.6)(2.2.7)に代入して次式を得る。
 
 $$
-\int_{V}\Delta\mathbf{S}:(\delta\Delta\mathbf{E}_{L}+\delta\Delta\mathbf{E}_{NL})dV+\int_{V}\,_{0}^{t}\mathbf{S}:\delta\Delta\mathbf{E}_{NL}dV=^{t'}\delta\mathbf{R}-\int_V{_{0}^t\mathbf{S}}:\delta\Delta\mathbf{E}_{L}dV
+\int_{V}\Delta\mathbf{S}:(\delta\Delta\mathbf{E}\_{L}+\delta\Delta\mathbf{E}\_{NL})dV+\int_{V}\,\_{0}^{t}\mathbf{S}:\delta\Delta\mathbf{E}\_{NL}dV=^{t'}\delta\mathbf{R}-\int_V{\_{0}^t\mathbf{S}}:\delta\Delta\mathbf{E}\_{L}dV
 \tag{2.2.17}$$
 
 ここで、$\Delta\mathbf{S}$は、$\Delta\mathbf{E}\_L$と４階テンソル$\Delta^{t}\_{0}\mathbf{C}$と関連づけて次式のように表されると仮定する。
@@ -143,14 +153,14 @@ $$
 式(2.2.17)に式(2.2.18)を代入し、$\Delta{u}$の二次以上の項を有する$\Delta\mathbf{S}:\delta\Delta\mathbf{E}_{NL}$を省略して次式を得る。
 
 $$
-\int_V\left(^t_0
-\mathbf{C}\Delta\mathbf{E}_L\right):\delta\Delta\mathbf{E}_LdV+\int_V\,^t_0\mathbf{S}:\delta\Delta\mathbf{E}_{NL}dV=_{0}^{t'}\delta\mathbf{R}-\int_V{_{0}^t\mathbf{S}}:\delta\Delta\mathbf{E}_{L}dV
+\int_V ( ^t\_{0}
+\mathbf{C}\Delta\mathbf{E}\_{L} ) :\delta\Delta\mathbf{E}\_{L} dV+\int_V\,^t\_{0} \mathbf{S}:\delta\Delta\mathbf{E}\_{NL}dV=\_{0}^{t'}\delta\mathbf{R}-\int_V{\_{0}^t\mathbf{S}}:\delta\Delta\mathbf{E}_{L}dV
 \tag{2.2.19}$$
 
 式(2.2.19)を有限要素により離散化して次式を得る。
 
 $$
-\delta\mathbf{U}^T\left(^t_0\mathbf{K}_L+^t_0\mathbf{K}_{NL}\right)\Delta\mathbf{U}=\delta\mathbf{U}^{T}\,_0^{t'}\mathbf{F}-\partial\mathbf{U}^T\,^t_0\mathbf{Q}
+\delta\mathbf{U}^T ( ^t\_{0} \mathbf{K}\_{L}+^t\_{0} \mathbf{K}\_{NL} ) \Delta\mathbf{U}=\delta\mathbf{U}^{T}\,\_{0}^{t'}\mathbf{F}-\partial\mathbf{U}^T\,^t\_{0} \mathbf{Q}
 \tag{2.2.20}$$
 
 ここで、$^t_0\mathbf{K}\_L$,$^t\_0\mathbf{K}\_{NL}$,$\_0^{t'}\mathbf{F}$,$^t\_0\mathbf{Q}$は、それぞれ、初期変位マトリクス、初期応力マトリクス、外力ベクトル、内力ベクトルである。
@@ -181,31 +191,30 @@ $$
 \tag{2.2.21}$$
 
 $$
-^{t'}\delta\mathbf{R}=\int_{S_t}\,^{t'}_{t}\overline{\mathbf{t}}\cdot\delta\mathbf{u}dS+\int_{V}\,^{t'}_{t}\overline{\mathbf{b}}\cdot\delta\mathbf{u}dV
+^{t'}\delta\mathbf{R}=\int_{S_t}\,^{t'}\_{t}\overline{\mathbf{t}}\cdot\delta\mathbf{u}dS+\int_{V}\,^{t'}\_{t}\overline{\mathbf{b}}\cdot\delta\mathbf{u}dV
 \tag{2.2.22}$$
 
 ただし
 
 $$
-^{t'}_t\overline{\mathbf{t}}=\frac{d^{t'}s_{t'}}{d^ts}\overline{\mathbf{t}}
+^{t'}\_{t} \overline{\mathbf{t}}=\frac{d^{t'}s\_{t'}}{d^ts}\overline{\mathbf{t}}
 \tag{2.2.23}$$
 
 $$
-^{t'}_t\overline{\mathbf{b}}=\frac{d^{t'}v_{t'}}{d^tv}\overline{\mathbf{b}}
+^{t'}\_{t} \overline{\mathbf{b}}=\frac{d^{t'}v\_{t'}}{d^tv}\overline{\mathbf{b}}
 \tag{2.2.24}$$
 
 テンソル$^{t'}\_{t}\mathbf{S}$,$^{t'}\_{t}\mathbf{E}$やベクトル、$^{t'}\_t\overline{\mathbf{t}}$、$^{t'}\_t\overline{\mathbf{b}}$が時刻tの現配置を基準としているが、Green-Lagrangeひずみについては初期変位（時刻tまでの変位）$^t\mathbf{u}$を含まず
 
 $$
-^{t'}_t\mathbf{E}=\Delta_t\mathbf{E}_L+\Delta_t\mathbf{E}_{NL}
+^{t'}\_{t} \mathbf{E}=\Delta\_{t} \mathbf{E}\_{L} + \Delta\_{t} \mathbf{E}\_{NL}
 \tag{2.2.25}$$
 
 ただし
 
 $$
-\Delta_t\mathbf{E}_{L}=\frac{1}{2}
-\left\{\frac{\partial \Delta\mathbf{u}}{\partial^t\,x}+\left(\frac{\partial \Delta\mathbf{u}}{\partial
-^t\,x}\right)^T\right\}
+\Delta\_{t} \mathbf{E}\_{L}=\frac{1}{2}
+( \frac{\partial \Delta\mathbf{u}}{\partial^t\,x}+(\frac{\partial \Delta\mathbf{u}}{\partial ^t\,x})^T )
 \tag{2.2.26}$$
 
 $$
@@ -216,13 +225,13 @@ $$
 の形になる。一方
 
 $$
-_{t'}^{t}\mathbf{S}=_{t}^{t}\mathbf{S}+\Delta _t\mathbf{S}
+\_{t'}^{t} \mathbf{S}=\_{t}^{t}\mathbf{S}+\Delta \_{t} \mathbf{S}
 \tag{2.2.28}$$
 
 であるから、これを式(2.2.21)(2.2.22)と式(2.2.25)に代入し整理すると解くべき方程式が次のように与えられる。
 
 $$
-\int_{t_{v}}\Delta_t\mathbf{S}:(\delta\Delta_{t}{\mathbf{E}_{L}}+\delta\Delta_t{\mathbf{E}_{NL}})d^t{v}+\int_{t_{v}}{_{t}^{t'}\mathbf{S}}:\delta\Delta_t{\mathbf{E}_{NL}}d^t{v}=^{t'}\delta\mathbf{R}-\int_{t_{v}}{_{t}^t\mathbf{S}}:\delta\Delta_{t}\mathbf{E}_{L}d^t{v}
+\int_{t_{v}} \Delta\_{t} \mathbf{S}:(\delta\Delta\_{t}{\mathbf{E}\_{L}}+\delta\Delta\_t{\mathbf{E}\_{NL}})d^t{v}+\int_{t\_{v}}{\_{t}^{t'}\mathbf{S}}:\delta\Delta\_{t} {\mathbf{E}\_{NL}}d^t{v}=^{t'}\delta\mathbf{R}-\int_{t\_{v}}{\_{t}^t\mathbf{S}}:\delta\Delta\_{t}\mathbf{E}\_{L}d^t{v}
 \tag{2.2.29}$$
 
 ここで、$\Delta\_t\mathbf{S}$は、$\Delta\_{t}{\mathbf{E}_{L}}$と４階テンソル$^t\_t\mathbf{C}$と関連づけて次式のように表されると仮定する。
@@ -234,14 +243,14 @@ $$
 これを式(2.2.29)に代入し、次式を得る。
 
 $$
-\int_V\left(^t_t
-\mathbf{C}\Delta_t\mathbf{E}_L\right):\delta\Delta_{t}\mathbf{E}_LdV+\int_V{^t_t\mathbf{S}}:\delta\Delta_t\mathbf{E}_{NL}dV=^{t'}\delta\mathbf{R}-\int_V{_{t}^t\mathbf{S}}:\delta\Delta_t\mathbf{E}_{L}dV
+\int_V ( ^t_t
+\mathbf{C}\Delta\_{t} \mathbf{E}\_{L} ) :\delta\Delta\_{t}\mathbf{E}\_{L} dV+\int_V{^t\_{t} \mathbf{S}}:\delta\Delta\_{t} \mathbf{E}\_{NL} dV=^{t'}\delta\mathbf{R}-\int_V{\_{t}^t\mathbf{S}}:\delta\Delta_t\mathbf{E}\_{L}dV
 \tag{2.2.31}$$
 
 式(2.2.31)を有限要素により離散化して次式を得る。
 
 $$
-\delta\mathbf{U}^T\left(^t_t\mathbf{K}_L+^t_t\mathbf{K}_{NL}\right)\Delta\mathbf{U}=\delta\mathbf{U}^{T}\,{_t^{t'}}\mathbf{F}-\partial\mathbf{U}^T\,{^t_t\mathbf{Q}}
+\delta\mathbf{U}^T ( ^t_t\mathbf{K}\_{L} + ^t_t\mathbf{K}\_{NL} ) \Delta\mathbf{U}=\delta\mathbf{U}^{T}\,{\_{t}^{t'}}\mathbf{F}-\partial\mathbf{U}^T\,{^t\_{t} \mathbf{Q}}
 \tag{2.2.32}$$
 
 ここで、$^t\_t\mathbf{K}\_L,^t\_t\mathbf{K}\_{NL},{\_t^{t'}}\mathbf{F},{^t\_t\mathbf{Q}}$は、それぞれ、初期変位マトリクス、初期応力マトリクス、外力ベクトル、内力ベクトルである。
@@ -295,7 +304,7 @@ Neo-Hookean超弾性モデルは等方性を持つ線形則（Hooke則）を大�
 その弾性ポテンシャルは以下のとおりである。
 
 $$
-W = C_{10}\left( {\overline {I}_{1}} - 3 \right) + \frac{1}{D_{1}}\left( J - 1 \right)^{2}
+W = C\_{10} ( {\overline {I}\_{1}} - 3 ) + \frac{1}{D_{1}} ( J - 1 )^{2}
 \tag{2.2.35}$$
 
 ここで、$C\_{10}$と$D\_{1}\ $は材料定数である。
@@ -303,7 +312,7 @@ W = C_{10}\left( {\overline {I}_{1}} - 3 \right) + \frac{1}{D_{1}}\left( J - 1 \
 （２）Mooney Rivlin超弾性モデル
 
 $$
-W = C_{10}\left( \overline{{I}}_{1}- 3 \right) + C_{01}\left( \overline{{I}}_{2} - 3 \right) + \frac{1}{D_{1}}\left( J - 1 \right)^{2}
+W = C\_{10} ( \overline{{I}}\_{1}- 3 ) + C\_{01} ( \overline{{I}}\_{2} - 3 ) + \frac{1}{D_{1}} ( J - 1 )^{2}
 \tag{2.2.36}$$
 
 ここで、$\ C\_{10},\ C\_{01}$と$\ D\_{1}\ $は材料定数である。
@@ -311,8 +320,8 @@ W = C_{10}\left( \overline{{I}}_{1}- 3 \right) + C_{01}\left( \overline{{I}}_{2}
 （３）Arruda Boyce超弾性モデル
 
 $$
-W = \mu\ \left\lbrack \ \frac{1}{2}\left( \ {\overline{I}}_{1} - 3 \right) + \frac{1}{20\lambda_{m}^{2}}\ \left( \ {\overline{I}}_{1}^{2} - 9 \right) + \frac{11}{1050\lambda_{m}^{2}}\left( \ {\overline{I}}_{1}^{3} - 27 \right) + \frac{19}{7000\lambda_{m}^{2}}\left( \ {\overline{I}}_{1}^{4} - 81 \right) \\
-+ \frac{519}{673750\lambda_{m}^{2}}\left( \ {\overline{I}}_{1}^{5} - 243 \right)\  \right\rbrack + \frac{1}{D}\left( \ \frac{J^{2} - 1}{2} - \ln J\  \right) \qquad\qquad\qquad
+W = \mu ( \frac{1}{2} ( {\overline{I}}\_{1} - 3 ) + \frac{1}{20\lambda\_{m}^{2}} ( \ {\overline{I}}\_{1}^{2} - 9 ) + \frac{11}{1050\lambda\_{m}^{2}} ( {\overline{I}}\_{1}^{3} - 27 ) + \frac{19}{7000\lambda\_{m}^{2}} ( {\overline{I}}\_{1}^{4} - 81 )
++ \frac{519}{673750\lambda\_{m}^{2}} ( {\overline{I}}\_{1}^{5} - 243 ) ) + \frac{1}{D} ( \frac{J^{2} - 1}{2} - \ln J )
 \tag{2.2.37}$$
 
 $$
@@ -397,8 +406,8 @@ $$
 さらに、塑性ポテンシャル$\Theta$が降伏関数Fに等しいものとして、次式の関連流れ則を仮定する。
 
 $$
-\boldsymbol{\dot{e}}^p=\dot{\lambda}\frac{\partial \boldsymbol{\Theta}}{\partial \boldsymbol{\sigma}}
-\tag{2.2.46}$$
+\boldsymbol{\dot{e}}^p=\dot{\lambda}\frac{\partial F}{\partial \boldsymbol{\sigma}}
+\tag{2.2.47}$$
 
 この式を式(2.4.45)に代入し、下式が得られる。
 
@@ -415,10 +424,10 @@ $$
 弾塑性の応力―ひずみ関係式は以下のように書ける。
 
 $$
-\boldsymbol{\dot{\sigma}}=\left\{\mathbf{\text{D}}-\frac{ \mathbf{\text{d}}_{D}\otimes\mathbf{\text{d}}^{T}_{D}}{ A+\mathbf{\text{d}}^{T}_{D}\mathbf{\text{a}}}\right\}:\boldsymbol{\dot{e}}
+\boldsymbol{\dot{\sigma}}=( \mathbf{\text{D}}-\frac{ \mathbf{\text{d}}\_{D}\otimes\mathbf{\text{d}}^{T}\_{D}}{ A+\mathbf{\text{d}}^{T}\_{D}\mathbf{\text{a}}} ):\boldsymbol{\dot{e}}
 \tag{2.2.50}$$
 
-弾塑性材の降伏関数(2.2.50)がわかれば、この式からその構成式が得られる。
+弾塑性材の降伏関数Fがわかれば、この式からその構成式が得られる。
 
 （１）降伏関数
 
@@ -427,19 +436,19 @@ $$
 ・Von Mises降伏関数
 
 $$
-F = \ \sqrt{3\mathbf{J}_{2}} - \sigma_{y} = 0
+F = \sqrt{3\mathbf{J}\_{2}} - \sigma\_{y} = 0
 \tag{2.2.51}$$
 
 ・Mohr-Coulomb降伏関数
 
 $$
-F = \ \sigma_{1} - \sigma_{3} + \ \left( \ \sigma_{1} + \sigma_{3}\  \right)\sin\phi - 2\ c\cos\phi = 0
+F = \sigma_{1} - \sigma_{3} + \ \left( \ \sigma_{1} + \sigma_{3}\  \right)\sin\phi - 2\ c\cos\phi = 0
 \tag{2.2.52}$$
 
 ・Drucker-Prager降伏関数
 
 $$
-F = \ \sqrt{\mathbf{J}_{2}} - \ \alpha\ \boldsymbol{\sigma}\ :\mathbf{I} - \sigma_{y} = 0
+F = \sqrt{\mathbf{J}\_{2}} - \ \alpha\ \boldsymbol{\sigma}\ :\mathbf{I} - \sigma_{y} = 0
 \tag{2.2.53}$$
 
 ここでは、材料定数$\alpha$と$\sigma_{y}$は材料の粘着力と摩擦角から以下のように計算する
@@ -491,8 +500,8 @@ $$
 ここで、
 
 $$
-\boldsymbol{\varepsilon} = \boldsymbol{\varepsilon}^{e} + \,\boldsymbol{\varepsilon}^{c}
-\tag{2.2.60}$$
+\boldsymbol{\varepsilon}^{e} = {\mathbf{c}^{e}}^{- 1}\ : \boldsymbol{\sigma}
+\tag{2.2.61}$$
 
 である。
 
@@ -500,27 +509,23 @@ $$
 クリープを考慮したときの構成式は、
 
 $$
-\boldsymbol{\varepsilon}^{e} = {\mathbf{c}^{e}}^{- 1}\ : \boldsymbol{\sigma}
-\tag{2.2.61}$$
-
-$$
-\boldsymbol{\sigma}_{n + 1} = \mathbf{c}\ :\ \left( \ \boldsymbol{\varepsilon}_{n + 1} - \boldsymbol{\varepsilon}_{n + 1}^{c}\  \right)
+\boldsymbol{\sigma}\_{n + 1} = \mathbf{c}\ :\ ( \boldsymbol{\varepsilon}\_{n + 1} - \boldsymbol{\varepsilon}\_{n + 1}^{c} )
 \tag{2.2.62}$$
 
 $$
-\boldsymbol{\varepsilon}_{n + 1}^{c} = \boldsymbol{\varepsilon}_{n}^{c} + \ \Delta t\ \boldsymbol{\beta}_{n + \theta}
+\boldsymbol{\varepsilon}\_{n + 1}^{c} = \boldsymbol{\varepsilon}\_{n}^{c} + \ \Delta t\ \boldsymbol{\beta}\_{n + \theta}
 \tag{2.2.63}$$
 
 ここで、$\ \boldsymbol{\beta}_{n + \theta}\ $は、
 
 $$
-\boldsymbol{\beta}_{n + \theta} = \left( \ 1 - \theta\  \right)\ \boldsymbol{\beta}_{n} + \theta\ \boldsymbol{\beta}_{n + 1}
+\boldsymbol{\beta}_{n + \theta} = ( 1 - \theta  ) \boldsymbol{\beta}\_{n} + \theta \boldsymbol{\beta}\_{n + 1}
 \tag{2.2.64}$$
 
 とする。また、クリープひずみ増分$\boldsymbol{\Delta\varepsilon}^{c}\ $は、非線形方程式を単純化した
 
 $$
-\mathbf{R}_{n + 1} = \boldsymbol{\varepsilon}_{n + 1} - \ \mathbf{c}^{- 1}\ :\boldsymbol{\sigma}_{n + 1} - \ \boldsymbol{\varepsilon}_{n}^{c} - \ \Delta t\ \boldsymbol{\beta}_{n + \theta} = \mathbf{0}
+\mathbf{R}\_{n + 1} = \boldsymbol{\varepsilon}\_{n + 1} - \ \mathbf{c}^{- 1}\ :\boldsymbol{\sigma}\_{n + 1} - \ \boldsymbol{\varepsilon}\_{n}^{c} - \ \Delta t\ \boldsymbol{\beta}\_{n + \theta} = \mathbf{0}
 \tag{2.2.65}$$
 
 とする。
@@ -528,19 +533,19 @@ $$
 　Newton-Raphson法での反復計算では、初期値を$\mathbf{\sigma}\_{n + 1} = \mathbf{\sigma}\_{n}\ $および有限要素法から求められるひずみ増分として、反復解と増分解は次式とする。
 
 $$
-\mathbf{R}_{n + 1}^{(k + 1)} = \mathbf{0} = \ \mathbf{R}_{n + 1}^{(k)} - \ \left( \ \mathbf{c}^{- 1} + \Delta t\ \mathbf{c}_{n + 1}^{c}\  \right)\text{ d}\boldsymbol{\sigma}_{n + 1}^{(k)}
+\mathbf{R}\_{n + 1}^{(k + 1)} = \mathbf{0} = \ \mathbf{R}_{n + 1}^{(k)} - ( \ \mathbf{c}^{- 1} + \Delta t\ \mathbf{c}\_{n + 1}^{c}\  )\text{ d}\boldsymbol{\sigma}\_{n + 1}^{(k)}
 \tag{2.2.66}$$
 
 ここで、
 
 $$
-\mathbf{c}_{n + 1}^{c} = \left. \ \ \frac{\partial\boldsymbol{\beta}}{\partial\boldsymbol{\sigma}}\  \right|_{n + \theta} = \boldsymbol{\theta}\left. \ \frac{\partial\boldsymbol{\beta}}{\partial\boldsymbol{\sigma}}\  \right|_{n + 1}
+\mathbf{c}\_{n + 1}^{c} =  \frac{\partial\boldsymbol{\beta}}{\partial\boldsymbol{\sigma}}\  |\_{n + \theta} = \boldsymbol{\theta} \frac{\partial\boldsymbol{\beta}}{\partial\boldsymbol{\sigma}}\  |\_{n + 1}
 \tag{2.2.67}$$
 
 とする。式(2.2.65)と式(2.2.66)の解を使って残差$\ \mathbf{R}\ $が$\ \mathbf{0}\ $になるまで反復解法を行うとき、応力$\mathbf{\ }\mathbf{\sigma}_{n + 1}\mathbf{\ }$と接線係数
 
 $$
-\mathbf{c}_{n + 1}^{*} = \left\lbrack \ \mathbf{c}^{- 1} + \Delta t\ \mathbf{c}_{n + 1}^{c}\  \right\rbrack^{- 1}
+\mathbf{c}\_{n + 1}^{*} = ( \mathbf{c}^{- 1} + \Delta t\ \mathbf{c}\_{n + 1}^{c} )^{- 1}
 \tag{2.2.68}$$
 
 を用いる。
@@ -558,10 +563,10 @@ $$
 2つの物体が接触すると、接触面を介して接触力$\mathbf{t}_{c}$が伝達される。仮想仕事の原理式（2.2.4）を以下のように書きかえる。
 
 $$
-\int^{t'}_{^{t'}v}\,^{t'}\boldsymbol{\sigma}: \delta^{t'}\mathbf{A}_{(L)} d^{t'}v = \int^{t'}_{^{t'}S_{t}}\,^{t'}\overline{\mathbf{t}} \cdot\delta \mathbf{u} d^{t'}s+ \int^{t'}_{V} \overline{\mathbf{b}} \cdot \delta \mathbf{u} d^{t'}v+\int^{t'}_{^{t'}S_{c}}\mathbf{t}_{c}\left[\delta \mathbf{u}^{(1)}-\mathbf{u}^{(2)}\right]
+\int^{t'}\_{^{t'}v}\,^{t'}\boldsymbol{\sigma}: \delta^{t'}\mathbf{A}\_{(L)} d^{t'}v = \int^{t'}\_{^{t'}S\_{t}}\,^{t'}\overline{\mathbf{t}} \cdot\delta \mathbf{u} d^{t'}s+ \int^{t'}\_{V} \overline{\mathbf{b}} \cdot \delta \mathbf{u} d^{t'}v+\int^{t'}\_{^{t'}S\_{c}}\mathbf{t}\_{c}[\delta \mathbf{u}^{(1)}-\mathbf{u}^{(2)}]
 \tag{2.2.70}$$
 
-ここで、$S_{c}$は接触面積、$\mathbf{u}^{(1)}$^と$\mathbf{u}^{(2)}$はそれぞれ接触物体1と接触物体2の変位を表している。
+ここで、$S_{c}$は接触面積、$\mathbf{u}^{(1)}$と$\mathbf{u}^{(2)}$はそれぞれ接触物体1と接触物体2の変位を表している。
 
 接触解析では、接触する可能性のある面を対にして指定する。この面の対の片方をマスター面、もう片方をスレーブ面とする。このマスタースレーブ解析手法では、接触拘束条件を以下のように仮定する。
 
@@ -572,18 +577,18 @@ $$
 式(2.2.70)の最後の項を有限要素により離散化して次式を得る
 
 $$
-\int^{t'}_{^{t'}S_{c}}\mathbf{t}_{c}\left[\delta \mathbf{u}^{(1)}-\delta\mathbf{u}^{(2)}\right]\approx\delta\mathbf{\text{UK}}_{c}\Delta\mathbf{\text{U}}+\delta\mathbf{\text{UF}}_c
+\int^{t'}\_{^{t'}S\_{c}}\mathbf{t}\_{c}[\delta \mathbf{u}^{(1)}-\delta\mathbf{u}^{(2)}]\approx\delta\mathbf{\text{UK}}\_{c}\Delta\mathbf{\text{U}}+\delta\mathbf{\text{UF}}\_c
 \tag{2.2.71}$$
 
 ここでは、$\mathbf{\text{K}}_c$と$\mathbf{\text{F}}_c$はそれぞれ接触剛性マトリクスおよび接触力を表す。この式を式(2.2.20)あるいは(2.2.32)に代入すると、接触拘束を考慮したtotal
 Lagrange法およびupdated Lagrange法の有限要素法定式は以下のようになる。
 
 $$
-\delta\mathbf{U}^T\left(^t_0\mathbf{K}_L+^t_0\mathbf{K}_{NL}+\mathbf{K}_c\right)\Delta\mathbf{U}=\delta\mathbf{U}^{T}{_0^{t'}\mathbf{F}}-\partial\mathbf{U}^T{^t_0\mathbf{Q}}+\delta\mathbf{\text{UF}}_c
+\delta\mathbf{U}^T ( ^t\_{0} \mathbf{K}\_{L}+^t\_{0} \mathbf{K}\_{NL}+\mathbf{K}\_{c} ) \Delta\mathbf{U}=\delta\mathbf{U}^{T}{\_{0}^{t'}\mathbf{F}}-\partial\mathbf{U}^T{^t\_{0}\mathbf{Q}}+\delta\mathbf{\text{UF}}\_{c}
 \tag{2.2.72}$$
 
 $$
-\delta\mathbf{U}^T\left(^t_t\mathbf{K}_L+^t_t\mathbf{K}_{NL}+\mathbf{K}_c\right)\Delta\mathbf{U}=\delta\mathbf{U}^{T}{_t^{t'}\mathbf{F}}-\partial\mathbf{U}^T{^t_t\mathbf{Q}}+\delta\mathbf{\text{UF}}_c
+\delta\mathbf{U}^T (^t\_{t} \mathbf{K}\_{L} +^t\_{t} \mathbf{K}\_{NL}+\mathbf{K}\_{c} ) \Delta\mathbf{U}=\delta\mathbf{U}^{T}{\_{t} ^{t'}\mathbf{F}}-\partial\mathbf{U}^T{^t\_{t} \mathbf{Q}}+\delta\mathbf{\text{UF}}\_{c}
 \tag{2.2.73}$$
 
 本開発ソフトは変形体同士間の接触変形解析ができ、ユーザーから以下の解析機能を選択できる。
