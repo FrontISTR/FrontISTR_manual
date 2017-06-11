@@ -19,66 +19,53 @@ MathJax.Hub.Config({
 動的問題を対象として、下式に示す運動方程式の解法に直接時間積分法を適用した。
 
 $$
-\mathbf{M}\left( t + \Delta t \right)\ddot{\mathbf{U}}(t + \Delta t) + \mathbf{C}\left( t + \Delta t \right)\dot{\mathbf{U}}(t + \Delta t) + \mathbf{Q}\left( t + \Delta t \right) = \mathbf{F}\left( t + \Delta t \right)
+\mathbf{M}( t + \Delta t )\ddot{\mathbf{U}}(t + \Delta t) + \mathbf{C}( t + \Delta t )\dot{\mathbf{U}}(t + \Delta t) + \mathbf{Q}( t + \Delta t ) = \mathbf{F}( t + \Delta t )
 \tag{2.5.1}$$
 
-ここでは、**M**と**C**は
-質量マトリクスと減衰マトリクス、**Q**と**Ｆ**は内力ベクトルと
-外力ベクトルである。なお、本ソフトは質量の変化を考慮せず、質量マトリクスは非線形において変形によらず一定となる。
+ここでは、$\mathbf{M}$は質量マトリクス，$\mathbf{C}$は減衰マトリクス、$\mathbf{Q}$は内力ベクトル，$\mathbf{F}$は外力ベクトルである。
+なお、本ソフトは質量の変化を考慮せず、質量マトリクスは非線形において変形によらず一定となる。
 
-時間増分Δt内での変位、速度及び加速度の変化は、Newmark-β法を用いて式(2.5.2)及び式(2.5.3)に示すように近似している。
+時間増分$\Delta t$内での変位、速度及び加速度の変化は、Newmark-$\beta$法を用いて式(2.5.2)及び式(2.5.3)に示すように近似している。
 
 $$
 \dot{\mathbf{U}}(t + \Delta t) =
-\frac{\gamma}{\beta \Delta t} \Delta \mathbf{U}\left( t + \Delta t \right)-\frac{\gamma -
-  \beta}{\beta}\dot{\mathbf{U}}\left( t \right) - \Delta t\frac{\gamma - 2\beta}{2\beta}\ddot{\mathbf{U}}(t)
+\frac{\gamma}{\beta \Delta t} \Delta \mathbf{U}( t + \Delta t ) - \frac{\gamma - \beta}{\beta} \dot{\mathbf{U}}( t ) - \Delta t\frac{\gamma - 2\beta}{2\beta} \ddot{\mathbf{U}}(t)
 \tag{2.5.2}$$
 
 $$
-\ddot{\mathbf{U}}(t + \Delta t) = \frac{1}{\text{βΔ}t^{2}}\Delta\mathbf{U}(t + \Delta t) - \frac{1}{\text{βΔt}}\dot{\mathbf{U}}(t) - \frac{1 - 2\beta}{2\beta}\ddot{\mathbf{U}}(t)
+\ddot{\mathbf{U}}(t + \Delta t) = \frac{1}{\beta \Delta t^2}\Delta \mathbf{U}(t + \Delta t) - \frac{1}{\beta \Delta t} \dot{\mathbf{U}}(t) - \frac{1 - 2\beta}{2\beta}\ddot{\mathbf{U}}(t)
 \tag{2.5.3}$$
 
-ここで、$\gamma$,$\beta$:パラメータ
+ここで、$\gamma$，$\beta$はNewmark-$\beta$法のパラメータである．
 
-よく知られているように、γ及びβを以下の値にした場合、線形加速度法あるいは台形則に一致する。
+よく知られているように、$\gamma$及び$\beta$を以下の値にした場合、線形加速度法あるいは台形則に一致する。
 
-γ=1/2、β=1/6（線形加速度法）
+$\gamma = \frac{1}{2}$，$\gamma = \frac{1}{6}$（線形加速度法）
 
-γ=1/2、β=1/4（台形則）
+$\gamma = \frac{1}{2}$，$\gamma = \frac{1}{4}$（台形則）
 
 式(2.5.2)及び式(2.5.3)を式(2.5.1)に代入すると次式が得られる。
 
 $$
-\begin{align}
-\left( \frac{1}{\text{βΔ}t^{2}}\mathbf{M} + \frac{\gamma}{\text{βΔt}}\mathbf{C} + \mathbf{K} \right)\Delta\mathbf{U}\left( t + \Delta t \right)\qquad\qquad\qquad\qquad\\
- =\mathbf{F}\left( t + \Delta t \right) - \mathbf{Q}\left( t + \Delta t \right) + \frac{1}{\text{βΔt}}\mathbf{M}\dot{\mathbf{U}}\left( t \right)
-+ \frac{1 - 2\beta}{2\beta}\mathbf{M}\ddot{\mathbf{U}}\left( t \right)
-\\+ \frac{\gamma - \beta}{\beta}\mathbf{C}\dot{\mathbf{U}}\left( t \right)
-+ \Delta t\frac{\gamma - 2\beta}{2\beta}\mathbf{C}\ddot{\mathbf{U}}(t)\qquad\qquad\qquad\qquad\qquad
-\end{align}
+( \frac{1}{\beta \Delta t^{2}} \mathbf{M} + \frac{\gamma}{\beta \Delta t}\mathbf{C} + \mathbf{K} ) \Delta\mathbf{U} ( t + \Delta t ) = \\
+  \mathbf{F} ( t + \Delta t )
+- \mathbf{Q} ( t + \Delta t )
++ \frac{1}{\beta \Delta t} \mathbf{M} \dot{\mathbf{U}} ( t )
++ \frac{1 - 2\beta}{2\beta} \mathbf{M} \ddot{\mathbf{U}} ( t )
++ \frac{\gamma - \beta}{\beta} \mathbf{C} \dot{\mathbf{U}} (t)
++ \Delta t \frac{\gamma - 2\beta}{2\beta} \mathbf{C} \ddot{\mathbf{U}}(t)
 \tag{2.5.4}$$
 
-特に、線形問題に対しては$\mathbf{{K}}\_{L}$は線形剛性マトリクスとし、$\mathbf{Q}\left( t + \Delta t \right) = \mathbf{K}\_{L}\mathbf{U}(t + \Delta t)$となり、この式を上式に代入すると次式が得られる。
+特に、線形問題に対しては$\mathbf{{K}}\_{L}$は線形剛性マトリクスとし、$\mathbf{Q} ( t + \Delta t ) = \mathbf{K}\_{L}\mathbf{U} (t + \Delta t)$となり、この式を上式に代入すると次式が得られる。
 
 $$
-\left \{M \left( -\frac{ 1}{ (\Delta t)^2\beta }U(t) -\frac{ 1}{ (\Delta t)\beta }\dot U(t)-\frac{ 2\beta}{
-    1-2\beta}\ddot U(t)\right)\right  \}\\
-+C\left(
--\frac{ \gamma}{ (\Delta t)\beta }U(t) +\left(1-\frac{\gamma}{\beta}\right)\dot U(t)+\Delta{t}\frac{ 2\beta-\gamma}{
-    2\beta}\ddot U(t)
-\right)\\
-+
-\left\{
-\frac{1}{(\Delta{t})^2\beta}M+
-\frac{\gamma}{(\Delta{t})\beta}C+K_L
-\right\}U(t+\Delta{t})=F(t+\Delta{t})
+ M ( -\frac{1}{\beta \Delta t^2} U(t) -\frac{1}{\beta \Delta t}\dot U(t) - \frac{2\beta}{1-2\beta} \ddot U(t)) + C( - \frac{\gamma}{\beta \Delta t} U(t) + (1 - \frac{\gamma}{\beta}) \dot U(t) + \Delta{t}\frac{ 2\beta-\gamma}{2\beta}\ddot U(t)) + \frac{1}{\beta \Delta{t}^2} M + \frac{\gamma}{\beta \Delta{t}} C + K_L U(t+\Delta{t}) = F(t+\Delta{t})
 \tag{2.5.5}$$
 
 尚、幾何学的境界条件として加速度が指定されている箇所では、式(2.5.2)から次式の変位を得る。
 
 $$
-u_{is}(t+\Delta{t})= u_{is}(t)+\Delta t \dot{u(t)}_{is}
-+(\Delta t)^2 \left(\frac{ 1}{ 2}-\beta  \right)\ddot{u_{is}}(t+\Delta{t})
+u_{is} (t+\Delta{t}) = u_{is} (t) + \Delta t \dot{u(t)} + \Delta t^2 (\frac{1}{2} -\beta ) {\ddot{u}}_{is} (t + \Delta t)
 \tag{2.5.6}$$
 
 同様に、速度が指定されている箇所では、式(2.76)から次式の変位を得る。
@@ -101,14 +88,14 @@ $s$:節点番号
 
 ##### 質量項の取り扱い
 
-　　　質量マトリックスについては原則として集中質量マトリックスとして扱っている。
+質量マトリックスについては原則として集中質量マトリックスとして扱っている。
 
 ##### 減衰項の取り扱い
 
-　　　減衰項については式(2.5.8)で表されるRayleigh減衰として扱っている。
+減衰項については式(2.5.8)で表されるRayleigh減衰として扱っている。
 
 $$
-\boldsymbol{\it{C}}=\boldsymbol{\it{R}}_{m}\boldsymbol{\it{M}}+\boldsymbol{\it{R}}_{k}\boldsymbol{\it{K}}_L
+\mathbf{C} = \mathbf{R}_m \mathbf{M} + \mathbf{R}_k \mathbf{K}_L
 \tag{2.5.8}$$
 
 ここで、
@@ -120,7 +107,7 @@ $\mathbf{\it{R}}\_{m},\mathbf{\it{R}}\_{k}$：パラメータ
 陽解法では下式に示す時刻tにおける運動方程式を基にする。
 
 $$
-\mathbf{M}\ddot{\mathbf{U}}(t) + \mathbf{C}\left( t \right)\dot{\mathbf{U}}(t) + \mathbf{Q}\left( t \right) = \mathbf{F}\left( t \right)
+\mathbf{M}\ddot{\mathbf{U}}(t) + \mathbf{C}( t )\dot{\mathbf{U}}(t) + \mathbf{Q}( t ) = \mathbf{F}( t )
 \tag{2.5.9}$$
 
 ここでは、時刻t+Δt及び時刻t-Δtにおける変位を時刻tにおけるTaylor展開により表し、Δtに関する2次項までとると、次のようになる。
@@ -139,38 +126,39 @@ U(t-\Delta{t})=U(t)-\dot{U}(t)(\Delta{t})
 
 $$
 \dot{U}(t)=\frac{ 1}{ 2\Delta{t}}
-\left(U(t+\Delta{t})-U(t-\Delta{t})\right)
+(U(t+\Delta{t})-U(t-\Delta{t}))
 \tag{2.5.12}$$
 
 $$
 \ddot{U}=
 \frac{ 1}{ (2\Delta{t})^2}
-\left(U(t+\Delta{t})-2U(t)+U(t-\Delta{t})\right)
+(U(t+\Delta{t})-2U(t)+U(t-\Delta{t}))
 \tag{2.5.13}$$
 
 式(2.5.12)及び式(2.5.13)を式(2.5.9)に代入すると次式が得られる。
 
 $$
-\left( \frac{1}{\Delta t^{2}}\mathbf{M} + \frac{1}{2\Delta t}\mathbf{C} \right)\mathbf{U}\left( t + \Delta t \right) = \mathbf{F}(t) - \mathbf{Q}(t) - \frac{1}{\Delta t^{2}}\mathbf{M\lbrack}2\mathbf{U}\left( t \right)\mathbf{- U}\left( t - \Delta t \right)\rbrack - \frac{1}{2\Delta t}\mathbf{\text{CU}}(t - \Delta t)
+( \frac{1}{\Delta t^{2}}\mathbf{M} + \frac{1}{2\Delta t}\mathbf{C} )\mathbf{U}( t + \Delta t ) = \mathbf{F}(t) - \mathbf{Q}(t) - \frac{1}{\Delta t^{2}}\mathbf{M\lbrack}2\mathbf{U}( t )\mathbf{- U}( t - \Delta t )\rbrack - \frac{1}{2\Delta t}\mathbf{\text{CU}}(t - \Delta t)
 \tag{2.5.14}$$
 
-特に、線形問題に対しては$\mathbf{Q}\left( t \right) = \mathbf{K}_{L}\mathbf{U}(t)$となり、上式は以下になる
+特に、線形問題に対しては$\mathbf{Q}( t ) = \mathbf{K}_{L}\mathbf{U}(t)$となり、上式は以下になる
 
 $$
-\left( \frac{1}{\Delta t^{2}}\mathbf{M} + \frac{1}{2\Delta t}\mathbf{C} \right)\mathbf{U}\left( t + \Delta t \right) = \mathbf{F}(t) - \mathbf{K}_{L}\mathbf{U}(t) - \frac{1}{\Delta t^{2}}\mathbf{M\lbrack}2\mathbf{U}\left( t \right)\mathbf{- U}\left( t - \Delta t \right)\rbrack - \frac{1}{2\Delta t}\mathbf{C}(t - \Delta t)\mathbf{U}
+( \frac{1}{\Delta t^{2}}\mathbf{M} + \frac{1}{2\Delta t}\mathbf{C} )\mathbf{U}( t + \Delta t ) = \mathbf{F}(t) - \mathbf{K}_{L}\mathbf{U}(t) - \frac{1}{\Delta t^{2}}\mathbf{M\lbrack}2\mathbf{U}( t )\mathbf{- U}( t - \Delta t )\rbrack - \frac{1}{2\Delta t}\mathbf{C}(t - \Delta t)\mathbf{U}
 \tag{2.5.15}$$
 
 ここで、質量マトリックス及び減衰マトリックスを次のようにおくと、式(2.5.15)は連立方程式の求解操作を不要とする。
 
-$\mathbf{M}$:質量マトリックス
-           　集中質量マトリックス
-$\mathbf{C}$:減衰マトリックス　　　　　　　　　 (2.5.16)
-           　比例減衰マトリックス $\mathbf{C}=\mathbf{\it{R}}_{m}\mathbf{M}$
+$\mathbf{M}$:質量マトリックス，集中質量マトリックス
+
+$\mathbf{C}$:減衰マトリックス(2.5.16)
+
+比例減衰マトリックス $\mathbf{C}=\mathbf{\it{R}}_{m}\mathbf{M}$
 
 $\mathbf{\it{R}}_{m}$: パラメータ
 
 従って、式(2.5.15)から**U**(t+Δt)は次式により求めることができる。
 
 $$
-\mathbf{U}\left( t + \Delta t \right) = \frac{1}{\left( \frac{1}{\Delta t^{2}}\mathbf{M} + \frac{1}{2\Delta t}\mathbf{C} \right)}\left\{ \mathbf{F}(t) - \mathbf{Q}(t) - \frac{1}{\Delta t^{2}}\mathbf{M\lbrack}2\mathbf{U}\left( t \right)\mathbf{- U}\left( t - \Delta t \right)\rbrack - \frac{1}{2\Delta t}\mathbf{C}(t - \Delta t)\mathbf{U} \right\}
+\mathbf{U}( t + \Delta t ) = \frac{1}{( \frac{1}{\Delta t^{2}}\mathbf{M} + \frac{1}{2\Delta t}\mathbf{C} )}\{ \mathbf{F}(t) - \mathbf{Q}(t) - \frac{1}{\Delta t^{2}}\mathbf{M\lbrack}2\mathbf{U}( t )\mathbf{- U}( t - \Delta t )\rbrack - \frac{1}{2\Delta t}\mathbf{C}(t - \Delta t)\mathbf{U} \}
 \tag{2.5.17}$$
