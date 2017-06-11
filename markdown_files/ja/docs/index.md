@@ -26,8 +26,7 @@
 
 ## リリースノート
 
-  - [FrontISTR ver. 4.5 リリースノート](06_release_note/00_release_note/index.html)
-  - [FrontISTR 次期バージョンに向けた今後の開発方針](06_release_note/01_release_schedule/index.html)
+  - [FrontISTR ver. 5.0 リリースノート](06_release_note/00_release_note/index.html)
 
 ## チートシート (コマンド早見表)
 

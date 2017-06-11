@@ -4,7 +4,7 @@
 
 ## Makefile.confの編集
 
-${FSTRBUILDDIR}にあるMakefile.conf.orgを、本ソフトウェアをインストールする計算機環境に合わせて編集し、Makefile.confを作成します。
+`${FSTRBUILDDIR}`にあるMakefile.conf.orgを、本ソフトウェアをインストールする計算機環境に合わせて編集し、Makefile.confを作成します。
 定義できる変数は数多くありますが、ほとんどの変数については既定値をそのまま利用できます。
 多くの環境では、下記の変数以外を変更する必要はないと思われます。
 
@@ -26,7 +26,7 @@ ${FSTRBUILDDIR}にあるMakefile.conf.orgを、本ソフトウェアをインス
 
 ## setup.shの実行
 
-${FSTRBUILDDIR}にて、シェルスクリプトsetup.shを以下のように実行し、
+`${FSTRBUILDDIR}`にて、シェルスクリプトsetup.shを以下のように実行し、
 Makefileを作成します。
 
 ```txt
@@ -121,7 +121,7 @@ installを実行します。
 $ make install
 ```
 
-## Windows環境におけるインストール
+## Windows環境へのインストール
 
 Windows環境では、以下のUNIXライク環境を用いることにより、上記の手順でインストールが可能です。
 
