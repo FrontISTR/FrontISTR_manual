@@ -1,4 +1,4 @@
-﻿site_name: FrontISTR ver. 5.0
+﻿site_name: FrontISTR ver. 4.6
 theme: bootstrap
 use_directory_urls: false
 
@@ -28,7 +28,6 @@ pages:
     - ユーザーサブルーチン: 03_analysis/analysis_06.md
 - 例題:
     - はじめに: 04_tutorial/tutorial_00.md
-    - 利用上の注意: 04_tutorial/tutorial_01.md
     - 解析手順: 04_tutorial/tutorial_02.md
     - 解析例:
         - 静解析（弾性）: 04_tutorial/tutorial_03.md

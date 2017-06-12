@@ -39,13 +39,12 @@ K U_j = \lambda_j M U_j
 K \overline{UJ} = \overline{\lambda_J} M \overline{U_J}
 \tag{2.6.4}$$
 
-これに$\overline{U_J}^T$をかけると、
+これに$\overline{U}_J^T$をかけると、
 
 $$
-U_j^T K \overline{U_J} = \overline{\lambda_J}
-U_j^T M \overline{U_J}
-
-\overline{U_J}^T K U_j = \lambda_j \overline{U_J}^T M U_j
+U_j^T K \overline{U}_J = \overline{\lambda}_J
+U_j^T M \overline{U}_J
+\overline{U}_J^T K U_j = \lambda_j \overline{U}_J^T M U_j
 \tag{2.6.5}$$
 
 を得る。式(2.6.5)より、
@@ -95,7 +94,7 @@ U_i^T M U_i = 1
 次に、減衰を考慮した場合の周波数応答解析についての定式化を示す。対象とする運動方程式を式(2.6.13)に示す。
 
 $$
-M \ddot{U} + C} \dot{U} + K U = F
+M \ddot{U} + C \dot{U} + K U = F
 \tag{2.6.13}$$
 
 ここでの減衰項はRayleigh型を想定して(2.6.14)のようにして表せるものとする。
