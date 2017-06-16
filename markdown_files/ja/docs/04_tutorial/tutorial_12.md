@@ -1,6 +1,6 @@
 ##  接触解析（その２）
 
-本解析の実施には、tutorial/ 10\_contact\_2tubes のデータを用います。
+本解析の実施には、tutorial/10\_contact\_2tubes のデータを用います。
 
 ### 解析対象
 

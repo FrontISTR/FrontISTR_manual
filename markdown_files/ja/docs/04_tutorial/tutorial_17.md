@@ -1,6 +1,6 @@
 ##  固有値解析
 
-本解析の実施には、tutorial/ 15\_eigen\_spring のデータを用います。
+本解析の実施には、tutorial/15\_eigen\_spring のデータを用います。
 
 ### 解析対象
 

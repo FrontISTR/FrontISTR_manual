@@ -1,6 +1,6 @@
 ## 静解析（超弾性その１）
 
-本解析の実施には、tutorial/ 03\_hyperelastic\_cylinder/のデータを用います。
+本解析の実施には、tutorial/03\_hyperelastic\_cylinder のデータを用います。
 
 ### 解析対象
 

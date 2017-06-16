@@ -4,7 +4,7 @@
 
 ## Makefile.confの編集
 
-`${FSTRBUILDDIR}`にあるMakefile.conf.orgを、本ソフトウェアをインストールする計算機環境に合わせて編集し、Makefile.confを作成します。
+`${FSTRBUILDDIR}` にあるMakefile.conf.orgを、本ソフトウェアをインストールする計算機環境に合わせて編集し、Makefile.confを作成します。
 定義できる変数は数多くありますが、ほとんどの変数については既定値をそのまま利用できます。
 多くの環境では、下記の変数以外を変更する必要はないと思われます。
 
@@ -26,7 +26,7 @@
 
 ## setup.shの実行
 
-`${FSTRBUILDDIR}`にて、シェルスクリプトsetup.shを以下のように実行し、
+`${FSTRBUILDDIR}` にて、シェルスクリプトsetup.shを以下のように実行し、
 Makefileを作成します。
 
 ```txt
@@ -36,7 +36,7 @@ $ ./setup.sh
 並列計算用のライブラリを生成する場合などは、下記のオプションを指定してsetup.sh
 を実行してください。
 
-## setup.sh 実行時オプション
+### setup.sh 実行時オプション
 
 | オプション | 意味 | 備考 |
 |:--|:--|:--|
@@ -57,8 +57,7 @@ $ ./setup.sh
 
 ### 並列処理用にコンパイルする場合
 
-MPIがインストールされている並列実行環境で本ソフトウェアを使用する場合、以下のように-pまたは--parallel
-オプションを付けてsetup.shを起動します。
+MPIがインストールされている並列実行環境で本ソフトウェアを使用する場合、以下のように** -p **または** --parallel **オプションを付けてsetup.shを起動します。
 
 ```txt
 $ ./setup.sh –p
@@ -66,7 +65,7 @@ $ ./setup.sh –p
 
 ### パーティショナーなどのツールを生成する場合
 
-パーティショナー（RCB）やビジュアライザーなどのプリ・ポスト処理用ツールが必要な場合、以下のように-with-toolsオプションを付けてsetup.shを実行すると、各種ツールが生成されます。
+パーティショナー（RCB）やビジュアライザーなどのプリ・ポスト処理用ツールが必要な場合、以下のように** -with-tools **オプションを付けてsetup.shを実行すると、各種ツールが生成されます。
 
 ```txt
 $ ./setup.sh –p --with-tools
@@ -74,7 +73,7 @@ $ ./setup.sh –p --with-tools
 
 ### METISを使用する場合
 
-METISがインストールされている環境では、さらに以下のように--with-metisオプションを付けてsetup.shを実行すると、パーティショナーにおいてMETISの使用が可能となります。
+METISがインストールされている環境では、さらに以下のように** --with-metis **オプションを付けてsetup.shを実行すると、パーティショナーにおいてMETISの使用が可能となります。
 
 ```txt
 $ ./setup.sh –p --with-tools --with-metis
@@ -82,8 +81,7 @@ $ ./setup.sh –p --with-tools --with-metis
 
 ### 接触解析用にコンパイルする場合
 
-接触解析用にコンパイルする場合、並列なしの場合と並列ありの場合の2通りの方法があります。並列なしの場合は、Intel
-MKLまたはMUMPSの利用が必要となります。
+接触解析用にコンパイルする場合、並列なしの場合と並列ありの場合の2通りの方法があります。並列なしの場合は、Intel MKLまたはMUMPSの利用が必要となります。
 
 ```txt
 $ ./setup.sh --with-mkl
@@ -95,8 +93,7 @@ $ ./setup.sh --with-mkl
 $ ./setup.sh --with-mumps
 ```
 
-並列ありで接触解析を行う場合は、-p、--with-metisオプションも必要となります。また並列ありの場合はIntl
-MKLは使えません。
+並列ありで接触解析を行う場合は、** -p **、** --with-metis  **オプションも必要となります。また並列ありの場合はIntel MKLは使えません。
 
 ```txt
 $ ./setup.sh –p --with-metis --with_mumps --with_paracon
@@ -104,7 +101,7 @@ $ ./setup.sh –p --with-metis --with_mumps --with_paracon
 
 ## makeの実行
 
-`\${FSTRBUILDDIR}`にて、以下のようにmakeを実行します。
+`${FSTRBUILDDIR}` にて、以下のようにmakeを実行します。
 
 ```txt
 $ make 2 > & 1 | tee make.log
@@ -114,8 +111,8 @@ makeの実行には、計算機環境によっては数十分かかる場合が�
 
 ## make installの実行
 
-makeの実行が正常に終了した後、Makefile.confで指定したディレクトリに本ソフトウェアをインストールするために、以下のようにmake
-installを実行します。
+makeの実行が正常に終了した後、Makefile.confで指定したディレクトリに本ソフトウェアをインストールするために、
+以下のようにmake installを実行します。
 
 ```txt
 $ make install

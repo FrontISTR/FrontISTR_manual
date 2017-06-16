@@ -1,6 +1,6 @@
 ## 接触解析（その１）
 
-本解析の実施には、tutorial/ 09\_contact\_hertz のデータを用います。
+本解析の実施には、tutorial/09\_contact\_hertz のデータを用います。
 
 ### 解析対象
 

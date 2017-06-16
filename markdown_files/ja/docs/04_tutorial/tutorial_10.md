@@ -1,6 +1,6 @@
 ## 静解析（クリープ）
 
-本解析の実施には、tutorial/ 08\_creep \_cylinder のデータを用います。
+本解析の実施には、tutorial/08\_creep \_cylinder のデータを用います。
 
 ### 解析対象
 

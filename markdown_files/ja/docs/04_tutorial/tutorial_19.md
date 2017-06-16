@@ -1,6 +1,6 @@
 ## 周波数応答解析
 
-本解析の実施には、tutorial/ 17\_freq\_beamのデータを用います。
+本解析の実施には、tutorial/17\_freq\_beam のデータを用います。
 解析手順として、まず固有値解析用の全体制御データhecmw\_ctrl\_eigen.datをhecmw\_ctrl.datと変更し固有値解析を行い、周波数応答解析用の全体制御データhecmw\_ctrl\_freq.datをhecmw\_ctrl.dat、固有値解析の解析結果ログファイル0.logをeigen\_0.log（周波数応答解析用の解析制御データ内で指定されている）と変更し、周波数応答解析を行います。
 
 ### 解析対象

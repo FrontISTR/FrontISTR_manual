@@ -1,6 +1,6 @@
 ## 静解析（超弾性その２）
 
-本解析の実施には、tutorial/ 04\_hyperelastic\_spring/のデータを用います。
+本解析の実施には、tutorial/04\_hyperelastic\_spring のデータを用います。
 
 ### 解析対象
 

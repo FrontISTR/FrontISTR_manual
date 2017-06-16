@@ -1,6 +1,6 @@
 ##  接触解析（その３）
 
-本解析の実施には、tutorial/ 11\_contact\_2beam のデータを用います。
+本解析の実施には、tutorial/11\_contact\_2beam のデータを用います。
 
 ### 解析対象
 

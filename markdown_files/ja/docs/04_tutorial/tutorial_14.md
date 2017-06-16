@@ -1,6 +1,6 @@
 ##  線形動解析
 
-本解析の実施には、tutorial/ 12\_dynamic\_beam/ のデータを用います。
+本解析の実施には、tutorial/12\_dynamic\_beam のデータを用います。
 
 ### 解析対象
 

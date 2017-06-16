@@ -79,8 +79,8 @@ $$
 ベクトル形式で表された応力$\hat{\sigma}$、$\hat{\varepsilon}$および式(2.1.9)を考慮して、式(2.1.8)は次式のように表わされる。
 
 $$
-\int_V \hat{\varepsilon}^t D \delta \hat{\varepsilon} dV = \int_{S_t}
-\delta u^t \overline{t} dS + \int_V \delta u^t \overline{b} dV
+\int_V \hat{\varepsilon}^T D \delta \hat{\varepsilon} dV = \int_{S_t}
+\delta u^T \overline{t} dS + \int_V \delta u^T \overline{b} dV
 \tag{2.1.10}$$
 
 式(2.1.10)および式(2.1.7)が、本開発コードにおいて離散化される仮想仕事の原理である。
@@ -90,8 +90,8 @@ $$
 仮想仕事の原理式(2.1.10)を有限要素ごとに離散化して次式を得る。
 
 $$
-\sum_{e} = \int_{V^e} \hat{\varepsilon}^t D \delta \hat{\varepsilon} dV = \sum_{e} \int_{S^e_t}
-\delta u^t \overline{t} dS + \sum_{e} \int_{V^e} \delta u^t \overline{b} dV
+\sum_{e} = \int_{V^e} \hat{\varepsilon}^T D \delta \hat{\varepsilon} dV = \sum_{e} \int_{S^e_t}
+\delta u^T \overline{t} dS + \sum_{e} \int_{V^e} \delta u^T \overline{b} dV
 \tag{2.1.11}$$
 
 要素ごとに、要素を構成する節点の変位を用いて変位場を次式のように内挿する。
@@ -108,27 +108,27 @@ $$
 式(2.1.12)、式(2.1.13)を式(2.1.11)に代入して、次式を得る。
 
 $$
-\sum_e \delta U^t ( \int_{V^e} B^t DB dV )
-U = \sum_e \delta U^t \cdot \int_{S_t^e}
-N^t \overline{t} dS + \sum_{e} \delta U^t \int_{V^e} N^t
+\sum_e \delta U^T ( \int_{V^e} B^T DB dV )
+U = \sum_e \delta U^T \cdot \int_{S_t^e}
+N^T \overline{t} dS + \sum_{e} \delta U^T \int_{V^e} N^T
 \overline{b} dV
 \tag{2.1.14}$$
 
 式(2.1.14)は次式のようにまとめることができる。
 
 $$
-\delta U^t K U = \delta U^t F
+\delta U^T K U = \delta U^T F
 \tag{2.1.15}$$
 
 ここで、
 式(2.1.16)、式(2.1.17)で定義されるマトリクスおよびベクトルの成分は、有限要素ごとに計算し、重ねあわせることができる。
 
 $$
-K = \sum_e \int_{V^e} B^t DB dV
+K = \sum_e \int_{V^e} B^T DB dV
 \tag{2.1.16}$$
 
 $$
-F = \sum_e (\int_{S_t^e} N^t \overline{t} dS + \int_{V^e} N^t \overline{b} dV )
+F = \sum_e (\int_{S_t^e} N^T \overline{t} dS + \int_{V^e} N^T \overline{b} dV )
 \tag{2.1.17}$$
 
 式(2.1.15)が、任意の仮想変位$\delta U$について成立することにより次式を得る。

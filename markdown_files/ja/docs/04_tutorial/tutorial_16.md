@@ -1,6 +1,6 @@
 ##  非線形接触動解析
 
-本解析の実施には、tutorial/ 14\_dynamic\_plate\_contact のデータを用います。
+本解析の実施には、tutorial/14\_dynamic\_plate\_contact のデータを用います。
 
 ### 解析対象
 

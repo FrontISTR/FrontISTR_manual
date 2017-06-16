@@ -4,14 +4,14 @@
 このアーカイブファイルを、以下のコマンドで解凍・展開します。
 
 ```txt
-$ tar xzf FrontISTR_V46.tar.gz
+$ tar xzf FrontISTR_V50.tar.gz
 ```
 
 本ソフトウェアをインストールする環境のtarコマンドがzオプションをサポートしていない場合は、以下のコマンドで解凍・展開します。
 
 ```txt
-$ gzip –dc FrontISTR_V46.tar.gz | tar xf –
+$ gzip –dc FrontISTR_V50.tar.gz | tar xf –
 ```
 
-アーカイブファイルを解凍・展開すると、アーカイブを展開したディレクトリに`FrontISTR`というディレクトリが作成されます。
-以下、このディレクトリを`${FSTRBUILDDIR}`と記します。
+アーカイブファイルを解凍・展開すると、アーカイブを展開したディレクトリに `FrontISTR` というディレクトリが作成されます。
+以下、このディレクトリを `${FSTRBUILDDIR}` と記します。
