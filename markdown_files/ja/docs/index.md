@@ -34,5 +34,5 @@
 
 ## クイックインストールガイド
 
-  - [FrontISTR ver. 4.5 のインストール (ubuntu 16.04 LTS)](08_quick_guide/00_FrontISTR_install_quickguide_ubuntu/index.html)
-  - [FrontISTR ver. 4.5 のインストール (Windows10 - MinGW-w64)](08_quick_guide/01_FrontISTR_install_quickguide_windows/index.html)
+  - [FrontISTR ver. 4.6 のインストール (ubuntu 16.04 LTS)](08_quick_guide/00_FrontISTR_install_quickguide_ubuntu/index.html)
+  - [FrontISTR ver. 4.6 のインストール (Windows10 - MinGW-w64)](08_quick_guide/01_FrontISTR_install_quickguide_windows/index.html)
