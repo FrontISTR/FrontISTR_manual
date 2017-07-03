@@ -1,4 +1,4 @@
-# FrontISTR v4.5のインストール
+# FrontISTR v4.6のインストール
 ## (Windows10 - MinGW-w64)
 
 ここでは、Windowsで動くFrontISTRの構築方法を紹介します。
@@ -15,18 +15,18 @@ windows用の開発環境として、Git for windows SDKのMinGW-w64を用いま
 
 <https://github.com/git-for-windows/build-extra/releases>
 
-から `git-sdk-installer-1.0.3.7z.exe` をダウンロードして、インストールしてください。
+から `git-sdk-installer-1.0.3-64.7z.exe` をダウンロードして、インストールしてください。
 
 インストールの最後に
 
-```txt
+~~~txt
 Generating catalog po/ru.msg
 msgfmt --statistics --tcl po/ru.po -l ru -d po/
 307 ﾂﾌ|bZ[W.
 make[1]: *** [Makefile:76: po/ru.msg] エラー 1
 make: *** [Makefile:1656: all] エラー 2
 続行するには何かキーを押してください . . .
-```
+~~~
 
 というエラーが出ますが、これは無視して構いません。
 
@@ -36,9 +36,9 @@ make: *** [Makefile:1656: all] エラー 2
 
 次に、コンパイルに必要なパッケージをインストールします。
 
-```txt
+~~~txt
 (MSYS) pacman -S mingw-w64-x86_64-cmake mingw-w64-x86_64-qt5
-```
+~~~
 
 `cmake-gui`を使う場合、`mingw-w64-x86_64-qt5`パッケージもインストールしてください。
 
@@ -46,25 +46,25 @@ Tips : `mingw-w64-x86_64-qt5` のインストールは必ずしも必要あり�
 
 これでコンパイラなどがインストールされますので、念のため確認をして下さい。
 
-```txt
+~~~txt
 (MSYS) gcc -v
 (MSYS) gfortran -v
 (MSYS) cmake --version
-```
+~~~
 
 作業に先立ち、ディレクトリを作成してください。 作業ディレクトリは`$HOME/work`とし、ライブラリは`$HOME/local`以下にインストールします。
 
-```txt
+~~~txt
 (MSYS) mkdir $HOME/work
 (MSYS) mkdir -p $HOME/local/lib
 (MSYS) mkdir $HOME/local/include
-```
+~~~
 
 ## Microsoft MPIのインストール
 
 MPIにはMicrosoft MPIを使います。
 
-[Download Microsoft MPI v7.1 from Official Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=52981)
+[Download Microsoft MPI v8.1 from Official Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55494)
 
 から、SDKの`msmpisdk.msi`とランタイムの`MSMpiSetup.exe`をダウンロードしインストールをしてください。
 
@@ -72,29 +72,29 @@ MPIにはMicrosoft MPIを使います。
 
 Microsoft MPIをMinGW-w64の`gcc`や`gfortran`でリンクするための作業をします。
 
-```txt
+~~~txt
 (MINGW64) cd $HOME/local/lib/
 (MINGW64) gendef /c/Windows/System32/msmpi.dll
 (MINGW64) dlltool -d msmpi.def -l libmsmpi.a -D /c/Windows/System32/msmpi.dll
 (MINGW64) ls
 libmsmpi.a  msmpi.def
-```
+~~~
 
 MinGW-w64環境でリンクできるMicrosoft MPIのライブラリが作成されました。
 
 次にヘッダファイルをコピーします。
 
-```txt
+~~~txt
 (MINGW64) cd $HOME/local/include
 (MINGW64) cp /c/Program\ Files\ \(x86\)/Microsoft\ SDKs/MPI/Include/*.h .
 (MINGW64) cp /c/Program\ Files\ \(x86\)/Microsoft\ SDKs/MPI/Include/x64/*.h .
 (MINGW64) ls
 mpi.h  mpif.h  mpifptr.h  mpio.h  mspms.h  pmidbg.h
-```
+~~~
 
 `mpi.h`に変更を加えます。
 
-```txt
+~~~txt
 (MINGW64) vi mpi.h
 
 #ifndef MPI_INCLUDED
@@ -102,11 +102,11 @@ mpi.h  mpif.h  mpifptr.h  mpio.h  mspms.h  pmidbg.h
 のすぐ下に
 #include <stdint.h>
 を追加する。
-```
+~~~
 
 更に`mpif.h`に変更を加えます。
 
-```txt
+~~~txt
 (MINGW64) vi mpif.h
 
 407行目
@@ -114,7 +114,7 @@ PARAMETER (MPI_ADDRESS_KIND=INT_PTR_KIND())
 を
 PARAMETER (MPI_ADDRESS_KIND=8)
 へ変更する。
-```
+~~~
 
 以上でMicrosoft MPIをMinGW-w64でリンクする準備が出来ました。
 
@@ -139,13 +139,13 @@ FrontISTRと必要なライブラリをダウンロードしてください。
 
 ライブラリ名                 | ダウンロード先                                                 | 備考
 ---------------------- | ------------------------------------------------------- | ----------------
-FrontISTR_V45.tar.gz   | <http://www.multi.k.u-tokyo.ac.jp/FrontISTR>            | 要ユーザ登録
+FrontISTR_V46.tar.gz   | <http://www.multi.k.u-tokyo.ac.jp/FrontISTR>            | 要ユーザ登録
 REVOCAP_Refiner-1.1.04 | <http://www.multi.k.u-tokyo.ac.jp/FrontISTR>            | 要ユーザ登録
-OpenBLAS-0.2.18        | <http://www.openblas.net>                               | ソースをダウンロード
+OpenBLAS-0.2.19        | <http://www.openblas.net>                               | ソースをダウンロード
 metis-5.1.0            | <http://glaros.dtc.umn.edu/gkhome/metis/metis/download> | scotch-metisも利用可
 scalapack-2.0.2        | <http://www.netlib.org/scalapack/>                      | MUMPSで利用
-MUMPS_5.0.1            | <http://mumps.enseeiht.fr/>                             | 要ユーザ登録
-trilinos-12.6.4        | <https://trilinos.org/download/>                        | 要ユーザ登録
+MUMPS_5.1.1            | <http://mumps.enseeiht.fr/>                             | 要ユーザ登録
+trilinos-12.10.1        | <https://trilinos.org/download/>                        | 要ユーザ登録
 
 ダウンロードしたファイルは`$HOME/work`に置いてください。
 
@@ -155,22 +155,22 @@ trilinos-12.6.4        | <https://trilinos.org/download/>                       
 
 OpenBLASは、高速なLAPACK/BLASのフリーの実装です。OpenMPを有効にしたライブラリを構築します。
 
-```txt
+~~~txt
 (MINGW64) cd $HOME/work
 (MINGW64) tar xvf OpenBLAS-0.2.18.tar.gz
 (MINGW64) cd OpenBLAS-0.2.18
 (MINGW64) make BINARY=64 NO_SHARED=1 USE_OPENMP=1
 (MINGW64) make PREFIX=$HOME/local install
-```
+~~~
 
 `make install`をすると、
 
-```txt
+~~~txt
 cp: cannot stat 'libopenblas.dll': No such file or directory
 make[1]: [Makefile.install:52: install] Error 1 (ignored)
 cp: cannot stat 'libopenblas.dll.a': No such file or directory
 make[1]: [Makefile.install:53: install] Error 1 (ignored)
-```
+~~~
 
 というエラーが表示されますが、今回はDLLを作成していないので無視してください。
 
@@ -182,10 +182,10 @@ OpenBLASにはLAPACKも含まれます。リンクするには `-llapack`の代�
 
 OpenMPを有効にしたライブラリを構築します。
 
-```txt
+~~~txt
 (MINGW64) tar xvf metis-5.1.0.tar.gz
 (MINGW64) cd metis-5.1.0
-```
+~~~
 
 #### ファイルの修正
 
@@ -199,25 +199,25 @@ OpenMPを有効にしたライブラリを構築します。
 
 ##### CMakeLists.txt
 
-```txt
+~~~txt
 (MINGW64) vi CMakeLists.txt
 set(GKLIB_PATH "GKlib" CACHE PATH "path to GKlib")
 と書かれている部分を
 set(GKLIB_PATH "${CMAKE_SOUCE_DIR}/GKlib" CACHE PATH "path to GKlib")
 に修正
-```
+~~~
 
 ##### GKlib/gk_arch.h
 
-```txt
+~~~txt
 (MINGW64) vi GKlib/gk_arch.h
 #include <sys/resource.h>
 を削除
-```
+~~~
 
 ##### GKlib/gk_getopt.h
 
-```txt
+~~~txt
 /* Function prototypes */
 extern int gk_getopt(int __argc, char **__argv, char *__shortopts);
 extern int gk_getopt_long(int __argc, char **__argv, char *__shortopts,
@@ -225,33 +225,33 @@ extern int gk_getopt_long(int __argc, char **__argv, char *__shortopts,
 extern int gk_getopt_long_only (int __argc, char **__argv,
               char *__shortopts, struct gk_option *__longopts, int *__longind);
 を削除
-```
+~~~
 
 #### コンパイル
 
 ファイルを修正したら`cmake`を実行してライブラリを構築します。
 
-```txt
+~~~txt
 (MINGW64) cd build
 (MINGW64) cmake -G "MSYS Makefiles" -DCMAKE_INSTALL_PREFIX=$HOME/local \
             -DCMAKE_BUILD_TYPE="Release" -DOPENMP=ON ..
 (MINGW64) make
 (MINGW64) make install
-```
+~~~
 
 ### Scalapackの構築
 
 scalapackは、この後説明をするMUMPSの構築に必要となります。
 
-```txt
+~~~txt
 (MINGW64) cd $HOME/work
 (MINGW64) tar xvf scalapack-2.0.2.tgz
 (MINGW64) cd scalapack-2.0.2
-```
+~~~
 
 サンプルの`SLmake.inc.example`を`SLmake.inc`としてコピーして書き換えます。
 
-```txt
+~~~txt
 (MINGW64) cp SLmake.inc.example SLmake.inc
 (MINGW64) vi SLmake.inc
 
@@ -276,33 +276,33 @@ CCLOADFLAGS   = $(CCFLAGS) -L$(HOME)/local/lib -lmsmpi
 BLASLIB       = -L$(HOME)/local/lib -lopenblas
 LAPACKLIB     =
 LIBS          = $(LAPACKLIB) $(BLASLIB)
-```
+~~~
 
 書き換えが済んだらライブラリを構築します。
 
-```txt
+~~~txt
 (MINGW64) make
-```
+~~~
 
 `make`をするとエラーが出ますが、`BLACS/TESTING`のエラーなので無視します。
 
-```txt
+~~~txt
 (MINGW64) cp libscalapack.a $HOME/local/lib
-```
+~~~
 
 ### MUMPSの構築
 
 MUMPSは直接法のソルバです。
 
-```txt
+~~~txt
 (MINGW64) cd $HOME/work
 (MINGW64) tar xvf MUMPS_5.0.1.tar.gz
 (MINGW64) cd MUMPS_5.0.1
-```
+~~~
 
 `Make.inc`ディレクトリにある、`Makefile.inc.generic`を元に`Makefile.inc`を環境に合わせた内容へ書き換えます。
 
-```txt
+~~~txt
 (MINGW64) cp Make.inc/Makefile.inc.generic Makefile.inc
 (MINGW64) vi Makefile.inc
 
@@ -329,22 +329,22 @@ LIBOTHERS = -lpthread -fopenmp
 OPTF    = -O -DMUMPS_OPENMP
 OPTC    = -O -I. -DMUMPS_OPENMP
 OPTL    = -O
-```
+~~~
 
 ファイルの修正が済んだらライブラリを構築します。
 
-```txt
+~~~txt
 (MINGW64) make
-```
+~~~
 
 ### Trilinos MLの構築
 
 Trilinosには多くのライブラリ含まれていますが、FrontISTRに必要なのは`ML`と`zoltan`だけです。
 
-```txt
+~~~txt
 (MINGW64) cd $HOME/work
-(MINGW64) tar xvf trilinos-12.6.4-Source.tar.gz
-(MINGW64) cd trilinos-12.6.4-Source
+(MINGW64) tar xvf trilinos-12.10.1-Source.tar.gz
+(MINGW64) cd trilinos-12.10.1-Source
 (MINGW64) mkdir build
 (MINGW64) cd build
 (MINGW64) cmake \
@@ -369,39 +369,39 @@ Trilinosには多くのライブラリ含まれていますが、FrontISTRに必
             ..
 (MINGW64) make
 (MINGW64) make install
-```
+~~~
 
 ### REVOCAP_Refinerの構築
 
 REVOCAP_Refinerをコンパイルします。
 
-```txt
+~~~txt
 (MINGW64) cd $HOME/work
 (MINGW64) tar xvf REVOCAP_Refiner-1.1.04.tar.gz
 (MINGW64) cd REVOCAP_Refiner-1.1.04
 (MINGW64) make
-```
+~~~
 
 ## FrontISTRの構築
 
 必要なライブラリの導入が済んだらFrontISTRを構築します。
 
-```txt
+~~~txt
 (MINGW64) cd $HOME/work
-(MINGW64) tar xvf FrontISTR_V45.tar.gz
-(MINGW64) cd FrontISTR_V45
-```
+(MINGW64) tar xvf FrontISTR_V46.tar.gz
+(MINGW64) cd FrontISTR-4.6
+~~~
 
 サンプルの`Makefile.conf.org`を`Makefile.conf`としてコピーして書き換えます。
 
-```txt
+~~~txt
 (MINGW64) cp Makefile.conf.org Makefile.conf
 (MINGW64) vi Makefile.conf
-```
+~~~
 
 以下の内容で`Makefile.conf`を編集してください。
 
-```
+~~~
 (MINGW64) vi Makefile.conf
 
 ##################################################
@@ -487,7 +487,7 @@ MV             = mv -f
 CP             = cp -f
 RM             = rm -f
 MKDIR          = mkdir -p
-```
+~~~
 
 - この手順で用いるMETISはVersion5.1.0です。`HECMW_METIS_VER = 5`を指定してください。
 - gfortranのプリプロセッサ指定は `-cpp`です。`F90FPP = -cpp`を指定してください。
@@ -495,7 +495,7 @@ MKDIR          = mkdir -p
 
 さらに`Makefile.am`を編集し構築する必要のない部分を除外します。
 
-```txt
+~~~txt
 (MINGW64) vi Makefile.am
 
 PREFIX     = @prefix@
@@ -545,30 +545,30 @@ install:
 #       @cd hecmw2 && $(MAKE) install
 #       @cd fistr2 && $(MAKE) install
         @cd fistr  && $(MAKE) install
-```
+~~~
 
 `hecmw2`および`fistr2`は構築しませんので、コメントアウトしてください。
 
 編集が出来たら`setup.sh`を実行してください。
 
-```txt
+~~~txt
 (MINGW64) ./setup.sh -p --with-tools --with-refiner --with-metis --with-mumps --with-lapack --with-ml
-```
+~~~
 
 `setup.sh`の実行が住んだらコンパイルしてバイナリを作成します。
 
-```txt
+~~~txt
 (MINGW64) make
 (MINGW64) make install
-```
+~~~
 
 構築したバイナリをインストールをすると、`$(HOME)/FrontISTR/bin`以下に
 
-```txt
+~~~txt
 (MINGW64) ls $HOME/FrontISTR/bin
 fistr1.exe    hecmw_part1.exe  neu2fstr.exe  rmerge.exe
 hec2rcap.exe  hecmw_vis1.exe   rconv.exe
-```
+~~~
 
 などのバイナリがコピーされます。
 
@@ -576,13 +576,13 @@ hec2rcap.exe  hecmw_vis1.exe   rconv.exe
 
 必要なDLLは
 
-```txt
+~~~txt
 libwinpthread-1.dll
 libgfortran-3.dll
 libgcc_s_seh-1.dll
 libgomp-1.dll
 libstdc++-6.dll
 libquadmath-0.dll
-```
+~~~
 
 と`msmpi.dll`および`mpiexec.exe`になりますが、これらはインストーラで`MSMpiSetup.exe` を実行した時点で`PATH`が通っています。

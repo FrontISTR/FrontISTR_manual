@@ -1,4 +1,4 @@
-# FrontISTR v4.5のインストール
+# FrontISTR v4.6のインストール
 ## (ubuntu 16.04 LTS)
 
 ここでは、FrontISTRをUbuntu 16.04 LTSで手軽に構築する方法を紹介します。
@@ -24,7 +24,7 @@ FrontISTRは[東京大学 奥田研究室](http://www.multi.k.u-tokyo.ac.jp/)で
 
 |ソフトウェア           | 入手先                                      |
 |---------------------- | --------------------------------------------|
-|FrontISTR_V45.tar.gz   | <http://www.multi.k.u-tokyo.ac.jp/FrontISTR>|
+|FrontISTR_V46.tar.gz   | <http://www.multi.k.u-tokyo.ac.jp/FrontISTR>|
 |REVOCAP_Refiner-1.1.04 | <http://www.multi.k.u-tokyo.ac.jp/FrontISTR>|
 
 ## 必要なライブラリの導入
@@ -33,22 +33,22 @@ FrontISTRは[東京大学 奥田研究室](http://www.multi.k.u-tokyo.ac.jp/)で
 
 上記以外のソフトはバイナリパッケージから導入します。
 
-```txt
+~~~txt
 % sudo apt install build-essensial
 % sudo apt install libtrilinos-ml-dev
 % sudo apt install libtrilinos-aztecoo-dev libtrilinos-zoltan-dev
 % sudo apt install libopenblas-dev libmumps-dev libmetis-dev
-```
+~~~
 
 ### REVOCAP_Refinerの構築
 
 REVOCAP_Refinerをコンパイルします。
 
-```txt
+~~~txt
 % tar xvf REVOCAP_Refiner-1.1.04.tar.gz
 % cd REVOCAP_Refiner-1.1.04
 % make
-```
+~~~
 
 ## FrontISTRの構築
 
@@ -67,14 +67,14 @@ FrontISTRで有効にする機能は
 
 です。これらの機能を有効にしたバイナリを作成します。
 
-```txt
-% tar xvf FrontISTR_V45.tar.gz
-% cd FrontISTR_V45
-```
+~~~txt
+% tar xvf FrontISTR_V46.tar.gz
+% cd FrontISTR-4.6
+~~~
 
 さらに`Makefile.am`を編集し構築する必要のない部分を除外します。
 
-```txt
+~~~txt
 % vi Makefile.am
 PREFIX     = @prefix@
 BINDIR     = @bindir@
@@ -123,20 +123,20 @@ install:
 #       @cd hecmw2 && $(MAKE) install
 #       @cd fistr2 && $(MAKE) install
         @cd fistr  && $(MAKE) install
-```
+~~~
 
 `hecmw2`および`fistr2`は構築しませんので、コメントアウトしてください。
 
 ### Makefile.confの編集
 
-```txt
+~~~txt
 % cp Makefile.conf.org Makefile.conf
 % vi Makefile.conf
-```
+~~~
 
 以下の内容で`Makefile.conf`を編集してください。
 
-```txt
+~~~txt
 ##################################################
 #                                                #
 #     Setup Configulation File for FrontISTR     #
@@ -148,7 +148,7 @@ MPIDIR         = /usr/lib/openmpi
 MPIBINDIR      = /usr/bin
 MPILIBDIR      = $(MPIDIR)/lib
 MPIINCDIR      = $(MPIDIR)/include
-MPILIBS        = -lmpi -lmpi_mpifh
+MPILIBS        = -lmpi -lmpi_mpifh -lmpi_cxx
 
 # for install option only
 PREFIX         = $(HOME)/FrontISTR
@@ -219,7 +219,7 @@ MV             = mv -f
 CP             = cp -f
 RM             = rm -f
 MKDIR          = mkdir -p
-```
+~~~
 
 この手順で用いるMETISはVersion5.1.0です。`HECMW_METIS_VER = 5`を指定してください。
 
@@ -227,23 +227,23 @@ gfortranのプリプロセッサ指定は `-cpp`です。`F90FPP = -cpp`を指�
 
 編集が出来たら`setup.sh`を実行してください。
 
-```txt
+~~~txt
 % ./setup.sh -p --with-tools --with-refiner --with-metis --with-mumps --with-lapack --with-ml
-```
+~~~
 
 `setup.sh`の実行が済んだらコンパイルしてバイナリを作成します。
 
-```txt
+~~~txt
 % make
 % make install
-```
+~~~
 
 構築したバイナリをインストールをすると、`$(HOME)/FrontISTR/bin`以下に
 
-```txt
+~~~txt
 % ls $HOME/FrontISTR/bin
 fistr1  hec2rcap  hecmw_part1  hecmw_vis1  neu2fstr  rconv  rmerge
-```
+~~~
 
 などのバイナリがコピーされ実行できる状態になります。
 
@@ -271,11 +271,21 @@ FrontISTRを構築するのに必要なライブラリは
 
 |ライブラリ名    |ダウンロード先                                         |備考                          |
 |----------------|-------------------------------------------------------|------------------------------|
-|OpenBLAS-0.2.18 |<http://www.openblas.net>                              |リファレンスのLAPACKよりも速い|
+|OpenBLAS-0.2.19 |<http://www.openblas.net>                              |リファレンスのLAPACKよりも速い|
 |metis-5.1.0     |<http://glaros.dtc.umn.edu/gkhome/metis/metis/download>|scotch-metisも利用可          |
 |scalapack-2.0.2 |<http://www.netlib.org/scalapack/>                     |MUMPSで利用                   |
-|MUMPS_5.0.1     |<http://mumps.enseeiht.fr/>                            |要ユーザ登録                  |
-|trilinos-12.6.4 |<https://trilinos.org/download/>                       |要ユーザ登録                  |
+|MUMPS_5.1.1     |<http://mumps.enseeiht.fr/>                            |要ユーザ登録                  |
+|trilinos-12.10.1 |<https://trilinos.org/download/>                       |要ユーザ登録                  |
+
+### ライブラリのインストール先
+
+ライブラリは `$HOME/local` にインストールするものとします。また、`$HOME/local/bin` へ`PATH`を通しておくと便利です。
+
+~~~txt
+% mkdir -p $HOME/local/bin
+% cd $HOME/local/bin
+% export PATH=`pwd`:$PATH
+~~~
 
 ### OpenBLASの構築
 
@@ -283,12 +293,12 @@ OpenBLASは、高速なLAPACK/BLASのフリーの実装です。
 
 OpenMPを有効にしたライブラリを構築します。
 
-```txt
-% tar xvf OpenBLAS-0.2.18.tar.gz
-% cd OpenBLAS-0.2.18
+~~~txt
+% tar xvf OpenBLAS-0.2.19.tar.gz
+% cd OpenBLAS-0.2.19
 % make BINARY=64 NO_SHARED=1 USE_OPENMP=1
 % make PREFIX=$HOME/local install
-```
+~~~
 
 OpenBLASをLAPACKとして利用する場合、`-llapack`の代わりに`-lopenblas`と指定してください。
 
@@ -300,29 +310,13 @@ OpenMPを有効にしたライブラリを構築します。
 
 METISの構築には`cmake`が必要ですので、予めインストールしておいてください。
 
-```txt
+~~~txt
 % tar xvf metis-5.1.0.tar.gz
 % cd metis-5.1.0
-```
-
-metisのトップディレクトリにある`CMakeLists.txt`にはバグがありますので、修正をしてください。
-
-```txt
-% vi CMakeLists.txt
-set(GKLIB_PATH "GKlib" CACHE PATH "path to GKlib")
-と書かれている部分を
-set(GKLIB_PATH "${CMAKE_SOUCE_DIR}/GKlib" CACHE PATH "path to GKlib")
-に修正
-```
-
-`CMakeLists.txt`を修正したら`cmake`を実行してライブラリを構築します。
-
-```txt
-% cd build
-% cmake -DCMAKE_INSTALL_PREFIX=$HOME/local -DCMAKE_BUILD_TYPE="Release" -DOPENMP=ON ..
+% make config prefix=$HOME/local cc=gcc openmp=1
 % make
 % make install
-```
+~~~
 
 ### Scalapackの構築
 
@@ -330,28 +324,32 @@ scalapackは、この後説明をするMUMPSの構築に必要となります。
 
 また、scalapackの構築には、予めMPIがインストールされている必要があります。
 
-```txt
+~~~txt
 % tar xvf scalapack-2.0.2.tgz
 % cd scalapack-2.0.2
 % mkdir build
 % cd build
-% cmake -DCMAKE_INSTALL_PREFIX=$HOME/local ..
+% cmake -DCMAKE_INSTALL_PREFIX=$HOME/local \
+  -DCMAKE_EXE_LINKER_FLAGS=-fopenmp \
+  -DLAPACK_LIBRARIES=$HOME/local/lib/libopenmp.a \
+  -DBLAS_LIBRARIES=$HOME/local/lib/libopenmp.a \
+   ..
 % make
 % make install
-```
+~~~
 
 ### MUMPSの構築
 
 MUMPSは直接法のソルバです。
 
-```txt
+~~~txt
 % tar xvf MUMPS_5.0.1.tar.gz
 % cd MUMPS_5.0.1
-```
+~~~
 
 `Make.inc`ディレクトリにある、`Makefile.inc.generic`を元に`Makefile.inc`を環境に合わせた内容へ書き換えます。
 
-```txt
+~~~txt
 % cp Make.inc/Makefile.inc.generic Makefile.inc
 % vi Makefile.inc
 LMETISDIR = $(HOME)/local
@@ -370,24 +368,31 @@ INCPAR = -I/usr/lib/openmpi/include
 
 LIBPAR  = $(SCALAP) -L/usr/lib/openmpi -lmpi -lmpi_mpifh
 
-OPTF    = -O -DMUMPS_OPENMP
-OPTC    = -O -I. -DMUMPS_OPENMP
+OPTF    = -O
+OPTC    = -O -I.
 OPTL    = -O
-```
+~~~
 
 ファイルの修正が済んだらライブラリを構築します。
 
-```txt
+~~~txt
 % make
-```
+~~~
+
+`make`ライブラリの構築が終了したら、ファイルをコピーします。
+
+~~~txt
+% cp lib/*.a $HOME/local/lib
+% cp include/*.h $HOME/local/include
+~~~
 
 ### Trilinos MLの構築
 
 Trilinosには多くのライブラリ含まれていますが、FrontISTRに必要なのは`ML`と`zoltan`だけです。
 
-```txt
-% tar xvf trilinos-12.6.4-Source.tar.gz
-% cd trilinos-12.6.4-Source
+~~~txt
+% tar xvf trilinos-12.10.1-Source.tar.gz
+% cd trilinos-12.10.1-Source
 % mkdir build
 % cd build
 % cmake \
@@ -402,6 +407,6 @@ Trilinosには多くのライブラリ含まれていますが、FrontISTRに必
   ..
 % make
 % make install
-```
+~~~
 
 ここで示した手順では、ライブラリを`$HOME/local`以下にインストールをしました。Ubuntu以外のOSでも基本的には同様に構築することができます。
