@@ -28,7 +28,6 @@ pages:
     - ユーザーサブルーチン: 03_analysis/analysis_06.md
 - 例題:
     - はじめに: 04_tutorial/tutorial_00.md
-    - 解析手順: 04_tutorial/tutorial_02.md
     - 解析例:
         - 静解析（弾性）: 04_tutorial/tutorial_03.md
         - 静解析（弾性、並列）: 04_tutorial/tutorial_04.md
@@ -47,7 +46,7 @@ pages:
         - 固有値解析: 04_tutorial/tutorial_17.md
         - 熱伝導解析: 04_tutorial/tutorial_18.md
         - 周波数応答解析: 04_tutorial/tutorial_19.md
-- 検証:
+- 検証問題:
     - はじめに: 05_example/example_00.md
     - 単純形状モデルによる検証: 05_example/example_01.md
     - 弾性静解析用実モデル例題: 05_example/example_02.md
