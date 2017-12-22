@@ -56,6 +56,6 @@ pages:
 - 付録:
     - リリースノート: 06_release_note/00_release_note.md
     - チートシート (コマンド早見表): 07_cheat_sheet/00_cheat_sheet.md
-    - FrontISTR ver. 4.5のインストール (ubuntu 16.04 LTS): 08_quick_guide/00_FrontISTR_install_quickguide_ubuntu.md
-    - FrontISTR ver. 4.5のインストール (Windows10 - MinGW-w64): 08_quick_guide/01_FrontISTR_install_quickguide_windows.md
+    - FrontISTR ver. 4.6のインストール (ubuntu 16.04 LTS): 08_quick_guide/00_FrontISTR_install_quickguide_ubuntu.md
+    - FrontISTR ver. 4.6のインストール (Windows10 - MinGW-w64): 08_quick_guide/01_FrontISTR_install_quickguide_windows.md
 
