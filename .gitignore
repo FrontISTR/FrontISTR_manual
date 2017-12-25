@@ -1,5 +1,5 @@
 .DS_store
 doc
 markdown_mkdocs
-markdown_files/ja/site
-markdown_files/en/site
+markdown_files/ja/user/site
+markdown_files/en/user/site

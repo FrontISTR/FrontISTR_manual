@@ -1,0 +1,13 @@
+﻿site_name: FrontISTR ver. 5.0
+theme: bootstrap
+use_directory_urls: false
+
+pages:
+- ホーム: index.md
+- 概要:
+    - FronrISTRとは: index.md
+- リリースノート: A1_release_note/00_release_note.md
+- 付録:
+    - チートシート: A2_cheat_sheet/00_cheat_sheet.md
+    - FrontISTR ver. 4.6のインストール (ubuntu 16.04 LTS): A3_quick_guide/00_FrontISTR_install_quickguide_ubuntu.md
+    - FrontISTR ver. 4.6のインストール (Windows10 - MinGW-w64): A3_quick_guide/01_FrontISTR_install_quickguide_windows.md
