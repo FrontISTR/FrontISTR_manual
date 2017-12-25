@@ -3,3 +3,7 @@ doc
 markdown_mkdocs
 markdown_files/ja/user/site
 markdown_files/en/user/site
+markdown_files/ja/install/site
+markdown_files/en/install/site
+markdown_files/ja/theory/site
+markdown_files/en/theory/site

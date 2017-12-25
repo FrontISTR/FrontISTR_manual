@@ -1,0 +1,10 @@
+﻿site_name: FrontISTR ver. 5.0
+theme: bootstrap
+use_directory_urls: false
+
+pages:
+- ホーム: index.md
+- 動作環境: 01_install/install_01.md
+- アーカイブの解凍・展開: 01_install/install_02.md
+- インストール: 01_install/install_03.md
+- 付録: 01_install/install_04.md
