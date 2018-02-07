@@ -1,34 +1,112 @@
 # cmakeでのインストール
 
 ## cmakeでのインストール
-<a href="cmake"></a>
+
 cmakeには、ライブラリの自動探索機能が備わっています。それらを手動で明示することもできます。
+
+cmakeコマンドの詳細は、 [https://cmake.org/](https://cmake.org/documentation/)をご覧ください。
+
+### 準備
+
+本ソフトウェアの構築に必要なライブラリを予めインストールします。
+
+インストールするライブラリのディレクトリ構成は
+
+```
+  $HOME
+    |-- local
+          |-- bin
+          |-- include
+          |-- lib
+```
+
+の様な構成を推奨します。
+
+その際、上記の場合 `$PATH` 環境変数に `$HOME/local/bin` を追加してください。
+
+cmakeがインストールされているかを確認します。cmakeはバージョン2.8.11以上が必要になります。
+
+```
+$ cmake --version
+cmake version 2.8.12.2
+```
+
+### 構築
+
+次にFrontISTRを構築します。
+
+```
+$ cd `${FSTRBUILDDIR}`
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make -j2
+$ make install
+```
+
+以上で`/usr/local/bin`に、FrontISTRのコマンドである`fistr1`がインストールされます。
+
+インストールする場所を変えるには、cmakeコマンドにオプションを追加します。
+
+```
+$ cmake -DCMAKE_INSTALL_PREFIX=$HOME/local ..
+```
+
+などとオプションを追加してください。
+
+コンパイルされたFrontISTR(`fistr1`)が、どの機能を有効になっているかは
+
+```
+$ ./fistr1 -v
+FrontISTR version 5.0.0 (2d3fdb51979459c7ea9357a7c9b790fa69dfd4e2) 
+MPI: Enabled
+OpenMP: Enabled
+HECMW_METIS_VER: 5
+Compile Option: -p --with-tools --with-metis --with-mumps --with-lapack --with-ml 
+```
+
+で確認することができます。
 
 ### cmakeのオプション
 
-| オプション              | 説明                                          | 備考                           |
-|-------------------------|-----------------------------------------------|--------------------------------|
-| -DWITH_TOOLS=1 | パーティショナなどのツールもコンパイル  | hecmw_part1など                |
-| -DWITH_MPI=1            | MPIを有効                             | ライブラリが必要               |
-| -DWITH_OPENMP=1         | OpenMPを有効                          | コンパイラの対応が必要         |
-| -DWITH_REFINER=1        | REVOCAP_Refinerの機能を有効           | ライブラリが必要               |
-| -DWITH_REVOCAP=1        | REVOCAP_Couplerの機能を有効           | ライブラリが必要               |
-| -DWITH_PARAC=1          | 並列接触解析の機能を有効              |                                |
-| -DWITH_METIS=1          | METISの機能を有効                     | 4.0.3と5.1.0に対応             |
-| -DMETIS_VER_4=1         | metis-4.0.3を使う場合に設定 | metis-5.1.0の場合指定不要      |
-| -DWITH_PARMETIS=1       | ParMETISの機能を有効                  | 3.2.0と4.0.3に対応             |
-| -DMETIS_VER_3=1         | ParMetis-3.2.0を使う場合に設定                | parmetis-4.0.3の場合指定不要   |
-| -DWITH_MKL=1            | MKL PARDISOの機能を有効               | ライブラリが必要               |
-| -DWITH_MUMPS=1          | MUMPSの機能を有効                     | ライブラリが必要               |
-| -DWITH_LAPACK=1         | LAPACKの機能を有効                    | ライブラリが必要               |
-| -DWITH_ML=1             | Trilinos MLの機能を有効               | ライブラリが必要               |
-| -DWITH_DOC=1            | FrontISTRのソースコードをドキュメント化 | doxygenとgraphvizが必要        |
-| -DBLA_VENDOR="Generic"  | 利用するBLASのベンダーを指定                  | FindBLAS.cmakeを参照           |
-| -DBLAS_LIBRARIES=".."   | BLASライブラリを直接指定                      | ライブラリを絶対パスで直接指定 |
-| -DLAPACK_LIBRARIES=".." | LAPACKライブラリを直接指定                    | ライブラリを絶対パスで直接指定 |
-| -DCMAKE_INSTALL_PREFIX= | インストールするパスを設定。デフォルトは`/usr/local` | -DCMAKE_INSTALL_PREFIX=$HOME/local で $HOME/local/bin などにプログラムがインストールされる　|
-| -DCMAKE_C_COMPILER=     | Cコンパイラを指定        | -DCMAKE_C_COMPILER=icc  (Intel Cコンパイラ）                                                |
-| -DCMAKE_CXX_COMPILER=   | C++コンパイラを指定     | -DCMAKE_CXX_COMPILER=icpc  (Intel C++コンパイラ)                                            |
-| -DCMAKE_Fortran_COMPILER= | Fortranコンパイラを指定  | -DCMAKE_Fortran_COMPILER=ifort  (Intel Fortranコンパイラ)                                   |
-| -DCMAKE_PREFIX_PATH=      | ライブラリ等の格納場所を指定 | -DCMAKE_PREFIX_PATH=$HOME/tools (ライブラリやインクルードファイルを探索するパス)            |
+cmakeコマンドを実行する際、オプションを指定することで挙動を明示的に指定することができます。
+| オプション(デフォルト) | 説明 | 備考 |
+|:--|:--|:--|
+| -DWITH\_TOOLS=ON | パーティショナなどのツールもコンパイル  | hecmw_part1などツール |
+| -DWITH\_MPI=ON | MPIを有効 | ライブラリが必要 |
+| -DWITH\_OPENMP=ON | OpenMPを有効 | コンパイラの対応が必要 |
+| -DWITH\_REFINER=ON | REVOCAP_Refinerの機能を有効 | ライブラリが必要 |
+| -DWITH\_REVOCAP=ON | REVOCAP_Couplerの機能を有効 | ライブラリが必要 |
+| -DWITH\_PARACON=OFF | 並列接触解析の機能を有効 |  |
+| -DWITH\_METIS=ON | METISの機能を有効 | 4.0.3と5.1.0に対応 |
+| -DMETIS\_VER_4=OFF | metis-4.0.3を使う場合に設定 | metis-5.1.0の場合指定不要 |
+| -DWITH_PARMETIS=ON | ParMETISの機能を有効 | 3.2.0と4.0.3に対応 |
+| -DMETIS\_VER_3=OFF | ParMetis-3.2.0を使う場合に設定  | parmetis-4.0.3の場合指定不要 |
+| -DWITH\_MKL=ON | MKL PARDISOの機能を有効 | ライブラリが必要 |
+| -DWITH\_MUMPS=ON | MUMPSの機能を有効 | ライブラリが必要 |
+| -DWITH\_LAPACK=ON | LAPACKの機能を有効 | ライブラリが必要 |
+| -DWITH\_ML=ON | Trilinos MLの機能を有効 | ライブラリが必要 |
+| -DWITH\_DOC=OFF | FrontISTRのソースコードをドキュメント化 | doxygenとgraphvizが必要 |
+
+例えば、並列接触解析はデフォルトでは有効になっていませんが、これを有効にするには
+
+```
+$ cmake -DWITH_PARACON=ON ..
+$ make
+```
+
+としてください。
+
+その他、使用するコンパイラの指定やライブラリの指定をするオプションは以下のとおりです。
+
+| オプション | 説明 | 備考 |
+|:--|:--|:--|
+| -DBLA\_VENDOR= | 利用するBLASのベンダーを指定 | FindBLAS.cmakeを参照           |
+| -DBLAS\_LIBRARIES= | BLASライブラリを直接指定 | ライブラリを絶対パスで直接指定 |
+| -DLAPACK\_LIBRARIES= | LAPACKライブラリを直接指定  | ライブラリを絶対パスで直接指定 |
+| -DCMAKE\_INSTALL\_PREFIX= | インストールするパスを設定。デフォルトは`/usr/local` | -DCMAKE\_INSTALL\_PREFIX=$HOME/local で $HOME/local/bin などにプログラムがインストールされる　|
+| -DCMAKE\_C\_COMPILER= | Cコンパイラを指定 | -DCMAKE_C_COMPILER=icc  (Intel Cコンパイラ） |
+| -DCMAKE\_CXX\_COMPILER=   | C++コンパイラを指定 | -DCMAKE_CXX_COMPILER=icpc  (Intel C++コンパイラ)                                            |
+| -DCMAKE\_Fortran\_COMPILER= | Fortranコンパイラを指定  | -DCMAKE_Fortran_COMPILER=ifort  (Intel Fortranコンパイラ)                                   |
+| -DCMAKE\_PREFIX\_PATH= | ライブラリ等の格納場所を指定 | -DCMAKE_PREFIX_PATH=$HOME/tools (ライブラリなどを探索するパス) |
 

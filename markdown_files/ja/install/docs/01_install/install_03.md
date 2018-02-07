@@ -13,11 +13,11 @@ cmakeを予めインストールしておく必要があります。cmakeは下�
 [https://cmake.org/](https://cmake.org/)
 
 ```
-$ cd FrontISTR_V50
+$ cd `${FSTRBUILDDIR}`
 $ mkdir build
 $ cd build
 $ cmake ..
-$ make
+$ make -j2
 $ make install
 ```
 
@@ -30,7 +30,7 @@ $ make install
 本ソフトウェアでは、手動でライブラリやコンパイラ、有効にする機能を指定する方法がサポートされています。
 
 ```
-$ cd FrontISTR_V50
+$ cd `${FSTRBUILDDIR}`
 $ cp Makefile.conf.org Makefile.conf
 $ vi Makefile.conf
   ファイルを編集しコンパイラやライブラリの場所を指定
