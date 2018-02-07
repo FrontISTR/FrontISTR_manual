@@ -1,136 +1,34 @@
-<!-- include, libの順に記載する -->
+# cmakeでのインストール
 
-# 付録
+## cmakeでのインストール
+<a href="cmake"></a>
+cmakeには、ライブラリの自動探索機能が備わっています。それらを手動で明示することもできます。
 
-## Makefile.confの変数一覧
+### cmakeのオプション
 
-### MPIに関する設定
+| オプション              | 説明                                          | 備考                           |
+|-------------------------|-----------------------------------------------|--------------------------------|
+| -DWITH_TOOLS=1 | パーティショナなどのツールもコンパイル  | hecmw_part1など                |
+| -DWITH_MPI=1            | MPIを有効                             | ライブラリが必要               |
+| -DWITH_OPENMP=1         | OpenMPを有効                          | コンパイラの対応が必要         |
+| -DWITH_REFINER=1        | REVOCAP_Refinerの機能を有効           | ライブラリが必要               |
+| -DWITH_REVOCAP=1        | REVOCAP_Couplerの機能を有効           | ライブラリが必要               |
+| -DWITH_PARAC=1          | 並列接触解析の機能を有効              |                                |
+| -DWITH_METIS=1          | METISの機能を有効                     | 4.0.3と5.1.0に対応             |
+| -DMETIS_VER_4=1         | metis-4.0.3を使う場合に設定 | metis-5.1.0の場合指定不要      |
+| -DWITH_PARMETIS=1       | ParMETISの機能を有効                  | 3.2.0と4.0.3に対応             |
+| -DMETIS_VER_3=1         | ParMetis-3.2.0を使う場合に設定                | parmetis-4.0.3の場合指定不要   |
+| -DWITH_MKL=1            | MKL PARDISOの機能を有効               | ライブラリが必要               |
+| -DWITH_MUMPS=1          | MUMPSの機能を有効                     | ライブラリが必要               |
+| -DWITH_LAPACK=1         | LAPACKの機能を有効                    | ライブラリが必要               |
+| -DWITH_ML=1             | Trilinos MLの機能を有効               | ライブラリが必要               |
+| -DWITH_DOC=1            | FrontISTRのソースコードをドキュメント化 | doxygenとgraphvizが必要        |
+| -DBLA_VENDOR="Generic"  | 利用するBLASのベンダーを指定                  | FindBLAS.cmakeを参照           |
+| -DBLAS_LIBRARIES=".."   | BLASライブラリを直接指定                      | ライブラリを絶対パスで直接指定 |
+| -DLAPACK_LIBRARIES=".." | LAPACKライブラリを直接指定                    | ライブラリを絶対パスで直接指定 |
+| -DCMAKE_INSTALL_PREFIX= | インストールするパスを設定。デフォルトは`/usr/local` | -DCMAKE_INSTALL_PREFIX=$HOME/local で $HOME/local/bin などにプログラムがインストールされる　|
+| -DCMAKE_C_COMPILER=     | Cコンパイラを指定        | -DCMAKE_C_COMPILER=icc  (Intel Cコンパイラ）                                                |
+| -DCMAKE_CXX_COMPILER=   | C++コンパイラを指定     | -DCMAKE_CXX_COMPILER=icpc  (Intel C++コンパイラ)                                            |
+| -DCMAKE_Fortran_COMPILER= | Fortranコンパイラを指定  | -DCMAKE_Fortran_COMPILER=ifort  (Intel Fortranコンパイラ)                                   |
+| -DCMAKE_PREFIX_PATH=      | ライブラリ等の格納場所を指定 | -DCMAKE_PREFIX_PATH=$HOME/tools (ライブラリやインクルードファイルを探索するパス)            |
 
-MPI対応コンパイラーが自動参照している場合は、MPIに関する設定は不要である。
-
-| 変数名 | 説明 | 既定値 |
-|:--|:--|:--|
-| MPIDIR | MPIがインストールされているディレクトリのパスを指定する | なし |
-| MPIBINDIR | MPIの実行ファイル群がインストールされているディレクトリのパスを指定する | なし |
-| MPIINCDIR | MPIのヘッダーファイル群がインストールされているディレクトリのパスを指定する | . |
-| MPILIBDIR | MPIのライブラリ群がインストールされているディレクトリのパスを指定する | . |
-| MPILIBS | CおよびFortran90のオブジェクトファイルにリンクさせるMPIライブラリを指定する | なし |
-
-### インストールディレクトリに関する設定
-
-| 変数名 | 説明 | 既定値 |
-|:--|:--|:--|
-| PREFIX | 本ソフトウェアをインストールするディレクトリのパスを指定する | `$(HOME)/FrontISTR` |
-| BINDIR | 本ソフトウェアの実行ファイル群をインストールするディレクトリのパスを指定する | `$(PREFIX)/bin` |
-| INCLUDEDIR | 本ソフトウェアのヘッダーファイル群をインストールするディレクトリのパスを指定する | `$(PREFIX)/include` |
-| LIBDIR | 本ソフトウェアのライブラリ群をインストールするディレクトリのパスを指定する | `$(PREFIX)/lib` |
-
-### METISに関する設定
-
-| 変数名 | 説明 | 既定値 |
-|:--|:--|:--|
-| METISDIR | METISがインストールされているディレクトリのパスを指定する | `$(HOME)/metis` |
-| METISINCDIR | METISのヘッダーファイル群（metis.hなど）がインストールされているディレクトリのパスを指定する | `$(METISDIR)/include` |
-| METISLIBDIR | METISのライブラリ（libmetis.a）がインストールされているディレクトリのパスを指定する | `$(METISDIR)/lib` |
-
-### ParMETISに関する設定
-
-| 変数名 | 説明 | 既定値 |
-|:--|:--|:--|
-| PARMETISDIR | ParMETISがインストールされているディレクトリのパスを指定する。 | `$(HOME)/ParMetis` |
-| PAEMETISINCDIR | ParMETISのヘッダーファイル群（parmetis.hなど）がインストールされているディレクトリのパスを指定する | `$(PARMETISDIR)/include` |
-| PARMETISLIBDIR | ParMETISのライブラリ（libparmetis.a）がインストールされているディレクトリのパスを指定する | `$(PARMETISDIR)/lib` |
-
-### REVOCAP_Refinerに関する設定
-
-| 変数名 | 説明 | 既定値 |
-|:--|:--|:--|
-| REFINERDIR | REVOCAP_Refinerがインストールされているディレクトリのパスを指定する | `$(HOME)/REVOCAP_Refiner` |
-| REFINERINCDIR | REVOCAP_Refinerのヘッダーファイル群がインストールされているディレクトリのパスを指定する | `$(PARMETISDIR)/include` |
-| REFINERLIBDIR | REVOCAP_Refinerのライブラリ群がインストールされているディレクトリのパスを指定する | `$(PARMETISDIR)/lib` |
-
-### REVOCAP_Couplerに関する設定
-
-| 変数名 | 説明 | 既定値 |
-|:--|:--|:--|
-| REVOCAPDIR | REVOCAP_Couplerがインストールされているディレクトリのパスを指定する | `$(HOME)/REVOCAP_Coupler` |
-| REVOCAPINCDIR | REVOCAP_Couplerのヘッダーファイル群がインストールされているディレクトリのパスを指定する | `$(REVOCAPDIR)/include` |
-| REVOCAPLIBDIR | REVOCAP_Couplerのライブラリ群がインストールされているディレクトリのパスを指定する | `$(REVOCAPDIR)/lib` |
-
-### MUMPSに関する設定
-
-| 変数名 | 説明 | 既定値 |
-|:--|:--|:--|
-| MUMPSDIR | MUMPSがインストールされているディレクトリのパスを指定する | `$(HOME)/MUMPS` |
-| MUMPSINCDIR | MUMPSのヘッダーファイル群がインストールされているディレクトリのパスを指定する | `$(MUMPSDIR)/include` |
-| MUMPSLIBDIR | MUMPSのライブラリ群がインストールされているディレクトリのパスを指定する | `$(MUMPSDIR)/lib` |
-
-### MLに関する設定
-
-| 変数名 | 説明 | 既定値 |
-|:--|:--|:--|
-| MLDIR | MLがインストールされているディレクトリのパスを指定する | `$(HOME)/trilinos` |
-| MLINCDIR | MLのヘッダーファイル群がインストールされているディレクトリのパスを指定する | `$(MLDIR)/include` |
-| MLLIBDIR | MLのライブラリ群がインストールされているディレクトリのパスを指定する | `$(MLDIR)/lib` |
-
-### Cコンパイラーに関する設定
-
-| 変数名 | 説明 | 既定値 |
-|:--|:--|:--|
-| CC | Cコンパイラーの起動コマンドを指定する | `mpicc` |
-| CFLAGS | Cコンパイラーに付与するオプションを指定する | なし |
-| LDFLAGS | Cリンカーに付与するオプションを指定する。REVOCAP_Refinerを使用する場合で、CプログラムのリンクにCコンパイラーを用いる場合には、C++の標準ライブラリ（-lstdc++など）を指定する必要がある。 | `-lm` |
-| OPTFLAGS | Cコンパイラーに付与する最適化オプションなどを指定する | `-O3` |
-| CLINKER | Cプログラムのリンク時に用いるコマンドを指定する。REVOCAP_Refinerを使用する場合で、CプログラムのリンクにC++コンパイラーを用いる必要がある場合などに指定する。 | `$(CC)` |
-
-### C++コンパイラーに関する設定
-
-| 変数名 | 説明 | 既定値 |
-|:--|:--|:--|
-| CPP | C++コンパイラーの起動コマンドを指定する | `mpic++` |
-| CPPFLAGS | C++コンパイラーに付与するオプションを指定する。BoostライブラリがC++コンパイラーから自動参照されない場合、-Iオプションにより、インクルードファイルが格納されているディレクトリを指定する。 | `-DMPICH_IGNORE_CXX_SEEK` |
-| CPPLDFLAGS | C++リンカーに付与するオプションを指定する | なし |
-| CPPOPTFLAGS | C++コンパイラーに付与する最適化オプションなどを指定する | `-O3` |
-
-### Fortran90コンパイラーに関する設定
-
-| 変数名 | 説明 | 既定値 |
-|:--|:--|:--|
-| F90 | Fortran90コンパイラーの起動コマンドを指定する | `mpif90` |
-| F90FLAGS | Fortran90コンパイラーに付与するオプションを指定する | `-DMPICH_IGNORE_CXX_SEEK` |
-| F90LDFLAGS | Fortran90リンカーに付与するオプションを指定する。Intel MKLを利用する場合には、そのリンクオプションを指定する。また、REVOCAP_Refinerを使用する場合で、Fortran90プログラムのリンクにFortran90コンパイラーを用いる場合には、C++の標準ライブラリ（-lstdc++など）を指定する必要がある。 | なし |
-| F90OPTFLAGS | Fortran90コンパイラーに付与する最適化オプションなどを指定する | `-O2` |
-| F90LINKER | Fortran90プログラムのリンク時に用いるコマンドを指定する。REVOCAP_Refinerを使用する場合で、Fortran90プログラムのリンクにC++コンパイラーを用いる必要がある場合などに指定する（京コンピュータでは“mpiFCCpx --linkfortran” を指定する）。 | `$(F90)` |
-
-### UNIXコマンドに関する設定
-
-| 変数名 | 説明 | 既定値 |
-|:--|:--|:--|
-| MAKE | makeの起動コマンドを指定する。オプションが必要な場合は同時に指定する。 | `make` |
-| AR | アーカイブの作成、変更などを行なうコマンドを指定する。オプションが必要な場合は同時に指定する。 | `ar ruv` |
-| CP | ファイルやディレクトリをコピーするコマンドを指定する。オプションが必要な場合は同時に指定する。 | `cp -f` |
-| RM | ファイルやディレクトリを削除するコマンドを指定する。オプションが必要な場合は同時に指定する。 | `rm -f` |
-| MKDIR | ディレクトリを作成するコマンドを指定する。オプションが必要な場合は同時に指定する。 | `mkdir -p` |
-| MV | ファイルを移動するコマンドを指定する。オプションが必要な場合は同時に指定する。 | `mv` |
-
-## Makefile.confの設定例
-
-## 京コンピュータおよび富士通FX10における注意
-
-本バージョンでは、京コンピュータおよび富士通FX10向けのチューニングが行われていますが、これに伴い、利用する環境に応じてソースコードの一部を変更する必要があります。
-
-変更するファイル：
-
-`hecmw1/src/solver/solver_33/hecmw_tuning_fx.f90`
-
-変更内容：
-
-ファイル内で定義されているパラーメータ変数 **TotalSectorCacheSize** を
-
-- 京コンピュータでは **12**
-
-- FX10では **24**
-
-に設定する。
-
-なお、初期状態では京コンピュータ向けの設定となっています。
