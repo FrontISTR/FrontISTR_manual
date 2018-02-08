@@ -1,4 +1,4 @@
-# CentOS7.3上でのインストール手順例(cmakeでの手順)
+# 参考 : CentOS7.3上でのインストール手順例(cmakeでの手順)
 
 CentOS7.3上へ本ソフトウェアと、それに必要な外部ライブラリの構築手順の例を示します。他の環境へのインストールの参考にしてください。
 
@@ -28,10 +28,11 @@ $ module local mpi/openmpi-x86_64
 gcc/g++/gfortranおよびMPIのラッパーが正しくインストールされているか確認してください。
 
 ```
-$ which gcc g++ gfortran mpicc mpic++ mpifort/usr/bin/gcc
+$ which gcc g++ gfortran mpicc mpic++ mpifort
+/usr/bin/gcc
 /usr/bin/g++
 /usr/bin/gfortran
-/opt/intel/compilers_and_libraries_2018.1.163/linux/mpi/intel64/bin/mpicc
+/usr/lib64/openmpi/bin/mpicc
 /usr/lib64/openmpi/bin/mpic++
 /usr/lib64/openmpi/bin/mpifort
 ```
@@ -55,15 +56,15 @@ $ export PATH=$HOME/local/bin:$PATH
 
 | ソフトウェア名 | ダウンロード先 |
 |:--|:--|
-| REVOCAP_Refiner-1.1.04.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
-| FrontISTR_V50.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
+| REVOCAP\_Refiner-1.1.04.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
+| FrontISTR\_V50.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
 | OpenBLAS-0.2.20.tar.gz | http://www.openblas.net/ |
 | metis-5.1.0.tar.gz | http://glaros.dtc.umn.edu/gkhome/metis/metis/download |
 | scalapack-2.0.2.tgz | http://www.netlib.org/scalapack/ |
-| MUMPS_5.1.2.tar.gz | http://mumps.enseeiht.fr/ |
+| MUMPS\_5.1.2.tar.gz | http://mumps.enseeiht.fr/ |
 | trilinos-12.12.1-Source.tar.bz2 | https://trilinos.org/download/ |
 
-### REVOCAP_Refinerのコンパイル
+### REVOCAP\_Refinerのコンパイル
 
 ```
 $ cd $HOME/work
@@ -218,7 +219,7 @@ $ make -j4
 
 ### make install の実行
 
-makeが完了したら、make installを実行しMakefile.confで指定したディレクトリへインストールします。この例では  `$(HOME)/FrontISTR/bin` になります。
+makeが完了したら、make installを実行しMakefile.confで指定したディレクトリへインストールします。この例では `$(HOME)/FrontISTR/bin` になります。
 
 ```
 $ make install

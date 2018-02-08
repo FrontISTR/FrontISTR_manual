@@ -1,6 +1,6 @@
-# 参考 : CentOS7.3上でのインストール手順例(Makefile.confでの手順)
+# 参考 : Ubuntu16.04上でのインストール手順例(cmakeでの手順)
 
-CentOS7.3上へ本ソフトウェアと、それに必要な外部ライブラリの構築手順の例を示します。他の環境へのインストールの参考にしてください。
+Ubuntu16.04上へ本ソフトウェアと、それに必要な外部ライブラリの構築手順の例を示します。他の環境へのインストールの参考にしてください。
 
 また、各ライブラリの詳細な構築方法は、それぞれのドキュメントを参考にしてください。
 
@@ -9,32 +9,18 @@ CentOS7.3上へ本ソフトウェアと、それに必要な外部ライブラ�
 最初に本ソフトウェアをコンパイルするのに必要なツールやパッケージをインストールしてください。
 
 ```
-$ su
-# yum group mark install "Development Tools"
-# yum update
-# yum install openmpi-devel cmake
-# exit
+$ sudo apt install build-essential gfortran cmake openmpi-bin libopenmpi-dev
 ```
-
-次にMPIの環境設定を行います。コマンドライン上で
-
-```
-$ module purge
-$ module local mpi/openmpi-x86_64
-```
-
-`$HOME/.bash_profile`に記述しておけば、次回ログイン時も設定が反映されます。
 
 gcc/g++/gfortranおよびMPIのラッパーが正しくインストールされているか確認してください。
 
 ```
-$ which gcc g++ gfortran mpicc mpic++ mpifort
-/usr/bin/gcc
+$ which gcc g++ gfortran mpicc mpic++ mpifort/usr/bin/gcc
 /usr/bin/g++
 /usr/bin/gfortran
-/usr/lib64/openmpi/bin/mpicc
-/usr/lib64/openmpi/bin/mpic++
-/usr/lib64/openmpi/bin/mpifort
+/usr/bin/mpicc
+/usr/bin/mpic++
+/usr/bin/mpifort
 ```
 
 ## ライブラリのインストール
@@ -192,110 +178,13 @@ $ make install
 上記ライブラリのコンパイルが済んだらFrontISTRをコンパイルします。
 
 ```
-$ cd $HOME/work
-$ tar xvf FrontISTR_V50.tar.gz
-$ cd FrontISTR
-```
-
-### Makefile.confの編集
-
-雛形をコピーして、環境に合わせた内容に編集します。この例では、以下の様に編集します。
-
-```
-$ cp Makefile.conf.org Makefile.conf
-$ vi Makefile.conf
-##################################################
-#                                                #
-#     Setup Configulation File for FrontISTR     #
-#                                                #
-##################################################
-
-# MPI
-MPIDIR         = /usr/lib64/openmpi
-MPIBINDIR      = $(MPIDIR)/bin
-MPILIBDIR      = $(MPIDIR)/lib
-MPIINCDIR      = /usr/include/openmpi-x86_64
-MPILIBS        = -lmpi -lmpi_cxx -lmpi_mpifh
-
-# for install option only
-PREFIX         = $(HOME)/FrontISTR
-BINDIR         = $(PREFIX)/bin
-LIBDIR         = $(PREFIX)/lib
-INCLUDEDIR     = $(PREFIX)/include
-
-# Metis
-METISDIR       = $(HOME)/local
-METISLIBDIR    = $(METISDIR)/lib
-METISINCDIR    = $(METISDIR)/include
-HECMW_METIS_VER= 5
-
-# ParMetis
-PARMETISDIR    = $(HOME)/local
-PARMETISLIBDIR = $(PARMETISDIR)/lib
-PARMETISINCDIR = $(PARMETISDIR)/include
-
-# Refiner
-REFINERDIR     = $(HOME)/local
-REFINERINCDIR  = $(REFINERDIR)/include
-REFINERLIBDIR  = $(REFINERDIR)/lib
-
-# Coupler
-REVOCAPDIR     = $(HOME)/local
-REVOCAPINCDIR  = $(REVOCAPDIR)/include
-REVOCAPLIBDIR  = $(REVOCAPDIR)/lib
-
-# MUMPS
-MUMPSDIR       = $(HOME)/local
-MUMPSINCDIR    = $(MUMPSDIR)/include
-MUMPSLIBDIR    = $(MUMPSDIR)/lib
-MUMPSLIBS      = -ldmumps -lmumps_common -lpord -L$HOME/local/lib -lscalapack
-
-# MKL PARDISO
-MKLDIR     = $(HOME)/
-MKLINCDIR  = $(MKLDIR)/include
-MKLLIBDIR  = $(MKLDIR)/lib
-
-# ML
-MLDIR          = $(HOME)/local
-MLINCDIR       = $(MLDIR)/include
-MLLIBDIR       = $(MLDIR)/lib
-MLLIBS         = -lml -lamesos -ltrilinosss -lzoltan -lepetra -lteuchosremainder -lteuchosnumerics -lteuchoscomm -lteuchosparameterlist -lteuchoscore -ldmumps -lmumps_common -lpord -lmetis
-
-# C compiler settings
-CC             = mpicc -fopenmp
-CFLAGS         =
-LDFLAGS        = -lstdc++ -lm
-OPTFLAGS       = -O3
-
-# C++ compiler settings
-CPP            = mpic++ -fopenmp
-CPPFLAGS       =
-CPPLDFLAGS     =
-CPPOPTFLAGS    = -O3
-
-# Fortran compiler settings
-F90            = mpif90 -fopenmp
-F90FLAGS       =
-F90LDFLAGS     = -lstdc++ -L$(HOME)/local/lib -lopenblas
-F90OPTFLAGS    = -O2
-F90FPP         = -cpp
-F90LINKER      = mpif90 -fopenmp
-
-MAKE           = make
-AR             = ar ruv
-MV             = mv -f
-CP             = cp -f
-RM             = rm -f
-MKDIR          = mkdir -p
-```
-
-### setup.shの実行
-
-編集が完了したら、setup.sh を実行します。
-
-```
-$ ./setup.sh -p --with-tools --with-refiner \
-             --with-metis --with-mumps --with-lapack --with-ml
+$ cd $HOME/work/FrontISTR
+$ mkdir build
+$ cd build
+$ cmake -DCMAKE_INSTALL_PREFIX=$HOME/FrontISTR \
+        -DBLAS_LIBRARIES=$HOME/local/lib/libopenblas.a \
+        -DLAPACK_LIBRARIES=$HOME/local/lib/libopenblas.a \
+        ..
 ```
 
 ### makeの実行
@@ -306,9 +195,17 @@ $ ./setup.sh -p --with-tools --with-refiner \
 $ make
 ```
 
+4並列コンパイルをする場合、
+
+```
+$ make -j4
+```
+
+とします。並列コンパイルにより、コンパイル時間が短縮されます。
+
 ### make install の実行
 
-makeが完了したら、make installを実行しMakefile.confで指定したディレクトリへインストールします。この例では  `$(HOME)/FrontISTR/bin` になります。
+makeが完了したら、make installを実行しMakefile.confで指定したディレクトリへインストールします。この例では `$(HOME)/FrontISTR/bin` になります。
 
 ```
 $ make install

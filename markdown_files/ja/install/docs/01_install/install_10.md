@@ -1,6 +1,6 @@
-# 参考 : CentOS7.3上でのインストール手順例(Makefile.confでの手順)
+# 参考 : Ubuntu16.04上でのインストール手順例(Makefile.confでの手順)
 
-CentOS7.3上へ本ソフトウェアと、それに必要な外部ライブラリの構築手順の例を示します。他の環境へのインストールの参考にしてください。
+Ubuntu16.04上へ本ソフトウェアと、それに必要な外部ライブラリの構築手順の例を示します。他の環境へのインストールの参考にしてください。
 
 また、各ライブラリの詳細な構築方法は、それぞれのドキュメントを参考にしてください。
 
@@ -9,21 +9,8 @@ CentOS7.3上へ本ソフトウェアと、それに必要な外部ライブラ�
 最初に本ソフトウェアをコンパイルするのに必要なツールやパッケージをインストールしてください。
 
 ```
-$ su
-# yum group mark install "Development Tools"
-# yum update
-# yum install openmpi-devel cmake
-# exit
+$ sudo apt install build-essential gfortran cmake openmpi-bin libopenmpi-dev
 ```
-
-次にMPIの環境設定を行います。コマンドライン上で
-
-```
-$ module purge
-$ module local mpi/openmpi-x86_64
-```
-
-`$HOME/.bash_profile`に記述しておけば、次回ログイン時も設定が反映されます。
 
 gcc/g++/gfortranおよびMPIのラッパーが正しくインストールされているか確認してください。
 
@@ -32,9 +19,9 @@ $ which gcc g++ gfortran mpicc mpic++ mpifort
 /usr/bin/gcc
 /usr/bin/g++
 /usr/bin/gfortran
-/usr/lib64/openmpi/bin/mpicc
-/usr/lib64/openmpi/bin/mpic++
-/usr/lib64/openmpi/bin/mpifort
+/usr/bin/mpicc
+/usr/bin/mpic++
+/usr/bin/mpifort
 ```
 
 ## ライブラリのインストール
@@ -211,10 +198,10 @@ $ vi Makefile.conf
 ##################################################
 
 # MPI
-MPIDIR         = /usr/lib64/openmpi
-MPIBINDIR      = $(MPIDIR)/bin
+MPIDIR         = /usr/lib/openmpi
+MPIBINDIR      = /usr/bin
 MPILIBDIR      = $(MPIDIR)/lib
-MPIINCDIR      = /usr/include/openmpi-x86_64
+MPIINCDIR      = $(MPIDIR)/include
 MPILIBS        = -lmpi -lmpi_cxx -lmpi_mpifh
 
 # for install option only
