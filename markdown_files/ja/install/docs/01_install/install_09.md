@@ -1,4 +1,4 @@
-# 参考 : Ubuntu16.04上でのインストール手順例(cmakeでの手順)
+# 参考 Ubuntu16.04へのインストール手順例(cmake)
 
 Ubuntu16.04上へ本ソフトウェアと、それに必要な外部ライブラリの構築手順の例を示します。他の環境へのインストールの参考にしてください。
 
@@ -15,7 +15,8 @@ $ sudo apt install build-essential gfortran cmake openmpi-bin libopenmpi-dev
 gcc/g++/gfortranおよびMPIのラッパーが正しくインストールされているか確認してください。
 
 ```
-$ which gcc g++ gfortran mpicc mpic++ mpifort/usr/bin/gcc
+$ which gcc g++ gfortran mpicc mpic++ mpifort
+/usr/bin/gcc
 /usr/bin/g++
 /usr/bin/gfortran
 /usr/bin/mpicc

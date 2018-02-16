@@ -1,6 +1,6 @@
-# 参考 Ubuntu16.04へのインストール手順例(Makefile.conf)
+# 参考 Windows10へのインストール手順例(Makefile.conf)
 
-Ubuntu16.04上へ本ソフトウェアと、それに必要な外部ライブラリの構築手順の例を示します。他の環境へのインストールの参考にしてください。
+Windows10上へ、本ソフトウェアとそれに必要な外部ライブラリの構築手順の例を示します。他の環境へのインストールの参考にしてください。
 
 また、各ライブラリの詳細な構築方法は、それぞれのドキュメントを参考にしてください。
 
@@ -8,20 +8,29 @@ Ubuntu16.04上へ本ソフトウェアと、それに必要な外部ライブラ
 
 最初に本ソフトウェアをコンパイルするのに必要なツールやパッケージをインストールしてください。
 
+### 開発環境の準備
+はじめに開発環境をインストールします。使用する開発環境は MSYS2 です。Git for Windows SDKから導入します。
+
+[https://github.com/git-for-windows/build-extra/releases](https://github.com/git-for-windows/build-extra/releases)
+
+下記URLから64ビット版のインストーラ`git-sdk-installer-X.X.X-64.7z.exe`(X.X.Xはバージョン番号)をダウンロードしインストールします。
+
+### パッケージのインストール
+
+インストールが完了したら`git for windows`と書かれたコマンドプロンプトを立ち上
+げコンパイルに必要なパッケージをインストールします。
+
 ```
-$ sudo apt install build-essential gfortran cmake openmpi-bin libopenmpi-dev
+$ pacman -S base-devel mingw-w64-x86_64-toolchain mingw-w64-x86_64-cmake mingw-w64-x86_64-extra-cmake-module
 ```
 
-gcc/g++/gfortranおよびMPIのラッパーが正しくインストールされているか確認してください。
+gcc/g++/gfortranが正しくインストールされているか確認してください。
 
 ```
-$ which gcc g++ gfortran mpicc mpic++ mpifort
-/usr/bin/gcc
-/usr/bin/g++
-/usr/bin/gfortran
-/usr/bin/mpicc
-/usr/bin/mpic++
-/usr/bin/mpifort
+$ which gcc g++ gfortran
+/mingw64/bin/gcc
+/mingw64/bin/g++
+/mingw64/bin/gfortran
 ```
 
 ## ライブラリのインストール
@@ -37,9 +46,67 @@ $ mkdir -p local/bin local/lib local/include
 $ export PATH=$HOME/local/bin:$PATH
 ```
 
+### MPIのインストール
+
+この例では、MPIとしてMicrosoft社のMPIを利用します。
+
+下記URLからランタイム(`msmpisetup.exe`)とSDK(`msmpisdk.msi`)がダウンロードできます。
+
+[https://msdn.microsoft.com/ja-jp/library/windows/desktop/bb524831](https://msdn.microsoft.com/ja-jp/library/windows/desktop/bb524831)
+
+#### .aライブラリの作成
+
+インストールしたライブラリをMinGW-w64のgccやgfortranでリンクできるように変更を加えます。
+
+インストールした .dll から .a を生成します。
+
+```
+$ cd $HOME/local/lib
+$ gendef /c/Windows/System32/msmpi.dll
+$ dlltool -d msmpi.def -l libmsmpi.a -D /c/Windows/System32/msmpi.dll
+$ ls
+libmsmpi.a msmpi.def
+```
+
+#### ヘッダファイルの修正
+
+次にヘッダファイルをコピーします。
+
+```
+$ cd $HOME/local/include
+$ cp /c/Program\ Files\ \(x86\)/Microsoft\ SDKs/MPI/Include/*.h .
+$ cp /c/Program\ Files\ \(x86\)/Microsoft\ SDKs/MPI/Include/x64/*.h .
+$ ls
+mpi.h  mpif.h  mpifptr.h  mpio.h  mspms.h  pmidbg.h
+```
+
+この中の`mpi.h`を以下のように変更します。
+
+```
+$ vi mpi.h
+
+#ifndef MPI_INCLUDE
+#define MPI_INCLUDE
+のすぐ下に
+#include <stdint.h>
+を追加
+```
+
+次に`mpif.h`も以下のように変更します。
+
+```
+$ vi mpif.h
+
+409行目
+PARAMETER (MPI_ADDRESS_KIND=INT_PTR_KIND())
+を
+PARAMETER (MPI_ADDRESS_KIND=8)
+に変更
+```
+
 ### ダウンロード
 
-以下のソフトウェアをダウンロードし、作業ディレクトリ`$HOME/work`へ保存します。
+その他のソフトウェアをダウンロードし、作業ディレクトリ`$HOME/work`へ保存します。
 
 | ソフトウェア名 | ダウンロード先 |
 |:--|:--|
@@ -77,6 +144,43 @@ $ make PREFIX=$HOME/local install
 $ cd $HOME/work
 $ tar xvf metis-5.1.0.tar.gz
 $ cd metis-5.1.0
+```
+
+MinGW-w64に合わせるため、以下のファイルを一部修正します。
+
+- Makefile
+- GKlib/gk_arch.h
+- GKlib/getopt.c
+
+```
+% vim Makefile
+60行目の
+cd $(BUILDDIR) && cmake $(CURDIR) $(CONFIG_FLAGS)
+を
+cd $(BUILDDIR) && cmake -G "MSYS Makefiles" $(CURDIR) $(CONFIG_FLAGS)
+に変更
+```
+
+```
+$ vim GKlib/gk_arch.h
+44行目の
+  #include <sys/resource.h>
+を削除
+```
+
+```
+$ vim GKlib/gk_getopt.h
+54行目からの
+/* Function prototypes */
+extern int gk_getopt(int __argc, char **__argv, char *__shortopts);
+extern int gk_getopt_long(int __argc, char **__argv, char *__shortopts,
+              struct gk_option *__longopts, int *__longind);
+extern int gk_getopt_long_only (int __argc, char **__argv,
+              char *__shortopts, struct gk_option *__longopts, int *__longind);
+を削除。
+```
+
+```
 $ make config prefix=$HOME/local cc=gcc openmp=1
 $ make
 $ make install
@@ -88,15 +192,45 @@ $ make install
 $ cd $HOME/work
 $ tar xvf scalapack-2.0.2.tgz
 $ cd scalapack-2.0.2
-$ mkdir build
-$ cmake -DCMAKE_INSTALL_PREFIX=$HOME/local \
-        -DCMAKE_EXE_LINKER_FLAGS="-fopenmp" \
-        -DBLAS_LIBRARIES=$HOME/local/lib/libopenblas.a \
-        -DLAPACK_LIBRARIES=$HOME/local/lib/libopenblas.a \
-        ..
-$ make
-$ make install
 ```
+
+サンプルのSLmake.inc.exampleをSLmake.incとしてコピーし、環境に合わせて編集します。
+
+```
+(MINGW64) cp SLmake.inc.example SLmake.inc
+(MINGW64) vi SLmake.inc
+
+#
+#  The fortran and C compilers, loaders, and their flags
+#
+
+FC            = gfortran -fno-range-check
+CC            = gcc
+NOOPT         = -O0
+FCFLAGS       = -O3 -I$(HOME)/local/include
+CCFLAGS       = -O3 -I$(HOME)/local/include
+FCLOADER      = $(FC)
+CCLOADER      = $(CC)
+FCLOADFLAGS   = $(FCFLAGS) -L$(HOME)/local/lib -lmsmpi
+CCLOADFLAGS   = $(CCFLAGS) -L$(HOME)/local/lib -lmsmpi
+
+#
+#  BLAS, LAPACK (and possibly other) libraries needed for linking test programs
+#
+
+BLASLIB       = -L$(HOME)/local/lib -lopenblas
+LAPACKLIB     = -L$(HOME)/local/lib -lopenblas
+LIBS          = $(LAPACKLIB) $(BLASLIB)
+```
+
+編集が完了したらmakeし、完成したライブラリをコピーします。
+
+```
+$ make
+$ cp libscalapack.a $HOME/local/lib
+```
+
+コンパイル終了時にエラーが表示されますが無視して構いません。
 
 ### MUMPSのコンパイル
 
@@ -119,19 +253,21 @@ LMETIS    = -L$(LMETISDIR)/lib -lmetis
 
 ORDERINGSF  = -Dmetis -Dpord
 
-CC      = mpicc -fopenmp
-FC      = mpifort -fopenmp
-FL      = mpifort -fopenmp
+CC      = gcc -fopenmp
+FC      = gfortran -fopenmp -fno-range-check
+FL      = gfortran -fopenmp
 
 LAPACK = -L$(HOME)/local/lib -lopenblas
 
 SCALAP  = -L$(HOME)/local/lib -lscalapack
 
-INCPAR =
+INCPAR = -I$(HOME)/local/include
 
-LIBPAR  = $(SCALAP)
+LIBPAR  = $(SCALAP) $(LAPACK) -L$(HOME)/local/lib -lmsmpi
 
 LIBBLAS = -L$(HOME)/local/lib -lopenblas
+
+LIBOTHERS = -lpthread -fopenmp
 ```
 
 書き換えが完了したら保存しmakeします。
@@ -149,9 +285,10 @@ $ cd $HOME/work
 $ tar xvf trilinos-12.12.1-Source.tar.gz
 $ cd trilinos-12.12.1-Source
 $ mkdir build
-$ cmake -DCMAKE_INSTALL_PREFIX=$HOME/local \
-        -DCMAKE_C_COMPILER=mpicc \
-        -DCMAKE_CXX_COMPILER=mpic++ \
+$ cmake -G "MSYS Makefiles" \
+        -DCMAKE_INSTALL_PREFIX="$HOME/local" \
+        -DCMAKE_C_FLAGS="-DNO_TIMES" \
+        -DCMAKE_CXX_FLAGS="-DNO_TIMES" \
         -DCMAKE_Fortran_COMPILER=mpifort \
         -DTPL_ENABLE_MPI=ON \
         -DTPL_ENABLE_LAPACK=ON \
@@ -164,11 +301,17 @@ $ cmake -DCMAKE_INSTALL_PREFIX=$HOME/local \
         -DTrilinos_ENABLE_Amesos=ON \
         -DTrilinos_ENABLE_ALL_OPTIONAL_PACKAGES=OFF \
         -DBLAS_LIBRARY_DIRS=$HOME/local/lib \
-        -DLAPACK_LIBRARY_DIRS=$HOME/local/lib" \
-        -DSCALAPACK_LIBRARY_DIRS=$HOME/local/lib" \
-        -DBLAS_LIBRARY_NAMES="openblas" \
-        -DLAPACK_LIBRARY_NAMES="openblas" \
-        -DSCALAPACK_LIBRARY_NAMES="scalapack" \
+        -DLAPACK_LIBRARY_DIRS=$HOME/local/lib \
+        -DSCALAPACK_LIBRARY_DIRS=$HOME/local/lib \
+        -DBLAS_LIBRARY_NAMES=openblas \
+        -DLAPACK_LIBRARY_NAMES=openblas \
+        -DSCALAPACK_LIBRARY_NAMES=scalapack \
+        -DMPI_CXX_COMPILER=g++ \
+        -DMPI_CXX_INCLUDE_PATH=$HOME/local/include \
+        -DMPI_CXX_LIBRARIES=$HOME/local/lib/libmsmpi.a \
+        -DMPI_C_COMPILER=gcc \
+        -DMPI_C_INCLUDE_PATH=$HOME/local/include \
+        -DMPI_C_LIBRARIES=$HOME/local/lib/libmsmpi.a \
         ..
 $ make
 $ make install
@@ -198,11 +341,11 @@ $ vi Makefile.conf
 ##################################################
 
 # MPI
-MPIDIR         = /usr/lib/openmpi
-MPIBINDIR      = /usr/bin
+MPIDIR         = $(HOME)/local
+MPIBINDIR      = "/c/Program\ Files/Microsoft\ MPI/Bin/"
 MPILIBDIR      = $(MPIDIR)/lib
 MPIINCDIR      = $(MPIDIR)/include
-MPILIBS        = -lmpi -lmpi_cxx -lmpi_mpifh
+MPILIBS        = -lmsmpi
 
 # for install option only
 PREFIX         = $(HOME)/FrontISTR
@@ -246,22 +389,22 @@ MKLLIBDIR  = $(MKLDIR)/lib
 MLDIR          = $(HOME)/local
 MLINCDIR       = $(MLDIR)/include
 MLLIBDIR       = $(MLDIR)/lib
-MLLIBS         = -lml -lamesos -ltrilinosss -lzoltan -lepetra -lteuchosremainder -lteuchosnumerics -lteuchoscomm -lteuchosparameterlist -lteuchoscore -ldmumps -lmumps_common -lpord -lmetis
+MLLIBS         = -lml -lamesos -ltrilinosss -lzoltan -lepetra -lteuchosremainder -lteuchosnumerics -lteuchoscomm -lteuchosparameterlist -lteuchoscore -ldmumps -lmumps_common -lpord -lmetis -lws2_32
 
 # C compiler settings
-CC             = mpicc -fopenmp
-CFLAGS         =
+CC             = gcc -fopenmp
+CFLAGS         = -D_WINDOWS
 LDFLAGS        = -lstdc++ -lm
 OPTFLAGS       = -O3
 
 # C++ compiler settings
-CPP            = mpic++ -fopenmp
-CPPFLAGS       =
+CPP            = g++ -fopenmp
+CPPFLAGS       = -D_WINDOWS
 CPPLDFLAGS     =
 CPPOPTFLAGS    = -O3
 
 # Fortran compiler settings
-F90            = mpif90 -fopenmp
+F90            = gfortran -fopenmp -fno-range-check
 F90FLAGS       =
 F90LDFLAGS     = -lstdc++ -L$(HOME)/local/lib -lopenblas
 F90OPTFLAGS    = -O2
@@ -359,4 +502,24 @@ $ $HOME/FrontISTR/bin/fistr1
  FrontISTR Completed !!
 ```
 
+### 補足
 
+MinGWのインストールされていない環境で実行するには、FrontISTR `fistr1.exe` と同じディレクトリに
+以下のファイルをコピーします。
+
+- libwinpthread-1.dll
+- libgfortran-3.dll
+- libgcc_s_seh-1.dll
+- libgomp-1.dll
+- libstdc++-6.dll
+- libquadmath-0.dll
+
+通常は、
+
+```
+C:\git-sdk-64\mingw64\bin
+```
+
+の下にありますので、バイナリを実行するコンピュータにコピーします。
+
+また、Microsoft MPIのランタイムMSMpiSetup.exeも実行するコンピュータにインストールします。
