@@ -57,7 +57,7 @@ ParMETISは下記のWEBサイトからダウンロードすることができま
 メッシュ細分化機能を利用する場合にはREVOCAP\_Refinerが必要となります。
 REVOCAP\_Refinerの最新版は下記のWEBサイトからダウンロードすることができます。
 
-[http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ FrontISTRリザーバ内](http://www.multi.k.u-tokyo.ac.jp/FrontISTR/)
+[http://www.multi.k.u-tokyo.ac.jp/FrontISTR/](http://www.multi.k.u-tokyo.ac.jp/FrontISTR/)
 
 ### REVOCAP\_Coupler
 

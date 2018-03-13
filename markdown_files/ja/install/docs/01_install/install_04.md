@@ -127,3 +127,76 @@ $ cmake -L
 | -DCMAKE\_Fortran\_COMPILER= | Fortranコンパイラを指定  | -DCMAKE_Fortran_COMPILER=ifort  (Intel Fortranコンパイラ)                                   |
 | -DCMAKE\_PREFIX\_PATH= | ライブラリ等の格納場所を指定 | -DCMAKE_PREFIX_PATH=$HOME/tools (ライブラリなどを探索するパス) |
 
+## 簡易テスト機能について
+
+本ソフトウェアには、コンパイルしたオブジェクトが正しく動くことを確認するための簡易テストスクリプトが同梱されています。
+
+テストを行うには`ruby`を予めインストールします。`ruby`がインストールされていれば、`cmake`時にテストが自動的に有効になります。
+
+`cmake`で本ソフトウェアをコンパイル後、以下のようにしてテストを実行します。
+
+```
+$ make test
+```
+
+テストは以下のように実行されます.
+
+```
+Running tests...
+Test project /home/fistr/FrontISTR/build
+      Start  1: Static_exA_Test
+ 1/23 Test  #1: Static_exA_Test ..................   Passed    3.54 sec
+      Start  2: Static_exB_Test
+ 2/23 Test  #2: Static_exB_Test ..................   Passed    2.51 sec
+...
+```
+
+更に詳細なメッセージを出力する場合
+
+```
+$ make test ARGS="-VV -j4 -O test_log.txt"
+```
+
+とすると、`test_log.txt`ファイルの中に結果が出力されます。オプションの詳細は
+
+```
+$ ctest --help
+```
+
+を参照してください。
+
+## ソースコードのドキュメンテーションについて
+
+本ソフトウェアのソースコードを学習に用いる際、各サブルーチンの相関やソースコードに埋め込まれているコメントを、ブラウザで参照することができます。
+
+ソースコードのドキュメントをHTMLで構築するには、予め`doxygen`と`graphviz`をインストールします。
+
+以下の手順でHTMLを構築します.
+
+```
+$ cmake -DWITH_DOC=ON ..
+$ make doc
+```
+
+作成されたHTMLを以下のようにして参照します.
+
+```
+$ firefox doc/html/index.html
+```
+
+## デバッグを有効にする
+
+デバッグを有効にするには
+
+```
+$ cmake -DCMAKE_BUILD_TYPE="DEBUG" ..
+```
+
+としてから`make`をします。更に高度なデバッグオプションを有効にするには
+
+```
+$ cmake -DCMAKE_BUILD_TYPE="DEBUG" -DDEBUG_EXTRA=ON ..
+```
+
+とすると、メモリリークなどの検出に役立ちます。
+

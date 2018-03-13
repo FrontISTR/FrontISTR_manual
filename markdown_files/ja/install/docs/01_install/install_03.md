@@ -27,7 +27,9 @@ $ make install
 
 #### 参考
 
-  - [参考 : CentOS7.3上でのインストール手順例(cmakeでの手順)](install_07)
+  - [参考 CentOS7.3へのインストール手順例(cmake)](install_07)
+  - [参考 Ubuntu16.04へのインストール手順例(cmake)](install_09)
+  - [参考 Windows10へのインストール手順例(cmake)](install_11)
 
 ### Makefile.confでのインストール
 
@@ -49,6 +51,8 @@ cmake での自動設定が困難な環境では、こちらの方法での構�
 
 #### 参考
 
-  - [参考 : CentOS7.3上でのインストール手順例(Makefile.confでの手順)](install_08)
+  - [参考 CentOS7.3へのインストール手順例(Makefile.conf)](install_08)
+  - [参考 Ubuntu16.04へのインストール手順例(Makefile.conf)](install_10)
+  - [参考 Windows10へのインストール手順例(Makefile.conf)](install_12)
 
 
