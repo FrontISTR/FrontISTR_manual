@@ -49,7 +49,6 @@ $ ./setup.sh
 | --with-parmetis | ParMETISの使用 | 現時点では無効 |
 | --with-mkl | Intel MKLの使用 |  |
 | --with-mumps | MUMPSの使用 |  |
-| --with-paracon | 並列接触解析用実行モジュールの生成 |  |
 | --with-lapack | Lapackルーチンの使用 | 条件数推定機能を利用する場合に必要 |
 | --with-ml | MLの使用 |  |
 
@@ -96,7 +95,7 @@ $ ./setup.sh --with-mumps
 並列ありで接触解析を行う場合は、** -p **、** --with-metis  **オプションも必要となります。また並列ありの場合はIntel MKLは使えません。
 
 ```txt
-$ ./setup.sh –p --with-metis --with-mumps --with-paracon
+$ ./setup.sh –p --with-metis --with-mumps
 ```
 
 ## makeの実行

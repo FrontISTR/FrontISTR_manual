@@ -86,7 +86,6 @@ cmakeコマンドを実行する際、オプションを指定することで挙
 | -DWITH\_OPENMP=ON | OpenMPを有効 | コンパイラの対応が必要 |
 | -DWITH\_REFINER=ON | REVOCAP_Refinerの機能を有効 | ライブラリが必要 |
 | -DWITH\_REVOCAP=ON | REVOCAP_Couplerの機能を有効 | ライブラリが必要 |
-| -DWITH\_PARACON=OFF | 並列接触解析の機能を有効 |  |
 | -DWITH\_METIS=ON | METISの機能を有効 | 4.0.3と5.1.0に対応 |
 | -DMETIS\_VER_4=OFF | metis-4.0.3を使う場合に設定 | metis-5.1.0の場合指定不要 |
 | -DWITH_PARMETIS=ON | ParMETISの機能を有効 | 3.2.0と4.0.3に対応 |
@@ -96,15 +95,6 @@ cmakeコマンドを実行する際、オプションを指定することで挙
 | -DWITH\_LAPACK=ON | LAPACKの機能を有効 | ライブラリが必要 |
 | -DWITH\_ML=ON | Trilinos MLの機能を有効 | ライブラリが必要 |
 | -DWITH\_DOC=OFF | FrontISTRのソースコードをドキュメント化 | doxygenとgraphvizが必要 |
-
-例えば、並列接触解析はデフォルトでは有効になっていませんが、これを有効にするには
-
-```
-$ cmake -DWITH_PARACON=ON ..
-$ make
-```
-
-としてください。
 
 cmakeで設定されている変数の一覧は
 
