@@ -1,136 +1,192 @@
-<!-- include, libの順に記載する -->
+# cmakeでのインストール
 
-# 付録
+## cmakeでのインストール
 
-## Makefile.confの変数一覧
+cmakeには、ライブラリの自動探索機能が備わっています。それらを手動で明示することもできます。
 
-### MPIに関する設定
+cmakeコマンドの詳細は、 [https://cmake.org/](https://cmake.org/documentation/)をご覧ください。
 
-MPI対応コンパイラーが自動参照している場合は、MPIに関する設定は不要である。
+### 準備
 
-| 変数名 | 説明 | 既定値 |
+本ソフトウェアの構築に必要なライブラリを予めインストールします。
+
+インストールするライブラリのディレクトリ構成は
+
+```
+  $HOME
+    |-- local
+          |-- bin
+          |-- include
+          |-- lib
+```
+
+の様な構成を推奨します。
+
+その際、上記の場合 `$PATH` 環境変数に `$HOME/local/bin` を追加してください。
+
+cmakeがインストールされているかを確認します。cmakeはバージョン2.8.11以上が必要になります。
+
+```
+$ cmake --version
+cmake version 2.8.12.2
+```
+
+### 構築
+
+次にFrontISTRを構築します。
+
+```
+$ cd `${FSTRBUILDDIR}`
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make -j2
+```
+
+`make` のオプション `-j2` は、並列コンパイルの数を示しています。構築するコンピュータのコア数に併せて数を増やすことで、コンパイル時間の短縮が期待できます。
+
+### make installの実行
+
+makeの実行が正常に終了したあと、本ソフトウェアをインストールするため、以下のコマンドを実行します。
+
+```
+$ make install
+```
+
+以上で`/usr/local/bin`もしくは、`-DCMAKE_INSTALL_PREFIX`で指定したディレクトリに、本ソフトウェアがインストールされます。
+
+インストールする場所を変えるには、cmakeコマンドにオプションを追加します。
+
+```
+$ cmake -DCMAKE_INSTALL_PREFIX=$HOME/local ..
+```
+
+などとオプションを追加してください。
+
+コンパイルされたFrontISTR(`fistr1`)が、どの機能を有効になっているかは
+
+```
+$ ./fistr1 -v
+FrontISTR version 5.0.0 (2d3fdb51979459c7ea9357a7c9b790fa69dfd4e2) 
+MPI: Enabled
+OpenMP: Enabled
+HECMW_METIS_VER: 5
+Compile Option: -p --with-tools --with-metis --with-mumps --with-lapack --with-ml 
+```
+
+で確認することができます。
+
+### cmakeのオプション
+
+cmakeコマンドを実行する際、オプションを指定することで挙動を明示的に指定することができます。
+| オプション(デフォルト) | 説明 | 備考 |
 |:--|:--|:--|
-| MPIDIR | MPIがインストールされているディレクトリのパスを指定する | なし |
-| MPIBINDIR | MPIの実行ファイル群がインストールされているディレクトリのパスを指定する | なし |
-| MPIINCDIR | MPIのヘッダーファイル群がインストールされているディレクトリのパスを指定する | . |
-| MPILIBDIR | MPIのライブラリ群がインストールされているディレクトリのパスを指定する | . |
-| MPILIBS | CおよびFortran90のオブジェクトファイルにリンクさせるMPIライブラリを指定する | なし |
+| -DWITH\_TOOLS=ON | パーティショナなどのツールもコンパイル  | hecmw_part1などツール |
+| -DWITH\_MPI=ON | MPIを有効 | ライブラリが必要 |
+| -DWITH\_OPENMP=ON | OpenMPを有効 | コンパイラの対応が必要 |
+| -DWITH\_REFINER=ON | REVOCAP_Refinerの機能を有効 | ライブラリが必要 |
+| -DWITH\_REVOCAP=ON | REVOCAP_Couplerの機能を有効 | ライブラリが必要 |
+| -DWITH\_METIS=ON | METISの機能を有効 | 4.0.3と5.1.0に対応 |
+| -DMETIS\_VER_4=OFF | metis-4.0.3を使う場合に設定 | metis-5.1.0の場合指定不要 |
+| -DWITH_PARMETIS=ON | ParMETISの機能を有効 | 3.2.0と4.0.3に対応 |
+| -DMETIS\_VER_3=OFF | ParMetis-3.2.0を使う場合に設定  | parmetis-4.0.3の場合指定不要 |
+| -DWITH\_MKL=ON | MKL PARDISOの機能を有効 | ライブラリが必要 |
+| -DWITH\_MUMPS=ON | MUMPSの機能を有効 | ライブラリが必要 |
+| -DWITH\_LAPACK=ON | LAPACKの機能を有効 | ライブラリが必要 |
+| -DWITH\_ML=ON | Trilinos MLの機能を有効 | ライブラリが必要 |
+| -DWITH\_DOC=OFF | FrontISTRのソースコードをドキュメント化 | doxygenとgraphvizが必要 |
 
-### インストールディレクトリに関する設定
+cmakeで設定されている変数の一覧は
 
-| 変数名 | 説明 | 既定値 |
+```
+$ cmake -L
+```
+
+で確認できます。
+
+その他、使用するコンパイラの指定やライブラリの指定をするオプションは以下のとおりです。
+
+| オプション | 説明 | 備考 |
 |:--|:--|:--|
-| PREFIX | 本ソフトウェアをインストールするディレクトリのパスを指定する | `$(HOME)/FrontISTR` |
-| BINDIR | 本ソフトウェアの実行ファイル群をインストールするディレクトリのパスを指定する | `$(PREFIX)/bin` |
-| INCLUDEDIR | 本ソフトウェアのヘッダーファイル群をインストールするディレクトリのパスを指定する | `$(PREFIX)/include` |
-| LIBDIR | 本ソフトウェアのライブラリ群をインストールするディレクトリのパスを指定する | `$(PREFIX)/lib` |
+| -DBLA\_VENDOR= | 利用するBLASのベンダーを指定 | FindBLAS.cmakeを参照           |
+| -DBLAS\_LIBRARIES= | BLASライブラリを直接指定 | ライブラリを絶対パスで直接指定 |
+| -DLAPACK\_LIBRARIES= | LAPACKライブラリを直接指定  | ライブラリを絶対パスで直接指定 |
+| -DCMAKE\_INSTALL\_PREFIX= | インストールするパスを設定。デフォルトは`/usr/local` | -DCMAKE\_INSTALL\_PREFIX=$HOME/local で $HOME/local/bin などにプログラムがインストールされる　|
+| -DCMAKE\_C\_COMPILER= | Cコンパイラを指定 | -DCMAKE_C_COMPILER=icc  (Intel Cコンパイラ） |
+| -DCMAKE\_CXX\_COMPILER=   | C++コンパイラを指定 | -DCMAKE_CXX_COMPILER=icpc  (Intel C++コンパイラ)                                            |
+| -DCMAKE\_Fortran\_COMPILER= | Fortranコンパイラを指定  | -DCMAKE_Fortran_COMPILER=ifort  (Intel Fortranコンパイラ)                                   |
+| -DCMAKE\_PREFIX\_PATH= | ライブラリ等の格納場所を指定 | -DCMAKE_PREFIX_PATH=$HOME/tools (ライブラリなどを探索するパス) |
 
-### METISに関する設定
+## 簡易テスト機能について
 
-| 変数名 | 説明 | 既定値 |
-|:--|:--|:--|
-| METISDIR | METISがインストールされているディレクトリのパスを指定する | `$(HOME)/metis` |
-| METISINCDIR | METISのヘッダーファイル群（metis.hなど）がインストールされているディレクトリのパスを指定する | `$(METISDIR)/include` |
-| METISLIBDIR | METISのライブラリ（libmetis.a）がインストールされているディレクトリのパスを指定する | `$(METISDIR)/lib` |
+本ソフトウェアには、コンパイルしたオブジェクトが正しく動くことを確認するための簡易テストスクリプトが同梱されています。
 
-### ParMETISに関する設定
+テストを行うには`ruby`を予めインストールします。`ruby`がインストールされていれば、`cmake`時にテストが自動的に有効になります。
 
-| 変数名 | 説明 | 既定値 |
-|:--|:--|:--|
-| PARMETISDIR | ParMETISがインストールされているディレクトリのパスを指定する。 | `$(HOME)/ParMetis` |
-| PAEMETISINCDIR | ParMETISのヘッダーファイル群（parmetis.hなど）がインストールされているディレクトリのパスを指定する | `$(PARMETISDIR)/include` |
-| PARMETISLIBDIR | ParMETISのライブラリ（libparmetis.a）がインストールされているディレクトリのパスを指定する | `$(PARMETISDIR)/lib` |
+`cmake`で本ソフトウェアをコンパイル後、以下のようにしてテストを実行します。
 
-### REVOCAP_Refinerに関する設定
+```
+$ make test
+```
 
-| 変数名 | 説明 | 既定値 |
-|:--|:--|:--|
-| REFINERDIR | REVOCAP_Refinerがインストールされているディレクトリのパスを指定する | `$(HOME)/REVOCAP_Refiner` |
-| REFINERINCDIR | REVOCAP_Refinerのヘッダーファイル群がインストールされているディレクトリのパスを指定する | `$(PARMETISDIR)/include` |
-| REFINERLIBDIR | REVOCAP_Refinerのライブラリ群がインストールされているディレクトリのパスを指定する | `$(PARMETISDIR)/lib` |
+テストは以下のように実行されます.
 
-### REVOCAP_Couplerに関する設定
+```
+Running tests...
+Test project /home/fistr/FrontISTR/build
+      Start  1: Static_exA_Test
+ 1/23 Test  #1: Static_exA_Test ..................   Passed    3.54 sec
+      Start  2: Static_exB_Test
+ 2/23 Test  #2: Static_exB_Test ..................   Passed    2.51 sec
+...
+```
 
-| 変数名 | 説明 | 既定値 |
-|:--|:--|:--|
-| REVOCAPDIR | REVOCAP_Couplerがインストールされているディレクトリのパスを指定する | `$(HOME)/REVOCAP_Coupler` |
-| REVOCAPINCDIR | REVOCAP_Couplerのヘッダーファイル群がインストールされているディレクトリのパスを指定する | `$(REVOCAPDIR)/include` |
-| REVOCAPLIBDIR | REVOCAP_Couplerのライブラリ群がインストールされているディレクトリのパスを指定する | `$(REVOCAPDIR)/lib` |
+更に詳細なメッセージを出力する場合
 
-### MUMPSに関する設定
+```
+$ make test ARGS="-VV -j4 -O test_log.txt"
+```
 
-| 変数名 | 説明 | 既定値 |
-|:--|:--|:--|
-| MUMPSDIR | MUMPSがインストールされているディレクトリのパスを指定する | `$(HOME)/MUMPS` |
-| MUMPSINCDIR | MUMPSのヘッダーファイル群がインストールされているディレクトリのパスを指定する | `$(MUMPSDIR)/include` |
-| MUMPSLIBDIR | MUMPSのライブラリ群がインストールされているディレクトリのパスを指定する | `$(MUMPSDIR)/lib` |
+とすると、`test_log.txt`ファイルの中に結果が出力されます。オプションの詳細は
 
-### MLに関する設定
+```
+$ ctest --help
+```
 
-| 変数名 | 説明 | 既定値 |
-|:--|:--|:--|
-| MLDIR | MLがインストールされているディレクトリのパスを指定する | `$(HOME)/trilinos` |
-| MLINCDIR | MLのヘッダーファイル群がインストールされているディレクトリのパスを指定する | `$(MLDIR)/include` |
-| MLLIBDIR | MLのライブラリ群がインストールされているディレクトリのパスを指定する | `$(MLDIR)/lib` |
+を参照してください。
 
-### Cコンパイラーに関する設定
+## ソースコードのドキュメンテーションについて
 
-| 変数名 | 説明 | 既定値 |
-|:--|:--|:--|
-| CC | Cコンパイラーの起動コマンドを指定する | `mpicc` |
-| CFLAGS | Cコンパイラーに付与するオプションを指定する | なし |
-| LDFLAGS | Cリンカーに付与するオプションを指定する。REVOCAP_Refinerを使用する場合で、CプログラムのリンクにCコンパイラーを用いる場合には、C++の標準ライブラリ（-lstdc++など）を指定する必要がある。 | `-lm` |
-| OPTFLAGS | Cコンパイラーに付与する最適化オプションなどを指定する | `-O3` |
-| CLINKER | Cプログラムのリンク時に用いるコマンドを指定する。REVOCAP_Refinerを使用する場合で、CプログラムのリンクにC++コンパイラーを用いる必要がある場合などに指定する。 | `$(CC)` |
+本ソフトウェアのソースコードを学習に用いる際、各サブルーチンの相関やソースコードに埋め込まれているコメントを、ブラウザで参照することができます。
 
-### C++コンパイラーに関する設定
+ソースコードのドキュメントをHTMLで構築するには、予め`doxygen`と`graphviz`をインストールします。
 
-| 変数名 | 説明 | 既定値 |
-|:--|:--|:--|
-| CPP | C++コンパイラーの起動コマンドを指定する | `mpic++` |
-| CPPFLAGS | C++コンパイラーに付与するオプションを指定する。BoostライブラリがC++コンパイラーから自動参照されない場合、-Iオプションにより、インクルードファイルが格納されているディレクトリを指定する。 | `-DMPICH_IGNORE_CXX_SEEK` |
-| CPPLDFLAGS | C++リンカーに付与するオプションを指定する | なし |
-| CPPOPTFLAGS | C++コンパイラーに付与する最適化オプションなどを指定する | `-O3` |
+以下の手順でHTMLを構築します.
 
-### Fortran90コンパイラーに関する設定
+```
+$ cmake -DWITH_DOC=ON ..
+$ make doc
+```
 
-| 変数名 | 説明 | 既定値 |
-|:--|:--|:--|
-| F90 | Fortran90コンパイラーの起動コマンドを指定する | `mpif90` |
-| F90FLAGS | Fortran90コンパイラーに付与するオプションを指定する | `-DMPICH_IGNORE_CXX_SEEK` |
-| F90LDFLAGS | Fortran90リンカーに付与するオプションを指定する。Intel MKLを利用する場合には、そのリンクオプションを指定する。また、REVOCAP_Refinerを使用する場合で、Fortran90プログラムのリンクにFortran90コンパイラーを用いる場合には、C++の標準ライブラリ（-lstdc++など）を指定する必要がある。 | なし |
-| F90OPTFLAGS | Fortran90コンパイラーに付与する最適化オプションなどを指定する | `-O2` |
-| F90LINKER | Fortran90プログラムのリンク時に用いるコマンドを指定する。REVOCAP_Refinerを使用する場合で、Fortran90プログラムのリンクにC++コンパイラーを用いる必要がある場合などに指定する（京コンピュータでは“mpiFCCpx --linkfortran” を指定する）。 | `$(F90)` |
+作成されたHTMLを以下のようにして参照します.
 
-### UNIXコマンドに関する設定
+```
+$ firefox doc/html/index.html
+```
 
-| 変数名 | 説明 | 既定値 |
-|:--|:--|:--|
-| MAKE | makeの起動コマンドを指定する。オプションが必要な場合は同時に指定する。 | `make` |
-| AR | アーカイブの作成、変更などを行なうコマンドを指定する。オプションが必要な場合は同時に指定する。 | `ar ruv` |
-| CP | ファイルやディレクトリをコピーするコマンドを指定する。オプションが必要な場合は同時に指定する。 | `cp -f` |
-| RM | ファイルやディレクトリを削除するコマンドを指定する。オプションが必要な場合は同時に指定する。 | `rm -f` |
-| MKDIR | ディレクトリを作成するコマンドを指定する。オプションが必要な場合は同時に指定する。 | `mkdir -p` |
-| MV | ファイルを移動するコマンドを指定する。オプションが必要な場合は同時に指定する。 | `mv` |
+## デバッグを有効にする
 
-## Makefile.confの設定例
+デバッグを有効にするには
 
-## 京コンピュータおよび富士通FX10における注意
+```
+$ cmake -DCMAKE_BUILD_TYPE="DEBUG" ..
+```
 
-本バージョンでは、京コンピュータおよび富士通FX10向けのチューニングが行われていますが、これに伴い、利用する環境に応じてソースコードの一部を変更する必要があります。
+としてから`make`をします。更に高度なデバッグオプションを有効にするには
 
-変更するファイル：
+```
+$ cmake -DCMAKE_BUILD_TYPE="DEBUG" -DDEBUG_EXTRA=ON ..
+```
 
-`hecmw1/src/solver/solver_33/hecmw_tuning_fx.f90`
+とすると、メモリリークなどの検出に役立ちます。
 
-変更内容：
-
-ファイル内で定義されているパラーメータ変数 **TotalSectorCacheSize** を
-
-- 京コンピュータでは **12**
-
-- FX10では **24**
-
-に設定する。
-
-なお、初期状態では京コンピュータ向けの設定となっています。

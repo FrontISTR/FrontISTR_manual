@@ -7,4 +7,10 @@ pages:
 - 動作環境: 01_install/install_01.md
 - アーカイブの解凍・展開: 01_install/install_02.md
 - インストール: 01_install/install_03.md
-- 付録: 01_install/install_04.md
+- cmakeでのインストール: 01_install/install_04.md
+- Makefile.confでのインストール: 01_install/install_05.md
+- 付録: 01_install/install_06.md
+- 参考 CentOS7.3上でのインストール手順例(cmakeでの手順): 01_install/install_07.md
+- 参考 CentOS7.3上でのインストール手順例(Makefile.confでの手順): 01_install/install_08.md
+- 参考 Ubuntu16.04上でのインストール手順例(cmakeでの手順): 01_install/install_09.md
+- 参考 Ubuntu16.04上でのインストール手順例(Makefile.confでの手順): 01_install/install_09.md
