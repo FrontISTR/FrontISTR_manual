@@ -21,7 +21,7 @@ Windows10上へ、本ソフトウェアとそれに必要な外部ライブラ�
 げコンパイルに必要なパッケージをインストールします。
 
 ```
-$ pacman -S mingw-w64-x86_64-cmake mingw-w64-x86_64-extra-cmake-module mingw-w64-x86_64-qt5
+$ pacman -S mingw-w64-x86_64-cmake mingw-w64-x86_64-extra-cmake-module mingw-w64-x86_64-qt5 mingw-w64-x86_64-perl
 ```
 
 gcc/g++/gfortranが正しくインストールされているか確認してください。
