@@ -131,11 +131,10 @@ $ cp Refiner/rcapRefiner.h $HOME/local/include
 
 ### OpenBLASのコンパイル
 
+OpenBLASはバイナリパッケージを利用します。
+
 ```
-$ cd $HOME/work
-$ tar xvf OpenBLAS-0.2.20.tar.gz
-$ make BINARY=64 NO_SHARED=1 USE_OPENMP=1
-$ make PREFIX=$HOME/local install
+$ pacman -S mingw-w64-x86_64-openblas
 ```
 
 ### METISのコンパイル
@@ -181,7 +180,11 @@ extern int gk_getopt_long_only (int __argc, char **__argv,
 ```
 
 ```
-$ make config prefix=$HOME/local cc=gcc openmp=1
+$ cd build
+$ cmake -G "MSYS Makefiles" \
+        -DCMAKE_INSTALL_PREFIX=$HOME/local \
+        -DOPENMP=ON \
+        ..
 $ make
 $ make install
 ```
@@ -218,8 +221,8 @@ CCLOADFLAGS   = $(CCFLAGS) -L$(HOME)/local/lib -lmsmpi
 #  BLAS, LAPACK (and possibly other) libraries needed for linking test programs
 #
 
-BLASLIB       = -L$(HOME)/local/lib -lopenblas
-LAPACKLIB     = -L$(HOME)/local/lib -lopenblas
+BLASLIB       = -lopenblas
+LAPACKLIB     = -lopenblas
 LIBS          = $(LAPACKLIB) $(BLASLIB)
 ```
 
@@ -257,7 +260,7 @@ CC      = gcc -fopenmp
 FC      = gfortran -fopenmp -fno-range-check
 FL      = gfortran -fopenmp
 
-LAPACK = -L$(HOME)/local/lib -lopenblas
+LAPACK = -lopenblas
 
 SCALAP  = -L$(HOME)/local/lib -lscalapack
 
@@ -265,7 +268,7 @@ INCPAR = -I$(HOME)/local/include
 
 LIBPAR  = $(SCALAP) $(LAPACK) -L$(HOME)/local/lib -lmsmpi
 
-LIBBLAS = -L$(HOME)/local/lib -lopenblas
+LIBBLAS = -lopenblas
 
 LIBOTHERS = -lpthread -fopenmp
 ```
@@ -278,6 +281,8 @@ $ cp lib/*.a $HOME/local/lib
 $ cp include/*.h $HOME/local/include
 ```
 
+エラーが表示されますが無視して構いません。
+
 ### Trilinos MLのコンパイル
 
 ```
@@ -289,7 +294,6 @@ $ cmake -G "MSYS Makefiles" \
         -DCMAKE_INSTALL_PREFIX="$HOME/local" \
         -DCMAKE_C_FLAGS="-DNO_TIMES" \
         -DCMAKE_CXX_FLAGS="-DNO_TIMES" \
-        -DCMAKE_Fortran_COMPILER=mpifort \
         -DTPL_ENABLE_MPI=ON \
         -DTPL_ENABLE_LAPACK=ON \
         -DTPL_ENABLE_SCALAPACK=ON \
@@ -326,8 +330,8 @@ $ cd $HOME/work/FrontISTR
 $ mkdir build
 $ cd build
 $ cmake -DCMAKE_INSTALL_PREFIX=$HOME/FrontISTR \
-        -DBLAS_LIBRARIES=$HOME/local/lib/libopenblas.a \
-        -DLAPACK_LIBRARIES=$HOME/local/lib/libopenblas.a \
+        -DBLAS_LIBRARIES=/mingw64/lib/libopenblas.a \
+        -DLAPACK_LIBRARIES=/mingw64/lib/libopenblas.a \
         ..
 ```
 

@@ -17,11 +17,13 @@ Windows10上へ、本ソフトウェアとそれに必要な外部ライブラ�
 
 ### パッケージのインストール
 
-インストールが完了したら`git for windows`と書かれたコマンドプロンプトを立ち上
-げコンパイルに必要なパッケージをインストールします。
+インストールが完了したら`git for windows`と書かれたコマンドプロンプトを立ち上げコンパイルに必要なパッケージをインストールします。
 
 ```
-$ pacman -S base-devel mingw-w64-x86_64-toolchain mingw-w64-x86_64-cmake mingw-w64-x86_64-extra-cmake-module mingw-w64-x86_64-perl
+$ pacman -S base-devel mingw-w64-x86_64-toolchain \
+            mingw-w64-x86_64-cmake \
+            mingw-w64-x86_64-extra-cmake-module \
+            mingw-w64-x86_64-perl
 ```
 
 gcc/g++/gfortranが正しくインストールされているか確認してください。
@@ -131,11 +133,10 @@ $ cp Refiner/rcapRefiner.h $HOME/local/include
 
 ### OpenBLASのコンパイル
 
+OpenBLASはバイナリパッケージを利用します。
+
 ```
-$ cd $HOME/work
-$ tar xvf OpenBLAS-0.2.20.tar.gz
-$ make BINARY=64 NO_SHARED=1 USE_OPENMP=1
-$ make PREFIX=$HOME/local install
+$ pacman -S mingw-w64-x86_64-openblas
 ```
 
 ### METISのコンパイル
@@ -181,7 +182,11 @@ extern int gk_getopt_long_only (int __argc, char **__argv,
 ```
 
 ```
-$ make config prefix=$HOME/local cc=gcc openmp=1
+$ cd build
+$ cmake -G "MSYS Makefiles" \
+        -DCMAKE_INSTALL_PREFIX=$HOME/local \
+        -DOPENMP=ON \
+        ..
 $ make
 $ make install
 ```
@@ -218,8 +223,8 @@ CCLOADFLAGS   = $(CCFLAGS) -L$(HOME)/local/lib -lmsmpi
 #  BLAS, LAPACK (and possibly other) libraries needed for linking test programs
 #
 
-BLASLIB       = -L$(HOME)/local/lib -lopenblas
-LAPACKLIB     = -L$(HOME)/local/lib -lopenblas
+BLASLIB       = -lopenblas
+LAPACKLIB     = -lopenblas
 LIBS          = $(LAPACKLIB) $(BLASLIB)
 ```
 
@@ -257,7 +262,7 @@ CC      = gcc -fopenmp
 FC      = gfortran -fopenmp -fno-range-check
 FL      = gfortran -fopenmp
 
-LAPACK = -L$(HOME)/local/lib -lopenblas
+LAPACK = -lopenblas
 
 SCALAP  = -L$(HOME)/local/lib -lscalapack
 
@@ -265,7 +270,7 @@ INCPAR = -I$(HOME)/local/include
 
 LIBPAR  = $(SCALAP) $(LAPACK) -L$(HOME)/local/lib -lmsmpi
 
-LIBBLAS = -L$(HOME)/local/lib -lopenblas
+LIBBLAS = -lopenblas
 
 LIBOTHERS = -lpthread -fopenmp
 ```
@@ -278,6 +283,8 @@ $ cp lib/*.a $HOME/local/lib
 $ cp include/*.h $HOME/local/include
 ```
 
+エラーが表示されますが無視して構いません。
+
 ### Trilinos MLのコンパイル
 
 ```
@@ -289,7 +296,6 @@ $ cmake -G "MSYS Makefiles" \
         -DCMAKE_INSTALL_PREFIX="$HOME/local" \
         -DCMAKE_C_FLAGS="-DNO_TIMES" \
         -DCMAKE_CXX_FLAGS="-DNO_TIMES" \
-        -DCMAKE_Fortran_COMPILER=mpifort \
         -DTPL_ENABLE_MPI=ON \
         -DTPL_ENABLE_LAPACK=ON \
         -DTPL_ENABLE_SCALAPACK=ON \
@@ -300,8 +306,6 @@ $ cmake -G "MSYS Makefiles" \
         -DTrilinos_ENABLE_OpenMP=ON \
         -DTrilinos_ENABLE_Amesos=ON \
         -DTrilinos_ENABLE_ALL_OPTIONAL_PACKAGES=OFF \
-        -DBLAS_LIBRARY_DIRS=$HOME/local/lib \
-        -DLAPACK_LIBRARY_DIRS=$HOME/local/lib \
         -DSCALAPACK_LIBRARY_DIRS=$HOME/local/lib \
         -DBLAS_LIBRARY_NAMES=openblas \
         -DLAPACK_LIBRARY_NAMES=openblas \
@@ -406,7 +410,7 @@ CPPOPTFLAGS    = -O3
 # Fortran compiler settings
 F90            = gfortran -fopenmp -fno-range-check
 F90FLAGS       =
-F90LDFLAGS     = -lstdc++ -L$(HOME)/local/lib -lopenblas
+F90LDFLAGS     = -lstdc++ -lopenblas
 F90OPTFLAGS    = -O2
 F90FPP         = -cpp
 F90LINKER      = mpif90 -fopenmp
