@@ -398,7 +398,7 @@ CPPLDFLAGS     =
 CPPOPTFLAGS    = -O3
 
 # Fortran compiler settings
-F90            = gfortran -fopenmp -fno-range-check -ffree-line-length-0
+F90            = gfortran -fopenmp -fno-range-check
 F90FLAGS       =
 F90LDFLAGS     = -lstdc++ -lopenblas
 F90OPTFLAGS    = -O2
