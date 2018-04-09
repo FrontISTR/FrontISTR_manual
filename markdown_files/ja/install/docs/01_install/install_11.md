@@ -112,15 +112,15 @@ PARAMETER (MPI_ADDRESS_KIND=8)
 
 | ソフトウェア名 | ダウンロード先 |
 |:--|:--|
-| REVOCAP\_Refiner-1.1.04.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
-| FrontISTR\_V50.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
+| REVOCAP_Refiner-1.1.04.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
+| FrontISTR_V50.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
 | OpenBLAS-0.2.20.tar.gz | http://www.openblas.net/ |
 | metis-5.1.0.tar.gz | http://glaros.dtc.umn.edu/gkhome/metis/metis/download |
 | scalapack-2.0.2.tgz | http://www.netlib.org/scalapack/ |
-| MUMPS\_5.1.2.tar.gz | http://mumps.enseeiht.fr/ |
+| MUMPS_5.1.2.tar.gz | http://mumps.enseeiht.fr/ |
 | trilinos-12.12.1-Source.tar.bz2 | https://trilinos.org/download/ |
 
-### REVOCAP\_Refinerのコンパイル
+### REVOCAP_Refinerのコンパイル
 
 ```
 $ cd $HOME/work
@@ -294,18 +294,18 @@ $ cd trilinos-12.12.1-Source
 $ mkdir build
 $ cmake -G "MSYS Makefiles" \
         -DCMAKE_INSTALL_PREFIX="$HOME/local" \
-        -DTPL_ENABLE_MPI=ON \
-        -DMPI_USE_COMPILER_WRAPPERS=OFF \
-        -DTrilinos_ENABLE_OpenMP=ON \
+        -DCMAKE_CXX_FLAGS="-I$HOME/local/include" \
+        -DCMAKE_C_FLAGS="-I$HOME/local/include" \
         -DBLAS_LIBRARY_NAMES="openblas" \
         -DLAPACK_LIBRARY_NAMES="openblas" \
-        -DTrilinos_ENABLE_ML=ON \
-        -DTrilinos_ENABLE_Zoltan=ON \
-        -DCMAKE_C_FLAGS="-I$HOME/local/include" \
-        -DCMAKE_CXX_FLAGS="-I$HOME/local/include" \
-        -DTrilinos_ENABLE_ALL_OPTIONAL_PACKAGES=OFF \
+        -DMPI_USE_COMPILER_WRAPPERS=OFF \
         -DMPI_C_HEADER_DIR="$HOME/local/include" \
         -DMPI_CXX_HEADER_DIR="$HOME/local/include" \
+        -DTPL_ENABLE_MPI=ON \
+        -DTrilinos_ENABLE_OpenMP=ON \
+        -DTrilinos_ENABLE_ML=ON \
+        -DTrilinos_ENABLE_Zoltan=ON \
+        -DTrilinos_ENABLE_ALL_OPTIONAL_PACKAGES=OFF \
         ..
 $ make
 $ make install
@@ -432,7 +432,7 @@ $ make
 
 ### make install の実行
 
-makeが完了したら、make installを実行しMakefile.confで指定したディレクトリへインストールします。この例では  `$(HOME)/FrontISTR/bin` になります。
+makeが完了したら、make installを実行しMakefile.confで指定したディレクトリへインストールします。この例では  `$(HOME)/FrontISTR/bin` です。
 
 ```
 $ make install
