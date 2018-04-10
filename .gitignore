@@ -1,8 +1,8 @@
 .DS_store
 doc
 markdown_mkdocs
-markdown_files/ja/user/site
-markdown_files/en/user/site
+markdown_files/ja/intro/site
+markdown_files/en/intro/site
 markdown_files/ja/install/site
 markdown_files/en/install/site
 markdown_files/ja/theory/site
