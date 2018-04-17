@@ -28,7 +28,7 @@
 
 ## 本マニュアルの記載内容
 
-- 例題:
+- チュートリアル:
     - [静解析（弾性）](04_tutorial/tutorial_01.md)
     - [静解析（弾性、並列）](04_tutorial/tutorial_02.md)
     - [静解析（超弾性１）](04_tutorial/tutorial_03.md)
@@ -46,7 +46,7 @@
     - [固有値解析](04_tutorial/tutorial_15.md)
     - [熱伝導解析](04_tutorial/tutorial_16.md)
     - [周波数応答解析](04_tutorial/tutorial_17.md)
-- チュートリアル:
+- 例題:
     - [単純形状モデルによる検証](05_example/example_01.md)
     - [弾性静解析用実モデル例題](05_example/example_02.md)
     - [固有値解析用実モデル例題](05_example/example_03.md)
