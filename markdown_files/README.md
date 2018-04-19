@@ -22,10 +22,18 @@
 ## ビルド方法
 [mkdocs](http://www.mkdocs.org)をインストールしておく。英語版・日本語版それぞれでビルドを実行する
 
-1. enまたはjaフォルダに移動
-   ``` $ cd en ```
+1. enまたはjaフォルダ以下のマニュアルディレクトリに移動
+   ``` $ cd en/analysis ```
+   ``` $ cd en/install ```
+   ``` $ cd en/theory ```
+   ``` $ cd en/tutorial ```
+   ``` $ cd en/user ```
    または
-   ``` $ cd ja ```
+   ``` $ cd ja/analysis ```
+   ``` $ cd ja/install ```
+   ``` $ cd ja/theory ```
+   ``` $ cd ja/tutorial ```
+   ``` $ cd ja/user ```
 2. build実行
    ``` $ mkdocs build --clean ```
 3. siteフォルダが生成されるので、中身一式を取得してupする
