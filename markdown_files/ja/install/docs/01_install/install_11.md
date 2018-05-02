@@ -1,4 +1,4 @@
-# 参考 Windows10へのインストール手順例(cmake)
+# 参考 Windows10へのインストール手順例(Makefile.conf)
 
 Windows10上へ、本ソフトウェアとそれに必要な外部ライブラリの構築手順の例を示します。他の環境へのインストールの参考にしてください。
 
@@ -17,11 +17,13 @@ Windows10上へ、本ソフトウェアとそれに必要な外部ライブラ�
 
 ### パッケージのインストール
 
-インストールが完了したら`git for windows`と書かれたコマンドプロンプトを立ち上
-げコンパイルに必要なパッケージをインストールします。
+インストールが完了したら`git for windows`と書かれたコマンドプロンプトを立ち上げコンパイルに必要なパッケージをインストールします。
 
 ```
-$ pacman -S mingw-w64-x86_64-cmake mingw-w64-x86_64-extra-cmake-module mingw-w64-x86_64-qt5
+$ pacman -S base-devel mingw-w64-x86_64-toolchain \
+            mingw-w64-x86_64-cmake \
+            mingw-w64-x86_64-extra-cmake-module \
+            mingw-w64-x86_64-perl
 ```
 
 gcc/g++/gfortranが正しくインストールされているか確認してください。
@@ -110,15 +112,15 @@ PARAMETER (MPI_ADDRESS_KIND=8)
 
 | ソフトウェア名 | ダウンロード先 |
 |:--|:--|
-| REVOCAP\_Refiner-1.1.04.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
-| FrontISTR\_V50.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
+| REVOCAP_Refiner-1.1.04.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
+| FrontISTR_V50.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
 | OpenBLAS-0.2.20.tar.gz | http://www.openblas.net/ |
 | metis-5.1.0.tar.gz | http://glaros.dtc.umn.edu/gkhome/metis/metis/download |
 | scalapack-2.0.2.tgz | http://www.netlib.org/scalapack/ |
-| MUMPS\_5.1.2.tar.gz | http://mumps.enseeiht.fr/ |
+| MUMPS_5.1.2.tar.gz | http://mumps.enseeiht.fr/ |
 | trilinos-12.12.1-Source.tar.bz2 | https://trilinos.org/download/ |
 
-### REVOCAP\_Refinerのコンパイル
+### REVOCAP_Refinerのコンパイル
 
 ```
 $ cd $HOME/work
@@ -131,11 +133,10 @@ $ cp Refiner/rcapRefiner.h $HOME/local/include
 
 ### OpenBLASのコンパイル
 
+OpenBLASはMSYS2から提供されるバイナリパッケージを利用します。
+
 ```
-$ cd $HOME/work
-$ tar xvf OpenBLAS-0.2.20.tar.gz
-$ make BINARY=64 NO_SHARED=1 USE_OPENMP=1
-$ make PREFIX=$HOME/local install
+$ pacman -S mingw-w64-x86_64-openblas
 ```
 
 ### METISのコンパイル
@@ -181,7 +182,11 @@ extern int gk_getopt_long_only (int __argc, char **__argv,
 ```
 
 ```
-$ make config prefix=$HOME/local cc=gcc openmp=1
+$ cd build
+$ cmake -G "MSYS Makefiles" \
+        -DCMAKE_INSTALL_PREFIX=$HOME/local \
+        -DOPENMP=ON \
+        ..
 $ make
 $ make install
 ```
@@ -218,8 +223,8 @@ CCLOADFLAGS   = $(CCFLAGS) -L$(HOME)/local/lib -lmsmpi
 #  BLAS, LAPACK (and possibly other) libraries needed for linking test programs
 #
 
-BLASLIB       = -L$(HOME)/local/lib -lopenblas
-LAPACKLIB     = -L$(HOME)/local/lib -lopenblas
+BLASLIB       = -lopenblas
+LAPACKLIB     = -lopenblas
 LIBS          = $(LAPACKLIB) $(BLASLIB)
 ```
 
@@ -257,7 +262,7 @@ CC      = gcc -fopenmp
 FC      = gfortran -fopenmp -fno-range-check
 FL      = gfortran -fopenmp
 
-LAPACK = -L$(HOME)/local/lib -lopenblas
+LAPACK = -lopenblas
 
 SCALAP  = -L$(HOME)/local/lib -lscalapack
 
@@ -265,7 +270,7 @@ INCPAR = -I$(HOME)/local/include
 
 LIBPAR  = $(SCALAP) $(LAPACK) -L$(HOME)/local/lib -lmsmpi
 
-LIBBLAS = -L$(HOME)/local/lib -lopenblas
+LIBBLAS = -lopenblas
 
 LIBOTHERS = -lpthread -fopenmp
 ```
@@ -278,6 +283,8 @@ $ cp lib/*.a $HOME/local/lib
 $ cp include/*.h $HOME/local/include
 ```
 
+エラーが表示されますが無視して構いません。
+
 ### Trilinos MLのコンパイル
 
 ```
@@ -287,31 +294,18 @@ $ cd trilinos-12.12.1-Source
 $ mkdir build
 $ cmake -G "MSYS Makefiles" \
         -DCMAKE_INSTALL_PREFIX="$HOME/local" \
-        -DCMAKE_C_FLAGS="-DNO_TIMES" \
-        -DCMAKE_CXX_FLAGS="-DNO_TIMES" \
-        -DCMAKE_Fortran_COMPILER=mpifort \
+        -DCMAKE_CXX_FLAGS="-I$HOME/local/include" \
+        -DCMAKE_C_FLAGS="-I$HOME/local/include" \
+        -DBLAS_LIBRARY_NAMES="openblas" \
+        -DLAPACK_LIBRARY_NAMES="openblas" \
+        -DMPI_USE_COMPILER_WRAPPERS=OFF \
+        -DMPI_C_HEADER_DIR="$HOME/local/include" \
+        -DMPI_CXX_HEADER_DIR="$HOME/local/include" \
         -DTPL_ENABLE_MPI=ON \
-        -DTPL_ENABLE_LAPACK=ON \
-        -DTPL_ENABLE_SCALAPACK=ON \
-        -DTPL_ENABLE_METIS=ON \
-        -DTPL_ENABLE_MUMPS=ON \
+        -DTrilinos_ENABLE_OpenMP=ON \
         -DTrilinos_ENABLE_ML=ON \
         -DTrilinos_ENABLE_Zoltan=ON \
-        -DTrilinos_ENABLE_OpenMP=ON \
-        -DTrilinos_ENABLE_Amesos=ON \
         -DTrilinos_ENABLE_ALL_OPTIONAL_PACKAGES=OFF \
-        -DBLAS_LIBRARY_DIRS=$HOME/local/lib \
-        -DLAPACK_LIBRARY_DIRS=$HOME/local/lib \
-        -DSCALAPACK_LIBRARY_DIRS=$HOME/local/lib \
-        -DBLAS_LIBRARY_NAMES=openblas \
-        -DLAPACK_LIBRARY_NAMES=openblas \
-        -DSCALAPACK_LIBRARY_NAMES=scalapack \
-        -DMPI_CXX_COMPILER=g++ \
-        -DMPI_CXX_INCLUDE_PATH=$HOME/local/include \
-        -DMPI_CXX_LIBRARIES=$HOME/local/lib/libmsmpi.a \
-        -DMPI_C_COMPILER=gcc \
-        -DMPI_C_INCLUDE_PATH=$HOME/local/include \
-        -DMPI_C_LIBRARIES=$HOME/local/lib/libmsmpi.a \
         ..
 $ make
 $ make install
@@ -322,13 +316,110 @@ $ make install
 上記ライブラリのコンパイルが済んだらFrontISTRをコンパイルします。
 
 ```
-$ cd $HOME/work/FrontISTR
-$ mkdir build
-$ cd build
-$ cmake -DCMAKE_INSTALL_PREFIX=$HOME/FrontISTR \
-        -DBLAS_LIBRARIES=$HOME/local/lib/libopenblas.a \
-        -DLAPACK_LIBRARIES=$HOME/local/lib/libopenblas.a \
-        ..
+$ cd $HOME/work
+$ tar xvf FrontISTR_V50.tar.gz
+$ cd FrontISTR
+```
+
+### Makefile.confの編集
+
+雛形をコピーして、環境に合わせた内容に編集します。この例では、以下の様に編集します。
+
+```
+$ cp Makefile.conf.org Makefile.conf
+$ vi Makefile.conf
+##################################################
+#                                                #
+#     Setup Configulation File for FrontISTR     #
+#                                                #
+##################################################
+
+# MPI
+MPIDIR         = $(HOME)/local
+MPIBINDIR      = "/c/Program\ Files/Microsoft\ MPI/Bin/"
+MPILIBDIR      = $(MPIDIR)/lib
+MPIINCDIR      = $(MPIDIR)/include
+MPILIBS        = -lmsmpi
+
+# for install option only
+PREFIX         = $(HOME)/FrontISTR
+BINDIR         = $(PREFIX)/bin
+LIBDIR         = $(PREFIX)/lib
+INCLUDEDIR     = $(PREFIX)/include
+
+# Metis
+METISDIR       = $(HOME)/local
+METISLIBDIR    = $(METISDIR)/lib
+METISINCDIR    = $(METISDIR)/include
+HECMW_METIS_VER= 5
+
+# ParMetis
+PARMETISDIR    = $(HOME)/local
+PARMETISLIBDIR = $(PARMETISDIR)/lib
+PARMETISINCDIR = $(PARMETISDIR)/include
+
+# Refiner
+REFINERDIR     = $(HOME)/local
+REFINERINCDIR  = $(REFINERDIR)/include
+REFINERLIBDIR  = $(REFINERDIR)/lib
+
+# Coupler
+REVOCAPDIR     = $(HOME)/local
+REVOCAPINCDIR  = $(REVOCAPDIR)/include
+REVOCAPLIBDIR  = $(REVOCAPDIR)/lib
+
+# MUMPS
+MUMPSDIR       = $(HOME)/local
+MUMPSINCDIR    = $(MUMPSDIR)/include
+MUMPSLIBDIR    = $(MUMPSDIR)/lib
+MUMPSLIBS      = -ldmumps -lmumps_common -lpord -L$HOME/local/lib -lscalapack
+
+# MKL PARDISO
+MKLDIR     = $(HOME)/
+MKLINCDIR  = $(MKLDIR)/include
+MKLLIBDIR  = $(MKLDIR)/lib
+
+# ML
+MLDIR          = $(HOME)/local
+MLINCDIR       = $(MLDIR)/include
+MLLIBDIR       = $(MLDIR)/lib
+MLLIBS         = -lml -lzoltan -lws2_32
+
+# C compiler settings
+CC             = gcc -fopenmp
+CFLAGS         = -D_WINDOWS
+LDFLAGS        = -lstdc++ -lm
+OPTFLAGS       = -O3
+
+# C++ compiler settings
+CPP            = g++ -fopenmp
+CPPFLAGS       = -D_WINDOWS
+CPPLDFLAGS     =
+CPPOPTFLAGS    = -O3
+
+# Fortran compiler settings
+F90            = gfortran -fopenmp -fno-range-check
+F90FLAGS       =
+F90LDFLAGS     = -lstdc++ -lopenblas
+F90OPTFLAGS    = -O2
+F90FPP         = -cpp
+F90LINKER      = gfortran -fopenmp
+
+MAKE           = make
+AR             = ar ruv
+MV             = mv -f
+CP             = cp -f
+RM             = rm -f
+MKDIR          = mkdir -p
+```
+
+### setup.shの実行
+
+編集が完了したら、setup.sh を実行します。
+
+```
+$ ./setup.sh -p --with-tools --with-refiner \
+             --with-metis --with-mumps --with-lapack --with-ml
 ```
 
 ### makeの実行
@@ -339,17 +430,9 @@ $ cmake -DCMAKE_INSTALL_PREFIX=$HOME/FrontISTR \
 $ make
 ```
 
-4並列コンパイルをする場合、
-
-```
-$ make -j4
-```
-
-とします。並列コンパイルにより、コンパイル時間が短縮されます。
-
 ### make install の実行
 
-makeが完了したら、make installを実行しMakefile.confで指定したディレクトリへインストールします。この例では `$(HOME)/FrontISTR/bin` になります。
+makeが完了したら、make installを実行しMakefile.confで指定したディレクトリへインストールします。この例では  `$(HOME)/FrontISTR/bin` です。
 
 ```
 $ make install
@@ -434,4 +517,3 @@ C:\git-sdk-64\mingw64\bin
 の下にありますので、バイナリを実行するコンピュータにコピーします。
 
 また、Microsoft MPIのランタイムMSMpiSetup.exeも実行するコンピュータにインストールします。
-
