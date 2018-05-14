@@ -62,7 +62,7 @@ $$
 ただし$^{t'} \sigma$，$^{t'} \overline{b}$，$^{t'} n$，$^{t'} \overline{t}$，$^{t'} \overline{u}$は、それぞれ時刻$t’$におけるCauchy応力(真応力)、物体力、物体表面での外向き単位法線ベクトル、既定された表面力、既定された変位である。
 これらの式は、時刻$t’$での配置$^{t'}v$, $^{t'}s\_t$, $^{t'}s\_u$に対して記述されるものである。
 
-![](media/image02_01.png){width="3.40625in" height="1.5833333333333333in"}
+![](media/image02_01.png)
 
 図 2.2.1　増分解析の概念
 
@@ -190,7 +190,7 @@ $$
 \Delta E\_{L}=\frac{1}{2}
 \left\lbrace
 \frac{\partial \Delta u}{\partial X}
-+\left(\frac{\partial \Delta u}{\partial X}\right)^T 
++\left(\frac{\partial \Delta u}{\partial X}\right)^T
 +\left(\frac{\partial \Delta u}{\partial X} \right)^T\cdot
 \frac{\partial ^{t} u}{\partial X}
 +\left(\frac{\partial ^{t} u}{\partial X} \right)^T
@@ -258,7 +258,7 @@ $ ^{t'}\_0 K^{(i)}\Delta U^{(i)}=^{t'}\_0 F-^{t'}\_0 Q^{(i-1)} $
 Step3 :
 $ \,^{t'} U^{(i)}=^{t'} U^{(i-1)} + \Delta U^{(i)} $
 
-$i=0$
+$i=i+1$
 
 ### updated Lagrange法の定式化
 
@@ -446,7 +446,7 @@ $$
 $$
 \begin{align}
 W &= \mu \left[ \frac{1}{2} ( {\overline{I}}_1 - 3 )
-   + \frac{1}{20 {\lambda_m}^2} ( \ {{\overline{I}}_1}^2 - 9 ) 
+   + \frac{1}{20 {\lambda_m}^2} ( \ {{\overline{I}}_1}^2 - 9 )
    + \frac{11}{1050 {\lambda_m}^2} ( {{\overline{I}}_1}^3 - 27 ) \\\
    + \frac{19}{7000 {\lambda_m}^2} ( {{\overline{I}}_1}^4 - 81 )
    + \frac{519}{673750 {\lambda_m}^2} ( {{\overline{I}}_1}^5 - 243 ) \right] \\\

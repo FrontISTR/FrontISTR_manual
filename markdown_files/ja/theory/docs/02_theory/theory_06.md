@@ -180,7 +180,7 @@ $$
 が成り立つ。$b_{j}(t)$の展開係数の実部および虚部を求めると式$\eqref{eq:2.6.18}$および式$\eqref{eq:2.6.19}$の形になる。
 
 $$
-begin{equation}
+\begin{equation}
 b_{jR} = \frac{ U^T_j F_R (\omega^2_j - \Omega^2) + U^T_j F_I (\alpha + \beta \omega_j^2) \Omega}{ (\omega^2_j - \Omega^2)^2 + (\alpha + \beta \omega_j^2)^2 \Omega^2}
 \label{eq:2.6.18}
 \end{equation}
