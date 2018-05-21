@@ -46,7 +46,9 @@ $$
 
 Herein, $\sigma$ is the stress, $\overline{t}$ is the surface force, $\overline{b}$ is the body force, and $S_t$ expresses the dynamic boundary and $S_u$ expresses the geometric boundary.
 
-![Figure 2.1.1 Boundry Value Problem in Solid Mechanics(Infinitesimal Deformation Problem)](media/theory01_01.png)
+![Figure 2.1.1 Boundry Value Problem in Solid Mechanics(Infinitesimal Deformation Problem)](media/image01_01.png)
+
+** Figure 2.1.1 Boundry Value Problem in Solid Mechanics(Infinitesimal Deformation Problem) **
 
 The strain and displacement relational expression in the infinitesimal deformation problem is given by the following equation.
 
