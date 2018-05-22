@@ -23,7 +23,7 @@ When conducting a free oscillation analysis of the continuum, spatial discretiza
 
 $$
 \begin{equation}
-M u + K \ddot{u} = 0
+M\ddot{u} + K u = 0
 \label{eq:2.3.1}
 \end{equation}
 $$
@@ -50,7 +50,7 @@ is substituted with equation $\eqref{eq:2.3.1}$, it will become as follows.
 
 $$
 \begin{equation}
-M u + K \ddot{u} = (a \sin \omega t + b \cos \omega t) (- \omega^2 M + K x ) =  ( -\lambda M + K x) = 0
+M\ddot{u} + K u = (a \sin \omega t + b \cos \omega t) (- \omega^2 M + K x ) =  ( -\lambda M + K x) = 0
 \label{eq:2.3.4}
 \end{equation}
 $$
@@ -85,7 +85,7 @@ In this manual, the matrix is symmetrical, and assumes a positive definite. Posi
 
 $$
 \begin{equation}
-x^{t} A x > 0
+x^\mathrm{T} A x > 0
 \label{eq:2.3.7}
 \end{equation}
 $$
@@ -112,7 +112,7 @@ In actual calculations, there are many cases where the maximum eigenvalue is cal
 
 ## Algorithm to Solve Eigenvalues
 
-The Jacobi method is well known as a classic method. This method is effective when the size of the matrix is small and dense. However, since large-scale and sparse matrices are handled by HEC-MW, this method is not used, the Lanczos iterative solution method is adopted.
+The Jacobi method is well known as a classic method. This method is effective when the size of the matrix is small and dense. However, since large-scale and sparse matrices are handled by *HEC-MW*, this method is not used, the Lanczos iterative solution method is adopted.
 
 ## Lanczos Method
 
@@ -130,14 +130,11 @@ The Lanczos method is for performing calculations to acquire the base of partial
 Transforming the variables of equation $\eqref{eq:2.3.8}$ as follows,
 
 $$
-A = (K - \sigma M)^{-1} M
-$$
-
-$$
-\begin{equation}
-\frac{1}{\lambda-\sigma}= \zeta
+\begin{align}
+  a^T &= \frac{\partial F}{\partial \sigma}\ ,
+& \left[ \frac{1}{(\lambda-\sigma)}\right] &= \zeta
 \label{eq:2.3.9}
-\end{equation}
+\end{align}
 $$
 
 to rewrite the problem, the following equation can be acquired.
@@ -180,14 +177,12 @@ $$
 However,
 
 $$
-\alpha_{i+1} = \frac{(q_i, Aq_i)}{(q_i, q_i)}
-$$
-
-$$
-\begin{equation}
-\gamma_{i+1} = \frac{(q_{i-1}, Aq_i)}{(q_{i-1}, q_{i-1})}
+\begin{align}
+  \beta_{i+1} &= \frac{1}{|r_{i+1}|}\ ,
+& \alpha_{i+1} &= \frac{(q_i, Aq_i)}{q_i, q_i}\ ,
+& \gamma_{i+1} &= \frac{(q_{i-1}, Aq_i)}{(q_{i-1}, q_{i-1})}
 \label{eq:2.3.12}
-\end{equation}
+\end{align}
 $$
 
 When the above equation is indicated in the matrix, it becomes as follows.
@@ -202,19 +197,17 @@ $$
 Which becomes, 
 
 $$
-Q_m = [q_{1}, q_{2}, q_{3}, \ldots ,q_{m}]
-$$
-
-$$
-\begin{equation}
-T=
-\begin{pmatrix}
+\begin{align}
+Q_m &= [q_1, q_2, q_3, \ldots , q_m]\ ,
+&T &=
+  \begin{pmatrix}
   \alpha_{1} & \gamma_{1} & & &\\\
   \beta_{2}  & \alpha_{2} & \gamma_{2} & &  \\\
              & \cdots & & &\\\
   & & & \beta_{m} & \alpha_{m}
-\end{pmatrix}
-\end{equation}
+  \end{pmatrix}
+\label{eq:2.3.14}
+\end{align}
 $$
 
 Thus, the eigenvalue can be acquired by performing the eigenvalue calculation for the tridiagonal matrix acquired by equation $\eqref{eq:2.3.13}$.

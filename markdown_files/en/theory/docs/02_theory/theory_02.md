@@ -27,25 +27,25 @@ Both the total Lagrange method and updated Lagrange method have been adopted for
 
 ### Decomposition of Increments of Virtual Work Equation
 
-The status to time $t$ is already known. The incremental analysis assumed here is where the status of $t'=t+\delta t$ is unknown.
+The status to time $t$ is already known. The incremental analysis assumed here is where the status of $t'=t+\Delta t$ is unknown. (Refer to Figure 2.2.1) The equilibrium equation, dynamic boundary conditions and geometric boundary condidions (basic boundary condidions) of the static boudary value problems as follows.
 
 $$
 \begin{equation}
-\nabla_{t'_x} \cdot ^{t'} \sigma +^{t'} \overline{b} =0 \quad in \ V
+\nabla_{t'_x} \cdot ^{t'} \sigma +^{t'} \overline{b} =0 \qquad in \ V
 \label{eq:2.2.1}
 \end{equation}
 $$
 
 $$
 \begin{equation}
-^{t'} \sigma \cdot^{t'} n = ^{t'} \overline{t} \quad on \ ^{t'}S_t
+^{t'} \sigma \cdot^{t'} n = ^{t'} \overline{t} \qquad on \ ^{t'}S_t
 \label{eq:2.2.2}
 \end{equation}
 $$
 
 $$
 \begin{equation}
-^{t'} u = ^{t'} \overline{u} \quad on \ ^{t'} S_u
+^{t'} u = ^{t'} \overline{u} \qquad on \ ^{t'} S_u
 \label{eq:2.2.3}
 \end{equation}
 $$
@@ -77,7 +77,7 @@ Herein, $^{t'} A\_{(L)}$ is the linear portion of the Almansi strain tensor, and
 $$
 \begin{equation}
 ^{t'} A_{(L)} = \frac{1}{2}
-\left\lbrace \frac{\partial ^{t'} u}{\partial ^{t'} x} + \left( \frac{ \partial ^{t'} u}{\partial ^{t'} x} \right) ^T \right\rbrace
+\left\lbrace \frac{\partial ^{t'} u}{\partial ^{t'} x} + \left( \frac{ \partial ^{t'} u}{\partial ^{t'} x} \right) ^\mathrm{T} \right\rbrace
 \label{eq:2.2.5}
 \end{equation}
 $$
@@ -93,7 +93,7 @@ The principle equation of the virtual work at time $t'$ assuming the initial lay
 $$
 \begin{equation}
 \int_{V}\,^{t'}_{0} S:\delta_0^{t'}
-E dV=^{t'}\delta R
+E\, dV=^{t'}\delta R
 \label{eq:2.2.6}
 \end{equation}
 $$
@@ -102,9 +102,10 @@ $$
 \begin{equation}
 ^{t'} \delta R=
 \int_{S_t}\,
-^{t'}\_{0} \overline{t} \cdot \delta u dS+
+^{t'}\_{0} \overline{t} \cdot \delta u\, dS
++
 \int_{V}\,
-^{t'}\_{0} \overline{b} \cdot \delta u dV
+^{t'}\_{0} \overline{b} \cdot \delta u\, dV
 \label{eq:2.2.7}
 \end{equation}
 $$
@@ -179,10 +180,10 @@ $$
 \Delta E\_{L}=\frac{1}{2}
 \left\lbrace
 \frac{\partial \Delta u}{\partial X}
-+\left(\frac{\partial \Delta u}{\partial X}\right)^T
-+\left(\frac{\partial \Delta u}{\partial X} \right)^T\cdot
++\left(\frac{\partial \Delta u}{\partial X}\right)^\mathrm{T}
++\left(\frac{\partial \Delta u}{\partial X} \right)^\mathrm{T}\cdot
 \frac{\partial ^{t} u}{\partial X}
-+\left(\frac{\partial ^{t} u}{\partial X} \right)^T
++\left(\frac{\partial ^{t} u}{\partial X} \right)^\mathrm{T}
 \cdot\frac{\partial \Delta u}{\partial X} \right\rbrace
 \label{eq:2.2.15}
 \end{equation}
@@ -190,7 +191,7 @@ $$
 
 $$
 \begin{equation}
-\Delta E_{NL} = \frac{1}{2}\left(\frac{\partial \Delta u}{\partial X}\right)^T\cdot\frac{\partial \Delta u}{\partial X}
+\Delta E_{NL} = \frac{1}{2}\left(\frac{\partial \Delta u}{\partial X}\right)^\mathrm{T}\cdot\frac{\partial \Delta u}{\partial X}
 \label{eq:2.2.16}
 \end{equation}
 $$
@@ -199,7 +200,7 @@ Equations $\eqref{eq:2.2.11} \eqref{eq:2.2.12} \eqref{eq:2.2.13} \eqref{eq:2.2.1
 
 $$
 \begin{equation}
-\int_{V} \Delta S: (\delta \Delta E\_{L} + \delta \Delta E\_{NL})dV + \int_{V}\,\_{0}^{t} S : \delta \Delta E\_{NL} dV = ^{t'} \delta R - \int_V{\_{0}^t S} : \delta \Delta E\_{L}dV
+\int_{V} \Delta S: (\delta \Delta E\_{L} + \delta \Delta E\_{NL})dV + \int_{V}\,\_{0}^{t} S : \delta \Delta E\_{NL}\, dV = ^{t'} \delta R - \int_V{\_{0}^t S} : \delta \Delta E\_{L}\,dV
 \label{eq:2.2.17}
 \end{equation}
 $$
@@ -218,7 +219,7 @@ Equation $\eqref{eq:2.2.17}$ is substituted with equation $\eqref{eq:2.2.18}$ an
 $$
 \begin{equation}
 \int_V ( ^t\_{0}
-C \Delta E\_{L} ) : \delta \Delta E\_{L} dV + \int_V\,^t\_{0} S : \delta \Delta E\_{NL} dV = \_{0}^{t'}\delta R - \int_V{\_{0}^t S} : \delta \Delta E_{L} dV
+C \Delta E\_{L} ) : \delta \Delta E\_{L}\, dV + \int_V\,^t\_{0} S : \delta \Delta E\_{NL}\, dV = \_{0}^{t'}\delta R - \int_V{\_{0}^t S} : \delta \Delta E_{L}\, dV
 \label{eq:2.2.19}
 \end{equation}
 $$
@@ -239,7 +240,7 @@ Therefore, the recurrence equation to acquire the time $t'$ status from the time
 $i = 0$
 
 Step1 :
-$ \,^{t'}_0 K^{(0)}=^{t}_0 K_L+^{t}_0 K\_{NL};\,^{t'}_0 Q^{(0)}=^{t}_0 Q;\, U^{(0)}=^{t} U $
+$ \,^{t'}_0 K^{(0)}=^{t}_0 K_L+^{t}_0 K\_{NL};\,^{t'}_0 Q^{(0)}=^{t}_0 Q;\ U^{(0)}=^{t} U $
  
 Step2 :
 $ ^{t'}_0 K^{(i)}\Delta U^{(i)}=^{t'}_0 F-^{t'}_0 Q^{(i-1)} $
@@ -263,7 +264,7 @@ $$
 
 $$
 \begin{equation}
-^{t'}\delta R = \int_{S_t}\,^{t'}\_{t}\overline{t} \cdot \delta u dS + \int_{V}\,^{t'}\_{t}\overline{b} \cdot \delta u dV
+^{t'}\delta R = \int_{S_t}\,^{t'}\_{t}\overline{t} \cdot \delta u\, dS + \int_{V}\,^{t'}\_{t}\overline{b} \cdot \delta u\, dV
 \label{eq:2.2.22}
 \end{equation}
 $$
@@ -284,7 +285,7 @@ $$
 \end{equation}
 $$
 
-although tensor $^{t'}_t S$, $^{t'}_t E$ and vector $^{t'}_t \overline{t}$, $^{t'}_t \overline{b}$ are using the current layout of time $t$ as reference, the Green-Lagrange strain does not include the initial displacement (displacement to time $t$) $^u$;
+although tensor $^{t'}_t S$, $^{t'}_t E$ and vector $^{t'}_t \overline{t}$, $^{t'}_t \overline{b}$ are using the current layout of time $t$ as reference, the Green-Lagrange strain does not include the initial displacement (displacement to time $t$) $^t u$;
 
 $$
 \begin{equation}
@@ -298,14 +299,14 @@ however, the equation becomes as follows.
 $$
 \begin{equation}
 \Delta\_{t} E\_{L}=\frac{1}{2}
-\left\lbrace \frac{\partial \Delta u}{\partial^t\, x} + \left(\frac{ \partial \Delta u}{\partial ^t\,x}\right)^T \right\rbrace
+\left\lbrace \frac{\partial \Delta u}{\partial^t\, x} + \left(\frac{ \partial \Delta u}{\partial ^t\,x}\right)^\mathrm{T} \right\rbrace
 \label{eq:2.2.26}
 \end{equation}
 $$
 
 $$
 \begin{equation}
-\Delta_t E_{NL} = \frac{1}{2} \left( \frac{ \partial \Delta u}{\partial ^t\,x}\right)^T \cdot \frac{ \partial \Delta u}{\partial^t\,x}
+\Delta_t E_{NL} = \frac{1}{2} \left( \frac{ \partial \Delta u}{\partial ^t\,x}\right)^\mathrm{T} \cdot \frac{ \partial \Delta u}{\partial^t\,x}
 \label{eq:2.2.27}
 \end{equation}
 $$
@@ -323,7 +324,7 @@ since the equation becomes as above, when this is arranged by substituting with 
 
 $$
 \begin{equation}
-\int_{t_{v}} \Delta\_{t} S : (\delta \Delta\_{t}{E\_{L}} + \delta \Delta\_t{E\_{NL}})d^t{v} + \int_{t\_{v}}{\_{t}^{t'}S} : \delta \Delta\_{t} {E\_{NL}}d^t{v}=^{t'} \delta R - \int_{t\_{v}}{\_{t}^t S} : \delta \Delta\_{t} E\_{L}d^t{v}
+\int_{t_{v}} \Delta\_{t} S : (\delta \Delta\_{t}{E\_{L}} + \delta \Delta\_t{E\_{NL}})d^t{v} + \int_{t\_{v}}{\_{t}^{t'}S} : \delta \Delta\_{t} {E\_{NL}}\,d^t{v}=^{t'} \delta R - \int_{t\_{v}}{\_{t}^t S} : \delta \Delta\_{t} E\_{L}\,d^t{v}
 \label{eq:2.2.29}
 \end{equation}
 $$
@@ -341,7 +342,7 @@ This is substituted with equation $\eqref{eq:2.2.29}$ to acquire the following e
 
 $$
 \begin{equation}
-\int_V ( ^t_t C \Delta\_{t} E\_{L} ) : \delta \Delta\_{t} E\_{L} dV+\int_V{^t\_{t} S} : \delta \Delta\_{t} E\_{NL} dV = ^{t'} \delta R - \int_V{\_{t}^t S} : \delta \Delta_t E\_{L} dV
+\int_V ( ^t_t C \Delta\_{t} E\_{L} ) : \delta \Delta\_{t} E\_{L}\, dV+\int_V{^t\_{t} S} : \delta \Delta\_{t} E\_{NL}\, dV = ^{t'} \delta R - \int_V{\_{t}^t S} : \delta \Delta_t E\_{L}\, dV
 \label{eq:2.2.31}
 \end{equation}
 $$
@@ -411,26 +412,37 @@ W = C\_{10} ( {\overline I\_{1}} - 3 ) + \frac{1}{D_1} ( J - 1 )^2
 \end{equation}
 $$
 
-Herein, $C_{10}$, $C_{01}$ and $D_1$ are the material constants.
+Herein, $C_{10}$ and $D_1$ are the material constants.
 
-#### Arruda Boyce Hyperelasticity Model
+#### (2) Mooney Rivlin Hyperelasticity Model
+
+$$
+\begin{equation}
+W = C_{10}(\overline{I_1}-3) + C_{01}(\overline{I_2}-3) + \frac{1}{D_1} (J-1)^2
+\label{eq:2.2.36}
+\end{equation}
+$$
+
+Herein, $C_{10}, C_{01}$ and $D_1$ are the material constants.
+
+#### (3) Arruda Boyce Hyperelasticity Model
 
 $$
 \begin{align}
 W &= \mu \left[ \frac{1}{2} ( {\overline{I}}_1 - 3 )
    + \frac{1}{20 {\lambda_m}^2} ( \ {{\overline{I}}_1}^2 - 9 )
-   + \frac{11}{1050 {\lambda_m}^2} ( {{\overline{I}}_1}^3 - 27 ) \\\
-   + \frac{19}{7000 {\lambda_m}^2} ( {{\overline{I}}_1}^4 - 81 )
+   + \frac{11}{1050 {\lambda_m}^2} ( {{\overline{I}}_1}^3 - 27 ) \nonumber \\\
+  \qquad + \frac{19}{7000 {\lambda_m}^2} ( {{\overline{I}}_1}^4 - 81 )
    + \frac{519}{673750 {\lambda_m}^2} ( {{\overline{I}}_1}^5 - 243 ) \right] \\\
   &+ \frac{1}{D} \left( \frac{J^2 - 1}{2} - \ln J \right)
-\label{eq:2.2.36}
+\label{eq:2.2.37}
 \end{align}
 $$
 
 $$
 \begin{equation}
-\mu = \frac{\mu_0}{1 + \frac{3}{5 \lambda_m^2} + \frac{99}{175 \lambda_m^4} + \frac{513}{875 \lambda_m^6} + \frac{42039}{67375 \lambda_m^8}}
-\label{eq:2.2.37}
+\mu = \frac{\mu_0}{1 + \cfrac{3}{5 \lambda_m^2} + \cfrac{99}{175 \lambda_m^4} + \cfrac{513}{875 \lambda_m^6} + \cfrac{42039}{67375 \lambda_m^8}}
+\label{eq:2.2.38}
 \end{equation}
 $$
 
@@ -449,7 +461,7 @@ Initla Yield Criteria
 $$
 \begin{equation}
 F( \sigma, \sigma_{y_0})
-\label{eq:2.2.38}
+\label{eq:2.2.39}
 \end{equation}
 $$
 
@@ -458,7 +470,7 @@ Consecutive Yield Criteria
 $$
 \begin{equation}
 F(\sigma, \sigma_y (\overline{e}^p))
-\label{eq:2.2.39}
+\label{eq:2.2.40}
 \end{equation}
 $$
 
@@ -479,14 +491,14 @@ Stress-plastic strain relationship in a single axis state:
 $$
 \begin{equation}
 \sigma = H(e^p)
-\label{eq:2.2.40}
+\label{eq:2.2.41}
 \end{equation}
 $$
 
 $$
 \begin{equation}
 \frac{d \sigma}{d e^p} = H'
-\label{eq:2.2.41}
+\label{eq:2.2.42}
 \end{equation}
 $$
 
@@ -499,14 +511,14 @@ Eauivalent stress-equivalent plastic strain relationship:
 $$
 \begin{equation}
 \overline{\sigma} = H(\overline{e}^p)
-\label{eq:2.2.42}
+\label{eq:2.2.43}
 \end{equation}
 $$
 
 $$
 \begin{equation}
-\dot{\overline{\sigma}} = H' \dot{\overline{e}^p}
-\label{eq:2.2.43}
+\dot{\overline{\sigma}} = H' \dot{\overline{e}}^p
+\label{eq:2.2.44}
 \end{equation}
 $$
 
@@ -517,7 +529,7 @@ However, for simplification, the function is only assumed to be the equivalent p
 $$
 \begin{equation}
 \dot{F} = \frac{\partial F}{\partial \sigma} : \dot{\sigma} + \frac{\partial F}{\partial e^p} : \dot{e}^p = 0
-\label{eq:2.2.44}
+\label{eq:2.2.45}
 \end{equation}
 $$
 
@@ -528,7 +540,7 @@ In this case, assuming the existence of plastic potential $\Theta$, the plastic 
 $$
 \begin{equation}
 \dot{e}^p=\dot{\lambda}\frac{\partial \Theta}{\partial \sigma}
-\label{eq:2.2.45}
+\label{eq:2.2.46}
 \end{equation}
 $$
 
@@ -539,7 +551,7 @@ Furthermore, assuming that plastic potential $\Theta$ is equivalent to yield fun
 $$
 \begin{equation}
 \dot{e}^p = \dot{\lambda} \frac{\partial F}{\partial \sigma}
-\label{eq:2.2.46}
+\label{eq:2.2.47}
 \end{equation}
 $$
 
@@ -548,7 +560,7 @@ When this equation is substituted with equation $\eqref{eq:2.2.45}$, the followi
 $$
 \begin{equation}
 \dot{\lambda} = \frac{a^T : d_D }{A + a^T : D : a}\dot{e}
-\label{eq:2.2.47}
+\label{eq:2.2.48}
 \end{equation}
 $$
 
@@ -559,7 +571,7 @@ $$
   a^T &= \frac{\partial F}{\partial \sigma}
 & d_D &= D a^T
 &   A &= -\frac{ a }{\dot{\lambda}} \frac{\partial F}{\partial e^p} : \dot{e}^p
-\label{eq:2.2.48}
+\label{eq:2.2.49}
 \end{align}
 $$
 
@@ -567,14 +579,20 @@ the stress-strain relational expression of the elastoplasticity can be written a
 
 $$
 \begin{equation}
-\sigma = \left\lbrace D - \frac{ d\_D \otimes d^T\_D}{ A + d^T\_D a} \right\rbrace : \dot{e}
-\label{eq:2.2.49}
+\dot{\sigma} =
+\left\lbrace
+D -
+\frac{d_D \otimes {d_D}^\mathrm{T}}
+     {A + {d_D}^\mathrm{T} a}
+\right\rbrace
+: \dot{e}
+\label{eq:2.2.50}
 \end{equation}
 $$
 
-When the yield function $\eqref{eq:2.2.49}$ of an elastoplastic material is known, the constitutive equation can be acquired from this equation.
+When the yield function $\eqref{eq:2.2.50}$ of an elastoplastic material is known, the constitutive equation can be acquired from this equation.
 
-#### Yield Function
+#### (1) Yield Function
 
 The elastoplastic yield functions included in this development code are listed in the following.
 
@@ -583,7 +601,7 @@ The elastoplastic yield functions included in this development code are listed i
 $$
 \begin{equation}
 F = \sqrt{3 J\_2} - \sigma\_y = 0
-\label{2.2.50}
+\label{2.2.51}
 \end{equation}
 $$
 
@@ -592,7 +610,7 @@ $$
 $$
 \begin{equation}
 F = \sigma_1 - \sigma_3 + \ ( \ \sigma_1 + \sigma_3\  )\sin \phi - 2 \ c \cos \phi = 0
-\label{eq:2.2.51}
+\label{eq:2.2.52}
 \end{equation}
 $$
 
@@ -601,7 +619,7 @@ $$
 $$
 \begin{equation}
 F = \sqrt{J\_2} - \ \alpha\ \sigma \ : I - \sigma_y = 0
-\label{eq:2.2.52}
+\label{eq:2.2.53}
 \end{equation}
 $$
 
@@ -611,7 +629,7 @@ $$
 \begin{align}
   \alpha &= \frac{2 \sin \phi}{3 + \sin \phi}\
 & \sigma_y &= \frac{6\ c \cos \phi}{3 + \sin \phi}
-\label{eq:2.2.53}
+\label{eq:2.2.54}
 \end{align}
 $$
 
@@ -622,17 +640,18 @@ A generalized Maxwell model is applied in this development code. As shown in the
 $$
 \begin{equation}
 \sigma \ (t) = Ktr \varepsilon I + 2 G ( \mu_0 e + \mu q )
-\label{eq:2.2.54}
+\label{eq:2.2.55}
 \end{equation}
 $$
 
 Which becomes,
 
 $$
-\begin{equation}
-\mu q = \sum_{m = 1}^{M} \mu_{m} q^{(m)} \sum_{m = 0}^{M} \mu_{m} = 1
-\label{eq:2.2.55}
-\end{equation}
+\begin{align}
+\mu q &= \sum_{m = 1}^{M} \mu_{m} q^{(m)}
+      & \sum_{m = 0}^{M} \mu_{m} = 1
+\label{eq:2.2.56}
+\end{align}
 $$
 
 Moreover, $q$ can be calculated from the following equation.
@@ -640,7 +659,7 @@ Moreover, $q$ can be calculated from the following equation.
 $$
 \begin{equation}
 {\dot{q}}^{(m)} + \frac{1}{\lambda_{m}} q^{(m)} = \dot{e}
-\label{eq:2.2.56}
+\label{eq:2.2.57}
 \end{equation}
 $$
 
@@ -649,7 +668,7 @@ Herein, $\lambda_m$ is the relaxation. Relaxation factor $G$ is expressed by the
 $$
 \begin{equation}
 G (t) = G \left[ \mu_0 + \sum_{i = 1}^M {\mu_m \exp\left( \frac{-t}{\lambda_m \ } \right)} \right]
-\label{eq:2.2.57}
+\label{eq:2.2.58}
 \end{equation}
 $$
 
@@ -660,7 +679,7 @@ Time dependent displacement under constant stress conditions is a phenomenon cal
 $$
 \begin{equation}
 {\dot{\varepsilon}}^c \equiv \frac{\partial \varepsilon^c}{\partial t} = \beta ( \,\sigma,\ \varepsilon^c\  )
-\label{eq:2.2.58}
+\label{eq:2.2.59}
 \end{equation}
 $$
 
@@ -669,7 +688,7 @@ In this case, assuming the strain generated momentarily is the elastic strain $\
 $$
 \begin{equation}
 \varepsilon = \varepsilon^e + \varepsilon^c
-\label{eq:2.2.59}
+\label{eq:2.2.60}
 \end{equation}
 $$
 
@@ -678,7 +697,7 @@ Which becomes,
 $$
 \begin{equation}
 \varepsilon^e = {c^e}^{-1}\ : \sigma
-\label{eq:2.2.60}
+\label{eq:2.2.61}
 \end{equation}
 $$
 
@@ -687,14 +706,14 @@ A mentioned in the above plastic material, the time integration method for the n
 $$
 \begin{equation}
 \sigma\_{n + 1} = c\ :\ ( \varepsilon\_{n + 1} - \varepsilon\_{n + 1}^c )
-\label{eq:2.2.61}
+\label{eq:2.2.62}
 \end{equation}
 $$
 
 $$
 \begin{equation}
 \varepsilon\_{n + 1}^c = \varepsilon\_n^c + \ \Delta t\ \beta\_{n + \theta}
-\label{eq:2.2.62}
+\label{eq:2.2.63}
 \end{equation}
 $$
 
@@ -703,7 +722,7 @@ Where, $\beta_{n+\theta}$ becomes as follows.
 $$
 \begin{equation}
 \beta_{n + \theta} = ( 1 - \theta  ) \beta\_n + \theta \beta\_{n + 1}
-\label{eq:2.2.63}
+\label{eq:2.2.64}
 \end{equation}
 $$
 
@@ -712,7 +731,7 @@ Moreover, the creep strain increment $\Delta \varepsilon^c$ is assumed to be a s
 $$
 \begin{equation}
 R\_{n + 1} = \varepsilon\_{n + 1} - \ c^{- 1}\ : \sigma\_{n + 1} - \ \varepsilon\_n^c - \ \Delta t\ \beta\_{n + \theta} = \mathbf{0}
-\label{eq:2.2.64}
+\label{eq:2.2.65}
 \end{equation}
 $$
 
@@ -721,7 +740,7 @@ In the iterative calculation of the Newton-Raphson method, the following equatio
 $$
 \begin{equation}
 R\_{n + 1}^{(k + 1)} = \mathbf{0} = \ R_{n + 1}^{(k)} - ( \ c^{- 1} + \Delta t\ c\_{n + 1}^c\  ) d \sigma\_{n + 1}^{(k)}
-\label{eq:2.2.65}
+\label{eq:2.2.66}
 \end{equation}
 $$
 
@@ -729,21 +748,24 @@ Which becomes,
 
 $$
 \begin{equation}
-c\_{n + 1}^c = \frac{ \partial \beta} {\partial \sigma}\  |\_{n + \theta} = \theta \frac{ \partial \beta}{\partial \sigma}\ |\_{n + 1}
-\label{eq:2.2.66}
-\end{equation}
-$$
-
-When the solution of equation $\eqref{eq:2.2.66}$ and equation $\eqref{eq:2.2.67}$ are used to perform the iterative solution method until the residual $R$ becomes $0$, stress $\sigma_{n+1}$ and the tangent tensile modulus are used.
-
-$$
-\begin{equation}
-c\_{n + 1}^* = ( c^{-1} + \Delta t c\_{n + 1}^c )^{- 1}
+c^c_{n+1} = 
+\left. \frac{\partial\beta}{\partial\sigma} \right|\_{n+\theta}
+=
+\left. \theta\frac{\partial\beta}{\partial\sigma} \right|\_{n+1}
 \label{eq:2.2.67}
 \end{equation}
 $$
 
-As a detailed equation \eqref{eq:2.2.57}$, the following Norton model is appliec in this development code. In the constitutive equation, the equivalent clip strain $\dot{\varepsilon}^{cr}$ as in the following equation expressed the function of the Mises stress $q$ and time $t$.
+When the solution of equation $\eqref{eq:2.2.65}$ and equation $\eqref{eq:2.2.66}$ are used to perform the iterative solution method until the residual $R$ becomes $0$, stress $\sigma_{n+1}$ and the tangent tensile modulus are used.
+
+$$
+\begin{equation}
+c\_{n + 1}^* = [ c^{-1} + \Delta t c\_{n + 1}^c ]^{- 1}
+\label{eq:2.2.68}
+\end{equation}
+$$
+
+As a detailed equation $\eqref{eq:2.2.58}$, the following Norton model is appliec in this development code. In the constitutive equation, the equivalent clip strain $\dot{\varepsilon}^{cr}$ as in the following equation expressed the function of the Mises stress $q$ and time $t$.
 
 $$
 \begin{equation}
@@ -774,7 +796,7 @@ In the contact analysis, the surfaces which may contact are specified in a pair.
   1. The slave node does not penetrate the master surface.
   2. When there is contact, the slave node becomes the contact position, and the master surface and the slave surface mutually transmit the contact force and the frictional force through this point of contact.
 
-The last term of equation $\eqref{eq:2.2.54}$ is discretized by the finite element to acquire the following equation.
+The last term of equation $\eqref{eq:2.2.55}$ is discretized by the finite element to acquire the following equation.
 
 $$
 \begin{equation}

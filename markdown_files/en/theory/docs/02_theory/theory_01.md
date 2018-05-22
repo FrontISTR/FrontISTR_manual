@@ -76,7 +76,7 @@ The principle of the virtual work regarding the infinitesimal deformation linear
 
 $$
 \begin{equation}
-\int_V \sigma : \delta \varepsilon dV = \int_{S_t} \overline{t} \cdot \delta u dS + \int_V \overline{b} \cdot \delta u dV
+\int_V \sigma : \delta \varepsilon\, dV = \int_{S_t} \overline{t} \cdot \delta u\, dS + \int_V \overline{b} \cdot \delta u\,dV
 \label{eq:2.1.6}
 \end{equation}
 $$
@@ -92,7 +92,7 @@ Furthermore, in consideration of the constitutive equation $\eqref{eq:2.1.5}$, e
 
 $$
 \begin{equation}
-\int_V (C : \varepsilon) : \delta \varepsilon dV = \int_{S_t} \overline{t} \cdot \delta u dS + \int_V \overline{b} \cdot \delta u dV
+\int_V (C : \varepsilon) : \delta \varepsilon\, dV = \int_{S_t} \overline{t} \cdot \delta u\, dS + \int_V \overline{b} \cdot \delta u\, dV
 \label{eq:2.1.8}
 \end{equation}
 $$
@@ -112,8 +112,8 @@ In consideration of stress $\hat{\sigma}$ and $\hat{\varepsilon}$ expressed by t
 
 $$
 \begin{equation}
-\int_V \hat{\varepsilon}^T D \delta \hat{\varepsilon} dV = \int_{S_t}
-\delta u^T \overline{t} dS + \int_V \delta u^T \overline{b} dV
+\int_V \hat{\varepsilon}^T D \delta \hat{\varepsilon}\, dV = \int_{S_t}
+\delta u^T \overline{t}\, dS + \int_V \delta u^T \overline{b}\, dV
 \label{eq:2.1.10}
 \end{equation}
 $$
@@ -126,8 +126,8 @@ The principle equation $\eqref{eq:2.1.10}$ of the virtual work is discretized fo
 
 $$
 \begin{equation}
-\sum_{e} = \int_{V^e} \hat{\varepsilon}^T D \delta \hat{\varepsilon} dV = \sum_{e} \int_{S^e_t}
-\delta u^T \overline{t} dS + \sum_{e} \int_{V^e} \delta u^T \overline{b} dV
+\sum_{e} = \int_{V^e} \hat{\varepsilon}^T D \delta \hat{\varepsilon}\, dV = \sum_{e} \int_{S^e_t}
+\delta u^T \overline{t}\, dS + \sum_{e} \int_{V^e} \delta u^T \overline{b}\,dV
 \label{eq:2.1.11}
 \end{equation}
 $$
@@ -154,10 +154,10 @@ Equations $\eqref{eq:2.1.12}$ and $\eqref{eq:2.1.13}$ are substituted with equat
 
 $$
 \begin{equation}
-\sum_e \delta U^T ( \int_{V^e} B^T DB dV )
+\sum_e \delta U^T \left( \int_{V^e} B^T DB\, dV \right)
 U = \sum_e \delta U^T \cdot \int_{S_t^e}
-N^T \overline{t} dS + \sum_{e} \delta U^T \int_{V^e} N^T
-\overline{b} dV
+N^T \overline{t}\, dS + \sum_{e} \delta U^T \int_{V^e} N^T
+\overline{b}\, dV
 \label{eq:2.1.14}
 \end{equation}
 $$
@@ -182,7 +182,7 @@ $$
 
 $$
 \begin{equation}
-F = \sum_e (\int_{S_t^e} N^T \overline{t} dS + \int_{V^e} N^T \overline{b} dV )
+F = \sum_e (\int_{S_t^e} N^T \overline{t}\, dS + \int_{V^e} N^T \overline{b}\, dV )
 \label{eq:2.1.17}
 \end{equation}
 $$

@@ -102,8 +102,18 @@ In addition, in locations where the acceleration is specified as geometric bound
 
 $$
 \begin{equation}
-u_{is} (t+\Delta{t}) = u_{is} (t) + \Delta t \dot{u}(t) + \Delta t^2 \left(\frac{1}{2} -\beta \right) {\ddot{u}}_{is} (t + \Delta t)
+u_{is} (t+\Delta{t}) = u_{is} (t) + \Delta t\, \dot{u}\_{is}(t) + (\Delta t)^2 \left(\frac{1}{2} -\beta \right) {\ddot{u}}_{is}(t) + (\Delta t)^2 \beta \ddot{u}\_{is}(t + \Delta t)
 \label{eq:2.5.6}
+\end{equation}
+$$
+
+Similarly, in locations where the rate is specified, the displacement of the following equation can be acquired from equation $\eqref{eq:2.5.6}$.
+
+$$
+\begin{equation}
+u\_{is}(t+\Delta t) = u\_{is}(t) + \Delta t \frac{\gamma-\beta}{\gamma}\dot{u}\_{is}
++ (\Delta t)^2 \frac{\gamma-2\beta}{2\gamma} \ddot{u}\_{is} + \Delta t \frac{\beta}{\gamma} \dot{u}\_{is}(t+\Delta t)
+\label{eq:2.5.7}
 \end{equation}
 $$
 
@@ -117,11 +127,11 @@ Where,
 
 The handling of the mass terms and the attenuation terms are as follows.
 
-#### Handling of Mass Term
+#### (1) Handling of Mass Term
 
 Regarding mass matrices, it is handled as lumped mass matrices as a general rule.
 
-#### Handling of Attenuation Term
+#### (2) Handling of Attenuation Term
 
 Regarding the attenuation term, it is handled as the Rayleigh attenuation expressed in equation $\eqref{eq:2.5.8}$.
 
@@ -189,41 +199,36 @@ When equation $\eqref{eq:2.5.12}$ and equation $\eqref{eq:2.5.13}$ are substitut
 
 
 $$
-\begin{equation}
-\left( \frac{1}{\Delta t^{2}} M + \frac{1}{2\Delta t} C \right) U ( t + \Delta t ) \\\
-= F(t) - Q(t) - \frac{1}{\Delta t^{2}} M [2 U(t) - U( t - \Delta t)] - \frac{1}{2\Delta t} C U(t - \Delta t)
+\begin{align}
+\left( \frac{1}{\Delta t^{2}} M + \frac{1}{2\Delta t} C \right) U ( t + \Delta t ) &=
+  F(t) - Q(t) \nonumber \\\
+  & - \frac{1}{\Delta t^{2}} M [2 U(t) - U( t - \Delta t)] - \frac{1}{2\Delta t} C U(t - \Delta t)
 \label{eq:2.5.14}
-\end{equation}
+\end{align}
 $$
 
 Practicularly, the equation becomes $Q(t)=K_L U(t)$ for a linear problem, and the above equation becomes as follows.
 
 $$
-\begin{equation}
-\left( \frac{1}{\Delta t^{2}} M + \frac{1}{2\Delta t} C \right) U( t + \Delta t ) \\\
-= F(t) - K_L U(t) - \frac{1}{\Delta t^{2}} M[2U(t) - U(t - \Delta t)] - \frac{1}{2\Delta t} C U(t - \Delta t)
+\begin{align}
+\left( \frac{1}{\Delta t^{2}} M + \frac{1}{2\Delta t} C \right) U( t + \Delta t ) & = F(t) - K_L U(t) \nonumber \\\
+  & - \frac{1}{\Delta t^{2}} M[2U(t) - U(t - \Delta t)] - \frac{1}{2\Delta t} C U(t - \Delta t)
 \label{eq:2.5.15}
-\end{equation}
+\end{align}
 $$
 
 In this case, when the mass matrix and the attenuation matrix are set as follows, problem solving operations of simultaneous equations is not required in equation $\eqref{eq:2.5.15}$.
 
-$$
-\begin{align}
-M : & Mass\ matrix \nonumber \\\
-    & Lumped\ mass\ matrix \nonumber \\\
-C : & Attenuation\ matrix \nonumber \\\
-    & Propotional\ attenuation\ C=R_m M \nonumber \\\
-    & R_m : Parameter
-\end{align}
-$$
+  - $M$ : Mass matrix (Lumped mass matrix)
+  - $C$ : Attenuation matrix (Proportional attenuation $C=R_mM$)
+  - $R_m$ : Parameter
 
 Therefore, from equation $\eqref{eq:2.5.15}$, $U(t+\Delta t)$ can be calculated by the following equation.
 
 $$
 \begin{equation}
 U(t + \Delta t)  =
-\frac{1}{\left(\frac{1}{\Delta t^2}M + \frac{1}{2\Delta t}C\right)}
+\frac{1}{\left(\cfrac{1}{\Delta t^2}M + \cfrac{1}{2\Delta t}C\right)}
 \left \\{
 F(t) - Q(t) - \frac{1}{\Delta t^2} M [2U(t) - U(t-\Delta t)] - \frac{1}{2\Delta t} C(t-\Delta t) U
 \right \\}
