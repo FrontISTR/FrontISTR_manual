@@ -1,0 +1,22 @@
+site_name: FrontISTR ver. 5.0
+theme:
+        name: 'bootstrap'
+use_directory_urls: false
+
+pages:
+- HOME: index.md
+- Analysis Flow: ./03_analysis/analysis_01.md
+- Input File:
+  - Overall Control Data (hecmw_ctrl.dat): ./03_analysis/analysis_02.md
+  - Mesh Partitioning Data (hecmw_ctrl_part.dat): ./03_analysis/analysis_03.md
+  - Mesh Data (mesh.msh): ./03_analysis/analysis_04.md
+  - Analysis Control Data (mesh.cnt): ./03_analysis/analysis_05.md
+  - Visualization Control Data (hecmw_vis.ini): ./03_analysis/analysis_05.md
+- Output File:
+  - Log Data: ./03_analysis/analysis_05.md
+  - Results Data (mesh.res): ./03_analysis/analysis_05.md
+  - Restart Data (mesh.restart): ./03_analysis/analysis_05.md
+  - Visualization Data: ./03_analysis/analysis_05.md
+- Element Library: ./03_analysis/analysis_06.md
+- Material Data: ./03_analysis/analysis_07.md
+- User Subroutines: ./03_analysis/analysis_08.md
