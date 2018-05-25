@@ -1,16 +1,21 @@
 ﻿site_name: FrontISTR ver. 5.0
-theme: bootstrap
+theme:
+    name: 'bootstrap'
 use_directory_urls: false
 
 pages:
 - ホーム: index.md
-- 動作環境: 01_install/install_01.md
-- アーカイブの解凍・展開: 01_install/install_02.md
-- インストール: 01_install/install_03.md
-- cmakeでのインストール: 01_install/install_04.md
-- Makefile.confでのインストール: 01_install/install_05.md
-- 付録: 01_install/install_06.md
-- 参考 CentOS7.3上でのインストール手順例(cmakeでの手順): 01_install/install_07.md
-- 参考 CentOS7.3上でのインストール手順例(Makefile.confでの手順): 01_install/install_08.md
-- 参考 Ubuntu16.04上でのインストール手順例(cmakeでの手順): 01_install/install_09.md
-- 参考 Ubuntu16.04上でのインストール手順例(Makefile.confでの手順): 01_install/install_09.md
+- インストール:
+    - 動作環境: 01_install/install_01.md
+    - アーカイブの解凍・展開: 01_install/install_02.md
+    - インストールの概要: 01_install/install_03.md
+    - cmakeでのインストール: 01_install/install_04.md
+    - Makefile.confでのインストール: 01_install/install_05.md
+    - Makefile.confの変数一覧: 01_install/install_06.md
+- 付録:
+    - CentOS7.3上でのインストール手順例(cmakeでの手順): 01_install/install_07.md
+    - CentOS7.3上でのインストール手順例(Makefile.confでの手順): 01_install/install_08.md
+    - Ubuntu16.04上でのインストール手順例(cmakeでの手順): 01_install/install_09.md
+    - Ubuntu16.04上でのインストール手順例(Makefile.confでの手順): 01_install/install_10.md
+#    - Windows10へのインストール手順例(cmake): 01_instal/install_11.md
+#    - Windows10へのインストール手順例(Makefile.conf): 01_install/install_12.md
