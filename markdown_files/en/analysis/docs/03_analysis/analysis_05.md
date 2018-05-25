@@ -3153,4 +3153,4 @@ When specifying the surfaces and cut end, specifies the setting method of the su
 ![Figure 7.4.17: Example of Setting Method](media/image05_19.png)
 
 Accordingly, the cut end of the plane surface z = 0.35 and z = -0.35 will be visualized.
-                                                                                   
+

@@ -169,3 +169,4 @@ subroutine uResidual( cstep, factor, residual )
   - `cstep`: Current number of analysis steps
   - `factor`: Load factor of current step
   - `residual`: Overall residual stress vector
+

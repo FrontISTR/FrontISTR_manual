@@ -6,31 +6,31 @@ In FrontISTR, the element groups shows in Table 4.1.1 can be used for analysis. 
 
 **Table 4.1.1: Element Library List**
 
-| Element Types     | Element No. | Description |
-|-------------------|-------------|-------------|
-| Line element      | 111         | Two node link element |
-|                   | 112         | Three node link element |
-| Plane element     | 231         | Three node triangular element |
-|                   | 232         | Six node triangular quadratic element |
-|                   | 241         | Four node quadrilateral element       |
-|                   | 242         | Eight node quadrilateral quadratic elment |
-| Solid element     | 301         | Two node truss element                    |
-|                   | 341         | Four node tetrahedral element             |
-|                   | 342         | Ten node tetrahedral quadratic element    |
-|                   | 351         | Six node pentahedral element              |
-|                   | 352         | Fifteen node pentahedral quadratic element | 
-|                   | 361         | Eight node hexahedral element              |
-|                   | 362         | Twenty node hexahedral quadratic element   |
-| Interface element | 541         | Quadrilateral cross section linear element |
-|                   | 542         | Quadrilateral cross section quadratic element |
-| Beam element      | 611         | Two node beam element                         |
-|                   | 641         | Two node beam element (with four 3-dof nodes) |
-| Shell element     | 731         | Three node three-dimensional linear element   |
-|                   | 732         | Six node three-dimensional quadratic element  |
-|                   | 741         | Four node three-dimensional linear element    |
-|                   | 743         | Nine node three-dimensional quadratic element |
-|                   | 761         | Three node three-dimensional linear element (with six 3-dof nodes)  |
-|                   | 781         | Four node three-dimensional linear element (with eight 3-dof nodes) |
+|Element Types     | Element No. | Description |
+|------------------|-------------|-------------|
+|Line element      | 111         | Two node link element |
+|                  | 112         | Three node link element |
+|Plane element     | 231         | Three node triangular element |
+|                  | 232         | Six node triangular quadratic element |
+|                  | 241         | Four node quadrilateral element       |
+|                  | 242         | Eight node quadrilateral quadratic elment |
+|Solid element     | 301         | Two node truss element                    |
+|                  | 341         | Four node tetrahedral element             |
+|                  | 342         | Ten node tetrahedral quadratic element    |
+|                  | 351         | Six node pentahedral element              |
+|                  | 352         | Fifteen node pentahedral quadratic element |
+|                  | 361         | Eight node hexahedral element              |
+|                  | 362         | Twenty node hexahedral quadratic element   |
+|Interface element | 541         | Quadrilateral cross section linear element |
+|                  | 542         | Quadrilateral cross section quadratic element |
+|Beam element      | 611         | Two node beam element                         |
+|                  | 641         | Two node beam element (with four 3-dof nodes) |
+|Shell element     | 731         | Three node three-dimensional linear element   |
+|                  | 732         | Six node three-dimensional quadratic element  |
+|                  | 741         | Four node three-dimensional linear element    |
+|                  | 743         | Nine node three-dimensional quadratic element |
+|                  | 761         | Three node three-dimensional linear element (with six 3-dof nodes)  |
+|                  | 781         | Four node three-dimensional linear element (with eight 3-dof nodes) |
 
 
 ![Figure 4.1.1: Element Library](media/image02_01.png)
@@ -386,3 +386,5 @@ In the nonlinear static analysis of FrontISTR, in addition to the method to defi
 !! Viscosity, angle of friction and hardening factor are defined (mandatory)
  500.0, 4.0, 10.0
 ```
+
+
