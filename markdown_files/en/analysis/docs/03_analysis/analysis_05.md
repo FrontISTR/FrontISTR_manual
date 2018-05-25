@@ -808,23 +808,29 @@ Defining external forces applied in frequency response analysis
 
 #### 6-1 `!SOLVER`
 
-|          |         |
-|----------|---------|
-|`METHOD`  |= method<br/>(`DIRECT` is the direct method, in addition there are `CG`, `BiCGSTAB`, `GMRES`, `GPBiCG`, etc.)|
-|`DUMPTYPE`|= type of matrix dumping|
-|`DUMPEXIT`|= whether program exits right after dumping matrix|
+```
+METHOD    = method
+           (DIRECT is the direct method,
+            in addition there are CG, BiCGSTAB, GMRES, GPBiCG, etc.)
+DUMPTYPE  = type of matrix dumping
+DUMPEXIT  = whether program exits right after dumping matrix
+
 
 The following parameters will be disregarded when a direct solver is selected in the method.
 
-|           |                |
-|-----------|----------------|
-|`PRECOND`  |= preconditioner|
-|`ITERLOG`  |= whether solver convergence history is output|
-|`TIMELOG`  |= whether solver computation time is output| 
-|`SCALING`  |= whether matrix is scaled so that each diagonal element becomes 1| 
-|`USEJAD`   |= whether matrix ordering optimized for vector processors is performed|
-|`MPCMETHOD`|= method for multipoint constraints<br/>(1: Penalty method, 2: MPC-CG method, 3: Explicit master-slave elimination)|
-|`ESTCOND`  |= frequency for estimating condition number<br/>(Estimation performed at every specified number of iterations and at the last iteration.<br/>No estimation when 0 is specified.)|
+PRECOND   = preconditioner
+ITERLOG   = whether solver convergence history is output
+TIMELOG   = whether solver computation time is output
+SCALING   = whether matrix is scaled so that each diagonal element becomes 1
+USEJAD    = whether matrix ordering optimized for vector processors is performed
+MPCMETHOD = method for multipoint constraints
+            (1: Penalty method,
+             2: MPC-CG method,
+             3: Explicit master-slave elimination)
+ESTCOND   = frequency for estimating condition number
+            (Estimation performed at every specified number of iterations and
+             at the last iteration.  No estimation when 0 is specified.)
+```
 
 ##### 6-2
 
@@ -1362,7 +1368,7 @@ HARDEN       = BILINEAR (Default), MULTILINEAR, SWIFT, RAMBERG-OSGOOD,
 DEPENDENCIES = 0 (Default)/1
 ```
 
-** 2行目以降 **
+** 2nd line or later **
 
 ###### In case of `YIELD = MISES` (Default)
 
@@ -1743,7 +1749,7 @@ GRPID = Group ID
 
 Definition of concentrated load
 
-##### パラメータ
+##### Parameter 
 
 ```
 GRPID      = Group ID
@@ -1788,7 +1794,7 @@ FOLLOW = YES(Default) / NO
          (whether pressure load follow deformation, valid in finite displacement analysis)
 ```
 
-** 2nd Line or later以降 **
+** 2nd Line or later **
 
 ```
 (2nd line) ID_NAME, LOAD_type, param1, param2,...
@@ -1832,3 +1838,1319 @@ FOLLOW = YES(Default) / NO
   ALL, CENT, 188.495, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0
 ```
 
+#### (16) `!ULOAD` (2-6)
+
+Input of user definition load
+
+##### Parameter
+
+```
+FILE = file name (Mandatory)
+```
+
+#### (17) `!CONTACT_ALGO` (2-7)
+
+Specification of the contact analysis algorithm
+
+##### Parameter
+
+```
+TYPE = SLAGRANGE (Lagrange multiplier method)
+       ALAGRANGE (Extended Lagrange multiplier method)
+```
+
+#### (18) `!CONTACT` (2-8)
+
+Definition of contact conditions
+
+##### Parameter
+
+```
+GRPID       = Boundary conditions group ID
+INTERACTION = SSLID(Default) / FSLID
+NTOL        = Contact normal direction convergence threshold (Default: 1.e-5)
+TTOL        = Contact tangential direction convergence threshold (Default: 1.e-3)
+NPENALTY    = Contact normal direction Penalty (Default: stiffness matrix 1.e3)
+TPENALTY    = Contact tangential direction Penalty (Default: 1.e3)
+```
+
+**2nd line or later**
+
+```
+(2nd line) PAIR_NAME, fcoef, factor
+```
+
+|Parameter Name|Attributions|Contacts|
+|--------------|------------|-----------------------------------------------|
+| PAIR_NAME    | C          |Contact pair name (Defined in `!CONTACT_PAIR`) |
+| fcoef 　     | R          |Friction coefficient (Default: 0.0)            |
+| factor 　    | R          |Friction penalty stiffness                     |
+
+##### Example of Use
+
+```
+!CONTACT_ALGO, TYPE=SLAGRANGE
+!CONTACT, GRPID=1, INTERACTION=FSLID
+  CP1, 0.1, 1.0e+5
+```
+
+#### (19) `!TEMPERATURE` (2-9)
+
+Specification of nodal temperature used for thermal stress analysis
+
+##### Parameter
+
+```
+READRESULT = Number of result steps of heat conduction analysis.
+             When specified, the temperature is sequentially input from
+             the results file of the heat conduction analysis,
+             and the 2nd line and later will be disregarded.
+SSTEP      = First step number that performs the reading
+             of the heat conduction analysis results (Default: 1)
+INTERVAL   = Step interval that performs the reading
+             of the heat conduction analysis results (Default: 1)
+```
+
+** 2nd line or later **
+
+```
+(2nd line) NODE_ID, Temp_Value
+```
+
+|Parameter Name|Attributions|Contents                  |
+|--------------|------------|--------------------------|
+| NODE_ID      | I/C        |Node ID or node group name|
+| Temp_Value   | R          |Temperature (Default: 0)  |
+
+##### Example of Use
+
+```
+!TEMPERATURE
+  1, 10.0
+  2, 120.0
+  3, 330.0
+!TEMPERATURE
+  ALL, 20.0
+!TEMPERATURE, READRESULT=1, SSTEP=1
+```
+
+#### (20) `!REFTEMP` (2-10)
+
+Definition of reference temperature in thermal stress analysis
+
+##### Parameter
+
+N/A
+
+** 2nd line or later **
+
+```
+(2nd line) Value
+```
+
+|Parameter Name|Attributions|Contents|
+|--------|------|-------------------------|
+| Value  | R    | Reference temperature (Default: 0)|
+
+#### (21) `!STEP` (2-11)
+
+Setting of analysis steps
+
+Setting is mandatory in the nonlinear static analysis and nonlinear dynamic analysis.
+
+When this definition is omitted in analyses other than the above, all the boundary conditions will become valid and is calculated in 1 step.
+
+When the material characteristics have viscoelasticity and creep, specify `TYPE=VISCO` and set the computation time conditions.
+
+##### Parameter
+
+```
+TYPE     = STATIC (default)/VISCO
+           (semi-static analysis)
+SUBSTEPS = Number of substeps of the boundary conditions
+           (Default: 1)
+CONVERG  = Convergence judgment threshold
+           (Default: 1.0e-6)
+MAXITER  = Maximum number of iterative calculations in nonlinear analysis
+           (Default: 50)
+AMP      = Time function name
+           (specified in !AMPLITUDE)
+```
+
+** 2nd line or later **
+
+```
+(2nd line) DTIME, ETIME (specified when TYPE=VISCO)
+```
+
+|Parameter Name|Attribution|Contents|
+|--------|------|-----------------------------------------|
+| DTIME  | R    |Time increment value (Default: 1)|
+| ETIME  | R    |End value of time increment in this step (Default: 1)|
+
+** 3rd line or later **
+
+```
+  BOUNDARY, id                   GRPID defined in id=!BOUNDARY
+  LOAD, id                       GRPID defined in id=!CLOAD, !DLOAD, !TEMPERATURE
+  CONTACT, id                    GRPID defined in id=!CONTACT
+```
+
+##### Parameter
+
+```
+!STEP, CONVERG=1.E-8
+  0.1, 1.0
+  BOUNDARY, 1
+  LOAD, 1
+  CONTACT, 1
+```
+
+
+#### (22) `!TRS` (2-12)
+
+Thermorheological Simplicity description on temperature behavior of viscoelastic materials
+
+##### Parameter
+
+```
+DEFINITION = WLF(Default) /ARRHENUS
+```
+
+** 2nd line or later **
+
+(2nd line) θ<sub>0</sub>, C<sub>1</sub>, C<sub>2</sub>
+
+| Parameter Name    | Attributions | Contents    |
+|------------------------------|------|----------|
+| θ<sub>0</sub>                | R    | Reference temperature |
+| C<sub>1</sub>, C<sub>2</sub> | R    | Material constants    |
+
+### Control Data for Eigenvalue Analysis
+
+#### (1) `!EIGEN` (3-1)
+
+Parameter settings of eigenvalue analysis
+
+##### Parameter
+
+N/A
+
+** 2nd line or later **
+
+```
+(2nd line) NGET, LCZTOL, LCZMAX
+```
+
+|Parameter Name|Attributions |Contents         |
+|---------|------|-----------------------------|
+| NSET    | I    |No. of eigenvalue|
+| LCZTOL  | R    |Allowance (Default: 1.0e-8)|
+| LCZMAX  | I    |Max No. of iterations (Default: 60)|
+
+##### Example of Use
+
+```
+!EIGEN
+  3, 1.0e-10, 40
+```
+
+### Control Data for Heat Conduction Analysis
+
+#### (1) `!HEAT` (4-1)
+
+Definition of control data regarding calculation
+
+##### Parameter
+
+N/A
+
+** 2nd line or later **
+
+```
+(2nd line) DT, ETIME, DTMIN, DELTMX, ITMAX, ESP
+```
+
+|Parameter Name|Attributions|Contents|
+|--------|------|-------------------------------------------------------------|
+| DT     | R    | Initial time increment<br/>&#8806; 0: Steady calculation<br/>&gt; 0: Unsteady calculation|
+| ETIME  | R    | Unsteady calculation time (mandatory for unsteady calculation)|
+| DTMIN  | R    | Minimum time increment<br/>&#8806; 0: Fixed time increment<br/>&gt; 0: Auto time increment |
+| DELTMX | R    | Allowable change in temperature|
+| ITMAX  | I    | Maximum number of iterations of nonlinear calculation (Default: 20)|
+| EPS    | R    | Convergence judgment value (Default: 1.0e-6)
+
+##### Example of Use
+
+```
+!HEAT
+  (No data)               ----- Steady calculation
+!HEAT
+  0.0                     ----- Steady calculation
+!HEAT
+  10.0, 3600.0            ----- Fixed time increment unsteady calculation
+!HEAT
+  10.0, 3600.0, 1.0       ----- Auto time increment unsteady calculation
+!HEAT
+  10.0, 3600.0, 1.0, 20.0 ----- Auto time increment unsteady calculation
+```
+
+#### (2) `!FIXTEMP` (4-2)
+
+Definition of fixed temperature
+
+##### Parameter
+
+```
+AMP = Flux history table name (specified in !AMPLITUDE)
+```
+
+** 2nd line or later **
+
+```
+(2nd line) NODE_GRP_NAME, Value
+```
+
+|Parameter Name|Attributions|Contents|
+|---------------|------|------------------------------|
+| NODE_GRP_NAME | C/I  | Node group name or node ID |
+| Value         | R    | Temperature (Default: 0) |
+
+##### Example of Use
+
+```
+!FIXTEMP
+  ALL, 20.0
+!FIXTEMP, AMP=FTEMP
+  ALL, 1.0
+```
+
+#### (3) `!CFLUX` (4-3)
+
+Definition of centralized heat flux given to the node
+
+##### Parameter
+
+```
+AMP = Flux history table name (specified in !AMPLITUDE)
+```
+
+** 2nd line or later **
+
+```
+(2nd line) NODE_GRP_NAME, Value
+```
+
+|Parameter Name| Attributions |Contents|
+|---------------|------|------------------------------|
+| NODE_GRP_NAME | C/I  |Node group name or node ID|
+| Value         | R    |Heat flux value|
+
+##### Parameter
+
+```
+!CFLUX
+  ALL, 1.0E-3
+!CFLUX, AMP=FUX1
+  ALL, 1.0
+```
+
+#### (4) `!DFLUX` (4-4)
+
+Definition of distributed heat flux and internal heat generation given to surface of element
+
+##### Parameter
+
+```
+AMP = Flux history table name (specified in !AMPLITUDE)
+```
+
+** 2nd line or later **
+
+```
+(2nd line) ELEMENT_GRP_NAME, LOAD_type, Value
+```
+
+|Paramater Name|Attributions|Contents|
+|------------------|------|------------------------------|
+| ELEMENT_GRP_NAME | C/I  |Element group name or element ID|
+| LOAD_type 　     | C    |Load type No.|
+| Value 　         | R    |Heat flux value|
+
+##### Parameter
+
+```
+!DFLUX
+  ALL, S1, 1.0
+!DFLUX, AMP=FLUX2
+  ALL, S0, 1.0
+```
+
+###### Load Parameters
+
+|Load Type No.|Applied Surface|Parameter|
+|----------------|----------|------------|
+| BF             | Element overall|Calorific value|
+| S1             | Surface No. 1|Heat flux value|
+| S3             | Surface No. 2|Heat flux value|
+| S4             | Surface No. 3|Heat flux value|
+| S5             | Surface No. 4|Heat flux value|
+| S6             | Surface No. 5|Heat flux value|
+| S2             | Surface No. 6|Heat flux value|
+| S3             | Shell surface|Heat flux value|
+
+#### (5) `!SFLUX` (4-5)
+
+Definition of distributed heat flux by surface group
+
+##### Parameter
+
+```
+AMP = Flux history table name (specified in !AMPLITUDE)
+```
+
+** 2nd line or later **
+
+```
+(2nd line) SURFACE_GRP_NAME, Value
+```
+
+|Parameter Name| Attributions |Contents|
+|------------------|------|--------------|
+| SURFACE_GRP_NAME | C    | Surface group name |
+| Value            | R    | Heat flux value |
+
+##### Example of Use
+
+```
+!SFLUX
+  SURF, 1.0
+!SFLUX, AMP=FLUX3
+  SURF, 1.0
+```
+
+#### (6) `!FILM` (4-6)
+
+Definition of heat transfer coefficient given to the boundary plane
+
+##### Parameter
+
+```
+AMP1 = Heat transfer coefficient history table name (specified in !AMPLITUDE)
+AMP2 = Ambient temperature history table name (specified in !AMPLITUDE)
+```
+
+** 2nd line or later **
+
+```
+(2nd line) ELEMENT_GRP_NAME, LOAD_type, Value, Sink
+```
+
+|Parameter Name| Attributions| Contents|
+|------------------|------|------------------------------|
+| ELEMENT_GRP_NAME | C/I  | Element group name or element ID |
+| LOAD_type        | C    | Load type No. |
+| Value            | R    | Heat transfer coefficient |
+| Sink             | R    | Ambient temperature |
+
+##### Example of Use
+
+```
+!FILM
+  FSURF, F1, 1.0, 800.0
+!FILM, AMP1=TFILM
+  FSURF, F1, 1.0, 1.0
+```
+
+###### Load Parameters
+
+|Load Type No.|Applied Surface | Parameter|
+|----------------|----------|------------------------|
+| F1             | Surface No. 1| Heat transfer coefficient and ambient temperature|
+| F2             | Surface No. 2| Heat transfer coefficient and ambient temperature|
+| F3             | Surface No. 3| Heat transfer coefficient and ambient temperature|
+| F4             | Surface No. 4| Heat transfer coefficient and ambient temperature|
+| F5             | Surface No. 5| Heat transfer coefficient and ambient temperature|
+| F6             | Surface No. 6| Heat transfer coefficient and ambient temperature|
+| F0             | Shell Surface| Heat transfer coefficient and ambient temperature|
+
+#### (7) `!SFILM` (4-7)
+
+Definition of heat transfer coefficient by surface group
+
+##### Parameter
+
+```
+AMP1 = Heat transfer coefficient history table name (specified in !AMPLITUDE)
+AMP2 = Ambient temperature history table name (specified in !AMPLITUDE)
+```
+
+** 2nd line or later **
+
+```
+(2nd line) SURFACE_GRP_NAME, Value, Sink
+```
+
+|Parameter Name| Attributions| Contents|
+|------------------|------|--------------|
+| SURFACE_GRP_NAME | C    | Surface group name|
+| Valu             | R    | Heat Transfer Rate|
+| Sink             | R    | Ambient Temperature|
+
+##### Example of Use
+
+```
+!SFILM
+  SFSURF, 1.0, 800.0
+!SFILM, AMP1=TSFILM, AMP2=TFILM
+  SFSURF, 1.0, 1.0
+```
+
+#### `!RADIATE` (4-8)
+
+Definition of radiation factor given to boundary plane
+
+##### Parameter
+
+```
+AMP1 = Radiation factor history table name (specified in !AMPLITUDE)
+AMP2 = Ambient temperature history table name (specified in !AMPLITUDE)
+```
+
+** 2nd line or later **
+
+```
+(2nd line) ELEMENT_GRP_NAME, LOAD_type, Value, Sink
+```
+
+|Parameter Name |Attributions |Contents|
+|------------------|------|------------------------------|
+| ELEMENT_GRP_NAME | C/I  | Element group name or element ID|
+| LOAD_type        | C    | Load type No.|
+| Value            | R    | Radiation factor|
+| Sink             | R    | Ambient temperature|
+
+##### Example of Use
+
+```
+!RADIATE
+  RSURF, R1, 1.0E-9, 800.0
+!RADIATE, AMP2=TRAD
+  RSURF, R1, 1.0E-9, 1.0
+```
+
+###### 荷重パラメータ
+
+|Load Type No. | Applied Surface |Parameter|
+|----------------|----------|----------------------|
+| R1             |Surface No. 1| Radiation factor and ambient temperature|
+| R2             |Surface No. 2| Radiation factor and ambient temperature|
+| R3             |Surface No. 3| Radiation factor and ambient temperature|
+| R4             |Surface No. 4| Radiation factor and ambient temperature|
+| R5             |Surface No. 5| Radiation factor and ambient temperature|
+| R6             |Surface No. 6| Radiation factor and ambient temperature|
+| R0             |Shell Surface| Radiation factor and ambient temperature|
+
+#### (9) `!SRADIATE` (4-9)
+
+Definition of radiation factor by surface group
+
+##### Parameter
+
+```
+AMP1 = Radiation factor history table name (specified in !AMPLITUDE)
+AMP2 = Ambient temperature history table name (specified in !AMPLITUDE)
+```
+
+** 2nd line or later **
+
+```
+(2nd line) SURFACE_GRP_NAME, Value, Sink
+```
+
+|Parameter Name| Attributions| Contents|
+|------------------|------|--------------|
+| SURFACE_GRP_NAME | C    | Surface group name |
+| Value            | R    | Radiation factor |
+| Sink             | R    | Ambient temperature |
+
+##### Example of Use
+
+```
+!SRADIATE
+  RSURF, 1.0E-9, 800.0
+!SRADIATE, AMP2=TSRAD
+  RSURF, 1.0E-9, 1.0
+```
+
+#### (10) `!WELD_LINE` (4-10)
+
+Definition of weld line (Linear)
+
+##### Parameter
+
+N/A
+
+** 2nd line **
+
+```
+(2nd line) I, U, Coef, V
+```
+
+|Parameter Name |Attributions |Contents|
+|--------|------|----------------------|
+| I      | R    |Current|
+| U      | R    |Voltage|
+| Coef   | R    |Heat input coefficient|
+| V      | R    |Movement speed of the welding torch|
+
+** 3rd line **
+
+```
+(3rd line) EGROUP, XYZ, C1, C2, H, tstart
+```
+
+|Parameter Name |Attributions |Contents|
+|--------|------|----------------------------------------------|
+| EGROUP | C    |Element group name for heat input|
+| XYZ    | I    |Movement direction of welding torch (Degree of freedom No.)|
+| C1     | R    |Starting point coordinates of welding torch|
+| C2     | R    |Ending point coordinates of welding torch|
+| H      | R    |Width of welding torch, inside which thermo energy inputted|
+| tstart | R    |Welding start time|
+
+### Control Data for Dynamic Analysis
+
+#### (1) `DYNAMIC`
+
+Dynamic analysis control
+
+Time t for each `!AMPLITUDE` specified in `!BOUNDARY`, `!CLOAD` and `!DLOAD` must be started from 0.0.
+
+##### Parameter
+
+```
+TYPE = LINEAR    : Linear dynamic analysis
+       NONLINEAR : Nonlinear dynamic analysis
+```
+
+** 2nd line or later **
+
+```
+(2nd line) idx_eqa, idx_resp
+```
+
+|Parameter Name| Attributions| Contents|
+|----------|------|-----------------------------------------------------------------------------------------------------------|
+| idx_eqa  | I    | Solution of equation of motion (Direct time integration)<br/>(Default: 1)<br/>1: Implicit method (Newmark-&beta; method)<br/>11: Explicit method (Center difference method)|
+| idx_resp | I    | Analysis type (Default: 1)<br/>1: Time history response analysis<br/>2: Frequency response analysis (Not included)|
+
+###### `idx_resp=1` (Time history response analysis)
+
+```
+(3rd line) t_start , t_end , n_step, t_delta
+```
+|Parameter Name |Attributions |Contents|
+|---------|------|---------------------------------------|
+| t_start | R    |Analysis start time (Default: 0.0), not used| 
+| t_end   | R    |Analysis end time (Default: 1.0), not used|
+| n_step  | I    |Overall No. of steps (Default: 1)|
+| t_delta | R    |Time increment (Default: 1.0)|
+
+```
+(4th line) ganma , beta
+```
+
+|Parameter Name |Attributions |Contents
+|--------|------|--------------------------------------------|
+| ganma  | R    | Parameter &gamma; of Newmark-&beta; method (Default: 0.5)|
+| beta   | R    | Parameter &beta; of Newmark-&gamma; method (Default: 0.25)|
+
+```
+(5th line) idx_mas ,idx_dmp , ray_m ,ray_k
+```
+
+|Parameter Name|Attributions|Contents|
+|---------|------|-----------------------------------------------------------------------------------------------------|
+| idx_mas | I    |Type of mass matrix (Default: 1)<br/>1: Lumped mass matrix<br/>2: Consistent mass matrix|
+| idx_dmp | I    |1: Rayleigh damping (Default: 1)|
+| ray_m   | R    |Parameter R<sub>m</sub> of Rayleigh damping (Default: 0.0)|
+| ray_k   | R    |Parameter R<sub>k</sub> of Rayleigh damping (Default: 0.0)|
+
+```
+(6th line) nout, node_monit_1, nout_monit
+```
+
+|Parameter Name |Attributions |Contents|
+|--------------|------|-------------------------------------|
+| nout         | I    | not used|
+| node_monit_1 | I    |Monitoring node ID (Global) or node group name|
+| nout_monit   | I    |Results output interval of displacement monitoring<br/>(Default: 1)|
+
+Note: Regarding the information of the monitoring node specified in this line, the displacement is output to the file &lt;dyna_disp_NID.txt&gt;, where NID is the global ID of the monitoring node, and each line includes the step number, time of the step, NID, u1, u2, and u3 in this order. The velocity and acceleration are also output to &lt;dyna_velo_NID.txt&gt; and &lt;dyna_acce_NID.txt&gt;, respectively, in the same format as the displacement. The nodal strain is output to &lt;dyna_strain_NID.txt&gt; and each line includes the step number, time of the step, NID, e11, e22, e33, e12, e23, and e13 in this order.  The nodal stress is output to &lt;dyna_stress_NID.txt&gt; and each line includes the step number, time of the step, NID, s11, s22, s33, s12, s23, s13, and s_mises in this order. When monitoring nodes are specified by a node group, each of the files stated above is separately output for each node. When this output is specified, the kinetic energy, deformation energy and the overall energy of the overall analytic model will also be output to &lt;dyna_energy.txt&gt;.
+
+```
+(7th line) iout_list(1), iout_list(2), iout_list(3), iout_list(4), iout_list(5), iout_list(6)
+```
+
+|Parameter Name|Attributions|Contents|
+|--------------|------|----------------------------------------------------------------------|
+| iout_list(1) | I    |Displacement output specification (Default: 0)<br/>0: Not output, 1: Output|
+| iout_list(2) | I    |Velocity output specification (Default: 0)<br/>0: Not output, 1: Output|
+| iout_list(3) | I    |Acceleration output specification (Default: 0)<br/>0: Not output, 1: Output|
+| iout_list(4) | I    |Reaction force output specification (Default: 0)<br/>0: Not output, 1: Output|
+| iout_list(5) | I    |Strain output specification (Default: 0)<br/>1: Output<br/>2: Output (Node base)<br/>3: Output (Element base)|
+| iout_list(6) | I    |Stress output specification (Default: 0)<br/>0: Not output (Element base and node base)<br/>1: Output<br/>2: Output (Node base)<br/>3: Output (Element base)<br/>|
+
+##### Example of Use
+
+```
+!DYNAMIC, TYPE=NONLINEAR
+  1 , 1
+  0.0, 1.0, 500, 1.0000e-5
+  0.5, 0.25
+  1, 1, 0.0, 0.0
+  100, 55, 1
+  0, 0, 0, 0, 0, 0
+```
+
+###### `idx_resp=2` (Frequency response analysis)
+
+```
+(3rd line) f_start, f_end, n_freq, f_disp
+```
+
+|Parameter Name |Attributions |Contents|
+|---------|------|----------------------|
+| f_start | R    |Minimum frequency|
+| f_end 　| R    |Maximum frequency|
+| n_freq  | I    |Number of divisions for the frequency range|
+| f_disp  | R    |Frequency to obtain displacement|
+
+```
+(4th line) t_start, t_end
+```
+
+|Parameter Name |Attributions |Contents|
+|---------|------|------------------------|
+| t_start | R    | Analysis start time|
+| t_end   | R    | Analysis end time|
+
+```
+(5th line) idx_mas, idx_dmp, ray_m ,ray_k
+```
+
+|Parameter Name|Attributions|Contents|
+|---------|------|-------------------------------------------------|
+| idx_mas | I    | Type of mass matrix (Default: 1)<br/>1: Lumped mass matrix|
+| idx_dmp | I    | 1: Rayleigh damping (Default: 1)|
+| ray_m 　| R    | Parameter R<sub>m</sub> of Rayleigh damping (Default: 0.0)
+| ray_k 　| R    | Parameter R<sub>k</sub> of Rayleigh damping (Default: 0.0)|
+
+```
+(6th line) nout, vistype, nodeout
+```
+
+|Parameter Name|Attributions|Contents|
+|---------|------|-------------------------------------------------|
+| nout    | I    |Results output interval in time domain|
+| vistype | I    |Visuzalization type<br/>1:Mode shapes<br/>2:Time history results at f_disp|
+| nodeout | I    |Monitoring NODE ID in frequency domain|
+
+```
+(7th line) iout_list(1), iout_list(2), iout_list(3), iout_list(4), iout_list(5), iout_list(6)
+```
+
+|Parameter Name|Attributions|Contents|
+|--------------|------|----------------------------------------------|
+| iout_list(1) | I    |Displacement output specification (Default: 0)<br/>0: Not output, 1: Output|
+| iout_list(2) | I    |Velocity output specification (Default: 0)<br/>0: Not output, 1: Output|
+| iout_list(3) | I    |Acceleration output specification (Default: 0)<br/>0: Not output, 1: Output|
+| iout_list(4) | I    |not used|
+| iout_list(5) | I    |not used|
+| iout_list(6) | I    |not used|
+
+##### Example of Use
+
+```
+!DYNAMIC
+  11 , 2
+  14000, 16000, 20, 15000.0
+  0.0, 6.6e-5
+  1, 1, 0.0, 7.2E-7
+  10, 2, 1
+  1, 1, 1, 1, 1, 1
+```
+
+#### (2) `!VELOCITY` (5-2)
+
+Definition of velocity boundary conditions
+
+##### Parameter
+
+```
+TYPE = INITIAL (Initial velocity boundary conditions)
+     = TRANSIT (Time history velocity boundary conditions
+                specified in !AMPLITUDE;Default)
+AMP  = Time function name (specified in !AMPLITUDE)
+       Provides the relationship betweentime t and factor f(t) in !AMPLITUDE.
+       The time multiplied by factor f(t) to the following value
+       becomes the restrained value of that time
+       (when not specified: time and factor relationship becomes f(t) = 1.0).
+```
+
+** 2nd line or later **
+
+```
+(2nd line) NODE_ID, DOF_idS, DOF_idE, Value
+```
+
+|Parameter Name|Attributions|Contents|
+|---------|------|------------------------------|
+| NODE_ID | I/C  |Node ID or node group name|
+| DOF_idS | I    |Start No. of restricted degree of freedom|
+| DOF_idE | I    |End No. of restricted degree of freedom|
+| Value   | R    |Restricted value (Default: 0)|
+
+##### Example of Use
+
+```
+!VELOCITY, TYPE=TRANSIT, AMP=AMP1
+  1, 1, 1, 0.0
+  ALL, 3, 3
+  * Restricted value is 0.0
+!VELOCITY, TYPE=INITIAL
+  1, 3, 3, 1.0
+  2, 3, 3, 1.0
+  3, 3, 3, 1.0
+```
+
+Note: The velocity boundary conditions are different than the displacement boundary conditions, and the multiple degrees of freedom can not be defined collectively. Therefore, the same number must be used for DOF_idS and DOF_idE.  When the `TYPE` is `INITIAL`, `AMP` becomes invalid.
+
+#### (3) `!ACCELERATION` (5-3)
+
+Definition of acceleration boundary conditions
+
+##### Parameter
+
+```
+TYPE = INITIAL (Initial acceleration boundary conditions)
+     = TRANSIT ((Time history acceleration boundary conditions
+                 specified in AMPLITUDE; Default)
+AMP  = Time function name (specified in !AMPLITUDE)
+       Provides the relationship between time t and factor f(t) in !AMPLITUDE.
+       The time multiplied by factor f(t) to the following Value
+       becomes the restrained value of that time (when not specified:
+       time and factor relationship becomes f(t) = 1.0).
+```
+
+** 2nd line or later **
+
+```
+(2nd line) NODE_ID, DOF_idS, DOF_idE, Value
+```
+
+|Parameter Name|Attributions|Contents|
+|---------|------|------------------------------|
+| NODE_ID | I/C  |Node ID or node group name|
+| DOF_idS | I    |Start No. of restricted degree of freedom|
+| DOF_idE | I    |End No. of restricted degree of freedom|
+| Value   | R    |Restricted value (Default: 0)|
+
+##### Example of Use
+
+```
+!ACCELERATION, TYPE=TRANSIT, AMP=AMP1
+  1, 1, 3, 0.0
+  ALL, 3, 3
+  i* Restricted value is 0.0
+!ACCELERATION, TYPE=INITIAL
+  1, 3, 3, 1.0
+  2, 3, 3, 1.0
+  3, 3, 3, 1.0
+```
+
+Note: The acceleration boundary conditions are different than the displacement boundary conditions, and the multiple degrees of freedom can not be defined collectively. Therefore, the same number must be used for DOF_idS and DOF_idE.
+
+  When the `TYPE` is `INITIAL`, `AMP` becomes invalid.
+
+#### (4) `!COUPLE` (5-4)
+
+Definition of coupled surface (Used only in coupled analysis)
+
+##### Parameter
+
+```
+TYPE =  1: One-way coupled (FrontISTR starts from receiving data)
+        2: One-way coupled (FrontISTR starts from sending data)
+        3: Staggered two-way coupled (FrontISTR starts from receiving data)
+        4: Staggered Two-way coupled (FrontISTR starts from sending data)
+        5: Iterative partitioned two-way coupled (FrontISTR starts from receiving data)
+        6: Iterative partitioned two-way coupled (FrontISTR starts from sending data)
+ISTEP = Step No.
+        From the beginning of analysis to the step specified here, a linearly increasing
+        function from 0 to 1 is multiplied to the input fluid traction. After this step, the input
+        fluid traction is directly applied.
+WINDOW => 0 ：Multiply window function(*) to input fluid traction
+```
+
+(\*) $\frac{1}{2}(1 - \cos\frac{2\pi i}{N})$, $i$: current step, $N$: no. of steps of current analysis
+
+** 2nd line or later **
+
+```
+(2行目) COUPLING_SURFACE_ID
+```
+
+|Parameter Name|Attributions|Contents|
+|------------|------|--------------|
+| SURFACE_ID | C    |Surface group name|
+
+##### Example of Use
+
+```
+!COUPLE , TYPE=1
+  SCOUPLE1
+  SCOUPLE2
+```
+
+#### (5) `!EIGENREAD` (5-5)
+
+Controlling the input file for frequency response analysis
+
+##### Parameter
+
+N/A
+
+** 2nd line or later **
+
+|Parameter Name|Attributions|Contents|
+|-------------------|------|----------------------------|
+| eigenlog_filename | C    |The name of eigenvalue analysis log|
+
+```
+(3rd line) start_mode, end_mode
+```
+
+|Parameter Name|Attributions|Contents|
+|------------|------|------------------------------------|
+| start_mode | I    |lowest mode to be used in frequency response analysis|
+| end_mode   | I    |highest mode to be used in frequency response analysis|
+
+##### Example of Use
+
+```
+!EIGENREAD
+  eigen_0.log
+  1, 5
+```
+
+#### (6) `!FLOAD` (5-6)
+
+Defining external forces applied in frequency response analysis
+
+##### Parameter
+
+```
+LOAD CASE = (1: Real part, 2: Imaginary part)
+```
+** 2nd line or later **
+
+```
+(2nd line) NODE_ID, DOF_id, Value
+```
+
+|Parameter Name|Attributions|Contents|
+|---------|------|------------------------------------------------|
+| NODE_ID | I/C  |Node ID, node group name or surface group name|
+| DOF_id  | I    |Degree of freedom No.|
+| Value   | R    |Load value|
+
+##### Example of Use
+
+```
+!FLOAD, LOAD CASE=2
+  _PickedSet5, 2, 1.0
+```
+
+### Solver Control Data
+
+#### (1) `!SOLVER` (6-1)
+
+Control of solver
+
+Mandatory control data
+
+#### Parameter
+
+```
+METHOD =    Method(CG, BiCGSTAB, GMRES, GPBiCG, DIRECT, DIRECTmkl, MUMPS)
+            DIRECT: Direct method other than contact analysis (serial processing only)
+            DIRECTmkl: Direct method by Intel MKL in contact analysis (serial processing only)
+            MUMPS    : Parallel direct method by MUMPS
+            When any of direct methods is selected, the data lines will be disregarded.
+            In 1D and 2D problems, only CG, DIRECT and MUMPS are valid.
+            In shell problems, only DIRECT and MUMPS are valid.
+            Thread-parallel computation by OpenMP is available in iterative methods
+            for 3D problems.
+
+PRECOND =   Preconditioner(1, 2, 3, 5, 10, 11, 12)
+            1, 2       : (Block) SSOR
+            3          : (Block) Diagonal Scaling
+            5          : AMG by multigrid preconditioner package ML (experimental)
+            10         : Block ILU(0)
+            11         : Block ILU(1)
+            12         : Block ILU(2)
+            10､11 and 12 are available only in 3D problems.
+            In thread-parallel computation, SSOR or Diagonal Scaling is recommended.
+
+ITERLOG =   Whether solver convergence history is output (YES/NO) (Default: NO)
+
+TIMELOG =   Whether solver computation time is output (YES/NO) (Default: NO)
+
+USEJAD =    Whether matrix ordering optimized for vector processors are performed
+            (YES/NO) (Default: NO)
+            Valid only in 3D problems with iterative solvers.
+
+SCALING =   Whether matrix is scaled so that each diagonal element becomes 1 (YES/NO)
+            (Default: NO)
+            Valid only in 3D problems with iterative solvers.
+
+DUMPTYPE =  Type of matrix dumping (NONE, MM, CSR, BSR) (Mainly for debugging)
+            NONE : no dumping (Default)
+            MM   : matrix is dumped in Matrix Market format
+            CSR  : matrix is dumped in Compressed Sparse Row (CSR) format
+            BSR  : matrix is dumped in Blocked CSR format
+
+DUMPEXIT =  Whether the program terminates right after matrix dumping (YES/NO)
+            (Default: NO)
+
+MPCMETHOD = Method for multipoint constraints
+            1: Penalty method
+            2: MPC-CG method
+            3: Explicit master-slave elimination (Default)
+            Valid only in 3D problems with iterative solvers.
+            (Penalty method is always used for direct solvers and 1D and 2D iterative
+             solvers, and MPC-CG method is always used for 4D and 6D iterative solvers.)
+
+ESTCOND =   Frequency of condition number estimation (experimental)
+            Estimation is performed at every specified number of iterations and at the last
+            iteration.  No estimation when 0 is specified.
+```
+
+** 2nd line or later **
+
+```
+(2nd line) NIER, iterPREmax, NREST, NCOLOR_IN
+```
+
+|Parameter Name|Attributions|Contents|
+|------------|------|---------------------------|
+| NIER 　    | I    |No. of iterations (Default: 100)
+| iterPREmax | I    |No. of iteration of preconditioning based on Additive Schwarz<br/>(Default: 1)<br/>(recommended value : 1 for serial computation,<br/> parallel computation with Diagonal scaling,<br/> and serial/parallel computation of problems with MPC, 2 for other parallel computation)|
+| NREST      | I    |No. of Krylov subspaces (Default: 10)<br/>(Valid only when GMRES is selected as the solution)|
+| NCOLOR_IN  | I    |No. of Colors for Multi-Color ordering (Default: 10)<br/>(Valid only when no. of OpenMP threads >= 2)|
+
+```
+(3rd line) RESID, SIGMA_DIAG, SIGMA
+```
+
+|Parameter Name|Attributions|Contents|
+|------------|------|--------------------------------------|
+| RESID      | R    |Truncation error (Default: 1.0e-8)|
+| SIGMA_DIAG | R    |Scale factor for diagonal elements when computing preconditioning matrix (Default: 1.0)|
+| SIGMA      | R    |Not used (Default: 0.0)|
+
+##### Example of Use
+
+```
+!SOLVER, METHOD=CG, PRECOND=1, ITERLOG=YES, TIMELOG=YES
+  10000, 2
+  1.0e-8, 1.0, 0.0
+```
+
+### Post Process (Visualization) Control Data
+
+#### (1) `!VISUAL` (P1-0）
+
+Specifies the visualization method.
+
+```
+METHOD = PSR             : Surface rendering
+  visual_start_step      : Specification of time step number which starts the visualization process
+                           (Default: 1)
+  visual_end_step        : Specification of time step number which ends the visualization process
+                           (Default: All)
+  visual_interval_step   : Specification of time step interval which performs the visualization process
+                           (Default: 1)
+```
+
+#### (2) `!surface_num`, `!surface`, `!surface_style` (P1-1 - 3）
+
+##### `!surface_num` (P1-1)
+
+No. of surfaces in one surface rendering
+
+Ex.: There are four surfaces in Figure 7.4.1, which includes two isosurfaces pressure = 1000.0 and pressure = -1000.0, and two cut end plane surfaces z = -1.0 and z = 1.0.
+
+![Figure 7.4.1: Example of surface_num Setting](media/image05_03.png)
+
+**Figure 7.4.1: Example of surface_num Setting**
+
+##### `!surface` (P1-2)
+
+Sets the contents of the surface.
+
+Ex: Then contents of the four surface in Figure 7.4.2 are as follows.
+
+![Figure 7.4.2: Example of Surface Setting](media/image05_04.png){width="2.5069444444444446in" height="2.3194444444444446in"}
+
+Figure 7.4.2: Example of Surface Setting
+
+```
+!surface_num = 2
+!SURFACE
+!surface_style = 2
+!data_comp_name = press
+!iso_value = 1000.0
+!display_method = 4
+!specified_color = 0.45
+!output_type = BMP
+!SURFACE
+!surface_style = 2
+!data_comp_name = press
+!iso_value = -1000.0
+!display_method = 4
+!specified_color = 0.67
+```
+
+##### `!surface_style` (P1-3)
+
+Specifies the style of the surface.
+
+  1. Boundary plane
+  2. Isosurface
+  3. Arbitary quadric surface<br/>coef\[1\]x2 + coef\[2\]y2 + coef\[3\]z2 + coef\[4\]xy + coef\[5\]xz<br/>+ coef\[6\]yz + coef\[7\]x + coef\[8\]y + coef\[9\]z + coef\[10\]=0
+
+![Figure 7.4.3: Example of surface_style Setting](media/image05_05.png)
+
+**Figure 7.4.3: Example of surface_style Setting**
+
+#### (3) `!display_method` (P1-4)
+
+Display method (Default: 1)
+
+  1. Color code display
+  2. Boundary line display
+  3. Color code and boundary line display
+  4. Display of 1 specified color
+  5. Isopleth line display by classification of color
+
+![Figure 7.4.4:Example of display_method Setting](media/image05_06.png){width="6.768055555555556in"
+height="4.853472222222222in"}
+
+**Figure 7.4.4:Example of display_method Setting**
+
+#### (2) `!color_comp_name`, `!color_comp`, `!color_subcomp` (P1-5, P1-7, P1-8)
+
+Specifies the selections for the color map from the physical values. Provides the names to the necessary physical values and the degree of freedom numbers. Accordingly, the names will be entered for the structure node_label(:) and nn_dof(:) of the results data.
+
+Then you can define which one you hope to map into color by
+
+##### `!color_comp_name` (Character string, default: 1st parameter)
+
+Example
+
+```
+!color_comp_name = pressure
+  In static analysis;        = DISPLASEMENT : Specification 
+                                              of the results displacement data
+                             = STRAIN       : Specification of strain data
+                             = STRESS       : Specification of stress data
+  In heat transfer analysis; = TEMPERATURE  : Specification
+                                              of the results temperature data
+```
+
+##### `!color_comp` (Integer, default: 0)
+
+Physical value ID number (Integers above 0)
+
+Example
+
+```
+!color_comp = 2
+```
+
+This is the specification of the ID number and component name of the results data type; however, this is not included.
+
+##### `!color_subcomp` (Integer, default: 0)
+
+When the physical value is 1 degree of freedom or more like the vector quantity, it’s the number of the degree of freedom.
+
+Example:
+```
+!color_subcomp = 0
+
+    When !color_comp_name=DISPLACEMENT is specified
+        1: X Component,  2: Y Component, 3: Z Component
+
+    When !color_comp_name=STRAIN is specified
+        1: εx,  2: εy,  3: εz
+        4: εxy, 5: εyz, 6: εzx
+
+    When !color_comp_name=STRESS is specified
+        1: σx,  2: σy,  3: σz
+        4: τxy, 5: τyz, 6: τzx
+
+    When !color/comp\_name=TEMPERATURE is specified
+        1: Temperature
+```
+
+In the structural analysis, for example;
+
+| Physical Value            | Displacement | Strain | Stress |
+|---------------------------|--------------|--------|--------|
+| No. of degrees of freedom | 3            | 6      | 7      |
+
+![Figure 7.4.5: Example of color_comp, color_subcomp and color_comp_name Setting](media/image05_07.png)
+
+**Figure 7.4.5: Example of color_comp, color_subcomp and color_comp_name Setting**
+
+#### (5) `!isoline_number`, `!isoline_color` (P1-9, P2-22)
+
+When `display_method=2`,`3` or `5`
+
+![Figure 7.4.6: Example of isoline_number and isoline_color Setting](media/image05_08.png){width="6.768055555555556in" height="2.2875in"}
+
+**Figure 7.4.6: Example of isoline_number and isoline_color Setting**
+
+#### (6) `!initial_style`, `!deform_style` (P1-15, P1-16)
+
+Specifies the display style of the initial shape and the deformed shape.
+
+  0. Not specified
+  1. Solid line mesh (Displayed in blue if not specified)
+  2. Gray filled pattern
+  3. Shading (Let the physical attributions respond to the color)
+  4. Dotted line mesh (Displayed in blue if not specified)
+
+##### (7) `!deform_scale` (P1-14)
+
+Specifies the displacement scale when displaying deformation.
+
+Default: Auto
+
+`standard_scale` = 0.1 * sqrt(`x_range`<sup>2</sup> + `y_range`<sup>2</sup> + `z_range`<sup>2</sup>) / `max_deform`
+
+![Figure 7.4.7: Example of Display Styles Setting](media/image05_09.png){width="6.554166666666666in" height="8.316666666666666in"}
+
+**Figure 7.4.7: Example of display_styles Setting
+
+![Figure 7.4.8: Example of deform_scale Setting](media/image05_10.png){width="6.768055555555556in" height="6.909722222222222in"}
+
+**Figure 7.4.8: Example of deform_scale Setting**
+
+##### (8) `!output_type` (P1-19)
+
+Specifies the type of output file. (Default: AVS)
+
+```
+AVS                   : UCD data for AVS (only on object surface)
+BMP                   : Image data (BMP format)
+COMPLETE_AVS          : UCD data for AVS
+COMPLETE_REORDER_AVS  : Rearranges the node and element ID in the UCD data for AVS
+SEPARATE_COMPLETE_AVS : UCD data for AVS for each decomposed domain
+COMPLETE_MICROAVS     : Outputs the physical values in the scalar in the UCD data for AVS
+BIN_COMPLETE_AVS      : Outputs COMPLETE_AVS in binary format
+FSTR_FEMAP_NEUTRAL    : Neutral file for FEMAP
+```
+
+![Figure 7.4.9: Example of output_type](media/image05_11.png){width="6.4527777777777775in" height="2.717361111111111in"}
+
+Figure 7.4.9: Example of output_type
+
+#### (9) `!x_resolution`, `!y_resolution` (P2-1, P2-2)
+
+Specifies the resolution when `output_type=BMP`
+
+![Figure 7.4.10: Example of x_resolution and y_resolution Setting](media/image05_12.png){width="6.552083333333333in" height="2.7159722222222222in"}
+
+**Figure 7.4.10: Example of x_resolution and y_resolution Setting**
+
+#### (10) `!viewpoint`, `!look_at_point`, `!up_direction` (P2-5, P2-6, P2-7)
+
+##### **viewpoint**
+
+Specifies the viewpoint position by coordinates.
+
+Default: x = (xmin + xmax)/2.0, y = ymin + 1.5 *(ymax – ymin), z = zmin + 1.5 *(zmax – zmin)
+
+##### **look_at_point**
+
+Specifies the look at point position.
+
+Default: Center of data
+
+##### **up_direction** 
+
+Specifies the view frame in viewpoint, look_at_point and up_direction.
+
+default: 0.0 0.0 1.0
+
+##### View coodinate frame
+
+  - Origin: `look_at_point`
+  - Z-axis: `viewpoint` - `look_at_point`
+  - X-axis: `up_direction` &times; z axis
+
+![Figure 7.4.11: View Frame Determination Method](media/image05_13.png)
+
+**[Figure 7.4.11: View Frame Determination Method**
+
+![Figure 7.4.12: Example of !viewpoint, look_at_point and up_direction Setting](media/image05_14.png)
+
+**Figure 7.4.12: Example of !viewpoint, look_at_point and up_direction Setting**
+
+
+#### (11) `!ambient_coef` `!diffuse_coef` `!specular_coef` (P2-8 P2-9 P2-10)
+
+Coefficient setting of lighting model
+
+When the ambient_coef is increased, information on the 3D depth direction is impaired.
+
+![Figure 7.4.13: Example of Lighting Model Parameter Setting](media/image05_15.png)
+
+#### (12) '!color_mapping_bar_on' '!scale_marking_on' '!num_of_scales' (P2-16 P2-17 P2-18)
+
+|      |      |
+|------|------|
+|`!color_mapping_bar_on`|Specifies whether to display the color mapping bar.<br/>0: off 1: on (Default: 0)|
+|`!scale_marking_on`    |`color_mapping_bar`のメモリの有無を指定する<br/>0: off 1: on (省略値: 0)|
+|`!num_of_scales`       |メモリの数を指定する。<br/> (省略値: 3)|
+
+![Figure 7.4.14: Example of Color Mapping Bar Display](media/image05_16.png)
+
+#### (13) `!font_size` `!font_color` `!backgroud_color` (P2-19 P2-20 P2-21)
+
+Specifies the background color and character font.
+
+![Figure 7.4.15: Example of Background and Font Setting](media/image05_17.png)
+
+**Figure 7.4.15: Example of Background and Font Setting**
+
+#### (14) `!data_comp_name`, `!data_comp`, `!data_subcomp` (P3-1, P3-3, P3-4)
+
+Specifies the physical values of the isosurface to be visualized when `surface_style=2`.
+
+![Figure 7.4.16: Example of data_comp, data_subcomp and data_comp_name Setting](media/image05_18.png){width="6.768055555555556in" height="2.4944444444444445in"}
+
+**Figure 7.4.16: Example of data_comp, data_subcomp and data_comp_name Setting**
+
+#### (15) `!method` (P4-1)
+
+When specifying the surfaces and cut end, specifies the setting method of the surface.
+
+![Figure 7.4.17: Example of Setting Method](media/image05_19.png)
+
+Accordingly, the cut end of the plane surface z = 0.35 and z = -0.35 will be visualized.
+                                                                                   
