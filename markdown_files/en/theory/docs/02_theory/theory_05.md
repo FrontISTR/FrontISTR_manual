@@ -211,3 +211,4 @@ Q_m &= [q_1, q_2, q_3, \ldots , q_m]\ ,
 $$
 
 Thus, the eigenvalue can be acquired by performing the eigenvalue calculation for the tridiagonal matrix acquired by equation $\eqref{eq:2.3.13}$.
+

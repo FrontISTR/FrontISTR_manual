@@ -235,3 +235,5 @@ F(t) - Q(t) - \frac{1}{\Delta t^2} M [2U(t) - U(t-\Delta t)] - \frac{1}{2\Delta 
 \label{eq:2.5.17}
 \end{equation}
 $$
+
+

@@ -187,3 +187,4 @@ b_{jI} =
 \label{eq:2.6.19}
 \end{equation}
 $$
+

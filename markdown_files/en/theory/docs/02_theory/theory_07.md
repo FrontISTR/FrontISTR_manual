@@ -8,3 +8,4 @@
   - Lois Komzsik: *The Lanczos Method Evolution and Application*: Siam, 2003.
   - Hayato Togawa: *Vibration Analysis by Finite Element Method*, SAIENSU-SHA Co., Ltd., 1997 (in Japanese)
   - Genki Yagawa, Noriyuki Miyazaki: *Thermal Stress, Creep and Heat Transfer Analysis by Finite Element Method*, SAIENSU-SHA Co., Ltd., 1985 (in Japanese)
+

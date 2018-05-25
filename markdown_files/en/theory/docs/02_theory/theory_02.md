@@ -832,4 +832,3 @@ However, when the infinitesimal deformation linear elastic analysis is selected,
 
 Moreover, it only corresponds to the contact analysis of a linear solid element (element numbers 341, 351, 361) at present.
 
-
