@@ -208,4 +208,3 @@ U = \overline{U}
 $$
 
 Node displacement $U$ can be determined by solving equation $\eqref{eq:2.1.18}$ by the restriction condition equation $\eqref{eq:2.1.19}$.
-
