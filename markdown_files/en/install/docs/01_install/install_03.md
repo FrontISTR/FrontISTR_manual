@@ -52,6 +52,6 @@ When difficult to set automatic configuration with cmake, recommend manually edi
 
   - [Appendix: Example of installation procedure to CentOS7.3(Makefile.conf)](install_08)
   - [Appendix: Example of installation procedure to Ubuntu16.04(Makefile.conf)](install_10)
-  - [Appendix Example of installation procedure to Windows10(Makefile.conf)](install_11)
+  - [Appendix: Example of installation procedure to Windows10(Makefile.conf)](install_11)
 
 

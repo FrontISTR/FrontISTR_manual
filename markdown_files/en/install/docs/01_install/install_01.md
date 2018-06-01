@@ -103,7 +103,6 @@ This software is compatible with multigrid preconditioner package ML (Multi-Leve
 
 ### Intel MKL（Math Kernel Library）
 
-
 The contact analysis module of this software uses Intel MKL. If Intel MKL has not been installed in the environment where this software is to be installed, some of the contact analysis functions cannot be used.
 
 ## Operation verification environment

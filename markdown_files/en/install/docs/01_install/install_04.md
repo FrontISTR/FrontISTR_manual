@@ -28,7 +28,7 @@ $ cmake --version
 cmake version 2.8.12.2
 ```
 
-### Compile
+### Compiling
 
 Compile FrontISTR.
 
@@ -42,7 +42,8 @@ $ make -j2
 
 `-j2` option follows `make` command tells make to execute simultaneously. Reduce compile time when increasing the number of simultaneous.
 
-### Execute `make install`
+
+### Executing `make install`
 
 When finished to compile, execute following command.
 

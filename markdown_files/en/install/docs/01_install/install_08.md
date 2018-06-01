@@ -1,4 +1,4 @@
-# Appendix Example of installation procedure to CentOS7.3 (Makefile.conf)
+# Appendix : Example of installation procedure to CentOS7.3 (Makefile.conf)
 
 We will explain how to install this software and how to build external libraries required this software on CentOS7.3.
 
@@ -200,7 +200,7 @@ $ tar xvf FrontISTR_V50.tar.gz
 $ cd FrontISTR
 ```
 
-### Edit Makefile.conf
+### Editing Makefile.conf
 
 Copy template as `Makefile.conf.org` to `Makfile.conf`. Then edit `Makefile.conf` as follows.
 

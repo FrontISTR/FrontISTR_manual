@@ -1,4 +1,4 @@
-# Appendix Example of installation procedure to Ubuntu16.04(Makefile.conf)
+# Appendix : Example of installation procedure to Ubuntu16.04(Makefile.conf)
 
 We will explain how to install this software and how to build external libraries required this software on Ubuntu16.04.
 
@@ -277,9 +277,9 @@ RM             = rm -f
 MKDIR          = mkdir -p
 ```
 
-### setup.shの実行
+### Executing setup.sh
 
-編集が完了したら、setup.sh を実行します。
+Finished to edit `Makefile.conf`, then execute `setup.sh`.
 
 ```
 $ ./setup.sh -p --with-tools --with-refiner \

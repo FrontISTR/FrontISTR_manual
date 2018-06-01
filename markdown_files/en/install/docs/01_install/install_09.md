@@ -1,4 +1,4 @@
-# Appendix Example of installation procedure to Ubuntu16.04(cmake)
+# Appendix : Example of installation procedure to Ubuntu16.04(cmake)
 
 We will explain how to install this software and how to build external libraries required this software on Ubuntu16.04.
 
