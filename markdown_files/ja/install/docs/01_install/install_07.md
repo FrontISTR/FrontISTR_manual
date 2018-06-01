@@ -203,7 +203,7 @@ $ cmake -DCMAKE_INSTALL_PREFIX=$HOME/FrontISTR \
 
 ### makeの実行
 
-編集が完了したらmakeを実行します。
+makeを実行します。
 
 ```
 $ make

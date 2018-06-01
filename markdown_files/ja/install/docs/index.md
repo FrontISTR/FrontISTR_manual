@@ -29,17 +29,15 @@
 ## 本マニュアルの記載内容
 
 - インストール
-    - [動作環境](install_01/install_01)
-    - [アーカイブの解凍・展開](install_01/install_02)
-    - [インストールの概要](install_01/install_03)
-    - [cmakeでのインストール](install_01/install_04)
-    - [Makefile.confでのインストール](install_01/install_05)
-    - [Makefile.confでの設定項目](install_01/install_06)
-- 付録
-    - [CentOS7.3へのインストール手順例(cmake)](install_01/install_07)
-    - [CentOS7.3へのインストール手順例(Makefile.conf)](install_01/install_08)
-    - [Ubuntu16.04へのインストール手順例(cmake)](install_01/install_09)
-    - [Ubuntu16.04へのインストール手順例(Makefile.conf)](install_01/install_10)
-    - [Windows10へのインストール手順例(cmake)](install_01/install_11)
-    - [Windows10へのインストール手順例(Makefile.conf)](install_01/install_12)
+  - [動作環境](./01_install/install_01)
+  -  [アーカイブの解凍・展開](./01_install/install_02)
+  - [インストールの概要](./01_install/install_03)
+  - [cmakeでのインストール](./01_install/install_04)
+    - [CentOS7.3へのインストール手順例(cmake)](./01_install/install_07)
+    - [Ubuntu16.04へのインストール手順例(cmake)](./01_install/install_09)
+  - [Makefile.confでのインストール](./01_install/install_05)
+    - [Makefile.confでの設定項目](./01_install/install_06)
+    - [CentOS7.3へのインストール手順例(Makefile.conf)](./01_install/install_08)
+    - [Ubuntu16.04へのインストール手順例(Makefile.conf)](./01_install/install_10)
+    - [Windows10へのインストール手順例(Makefile.conf)](./01_install/install_11)
 

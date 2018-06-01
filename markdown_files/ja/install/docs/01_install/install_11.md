@@ -131,7 +131,7 @@ $ cp lib/x86_64-linux/libRcapRefiner.a $HOME/local/lib
 $ cp Refiner/rcapRefiner.h $HOME/local/include
 ```
 
-### OpenBLASのコンパイル
+### OpenBLASのインストール
 
 OpenBLASはMSYS2から提供されるバイナリパッケージを利用します。
 
@@ -424,7 +424,7 @@ $ ./setup.sh -p --with-tools --with-refiner \
 
 ### makeの実行
 
-編集が完了したらmakeを実行します。
+makeを実行します。
 
 ```
 $ make
