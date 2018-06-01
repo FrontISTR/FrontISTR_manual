@@ -300,7 +300,7 @@ $ ./setup.sh -p --with-tools --with-refiner \
 
 ### makeの実行
 
-編集が完了したらmakeを実行します。
+makeを実行します。
 
 ```
 $ make

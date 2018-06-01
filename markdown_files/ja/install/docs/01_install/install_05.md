@@ -64,7 +64,7 @@ $ ./setup.sh –p
 
 ### パーティショナーなどのツールを生成する場合
 
-パーティショナー（RCB）やビジュアライザーなどのプリ・ポスト処理用ツールが必要な場合、以下のように** -with-tools **オプションを付けてsetup.shを実行すると、各種ツールが生成されます。
+パーティショナー(RCB)やビジュアライザーなどのプリ・ポスト処理用ツールが必要な場合、以下のように** --with-tools **オプションを付けてsetup.shを実行すると、各種ツールが生成されます。
 
 ```txt
 $ ./setup.sh –p --with-tools
@@ -121,6 +121,6 @@ $ make install
 
 Windows環境では、以下のUNIXライク環境を用いることにより、上記の手順でインストールが可能です。
 
-- 逐次処理版：MinGW
+- 逐次処理版：MinGW, Cygwin
 
-- 並列処理版：Cygwin
+- 並列処理版：MinGW + Microsoft MPI, Cygwin + OpenMPI

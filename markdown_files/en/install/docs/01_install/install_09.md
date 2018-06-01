@@ -1,18 +1,18 @@
-# 参考 Ubuntu16.04へのインストール手順例(cmake)
+# Appendix : Example of installation procedure to Ubuntu16.04(cmake)
 
-Ubuntu16.04上へ本ソフトウェアと、それに必要な外部ライブラリの構築手順の例を示します。他の環境へのインストールの参考にしてください。
+We will explain how to install this software and how to build external libraries required this software on Ubuntu16.04.
 
-また、各ライブラリの詳細な構築方法は、それぞれのドキュメントを参考にしてください。
+More information for building each libraries, refer to their installation manuals.
 
-## 準備
+## Preparation
 
-最初に本ソフトウェアをコンパイルするのに必要なツールやパッケージをインストールしてください。
+At first, install the basic build toolchains and libraries as follows.
 
 ```
 $ sudo apt install build-essential gfortran cmake openmpi-bin libopenmpi-dev
 ```
 
-gcc/g++/gfortranおよびMPIのラッパーが正しくインストールされているか確認してください。
+Please check compilers and compiler wrappers for MPI works propery.
 
 ```
 $ which gcc g++ gfortran mpicc mpic++ mpifort
@@ -24,11 +24,12 @@ $ which gcc g++ gfortran mpicc mpic++ mpifort
 /usr/bin/mpifort
 ```
 
-## ライブラリのインストール
+## Installing libraries
 
-本ソフトウェアに必要なライブラリをインストールします。作業ディレクトリは`$HOME/work` 、インストール先のディレクトリは`$HOME/local`とします。
+Compile and install required libraries this software. Working directory is `$HOME/work`, destination directory for install is `$HOME/local`.
 
-各ディレクトリを作成し、`$HOME/local/bin`をPATH環境変数に追加します。
+And add `$HOME/local/bin` to PATH environment variable as follows.
+
 
 ```
 $ cd $HOME
@@ -37,11 +38,11 @@ $ mkdir -p local/bin local/lib local/include
 $ export PATH=$HOME/local/bin:$PATH
 ```
 
-### ダウンロード
+### Downloads
 
-以下のソフトウェアをダウンロードし、作業ディレクトリ`$HOME/work`へ保存します。
+Downloads the following software and save it to working directory `$HOME/work`.
 
-| ソフトウェア名 | ダウンロード先 |
+| Software | Link |
 |:--|:--|
 | REVOCAP\_Refiner-1.1.04.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
 | FrontISTR\_V50.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
@@ -51,18 +52,18 @@ $ export PATH=$HOME/local/bin:$PATH
 | MUMPS\_5.1.2.tar.gz | http://mumps.enseeiht.fr/ |
 | trilinos-12.12.1-Source.tar.bz2 | https://trilinos.org/download/ |
 
-### REVOCAP\_Refinerのコンパイル
+### Compiling REVOCAP\_Refiner
 
 ```
 $ cd $HOME/work
-$ tar xvf REVOCAP_Refiner-1.1.04.tar.gz
-$ cd REVOCAP_Refiner-1.1.04
+$ tar xvf REVOCAP\_Refiner-1.1.04.tar.gz
+$ cd REVOCAP\_Refiner-1.1.04
 $ make
 $ cp lib/x86_64-linux/libRcapRefiner.a $HOME/local/lib
 $ cp Refiner/rcapRefiner.h $HOME/local/include
 ```
 
-### OpenBLASのコンパイル
+### Compiling OpenBLAS
 
 ```
 $ cd $HOME/work
@@ -71,7 +72,7 @@ $ make BINARY=64 NO_SHARED=1 USE_OPENMP=1
 $ make PREFIX=$HOME/local install
 ```
 
-### METISのコンパイル
+### Compiling METIS
 
 ```
 $ cd $HOME/work
@@ -82,7 +83,7 @@ $ make
 $ make install
 ```
 
-### ScaLAPACKのコンパイル
+### Compiling ScaLAPACK
 
 ```
 $ cd $HOME/work
@@ -98,7 +99,7 @@ $ make
 $ make install
 ```
 
-### MUMPSのコンパイル
+### Compiling MUMPS
 
 ```
 $ cd $HOME/work
@@ -107,7 +108,7 @@ $ cd MUMPS_5.1.2
 $ cp Make.inc/Makefile.inc.generic Makefile.inc
 ```
 
-コピーした`Makefile.inc`の以下の部分を書き換えます。
+Change the following parts of copied `Makefile.inc`.
 
 ```
 $ vi Makefile.inc
@@ -134,7 +135,7 @@ LIBPAR  = $(SCALAP)
 LIBBLAS = -L$(HOME)/local/lib -lopenblas
 ```
 
-書き換えが完了したら保存しmakeします。
+Then execute `make`.
 
 ```
 $ make
@@ -142,7 +143,7 @@ $ cp lib/*.a $HOME/local/lib
 $ cp include/*.h $HOME/local/include
 ```
 
-### Trilinos MLのコンパイル
+### Compiling Trilinos ML
 
 ```
 $ cd $HOME/work
@@ -174,9 +175,9 @@ $ make
 $ make install
 ```
 
-## FrontISTRのコンパイル
+## Compiling FrontISTR
 
-上記ライブラリのコンパイルが済んだらFrontISTRをコンパイルします。
+Finishing compiling above libraeies, compile FrontISTR.
 
 ```
 $ cd $HOME/work/FrontISTR
@@ -188,33 +189,33 @@ $ cmake -DCMAKE_INSTALL_PREFIX=$HOME/FrontISTR \
         ..
 ```
 
-### makeの実行
+### Executing make
 
-makeを実行します。
 
 ```
 $ make
 ```
 
-4並列コンパイルをする場合、
+When execute `make` simultaneously, specify option `-j`.
 
 ```
 $ make -j4
 ```
 
-とします。並列コンパイルにより、コンパイル時間が短縮されます。
+Reduce compile time when increase the number of simultaneous.
 
-### make install の実行
+### Executing `make install`
 
-makeが完了したら、make installを実行しMakefile.confで指定したディレクトリへインストールします。この例では `$(HOME)/FrontISTR/bin` になります。
 
 ```
 $ make install
 ```
 
-### 動作確認
+FrontISTR will be installed to `$(HOME)/FrontISTR/bin`.
 
-本ソフトウェアに同梱されているチュートリアルを実行して、動作を確認します。
+### Testing FrontISTR
+
+Run sample case in the `tutorial` directory and check running of FrontISTR.
 
 ```
 $ cd $HOME/work/FrontISTR/tutorial
@@ -238,7 +239,7 @@ $ $HOME/FrontISTR/bin/fistr1
 ...
 ```
 
-解析が終了すると以下の様に画面上に表示されます。
+When finished analysis, displayed message as follows.
 
 ```
 ...

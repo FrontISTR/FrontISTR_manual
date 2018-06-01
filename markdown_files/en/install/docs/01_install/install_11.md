@@ -1,23 +1,24 @@
-# 参考 Windows10へのインストール手順例(Makefile.conf)
+# Appendix : Example of installation procedure to Windows10(Makefile.conf)
 
-Windows10上へ、本ソフトウェアとそれに必要な外部ライブラリの構築手順の例を示します。他の環境へのインストールの参考にしてください。
+We will explain how to install this software and how to build external libraries required this software on Windows10.
 
-また、各ライブラリの詳細な構築方法は、それぞれのドキュメントを参考にしてください。
+More information for building each libraries, refer to their installation manuals.
 
-## 準備
+## Preparation
 
-最初に本ソフトウェアをコンパイルするのに必要なツールやパッケージをインストールしてください。
+At first, install the basic build toolchains and libraries as follows.
 
-### 開発環境の準備
-はじめに開発環境をインストールします。使用する開発環境は MSYS2 です。Git for Windows SDKから導入します。
+### Installation of compilers and toolchains for Windows
+
+First, install development environment. Development environment uses MSYS2 in this example. We will install it from Git for Windows SDK.
 
 [https://github.com/git-for-windows/build-extra/releases](https://github.com/git-for-windows/build-extra/releases)
 
-下記URLから64ビット版のインストーラ`git-sdk-installer-X.X.X-64.7z.exe`(X.X.Xはバージョン番号)をダウンロードしインストールします。
+Download 64bit installer named `git-sdk-installer-X.X.X-64.7z.exe` (X.X.X is version number) and install it.
 
-### パッケージのインストール
+### Installing binary package
 
-インストールが完了したら`git for windows`と書かれたコマンドプロンプトを立ち上げコンパイルに必要なパッケージをインストールします。
+Finished to install above software, run windows command prompt named `git for windows`, then install other required software.
 
 ```
 $ pacman -S base-devel mingw-w64-x86_64-toolchain \
@@ -26,7 +27,7 @@ $ pacman -S base-devel mingw-w64-x86_64-toolchain \
             mingw-w64-x86_64-perl
 ```
 
-gcc/g++/gfortranが正しくインストールされているか確認してください。
+Please check compilers works propery as follows.
 
 ```
 $ which gcc g++ gfortran
@@ -35,11 +36,13 @@ $ which gcc g++ gfortran
 /mingw64/bin/gfortran
 ```
 
-## ライブラリのインストール
+## Installing libraries
 
-本ソフトウェアに必要なライブラリをインストールします。作業ディレクトリは`$HOME/work` 、インストール先のディレクトリは`$HOME/local`とします。
 
-各ディレクトリを作成し、`$HOME/local/bin`をPATH環境変数に追加します。
+Compile and install required libraries this software. Working directory is `$HOME/work`, destination directory for install is `$HOME/local`.
+
+And add `$HOME/local/bin` to PATH environment variable as follows.
+
 
 ```
 $ cd $HOME
@@ -48,19 +51,18 @@ $ mkdir -p local/bin local/lib local/include
 $ export PATH=$HOME/local/bin:$PATH
 ```
 
-### MPIのインストール
+### Installing MPI
 
-この例では、MPIとしてMicrosoft社のMPIを利用します。
+In this example, MPI libraries and runtime uses Microsoft MPI.
 
-下記URLからランタイム(`msmpisetup.exe`)とSDK(`msmpisdk.msi`)がダウンロードできます。
+You can download runtime (`msmpisetup.exe`) and SDK (`msmpisdk.msi`) from the following URL.
 
 [https://msdn.microsoft.com/ja-jp/library/windows/desktop/bb524831](https://msdn.microsoft.com/ja-jp/library/windows/desktop/bb524831)
 
-#### .aライブラリの作成
+#### Generating .a format library file
 
-インストールしたライブラリをMinGW-w64のgccやgfortranでリンクできるように変更を加えます。
 
-インストールした .dll から .a を生成します。
+To link Microsoft MPI with gcc/gfortran provided from MinGW-w64, convert library format from DLL to .a.
 
 ```
 $ cd $HOME/local/lib
@@ -70,9 +72,9 @@ $ ls
 libmsmpi.a msmpi.def
 ```
 
-#### ヘッダファイルの修正
+#### Modifying header files provided from MS-MPI
 
-次にヘッダファイルをコピーします。
+Copy original header files from installation directory to current directory.
 
 ```
 $ cd $HOME/local/include
@@ -82,64 +84,60 @@ $ ls
 mpi.h  mpif.h  mpifptr.h  mpio.h  mspms.h  pmidbg.h
 ```
 
-この中の`mpi.h`を以下のように変更します。
+Modify `mpi.h` file as follows.
 
 ```
 $ vi mpi.h
 
 #ifndef MPI_INCLUDE
 #define MPI_INCLUDE
-のすぐ下に
+Add just below
 #include <stdint.h>
-を追加
 ```
 
-次に`mpif.h`も以下のように変更します。
+Modify `mpif.h` file as follows, also.
 
 ```
 $ vi mpif.h
 
-409行目
+line:409 change from
 PARAMETER (MPI_ADDRESS_KIND=INT_PTR_KIND())
-を
+to
 PARAMETER (MPI_ADDRESS_KIND=8)
-に変更
 ```
 
-### ダウンロード
+### Downloads
 
-その他のソフトウェアをダウンロードし、作業ディレクトリ`$HOME/work`へ保存します。
+Downloads the following software and save it to working directory `$HOME/work`.
 
-| ソフトウェア名 | ダウンロード先 |
+| Software | Link |
 |:--|:--|
-| REVOCAP_Refiner-1.1.04.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
-| FrontISTR_V50.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
+| REVOCAP\_Refiner-1.1.04.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
+| FrontISTR\_V50.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
 | OpenBLAS-0.2.20.tar.gz | http://www.openblas.net/ |
 | metis-5.1.0.tar.gz | http://glaros.dtc.umn.edu/gkhome/metis/metis/download |
 | scalapack-2.0.2.tgz | http://www.netlib.org/scalapack/ |
-| MUMPS_5.1.2.tar.gz | http://mumps.enseeiht.fr/ |
+| MUMPS\_5.1.2.tar.gz | http://mumps.enseeiht.fr/ |
 | trilinos-12.12.1-Source.tar.bz2 | https://trilinos.org/download/ |
 
-### REVOCAP_Refinerのコンパイル
+### Compiling REVOCAP\_Refiner
 
 ```
 $ cd $HOME/work
-$ tar xvf REVOCAP_Refiner-1.1.04.tar.gz
-$ cd REVOCAP_Refiner-1.1.04
+$ tar xvf REVOCAP\_Refiner-1.1.04.tar.gz
+$ cd REVOCAP\_Refiner-1.1.04
 $ make
-$ cp lib/x86_64-linux/libRcapRefiner.a $HOME/local/lib
+$ cp lib/x86\_64-linux/libRcapRefiner.a $HOME/local/lib
 $ cp Refiner/rcapRefiner.h $HOME/local/include
 ```
 
-### OpenBLASのインストール
-
-OpenBLASはMSYS2から提供されるバイナリパッケージを利用します。
+### Installing OpenBLAS
 
 ```
 $ pacman -S mingw-w64-x86_64-openblas
 ```
 
-### METISのコンパイル
+### Compiling METIS
 
 ```
 $ cd $HOME/work
@@ -147,7 +145,7 @@ $ tar xvf metis-5.1.0.tar.gz
 $ cd metis-5.1.0
 ```
 
-MinGW-w64に合わせるため、以下のファイルを一部修正します。
+Correct the following file to fit MinGW environment.
 
 - Makefile
 - GKlib/gk_arch.h
@@ -155,30 +153,27 @@ MinGW-w64に合わせるため、以下のファイルを一部修正します�
 
 ```
 % vim Makefile
-60行目の
+line:60 change from
 cd $(BUILDDIR) && cmake $(CURDIR) $(CONFIG_FLAGS)
-を
+to
 cd $(BUILDDIR) && cmake -G "MSYS Makefiles" $(CURDIR) $(CONFIG_FLAGS)
-に変更
 ```
 
 ```
 $ vim GKlib/gk_arch.h
-44行目の
+line:44 remove
   #include <sys/resource.h>
-を削除
 ```
 
 ```
 $ vim GKlib/gk_getopt.h
-54行目からの
+line:54 remove following lines
 /* Function prototypes */
 extern int gk_getopt(int __argc, char **__argv, char *__shortopts);
 extern int gk_getopt_long(int __argc, char **__argv, char *__shortopts,
               struct gk_option *__longopts, int *__longind);
 extern int gk_getopt_long_only (int __argc, char **__argv,
               char *__shortopts, struct gk_option *__longopts, int *__longind);
-を削除。
 ```
 
 ```
@@ -191,7 +186,7 @@ $ make
 $ make install
 ```
 
-### ScaLAPACKのコンパイル
+### Compiling ScaLAPACK
 
 ```
 $ cd $HOME/work
@@ -199,7 +194,7 @@ $ tar xvf scalapack-2.0.2.tgz
 $ cd scalapack-2.0.2
 ```
 
-サンプルのSLmake.inc.exampleをSLmake.incとしてコピーし、環境に合わせて編集します。
+Copy template `SLmake.inc.example` to `SLmake.inc`. Then edit `SLmake.inc` as follows.
 
 ```
 (MINGW64) cp SLmake.inc.example SLmake.inc
@@ -228,16 +223,15 @@ LAPACKLIB     = -lopenblas
 LIBS          = $(LAPACKLIB) $(BLASLIB)
 ```
 
-編集が完了したらmakeし、完成したライブラリをコピーします。
-
 ```
 $ make
 $ cp libscalapack.a $HOME/local/lib
 ```
+Finished to make, then copy libray.
 
-コンパイル終了時にエラーが表示されますが無視して構いません。
+Although an error is displayed at the end of compilation, ignore it.
 
-### MUMPSのコンパイル
+### Compiling MUMPS
 
 ```
 $ cd $HOME/work
@@ -246,7 +240,7 @@ $ cd MUMPS_5.1.2
 $ cp Make.inc/Makefile.inc.generic Makefile.inc
 ```
 
-コピーした`Makefile.inc`の以下の部分を書き換えます。
+Change the following parts of copied `Makefile.inc`.
 
 ```
 $ vi Makefile.inc
@@ -275,7 +269,7 @@ LIBBLAS = -lopenblas
 LIBOTHERS = -lpthread -fopenmp
 ```
 
-書き換えが完了したら保存しmakeします。
+Then execute `make`.
 
 ```
 $ make
@@ -283,9 +277,9 @@ $ cp lib/*.a $HOME/local/lib
 $ cp include/*.h $HOME/local/include
 ```
 
-エラーが表示されますが無視して構いません。
+Although some error is displayed, you can ignore them.
 
-### Trilinos MLのコンパイル
+### Compiling Trilinos ML
 
 ```
 $ cd $HOME/work
@@ -311,9 +305,9 @@ $ make
 $ make install
 ```
 
-## FrontISTRのコンパイル
+## Compiling FrontISTR
 
-上記ライブラリのコンパイルが済んだらFrontISTRをコンパイルします。
+Finishing compiling above libraries, compile FrontISTR.
 
 ```
 $ cd $HOME/work
@@ -321,9 +315,9 @@ $ tar xvf FrontISTR_V50.tar.gz
 $ cd FrontISTR
 ```
 
-### Makefile.confの編集
+### Editing Makefile.conf
 
-雛形をコピーして、環境に合わせた内容に編集します。この例では、以下の様に編集します。
+Copy template as `Makefile.conf.org` to `Makefile.conf`. Then edit `Makefile.conf` as follows.
 
 ```
 $ cp Makefile.conf.org Makefile.conf
@@ -413,34 +407,35 @@ RM             = rm -f
 MKDIR          = mkdir -p
 ```
 
-### setup.shの実行
+### Executing setup.sh
 
-編集が完了したら、setup.sh を実行します。
+Finished to edit `Makefile.conf`, then execute `setup.sh`.
 
 ```
 $ ./setup.sh -p --with-tools --with-refiner \
              --with-metis --with-mumps --with-lapack --with-ml
 ```
 
-### makeの実行
+### Executing make
 
-makeを実行します。
+Execute make command.
 
 ```
 $ make
 ```
 
-### make install の実行
+### Executing `make install`
 
-makeが完了したら、make installを実行しMakefile.confで指定したディレクトリへインストールします。この例では  `$(HOME)/FrontISTR/bin` です。
 
 ```
 $ make install
 ```
 
-### 動作確認
+FrontISTR will be installed to `$(HOME)/FrontISTR/bin`.
 
-本ソフトウェアに同梱されているチュートリアルを実行して、動作を確認します。
+### Testing FrontISTR
+
+Run sample case in the `tutorial` directory and check running of FrontISTR.
 
 ```
 $ cd $HOME/work/FrontISTR/tutorial
@@ -464,7 +459,7 @@ $ $HOME/FrontISTR/bin/fistr1
 ...
 ```
 
-解析が終了すると以下の様に画面上に表示されます。
+When finished analysis, displayed message as follows.
 
 ```
 ...
@@ -496,10 +491,9 @@ $ $HOME/FrontISTR/bin/fistr1
  FrontISTR Completed !!
 ```
 
-### 補足
+### Supplement
 
-MinGWのインストールされていない環境で実行するには、FrontISTR `fistr1.exe` と同じディレクトリに
-以下のファイルをコピーします。
+To run in an environment where MinGW is not installed, you need to place following files in the same directory as FrontISTR `fistr1.exe`.
 
 - libwinpthread-1.dll
 - libgfortran-3.dll
@@ -508,12 +502,10 @@ MinGWのインストールされていない環境で実行するには、FrontI
 - libstdc++-6.dll
 - libquadmath-0.dll
 
-通常は、
+You can find these libraries from 
 
 ```
 C:\git-sdk-64\mingw64\bin
 ```
 
-の下にありますので、バイナリを実行するコンピュータにコピーします。
-
-また、Microsoft MPIのランタイムMSMpiSetup.exeも実行するコンピュータにインストールします。
+You also need to setup Microsoft MPI runtime (`MSMpiSetup.exe`).
