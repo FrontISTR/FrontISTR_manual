@@ -1,18 +1,18 @@
 ##  線形動解析
 
-本解析の実施には、tutorial/12\_dynamic\_beam のデータを用います。
+本解析の実施には、`tutorial/12_dynamic_beam` のデータを用います。
 
 ### 解析対象
 
 解析対象は片持ち梁で、形状を図4.12.1に、メッシュデータを図4.12.2に示します。メッシュには四面体2次要素を用い、メッシュ規模は要素数240、節点数525です。
 
 <div style="text-align: center;">
-<img src="../fig/image24.png" width="350px"><br>
+<img src="../media/image12_01.png" width="350px"><br>
 図4.12.1　片持ち梁の形状
 </div>
 
 <div style="text-align: center;">
-<img src="../fig/image25.png" width="350px"><br>
+<img src="../media/image12_02.png" width="350px"><br>
 図4.12.2　片持ち梁のメッシュデータ
 </div>
 
@@ -26,6 +26,6 @@
 Excelで作成して図4.12.3に示します。また、解析結果の数値データとして、モニタリング節点の変位出力ファイル（dyna\_disp\_p1.out）の一部を以下に示します。
 
 <div style="text-align: center;">
-<img src="../fig/image26.png" width="350px"><br>
+<img src="../media/image12_03.png" width="350px"><br>
 図4.12.3　モニタリング節点の変位時系列
 </div>

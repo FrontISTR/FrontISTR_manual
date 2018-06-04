@@ -1,6 +1,6 @@
 ##  固有値解析
 
-本解析の実施には、tutorial/15\_eigen\_spring のデータを用います。
+本解析の実施には、`tutorial/15_eigen_spring` のデータを用います。
 
 ### 解析対象
 
@@ -16,6 +16,6 @@
 変形倍率を1000としています。また、解析結果の数値データとして、解析結果ログファイルに出力された固有振動数リストを以下に示します。
 
 <div style="text-align: center;">
-<img src="../fig/image31.png" width="350px"><br>
+<img src="../media/image15_01.png" width="350px"><br>
 図4.15.1　スプリングの3次振動モード
 </div>
