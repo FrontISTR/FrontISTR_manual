@@ -1,37 +1,55 @@
-## 線形動的解析用実モデル例題
+## Example of Actual Model for Linear Dynamic Analysis
 
-### 解析モデル
+### Analysis Mode
 
-線形動解析では、実モデルとして図9.5.1に示す機械部品を対象とする。
-この実モデルについて、荷重条件及び減衰係数の異なる4ケースに対して検証例題を設定する。
-その一覧を表9.5.1に示す。
+In the linear dynamic analysis, the machine parts shown in Figure 9.5.1 were used as the actual model. In this actual model, a verification example was set for four cases with different load conditions and damping coefficients. A list is shown in Table 9.5.1.
 
 <div style="text-align: center;">
-表 9.5.1　線形動的解析用実モデル検証例題
+Table 9.5.1: Verification Example of Actual Model for Linear Dynamic Analysis
 </div>
 
-| ケース名 | 要素タイプ | 検証モデル     | 荷重条件         | 減衰条件 | 節点数 | 自由度数 |
+| Case Name | Element Type | Verification Model | Loading Conditions | Damping Conditions | No. of Nodes | No. of Degrees of Freedom |
 |:--|:--|:--|:--|:--|:--|:--|
-| EX31A    | 342        | かみ合いモデル | ステップ荷重(F0) | なし     | 15,214 | 45,642 |
-| EX31B    | 342        |                | ステップ荷重(F0) | あり     | 15,214 | 45,642 |
-| EX31C    | 342        |                | 方形波パルス(F1) | なし     | 15,214 | 45,642 |
-| EX31D    | 342        |                | 方形波パルス(F1) | あり     | 15,214 | 45,642 |
+| EX31A    | 342        | Mesh model     | Step load (F0)         | No     | 15,214 | 45,642 |
+| EX31B    | 342        |                | Step load (F0)         | Yes    | 15,214 | 45,642 |
+| EX31C    | 342        |                | Square wave pulse (F1) | No     | 15,214 | 45,642 |
+| EX31D    | 342        |                | Square wave pulse (F1) | Yes    | 15,214 | 45,642 |
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図 9.5.1　かみあいモデル
+<img src="../media/image05_01.png" width="512px"><br>
+Figure 9.5.1 : Mesh Model
 </div>
 
-### 解析結果
+### Analysis Results
 
-解析結果の例を図 9.5.2～図 9.5.3に示す。
+Examples of the analysis results are shown in Figure 9.5.2 ~ Figure 9.5.3.
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図 9.5.2　加振点変位u~z~の時刻歴
+<img src="../media/image05_02.png" width="512px"><br>
+(a) In the case of Step Load
 </div>
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図 9.5.3　変形図及び相当応力分布(変形倍率5.0)　：EX31C
+<img src="../media/image05_03.png" width="512px"><br>
+(b) In the case of Square Wave Pulse Load
+</div>
+
+<div style="text-align: center;">
+Figure 9.5.2: Time History of Vibration Point Displacement u<sub>z</sub>
+</div>
+
+---
+
+<div style="text-align: center;">
+<img src="../media/image05_04.png" width="350px"><br>
+(a) t=5.0E-04(s)
+</div>
+
+<div style="text-align: center;">
+<img src="../media/image05_05.png" width="350px"><br>
+(b) t=4.0E-03(s)
+</div>
+
+<div style="text-align: center;">
+Figure 9.5.3: Deformed Figure and Equivalent Stress Distribution (Deformed Magnification 5.0): EX31C
 </div>

@@ -18,22 +18,22 @@
 | EX21C    | 361        |                      | 1,205,765 | 1,159,200 |
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<img src="../media/image04_01.png" width="350px"><br>
 図 9.4.1　使用済核燃料輸送容器
 </div>
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<img src="../media/image04_02.png" width="350px"><br>
 図 9.4.2　使用済核燃料輸送容器の寸法
 </div>
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<img src="../media/image04_03.png" width="350px"><br>
 図 9.4.3　モデル概念図
 </div>
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<img src="../media/image04_04.png" width="350px"><br>
 図 9.4.4　モデル境界条件とメッシュ分割図（EX21A）
 </div>
 
@@ -42,16 +42,16 @@
 解析結果の例を図 9.4.5～図 9.4.7に示す。
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<img src="../media/image04_05.png" width="512px"><br>
 図 9.4.5　温度分布図
 </div>
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<img src="../media/image04_06.png" width="512px"><br>
 図 9.4.6　分散モデル図
 </div>
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<img src="../media/image04_07.png" width="512px"><br>
 図 9.4.7　分散処理による速度向上度
 </div>

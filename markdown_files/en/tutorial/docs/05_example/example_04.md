@@ -1,57 +1,55 @@
-## 熱伝導解析用実モデル例題
+## Example of Actual Model for Heat Conduction Analsis
 
-### 解析モデル
+### Analysis Model
 
-熱伝導解析では、実モデルとして使用済核燃料輸送容器を対象とする。
-この実モデルについて、メッシュの粗さを変えた３種類の検証例題を設定する。
-その一覧を表9.4.1に示す。
-また、モデルの形状を図 9.4.1～図 9.4.4に示す。
+In heat conduction analysis, a spent nuclear fuel shipping container was used as the actual Neutron shield (Silicon rubber) where the roughness of the mesh model. A verification example of three types of actual models Radiation fins was changed was used for verification. A list is shown in Table 9.4.1. The shape of the models is shown in Figure 9.4.1 ~ Figure 9.4.4.
 
 <div style="text-align: center;">
-表 9.4.1　熱伝導解析用実モデル検証例題
+Table 9.4.1: Verification Example of Actual Model for Heat Conduction Analysis
 </div>
 
-| ケース名 | 要素タイプ | 検証モデル           | 節点数    | 自由度数 |
+| Case Name | Element Type | Verification Model  | No. of Nodes    | No. of Degrees of Freedom |
 |:--|:--|:--|:--|:--|
-| EX21A    | 361        | 使用済核燃料輸送容器 | 88,938    | 79,920 |
-| EX21B    | 361        |                      | 309,941   | 289,800 |
-| EX21C    | 361        |                      | 1,205,765 | 1,159,200 |
+| EX21A    | 361        | Spent nuclear fuel shipping container | 88,938    | 79,920 |
+| EX21B    | 361        |                                       | 309,941   | 289,800 |
+| EX21C    | 361        |                                       | 1,205,765 | 1,159,200 |
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図 9.4.1　使用済核燃料輸送容器
+<img src="../media/image04_01.png" width="350px"><br>
+Figure 9.4.1: Spent Nuclear Fuel Shipping Container<br>
+Reference: Transport Engineering of Nuclear Fuel Materials (Nikkan Kogyo Shimbun) 1998
 </div>
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図 9.4.2　使用済核燃料輸送容器の寸法
+<img src="../media/image04_02.png" width="350px"><br>
+Figure 9.4.2: Dimensions of Spent Nuclear Fuel Shipping Container
 </div>
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図 9.4.3　モデル概念図
+<img src="../media/image04_03.png" width="350px"><br>
+Figure 9.4.3: Conceptual Diagram of Model
 </div>
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図 9.4.4　モデル境界条件とメッシュ分割図（EX21A）
+<img src="../media/image04_04.png" width="350px"><br>
+Figure 9.4.4: Model Boundary Conditions and Mesh Partitioning Figure (EX21A)
 </div>
 
-### 解析結果
+### Analysis Results
 
-解析結果の例を図 9.4.5～図 9.4.7に示す。
-
-<div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図 9.4.5　温度分布図
-</div>
+An example of the analysis results is shown in Figure 9.4.5 ~ Figure 9.4.7.
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図 9.4.6　分散モデル図
+<img src="../media/image04_05.png" width="512px"><br>
+Figure 9.4.5: Temperature Distribution Figure
 </div>
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図 9.4.7　分散処理による速度向上度
+<img src="../media/image04_06.png" width="512px"><br>
+Figure 9.4.6: Distributed Model Figure
+</div>
+
+<div style="text-align: center;">
+<img src="../media/image04_07.png" width="512px"><br>
+Figure 9.4.7: Level of Speed Improvement by Distribution Process
 </div>

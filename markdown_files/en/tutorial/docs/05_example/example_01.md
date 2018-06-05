@@ -10,208 +10,197 @@ MathJax.Hub.Config({
 </script>
 <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
 
-## 単純形状モデルによる検証
+## Verification by Simple Geometric Model
 
-### 弾性静解析
+### Elastic static analysis
 
-本検証においては、片持ち梁を図9.1.1のようにメッシュ分割したものを対象とした。
-検証条件については図9.1.2に示す荷重条件を変えたexA～exGの7条件について解析を行った。
-なお、exGはexAと同じ荷重条件で、直接法ソルバーを使用した場合の検証ケースである。
+The subject in this verification was a cantilever beam with mesh partitioning as shown in Figure 9.1.1. Regarding the verification conditions, the analysis was performed with 7 conditions from exA - exG where the load conditions were changed as shown in Figure 9.1.2. In addition, this is a verification case where a direct method solver was used, with the same load conditions as exA being applied to exG.
 
-表 9.1.1～表 9.1.7にケース別検証結果を示す。
+The verification results for each case are shown in Table 9.1.1 ~ Table 9.1.7.
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図 9.1.1　片持ち梁のメッシュ分割例（六面体要素）
+<img src="../media/image01_01.png" width="350px"><br>
+Figure 9.1.1: Example of Mesh Partitioned Cantilever Beam (Hexahedral Element)
 </div>
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-(a) exA,G：集中荷重
-<img src="../fig/image312.png" width="350px"><br>
-(b) exD：重力
-<img src="../fig/image312.png" width="350px"><br>
-(c) exB：面分布荷重
-<img src="../fig/image312.png" width="350px"><br>
-(d) exE：遠心力
-<img src="../fig/image312.png" width="350px"><br>
-(e) exC：体積荷重
-<img src="../fig/image312.png" width="350px"><br>
-(f) exF：熱荷重
-図 9.1.2　片持ち梁モデルの検証条件
+<img src="../media/image01_02.png" width="350px">(a) exA,G：集中荷重<br/>
+<img src="../media/image01_03.png" width="350px">(b) exD：重力<br/>
+<img src="../media/image01_04.png" width="350px">(c) exB：面分布荷重<br/>
+<img src="../media/image01_05.png" width="350px">(d) exE：遠心力<br/>
+<img src="../media/image01_06.png" width="350px">(e) exC：体積荷重<br/>
+<img src="../media/image01_07.png" width="350px">(f) exF：熱荷重<br/>
 </div>
 
-| 項目 | 値 |
+|  |  |
 |:--|:--|
-|ヤング率   | E = 4000.0 kgf/mm^2 |
-|長さ       | L = 10.0 mm |
-|ポアソン比 | ν = 0.3 |
-|断面積     | A = 1.0 mm^2 |
-|質量密度   | ρ = 8.0102 x 10^-10 kg s^2/mm^4 |
-|断面二次モーメント | I = 1.0/12.0mm^4 |
-|重力加速度 | g = 9800.0 mm/s^2 |
-|線熱膨張率 | α = 1.0 x 10^-5 |
+|Young's Modulus                      | $E = 4000.0\ kgf/mm^2$ |
+|Length                               | $L = 10.0\ mm$ |
+|Poisson's Ratio                      | $\nu = 0.3$ |
+|Cross-sectional area                 | $A = 1.0\ mm^2$ |
+|Mass density                         | $\rho = 8.0102 \times 10^{-10}\ kg\,s^2/mm^4$ |
+|Geometrical moment of inertia        | $I = 1.0/12.0\ mm^4$ |
+|Gravitational acceleration           | $g = 9800.0\ mm/s^2$ |
+|Linear thermal expansion coefficient | $\alpha = 1.0 \times 10^{-5}$ |
 
-<div style="text-align: center;">
-表 9.1.1　exA：集中荷重問題の検証結果
+<div style="text-align: center; margin-bottom: 3em;">
+Figure 9.1.2: Verification Conditions of Cantilever Beam Model
 </div>
 
-| ケース名 | 要素数 | | 予測値：δmax= -1.000 | | 備考 |
+<div style="text-align: center; margin-top: 3em;">
+Table 9.1.1: exA: Verification Results of Concentrated Load Problem
+</div>
+
+| Case Name | No. of Elements | | 予測値: $\delta\_{max}= -1.000$ | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
-| A231 | 40  | -0.338 | -0.371 | -0.371 | 33節点 / 平面応力状問題 |
-| A232 | 40  | -0.942 | -1.002 | -1.002 | 105節点 / 平面応力状問題 |
-| A241 | 20  | -0.720 | -0.711 | -0.711 | 33節点 / 平面応力状問題 |
-| A242 | 20  | -0.910 | -1.002 | -1.002 | 85節点 / 平面応力状問題 |
-| A341 | 240 | -0.384 | -0.384 | -0.386 | 99節点 |
-| A342 | 240 | -0.990 | -0.990 | -0.999 | 525節点 |
-| A351 | 80  | -0.353 | -0.355 | -0.351 | 99節点 |
-| A352 | 80  | -0.993 | -0.993 | -0.992 | 381節点 |
-| A361 | 40  | -0.954 | -0.985 | -0.984 | 99節点 |
-| A362 | 40  | -0.994 | -0.993 | -0.993 | 220節点 |
-| A731 | 40  | -      | -      | -0.991 | 33節点 / 直接法 |
-| A741 | 20  | -      | -      | -0.996 | 33節点 / 直接法 |
+| A231 | 40  | -0.338 | -0.371 | -0.371 | 33 nodes / plane stress problem |
+| A232 | 40  | -0.942 | -1.002 | -1.002 | 105 nodes / plane stress problem |
+| A241 | 20  | -0.720 | -0.711 | -0.711 | 33 nodes / plane stress problem |
+| A242 | 20  | -0.910 | -1.002 | -1.002 | 85 nodes / plane stress problem |
+| A341 | 240 | -0.384 | -0.384 | -0.386 | 99 nodes |
+| A342 | 240 | -0.990 | -0.990 | -0.999 | 525 nodes |
+| A351 | 80  | -0.353 | -0.355 | -0.351 | 99 nodes |
+| A352 | 80  | -0.993 | -0.993 | -0.992 | 381 nodes |
+| A361 | 40  | -0.954 | -0.985 | -0.984 | 99 nodes |
+| A362 | 40  | -0.994 | -0.993 | -0.993 | 220 nodes |
+| A731 | 40  | -      | -      | -0.991 | 33 nodes / direct method |
+| A741 | 20  | -      | -      | -0.996 | 33 nodes / direct method |
 
-<div style="text-align: center;">
-表 9.1.2　exB：面分布荷重問題の検証結果
+<div style="text-align: center;margin-top: 3em;">
+Table 9.1.2: exB: Verification Results of Surface Distributed Load Problem
 </div>
 
-| ケース名 | 要素数 | | 予測値：δmax= -3.750 | | 備考 |
+| Case Name | No. of Elements | | Predicated Value : $\delta\_{max}= -3.750$ | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
-| B231 | 40  | -1.281 | -1.403 | -1.403 | 33節点 / 平面応力状問題 |
-| B232 | 40  | -3.579 | -3.763 | -3.763 | 105節点 / 平面応力状問題 |
-| B241 | 20  | -3.198 | -2.680 | -2.680 | 33節点 / 平面応力状問題 |
-| B242 | 20  | -3.426 | -3.765 | -3.765 | 85節点 / 平面応力状問題 |
-| B341 | 240 | -1.088 | -1.449 | -1.454 | 99節点 |
-| B342 | 240 | -3.704 | -3.704 | -3.748 | 525節点 |
-| B351 | 80  | -3.547 | -1.338 | -1.325 | 99節点 |
-| B352 | 80  | -0.3717| -3.716 | -3.713 | 381節点 |
-| B361 | 40  | -3.557 | -3.691 | -3.688 | 99節点 |
-| B362 | 40  | -3.726 | -3.717 | -3.717 | 220節点 |
-| B731 | 40  | -      | -      | -3.722 | 33節点 / 直接法 |
-| B741 | 20  | -      | -      | -3.743 | 33節点 / 直接法 |
+| B231 | 40  | -1.281 | -1.403 | -1.403 | 33 nodes / plane stress problem |
+| B232 | 40  | -3.579 | -3.763 | -3.763 | 105 nodes / plane stress problem |
+| B241 | 20  | -3.198 | -2.680 | -2.680 | 33 nodes / plane stress problem |
+| B242 | 20  | -3.426 | -3.765 | -3.765 | 85 nodes / plane stress problem |
+| B341 | 240 | -1.088 | -1.449 | -1.454 | 99 nodes |
+| B342 | 240 | -3.704 | -3.704 | -3.748 | 525 nodes |
+| B351 | 80  | -3.547 | -1.338 | -1.325 | 99 nodes |
+| B352 | 80  | -0.3717| -3.716 | -3.713 | 381 nodes |
+| B361 | 40  | -3.557 | -3.691 | -3.688 | 99 nodes |
+| B362 | 40  | -3.726 | -3.717 | -3.717 | 220 nodes |
+| B731 | 40  | -      | -      | -3.722 | 33 nodes / direct method |
+| B741 | 20  | -      | -      | -3.743 | 33 nodes / direct method |
 
-<div style="text-align: center;">
-表 9.1.3　exC：体積荷重問題の検証結果
+<div style="text-align: center;margin-top:3em;">
+Table 9.1.3: exC: Verification Results of Volumetric Load Problem
 </div>
 
-| ケース名 | 要素数 | | 予測値：δmax= -2.944e-5 | | 備考 |
+| Case Name | No. of Elements | | Predicated Value : $\delta_{max}=$ -2.944e-5 | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
-| C231 | 40  | - | -1.101e-5 | -1.101e-5 | 33節点 / 平面応力状問題 |
-| C232 | 40  | - | -2.951e-5 | -2.951e-5 | 105節点 / 平面応力状問題 |
-| C241 | 20  | - | -2.102e-5 | -2.102e-5 | 33節点 / 平面応力状問題 |
-| C242 | 20  | - | -2.953e-5 | -2.953e-5 | 85節点 / 平面応力状問題 |
-| C341 | 240 | - | -1.136e-5 | -1.140e-5 | 99節点 |
-| C342 | 240 | - | -2.905e-5 | -2.937e-5 | 525節点 |
-| C351 | 80  | - | -1.050e-5 | -1.039e-5 | 99節点 |
-| C352 | 80  | - | -2.914e-5 | -2.911e-5 | 381節点 |
-| C361 | 40  | - | -2.895e-5 | -2.893e-5 | 99節点 |
-| C362 | 40  | - | -2.915e-5 | -2.915e-5 | 220節点 |
-| C731 | 40  | - | -         | -2.922e-5 | 33節点 / 直接法 |
-| C741 | 20  | - | -         | -2.938e-5 | 33節点 / 直接法 |
+| C231 | 40  | - | -1.101e-5 | -1.101e-5 | 33 nodes / plane stress problem |
+| C232 | 40  | - | -2.951e-5 | -2.951e-5 | 105 nodes / plane stress problem |
+| C241 | 20  | - | -2.102e-5 | -2.102e-5 | 33 nodes / plane stress problem |
+| C242 | 20  | - | -2.953e-5 | -2.953e-5 | 85 nodes / plane stress problem |
+| C341 | 240 | - | -1.136e-5 | -1.140e-5 | 99 nodes |
+| C342 | 240 | - | -2.905e-5 | -2.937e-5 | 525 nodes |
+| C351 | 80  | - | -1.050e-5 | -1.039e-5 | 99 nodes |
+| C352 | 80  | - | -2.914e-5 | -2.911e-5 | 381 nodes |
+| C361 | 40  | - | -2.895e-5 | -2.893e-5 | 99 nodes |
+| C362 | 40  | - | -2.915e-5 | -2.915e-5 | 220 nodes |
+| C731 | 40  | - | -         | -2.922e-5 | 33 nodes / direct method |
+| C741 | 20  | - | -         | -2.938e-5 | 33 nodes / direct method |
 
-<div style="text-align: center;">
-表 9.1.4　exD：重力問題の検証結果
+<div style="text-align: center;margin-top: 3em;">
+Table 9.1.4: exD: Verification Results of Gravity Problem
 </div>
 
-| ケース名 | 要素数 | | 予測値：δmax= -2.944e-5 | | 備考 |
+| Case Name | No. of Elements | | Predicated Value : $\delta_{max}=$ -2.944e-5 | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
-| D231 | 40  | -1.101e-5 | -1.101e-5 | -1.101e-5 | 33節点 / 平面応力状問題 |
-| D232 | 40  | -2.805e-5 | -2.951e-5 | -2.951e-5 | 105節点 / 平面応力状問題 |
-| D241 | 20  | -2.508e-5 | -2.102e-5 | -2.102e-5 | 33節点 / 平面応力状問題 |
-| D242 | 20  | -2.684e-5 | -2.953e-5 | -2.953e-5 | 85節点 / 平面応力状問題 |
-| D341 | 240 | -1.172e-5 | -1.136e-5 | -1.140e-5 | 99節点 |
-| D342 | 240 | -2.906e-5 | -2.905e-5 | -2.937e-5 | 525節点 |
-| D351 | 80  | -1.046e-5 | -1.050e-5 | -1.039e-5 | 99節点 |
-| D352 | 80  | -2.917e-5 | -2.914e-5 | -2.911e-5 | 381節点 |
-| D361 | 40  | -2.800e-5 | -2.895e-5 | -2.893e-5 | 99節点 |
-| D362 | 40  | -2.919e-5 | -2.915e-5 | -2.915e-5 | 220節点 |
-| D731 | 40  | -         | -         | -2.922e-5 | 33節点 / 直接法 |
-| D741 | 20  | -         | -         | -2.938e-5 | 33節点 / 直接法 |
+| D231 | 40  | -1.101e-5 | -1.101e-5 | -1.101e-5 | 33 nodes / plane stress problem |
+| D232 | 40  | -2.805e-5 | -2.951e-5 | -2.951e-5 | 105 nodes / plane stress problem |
+| D241 | 20  | -2.508e-5 | -2.102e-5 | -2.102e-5 | 33 nodes / plane stress problem |
+| D242 | 20  | -2.684e-5 | -2.953e-5 | -2.953e-5 | 85 nodes / plane stress problem |
+| D341 | 240 | -1.172e-5 | -1.136e-5 | -1.140e-5 | 99 nodes |
+| D342 | 240 | -2.906e-5 | -2.905e-5 | -2.937e-5 | 525 nodes |
+| D351 | 80  | -1.046e-5 | -1.050e-5 | -1.039e-5 | 99 nodes |
+| D352 | 80  | -2.917e-5 | -2.914e-5 | -2.911e-5 | 381 nodes |
+| D361 | 40  | -2.800e-5 | -2.895e-5 | -2.893e-5 | 99 nodes |
+| D362 | 40  | -2.919e-5 | -2.915e-5 | -2.915e-5 | 220 nodes |
+| D731 | 40  | -         | -         | -2.922e-5 | 33 nodes / direct method |
+| D741 | 20  | -         | -         | -2.938e-5 | 33 nodes / direct method |
 
-<div style="text-align: center;">
-表 9.1.5　exE：遠心力問題の検証結果
+<div style="text-align: center; margin-top:3em;">
+Table 9.1.5: exE: Verification Results of Centrifugal Force Problem
 </div>
 
-| ケース名 | 要素数 | | 予測値：δmax= 2.635e-5 | | 備考 |
+| Case Name | No. of Elements | | Predicated Value : $\delta_{max}=$ 2.635e-5 | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
-| E231 | 40  | 2.410e-3 | 2.616e-3 | 2.650e-3 | 33節点 / 平面応力状問題 |
-| E232 | 40  | 2.447e-3 | 2.627e-3 | 2.628e-3 | 105節点 / 平面応力状問題 |
-| E241 | 20  | 2.386e-3 | 2.622e-3 | 2.624e-3 | 33節点 / 平面応力状問題 |
-| E242 | 20  | 2.387e-3 | 2.627e-3 | 2.629e-3 | 85節点 / 平面応力状問題 |
-| E341 | 240 | 2.708e-3 | 2.579e-3 | 2.625e-3 | 99節点 |
-| E342 | 240 | 2.639e-3 | 2.614e-3 | 2.638e-3 | 525節点 |
-| E351 | 80  | 2.642e-3 | 2.598e-3 | 2.625e-3 | 99節点 |
-| E352 | 80  | 2.664e-3 | 2.617e-3 | 2.616e-3 | 381節点 |
-| E361 | 40  | 2.611e-3 | 2.603e-3 | 2.603e-3 | 99節点 |
-| E362 | 40  | 2.623e-3 | 2.616e-3 | 2.616e-3 | 220節点 |
-| E731 | 40  | -        | -        | 2.619e-3 | 33節点 / 直接法 |
-| E741 | 20  | -        | -        | 2.622e-3 | 33節点 / 直接法 |
+| E231 | 40  | 2.410e-3 | 2.616e-3 | 2.650e-3 | 33 nodes / plane stress problem |
+| E232 | 40  | 2.447e-3 | 2.627e-3 | 2.628e-3 | 105 nodes / plane stress problem |
+| E241 | 20  | 2.386e-3 | 2.622e-3 | 2.624e-3 | 33 nodes / plane stress problem |
+| E242 | 20  | 2.387e-3 | 2.627e-3 | 2.629e-3 | 85 nodes / plane stress problem |
+| E341 | 240 | 2.708e-3 | 2.579e-3 | 2.625e-3 | 99 nodes |
+| E342 | 240 | 2.639e-3 | 2.614e-3 | 2.638e-3 | 525 nodes |
+| E351 | 80  | 2.642e-3 | 2.598e-3 | 2.625e-3 | 99 nodes |
+| E352 | 80  | 2.664e-3 | 2.617e-3 | 2.616e-3 | 381 nodes |
+| E361 | 40  | 2.611e-3 | 2.603e-3 | 2.603e-3 | 99 nodes |
+| E362 | 40  | 2.623e-3 | 2.616e-3 | 2.616e-3 | 220 nodes |
+| E731 | 40  | -        | -        | 2.619e-3 | 33 nodes / direct method |
+| E741 | 20  | -        | -        | 2.622e-3 | 33 nodes / direct method |
 
-<div style="text-align: center;">
-表 9.1.6　exF：熱応力荷重問題の検証結果
+<div style="text-align: center; margin-top:3em;">
+Table 9.1.6: exF: Verification Results of Thermal Stress Load Problem
 </div>
 
-| ケース名 | 要素数 | | 予測値：δmax= 1.000e-2 | | 備考 |
+| Case Name | No. of Elements | | Predicated Value : $\delta_{max}=$ 1.000e-2 | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
-| F231 | 40  | - | 1.016e-2 | 1.007e-2 | 33節点 / 平面応力状問題 |
-| F232 | 40  | - | 1.007e-2 | 1.007e-2 | 105節点 / 平面応力状問題 |
-| F241 | 20  | - | 1.010e-2 | 1.010e-2 | 33節点 / 平面応力状問題 |
-| F242 | 20  | - | 1.006e-2 | 1.006e-2 | 85節点 / 平面応力状問題 |
-| F341 | 240 | - | 1.047e-2 | 1.083e-2 | 99節点 |
-| F342 | 240 | - | 1.018e-2 | 1.022e-2 | 525節点 |
-| F351 | 80  | - | 1.031e-2 | 1.062e-2 | 99節点 |
-| F352 | 80  | - | 1.015e-2 | 1.017e-2 | 381節点 |
-| F361 | 40  | - | 1.026e-2 | 1.026e-2 | 99節点 |
-| F362 | 40  | - | 1.016e-2 | 1.016e-2 | 220節点 |
+| F231 | 40  | - | 1.016e-2 | 1.007e-2 | 33 nodes / plane stress problem |
+| F232 | 40  | - | 1.007e-2 | 1.007e-2 | 105 nodes / plane stress problem |
+| F241 | 20  | - | 1.010e-2 | 1.010e-2 | 33 nodes / plane stress problem |
+| F242 | 20  | - | 1.006e-2 | 1.006e-2 | 85 nodes / plane stress problem |
+| F341 | 240 | - | 1.047e-2 | 1.083e-2 | 99 nodes |
+| F342 | 240 | - | 1.018e-2 | 1.022e-2 | 525 nodes |
+| F351 | 80  | - | 1.031e-2 | 1.062e-2 | 99 nodes |
+| F352 | 80  | - | 1.015e-2 | 1.017e-2 | 381 nodes |
+| F361 | 40  | - | 1.026e-2 | 1.026e-2 | 99 nodes |
+| F362 | 40  | - | 1.016e-2 | 1.016e-2 | 220 nodes |
 
-<div style="text-align: center;">
-表 9.1.7　exG：直接法の検証結果（集中荷重問題）
+<div style="text-align: center;margin-top: 3em;">
+Table 9.1.7: exG: Verification Results of Direct Method (Concentrated Load Problem)
 </div>
 
-| ケース名 | 要素数 | | 予測値：δmax= -1.000 | | 備考 |
+| Case Name | No. of Elements | | Predicated Value : $\delta_{max}=$ -1.000 | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
-| G231 | 40  | -0.338 | -0.371 | -0.371 | 33節点 / 平面応力状問題 |
-| G232 | 40  | -0.942 | -1.002 | -1.002 | 105節点 / 平面応力状問題 |
-| G241 | 20  | -0.720 | -0.711 | -0.711 | 33節点 / 平面応力状問題 |
-| G242 | 20  | -0.910 | -1.002 | -1.002 | 85節点 / 平面応力状問題 |
-| G341 | 240 | -0.384 | -0.384 | -0.386 | 99節点 |
-| G342 | 240 | -0.990 | -0.990 | -0.999 | 525節点 |
-| G351 | 80  | -0.353 | -0.355 | -0.351 | 99節点 |
-| G352 | 80  | -0.993 | -0.993 | -0.992 | 381節点 |
-| G361 | 40  | -0.954 | -0.985 | -0.984 | 99節点 |
-| G362 | 40  | -0.994 | -0.993 | -0.993 | 220節点 |
-| G731 | 40  | -      | -      | -0.991 | 33節点 / 直接法 |
-| G741 | 20  | -      | -      | -0.996 | 33節点 / 直接法 |
+| G231 | 40  | -0.338 | -0.371 | -0.371 | 33 nodes / plane stress problem |
+| G232 | 40  | -0.942 | -1.002 | -1.002 | 105 nodes / plane stress problem |
+| G241 | 20  | -0.720 | -0.711 | -0.711 | 33 nodes / plane stress problem |
+| G242 | 20  | -0.910 | -1.002 | -1.002 | 85 nodes / plane stress problem |
+| G341 | 240 | -0.384 | -0.384 | -0.386 | 99 nodes |
+| G342 | 240 | -0.990 | -0.990 | -0.999 | 52 nodes |
+| G351 | 80  | -0.353 | -0.355 | -0.351 | 99 nodes |
+| G352 | 80  | -0.993 | -0.993 | -0.992 | 381 nodes |
+| G361 | 40  | -0.954 | -0.985 | -0.984 | 99 nodes |
+| G362 | 40  | -0.994 | -0.993 | -0.993 | 220 nodes |
+| G731 | 40  | -      | -      | -0.991 | 33 nodes / direct method |
+| G741 | 20  | -      | -      | -0.996 | 33 nodes / dierct method |
 
-### 非線形静解析
+### Nonlinear static analysis
 
-#### (2-1) exnl1: 幾何学非線形解析
+#### (2-1) exnl1: Geometrical nonlinear analysis
 
-検証ケースexIの検証モデルは検証ケースexA～Gのモデルと同一のものである。
-図9.1.3に検証モデルの概念図を示す。
-このモデルについて幾何学的非線形解析を実施する。
-また、検証結果を表9.1.8に示す。
-
-非線形計算は、最終荷重1.0Pに対して、荷重増分値0.1P，10ステップとする。
+The same model of verification case exA - G was used for the verification model of verification case exI. The conceptual diagram of the verification model is shown in Figure 9.1.3. A geometric nonlinear analysis is implemented in this model. The verification results are shown in Table 9.1.8. A nonlinear calculation of the load increment value of 0.1P for 10 steps is implemented for the final load of 1.0P.
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図 9.1.3　検証モデル
+<img src="../media/image01_08.png" width="350px"><br>
+Figure 9.1.3: Verification Model
 </div>
 
-<div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-表 9.1.8　exI：検証結果（最大たわみ量履歴）
+<div style="text-align: center; margin-top: 3em;">
+Table 9.1.8: exI: Verification Results (Maximum Deflection Amount History)
 </div>
 
-| ケース名 | 0.1   | 0.2   | 0.3   | 0.4   | 0.5   | 0.6   | 0.7   | 0.8   | 0.9   | 1.0   | 線形解 |
+| Case Name | 0.1   | 0.2   | 0.3   | 0.4   | 0.5   | 0.6   | 0.7   | 0.8   | 0.9   | 1.0   | Linear Solution |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | I231     | -     | -     | -     | -     | -     | -     | -     | -     | -     | -     | -      |
 | I232     | -     | -     | -     | -     | -     | -     | -     | -     | -     | -     | -      |
@@ -224,290 +213,300 @@ MathJax.Hub.Config({
 | I361     | 0.070 | 0.139 | 0.209 | 0.278 | 0.348 | 0.417 | 0.487 | 0.556 | 0.625 | 0.694 | 0.984  |
 | I362     | 0.099 | 0.197 | 0.298 | 0.397 | 0.496 | 0.595 | 0.694 | 0.793 | 0.891 | 0.988 | 0.993  |
 
-#### (2-2) 　exnl2: 弾塑性変形解析
+#### (2-2) 　exnl2: Elastoplasticity deformation analysis
 
-本検証問題はNational Agency for Finite Element Methods and Standards (U.K.): Test NL1 from NAFEMSを参考し、
-幾何学的非線形および複数の硬化則を取り入れ弾塑性変形解析を行った。図9.1.4に解析モデルを示す。
+The National Agency for Finite Element Methods and Standards (U.K.): Test NL1 from NAFEMS was referred to in this verification problem, and incorporated the geometrical non-linearity and multiple hardening rules in order to implement the elastoplasticity deformation analysis. The analysis model is shown in Figure 9.1.4.
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図9.1.4　弾塑性変形解析モデル
+<img src="../media/image01_09.png" width="350px"><br>
+Figure 9.1.4: Elastoplasticity Deformation Analysis Model
 </div>
 
-（１） 検証条件
+(1) Verification conditions:
 
-| 項目 | 値 |
+|    |  |
 |:--|:--|
-|材料   | Mises弾塑性材 |
-|ヤング率   | E = 250 GPa |
-|ポアソン比 | ν = 0.25 |
-|初期降伏応力   | 5 MPa |
-|初期降伏ひずみ | 0.25×10^-4 |
-|等方硬化係数 | H_i = 0 または 62.5 GPa |
+|Material   | Mises elastoplastic material |
+|Young's Modulus   | $E = 250 GPa$ |
+|Poisson's Ratio | $\nu = 0.25$ |
+|Initial yield stress  | $5 MPa$ |
+|Initial yield strain | $0.25\times 10^{-4}$ |
+|Isotropic hardening factor | $H_i = 0$ or $62.5 GPa$ |
 
-（２） 境界条件
+(2) Boundary conditions
 
-| 項目 | 境界条件 | 値 |
+|   |   |   |
 |:--|:--|:--|
-|ステップ１ | 節点2と3に強制変位 | $$u_{x} =  0.2500031251 *10^{-4} $$ |
-|ステップ２ | 節点2と3に強制変位 | $$u_{x} =  0.25000937518*10^{-4} $$ |
-|ステップ３ | 節点3と4に強制変位 | $$u_{y} =  0.2500031251 *10^{-4} $$ |
-|ステップ４ | 節点3と4に強制変位 | $$u_{y} =  0.25000937518*10^{-4} $$ |
-|ステップ５ | 節点2と3に強制変位 | $$u_{x} = -0.25000937518*10^{-4} $$ |
-|ステップ６ | 節点2と3に強制変位 | $$u_{x} = -0.2500031251 *10^{-4} $$ |
-|ステップ７ | 節点3と4に強制変位 | $$u_{y} = -0.25000937518*10^{-4} $$ |
-|ステップ８ | 節点3と4に強制変位 | $$u_{y} = -0.2500031251 *10^{-4} $$ |
+|step 1 | Forced displacement in nodes 2 and 3 | $u_{x} =  0.2500031251 *10^{-4} $ |
+|step 2 | Forced displacement in nodes 2 and 3 | $u_{x} =  0.25000937518*10^{-4} $ |
+|step 3 | Forced displacement in nodes 3 and 4 | $u_{y} =  0.2500031251 *10^{-4} $ |
+|step 4 | Forced displacement in nodes 3 and 4 | $u_{y} =  0.25000937518*10^{-4} $ |
+|step 5 | Forced displacement in nodes 2 and 3 | $u_{x} = -0.25000937518*10^{-4} $ |
+|step 6 | Forced displacement in nodes 2 and 3 | $u_{x} = -0.2500031251 *10^{-4} $ |
+|step 7 | Forced displacement in nodes 3 and 4 | $u_{y} = -0.25000937518*10^{-4} $ |
+|step 8 | Forced displacement in nodes 3 and 4 | $u_{y} = -0.2500031251 *10^{-4} $ |
 
-ここで示していない節点はすべて完全拘束される。
-この問題の理論解は以下のとおりである。
+All the nodes not shown here will be completely restrained.
 
-| ひずみ（×10^-4^） | 相当応力(MPa) |
+The theoretical solution of this problem is as follows.
+
+| Strain ($\times10^{-4}$)<br/>[$\varepsilon_x$, $\varepsilon_y$, $\varepsilon_z$] | Equivalent Stress ($MPa$)<br/>[$H_i=0\ H_k=0$; $H_i=62.5\ H_k=0$] |
 |:--|:--|
-| $$\varepsilon_{x}$$ | $$\varepsilon_{y}$$ |
-| 0.25              | 0 |
-| 0.50              | 0 |
-| 0.50              | 0.25 |
-| 0.50              | 0.50 |
-| 0.25              | 0.50 |
-| 0                 | 0.50 |
-| 0                 | 0.25 |
-| 0                 | 0 |
+| 0.25, 0, 0    | 5.0; 5.0 | 
+| 0.50, 0, 0    | 5.0; 5.862 |
+| 0.50, 0.25, 0 | 5.0; 5.482 |
+| 0.50, 0.50, 0 | 5.0; 6.362 |
+| 0.25, 0.50, 0 | 5.0; 6.640 |
+| 0, 0.50, 0    | 5.0; 7.322 |
+| 0, 0.25, 0    | 3.917; 4.230 |
+| 0, 0, 0       | 5.0; 5.673 |
 
-これに対して、計算結果は以下のとおりである。
+The calculation results for the above are as follows.
 
-| ひずみ（×10^-4） | 相当応力(MPa) |
+| Strain ($\times10^{-4}$)<br/>[$\varepsilon_x$, $\varepsilon_y$, $\varepsilon_z$] | Equivalent Stress ($MPa$)<br/>[$H_i=0\ H_k=0$; $H_i=62.5\ H_k=0$] |
 |:--|:--|
-| $$\varepsilon_{x}$$ | $$\varepsilon_{y}$$ |
-| 0.25              | 0 |
-| 0.50              | 0 |
-| 0.50              | 0.25 |
-| 0.50              | 0.50 |
-| 0.25              | 0.50 |
-| 0                 | 0.50 |
-| 0                 | 0.25 |
-| 0                 | 0 |
+| 0.25, 0, 0    | 5.0 (0.0%); 5.0 (0.0%) | 
+| 0.50, 0, 0    | 5.0 (0.0%); 5.862 (0.0%) |
+| 0.50, 0.25, 0 | 5.0 (0.0%); 5.482 (0.0%) |
+| 0.50, 0.50, 0 | 5.0 (0.0%); 6.362 (-0.05%)|
+| 0.25, 0.50, 0 | 5.0 (0.0%); 6.640 (-0.21%)|
+| 0, 0.50, 0    | 5.0 (0.0%); 7.322 (-0.34%)|
+| 0, 0.25, 0    | 3.824 (-2.4%); 4.230 (-2.70%)|
+| 0, 0, 0       | 5.0 (0.0%); 5.673 (5.673 (-2.50%)|
 
-### 接触解析(1)
+### Contact analysis (1)
 
-本検証問題はNational Agency for Finite Element Methods and Standards (U.K.):接触パーチテスト問題CGS-4を参考し、
-摩擦ありの有限すべり接触問題機能をテストするものである。
-図9.1.5に解析モデルを示す。
+The National Agency a for Finite Element Methods and Standards (U.K.): Contact Patch Test Problem CGS-4 was referred to in this verification problem, to test the limited sliding contact problem function with friction. The analysis model is shown in Figure 9.1.5.
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図9.1.5　接触解析モデル
+<img src="../media/image01_10.png" width="350px"><br>
+Figure 9.1.5: Contact Analysis Model
 </div>
 
-この問題の釣り合い条件は以下のとおりである。
+The equilibrium conditions of this problem are as follows.
 
-$$Fcos\alpha - Gsin\alpha = \pm f_{c}$$
+$$Fcos\,\alpha - Gsin\,\alpha = \pm f_{c}$$
 
-粘着摩擦段階では摩擦力は$$f_{c} = E_{t}\text{Δu}$$であり、すべり摩擦段階では
-$$f_{c} = \mu(G \cos \alpha + F \sin \alpha)$$となる。
+The frictional force in the viscous friction stage was $f_{c} = E_t\Delta u$ and becomes $f_c = \mu(G \cos\,\alpha + F \sin\,\alpha)$ in te sliding friction stage.
 
-計算結果と解析解との比較は以下のとおりである。
+The comparison between the calculation results and the analysis solution is as follows.
 
-| µ | F/G解析解 | F/G計算結果 |
+| $\mu$ | $F/G$ Analysis Solution | $F/G$ Calculation Results |
 |:--|:--|:--|
 | 0.0 | 0.1   | 0.1   |
 | 0.1 | 0.202 | 0.202 |
 | 0.2 | 0.306 | 0.306 |
 | 0.3 | 0.412 | 0.412 |
 
-### 接触解析(2): ヘルツの接触問題
+### Contact analysis (2): Hertz contact problem
 
-本検証では無限長さ円柱と無限平面のヘルツ接触問題を解析した。
-円柱の半径をR=8mmとし、変形体のヤング率E及びポアソンµ比はそれぞれ1100Mpaと0.0である。
-また、接触面積は円柱の半径と比べ十分小さいと仮定し、問題の対称性も考慮して、円柱の四分の一モデルにより解析を行った。
+The Hertz contact problem of a cylinder of infinite length and an infinite plane surface was analyzed in this verification.
+
+The radius of the cylinder was set to $R = 8 mm$, and Young's modulus $E$ and Poisson's ratio $\mu$ of a deformable body was 1,100 Mpa and 0.0 respectively. Assuming that the contact area was sufficiently smaller than the radius of the cyclinder, a 1/4 cylindrical model was used to perform the analysis in consideration of the symmetry of the problem.
+
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図9.1.6　ヘルツ接触問題解析モデル
+<img src="../media/image01_11.png" width="350px"><br>
+Figure 9.1.6: Hertz Contact Problem Analysis Model
 </div>
 
-#### （1） 接触半径の検証結果
+#### (1) Verification results of contact radius
 
-接触半径を計算する理論式は以下のとおりである。
+The theoretical formula to calculate the contact radius is as follows.
 
 $$a = \sqrt{\frac{4FR}{\pi E^{*}}}$$
 
-ここで、
-$$E^{*} = E/2(1 - \mu^{2})$$
-である。
-本計算では圧力F=100の時、接触半径a=1.36となる。
+Herein, 
 
-図9.1.7では接触点の等価節点力を示している。この節点力分布を外挿して、接触半径が得られる。
+$$E^{*} = \frac{E}{2(1 - \mu^{2})}$$
 
-<div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図9.1.7　接触点の等価節点力分布
-</div>
+In this calculation, the contact radius becomes $a=1.36$ when pressure $F=100$.
 
-#### （2） 最大せん断応力の検証結果
 
-理論解では、接触位置
-$$z = 0.78a$$
-において最大せん断応力が
-$$\tau_{\max} = 0.30\sqrt{\frac{\text{FE}^{*}}{\pi R}}$$
-である。
-本計算条件では
-$$\tau_{\max} = 14.2$$
-となる。
-これに対して、
-$$\tau_{\max} = 15.6$$
-の計算結果が得られた。
+The equivalent nodal force of the point of contact is shown in Figure 9.1.7. This nodal force distribution is extrapolated to acquire the contact radius.
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図9.1.8　せん断応力分布（最大値=15.6）
+<img src="../media/image01_12.png" width="512px"><br>
+Figure 9.1.7: Equivalent Nodal Force Distribution of Contact Point
 </div>
 
-### 固有値解析
+#### (2) Verification results of maximum shear stress
 
-検証ケースexJ～Kの検証モデルは検証ケースexA～Gのモデルと同一のものである。
-図9.1.9に検証モデルの概念図を示す。
-このモデルについて固有値解析を実施する。
-求める固有値は1次～3次固有値とする。
-なお、exJでは反復法ソルバーを、exKでは直接法ソルバーを使用するものとする。
-また、検証結果を表9.1.9～表 9.1.12に示す。
+In this theoretical solution, the maximum shear stress is $\tau\_{max} = 0.30\sqrt{\frac{FE^*}{\pi R}}$  in contact position $z = 0.78a$. 
+
+In this calculation condition it becomes $\tau_{max}=14.2$. In contrast to this, the calculation result $\tau\_{max}=15.6$ was aquired.
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図 9.1.9　検証モデル
+<img src="../media/image01_13.png" width="350px"><br>
+Figure 9.1.8: Shear Stress Distribution (Maximum Value = 15.6)
 </div>
 
-片持ち梁の振動固有値は次式で求まる。
+### (3) Eigenvalue analysis
 
-第1次
+The verification model of verification case exJ ~ K is the same model as in verification case exA ~ G. The conceptual diagram of the verification model is shown in Figure 9.1.9. An eigenvalue analysis for this model was implemented. The eigenvalues to be acquired are the linear - cubic eigenvalues. In addition, the iterative method solver is used in exJ, and the direct method solver is used in exK. The verifications results are shown in Table 9.1.9 ~ Table 9.1.12.
+
+<div style="text-align: center;">
+<img src="../media/image01_14.png" width="350px"><br>
+Figure 9.1.9: Verification Model
+</div>
+
+The vibration eigenvalue of the cantilever beam can be acquired by the following equations.
+
+Linear :
 $$ n_1 = \frac{1.875^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
-第2次
+
+Quadratic :
 $$ n_2 = \frac{4.694^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
-第3次
+
+Cubic :
 $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 
-検証モデルの特性値は
+The characteristics of the verification model are as follows.
 
-| 項目 | 値 |
+|   |   |
 |:--|:--|
-| I | 10.0 mm |
-| E | 4000.0 kgf /mm^2 |
-| l | 1.0/12.0 mm^4 |
-| $$ \omega $$ | 7.85 * 10^-6 kgf/mm^3 |
-| g | 9800.0 mm/sec^2 |
+| $I$ | $10.0 mm$ |
+| $E$ | $4000.0 kgf /mm^2$ |
+| $l$ | $1.0/12.0 mm^4$ |
+| $ \omega $ | $7.85 * 10^{-6} kgf/mm^3$ |
+| $g$ | $9800.0 mm/sec^2$ |
 
-である。従って3次までの固有値は次のとおりである。
+Therefore, up to a cubic eigenvalue becomes as follows.
 
-| モード番号 | 値 |
+| No of Mode | Value |
 |:--|:--|
-| n_1 | 3.609e3 |
-| n_2 | 2.262e4 |
-| n_3 | 6.335e4 |
+| $n_1$ | 3.609e3 |
+| $n_2$ | 2.262e4 |
+| $n_3$ | 6.335e4 |
 
-<div style="text-align: center;">
-表 9.1.9　exJ：反復法での検証結果（1次固有値）
+<div style="text-align: center;margin-top: 3em;">
+Table 9.1.9: exJ: Verification Results with Iterative Method (Linear Eigenvalue)
 </div>
 
-| ケース名 | 要素数 | 予測値：n1=3.609e3 | | 備考 |
+| Case Name | No. of Elements | Predicated Value : n1=3.609e3 | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | FrontISTR | |
-| J231 | 40  | 5.861e3 | 5.861e3 | 33節点 / 平面応力状問題 |
-| J232 | 40  | 3.596e3 | 3.593e3 | 105節点 / 平面応力状問題 |
-| J241 | 20  | 3.586e3 | 4.245e3 | 33節点 / 平面応力状問題 |
-| J242 | 20  | 3.590e3 | 3.587e3 | 85節点 / 平面応力状問題 |
-| J341 | 240 | 5.442e3 | 5.429e3 | 99節点 |
-| J342 | 240 | 3.621e3 | 3.595e3 | 525節点 |
-| J351 | 80  | 3.695e3 | 4.298e3 | 99節点 |
-| J352 | 80  | 3.610e3 | 3.609e3 | 381節点 |
-| J361 | 40  | 3.679e3 | 3.619e3 | 99節点 |
-| J362 | 40  | 3.611e3 | 3.606e3 | 220節点 |
+| J231 | 40  | 5.861e3 | 5.861e3 | 33 nodes / plane stress problem |
+| J232 | 40  | 3.596e3 | 3.593e3 | 105 nodes / plane stress problem |
+| J241 | 20  | 3.586e3 | 4.245e3 | 33 nodes / plane stress problem |
+| J242 | 20  | 3.590e3 | 3.587e3 | 85 nodes / plane stress problem |
+| J341 | 240 | 5.442e3 | 5.429e3 | 99 nodes |
+| J342 | 240 | 3.621e3 | 3.595e3 | 525 nodes |
+| J351 | 80  | 3.695e3 | 4.298e3 | 99 nodes |
+| J352 | 80  | 3.610e3 | 3.609e3 | 381 nodes |
+| J361 | 40  | 3.679e3 | 3.619e3 | 99 nodes |
+| J362 | 40  | 3.611e3 | 3.606e3 | 220 nodes |
 
-<div style="text-align: center;">
-表 9.1.10　exJ：反復法での検証結果（2次固有値）
+<div style="text-align: center;margin-top:3em;">
+Table 9.1.10: exJ: Verification Results with Iterative Method (Quadratic Eigenvalue)
 </div>
 
-| ケース名 | 要素数 | 予測値：n2=2.262e4 | | 備考 |
+| Case Name | No. of Elements | Predicated Value : n2=2.262e4 | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | FrontISTR | |
-| J231 | 40  | 3.350e4 | 3.351e4 | 33節点 / 平面応力状問題 |
-| J232 | 40  | 2.163e4 | 2.156e4 | 105節点 / 平面応力状問題 |
-| J241 | 20  | 2.149e4 | 2.516e4 | 33節点 / 平面応力状問題 |
-| J242 | 20  | 2.149e4 | 2.143e4 | 85節点 / 平面応力状問題 |
-| J341 | 240 | 3.145e4 | 3.138e4 | 99節点 |
-| J342 | 240 | 2.171e4 | 2.155e4 | 525節点 |
-| J351 | 80  | 2.208e4 | 2.546e4 | 99節点 |
-| J352 | 80  | 2.156e4 | 2.149e4 | 381節点 |
-| J361 | 40  | 2.202e4 | 2.168e4 | 99節点 |
-| J362 | 40  | 2.154e4 | 2.144e4 | 220節点 |
+| J231 | 40  | 3.350e4 | 3.351e4 | 33 nodes / plane stress problem |
+| J232 | 40  | 2.163e4 | 2.156e4 | 105 nodes / plane stress problem |
+| J241 | 20  | 2.149e4 | 2.516e4 | 33 nodes / plane stress problem |
+| J242 | 20  | 2.149e4 | 2.143e4 | 85 nodes / plane stress problem |
+| J341 | 240 | 3.145e4 | 3.138e4 | 99 nodes |
+| J342 | 240 | 2.171e4 | 2.155e4 | 525 nodes |
+| J351 | 80  | 2.208e4 | 2.546e4 | 99 nodes |
+| J352 | 80  | 2.156e4 | 2.149e4 | 381 nodes |
+| J361 | 40  | 2.202e4 | 2.168e4 | 99 nodes |
+| J362 | 40  | 2.154e4 | 2.144e4 | 220 nodes |
 
-注) 三次元モデルでは1次と2次が重根となるので、表中の2次の値には、3次の計算値を記述している。
+> Note: Since the linear and quadratic eigenvalues of the 3D model have multiple roots, the value based on the cubic equation is used to describe the quadratic value in the table.
 
-<div style="text-align: center;">
-表 9.1.11　exK：直接法での検証結果（1次固有値）
+<div style="text-align: center;margin-top: 3em;">
+Table 9.1.11: exK: Verification Results with Direct Method (Linear Eigenvalue)
 </div>
 
-| ケース名 | 要素数 | 予測値：n1=3.609e3 | | 備考 |
+| Case Name | No. of Elements | Predicated Value : n1=3.609e3 | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | FrontISTR | |
-| J231 | 40  | 5.861e3 | 5.861e3 | 33節点 / 平面応力状問題 |
-| J232 | 40  | 3.596e3 | 3.593e3 | 105節点 / 平面応力状問題 |
-| J241 | 20  | 3.586e3 | 4.245e3 | 33節点 / 平面応力状問題 |
-| J242 | 20  | 3.590e3 | 3.587e3 | 85節点 / 平面応力状問題 |
-| J341 | 240 | 5.442e3 | 5.429e3 | 99節点 |
-| J342 | 240 | 3.621e3 | 3.595e3 | 525節点 |
-| J351 | 80  | 3.695e3 | 4.298e3 | 99節点 |
-| J352 | 80  | 3.610e3 | 3.609e3 | 381節点 |
-| J361 | 40  | 3.679e3 | 3.619e3 | 99節点 |
-| J362 | 40  | 3.611e3 | 3.606e3 | 220節点 |
-| J731 | 40  | -       | 3.606e3 | 220節点 |
-| J741 | 20  | -       | 3.594e3 | 220節点 |
+| J231 | 40  | 5.861e3 | 5.861e3 | 33 nodes / plane stress problem |
+| J232 | 40  | 3.596e3 | 3.593e3 | 105 nodes / plane stress problem |
+| J241 | 20  | 3.586e3 | 4.245e3 | 33 nodes / plane stress problem |
+| J242 | 20  | 3.590e3 | 3.587e3 | 85 nodes / plane stress problem |
+| J341 | 240 | 5.442e3 | 5.429e3 | 99 nodes |
+| J342 | 240 | 3.621e3 | 3.595e3 | 525 nodes |
+| J351 | 80  | 3.695e3 | 4.298e3 | 99 nodes |
+| J352 | 80  | 3.610e3 | 3.609e3 | 381 nodes |
+| J361 | 40  | 3.679e3 | 3.619e3 | 99 nodes |
+| J362 | 40  | 3.611e3 | 3.606e3 | 220 nodes |
+| J731 | 40  | -       | 3.606e3 | 220 nodes |
+| J741 | 20  | -       | 3.594e3 | 220 nodes |
 
-<div style="text-align: center;">
-表 9.1.12　exK：直接法での検証結果（2次固有値）
+<div style="text-align: center;margin-top:3em;">
+Table 9.1.12: exK: Verification Results with Direct Method (Quadratic Eigenvalue)
 </div>
 
-| ケース名 | 要素数 | 予測値：n2=2.262e4 | | 備考 |
+| Case Name | No. of Elements | Predicated Value : n2=2.262e4 | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | FrontISTR | |
-| J231 | 40  | 3.350e4 | 3.351e4 | 33節点 / 平面応力状問題 |
-| J232 | 40  | 2.163e4 | 2.156e4 | 105節点 / 平面応力状問題 |
-| J241 | 20  | 2.149e4 | 2.516e4 | 33節点 / 平面応力状問題 |
-| J242 | 20  | 2.149e4 | 2.143e4 | 85節点 / 平面応力状問題 |
-| J341 | 240 | 3.145e4 | 3.138e4 | 99節点 |
-| J342 | 240 | 2.171e4 | 2.155e4 | 525節点 |
-| J351 | 80  | 2.208e4 | 2.546e4 | 99節点 |
-| J352 | 80  | 2.156e4 | 2.149e4 | 381節点 |
-| J361 | 40  | 2.202e4 | 2.168e4 | 99節点 |
-| J362 | 40  | 2.154e4 | 2.144e4 | 220節点 |
-| J731 | 40  | -       | 2.156e4 | 220節点 |
-| J741 | 20  | -       | 2.153e4 | 220節点 |
+| J231 | 40  | 3.350e4 | 3.351e4 | 33 nodes / plane stress problem |
+| J232 | 40  | 2.163e4 | 2.156e4 | 105 nodes / plane stress problem |
+| J241 | 20  | 2.149e4 | 2.516e4 | 33 nodes / plane stress problem |
+| J242 | 20  | 2.149e4 | 2.143e4 | 85 nodes / plane stress problem |
+| J341 | 240 | 3.145e4 | 3.138e4 | 99 nodes |
+| J342 | 240 | 2.171e4 | 2.155e4 | 525 nodes |
+| J351 | 80  | 2.208e4 | 2.546e4 | 99 nodes |
+| J352 | 80  | 2.156e4 | 2.149e4 | 381 nodes |
+| J361 | 40  | 2.202e4 | 2.168e4 | 99 nodes |
+| J362 | 40  | 2.154e4 | 2.144e4 | 220 nodes |
+| J731 | 40  | -       | 2.156e4 | 220 nodes |
+| J741 | 20  | -       | 2.153e4 | 220 nodes |
 
-注) 三次元モデルでは1次と2次が重根となるので、表中の2次の値には、3次の計算値を記述している。
+> Note: Since the linear and quadratic eigenvalues of the 3D model have multiple roots, the value based on the cubic equation is used to describe the quadratic value in the table.
 
-### 熱伝導解析
+### (4) Heat conduction analysis
 
-定常熱伝導解析の共通する条件を図9.1.10に示す。
-検証ケースexM～exTの個別の条件を図9.1.11に示す。
-メッシュ分割は、exAと同等のものを使用することとする。
+Conditions common to a steady heat conduction analysis are shown in Figure 9.1.10. The individual conditions of verification case exM - exT are shown in Figure 9.1.11. Mesh partitioning equivalent to that of exA was used.
 
-表 9.1.13～表 9.1.20にケース別に検証結果である温度分布テーブルを示す。
+Temperature distribution tables for each case of the verification results are shown in Table 9.1.13 ~ Table 9.1.20.
+
+<div style="text-align: center; margin-top:3em;">
+<img src="../media/image01_15.png" width="350px">
+</div>
+|   |   |
+|---|---|
+|Length between AB|$L = 10.0m$|
+|Cross-sectional area|$A = 1.0 mm^2$|
+
+Temperature dependency of thermal conductivity
+
+|Thermal conductivity $\lambda(W/mK)$|Temperature $(^\circ C)$|
+|----------------------------|----------------|
+|50.0                        |0.0             |
+|35.0                        |500.0           |
+|20.0                        |1000.0          |
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図 9.1.10　定常熱伝導解析の検証条件
+Figure 9.1.10: Verification Conditions of Steady Heat Conduction Analysis
 </div>
 
-<div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図 9.1.11　検証ケース別解析条件
+|   |   |
+|---|---|
+|exM: Linear material|  |
+|exN: Specified tempreature problem|<img src="../media/image01_16.png" width="350px">|
+|exO: Concentrated heat flux problem|<img src="../media/image01_17.png" width="350px">|
+|exP: Distributed heat flux problem|<img src="../media/image01_18.png" width="350px">|
+|exQ: Convective heat transfer problem|<img src="../media/image01_19.png" width="350px">|
+|exR: Radiant heat transfer problem|<img src="../media/image01_20.png" width="350px">|
+|exS: Volumetric heat generation problem|<img src="../media/image01_21.png" width="350px">|
+|exT: Internal gap problem|<img src="../media/image01_22.png" width="350px">|
+
+<div style="text-align: center;margin-top:1em;">
+Figure 9.1.11: Analysis Conditions for each Verification Case
 </div>
 
-<div style="text-align: center;">
-表 9.1.13　exM：線形材料による定常計算の検証結果
+<div style="text-align: center;margin-top:3em;">
+Table 9.1.13: exM: Verification Results of Steady Calculation by Linear Material
 </div>
 
-| ケース名 | 要素タイプ | 要素／節点数 | A端からの距離（ｍ） |  |  |  |  |  |  |
+| Case Name | Element Type | No. of Elements/Nodes | Distance from End A (m) |  |  |  |  |  |  |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|   |   |   | A端 | 2.0 | 4.0 | 6.0 | 8,0 | B端 |
+|   |   |   | End A | 2.0 | 4.0 | 6.0 | 8,0 | End B |
 | M361A | 361 | 40／33  | 0.0 | 100.0 | 200.0 | 300.0 | 400.0 | 500.0 |
 | M361B | 361 | 40／105 | 0.0 | 100.0 | 200.0 | 300.0 | 400.0 | 500.0 |
 | M361C | 361 | 20／33  | 0.0 | 100.0 | 200.0 | 300.0 | 400.0 | 500.0 |
@@ -516,13 +515,13 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 | M361F | 361 | 24／525 | 0.0 | 100.0 | 200.0 | 300.0 | 400.0 | 500.0 |
 | M361G | 361 | 80／99  | 0.0 | 100.0 | 200.0 | 300.0 | 400.0 | 500.0 |
 
-<div style="text-align: center;">
-表 9.1.14　exN：規定温度問題の検証結果
+<div style="text-align: center;margin-top:3em;">
+Table 9.1.14: exN: Verification Results of Specified Temperature Problem
 </div>
 
-| ケース名 | 要素タイプ | 要素／節点数 | A端からの距離（ｍ） |  |  |  |  |  |  |
+| Case Name | Element Type | No. of Elements/Nodes | Distance from End A (m) |  |  |  |  |  |  |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|   |   |   | A端 | 2.0 | 4.0 | 6.0 | 8,0 | B端 |
+|   |   |   | End A | 2.0 | 4.0 | 6.0 | 8,0 | End B |
 | ABAQUS | 361 | 40／99  | 0.0 | 87.3 | 179.7 | 278.2 | 384.3 | 500.0 |
 | N231   | 231 | 40／33  | 0.0 | 87.2 | 179.5 | 278.0 | 384.1 | 500.0 |
 | N232   | 232 | 40／105 | 0.0 | 86.0 | 178.3 | 276.8 | 382.9 | 500.0 |
@@ -537,13 +536,13 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 | N731   | 731 | 40／33  | 0.0 | 87.3 | 179.7 | 278.2 | 384.3 | 500.0 |
 | N741   | 741 | 20／33  | 0.0 | 87.3 | 179.7 | 278.2 | 384.3 | 500.0 |
 
-<div style="text-align: center;">
-表 9.1.15　exO：集中熱流束問題の検証結果
+<div style="text-align: center;margin-top:3em;">
+Table 9.1.15: exO: Verification Results of Concentrated Heat Flux Problem
 </div>
 
-| ケース名 | 要素タイプ | 要素／節点数 | A端からの距離（ｍ） |  |  |  |  |  |  |
+| Case Name | Element Type | No. of Elements/Nodes | Distance from End A (m) |  |  |  |  |  |  |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|   |   |   | A端 | 2.0 | 4.0 | 6.0 | 8,0 | B端 |
+|   |   |   | End A | 2.0 | 4.0 | 6.0 | 8,0 | End B |
 | ABAQUS | 361 | 40／99  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 | O231   | 231 | 40／33  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 | O232   | 232 | 40／105 | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
@@ -558,13 +557,13 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 | O731   | 731 | 40／33  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.5 |
 | O741   | 741 | 20／33  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 
-<div style="text-align: center;">
-表 9.1.16　exP：分布熱流束問題の検証結果
+<div style="text-align: center;margin-top:3em;">
+Table 9.1.16: exP: Verification Results of Distributed Heat Flux Problem
 </div>
 
-| ケース名 | 要素タイプ | 要素／節点数 | A端からの距離（ｍ） |  |  |  |  |  |  |
+| Case Name | Element Type | No. of Elements/Nodes | Distance from End A (m) |  |  |  |  |  |  |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|   |   |   | A端 | 2.0 | 4.0 | 6.0 | 8,0 | B端 |
+|   |   |   | End A | 2.0 | 4.0 | 6.0 | 8,0 | End B |
 | ABAQUS | 361 | 40／99  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 | P231   | 231 | 40／33  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 | P232   | 232 | 40／105 | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
@@ -579,13 +578,13 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 | P731   | 731 | 40／33  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.5 |
 | P741   | 741 | 20／33  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 
-<div style="text-align: center;">
-表 9.1.17　exQ：対流熱伝達問題の検証結果
+<div style="text-align: center;margin-top:3em;">
+Table 9.1.17: exQ: Verification Results of Convective Heat Transfer Problem
 </div>
 
-| ケース名 | 要素タイプ | 要素／節点数 | A端からの距離（ｍ） |  |  |  |  |  |  |
+| Case Name | Element Type | No. of Elements/Nodes | Distance from End A (m) |  |  |  |  |  |  |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|   |   |   | A端 | 2.0 | 4.0 | 6.0 | 8,0 | B端 |
+|   |   |   | End A | 2.0 | 4.0 | 6.0 | 8,0 | End B |
 | ABAQUS | 361 | 40／99  | 0.0 | 89.2 | 183.8 | 284.8 | 393.9 | 513.2 |
 | Q231   | 231 | 40／33  | 0.0 | 89.2 | 183.8 | 284.8 | 393.9 | 513.2 |
 | Q232   | 232 | 40／105 | 0.0 | 89.2 | 183.8 | 284.8 | 393.9 | 513.2 |
@@ -600,13 +599,13 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 | Q731   | 731 | 40／33  | 0.0 | 89.2 | 183.8 | 284.8 | 393.9 | 513.2 |
 | Q741   | 741 | 20／33  | 0.0 | 89.2 | 183.8 | 284.8 | 393.9 | 513.2 |
 
-<div style="text-align: center;">
-表 9.1.18　exR：輻射熱伝達問題の検証結果
+<div style="text-align: center;margin-top:3em;">
+Table 9.1.18: exR: Verification Results of Radiant Heat Transfer Problem
 </div>
 
-| ケース名 | 要素タイプ | 要素／節点数 | A端からの距離（ｍ） |  |  |  |  |  |  |
+| Case Name | Element Type | No. of Elements/Nodes | Distance from End A (m) |  |  |  |  |  |  |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|   |   |   | A端 | 2.0 | 4.0 | 6.0 | 8,0 | B端 |
+|   |   |   | End A | 2.0 | 4.0 | 6.0 | 8,0 | End B |
 | ABAQUS | 361 | 40／99  | 0.0 | 89.5 | 184.4 | 285.8 | 395.3 | 515.2 |
 | R231   | 231 | 40／33  | 0.0 | 89.5 | 184.4 | 285.8 | 395.3 | 515.2 |
 | R232   | 232 | 40／105 | 0.0 | 89.5 | 184.4 | 285.8 | 395.3 | 515.2 |
@@ -621,13 +620,13 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 | R731   | 731 | 40／33  | 0.0 | 89.5 | 184.4 | 285.8 | 395.3 | 515.2 |
 | R741   | 741 | 20／33  | 0.0 | 89.5 | 184.4 | 285.8 | 395.3 | 515.2 |
 
-<div style="text-align: center;">
-表 9.1.19　exS：体積発熱問題の検証結果
+<div style="text-align: center;margin-top:3em;">
+Table 9.1.19: exS: Verification Results of Volumetric Heat Generation Problem
 </div>
 
-| ケース名 | 要素タイプ | 要素／節点数 | A端からの距離（ｍ） |  |  |  |  |  |  |
+| Case Name | Element Type | No. of Elements/Nodes | Distance from End A (m) |  |  |  |  |  |  |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|   |   |   | A端 | 2.0 | 4.0 | 6.0 | 8,0 | B端 |
+|   |   |   | End A | 2.0 | 4.0 | 6.0 | 8,0 | End B |
 | ABAQUS | 361 | 40／99  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 | S231   | 231 | 40／33  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 | S232   | 232 | 40／105 | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
@@ -642,13 +641,13 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 | S731   | 731 | 40／33  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 | S741   | 741 | 20／33  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 
-<div style="text-align: center;">
-表 9.1.20　exT：内部ギャップ問題の検証結果
+<div style="text-align: center;margin-top:3em;">
+Table 9.1.20: exT: Verification Results of Internal Gap Problem
 </div>
 
-| ケース名 | 要素タイプ | 要素／節点数 | A端からの距離（ｍ） |  |  |  |  |  |  |
+| Case Name | Element Type | No. of Elements/Nodes | Distance from End A (m) |  |  |  |  |  |  |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|   |   |   | A端 | 2.0 | 4.0 | 6.0 | 8,0 | B端 |
+|   |   |   | End A | 2.0 | 4.0 | 6.0 | 8,0 | End B |
 | ABAQUS | 361 | 40／99  | 0.0 | 88.6 | 182.4 | 282.6 | 387.7 | 500.0 |
 | S231   | 231 | 40／33  | 0.0 | 88.6 | 182.4 | 282.6 | 387.7 | 500.0 |
 | S232   | 232 | 40／105 | 0.0 | 88.6 | 182.4 | 282.6 | 387.7 | 500.0 |
@@ -663,81 +662,174 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 | S731   | 731 | 40／33  | 0.0 | 88.6 | 182.4 | 282.6 | 387.7 | 500.0 |
 | S741   | 741 | 20／33  | 0.0 | 88.6 | 182.4 | 282.6 | 387.7 | 500.0 |
 
-### 線形動解析
+### (5) Linear dynamic analysis
 
-exWでは(1)項と同様の片持ち梁を対象に線形動解析を行った。
-図9.1.12に検証条件を示す。
-ここでは、同一のメッシュ分割に対して、時間増分が結果へ及ぼす影響を検証した。
-動的解析手法として、陰解法及び陽解法の両手法を使用し、要素タイプは361及び342を使用した。
-表9.1.22及び図 9.1.13～図 9.1.15に検証結果を示す。
+In exW, the same cantilever beam as in item (1) was used as the subject to perform the linear dynamic analysis. The verification conditions are shown in Figure 9.1.12. In this verification, the affects in which the time increments may have on the results for the same mesh partition was verified. As a dynamic analysis method, both the implicit method and the explicit method were used, and element types 361 and 342 were used. The verification results are shown in Table 9.1.22 and Figure 9.1.13 ~ Figure 9.1.15.
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図 9.1.12　線形動解析の検証条件
+<img src="../media/image01_23.png" width="350px"><br>
+Analysis Model
 </div>
+<div style="text-align: center;">
+<img src="../media/image01_24.png" width="350px"><br>
+Time History of External Force F
+</div>
+
+Theoretical solution of vibration point displacement:
+
+$$
+F(t)=F_0 I(t)
+$$
+
+Where,
+
+$$
+F_0:Constant\ vector
+$$
+
+$$
+I(t)=
+\begin{cases}
+0, t < 0 \\\
+1, 0 \leq t
+\end{cases}
+$$
+
+$$
+u(t) = \frac{F_0 l^3}{EI} \sum^{\infty}\_{i=1} \frac{1-\cos{\omega_i t}}{{\lambda_i}^4}
+\left\lbrace
+\cosh{\lambda_i}-\cos{\lambda_i}-\frac{\cosh{\lambda_i} + \cos{\lambda_i}}{\sin{\lambda_i}+\sin{\lambda_i}}
+(\sinh{\lambda_i} - \sin{\lambda_i})
+\right\rbrace^2
+$$
 
 <div style="text-align: center;">
-表 9.1.21　線形動解析の検証条件
+Figure 9.1.12: Verification Conditions of Linear Dynamic Analysis
 </div>
 
-| ケース名 | 要素タイプ | 節点数 | 要素数 | 解法 | 時間増分 delta [sec] |
+Verification conditions:
+
+|   |   |   |
+|---|---|---|
+|Length                     | $L$    | $10.0\ mm$|
+|Cross-sectional width      | $a$    | $1.0\ mm$ |
+|Cross-sectional height     | $b$    | $1.0\ mm$ |
+|Young's Modulus            | $E$    | $4000.0\ kgf/mm^2$ |
+|Poisson's Ratio            | $\nu$  | 0.3 |
+|Density                    | $\rho$ | $1.0E-09\ kgf\,s^2/mm^3$ | 
+|Gravitational acceleration | $g$    | $9800.0\ mm/s^2$ |
+|External force             | $F_0$  | $1.0\ kgf$ |
+
+|   |   |
+|---|---|
+|Element  |Hexahedral linear element|
+|Tetrahedral quadratic element| |
+|Solution | Implicit method |
+|Parameter $\gamma$ of Newmark-$\beta$ method | 1/2 |
+|Parameter $\beta$ of Newmark-$\beta$ method | 1/4 |
+|Explicit method| |
+|Damping | N/A |
+
+<div style="text-align: center;margin-top:3em;">
+Table 9.1.21: Verification Conditions of Linear Dynamic Analysis (Continued)
+</div>
+
+| Case Name | Element Type | No. of Nodes | No. of Elements | Solution | Time Increment $\Delta t$ [sec] |
 |:--|:--|:--|:--|:--|:--|
-| W361_c0_im_m2_t1 | 361 |  99 |  40 | 陰解法 | 1.0E-06 |
-| W361_c0_im_m2_t2 | 361 |  99 |  40 | 陰解法 | 1.0E-05 |
-| W361_c0_im_m2_t3 | 361 |  99 |  40 | 陰解法 | 1.0E-04 |
-| W361_c0_ex_m2_t1 | 361 |  99 |  40 | 陰解法 | 1.0E-08 |
-| W361_c0_ex_m2_t2 | 361 |  99 |  40 | 陰解法 | 1.0E-07 |
-| W361_c0_ex_m2_t3 | 361 |  99 |  40 | 陰解法 | 1.0E-06 |
-| W342_c0_im_m2_t1 | 342 | 525 | 240 | 陽解法 | 1.0E-06 |
-| W342_c0_im_m2_t2 | 342 | 525 | 240 | 陽解法 | 1.0E-05 |
-| W342_c0_im_m2_t3 | 342 | 525 | 240 | 陽解法 | 1.0E-04 |
-| W342_c0_ex_m2_t1 | 342 | 525 | 240 | 陽解法 | 1.0E-08 |
-| W342_c0_ex_m2_t2 | 342 | 525 | 240 | 陽解法 | 5.0E-08 |
-| W342_c0_ex_m2_t3 | 342 | 525 | 240 | 陽解法 | 1.0E-07 |
+| W361_c0_im_m2_t1 | 361 |  99 |  40 | Implicit method | 1.0E-06 |
+| W361_c0_im_m2_t2 | 361 |  99 |  40 | Implicit method | 1.0E-05 |
+| W361_c0_im_m2_t3 | 361 |  99 |  40 | Implicit method | 1.0E-04 |
+| W361_c0_ex_m2_t1 | 361 |  99 |  40 | Explicit method | 1.0E-08 |
+| W361_c0_ex_m2_t2 | 361 |  99 |  40 | Explicit method | 1.0E-07 |
+| W361_c0_ex_m2_t3 | 361 |  99 |  40 | Explicit method | 1.0E-06 |
+| W342_c0_im_m2_t1 | 342 | 525 | 240 | Implicit method | 1.0E-06 |
+| W342_c0_im_m2_t2 | 342 | 525 | 240 | Implicit method | 1.0E-05 |
+| W342_c0_im_m2_t3 | 342 | 525 | 240 | Implicit method | 1.0E-04 |
+| W342_c0_ex_m2_t1 | 342 | 525 | 240 | Explicit method | 1.0E-08 |
+| W342_c0_ex_m2_t2 | 342 | 525 | 240 | Explicit method | 5.0E-08 |
+| W342_c0_ex_m2_t3 | 342 | 525 | 240 | Explicit method | 1.0E-07 |
 
-<div style="text-align: center;">
-表 9.1.22　exW：片持ち梁を対象とした線形動解析の検証結果
+<div style="text-align: center;margin-top:3em;">
+Table 9.1.22: exW: Verification Results of Linear Dynamic Analysis for Cantilever Beam
 </div>
 
-| ケース名 | 要素タイプ | 節点数 | 要素数 | 解法 | 時刻 t=0.002 sec におけるz方向変位 [mm] |  |
+| Case Name | Element Type | No. of Nodes | No. of Elements | Solution | z Direction Displacement: $u_z(mm)$ when Time $t = 0.002(s)$ |  |
 |:--|:--|:--|:--|:--|:--|:--|
-| W361_c0_im_m2_t1 | 361 |  99 |  40 | 陰解法 | 1.9753 | 1.9302 |
-| W361_c0_im_m2_t2 | 361 |  99 |  40 | 陰解法 | 1.9753 | 1.8686 |
-| W361_c0_im_m2_t3 | 361 |  99 |  40 | 陰解法 | 1.9753 | 0.3794 |
-| W361_c0_ex_m2_t1 | 361 |  99 |  40 | 陰解法 | 1.9753 | 1.9302 |
-| W361_c0_ex_m2_t2 | 361 |  99 |  40 | 陰解法 | 1.9753 | 1.9247 |
-| W361_c0_ex_m2_t3 | 361 |  99 |  40 | 陰解法 | 1.9753 | 発散   |
-| W342_c0_im_m2_t1 | 342 | 525 | 240 | 陽解法 | 1.9753 | 1.9431 |
-| W342_c0_im_m2_t2 | 342 | 525 | 240 | 陽解法 | 1.9753 | 1.8719 |
-| W342_c0_im_m2_t3 | 342 | 525 | 240 | 陽解法 | 1.9753 | 0.3873 |
-| W342_c0_ex_m2_t1 | 342 | 525 | 240 | 陽解法 | 1.9753 | 1.9359 |
-| W342_c0_ex_m2_t2 | 342 | 525 | 240 | 陽解法 | 1.9753 | 1.9358 |
-| W342_c0_ex_m2_t3 | 342 | 525 | 240 | 陽解法 | 1.9753 | 発散   |
+|                  |     |     |     |        |Theorical Solution Repeated to Sextic Equation|FrontISTR|
+| W361_c0_im_m2_t1 | 361 |  99 |  40 | Implicit method | 1.9753 | 1.9302 |
+| W361_c0_im_m2_t2 | 361 |  99 |  40 | Implicit method | 1.9753 | 1.8686 |
+| W361_c0_im_m2_t3 | 361 |  99 |  40 | Implicit method | 1.9753 | 0.3794 |
+| W361_c0_ex_m2_t1 | 361 |  99 |  40 | Explicit method | 1.9753 | 1.9302 |
+| W361_c0_ex_m2_t2 | 361 |  99 |  40 | Explicit method | 1.9753 | 1.9247 |
+| W361_c0_ex_m2_t3 | 361 |  99 |  40 | Explicit method | 1.9753 | Divergence |
+| W342_c0_im_m2_t1 | 342 | 525 | 240 | Implicit method | 1.9753 | 1.9431 |
+| W342_c0_im_m2_t2 | 342 | 525 | 240 | Implicit method | 1.9753 | 1.8719 |
+| W342_c0_im_m2_t3 | 342 | 525 | 240 | Implicit method | 1.9753 | 0.3873 |
+| W342_c0_ex_m2_t1 | 342 | 525 | 240 | Explicit method | 1.9753 | 1.9359 |
+| W342_c0_ex_m2_t2 | 342 | 525 | 240 | Explicit method | 1.9753 | 1.9358 |
+| W342_c0_ex_m2_t3 | 342 | 525 | 240 | Explicit method | 1.9753 | Divergence |
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図 9.1.13　片もち梁の変形図及び相当応力分布
+<img src="../media/image01_25.png" width="512px"><br>
+Figure 9.1.13: Deformed Figure and Equivalent Stress Distribution of Cantilever Beam (W361_c0_im_m2_t2)
 </div>
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図 9.1.14　加振点変位の時刻歴
+<img src="../media/image01_26.png" width="512px"><br>
+(a) Element Type 361 : Implicit method
 </div>
-
-### 周波数応答解析
-
-本検証では片持ち梁を対象に周波数応答解析を行い、汎用ソフトABAQUSの結果と比較することで検証を行った。
-解析モデル、検証条件を示す。
-
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図 9.1.15　解析モデル(4面体1次要素(要素数126、節点数55))
+<img src="../media/image01_27.png" width="512px"><br>
+(b) Element Type 361 : Explicit method
 </div>
 
-固有値解析から得られた5次までの固有値と加振点の周波数応答を示す。
+<div style="text-align: center;">
+Figure 9.1.14: Time History of Vibration Point Displacement $u_z$
+</div>
 
-| モード | FrontISTR | ABAQUS |
+<div style="text-align: center;">
+<img src="../media/image01_28.png" width="512px"><br>
+(a) Element Type 342 : Implicit method
+</div>
+
+<div style="text-align: center;">
+<img src="../media/image01_29.png" width="512px"><br>
+(b) Element Type 342 : Explicit method
+</div>
+
+<div style="text-align: center;">
+Figure 9.1.15: Time History of Vibration Point Displacement $u_z$
+</div>
+
+### (6) Frequency Response Analysis
+
+A cantilever beam was used for the verification and validation of frequency response analayis.The results were compared with those of ABAQUS. The analysis model and boundary conditions are shown below.
+
+<div style="text-align: center;">
+<img src="../media/image01_30.png" width="350px">
+<img src="../media/image01_31.png" width="350px">
+</div>
+
+Analysis conditions:
+
+|    |    |    |
+|----|----|----|
+|Young’s modulus| $E$ | $210000\ N/mm^2$  |
+|Poisson’s ratio| $\nu$ | $0.3$ |
+|Density| $\rho$ | $7.89E-09\ t/mm^3$ |
+|Gravity| $g$ | $9800.0\ mm/s^2$ |
+|Applied force| $F_0$   | $1.0\ N$|
+|Rayleigh damping parameter |$R_m$ |$0.0$ |
+|Rayleigh damping parameter |$R_k$ |$7.2E-07$ |
+
+<div style="text-align: center;">
+Figure 9.1.15 : Analysis model (Element type= 341, Number of Elements:126, Number of Nodes: 55)
+</div>
+
+Eigenvalue upto 5th mode obtained by eigenvalue analysis are listed below.
+
+| mode | FrontISTR | ABAQUS |
 |:--|:--|:--|
 | 1 | 14952  | 14952  |
 | 2 | 15002  | 15003  |
@@ -746,6 +838,6 @@ exWでは(1)項と同様の片持ち梁を対象に線形動解析を行った�
 | 5 | 127054 | 126852 |
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図 9.1.16　加振点の変位強度の周波数依存性
+<img src="../media/image01_32.png" width="512px"><br>
+Fig. 9.1.16 : Frequency dependency of the displacement amplitude at loaded point
 </div>

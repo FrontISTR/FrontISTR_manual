@@ -21,42 +21,39 @@ MathJax.Hub.Config({
 表 9.1.1～表 9.1.7にケース別検証結果を示す。
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<img src="../media/image01_01.png" width="350px"><br>
 図 9.1.1　片持ち梁のメッシュ分割例（六面体要素）
 </div>
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-(a) exA,G：集中荷重
-<img src="../fig/image312.png" width="350px"><br>
-(b) exD：重力
-<img src="../fig/image312.png" width="350px"><br>
-(c) exB：面分布荷重
-<img src="../fig/image312.png" width="350px"><br>
-(d) exE：遠心力
-<img src="../fig/image312.png" width="350px"><br>
-(e) exC：体積荷重
-<img src="../fig/image312.png" width="350px"><br>
-(f) exF：熱荷重
-図 9.1.2　片持ち梁モデルの検証条件
+<img src="../media/image01_02.png" width="350px">(a) exA,G：集中荷重<br/>
+<img src="../media/image01_03.png" width="350px">(b) exD：重力<br/>
+<img src="../media/image01_04.png" width="350px">(c) exB：面分布荷重<br/>
+<img src="../media/image01_05.png" width="350px">(d) exE：遠心力<br/>
+<img src="../media/image01_06.png" width="350px">(e) exC：体積荷重<br/>
+<img src="../media/image01_07.png" width="350px">(f) exF：熱荷重<br/>
 </div>
 
 | 項目 | 値 |
 |:--|:--|
-|ヤング率   | E = 4000.0 kgf/mm^2 |
-|長さ       | L = 10.0 mm |
-|ポアソン比 | ν = 0.3 |
-|断面積     | A = 1.0 mm^2 |
-|質量密度   | ρ = 8.0102 x 10^-10 kg s^2/mm^4 |
-|断面二次モーメント | I = 1.0/12.0mm^4 |
-|重力加速度 | g = 9800.0 mm/s^2 |
-|線熱膨張率 | α = 1.0 x 10^-5 |
+|ヤング率   | $E = 4000.0\ kgf/mm^2$ |
+|長さ       | $L = 10.0\ mm$ |
+|ポアソン比 | $\nu = 0.3$ |
+|断面積     | $A = 1.0\ mm^2$ |
+|質量密度   | $\rho = 8.0102 x 10^{-10}\ kg\,s^2/mm^4$ |
+|断面二次モーメント | $I = 1.0/12.0\ mm^4$ |
+|重力加速度 | $g = 9800.0\ mm/s^2$ |
+|線熱膨張率 | $\alpha = 1.0 \times 10^{-5}$ |
 
-<div style="text-align: center;">
+<div style="text-align: center; margin-bottom: 3em;">
+表 9.1.2 片持ち梁モデルの検証条件
+</div>
+
+<div style="text-align: center; margin-top: 3em;">
 表 9.1.1　exA：集中荷重問題の検証結果
 </div>
 
-| ケース名 | 要素数 | | 予測値：δmax= -1.000 | | 備考 |
+| ケース名 | 要素数 | | 予測値：$\delta_{max}=$ -1.000 | | 備考 |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
 | A231 | 40  | -0.338 | -0.371 | -0.371 | 33節点 / 平面応力状問題 |
@@ -72,11 +69,11 @@ MathJax.Hub.Config({
 | A731 | 40  | -      | -      | -0.991 | 33節点 / 直接法 |
 | A741 | 20  | -      | -      | -0.996 | 33節点 / 直接法 |
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-top: 3em;">
 表 9.1.2　exB：面分布荷重問題の検証結果
 </div>
 
-| ケース名 | 要素数 | | 予測値：δmax= -3.750 | | 備考 |
+| ケース名 | 要素数 | | 予測値：$\delta\_{max}= -3.750$ | | 備考 |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
 | B231 | 40  | -1.281 | -1.403 | -1.403 | 33節点 / 平面応力状問題 |
@@ -92,11 +89,11 @@ MathJax.Hub.Config({
 | B731 | 40  | -      | -      | -3.722 | 33節点 / 直接法 |
 | B741 | 20  | -      | -      | -3.743 | 33節点 / 直接法 |
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-top:3em;">
 表 9.1.3　exC：体積荷重問題の検証結果
 </div>
 
-| ケース名 | 要素数 | | 予測値：δmax= -2.944e-5 | | 備考 |
+| ケース名 | 要素数 | | 予測値：$\delta_{max}=$ -2.944e-5 | | 備考 |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
 | C231 | 40  | - | -1.101e-5 | -1.101e-5 | 33節点 / 平面応力状問題 |
@@ -112,11 +109,11 @@ MathJax.Hub.Config({
 | C731 | 40  | - | -         | -2.922e-5 | 33節点 / 直接法 |
 | C741 | 20  | - | -         | -2.938e-5 | 33節点 / 直接法 |
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-top:3em;">
 表 9.1.4　exD：重力問題の検証結果
 </div>
 
-| ケース名 | 要素数 | | 予測値：δmax= -2.944e-5 | | 備考 |
+| ケース名 | 要素数 | | 予測値：$\delta_{max}=$ -2.944e-5 | | 備考 |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
 | D231 | 40  | -1.101e-5 | -1.101e-5 | -1.101e-5 | 33節点 / 平面応力状問題 |
@@ -132,11 +129,11 @@ MathJax.Hub.Config({
 | D731 | 40  | -         | -         | -2.922e-5 | 33節点 / 直接法 |
 | D741 | 20  | -         | -         | -2.938e-5 | 33節点 / 直接法 |
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-top:3em;">
 表 9.1.5　exE：遠心力問題の検証結果
 </div>
 
-| ケース名 | 要素数 | | 予測値：δmax= 2.635e-5 | | 備考 |
+| ケース名 | 要素数 | | 予測値：$\delta_{max}=$ 2.635e-5 | | 備考 |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
 | E231 | 40  | 2.410e-3 | 2.616e-3 | 2.650e-3 | 33節点 / 平面応力状問題 |
@@ -152,11 +149,11 @@ MathJax.Hub.Config({
 | E731 | 40  | -        | -        | 2.619e-3 | 33節点 / 直接法 |
 | E741 | 20  | -        | -        | 2.622e-3 | 33節点 / 直接法 |
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-top:3em;">
 表 9.1.6　exF：熱応力荷重問題の検証結果
 </div>
 
-| ケース名 | 要素数 | | 予測値：δmax= 1.000e-2 | | 備考 |
+| ケース名 | 要素数 | | 予測値：$\delta_{max}$= 1.000e-2 | | 備考 |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
 | F231 | 40  | - | 1.016e-2 | 1.007e-2 | 33節点 / 平面応力状問題 |
@@ -170,7 +167,7 @@ MathJax.Hub.Config({
 | F361 | 40  | - | 1.026e-2 | 1.026e-2 | 99節点 |
 | F362 | 40  | - | 1.016e-2 | 1.016e-2 | 220節点 |
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-top:3em;">
 表 9.1.7　exG：直接法の検証結果（集中荷重問題）
 </div>
 
@@ -202,12 +199,11 @@ MathJax.Hub.Config({
 非線形計算は、最終荷重1.0Pに対して、荷重増分値0.1P，10ステップとする。
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<img src="../media/image01_08.png" width="350px"><br>
 図 9.1.3　検証モデル
 </div>
 
-<div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<div style="text-align: center;margin-top:3em;">
 表 9.1.8　exI：検証結果（最大たわみ量履歴）
 </div>
 
@@ -230,7 +226,7 @@ MathJax.Hub.Config({
 幾何学的非線形および複数の硬化則を取り入れ弾塑性変形解析を行った。図9.1.4に解析モデルを示す。
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<img src="../media/image01_09.png" width="350px"><br>
 図9.1.4　弾塑性変形解析モデル
 </div>
 
@@ -249,43 +245,43 @@ MathJax.Hub.Config({
 
 | 項目 | 境界条件 | 値 |
 |:--|:--|:--|
-|ステップ１ | 節点2と3に強制変位 | $$u_{x} =  0.2500031251 *10^{-4} $$ |
-|ステップ２ | 節点2と3に強制変位 | $$u_{x} =  0.25000937518*10^{-4} $$ |
-|ステップ３ | 節点3と4に強制変位 | $$u_{y} =  0.2500031251 *10^{-4} $$ |
-|ステップ４ | 節点3と4に強制変位 | $$u_{y} =  0.25000937518*10^{-4} $$ |
-|ステップ５ | 節点2と3に強制変位 | $$u_{x} = -0.25000937518*10^{-4} $$ |
-|ステップ６ | 節点2と3に強制変位 | $$u_{x} = -0.2500031251 *10^{-4} $$ |
-|ステップ７ | 節点3と4に強制変位 | $$u_{y} = -0.25000937518*10^{-4} $$ |
-|ステップ８ | 節点3と4に強制変位 | $$u_{y} = -0.2500031251 *10^{-4} $$ |
+|ステップ１ | 節点2と3に強制変位 | $u_{x} =  0.2500031251 *10^{-4} $ |
+|ステップ２ | 節点2と3に強制変位 | $u_{x} =  0.25000937518*10^{-4} $ |
+|ステップ３ | 節点3と4に強制変位 | $u_{y} =  0.2500031251 *10^{-4} $ |
+|ステップ４ | 節点3と4に強制変位 | $u_{y} =  0.25000937518*10^{-4} $ |
+|ステップ５ | 節点2と3に強制変位 | $u_{x} = -0.25000937518*10^{-4} $ |
+|ステップ６ | 節点2と3に強制変位 | $u_{x} = -0.2500031251 *10^{-4} $ |
+|ステップ７ | 節点3と4に強制変位 | $u_{y} = -0.25000937518*10^{-4} $ |
+|ステップ８ | 節点3と4に強制変位 | $u_{y} = -0.2500031251 *10^{-4} $ |
 
 ここで示していない節点はすべて完全拘束される。
 この問題の理論解は以下のとおりである。
 
-| ひずみ（×10^-4^） | 相当応力(MPa) |
+
+| ひずみ ($\times10^{-4}$)<br/>[$\varepsilon_x$, $\varepsilon_y$, $\varepsilon_z$] | 相当応力($MPa$)<br/>[$H_i=0\ H_k=0$; $H_i=62.5\ H_k=0$] |
 |:--|:--|
-| $$\varepsilon_{x}$$ | $$\varepsilon_{y}$$ |
-| 0.25              | 0 |
-| 0.50              | 0 |
-| 0.50              | 0.25 |
-| 0.50              | 0.50 |
-| 0.25              | 0.50 |
-| 0                 | 0.50 |
-| 0                 | 0.25 |
-| 0                 | 0 |
+| 0.25, 0, 0    | 5.0; 5.0 | 
+| 0.50, 0, 0    | 5.0; 5.862 |
+| 0.50, 0.25, 0 | 5.0; 5.482 |
+| 0.50, 0.50, 0 | 5.0; 6.362 |
+| 0.25, 0.50, 0 | 5.0; 6.640 |
+| 0, 0.50, 0    | 5.0; 7.322 |
+| 0, 0.25, 0    | 3.917; 4.230 |
+| 0, 0, 0       | 5.0; 5.673 |
 
 これに対して、計算結果は以下のとおりである。
 
-| ひずみ（×10^-4） | 相当応力(MPa) |
+| ひずみ ($\times10^{-4}$)<br/>[$\varepsilon_x$, $\varepsilon_y$, $\varepsilon_z$] | 相当応力($MPa$<br/>[$H_i=0\ H_k=0$; $H_i=62.5\ H_k=0$]) |
 |:--|:--|
 | $$\varepsilon_{x}$$ | $$\varepsilon_{y}$$ |
-| 0.25              | 0 |
-| 0.50              | 0 |
-| 0.50              | 0.25 |
-| 0.50              | 0.50 |
-| 0.25              | 0.50 |
-| 0                 | 0.50 |
-| 0                 | 0.25 |
-| 0                 | 0 |
+| 0.25, 0, 0    | 5.0 (0.0%); 5.0 (0.0%) | 
+| 0.50, 0, 0    | 5.0 (0.0%); 5.862 (0.0%) |
+| 0.50, 0.25, 0 | 5.0 (0.0%); 5.482 (0.0%) |
+| 0.50, 0.50, 0 | 5.0 (0.0%); 6.362 (-0.05%)|
+| 0.25, 0.50, 0 | 5.0 (0.0%); 6.640 (-0.21%)|
+| 0, 0.50, 0    | 5.0 (0.0%); 7.322 (-0.34%)|
+| 0, 0.25, 0    | 3.824 (-2.4%); 4.230 (-2.70%)|
+| 0, 0, 0       | 5.0 (0.0%); 5.673 (5.673 (-2.50%)|
 
 ### 接触解析(1)
 
@@ -294,7 +290,7 @@ MathJax.Hub.Config({
 図9.1.5に解析モデルを示す。
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<img src="../media/image01_10.png" width="350px"><br>
 図9.1.5　接触解析モデル
 </div>
 
@@ -307,7 +303,7 @@ $$f_{c} = \mu(G \cos \alpha + F \sin \alpha)$$となる。
 
 計算結果と解析解との比較は以下のとおりである。
 
-| µ | F/G解析解 | F/G計算結果 |
+| $\mu$ | $F/G$解析解 | $F/G$計算結果 |
 |:--|:--|:--|
 | 0.0 | 0.1   | 0.1   |
 | 0.1 | 0.202 | 0.202 |
@@ -321,7 +317,7 @@ $$f_{c} = \mu(G \cos \alpha + F \sin \alpha)$$となる。
 また、接触面積は円柱の半径と比べ十分小さいと仮定し、問題の対称性も考慮して、円柱の四分の一モデルにより解析を行った。
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<img src="../media/image01_11.png" width="350px"><br>
 図9.1.6　ヘルツ接触問題解析モデル
 </div>
 
@@ -339,7 +335,7 @@ $$E^{*} = E/2(1 - \mu^{2})$$
 図9.1.7では接触点の等価節点力を示している。この節点力分布を外挿して、接触半径が得られる。
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<img src="../media/image01_12.png" width="512px"><br>
 図9.1.7　接触点の等価節点力分布
 </div>
 
@@ -358,11 +354,11 @@ $$\tau_{\max} = 15.6$$
 の計算結果が得られた。
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<img src="../media/image01_13.png" width="350px"><br>
 図9.1.8　せん断応力分布（最大値=15.6）
 </div>
 
-### 固有値解析
+### (3) 固有値解析
 
 検証ケースexJ～Kの検証モデルは検証ケースexA～Gのモデルと同一のものである。
 図9.1.9に検証モデルの概念図を示す。
@@ -372,7 +368,7 @@ $$\tau_{\max} = 15.6$$
 また、検証結果を表9.1.9～表 9.1.12に示す。
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<img src="../media/image01_14.png" width="350px"><br>
 図 9.1.9　検証モデル
 </div>
 
@@ -389,11 +385,11 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 
 | 項目 | 値 |
 |:--|:--|
-| I | 10.0 mm |
-| E | 4000.0 kgf /mm^2 |
-| l | 1.0/12.0 mm^4 |
-| $$ \omega $$ | 7.85 * 10^-6 kgf/mm^3 |
-| g | 9800.0 mm/sec^2 |
+| $I$ | $10.0 mm$ |
+| $E$ | $4000.0 kgf /mm^2$ |
+| $l$ | $1.0/12.0 mm^4$ |
+| $\omega$ | $7.85 * 10^{-6} kgf/mm^3$ |
+| $g$ | $9800.0 mm/sec^2$ |
 
 である。従って3次までの固有値は次のとおりである。
 
@@ -403,7 +399,7 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 | n_2 | 2.262e4 |
 | n_3 | 6.335e4 |
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-top: 3em;">
 表 9.1.9　exJ：反復法での検証結果（1次固有値）
 </div>
 
@@ -421,7 +417,7 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 | J361 | 40  | 3.679e3 | 3.619e3 | 99節点 |
 | J362 | 40  | 3.611e3 | 3.606e3 | 220節点 |
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-top:3em;">
 表 9.1.10　exJ：反復法での検証結果（2次固有値）
 </div>
 
@@ -441,7 +437,7 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 
 注) 三次元モデルでは1次と2次が重根となるので、表中の2次の値には、3次の計算値を記述している。
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-top: 3em;">
 表 9.1.11　exK：直接法での検証結果（1次固有値）
 </div>
 
@@ -461,7 +457,7 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 | J731 | 40  | -       | 3.606e3 | 220節点 |
 | J741 | 20  | -       | 3.594e3 | 220節点 |
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-top: 3em;">
 表 9.1.12　exK：直接法での検証結果（2次固有値）
 </div>
 
@@ -483,7 +479,7 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 
 注) 三次元モデルでは1次と2次が重根となるので、表中の2次の値には、3次の計算値を記述している。
 
-### 熱伝導解析
+### (4) 熱伝導解析
 
 定常熱伝導解析の共通する条件を図9.1.10に示す。
 検証ケースexM～exTの個別の条件を図9.1.11に示す。
@@ -491,17 +487,44 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 
 表 9.1.13～表 9.1.20にケース別に検証結果である温度分布テーブルを示す。
 
+<div style="text-align: center;margin-top:3em;">
+<img src="../media/image01_15.png" width="350px"><br>
+</div>
+
+|   |   |
+|---|---|
+|AB間長さ|$L = 10.0m$|
+|断面積|$A = 1.0 mm^2$|
+
+熱伝導率の温度依存性
+
+|熱伝導率 $\lambda(W/mK)$|温度 $(^\circ C)$|
+|----------------------------|----------------|
+|50.0                        |0.0             |
+|35.0                        |500.0           |
+|20.0                        |1000.0          |
+
+
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
 図 9.1.10　定常熱伝導解析の検証条件
 </div>
 
-<div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+|   |   |
+|---|---|
+|exM:線形材料| |
+|exN:規定温度問題|<img src="../media/image01_16.png" width="350px">|
+|exO:集中熱流束問題|<img src="../media/image01_17.png" width="350px">|
+|exP:分布熱流束問題|<img src="../media/image01_18.png" width="350px">|
+|exQ:対流熱伝達問題|<img src="../media/image01_19.png" width="350px">|
+|exR:輻射熱伝達問題|<img src="../media/image01_20.png" width="350px">|
+|exS:体積発熱問題|<img src="../media/image01_21.png" width="350px">|
+|exT:内部ギャップ問題|<img src="../media/image01_22.png" width="350px">|
+
+<div style="text-align: center;margin-top:1em;">
 図 9.1.11　検証ケース別解析条件
 </div>
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-top:3em;">
 表 9.1.13　exM：線形材料による定常計算の検証結果
 </div>
 
@@ -516,7 +539,7 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 | M361F | 361 | 24／525 | 0.0 | 100.0 | 200.0 | 300.0 | 400.0 | 500.0 |
 | M361G | 361 | 80／99  | 0.0 | 100.0 | 200.0 | 300.0 | 400.0 | 500.0 |
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-top:3em;">
 表 9.1.14　exN：規定温度問題の検証結果
 </div>
 
@@ -537,7 +560,7 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 | N731   | 731 | 40／33  | 0.0 | 87.3 | 179.7 | 278.2 | 384.3 | 500.0 |
 | N741   | 741 | 20／33  | 0.0 | 87.3 | 179.7 | 278.2 | 384.3 | 500.0 |
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-top:3em;">
 表 9.1.15　exO：集中熱流束問題の検証結果
 </div>
 
@@ -558,7 +581,7 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 | O731   | 731 | 40／33  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.5 |
 | O741   | 741 | 20／33  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-top:3em;">
 表 9.1.16　exP：分布熱流束問題の検証結果
 </div>
 
@@ -579,7 +602,7 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 | P731   | 731 | 40／33  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.5 |
 | P741   | 741 | 20／33  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-top:3em;">
 表 9.1.17　exQ：対流熱伝達問題の検証結果
 </div>
 
@@ -600,7 +623,7 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 | Q731   | 731 | 40／33  | 0.0 | 89.2 | 183.8 | 284.8 | 393.9 | 513.2 |
 | Q741   | 741 | 20／33  | 0.0 | 89.2 | 183.8 | 284.8 | 393.9 | 513.2 |
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-top:3em;">
 表 9.1.18　exR：輻射熱伝達問題の検証結果
 </div>
 
@@ -621,7 +644,7 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 | R731   | 731 | 40／33  | 0.0 | 89.5 | 184.4 | 285.8 | 395.3 | 515.2 |
 | R741   | 741 | 20／33  | 0.0 | 89.5 | 184.4 | 285.8 | 395.3 | 515.2 |
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-top:3em">
 表 9.1.19　exS：体積発熱問題の検証結果
 </div>
 
@@ -642,7 +665,7 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 | S731   | 731 | 40／33  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 | S741   | 741 | 20／33  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-top:3em;">
 表 9.1.20　exT：内部ギャップ問題の検証結果
 </div>
 
@@ -672,15 +695,74 @@ exWでは(1)項と同様の片持ち梁を対象に線形動解析を行った�
 表9.1.22及び図 9.1.13～図 9.1.15に検証結果を示す。
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<img src="../media/image01_23.png" width="350px"><br>
+解析モデル
+</div>
+<div style="text-align: center;">
+<img src="../media/image01_24.png" width="350px"><br>
+外力Fの時刻歴
+</div>
+
+加振点変位の理論解:
+
+$$
+F(t)=F_0 I(t)
+$$
+
+ここで、
+
+$$
+F_0:Constant\ vector
+$$
+
+$$
+I(t)=
+\begin{cases}
+0, t < 0 \\\
+1, 0 \leq t
+\end{cases}
+$$
+
+$$
+u(t) = \frac{F_0 l^3}{EI} \sum^{\infty}\_{i=1} \frac{1-\cos{\omega_i t}}{{\lambda_i}^4}
+\left\lbrace
+\cosh{\lambda_i}-\cos{\lambda_i}-\frac{\cosh{\lambda_i} + \cos{\lambda_i}}{\sin{\lambda_i}+\sin{\lambda_i}}
+(\sinh{\lambda_i} - \sin{\lambda_i})
+\right\rbrace^2
+$$
+
+<div style="text-align: center;">
 図 9.1.12　線形動解析の検証条件
 </div>
 
-<div style="text-align: center;">
-表 9.1.21　線形動解析の検証条件
+検証条件:
+
+|   |   |   |
+|---|---|---|
+|長さ       | $L$    | $10.0\ mm$|
+|断面幅     | $a$    | $1.0\ mm$ |
+|断面高さ   | $b$    | $1.0\ mm$ |
+|縦弾性係数 | $E$    | $4000.0\ kgf/mm^2$ |
+|ポアソン比 | $\nu$  | 0.3 |
+|密度       | $\rho$ | $1.0E-09\ kgf\,s^2/mm^3$ |
+|重力加速度 | $g$    | $9800.0\ mm/s^2$ |
+|外力       | $F_0$  | $1.0\ kgf$ |
+
+|   |   |
+|---|---|
+|要素  |6 面体 1 次要素|
+|4 面体 2 次要素| |
+|解法 |陰解法 |
+|Newmark-$\beta$法のパラメータ$\gamma$ | 1/2 |
+|Newmark-$\beta$法のパラメータ$\beta$  | 1/4 |
+|陽解法| |
+|減衰 | 無し |
+
+<div style="text-align: center;margin-top:3em;">
+表 9.1.21　線形動解析の検証条件 (続き)
 </div>
 
-| ケース名 | 要素タイプ | 節点数 | 要素数 | 解法 | 時間増分 delta [sec] |
+| ケース名 | 要素タイプ | 節点数 | 要素数 | 解法 | 時間増分 $\Delta t$ [sec] |
 |:--|:--|:--|:--|:--|:--|
 | W361_c0_im_m2_t1 | 361 |  99 |  40 | 陰解法 | 1.0E-06 |
 | W361_c0_im_m2_t2 | 361 |  99 |  40 | 陰解法 | 1.0E-05 |
@@ -695,7 +777,7 @@ exWでは(1)項と同様の片持ち梁を対象に線形動解析を行った�
 | W342_c0_ex_m2_t2 | 342 | 525 | 240 | 陽解法 | 5.0E-08 |
 | W342_c0_ex_m2_t3 | 342 | 525 | 240 | 陽解法 | 1.0E-07 |
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-top:3em;">
 表 9.1.22　exW：片持ち梁を対象とした線形動解析の検証結果
 </div>
 
@@ -715,13 +797,36 @@ exWでは(1)項と同様の片持ち梁を対象に線形動解析を行った�
 | W342_c0_ex_m2_t3 | 342 | 525 | 240 | 陽解法 | 1.9753 | 発散   |
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<img src="../media/image01_25.png" width="512px"><br>
 図 9.1.13　片もち梁の変形図及び相当応力分布
 </div>
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
-図 9.1.14　加振点変位の時刻歴
+<img src="../media/image01_26.png" width="512px"><br>
+(a) 要素タイプ 361:陰解法
+</div>
+
+<div style="text-align: center;">
+<img src="../media/image01_27.png" width="512px"><br>
+(b) 要素タイプ 361:陽解法
+</div>
+
+<div style="text-align: center;">
+加振点変位 $u_z$ の時刻歴
+</div>
+
+<div style="text-align: center;">
+<img src="../media/image01_28.png" width="512px"><br>
+(a) 要素タイプ 342:陰解法
+</div>
+
+<div style="text-align: center;">
+<img src="../media/image01_29.png" width="512px"><br>
+(b) 要素タイプ 342:陽解法
+</div>
+
+<div style="text-align: center;">
+図 9.1.14　加振点変$u_z$位の時刻歴
 </div>
 
 ### 周波数応答解析
@@ -731,7 +836,23 @@ exWでは(1)項と同様の片持ち梁を対象に線形動解析を行った�
 
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<img src="../media/image01_30.png" width="350px">
+<img src="../media/image01_31.png" width="350px">
+</div>
+
+解析条件:
+
+|    |    |    |
+|----|----|----|
+|縦弾性係数| $E$ | $210000\ N/mm^2$ |
+|ポアソン比| $\nu$ | $0.3$ |
+|密度| $\rho$ | $7.89E-09\ t/mm^3$ |
+|重力加速度| $g$ | $9800.0\ mm/s^2$ |
+|荷重| $F_0$   | $1.0\ N$|
+|Rayleigh減衰のパラメータ|$R_m$ |$0.0$ |
+|Rayleigh減衰のパラメータ|$R_k$ |$7.2E-07$ |
+
+<div style="text-align: center;">
 図 9.1.15　解析モデル(4面体1次要素(要素数126、節点数55))
 </div>
 
@@ -746,6 +867,6 @@ exWでは(1)項と同様の片持ち梁を対象に線形動解析を行った�
 | 5 | 127054 | 126852 |
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<img src="../media/image01_32.png" width="512px"><br>
 図 9.1.16　加振点の変位強度の周波数依存性
 </div>
