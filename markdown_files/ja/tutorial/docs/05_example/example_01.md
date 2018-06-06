@@ -25,14 +25,14 @@ MathJax.Hub.Config({
 図 9.1.1　片持ち梁のメッシュ分割例（六面体要素）
 </div>
 
-<div style="text-align: center;">
-<img src="../media/image01_02.png" width="350px">(a) exA,G：集中荷重<br/>
-<img src="../media/image01_03.png" width="350px">(b) exD：重力<br/>
-<img src="../media/image01_04.png" width="350px">(c) exB：面分布荷重<br/>
-<img src="../media/image01_05.png" width="350px">(d) exE：遠心力<br/>
-<img src="../media/image01_06.png" width="350px">(e) exC：体積荷重<br/>
-<img src="../media/image01_07.png" width="350px">(f) exF：熱荷重<br/>
-</div>
+|   |   |
+|---|---|
+|<img src="../media/image01_02.png" width="300px">|(a) exA,G：集中荷重|
+|<img src="../media/image01_03.png" width="300px">|(b) exD：重力|
+|<img src="../media/image01_04.png" width="300px">|(c) exB：面分布荷重|
+|<img src="../media/image01_05.png" width="300px">|(d) exE：遠心力|
+|<img src="../media/image01_06.png" width="300px">|(e) exC：体積荷重|
+|<img src="../media/image01_07.png" width="300px">|(f) exF：熱荷重|
 
 | 項目 | 値 |
 |:--|:--|
@@ -699,7 +699,7 @@ exWでは(1)項と同様の片持ち梁を対象に線形動解析を行った�
 解析モデル
 </div>
 <div style="text-align: center;">
-<img src="../media/image01_24.png" width="350px"><br>
+<img src="../media/image01_24.png" width="512px"><br>
 外力Fの時刻歴
 </div>
 
@@ -811,8 +811,8 @@ $$
 (b) 要素タイプ 361:陽解法
 </div>
 
-<div style="text-align: center;">
-加振点変位 $u_z$ の時刻歴
+<div style="text-align: center;margin-bottom:3em;">
+図9.1.14 加振点変位 $u_z$ の時刻歴
 </div>
 
 <div style="text-align: center;">

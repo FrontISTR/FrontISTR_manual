@@ -23,7 +23,7 @@
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image04_02.png" width="350px"><br>
+<img src="../media/image04_02.png" width="512px"><br>
 図 9.4.2　使用済核燃料輸送容器の寸法
 </div>
 
@@ -41,12 +41,12 @@
 
 解析結果の例を図 9.4.5～図 9.4.7に示す。
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-bottom:3em;">
 <img src="../media/image04_05.png" width="512px"><br>
 図 9.4.5　温度分布図
 </div>
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-bottom:3em;">
 <img src="../media/image04_06.png" width="512px"><br>
 図 9.4.6　分散モデル図
 </div>

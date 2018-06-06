@@ -40,12 +40,12 @@ Figure 9.5.2: Time History of Vibration Point Displacement u<sub>z</sub>
 
 ---
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-bottom:3em;">
 <img src="../media/image05_04.png" width="350px"><br>
 (a) t=5.0E-04(s)
 </div>
 
-<div style="text-align: center;">
+<div style="text-align: center;margin-bottom:3em;">
 <img src="../media/image05_05.png" width="350px"><br>
 (b) t=4.0E-03(s)
 </div>

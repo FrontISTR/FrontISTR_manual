@@ -23,14 +23,14 @@ The verification results for each case are shown in Table 9.1.1 ~ Table 9.1.7.
 Figure 9.1.1: Example of Mesh Partitioned Cantilever Beam (Hexahedral Element)
 </div>
 
-<div style="text-align: center;">
-<img src="../media/image01_02.png" width="350px">(a) exA,G：集中荷重<br/>
-<img src="../media/image01_03.png" width="350px">(b) exD：重力<br/>
-<img src="../media/image01_04.png" width="350px">(c) exB：面分布荷重<br/>
-<img src="../media/image01_05.png" width="350px">(d) exE：遠心力<br/>
-<img src="../media/image01_06.png" width="350px">(e) exC：体積荷重<br/>
-<img src="../media/image01_07.png" width="350px">(f) exF：熱荷重<br/>
-</div>
+|   |   |
+|---|---|
+|<img src="../media/image01_02.png" width="350px">|(a) exA,G : Concentrated load|
+|<img src="../media/image01_03.png" width="350px">|(b) exD : Gravity|
+|<img src="../media/image01_04.png" width="350px">|(c) exB : Surface distributed load|
+|<img src="../media/image01_05.png" width="350px">|(d) exE : Centrifugal force|
+|<img src="../media/image01_06.png" width="350px">|(e) exC : Volumetric load|
+|<img src="../media/image01_07.png" width="350px">|(f) exF : Heat load|
 
 |  |  |
 |:--|:--|
@@ -51,7 +51,7 @@ Figure 9.1.2: Verification Conditions of Cantilever Beam Model
 Table 9.1.1: exA: Verification Results of Concentrated Load Problem
 </div>
 
-| Case Name | No. of Elements | | 予測値: $\delta\_{max}= -1.000$ | | Remarks |
+| Case Name | No. of Elements | | Predicated Value : $\delta\_{max}= -1.000$ | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
 | A231 | 40  | -0.338 | -0.371 | -0.371 | 33 nodes / plane stress problem |
@@ -671,7 +671,7 @@ In exW, the same cantilever beam as in item (1) was used as the subject to perfo
 Analysis Model
 </div>
 <div style="text-align: center;">
-<img src="../media/image01_24.png" width="350px"><br>
+<img src="../media/image01_24.png" width="512px"><br>
 Time History of External Force F
 </div>
 
