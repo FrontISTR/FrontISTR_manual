@@ -18,7 +18,7 @@
 | EX31D    | 342        |                | 方形波パルス(F1) | あり     | 15,214 | 45,642 |
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<img src="../media/image05_01.png" width="512px"><br>
 図 9.5.1　かみあいモデル
 </div>
 
@@ -27,11 +27,11 @@
 解析結果の例を図 9.5.2～図 9.5.3に示す。
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<img src="../media/image05_02.png" width="512px"><br>
 図 9.5.2　加振点変位u~z~の時刻歴
 </div>
 
 <div style="text-align: center;">
-<img src="../fig/image312.png" width="350px"><br>
+<img src="../media/image05_03.png" width="512px"><br>
 図 9.5.3　変形図及び相当応力分布(変形倍率5.0)　：EX31C
 </div>

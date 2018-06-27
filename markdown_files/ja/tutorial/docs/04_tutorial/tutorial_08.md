@@ -1,6 +1,6 @@
 ## 静解析（クリープ）
 
-本解析の実施には、tutorial/08\_creep \_cylinder のデータを用います。
+本解析の実施には、`tutorial/08_creep_cylinder` のデータを用います。
 
 ### 解析対象
 
@@ -15,6 +15,6 @@
 5サブステップ目の解析結果について、ミーゼス応力のコンターを付加した変形図をREVOCAP\_PrePostで作成して図4.8.1に示します。また、解析結果の数値データとして、解析結果ログファイルの一部を以下に示します。
 
 <div style="text-align: center;">
-<img src="../fig/image15.png" width="350px"><br>
+<img src="../media/image08_01.png" width="350px"><br>
 図4.8.1　変形およびミーゼス応力の解析結果
 </div>

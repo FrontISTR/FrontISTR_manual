@@ -1,6 +1,6 @@
 ## 周波数応答解析
 
-本解析の実施には、tutorial/17\_freq\_beam のデータを用います。
+本解析の実施には、`tutorial/17_freq_beam` のデータを用います。
 解析手順として、まず固有値解析用の全体制御データhecmw\_ctrl\_eigen.datをhecmw\_ctrl.datと変更し固有値解析を行い、周波数応答解析用の全体制御データhecmw\_ctrl\_freq.datをhecmw\_ctrl.dat、固有値解析の解析結果ログファイル0.logをeigen\_0.log（周波数応答解析用の解析制御データ内で指定されている）と変更し、周波数応答解析を行います。
 
 ### 解析対象
@@ -8,12 +8,12 @@
 解析対象は片持ち梁で、形状を図4.17.1に、メッシュデータを図4.17.2に示します。メッシュには四面体1次要素を用い、メッシュ規模は要素数126、節点数55です。
 
 <div style="text-align: center;">
-<img src="../fig/image35.png" width="350px"><br>
+<img src="../media/image17_01.png" width="350px"><br>
 図4.17.1　片持ち梁の形状
 </div>
 
 <div style="text-align: center;">
-<img src="../fig/image36.png" width="350px"><br>
+<img src="../media/image17_02.png" width="350px"><br>
 図4.17.2　片持ち梁のメッシュデータ
 </div>
 
@@ -28,6 +28,6 @@
 また、解析結果の数値データとして、解析結果ログファイルの一部を以下に示します。
 
 <div style="text-align: center;">
-<img src="../fig/image37.png" width="350px"><br>
+<img src="../media/image17_03.png" width="350px"><br>
 図4.17.3　モニタリング節点の周波数と変位振幅の関係
 </div>

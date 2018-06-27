@@ -1,6 +1,6 @@
 ##  非線形接触動解析
 
-本解析の実施には、tutorial/14\_dynamic\_plate\_contact のデータを用います。
+本解析の実施には、`tutorial/14_dynamic_plate_contact` のデータを用います。
 
 ### 解析対象
 
@@ -8,12 +8,12 @@
 メッシュには六面体1次要素を用い、メッシュ規模は要素数8,232、節点数10,712です。
 
 <div style="text-align: center;">
-<img src="../fig/image28.png" width="350px"><br>
+<img src="../media/image14_01.png" width="350px"><br>
 図4.14.1　床面と角材の形状
 </div>
 
 <div style="text-align: center;">
-<img src="../fig/image29.png" width="350px"><br>
+<img src="../media/image14_02.png" width="350px"><br>
 図4.14.2　床面と角材のメッシュデータ
 </div>
 
@@ -27,6 +27,6 @@
 また、解析結果の数値データとして、モニタリング節点のエネルギー出力ファイル（dyna\_energy.txt）の一部を以下に示します。
 
 <div style="text-align: center;">
-<img src="../fig/image30.png" width="350px"><br>
+<img src="../media/image14_03.png" width="350px"><br>
 図4.14.3　落下衝撃時のミーゼス応力
 </div>

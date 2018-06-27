@@ -1,13 +1,13 @@
 ##  接触解析（その３）
 
-本解析の実施には、tutorial/11\_contact\_2beam のデータを用います。
+本解析の実施には、`tutorial/11_contact_2beam` のデータを用います。
 
 ### 解析対象
 
 解析はふたつの梁の接触問題で、解析モデルの概要を図4.11.1に示します。メッシュには六面体1次要素を用い、メッシュ規模は要素数80、節点数252です。
 
 <div style="text-align: center;">
-<img src="../fig/image22.png" width="350px"><br>
+<img src="../media/image11_01.png" width="350px"><br>
 図4.11.1　解析モデルの概要
 </div>
 
@@ -22,6 +22,6 @@
 また、解析結果の数値データとして、解析結果ログファイルの一部を以下に示します。
 
 <div style="text-align: center;">
-<img src="../fig/image23.png" width="350px"><br>
+<img src="../media/image11_02.png" width="350px"><br>
 図4.11.2　変形およびミーゼス応力の解析結果
 </div>

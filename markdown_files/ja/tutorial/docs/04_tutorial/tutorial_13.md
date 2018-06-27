@@ -1,6 +1,6 @@
 ##  非線形動解析
 
-本解析の実施には、tutorial/13\_dynamic\_beam\_nonlinear のデータを用います。
+本解析の実施には、`tutorial/13_dynamic_beam_nonlinear` のデータを用います。
 
 ### 解析対象
 
@@ -16,6 +16,6 @@
 Excelで作成して図4.13.1に示します。また、解析結果の数値データとして、モニタリング節点の変位出力ファイル（dyna\_disp\_p1.out）の一部を以下に示します。
 
 <div style="text-align: center;">
-<img src="../fig/image27.png" width="350px"><br>
+<img src="../media/image13_01.png" width="350px"><br>
 図4.13.1　モニタリング節点の変位時系列
 </div>

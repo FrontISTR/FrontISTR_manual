@@ -1,6 +1,6 @@
 ## 静解析（超弾性その１）
 
-本解析の実施には、tutorial/03\_hyperelastic\_cylinder のデータを用います。
+本解析の実施には、`tutorial/03_hyperelastic_cylinder` のデータを用います。
 
 ### 解析対象
 
@@ -8,12 +8,12 @@
 メッシュには六面体1次要素を用い、メッシュ規模は要素数432、節点数629です。
 
 <div style="text-align: center;">
-<img src="../fig/image4.png" width="350px"><br>
+<img src="../media/image03_01.png" width="350px"><br>
 図4.3.1　丸棒(1/8モデル)の形状
 </div>
 
 <div style="text-align: center;">
-<img src="../fig/image5.png" width="350px"><br>
+<img src="../media/image03_02.png" width="350px"><br>
 図4.3.2　丸棒(1/8モデル)のメッシュデータ
 </div>
 
@@ -28,7 +28,7 @@
 また、解析結果の数値データとして、解析結果ログファイルの一部を以下に示します。
 
 <div style="text-align: center;">
-<img src="../fig/image6.png" width="350px"><br>
+<img src="../media/image03_03.png" width="350px"><br>
 図4.3.3　変形およびミーゼス応力の解析結果
 </div>
 
