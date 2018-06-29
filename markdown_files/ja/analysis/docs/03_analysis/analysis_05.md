@@ -1999,7 +1999,7 @@ AMP      = 時間関数名(!AMPLITUDEで指定)
 
 ```
   BOUNDARY, id                                  id=!BOUNDARYで定義したGRPID
-  LOAD, id                                      id=!CLOAD, !DLOAD, !TEMPERATUREで定義したGRPID
+  LOAD, id                                      id=!CLOAD, !DLOAD, !SPRING, !TEMPERATUREで定義したGRPID
   CONTACT, id                                   id=!CONTACTで定義したGRPID
 ```
 
