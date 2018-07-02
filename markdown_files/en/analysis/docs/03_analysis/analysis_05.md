@@ -1992,7 +1992,7 @@ AMP      = Time function name
 
 ```
   BOUNDARY, id                   GRPID defined in id=!BOUNDARY
-  LOAD, id                       GRPID defined in id=!CLOAD, !DLOAD, !TEMPERATURE
+  LOAD, id                       GRPID defined in id=!CLOAD, !DLOAD, !SPRING, !TEMPERATURE
   CONTACT, id                    GRPID defined in id=!CONTACT
 ```
 
