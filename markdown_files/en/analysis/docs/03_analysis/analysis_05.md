@@ -202,7 +202,9 @@ The header list of the common control data is shown in the following Table 7.3.1
 |`!CREEP`           |Creep material physical properties                      |       |2-2-5          |
 |`!DENSITY`         |Mass density                                            |       |2-2-6          |
 |`!EXPANSION_COEFF` |Coefficient of linear expansion                         |       |2-2-7          |
-|`!USE_MATERIAL`    |User defined material                                   |       |2-2-8          |
+|`!TRS`             |Tempearture dependent behaviour of viscoelastic material|       |2-2-8          |
+|`!FLUID`           |Flow Condition                                          |       |2-2-9          |
+|`!USE_MATERIAL`    |User defined material                                   |       |2-2-10         |
 |`!BOUNDARY`        |Displacement boundary conditions                        |       |2-3            |
 |`!SPRING`          |Spring boundary conditions                              |       |2-3-1          |
 |`!CLOAD`           |Concentrated load                                       |       |2-4            |
@@ -213,7 +215,6 @@ The header list of the common control data is shown in the following Table 7.3.1
 |`!TEMPERATURE`     |Nodal temperature in thermal stress analysis            |       |2-9            |
 |`!REFTEMP`         |Reference temperature in thermal stress analysis        |       |2-10           |
 |`!STEP`            |Analysis step control                                   |       |2-11           |
-|`!TRS`             |Tempearture dependent behaviour of viscoelastic material|       |2-12           |
 
 ---
 **Table 7.3.3: Control Data for Eigenvalue Analysis**
@@ -1594,27 +1595,7 @@ DEPENDENCIES = 0 (Default) / 1
 | m           | R    |Material modulus|
 | Tempearture | R    |Temperature(required when `DEPENDENCIES=1`要) |
 
-#### (8) `!FLUID` (2-2-5)
-
-Definition of flow condition
-
-##### Parameter
-
-```
-TYPE = INCOMP_NEWTONIAN (Default)
-```
-
-** 2nd Line or later **
-
-```
-(2nd line) mu
-```
-
-|Parameter Name|Attributions|Contents |
-|--------|------|------|
-| mu     | R    |Viscosity |
-
-#### (9) `!DENSITY` (2-2-6)
+#### (8) `!DENSITY` (2-2-6)
 
 Definition of mass density
 
@@ -1634,7 +1615,7 @@ DEPENDENCIES = the number of parameters depended upon (Not included)
 |---------|------|----------|
 | density | R    |Mass density |
 
-#### (10) `!EXPANSION_COEFF` (2-2-7)
+#### (9) `!EXPANSION_COEFF` (2-2-7)
 
 Definition of coefficient of linear expansion
 
@@ -1665,7 +1646,46 @@ DEPENDENCIES = 0(Default) / 1
 | α11, α22, α33 | R    | Coefficient of thermo expansion|
 | Tempearture   | R    | Temperature (required when DEPENDENCIES = 1)|
 
-#### (11) `!USER/MATERIAL` (2-2-8)
+#### (10) `!TRS` (2-2-8)
+
+Thermorheological Simplicity description on temperature behavior of viscoelastic materials
+
+##### Parameter
+
+```
+DEFINITION = WLF(Default) /ARRHENUS
+```
+
+** 2nd line or later **
+
+(2nd line) θ<sub>0</sub>, C<sub>1</sub>, C<sub>2</sub>
+
+| Parameter Name    | Attributions | Contents    |
+|------------------------------|------|----------|
+| θ<sub>0</sub>                | R    | Reference temperature |
+| C<sub>1</sub>, C<sub>2</sub> | R    | Material constants    |
+
+#### (11) `!FLUID` (2-2-9)
+
+Definition of flow condition
+
+##### Parameter
+
+```
+TYPE = INCOMP_NEWTONIAN (Default)
+```
+
+** 2nd Line or later **
+
+```
+(2nd line) mu
+```
+
+|Parameter Name|Attributions|Contents |
+|--------|------|------|
+| mu     | R    |Viscosity |
+
+#### (12) `!USER/MATERIAL` (2-2-10)
 
 Input of user defined material
 
@@ -1681,7 +1701,7 @@ NSTATUS = Specifies the number of state variables of material (Default: 1)
 (2nd line-10th line) v1, v2, v3, v4, v5, v6, v7, v8, v9, v10
 ```
 
-#### (12) `!BOUNDARY` (2-3)
+#### (13) `!BOUNDARY` (2-3)
 
 Definition of displacement boundary conditions
 
@@ -1716,7 +1736,7 @@ ROT_CENTER = Node number of rotational constraint or node group name.
 ```
 > Note: Resricted value is 0.0
 
-#### (13) `!SPRING` (2-3-1)
+#### (14) `!SPRING` (2-3-1)
 
 Definition of spring boundary conditions
 
@@ -1745,7 +1765,7 @@ GRPID = Group ID
   1, 1, 0.5
 ```
 
-#### (14) `!CLOAD` (2-4)
+#### (15) `!CLOAD` (2-4)
 
 Definition of concentrated load
 
@@ -1781,7 +1801,7 @@ ROT_CENTER = Node number of rotational constraint or node group name.
   TORQUE_NODES, 3, -4
 ```
 
-#### (15) `!DLOAD` (2-5)
+#### (16) `!DLOAD` (2-5)
 
 Definition of distributed load
 
@@ -1838,7 +1858,7 @@ FOLLOW = YES(Default) / NO
   ALL, CENT, 188.495, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0
 ```
 
-#### (16) `!ULOAD` (2-6)
+#### (17) `!ULOAD` (2-6)
 
 Input of user definition load
 
@@ -1848,7 +1868,7 @@ Input of user definition load
 FILE = file name (Mandatory)
 ```
 
-#### (17) `!CONTACT_ALGO` (2-7)
+#### (18) `!CONTACT_ALGO` (2-7)
 
 Specification of the contact analysis algorithm
 
@@ -1859,7 +1879,7 @@ TYPE = SLAGRANGE (Lagrange multiplier method)
        ALAGRANGE (Extended Lagrange multiplier method)
 ```
 
-#### (18) `!CONTACT` (2-8)
+#### (19) `!CONTACT` (2-8)
 
 Definition of contact conditions
 
@@ -1894,7 +1914,7 @@ TPENALTY    = Contact tangential direction Penalty (Default: 1.e3)
   CP1, 0.1, 1.0e+5
 ```
 
-#### (19) `!TEMPERATURE` (2-9)
+#### (20) `!TEMPERATURE` (2-9)
 
 Specification of nodal temperature used for thermal stress analysis
 
@@ -1934,7 +1954,7 @@ INTERVAL   = Step interval that performs the reading
 !TEMPERATURE, READRESULT=1, SSTEP=1
 ```
 
-#### (20) `!REFTEMP` (2-10)
+#### (21) `!REFTEMP` (2-10)
 
 Definition of reference temperature in thermal stress analysis
 
@@ -1952,7 +1972,7 @@ N/A
 |--------|------|-------------------------|
 | Value  | R    | Reference temperature (Default: 0)|
 
-#### (21) `!STEP` (2-11)
+#### (22) `!STEP` (2-11)
 
 Setting of analysis steps
 
@@ -2005,26 +2025,6 @@ AMP      = Time function name
   LOAD, 1
   CONTACT, 1
 ```
-
-
-#### (22) `!TRS` (2-12)
-
-Thermorheological Simplicity description on temperature behavior of viscoelastic materials
-
-##### Parameter
-
-```
-DEFINITION = WLF(Default) /ARRHENUS
-```
-
-** 2nd line or later **
-
-(2nd line) θ<sub>0</sub>, C<sub>1</sub>, C<sub>2</sub>
-
-| Parameter Name    | Attributions | Contents    |
-|------------------------------|------|----------|
-| θ<sub>0</sub>                | R    | Reference temperature |
-| C<sub>1</sub>, C<sub>2</sub> | R    | Material constants    |
 
 ### Control Data for Eigenvalue Analysis
 
