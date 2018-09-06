@@ -37,7 +37,7 @@ The displacement of the restrained surface shown in Figure 4.4.1 is restrained, 
 Analysis results data file spring.res.0.3 is used, and a 3rd oscillation mode (compression extension of the spring in y direction) was created by REVOCAP_PrePost, and is shown in Figure 4.15.1. The deformation magnification is set to 1,000. The character frequency list output to the analysis results log file is shown in the following as numeric data of the analysis results.
 
 <div style="text-align: center;">
-<img src="../media/image15_01.png" width="350px"><br>
+<img src="./media/image15_01.png" width="350px"><br>
 Figure 4.15.1: 3rd Oscillation Mode of Spring
 </div>
 

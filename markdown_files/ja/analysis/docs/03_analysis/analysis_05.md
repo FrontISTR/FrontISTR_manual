@@ -8,7 +8,7 @@ MathJax.Hub.Config({
   displayAlign: "center"
 });
 </script>
-<script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 # 7. 解析制御データ
 
@@ -3165,6 +3165,15 @@ height="2.4944444444444445in"}
 #### `!method` (P4-1)
 
 面との切り口を指定する際、その面の設定方法を指定する。
+
+```
+!surface_num =2
+!surface
+!surface_style=3
+!method=5
+!coef=0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, -0.35
+!color_comp_name = temperature
+```
 
 図7.4.17 `method`の設定例
 

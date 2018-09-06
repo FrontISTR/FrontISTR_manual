@@ -8,12 +8,12 @@
 メッシュには四面体2次要素を用い、メッシュ規模は要素数49,871、節点数84,056です。
 
 <div style="text-align: center;">
-<img src="../media/image01_01.png" width="350px"><br>
+<img src="./media/image01_01.png" width="350px"><br>
 図4.1.1　ヒンジ部品の形状
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image01_02.png" width="350px"><br>
+<img src="./media/image01_02.png" width="350px"><br>
 図4.1.2　ヒンジ部品のメッシュデータ
 </div>
 
@@ -28,6 +28,6 @@
 また、解析結果の数値データとして、解析結果ログファイルの一部を以下に示します。
 
 <div style="text-align: center;">
-<img src="../media/image01_03.png" width="350px"><br>
+<img src="./media/image01_03.png" width="350px"><br>
 図4.1.3　ミーゼス応力の解析結果
 </div>

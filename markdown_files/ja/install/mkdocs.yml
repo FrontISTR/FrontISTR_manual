@@ -1,9 +1,13 @@
 ﻿site_name: FrontISTR ver. 5.0
 theme:
-    name: 'bootstrap'
+    name: readthedocs
+    highlightjs: true
+    hljs_languages:
+        - fortran
+
 use_directory_urls: false
 
-pages:
+nav:
 - ホーム: index.md
 - インストール:
     - 動作環境: 01_install/install_01.md
@@ -17,5 +21,5 @@ pages:
     - CentOS7.3上でのインストール手順例(Makefile.confでの手順): 01_install/install_08.md
     - Ubuntu16.04上でのインストール手順例(cmakeでの手順): 01_install/install_09.md
     - Ubuntu16.04上でのインストール手順例(Makefile.confでの手順): 01_install/install_10.md
-#    - Windows10へのインストール手順例(cmake): 01_instal/install_11.md
+    - Windows10へのインストール手順例(cmake): 01_install/install_11.md
 #    - Windows10へのインストール手順例(Makefile.conf): 01_install/install_12.md

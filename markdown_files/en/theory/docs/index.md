@@ -30,12 +30,12 @@ Regarding the stress analysis method of solids, the infinitesimal deformation li
 ## List of description on this manual
 
 - Static Analysis
-    - [Infinitesimal Deformation Linear Elasticity Static Analysis](./02_theory/theory_01)
-    - [Nonlinear Static Analysis Method](./02_theory/theory_02)
+    - [Infinitesimal Deformation Linear Elasticity Static Analysis](./02_theory/theory_01.md)
+    - [Nonlinear Static Analysis Method](./02_theory/theory_02.md)
 - Dynamic Analysis
-    - [Dynamic Analysis Method](./02_theory/theory_03)
-    - [Eigenvalue Analysis](./02_theory/theory_05)
-    - [Frequency Response Analysis](./02_theory/theory_06)
-- [Heat Conduction Analysis](./02_theory/theory_04)
-- [References](./02_theory/theory_07)
+    - [Dynamic Analysis Method](./02_theory/theory_03.md)
+    - [Eigenvalue Analysis](./02_theory/theory_05.md)
+    - [Frequency Response Analysis](./02_theory/theory_06.md)
+- [Heat Conduction Analysis](./02_theory/theory_04.md)
+- [References](./02_theory/theory_07.md)
 

@@ -7,7 +7,7 @@ Data of `tutorial/11_contact_2beam/` is used to implement this analysis.
 A two beam contact problem is applied in this analysis. The outline of the analysis model is shown in Figure 4.11.1. Hexahedral linear elements are used for the mesh, and the scale of the mesh consists of 80 elements and 252 nodes.
 
 <div style="text-align: center;">
-<img src="../media/image11_01.png" width="350px"><br>
+<img src="./media/image11_01.png" width="350px"><br>
 Figure 4.11.1 Outline of Analysis Model
 </div>
 
@@ -48,7 +48,7 @@ CONTACT, 1
 As analysis results of the 100th sub step, a deformed figure applied with a contour of the Mises stress was created by REVOCAP_PrePost, and is shown in Figure 4.11.2. Moreover, a portion of the analysis results log file is shown in the following as numeric data of the analysis results.
 
 <div style="text-align: center;">
-<img src="../media/image11_02.png" width="350px"><br>
+<img src="./media/image11_02.png" width="350px"><br>
 Figure 4.11.2: Analysis Results of Deformation and Mises Stress
 </div>
 

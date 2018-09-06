@@ -1,9 +1,13 @@
 ﻿site_name: FrontISTR ver. 5.0
 theme: 
-    name: 'bootstrap'
+    name: readthedocs
+    highlightjs: true
+    hljs_languages:
+        - fortran
+
 use_directory_urls: false
 
-pages:
+nav:
 - HOME: index.md
 - Overview:
     - Quick Start guide: index.md
@@ -13,4 +17,5 @@ pages:
     - User's manual: index.md
     - Tutorial: index.md
 - Release note: A1_release_note/00_release_note.md
+- Release schedule: A1_release_note/01_release_schedule.md
 - Cheat sheet: A2_cheat_sheet/00_cheat_sheet.md

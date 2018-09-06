@@ -8,12 +8,12 @@
 メッシュには四面体2次要素を用い、メッシュ規模は要素数7,236、節点数14,119です。
 
 <div style="text-align: center;">
-<img src="../media/image06_01.png" width="350px"><br>
+<img src="./media/image06_01.png" width="350px"><br>
 図4.6.1　容器の形状
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image06_02.png" width="350px"><br>
+<img src="./media/image06_02.png" width="350px"><br>
 図4.6.2　容器のメッシュデータ
 </div>
 
@@ -28,6 +28,6 @@
 変形倍率を30としています。また、解析結果の数値データとして、解析結果ログファイルの一部を以下に示します。
 
 <div style="text-align: center;">
-<img src="../media/image06_03.png" width="350px"><br>
+<img src="./media/image06_03.png" width="350px"><br>
 図4.6.3　変形およびミーゼス応力の解析結果
 </div>

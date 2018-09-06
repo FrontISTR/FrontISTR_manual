@@ -46,7 +46,7 @@ Stress relaxation analysis is implemented where tension displacement is applied 
 A deformed figure applied with a contour of the Mises stress was created by REVOCAP_PrePost, and is shown in Figure 4.7.1. This is the analysis results after 2 seconds (10th step). Moreover, a portion of the analysis results log file is shown in the following as numeric data of the analysis results.
 
 <div style="text-align: center;">
-<img src="../media/image07_01.png" width="350px"><br>
+<img src="./media/image07_01.png" width="350px"><br>
 Figure 4.7.1: Analysis Results of Deformation and Mises Stress
 </div>
 

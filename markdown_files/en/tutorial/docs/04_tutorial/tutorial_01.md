@@ -7,12 +7,12 @@ Data of `tutorial/01_elastic_hinge/` is used for the implementation of this anal
 A hinge component is the object of the analysis. The shape is shown in Figure 4.1.1, and the mesh data is shown in Figure 4.1.2. Quadratic tetrahedral elements are used for the mesh,and the scale of the mesh consists of 49,871 elements and 84,056 nodes.
 
 <div style="text-align: center;">
-<img src="../media/image01_01.png" width="350px"><br>
+<img src="./media/image01_01.png" width="350px"><br>
 Figure 4.1.1 : Shape of Hinge Component
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image01_02.png" width="350px"><br>
+<img src="./media/image01_02.png" width="350px"><br>
 Figure 4.1.2 : Mesh Data of Hinge Component
 </div>
 
@@ -53,7 +53,7 @@ A stress analysis is implemented, where the displacement of the restrained surfa
 A contour figure of the Mises stress was created by REVOCAP_PrePost, and is shown in Figure 4.1.3. Moreober, a portion of the analysis results log file is shown in the following as numeric data of the analysis results.
 
 <div style="text-align: center;">
-<img src="../media/image01_03.png" width="350px"><br>
+<img src="./media/image01_03.png" width="350px"><br>
 Figure 4.1.3 : Analysis Results of Mises Stress
 </div>
 

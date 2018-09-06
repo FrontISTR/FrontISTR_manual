@@ -51,7 +51,7 @@ node. The analysis control data is shown in the following.
 A time sequence display of the displacement of the monitoring node (load node, node number 3121) specified by the analysis control data was created in Microsoft Excel, and is shown in Figure 4.13.1. A portion of the displacement output file (dyna_disp_p1.out) of the monitoring node is shown in the following as numeric data of the analysis results.
 
 <div style="text-align: center;">
-<img src="../media/image13_01.png" width="350px"><br>
+<img src="./media/image13_01.png" width="350px"><br>
 Figure 4.13.1: Displacement Time Sequence of Monitoring Node
 </div>
 

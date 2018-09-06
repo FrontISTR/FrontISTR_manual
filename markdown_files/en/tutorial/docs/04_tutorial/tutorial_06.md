@@ -7,12 +7,12 @@ Data of `tutorial/06_plastic_can/` is used to implement this analysis.
 The object for analysis is a 1/2 model of a can. The shape is shown in Figure 4.6.1, and the mesh data is shown in Figure 4.6.2. Quadratic tetrahedral elements are used for the mesh, and the scale of the mesh consists of 7,236 elements and 14,119 nodes.
 
 <div style="text-align: center;">
-<img src="../media/image06_01.png" width="350px"><br>
+<img src="./media/image06_01.png" width="350px"><br>
 Figure 4.6.1: Shape of Can
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image06_02.png" width="350px"><br>
+<img src="./media/image06_02.png" width="350px"><br>
 Figure 4.6.2: Mesh Data of Can
 </div>
 
@@ -61,7 +61,7 @@ A stress analysis is implemented, where the displacement of the restrained surfa
 As analysis results of the 10th sub step, a deformed figure applied with a contour of the Mises stress was created by REVOCAP\_PrePost, and is shown in Figure 4.6.3. The deformation magnification is set to 30. Moreover, a portion of the analysis results log file is shown in the following as numeric data of the analysis results.
 
 <div style="text-align: center;">
-<img src="../media/image06_03.png" width="350px"><br>
+<img src="./media/image06_03.png" width="350px"><br>
 Figure 4.6.3: Analysis Results of Deformation and Mises Stress
 </div>
 

@@ -19,12 +19,12 @@ Then start frequency response analysis.
 The analysis model is shown in Fig. 4.17.1 and the discretized mesh is shown in Fig.4.17.2.  The model is mesh with Element Type 341 (Number of Elements: 126, Number of Nodes: 55).
 
 <div style="text-align: center;">
-<img src="../media/image17_01.png" width="350px"><br>
+<img src="./media/image17_01.png" width="350px"><br>
 Fig. 4.17.1 : The analysis model
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image17_02.png" width="350px"><br>
+<img src="./media/image17_02.png" width="350px"><br>
 Fig. 4.17.2 : The mesh
 </div>
 
@@ -65,7 +65,7 @@ One of the cantilever beam end was fixed and the other is applied load as nodal 
 The frequency dependency of amplitude of displacement at a monitoring node(Node ID 1) specified in the analysis control data is shown in Fig. 4.17.3. A portion of a log file is shown below to show the numerical data obtained by the frequency response analysis.
 
 <div style="text-align: center;">
-<img src="../media/image17_03.png" width="350px"><br>
+<img src="./media/image17_03.png" width="350px"><br>
 Fig.4.17.3 Frequency dependency of amplitude of displacement at a monitoring node
 </div>
 

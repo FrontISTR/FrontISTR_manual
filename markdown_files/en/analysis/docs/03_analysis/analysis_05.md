@@ -8,7 +8,7 @@ MathJax.Hub.Config({
   displayAlign: "center"
 });
 </script>
-<script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 # Analysis Control Data
 
@@ -16,7 +16,7 @@ MathJax.Hub.Config({
 
 In FrontISTR, an analysis control data file is input to acquire the computing control data, solver control data and post process (visualization) control data as shown in the following figure, in order to implement the analytical calculations.
 
-![Analysis Control Data](media/image05_01.png)
+![Analysis Control Data](./media/image05_01.png)
 
 The features of the analysis control data file are as follows.
 
@@ -3150,7 +3150,15 @@ Specifies the physical values of the isosurface to be visualized when `surface_s
 
 When specifying the surfaces and cut end, specifies the setting method of the surface.
 
-![Figure 7.4.17: Example of Setting Method](media/image05_19.png)
+```
+!surface_num =2
+!surface
+!surface_style=3
+!method=5
+!coef=0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, -0.35
+!color_comp_name = temperature
+```
+![Figure 7.4.17: Example of Setting Method]()
 
 Accordingly, the cut end of the plane surface z = 0.35 and z = -0.35 will be visualized.
 

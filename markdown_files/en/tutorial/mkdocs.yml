@@ -1,9 +1,13 @@
 ﻿site_name: FrontISTR ver. 5.0
 theme:
-    name: 'bootstrap'
+    name: readthedocs
+    highlightjs: true
+    hljs_languages:
+        - fortran
+
 use_directory_urls: false
 
-pages:
+nav:
 - HOME: index.md
 - Tutorial:
     - Static Analysis (Elasticity) : 04_tutorial/tutorial_01.md

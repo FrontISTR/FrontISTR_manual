@@ -16,6 +16,6 @@
 2秒後（10ステップ目）の解析結果です。また、解析結果の数値データとして、解析結果ログファイルの一部を以下に示します。
 
 <div style="text-align: center;">
-<img src="../media/image07_01.png" width="350px"><br>
+<img src="./media/image07_01.png" width="350px"><br>
 図4.7.1　変形およびミーゼス応力の解析結果
 </div>

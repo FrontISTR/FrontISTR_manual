@@ -7,12 +7,12 @@ Data of `tutorial/04_hyperelastic_spring/` is used to implement this analysis.
 A spring is the object of the analysis. The shape is shown in Figure 4.4.1, and the mesh data is shown in Figure 4.4.2. Quadratic tetrahedral elements are used for the mesh, and the scale of the mesh consists of 46,454 elements and 78,771 nodes.
 
 <div style="text-align: center;">
-<img src="../media/image04_01.png" width="350px"><br>
+<img src="./media/image04_01.png" width="350px"><br>
 Figure 4.4.1: Shape of Spring
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image04_02.png" width="350px"><br>
+<img src="./media/image04_02.png" width="350px"><br>
 Figure 4.4.2: Mesh Data of Spring
 </div>
 
@@ -51,7 +51,7 @@ A stress analysis is implemented, where the displacement of the restrained surfa
 A deformed figure applied with a displacement contour was created by REVOCAP\_PrePost, and is shown in Figure 4.4.3. Moreover, a portion of the analysis results log file is shown in the following as numeric data of the analysis results.
 
 <div style="text-align: center;">
-<img src="../media/image04_03.png" width="350px"><br>
+<img src="./media/image04_03.png" width="350px"><br>
 Figure 4.4.3: Analysis Results of Deformation and Displacement
 </div>
 
