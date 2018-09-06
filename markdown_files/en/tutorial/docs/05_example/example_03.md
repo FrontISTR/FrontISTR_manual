@@ -18,12 +18,12 @@ Table 9.3.1: Verification Example of Actual Model for Eigenvalue Analysis
 | EX10B    | 731        | Wine glass (midium) | 48,803  | 292,818 |
 
 <div style="text-align: center;">
-<img src="../media/image03_01.png" width="350px"><br>
+<img src="./media/image03_01.png" width="350px"><br>
 Figure 9.3.1: Turbine Rotor (EX07)
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image03_02.png" width="350px"><br>
+<img src="./media/image03_02.png" width="350px"><br>
 Figure 9.3.2: Spring (EX08)
 </div>
 
@@ -35,12 +35,12 @@ The vibration mode and natural frequency are shown in the following.
 
 |  |  |
 |--|--|
-|<img src="../media/image03_03.png" width="200px">|<img src="../media/image03_04.png" width="200px">|
+|<img src="./media/image03_03.png" width="200px">|<img src="./media/image03_04.png" width="200px">|
 |(a) Mode 1 (1170 kHz)                            |(b) Mode 2(3250kHz)                              |
 |                                                 |                                                 |
-|<img src="../media/image03_05.png" width="200px">|<img src="../media/image03_06.png" width="200px">|
+|<img src="./media/image03_05.png" width="200px">|<img src="./media/image03_06.png" width="200px">|
 |(c) Mode 3(4130kHz)                              |(d) Mode 4(4140kHz)                              | 
-|<img src="../media/image03_07.png" width="200px">| |
+|<img src="./media/image03_07.png" width="200px">| |
 |(e) Mode 5(8210kHz)                              | |
 
 <div style="text-align: center;">
@@ -51,13 +51,13 @@ Figure 9.3.3: EX06 Turbine Blade Vibration Mode
 
 |  |  |
 |--|--|
-|<img src="../media/image03_08.png" width="300px">|<img src="../media/image03_09.png" width="300px">|
+|<img src="./media/image03_08.png" width="300px">|<img src="./media/image03_09.png" width="300px">|
 |(a) Mode 1(1067Hz)|(b) Mode 2(1072Hz)|
 |  |  |
-|<img src="../media/image03_10.png" width="300px">|<img src="../media/image03_11.png" width="300px">|
+|<img src="./media/image03_10.png" width="300px">|<img src="./media/image03_11.png" width="300px">|
 |(c) Mode 3(1072Hz)|(d) Mode 4(1093Hz)|
 |  |  |
-|<img src="../media/image03_12.png" width="300px">| |
+|<img src="./media/image03_12.png" width="300px">| |
 |(e) Mode 5(1093Hz)| |
 |  |  |
 
@@ -70,10 +70,10 @@ Figure 9.3.4: EX07 Turbine Rotor Vibration Mode
 |  |  |  |
 |--|--|--|
 |Mode 1 (445Hz)                                   |Mode 2 (446Hz)                                   |Mode 3 (908Hz)                                   |
-|<img src="../media/image03_13.png" width="160px">|<img src="../media/image03_14.png" width="160px">|<img src="../media/image03_15.png" width="160px">|
+|<img src="./media/image03_13.png" width="160px">|<img src="./media/image03_14.png" width="160px">|<img src="./media/image03_15.png" width="160px">|
 |  |  |
 |Mode 4 (985Hz)                                   |Mode 5 (1819Hz)                                  |   |
-|<img src="../media/image03_16.png" width="160px">|<img src="../media/image03_17.png" width="160px">|   |
+|<img src="./media/image03_16.png" width="160px">|<img src="./media/image03_17.png" width="160px">|   |
 
 |  | FrontISTR | NASTRAN |
 |--|----------:|--------:|
@@ -90,17 +90,17 @@ Figure 9.3.5: EX08 Spring Vibration Mode
 #### (4) EX09 Cylindrical shell
 
 <div style="text-align: center;">
-<img src="../media/image03_18.png" width="350px"><br>
+<img src="./media/image03_18.png" width="350px"><br>
 (a) Mode 1, 2 (109 Hz)
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image03_19.png" width="350px"><br>
+<img src="./media/image03_19.png" width="350px"><br>
 (b) Mode 3,4(570Hz)
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image03_20.png" width="350px"><br>
+<img src="./media/image03_20.png" width="350px"><br>
 (c) Mode 5(615Hz)
 </div>
 
@@ -112,10 +112,10 @@ Figure 9.3.6: EX09 Cylindrical Shell Vibration Mode
 
 |   |   |   |
 |---|---|---|
-|<img src="../media/image03_21.png" width="120px">|<img src="../media/image03_22.png" width="120px">|<img src="../media/image03_23.png" width="120px">|
+|<img src="./media/image03_21.png" width="120px">|<img src="./media/image03_22.png" width="120px">|<img src="./media/image03_23.png" width="120px">|
 |(a) Mode 1(101Hz)|(b) Mode 2(102Hz)|(c) Mode 3(354Hz)|
 |   |   |   |
-|<img src="../media/image03_24.png" width="120px">|<img src="../media/image03_25.png" width="120px">|   |
+|<img src="./media/image03_24.png" width="120px">|<img src="./media/image03_25.png" width="120px">|   |
 |(d) Mode 4(1335Hz)|(e) Mode 5(1336Hz)|   |
 
 <div style="text-align: center;">

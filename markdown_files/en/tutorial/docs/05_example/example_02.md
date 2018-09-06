@@ -20,27 +20,27 @@ Table 9.2.1: Example of Actual Model Verification for Elastic Static Analysis
 | EX05C    | 731        | Wine glass (fine)   | 100,602 | 603,612 |
 
 <div style="text-align: center;">
-<img src="../media/image02_01.png" width="250px"><br>
+<img src="./media/image02_01.png" width="250px"><br>
 Figure 9.2.1: Connecting Rod (EX01A)
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image02_02.png" width="350px"><br>
+<img src="./media/image02_02.png" width="350px"><br>
 Figure 9.2.2: Block with Hole (EX02)
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image02_03.png" width="350px"><br>
+<img src="./media/image02_03.png" width="350px"><br>
 Figure 9.2.3: Turbine Blade (EX03, EX06)
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image02_04.png" width="350px"><br>
+<img src="./media/image02_04.png" width="350px"><br>
 Figure 9.2.4: Cylindrical Shell (EX04, EX09)
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image02_05.png" width="200px"><br>
+<img src="./media/image02_05.png" width="200px"><br>
 Figure 9.2.5: Wine Glass (EX05, EX10A)
 </div>
 
@@ -51,22 +51,22 @@ Figure 9.2.5: Wine Glass (EX05, EX10A)
 An example of the analysis results is shown in Figure 9.2.6 ~ Figure 9.2.9.
 
 <div style="text-align: center;">
-<img src="../media/image02_06.png" width="350px"><br>
+<img src="./media/image02_06.png" width="350px"><br>
 Figure 9.2.6: EX01A Analysis Results (Mises Stress and Deformed Figure (10 times))
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image02_07.png" width="350px"><br>
+<img src="./media/image02_07.png" width="350px"><br>
 Figure 9.2.7: EX02 Analysis Results (Mises Stress and Deformed Figure (100 times))
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image02_08.png" width="250px"><br>
+<img src="./media/image02_08.png" width="250px"><br>
 Figure 9.2.8: EX03 Analysis Results (Deformed Figure (10 times))
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image02_09.png" width="350px"><br>
+<img src="./media/image02_09.png" width="350px"><br>
 Figure 9.2.9: EX04 Analysis Results (Deformed Figure (100 times))
 </div>
 
@@ -77,22 +77,22 @@ An equivalent block model with a hole as in verification example EX02 was used t
 Next, the results of investigating the affects of domain partitioning in the stress distribution are shown. The domain partitioning was performed according to the RCB method, and X, Y and Z were partitioned into two in each axial direction, and the overall model was partitioned into 8 domains. The partitioned state is shown in Figure 9.2.11. The stress distribution in the analysis results of a single domain model and a model partitioned into eight domains is shown in Figure 9.2.12.
 
 <div style="text-align: center;">
-<img src="../media/image02_10.png" width="350px"><br>
+<img src="./media/image02_10.png" width="350px"><br>
 Figure 9.2.10: Comparison of Stress Component with General Purpose Software in EX02
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image02_11.png" width="350px"><br>
+<img src="./media/image02_11.png" width="350px"><br>
 Figure 9.2.11: Eight Domain Partitioned Results of EX02 by RCB Method
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image02_12.png" width="350px"><br>
+<img src="./media/image02_12.png" width="350px"><br>
 (a) Single Domain Model
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image02_13.png" width="350px"><br>
+<img src="./media/image02_13.png" width="350px"><br>
 (b) Eight Domain Partitioned Model
 </div>
 
@@ -112,7 +112,7 @@ Table 9.2.2: Comparison of Execution Time by HEC-MW Solver
 | CG8      | 6.65 |
 
 <div style="text-align: center;">
-<img src="../media/image02_14.png" width="350px"><br>
+<img src="./media/image02_14.png" width="350px"><br>
 Figure 9.2.13: Comparison of Convergence History by HEC-MW Solver (Convergence judgment threshold: $1.0x10^{-8})
 </div>
 
@@ -123,7 +123,7 @@ Verification example EX01A (connecting rod) was used to verify the acceleration 
 The difference in the computing time by the environment of the computing system was also examined. The results are shown in Table 9.2.3.
 
 <div style="text-align: center;">
-<img src="../media/image02_15.png" width="350px"><br>
+<img src="./media/image02_15.png" width="350px"><br>
 Figure 9.2.14: Accelerating Effectiveness by Domain Partitioning
 </div>
 
