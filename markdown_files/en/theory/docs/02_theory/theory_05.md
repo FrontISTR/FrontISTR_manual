@@ -66,7 +66,7 @@ $$
 
 That is to say, if factor $\lambda(=\omega^2)$ and vector $x$ which satisfies equation $\eqref{eq:2.3.5}$ can be found, function $u(t)$ becomes the solution of equation $\eqref{eq:2.3.1}$. Factor $\lambda$ is called the eigenvalue, vector $x$ is called the eigenvector, and the problem in which these values are calculated by equation $\eqref{eq:2.3.1}$ is called the generalized eigenvalue problem.
 
-![Figure 2.3.1: Example of Multi Degrees of Freedom System of Free Oscillation without Attenuation](media/image05_01.png)
+<div style="text-align:center;"><img alt="Figure 2.3.1: Example of Multi Degrees of Freedom System of Free Oscillation without Attenuation" src="media/image05_01.png" width="80%"/></div>
 
 ** Figure 2.3.1: Example of Multi Degrees of Freedom System of Free Oscillation without Attenuation **
 
@@ -148,17 +148,17 @@ $$
 
 The linear transformation with matrix $A$ is performed for proper vector $q_0$ (refer to Figure 2.3.2).
 
-![Figure 2.3.2: Linear Transformation of q0 with Matrix A](media/image05_02.png)
+<div style="text-align:center;"><img alt="Figure 2.3.2: Linear Transformation of q0 with Matrix A" src="media/image05_02.png" width="70%"></div>
 
 ** Figure 2.3.2: Linear Transformation of $q_0$ with Matrix $A$ **
 
 The transformed vector is orthogonalized in the space created with the original vector. Thus, as Figure 2.3.2 the so called Gram-Schmidt orthogonalization is performed. The vector acquired in such a way, is normalized as $r_1$ (to length 1), to acquire $q_1$ (Figure 2.3.3). $q_2$ is acquired from $q_1$ with the same algorithm. At this time, $q_2$ is orthogonal to both $q_1$ and $q_0$ (Figure 2.3.4). When the same calculation is continued, the mutually orthogonal vectors can be acquired up to the order frequency of the maximum matrix.
 
-![Figure 2.3.3: Vector q1 Orthogonal to q0](media/image05_03.png)
+<div style="text-align:center;"><img alt="Figure 2.3.3: Vector q1 Orthogonal to q0" src="media/image05_03.png" width="70%"></div>
 
 ** Figure 2.3.3: Vector $q_1$ Orthogonal to $q_0$ **
 
-![Figure 2.3.4: Vector q2 Orthogonal to q1 and q0](media/image05_04.png)
+<div style="text-align:center;"><img alt="Figure 2.3.4: Vector q2 Orthogonal to q1 and q0" src="media/image05_04.png" width="70%"></div>
 ** Figure 2.3.4: Vector $q_2$ Orthogonal to $q_1$ and $q_0$ **
 
 Particularly, the algorithm of the Lanczos method is the Gram-Schmidt orthogonalization for column vectors $\\{A_{q_0}, A^2_{q_0}, A^3_{q_0}, \ldots, A^n_{q_0} \\}$ rephrased from $\\{A_{q_0}, A_{q_1}, A_{q_2}, \ldots \\}$. This column vector is called the columns of Krylov, and the space created by this is called the Krylov subspace. When the Gram-Schmidt orthogonalization is performed in this space, the vectors can be acquired using the two nearest vectors. This is called the principle of Lanczos.

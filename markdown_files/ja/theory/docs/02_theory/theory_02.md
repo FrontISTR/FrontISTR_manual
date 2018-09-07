@@ -62,7 +62,7 @@ $$
 ただし$^{t'} \sigma$，$^{t'} \overline{b}$，$^{t'} n$，$^{t'} \overline{t}$，$^{t'} \overline{u}$は、それぞれ時刻$t’$におけるCauchy応力(真応力)、物体力、物体表面での外向き単位法線ベクトル、既定された表面力、既定された変位である。
 これらの式は、時刻$t’$での配置$^{t'}v$, $^{t'}s\_t$, $^{t'}s\_u$に対して記述されるものである。
 
-![](media/image02_01.png)
+<div style="text-align:center;"><img src="media/image02_01.png" width="80%"></div>
 
 図 2.2.1　増分解析の概念
 

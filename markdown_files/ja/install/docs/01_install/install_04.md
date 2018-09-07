@@ -175,7 +175,7 @@ $ make doc
 $ firefox doc/html/index.html
 ```
 
-![](media/image04_01.png)
+<div style="text-align:center;"><img src="media/image04_01.png" width="80%"></div>
 
 ## デバッグを有効にする
 

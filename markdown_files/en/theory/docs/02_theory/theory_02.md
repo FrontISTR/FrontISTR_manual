@@ -52,7 +52,7 @@ $$
 
 However, $^{t'} \sigma$，$^{t'} \overline{b}$，$^{t'} n$，$^{t'} \overline{t}$，$^{t'} \overline{u}$ are the Cauchy stress (true stress), body force, outward normal vector of the object's surface, fixed surface force and fixed displacement in each time $t'$. these equations are described for the layout of $^{t'}v$, $^{t'}s\_t$, $^{t'}s\_u$ in time $'t$.
 
-![Figure 2.2.1: Concept of Incremental Analysis](media/image02_01.png)
+<div style="text-align:center;"><img alt="Figure 2.2.1: Concept of Incremental Analysis" src="media/image02_01.png" width="80%"/></div>
 
 ** Figure 2.2.1: Concept of Incremental Analysis **
 

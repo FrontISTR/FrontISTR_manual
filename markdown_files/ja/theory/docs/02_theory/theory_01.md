@@ -46,7 +46,7 @@ $$
 
 ここで、$\sigma$は応力、$\overline{t}$は表面力、$S_t$は物体力であり、$S_t$は力学的境界、$S_u$は幾何学的境界を表す。
 
-![](media/image01_01.png)
+<div style="text-align:center;"><img src="media/image01_01.png" width="30%"/></div>
 
 図 2.1.1 固体力学における境界値問題(微小変形問題)
 
