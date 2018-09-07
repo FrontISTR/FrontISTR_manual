@@ -3044,7 +3044,7 @@ Default: 自動
 
 図7.4.7 `display_styles`の設定例
 
-<div style="text-align:center;"><img src="media/image05_10.png" width="80%"/></div>
+<div style="text-align:center;"><img src="media/image05_10.png" width="50%"/></div>
 
 図7.4.8 `deform_scale`の設定例
 

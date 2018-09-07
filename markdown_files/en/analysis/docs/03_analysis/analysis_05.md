@@ -3045,7 +3045,7 @@ Default: Auto
 
 **Figure 7.4.7: Example of display_styles Setting**
 
-<div style="text-align:center;"><img alt="Figure 7.4.8: Example of deform_scale Setting" src="media/image05_10.png" width="80%"/></div>
+<div style="text-align:center;"><img alt="Figure 7.4.8: Example of deform_scale Setting" src="media/image05_10.png" width="50%"/></div>
 
 **Figure 7.4.8: Example of deform_scale Setting**
 

@@ -100,11 +100,11 @@ In FrontISTR, the element groups shows in Table 4.1.1 can be used for analysis. 
 
 ### (Beam Element)
 
-<div style="text-align:center;"><img alt="Beam Element" src="media/image02_08.png" width="50%"/></div>
+<div style="text-align:center;"><img alt="Beam Element" src="media/image02_08.png" width="30%"/></div>
 
 ### (Beam Element with 3-dof nodes)
 
-<div style="text-align:center;"><img alt="Beam Element with 3-dof nodes" src="media/image02_09.png" width="50%"/></div>
+<div style="text-align:center;"><img alt="Beam Element with 3-dof nodes" src="media/image02_09.png" width="30%"/></div>
 
 Nodes 1 and 2 for translational DOF, nodes 3 and 4 for rotational DOF.
 
@@ -119,7 +119,7 @@ Nodes 1 and 2 for translational DOF, nodes 3 and 4 for rotational DOF.
 
 ### (Triangular Shell Element with 3-dof nodes)
 
-<div style="text-align:center;"><img alt="Triangular Shell Element with 3-dof nodes" src="media/image02_11.png" width="50%"/></div>
+<div style="text-align:center;"><img alt="Triangular Shell Element with 3-dof nodes" src="media/image02_11.png" width="30%"/></div>
 
 Node 1, 2 and 3 for translational DOF, nodes 4, 5 and 6 for rotational DOF.
 
@@ -139,7 +139,7 @@ Node 1, 2 and 3 for translational DOF, nodes 4, 5 and 6 for rotational DOF.
 
 ### (Quadrilateral shell Element with 3-dof nodes)
 
-<div style="text-align:center;"><img alt="Quadrilateral shell Element with 3-dof nodes" src="media/image02_13.png" width="50%"/></div>
+<div style="text-align:center;"><img alt="Quadrilateral shell Element with 3-dof nodes" src="media/image02_13.png" width="30%"/></div>
 
 Nodes 1, 2, 3 and 4 for translational DOF, nodes 5, 6, 7 and 8 for rotational DOF.
 

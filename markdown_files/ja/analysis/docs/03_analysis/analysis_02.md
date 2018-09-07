@@ -100,11 +100,11 @@ FrontISTRはメッシュデータをHEC-MWを使用して入力するので、�
 
 ### (梁要素)
 
-<div style="text-align:center;"><img src="media/image02_08.png" width="50%"/></div>
+<div style="text-align:center;"><img src="media/image02_08.png" width="30%"/></div>
 
 ### (3自由度節点による梁要素)
 
-<div style="text-align:center;"><img src="media/image02_09.png" width="50%"/></div>
+<div style="text-align:center;"><img src="media/image02_09.png" width="30%"/></div>
 
 節点1, 2は並進自由度、節点3, 4は回転自由度
 
@@ -119,7 +119,7 @@ FrontISTRはメッシュデータをHEC-MWを使用して入力するので、�
 
 ### (3自由度節点による三角形シェル要素)
 
-<div style="text-align:center;"><img src="media/image02_11.png" width="50%"/></div>
+<div style="text-align:center;"><img src="media/image02_11.png" width="30%"/></div>
 
 節点1, 2, 3は並進自由度、節点4, 5, 6は回転自由度
 
@@ -139,7 +139,7 @@ FrontISTRはメッシュデータをHEC-MWを使用して入力するので、�
 
 ### (3自由度節点による四角形シェル要素)
 
-<div style="text-align:center;"><img src="media/image02_13.png" width="50%"/></div>
+<div style="text-align:center;"><img src="media/image02_13.png" width="30%"/></div>
 
 節点1, 2, 3, 4は並進自由度、節点5, 6, 7, 8は回転自由度
 
