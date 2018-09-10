@@ -22,27 +22,27 @@
 | EX05C    | 731        | ワイングラス(fine)   | 100,602 | 603,612 |
 
 <div style="text-align: center;">
-<img src="../media/image02_01.png" width="250px"><br>
+<img src="./media/image02_01.png" width="250px"><br>
 図 9.2.1　コンロッド（EX01A）
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image02_02.png" width="350px"><br>
+<img src="./media/image02_02.png" width="350px"><br>
 図 9.2.2　穴あきブロック（EX02）
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image02_03.png" width="350px"><br>
+<img src="./media/image02_03.png" width="350px"><br>
 図 9.2.3　タービンブレード（EX03，EX06）
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image02_04.png" width="350px"><br>
+<img src="./media/image02_04.png" width="350px"><br>
 図 9.2.4　円筒シェル（EX04，EX09）
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image02_05.png" width="200px"><br>
+<img src="./media/image02_05.png" width="200px"><br>
 図 9.2.5　ワイングラス（EX05，EX10A）
 </div>
 
@@ -53,22 +53,22 @@
 解析結果の例を図 9.2.6～図 9.2.9に示す。
 
 <div style="text-align: center;">
-<img src="../media/image02_06.png" width="350px"><br>
+<img src="./media/image02_06.png" width="350px"><br>
 図 9.2.6　 EX01A解析結果（Mises応力と変形図(10倍））
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image02_07.png" width="350px"><br>
+<img src="./media/image02_07.png" width="350px"><br>
 図 9.2.7　 EX02解析結果（Mises応力と変形図(100倍））
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image02_08.png" width="250px"><br>
+<img src="./media/image02_08.png" width="250px"><br>
 図 9.2.8　 EX03解析結果（変形図(10倍））
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image02_09.png" width="350px"><br>
+<img src="./media/image02_09.png" width="350px"><br>
 図 9.2.9　 EX04解析結果（変形図(100倍））
 </div>
 
@@ -84,17 +84,17 @@ FrontISTRと応力成分の最大値、最小値を比較した結果を図9.2.1
 図9.2.12には単一領域と8領域分割による解析結果の応力分布を示す。
 
 <div style="text-align: center;">
-<img src="../media/image02_10.png" width="350px"><br>
+<img src="./media/image02_10.png" width="350px"><br>
 図 9.2.10　 EX02における汎用ソフトとの応力成分の比較
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image02_11.png" width="350px"><br>
+<img src="./media/image02_11.png" width="350px"><br>
 図 9.2.11　 RCB法によるEX02の8領域分割結果
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image02_12.png" width="350px"><br>
+<img src="./media/image02_12.png" width="350px"><br>
 図 9.2.12　領域分割によるミゼス応力分布の相違
 </div>
 
@@ -116,7 +116,7 @@ FrontISTRと応力成分の最大値、最小値を比較した結果を図9.2.1
 | CG8      | 6.65 |
 
 <div style="text-align: center;">
-<img src="../media/image02_14.png" width="350px"><br>
+<img src="./media/image02_14.png" width="350px"><br>
 図 9.2.13　HEC-MWソルバーによる収束履歴の比較（収束判定閾値：1.0x10^-8^）
 </div>
 
@@ -131,7 +131,7 @@ FrontISTRと応力成分の最大値、最小値を比較した結果を図9.2.1
 結果を表9.2.3に示す。
 
 <div style="text-align: center;">
-<img src="../media/image02_15.png" width="350px"><br>
+<img src="./media/image02_15.png" width="350px"><br>
 図 9.2.14　領域分割による増速効果
 </div>
 

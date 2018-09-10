@@ -21,18 +21,18 @@ MathJax.Hub.Config({
 表 9.1.1～表 9.1.7にケース別検証結果を示す。
 
 <div style="text-align: center;">
-<img src="../media/image01_01.png" width="350px"><br>
+<img src="./media/image01_01.png" width="350px"><br>
 図 9.1.1　片持ち梁のメッシュ分割例（六面体要素）
 </div>
 
 |   |   |
 |---|---|
-|<img src="../media/image01_02.png" width="300px">|(a) exA,G：集中荷重|
-|<img src="../media/image01_03.png" width="300px">|(b) exD：重力|
-|<img src="../media/image01_04.png" width="300px">|(c) exB：面分布荷重|
-|<img src="../media/image01_05.png" width="300px">|(d) exE：遠心力|
-|<img src="../media/image01_06.png" width="300px">|(e) exC：体積荷重|
-|<img src="../media/image01_07.png" width="300px">|(f) exF：熱荷重|
+|<img src="./media/image01_02.png" width="300px">|(a) exA,G：集中荷重|
+|<img src="./media/image01_03.png" width="300px">|(b) exD：重力|
+|<img src="./media/image01_04.png" width="300px">|(c) exB：面分布荷重|
+|<img src="./media/image01_05.png" width="300px">|(d) exE：遠心力|
+|<img src="./media/image01_06.png" width="300px">|(e) exC：体積荷重|
+|<img src="./media/image01_07.png" width="300px">|(f) exF：熱荷重|
 
 | 項目 | 値 |
 |:--|:--|
@@ -199,7 +199,7 @@ MathJax.Hub.Config({
 非線形計算は、最終荷重1.0Pに対して、荷重増分値0.1P，10ステップとする。
 
 <div style="text-align: center;">
-<img src="../media/image01_08.png" width="350px"><br>
+<img src="./media/image01_08.png" width="350px"><br>
 図 9.1.3　検証モデル
 </div>
 
@@ -226,7 +226,7 @@ MathJax.Hub.Config({
 幾何学的非線形および複数の硬化則を取り入れ弾塑性変形解析を行った。図9.1.4に解析モデルを示す。
 
 <div style="text-align: center;">
-<img src="../media/image01_09.png" width="350px"><br>
+<img src="./media/image01_09.png" width="350px"><br>
 図9.1.4　弾塑性変形解析モデル
 </div>
 
@@ -290,7 +290,7 @@ MathJax.Hub.Config({
 図9.1.5に解析モデルを示す。
 
 <div style="text-align: center;">
-<img src="../media/image01_10.png" width="350px"><br>
+<img src="./media/image01_10.png" width="350px"><br>
 図9.1.5　接触解析モデル
 </div>
 
@@ -317,7 +317,7 @@ $$f_{c} = \mu(G \cos \alpha + F \sin \alpha)$$となる。
 また、接触面積は円柱の半径と比べ十分小さいと仮定し、問題の対称性も考慮して、円柱の四分の一モデルにより解析を行った。
 
 <div style="text-align: center;">
-<img src="../media/image01_11.png" width="350px"><br>
+<img src="./media/image01_11.png" width="350px"><br>
 図9.1.6　ヘルツ接触問題解析モデル
 </div>
 
@@ -335,7 +335,7 @@ $$E^{*} = E/2(1 - \mu^{2})$$
 図9.1.7では接触点の等価節点力を示している。この節点力分布を外挿して、接触半径が得られる。
 
 <div style="text-align: center;">
-<img src="../media/image01_12.png" width="512px"><br>
+<img src="./media/image01_12.png" width="512px"><br>
 図9.1.7　接触点の等価節点力分布
 </div>
 
@@ -354,7 +354,7 @@ $$\tau_{\max} = 15.6$$
 の計算結果が得られた。
 
 <div style="text-align: center;">
-<img src="../media/image01_13.png" width="350px"><br>
+<img src="./media/image01_13.png" width="350px"><br>
 図9.1.8　せん断応力分布（最大値=15.6）
 </div>
 
@@ -368,7 +368,7 @@ $$\tau_{\max} = 15.6$$
 また、検証結果を表9.1.9～表 9.1.12に示す。
 
 <div style="text-align: center;">
-<img src="../media/image01_14.png" width="350px"><br>
+<img src="./media/image01_14.png" width="350px"><br>
 図 9.1.9　検証モデル
 </div>
 
@@ -488,7 +488,7 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 表 9.1.13～表 9.1.20にケース別に検証結果である温度分布テーブルを示す。
 
 <div style="text-align: center;margin-top:3em;">
-<img src="../media/image01_15.png" width="350px"><br>
+<img src="./media/image01_15.png" width="350px"><br>
 </div>
 
 |   |   |
@@ -512,13 +512,13 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 |   |   |
 |---|---|
 |exM:線形材料| |
-|exN:規定温度問題|<img src="../media/image01_16.png" width="350px">|
-|exO:集中熱流束問題|<img src="../media/image01_17.png" width="350px">|
-|exP:分布熱流束問題|<img src="../media/image01_18.png" width="350px">|
-|exQ:対流熱伝達問題|<img src="../media/image01_19.png" width="350px">|
-|exR:輻射熱伝達問題|<img src="../media/image01_20.png" width="350px">|
-|exS:体積発熱問題|<img src="../media/image01_21.png" width="350px">|
-|exT:内部ギャップ問題|<img src="../media/image01_22.png" width="350px">|
+|exN:規定温度問題|<img src="./media/image01_16.png" width="350px">|
+|exO:集中熱流束問題|<img src="./media/image01_17.png" width="350px">|
+|exP:分布熱流束問題|<img src="./media/image01_18.png" width="350px">|
+|exQ:対流熱伝達問題|<img src="./media/image01_19.png" width="350px">|
+|exR:輻射熱伝達問題|<img src="./media/image01_20.png" width="350px">|
+|exS:体積発熱問題|<img src="./media/image01_21.png" width="350px">|
+|exT:内部ギャップ問題|<img src="./media/image01_22.png" width="350px">|
 
 <div style="text-align: center;margin-top:1em;">
 図 9.1.11　検証ケース別解析条件
@@ -695,11 +695,11 @@ exWでは(1)項と同様の片持ち梁を対象に線形動解析を行った�
 表9.1.22及び図 9.1.13～図 9.1.15に検証結果を示す。
 
 <div style="text-align: center;">
-<img src="../media/image01_23.png" width="350px"><br>
+<img src="./media/image01_23.png" width="350px"><br>
 解析モデル
 </div>
 <div style="text-align: center;">
-<img src="../media/image01_24.png" width="512px"><br>
+<img src="./media/image01_24.png" width="512px"><br>
 外力Fの時刻歴
 </div>
 
@@ -797,17 +797,17 @@ $$
 | W342_c0_ex_m2_t3 | 342 | 525 | 240 | 陽解法 | 1.9753 | 発散   |
 
 <div style="text-align: center;">
-<img src="../media/image01_25.png" width="512px"><br>
+<img src="./media/image01_25.png" width="512px"><br>
 図 9.1.13　片もち梁の変形図及び相当応力分布
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image01_26.png" width="512px"><br>
+<img src="./media/image01_26.png" width="512px"><br>
 (a) 要素タイプ 361:陰解法
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image01_27.png" width="512px"><br>
+<img src="./media/image01_27.png" width="512px"><br>
 (b) 要素タイプ 361:陽解法
 </div>
 
@@ -816,12 +816,12 @@ $$
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image01_28.png" width="512px"><br>
+<img src="./media/image01_28.png" width="512px"><br>
 (a) 要素タイプ 342:陰解法
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image01_29.png" width="512px"><br>
+<img src="./media/image01_29.png" width="512px"><br>
 (b) 要素タイプ 342:陽解法
 </div>
 
@@ -836,8 +836,8 @@ $$
 
 
 <div style="text-align: center;">
-<img src="../media/image01_30.png" width="350px">
-<img src="../media/image01_31.png" width="350px">
+<img src="./media/image01_30.png" width="350px">
+<img src="./media/image01_31.png" width="350px">
 </div>
 
 解析条件:
@@ -867,6 +867,6 @@ $$
 | 5 | 127054 | 126852 |
 
 <div style="text-align: center;">
-<img src="../media/image01_32.png" width="512px"><br>
+<img src="./media/image01_32.png" width="512px"><br>
 図 9.1.16　加振点の変位強度の周波数依存性
 </div>

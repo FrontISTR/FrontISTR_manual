@@ -4,7 +4,8 @@
 
 The input and output file of the structural analysis code FrontISTR is shown in Figure 3.1.1.
 
-![Figure 3.1.1:FronntISTR Input/Output File](media/image01_01.png)
+<div style="text-align:center;"><img alt="Figure 3.1.1:FronntISTR Input/Output File" src="media/image01_01.png" width="80%"></div>
+
 **Figure 3.1.1:FronntISTR Input/Output File**
 
 FrontISTR requires three files, such as the overall control data, mesh data and analysis control data as input files. When analyzing the overall model with a single CPU, the single domain mesh file is used. When performing parallel execution with multiple CPUs, the distributed domain mesh data as a result of performing domain partitioning of the single domain mesh data in advance by the `hecmw_part` program which is the partitioner of *HEC-MW* in used. The overall control data, analysis control data and single domain mesh data are text data. The user can create and edit using the proper editor, according to the description in this manual. The user can also create files using `neu2fstr` which converts a neutral file (`*.neu`) supported by Femap which is a pre-post processor sold commercially as an attachment tool for FrontISTR, into FrontISTR input data.

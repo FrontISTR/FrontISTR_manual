@@ -8,7 +8,7 @@ MathJax.Hub.Config({
   displayAlign: "center"
 });
 </script>
-<script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 # 7. 解析制御データ
 
@@ -16,7 +16,7 @@ MathJax.Hub.Config({
 
 FrontISTRは、解析制御データファイルを入力して、下図に示す計算制御データ、ソルバー制御データおよびポスト処理（可視化）制御データを取得し、解析計算を実施する。
 
-![解析制御データ](media/image05_01.png){width="6.768055555555556in" height="2.4944444444444445in"}
+<div style="text-align:center;"><img alt="解析制御データ" src="media/image05_01.png" width="50%"/></div>
 
 解析制御データファイルの特徴は以下のとおりである。
 
@@ -1239,7 +1239,7 @@ DEFINITION = COORDINATES (Default値)/NODES
 |------------|-------|--------|
 | a, b, c    | R     |節点番号|
 
-![Orientation](media/image05_02.png)
+<div style="text-align:center;"><img alt="Orientation" src="media/image05_02.png" width="50%"/></div>
 
 #### `!SECTION` (1-11)
 
@@ -2894,8 +2894,7 @@ METHOD = PSR             : サーフェスレンダリング
 
 例: 図7.4.1は4つのサーフェスがあり、2つは等値面でpressure=1000.0 とpressure=-1000.0、 2つは平面の切り口で z= -1.0 とz= 1.0である。
 
-![](media/image05_03.png){width="1.6069444444444445in"
-height="1.6666666666666667in"}
+<div style="text-align:center;"><img src="media/image05_03.png" width="50%"/></div>
 
 図7.4.1 `surface_num`の設定例
 
@@ -2905,8 +2904,7 @@ height="1.6666666666666667in"}
 
 例： 図7.4.2は4つのサーフェスがありその内容は以下の通りである。
 
-![](media/image05_04.png){width="2.5069444444444446in"
-height="2.3194444444444446in"}
+<div style="text-align:center;"><img src="media/image05_04.png" width="50%"/></div>
 
 図7.4.2 `surface`の設定例
 
@@ -2935,8 +2933,7 @@ height="2.3194444444444446in"}
   2. 等値面
   3. 任意の2次曲面<br/>coef\[1\]x2 + coef\[2\]y2 + coef\[3\]z2 + coef\[4\]xy + coef\[5\]xz<br/>+ coef\[6\]yz + coef\[7\]x + coef\[8\]y + coef\[9\]z + coef\[10\]=0
 
-![](media/image05_05.png){width="6.768055555555556in"
-height="2.089583333333333in"}
+<div style="text-align:center;"><img src="media/image05_05.png" width="80%"/></div>
 
 図7.4.3　surface/styleの設定例
 
@@ -2950,8 +2947,7 @@ height="2.089583333333333in"}
   4. 指定色一色の表示
   5. 色分けにによる等値線表示
 
-![](media/image05_06.png){width="6.768055555555556in"
-height="4.853472222222222in"}
+<div style="text-align:center;"><img src="media/image05_06.png" width="80%"/></div>
 
 図7.4.4　display_methodの設定例
 
@@ -3014,8 +3010,7 @@ Then you can define which one you hope to map into color by
 |----------|------|--------|------|
 | 自由度数 | 3    | 6      | 7    |
 
-![](media/image05_07.png){width="6.415277777777778in"
-height="2.6083333333333334in"}
+<div style="text-align:center;"><img src="media/image05_07.png" width="80%"/></div>
 
 図7.4.5 `color_comp`, `color_subcomp`および`color_comp_name`の設定例
 
@@ -3023,7 +3018,7 @@ height="2.6083333333333334in"}
 
 `display_method=2`,`3`または`5`の時
 
-![](media/image05_08.png){width="6.768055555555556in" height="2.2875in"}
+<div style="text-align:center;"><img src="media/image05_08.png" width="80%"/></div>
 
 図7.4.6 `isoline_number`と`isoline_color`の設定例
 
@@ -3045,13 +3040,11 @@ Default: 自動
 
 `standard_scale` = 0.1 * sqrt(`x_range`<sup>2</sup> + `y_range`<sup>2</sup> + `z_range`<sup>2</sup>) / `max_deform`
 
-![](media/image05_09.png){width="6.554166666666666in"
-height="8.316666666666666in"}
+<div style="text-align:center;"><img src="media/image05_09.png" width="80%"/></div>
 
 図7.4.7 `display_styles`の設定例
 
-![](media/image05_10.png){width="6.768055555555556in"
-height="6.909722222222222in"}
+<div style="text-align:center;"><img src="media/image05_10.png" width="50%"/></div>
 
 図7.4.8 `deform_scale`の設定例
 
@@ -3070,8 +3063,7 @@ BIN_COMPLETE_AVS      : COMPLETE_AVSをバイナリー形式で出力する
 FSTR_FEMAP_NEUTRAL    : FEMAP用ニュートラルファイル
 ```
 
-![](media/image05_11.png){width="6.4527777777777775in"
-height="2.717361111111111in"}
+<div style="text-align:center;"><img src="media/image05_11.png" width="80%"/></div>
 
 図7.4.9　output_typeの例
 
@@ -3079,8 +3071,7 @@ height="2.717361111111111in"}
 
 `output_type=BMP`の時、解像度を指定する。
 
-![](media/image05_12.png){width="6.552083333333333in"
-height="2.7159722222222222in"}
+<div style="text-align:center;"><img src="media/image05_12.png" width="80%"/></div>
 
 図7.4.10 `x_resolution`と`y_resolution`の設定例
 
@@ -3110,11 +3101,10 @@ View coordinate frame:
               y軸     : z axis × x axis
 ```
 
-![](media/image05_15.png){width="6.603472222222222in"
-height="4.204861111111111in"}
+<div style="text-align:center;"><img src="media/image05_15.png" width="50%"/></div>
 図7.4.11　ビューフレームの決定法
 
-![](media/image05_13.png){width="6.3625in" height="2.486111111111111in"}
+<div style="text-align:center;"><img src="media/image05_13.png" width="80%"/></div>
 図7.4.12 `!viewpoint`, `!look_at_point`と`up_direction`の設定例
 
 #### `!ambient_coef`, `!diffuse_coef`, `!specular_coef` (P2-8, P2-9, P2-10)
@@ -3123,7 +3113,7 @@ height="4.204861111111111in"}
 
 `ambient_coef`を増加すると3次元の奥行き方向の情報が損なわれる。
 
-![](media/image05_14.png){width="6.3625in" height="2.486111111111111in"}
+<div style="text-align:center;"><img src="media/image05_14.png" width="80%"/></div>
 
 図7.4.13 照明モデルパラメータの設定例
 
@@ -3140,7 +3130,7 @@ height="4.204861111111111in"}
                          (省略値: 3)
 ```
 
-![](media/image05_16.png){width="6.768055555555556in" height="2.7875in"}
+<div style="text-align:center;"><img src="media/image05_16.png" width="80%"/></div>
 
 図7.4.14 `color_mapping_bar`の表示の例
 
@@ -3148,8 +3138,7 @@ height="4.204861111111111in"}
 
 背景色や文字フォントを指定する。
 
-![](media/image05_17.png){width="6.768055555555556in"
-height="2.9097222222222223in"}
+<div style="text-align:center"><img src="media/image05_17.png" width="80%"/></div>
 
 図7.4.15 `background`と`font`の設定例
 
@@ -3157,14 +3146,22 @@ height="2.9097222222222223in"}
 
 `surface_style=2`の時、可視化する等値面の物理量を指定する。
 
-![](media/image05_18.png){width="6.768055555555556in"
-height="2.4944444444444445in"}
+<div style="text-align:center;"><img src="media/image05_18.png" width="80%"/></div>
 
 図7.4.16 `data_comp`, `data_subcomp`及び`data_comp_name`の設定例
 
 #### `!method` (P4-1)
 
 面との切り口を指定する際、その面の設定方法を指定する。
+
+```
+!surface_num =2
+!surface
+!surface_style=3
+!method=5
+!coef=0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, -0.35
+!color_comp_name = temperature
+```
 
 図7.4.17 `method`の設定例
 

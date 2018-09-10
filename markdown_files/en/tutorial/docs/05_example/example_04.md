@@ -15,23 +15,23 @@ Table 9.4.1: Verification Example of Actual Model for Heat Conduction Analysis
 | EX21C    | 361        |                                       | 1,205,765 | 1,159,200 |
 
 <div style="text-align: center;">
-<img src="../media/image04_01.png" width="350px"><br>
+<img src="./media/image04_01.png" width="350px"><br>
 Figure 9.4.1: Spent Nuclear Fuel Shipping Container<br>
 Reference: Transport Engineering of Nuclear Fuel Materials (Nikkan Kogyo Shimbun) 1998
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image04_02.png" width="350px"><br>
+<img src="./media/image04_02.png" width="350px"><br>
 Figure 9.4.2: Dimensions of Spent Nuclear Fuel Shipping Container
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image04_03.png" width="350px"><br>
+<img src="./media/image04_03.png" width="350px"><br>
 Figure 9.4.3: Conceptual Diagram of Model
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image04_04.png" width="350px"><br>
+<img src="./media/image04_04.png" width="350px"><br>
 Figure 9.4.4: Model Boundary Conditions and Mesh Partitioning Figure (EX21A)
 </div>
 
@@ -40,16 +40,16 @@ Figure 9.4.4: Model Boundary Conditions and Mesh Partitioning Figure (EX21A)
 An example of the analysis results is shown in Figure 9.4.5 ~ Figure 9.4.7.
 
 <div style="text-align: center;">
-<img src="../media/image04_05.png" width="512px"><br>
+<img src="./media/image04_05.png" width="512px"><br>
 Figure 9.4.5: Temperature Distribution Figure
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image04_06.png" width="512px"><br>
+<img src="./media/image04_06.png" width="512px"><br>
 Figure 9.4.6: Distributed Model Figure
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image04_07.png" width="512px"><br>
+<img src="./media/image04_07.png" width="512px"><br>
 Figure 9.4.7: Level of Speed Improvement by Distribution Process
 </div>

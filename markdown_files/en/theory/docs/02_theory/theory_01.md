@@ -13,7 +13,7 @@ MathJax.Hub.Config({
   displayAlign: "center"
 });
 </script>
-<script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 # Infinitesimal Deformation Linear Elasticity Static Analysis
 
@@ -46,7 +46,7 @@ $$
 
 Herein, $\sigma$ is the stress, $\overline{t}$ is the surface force, $\overline{b}$ is the body force, and $S_t$ expresses the dynamic boundary and $S_u$ expresses the geometric boundary.
 
-![Figure 2.1.1 Boundry Value Problem in Solid Mechanics(Infinitesimal Deformation Problem)](media/image01_01.png)
+<div style="text-align:center;"><img alt="Figure 2.1.1 Boundry Value Problem in Solid Mechanics(Infinitesimal Deformation Problem)" src="media/image01_01.png" width="30%"/></div>
 
 ** Figure 2.1.1 Boundry Value Problem in Solid Mechanics(Infinitesimal Deformation Problem) **
 

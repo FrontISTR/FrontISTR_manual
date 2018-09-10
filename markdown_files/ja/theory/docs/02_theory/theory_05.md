@@ -13,7 +13,7 @@ MathJax.Hub.Config({
   displayAlign: "center"
 });
 </script>
-<script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 # 固有値解析
 
@@ -73,7 +73,7 @@ $$
 
 係数$\lambda$を固有値、ベクトル$x$を固有ベクトルと呼び、これらを式$\eqref{eq:2.3.1}$から求める問題を一般化固有値問題と呼ぶ。
 
-![](media/image05_01.png)
+<div style="text-align:center;"><img src="media/image05_01.png" width="80%"></div>
 
 図 2.3.1　減衰のない自由振動の多自由度系の例
 
@@ -171,7 +171,7 @@ $$
 
 適当なベクトル $q_0$に対して行列$A$による一次変換を行う（図2.3.2参照）。
 
-![](media/image05_02.png)
+<div style="text-align:center;"><img src="media/image05_02.png" width="70%"></div>
 図 2.3.2　行列$A$による$q_0$の一次変換
 
 変換されたベクトルは、元のベクトルとつくる空間の中で直交化される。
@@ -182,10 +182,11 @@ $$
 同様の計算を続けると互いに直交するベクトルが最大行列の次数まで求まる。
 
 
-![](media/image05_03.png)
+<div style="text-align:center;"><img src="media/image05_03.png" width="70%"></div>
 図 2.3.3　 $q_0$に直交なベクトル$q_1$
 
-![](media/image05_04.png)
+<div style="text-align:center"><img src="media/image05_04.png" width="70%"></div>
+
 図 2.3.4　 $q_1$と$q_0$に直交なベクトル$q_2$
 
 特にランチョス法の算法はベクトル列 $A q_0$, $A q_1$, $A q_2$

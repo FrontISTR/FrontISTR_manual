@@ -7,12 +7,12 @@ Data of `tutorial/03_hyperelastic_cylinder/` is used to implement this analysis.
 The object for analysis is a 1/8 model of a cylinder. The shape is shown in Figure 4.3.1, and the mesh data is shown in Figure 4.3.2. Hexahedral linear elements are used for the mesh, and the scale of the mesh consists of 432 elements and 629 nodes.
 
 <div style="text-align: center;">
-<img src="../media/image03_01.png" width="350px"><br>
+<img src="./media/image03_01.png" width="350px"><br>
 Figure 4.3.1 : Shape of Cylinder (1/8 Model)
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image03_02.png" width="350px"><br>
+<img src="./media/image03_02.png" width="350px"><br>
 Figure 4.3.2: Mesh Data of Cylinder (1/8 model)
 </div>
 
@@ -53,7 +53,7 @@ Stress analysis is implemented where tension displacement is applied to the cyli
 As analysis results of the 5th sub step, a deformed figure applied with a contour of the Mises stress was created by REVOCAP\_PrePost, and is shown in Figure 4.3.3. Moreover, a portion of the analysis results log file is shown in the following as numeric data of the analysis results.
 
 <div style="text-align: center;">
-<img src="../media/image03_03.png" width="350px"><br>
+<img src="./media/image03_03.png" width="350px"><br>
 Figure 4.3.3: Analysis Results of Deformation and Mises Stress
 </div>
 

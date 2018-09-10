@@ -56,7 +56,7 @@ The necking phenomenon of the cylinder by plastic deformation is analyzed. The M
 As analysis results of the 35th sub step, a deformed figure applied with a contour of the Mises stress was created by REVOCAP\_PrePost, and is shown in Figure 4.5.1. Moreover, a portion of the analysis results log file is shown in the following as numeric data of the analysis results.
 
 <div style="text-align: center;">
-<img src="../media/image05_01.png" width="350px"><br>
+<img src="./media/image05_01.png" width="350px"><br>
 Figure 4.5.1: Analysis Results of Deformation and Mises Stress
 </div>
 

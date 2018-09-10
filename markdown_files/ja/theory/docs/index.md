@@ -33,12 +33,12 @@
 ## 本マニュアルの記載内容
 
 - 静的解析
-    - [微小変形線形弾性静解析](./02_theory/theory_01)
-    - [非線形静解析手法](./02_theory/theory_02)
+    - [微小変形線形弾性静解析](./02_theory/theory_01.md)
+    - [非線形静解析手法](./02_theory/theory_02.md)
 - 動的解析
-    - [動的解析手法](./02_theory/theory_03)
-    - [固有値解析](./02_theory/theory_05)
-    - [周波数応答解析](./02_theory/theory_06)
-- [熱伝導解析](./02_theory/theory_04)
-- [参考文献](./02_theory/theory_07)
+    - [動的解析手法](./02_theory/theory_03.md)
+    - [固有値解析](./02_theory/theory_05.md)
+    - [周波数応答解析](./02_theory/theory_06.md)
+- [熱伝導解析](./02_theory/theory_04.md)
+- [参考文献](./02_theory/theory_07.md)
 

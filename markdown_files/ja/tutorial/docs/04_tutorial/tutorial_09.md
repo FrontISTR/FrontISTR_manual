@@ -9,12 +9,12 @@
 図4.9.1　解析対象の形状　　　　　　図4.9.2　解析対象のメッシュデータ
 
 <div style="text-align: center;">
-<img src="../media/image09_01.png" width="350px"><br>
+<img src="./media/image09_01.png" width="350px"><br>
 図4.9.1　解析対象の形状
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image09_02.png" width="350px"><br>
+<img src="./media/image09_02.png" width="350px"><br>
 図4.9.2　解析対象のメッシュデータ
 </div>
 
@@ -27,7 +27,7 @@
 5サブステップ目の解析結果について、y方向変位のコンターを付加した変形図をREVOCAP\_PrePostで作成して図4.9.3に示します。また、解析結果の数値データとして、解析結果ログファイルの一部を以下に示します。
 
 <div style="text-align: center;">
-<img src="../media/image09_03.png" width="350px"><br>
+<img src="./media/image09_03.png" width="350px"><br>
 図4.9.3　変形およびy方向変位の解析結果
 </div>
 

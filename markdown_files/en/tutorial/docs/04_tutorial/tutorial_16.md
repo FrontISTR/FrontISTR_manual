@@ -7,12 +7,12 @@ Data of `tutorial/16_heat_block/` is used to implement this analysis.
 A block with a hole is the object of the analysis. The shape is shown in Figure 4.16.1, and the mesh data is shown in Figure 4.16.2. Hexahedral linear elements are used for the mesh, and the scale of the mesh consists of 32,160 elements and 37,386 nodes.
 
 <div style="text-align: center;">
-<img src="../media/image16_01.png" width="350px"><br>
+<img src="./media/image16_01.png" width="350px"><br>
 Figure 4.16.1: Shape of Block with Hole
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image16_02.png" width="350px"><br>
+<img src="./media/image16_02.png" width="350px"><br>
 Figure 4.16.2: Mesh Data of Block with Hole
 </div>
 
@@ -52,7 +52,7 @@ A temperature contour figure was created by REVOCAP\_PrePost, and is shown in Fi
 data of the analysis results.
 
 <div style="text-align: center;">
-<img src="../media/image16_03.png" width="350px"><br>
+<img src="./media/image16_03.png" width="350px"><br>
 Figure 4.16.3: Temperature Analysis Results
 </div>
 

@@ -7,12 +7,12 @@
 解析は円筒の押し込み問題で、解析対象の形状を図4.10.1に、メッシュデータを図4.10.2に示します。メッシュには六面体1次要素を用い、メッシュ規模は要素数2,888、節点数4,000です。
 
 <div style="text-align: center;">
-<img src="../media/image10_01.png" width="350px"><br>
+<img src="./media/image10_01.png" width="350px"><br>
 図4.10.1　解析対象の形状
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image10_02.png" width="350px"><br>
+<img src="./media/image10_02.png" width="350px"><br>
 図4.10.2　解析対象のメッシュデータ
 </div>
 
@@ -26,6 +26,6 @@
 また、解析結果の数値データとして、解析結果ログファイルの一部を以下に示します。
 
 <div style="text-align: center;">
-<img src="../media/image10_03.png" width="350px"><br>
+<img src="./media/image10_03.png" width="350px"><br>
 図4.10.3　変形およびミーゼス応力の解析結果
 </div>

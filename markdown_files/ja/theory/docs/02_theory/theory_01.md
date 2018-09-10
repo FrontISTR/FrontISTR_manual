@@ -13,7 +13,7 @@ MathJax.Hub.Config({
   displayAlign: "center"
 });
 </script>
-<script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 ## 微小変形線形弾性静解析
 
@@ -46,7 +46,7 @@ $$
 
 ここで、$\sigma$は応力、$\overline{t}$は表面力、$S_t$は物体力であり、$S_t$は力学的境界、$S_u$は幾何学的境界を表す。
 
-![](media/image01_01.png)
+<div style="text-align:center;"><img src="media/image01_01.png" width="30%"/></div>
 
 図 2.1.1 固体力学における境界値問題(微小変形問題)
 

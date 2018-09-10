@@ -15,6 +15,6 @@
 35サブステップ目の解析結果について、ミーゼス応力のコンターを付加した変形図をREVOCAP\_PrePostで作成して図4.5.1に示します。また、解析結果の数値データとして、解析結果ログファイルの一部を以下に示します。
 
 <div style="text-align: center;">
-<img src="../media/image05_01.png" width="350px"><br>
+<img src="./media/image05_01.png" width="350px"><br>
 図4.5.1　変形およびミーゼス応力の解析結果
 </div>

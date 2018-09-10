@@ -7,12 +7,12 @@ Data of `tutorial/09_contact_hertz/` is used to implement this analysis.
 The Hertz contact problem was applied in this analysis. The shape of the analysis object is shown in Figure 4.9.1, and the mesh data is shown in Figure 4.9.2. Hexahedral linear elements are used for the mesh, and the scale of the mesh consists of 168 elements and 408 nodes.
 
 <div style="text-align: center;">
-<img src="../media/image09_01.png" width="350px"><br>
+<img src="./media/image09_01.png" width="350px"><br>
 Figure 4.9.1: Shape of Analysis Object
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image09_02.png" width="350px"><br>
+<img src="./media/image09_02.png" width="350px"><br>
 Figure 4.9.2: Mesh Data of Analysis Object
 </div>
 
@@ -50,7 +50,7 @@ As analysis results of the 5th sub step, a deformed figure applied with a contou
 data of the analysis results.
 
 <div style="text-align: center;">
-<img src="../media/image09_03.png" width="350px"><br>
+<img src="./media/image09_03.png" width="350px"><br>
 Figure 4.9.3: Analysis Results of Deformation and y Direction Displacement
 </div>
 

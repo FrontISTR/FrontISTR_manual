@@ -16,6 +16,6 @@
 Excelで作成して図4.13.1に示します。また、解析結果の数値データとして、モニタリング節点の変位出力ファイル（dyna\_disp\_p1.out）の一部を以下に示します。
 
 <div style="text-align: center;">
-<img src="../media/image13_01.png" width="350px"><br>
+<img src="./media/image13_01.png" width="350px"><br>
 図4.13.1　モニタリング節点の変位時系列
 </div>

@@ -8,12 +8,12 @@ A cantilever beam is the object of the analysis. The shape is shown in Figure 4.
 mesh data is shown in Figure 4.12.2. Quadratic tetrahedral elements are used for the mesh, and the scale of the mesh consists of 240 elements and 525 nodes.
 
 <div style="text-align: center;">
-<img src="../media/image12_01.png" width="350px"><br>
+<img src="./media/image12_01.png" width="350px"><br>
 Figure 4.12.1: Shape of Cantilever Beam
 </div>
 
 <div style="text-align: center;">
-<img src="../media/image12_02.png" width="350px"><br>
+<img src="./media/image12_02.png" width="350px"><br>
 Figure 4.12.2: Mesh Data of Cantilever Beam
 </div>
 
@@ -53,7 +53,7 @@ A linear dynamic analysis is implemented, after the displacement of the restrain
 A time sequence display of the displacement of the monitoring node (load node, node number 3121) specified by the analysis control data was created in Microsoft Excel, and is shown in Figure 4.12.3. A portion of the displacement output file (dyna_disp_p1.out) of the monitoring node is shown in the following as numeric data of the analysis results.
 
 <div style="text-align: center;">
-<img src="../media/image12_03.png" width="350px"><br>
+<img src="./media/image12_03.png" width="350px"><br>
 Figure 4.12.3: Displacement Time Sequence of Monitoring Node
 </div>
 

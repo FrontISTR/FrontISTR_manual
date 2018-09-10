@@ -33,17 +33,17 @@ In FrontISTR, the element groups shows in Table 4.1.1 can be used for analysis. 
 |                  | 781         | Four node three-dimensional linear element (with eight 3-dof nodes) |
 
 
-![Figure 4.1.1: Element Library](media/image02_01.png)
+<div style="text-align:center;"><img alt="Figure 4.1.1: Element Library" src="media/image02_01.png" width="50%"></div>
 
 **Figure 4.1.1: Element Library**
 
 ### (Line Element)
 
-![Line Element](media/image02_02.png)
+<div style="text-align:center;"><img alt="Line Element" src="media/image02_02.png" width="50%"></div>
 
 ### (Triangular Plane Element)
 
-![Triangular Plane Element](media/image02_03.png)
+<div style="text-align:center;"><img alt="Triangular Plane Element" src="media/image02_03.png" width="50%"></div>
 
 | Surface No. | Linear | Quadratic |
 |-------------|--------|-----------|
@@ -53,7 +53,7 @@ In FrontISTR, the element groups shows in Table 4.1.1 can be used for analysis. 
 
 ### (Quadrilateral Plane Element)
 
-![Quadrilateral Plane Element](media/image02_04.png)
+<div style="text-align:center;"><img alt="Quadrilateral Plane Element" src="media/image02_04.png" width="50%"></div>
 
 | Surface No. | Linear | Quadratic |
 |-------------|--------|-----------|
@@ -64,7 +64,7 @@ In FrontISTR, the element groups shows in Table 4.1.1 can be used for analysis. 
 
 ### (Tetrahedral Element)
 
-![Tetrahedral Element](media/image02_05.png)
+<div style="text-align:center;"><img alt="Tetrahedral Element" src="media/image02_05.png" width="50%"></div>
 
 |Surface No. | Linear    | Quadratic              |
 |------------|-----------|------------------------|
@@ -75,7 +75,7 @@ In FrontISTR, the element groups shows in Table 4.1.1 can be used for analysis. 
 
 ### (Pentahedral Element)
 
-![Pentahedral Element](media/image02_06.png)
+<div style="text-align:center;"><img alt="Pentahedral Element" src="media/image02_06.png" width="50%"></div>
 
 | Surface No. | Linear        | Quadratic                         |
 |-------------|---------------|-----------------------------------|
@@ -87,7 +87,7 @@ In FrontISTR, the element groups shows in Table 4.1.1 can be used for analysis. 
 
 ### (Hexahedral Element)
 
-![Hexahedral Element](media/image02_07.png)
+<div style="text-align:center;"<img alt="Hexahedral Element" src="media/image02_07.png" width="50%"></div>
 
 | Surface No. | Linear        | Quadratic                         |
 |-------------|---------------|-----------------------------------|
@@ -100,17 +100,17 @@ In FrontISTR, the element groups shows in Table 4.1.1 can be used for analysis. 
 
 ### (Beam Element)
 
-![Beam Element](media/image02_08.png)
+<div style="text-align:center;"><img alt="Beam Element" src="media/image02_08.png" width="30%"/></div>
 
 ### (Beam Element with 3-dof nodes)
 
-![Beam Element with 3-dof nodes](media/image02_09.png)
+<div style="text-align:center;"><img alt="Beam Element with 3-dof nodes" src="media/image02_09.png" width="30%"/></div>
 
 Nodes 1 and 2 for translational DOF, nodes 3 and 4 for rotational DOF.
 
 ### (Triangular Shell Element)
 
-![Triangular Shell Element](media/image02_10.png)
+<div style="text-align:center;"><img alt="Triangular Shell Element" src="media/image02_10.png" width="50%"/></div>
 
 | Surface No. |  Linear             | Quadratic                       |
 |-------------|---------------------|---------------------------------|
@@ -119,7 +119,7 @@ Nodes 1 and 2 for translational DOF, nodes 3 and 4 for rotational DOF.
 
 ### (Triangular Shell Element with 3-dof nodes)
 
-![Triangular Shell Element with 3-dof nodes](media/image02_11.png)
+<div style="text-align:center;"><img alt="Triangular Shell Element with 3-dof nodes" src="media/image02_11.png" width="30%"/></div>
 
 Node 1, 2 and 3 for translational DOF, nodes 4, 5 and 6 for rotational DOF.
 
@@ -130,7 +130,7 @@ Node 1, 2 and 3 for translational DOF, nodes 4, 5 and 6 for rotational DOF.
 
 ### (Quadrilateral Shell Element)
 
-![Quadrilateral Shell Element](media/image02_12.png)
+<div style="text-align:center;"><img alt="Quadrilateral Shell Element" src="media/image02_12.png" width="50%"/></div>
 
 | Surface No. | Linear                  | Quadratic                               |
 |-------------|-------------------------|-----------------------------------------|
@@ -139,7 +139,7 @@ Node 1, 2 and 3 for translational DOF, nodes 4, 5 and 6 for rotational DOF.
 
 ### (Quadrilateral shell Element with 3-dof nodes)
 
-![Quadrilateral shell Element with 3-dof nodes](media/image02_13.png)
+<div style="text-align:center;"><img alt="Quadrilateral shell Element with 3-dof nodes" src="media/image02_13.png" width="30%"/></div>
 
 Nodes 1, 2, 3 and 4 for translational DOF, nodes 5, 6, 7 and 8 for rotational DOF.
 
