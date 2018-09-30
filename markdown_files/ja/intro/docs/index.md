@@ -16,10 +16,17 @@
 ## マニュアルリスト
 
 - [イントロダクション](./index.md)
+<<<<<<< HEAD
 - [インストールマニュアル](../ja/markdown_files/install/index.md)
 - [理論マニュアル](../ja/markdown_files/theory/index.md)
 - [解析マニュアル](../ja/markdown_files/analysis/index.md)
 - [チュートリアル](../ja/markdown_files/tutorial/index.md)
+=======
+- [インストールマニュアル](../install/index.md)
+- [理論マニュアル](../theory/index.md)
+- [解析マニュアル](../analysis/index.md)
+- [チュートリアル](../tutorial/index.md)
+>>>>>>> 2355e2c572229b87345f60887eba0feee8334f15
 
 <!-- ここまでテンプレート -->
 ---
