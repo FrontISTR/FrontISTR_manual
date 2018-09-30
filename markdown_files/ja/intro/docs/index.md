@@ -16,10 +16,10 @@
 ## マニュアルリスト
 
 - [イントロダクション](./index.md)
-- [インストールマニュアル](../../install/index.md)
-- [理論マニュアル](../../theory/index.md)
-- [解析マニュアル](../../analysis/index.md)
-- [チュートリアル](../../tutorial/index.md)
+- [インストールマニュアル](../markdown_files/ja/install/index.md)
+- [理論マニュアル](../markdown_files/ja/theory/index.md)
+- [解析マニュアル](../markdown_files/ja/analysis/index.md)
+- [チュートリアル](../markdown_files/ja/tutorial/index.md)
 
 <!-- ここまでテンプレート -->
 ---
@@ -31,9 +31,9 @@
 - 概要
     - [クイックスタートガイド]()
 - マニュアル
-    - [インストールマニュアル]()
-    - [理論マニュアル]()
-    - [解析マニュアル]()
-    - [チュートリアル]()
+    - [インストールマニュアル](../markdown_files/ja/install/index.md)
+    - [理論マニュアル](../markdown_files/ja/theory/index.md)
+    - [解析マニュアル](../markdown_files/ja/analysis/index.md)
+    - [チュートリアル](../markdown_files/ja/tutorial/index.md)
 - [リリースノート](./A1_release_note/00_release_note.md)
 - [チートシート (コマンド早見表)](./A2_cheat_sheet/00_cheat_sheet.md)
