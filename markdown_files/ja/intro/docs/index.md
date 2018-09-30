@@ -16,17 +16,10 @@
 ## マニュアルリスト
 
 - [イントロダクション](./index.md)
-<<<<<<< HEAD
-- [インストールマニュアル](../ja/markdown_files/install/index.md)
-- [理論マニュアル](../ja/markdown_files/theory/index.md)
-- [解析マニュアル](../ja/markdown_files/analysis/index.md)
-- [チュートリアル](../ja/markdown_files/tutorial/index.md)
-=======
-- [インストールマニュアル](../install/index.md)
-- [理論マニュアル](../theory/index.md)
-- [解析マニュアル](../analysis/index.md)
-- [チュートリアル](../tutorial/index.md)
->>>>>>> 2355e2c572229b87345f60887eba0feee8334f15
+- [インストールマニュアル](../markdonw_files/ja/install/index.md)
+- [理論マニュアル](../markdonw_files/ja/theory/index.md)
+- [解析マニュアル](../markdonw_files/ja/analysis/index.md)
+- [チュートリアル](../markdonw_files/ja/tutorial/index.md)
 
 <!-- ここまでテンプレート -->
 ---
@@ -38,9 +31,9 @@
 - 概要
     - [クイックスタートガイド]()
 - マニュアル
-    - [インストールマニュアル](../../install/index.md)
-    - [理論マニュアル](../../theory/index.md)
-    - [解析マニュアル](../../analysis/index.md)
-    - [チュートリアル](../../tutorial/index.md)
+    - [インストールマニュアル](../markdonw_files/ja/install/index.md)
+    - [理論マニュアル](../markdonw_files/ja/theory/index.md)
+    - [解析マニュアル](../markdonw_files/ja/analysis/index.md)
+    - [チュートリアル](../markdonw_files/ja/tutorial/index.md)
 - [リリースノート](./A1_release_note/00_release_note.md)
 - [チートシート (コマンド早見表)](./A2_cheat_sheet/00_cheat_sheet.md)
