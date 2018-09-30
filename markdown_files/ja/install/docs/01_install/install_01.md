@@ -90,7 +90,7 @@ BLASのリファレンス実装は下記WEBサイトからダウンロードす�
 MUltifrontal Massively Parallel sparse direct
 Solver）に対応しています。MUMPSは、Esprit IV European project PARASOL
 (1996-1999)で開発されたソフトウェアをベースとし、CERFACS, CNRS, ENS
-Lyon, INPT(ENSEEIHT)-IRIT, INRIA, および University of
+Lyon, INPT(ENSEEIHT)-IRIT, INRIA および University of
 Bordeauxの各機関により研究開発されたものです。MUMPSは下記のWEBサイトからダウンロードすることができます。
 
 [http://mumps.enseeiht.fr/](http://mumps.enseeiht.fr/)
@@ -137,4 +137,3 @@ MLは下記のWEBサイトからダウンロードすることができます。
 | Intel Core i7 PC<br> ubuntu 16.04 | GNU Compiler | OpenMPI-1.10.2|
 | PC<br> Windows 7 <br> Windows 10 | GNU Compiler | Microsoft MPI-8.1 |
 | SBC<br> Raspberry Pi 3| GNU Compiler | OpenMPI-2.0.2 |
-
