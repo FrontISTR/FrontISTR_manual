@@ -1,5 +1,5 @@
 ﻿site_name: FrontISTR ver. 5.0
-theme: 
+theme:
     name: readthedocs
     highlightjs: true
     hljs_languages:
@@ -17,5 +17,4 @@ pages:
     - 解析マニュアル: index.md
     - チュートリアル: index.md
 - リリースノート: A1_release_note/00_release_note.md
-- リリーススケジュール: A1_release_note/01_release_schedule.md
 - チートシート: A2_cheat_sheet/00_cheat_sheet.md
