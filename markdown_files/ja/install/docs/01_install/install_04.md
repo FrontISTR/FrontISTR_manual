@@ -67,11 +67,11 @@ $ cmake -DCMAKE_INSTALL_PREFIX=$HOME/local ..
 
 ```
 $ ./fistr1 -v
-FrontISTR version 5.0.0 (2d3fdb51979459c7ea9357a7c9b790fa69dfd4e2) 
+FrontISTR version 5.0.0 (2d3fdb51979459c7ea9357a7c9b790fa69dfd4e2)
 MPI: Enabled
 OpenMP: Enabled
 HECMW_METIS_VER: 5
-Compile Option: -p --with-tools --with-metis --with-mumps --with-lapack --with-ml 
+Compile Option: -p --with-tools --with-metis --with-mumps --with-lapack --with-ml
 ```
 
 で確認することができます。
@@ -105,7 +105,7 @@ $ cmake -L
 
 で確認できます。
 
-その他、使用するコンパイラの指定やライブラリの指定をするオプションは以下のとおりです。
+その他、使用するコンパイラの指定やライブラリの指定をするオプションは以下の通りです。
 
 | オプション                  | 説明                                                 | 備考                                                                                         |
 |:----------------------------|:-----------------------------------------------------|:---------------------------------------------------------------------------------------------|
@@ -130,7 +130,7 @@ $ cmake -L
 $ make test
 ```
 
-テストは以下のように実行されます.
+テストは以下のように実行されます。
 
 ```
 Running tests...
@@ -162,14 +162,14 @@ $ ctest --help
 
 ソースコードのドキュメントをHTMLで構築するには、予め`doxygen`と`graphviz`をインストールします。
 
-以下の手順でHTMLを構築します.
+以下の手順でHTMLを構築します。
 
 ```
 $ cmake -DWITH_DOC=ON ..
 $ make doc
 ```
 
-作成されたHTMLを以下のようにして参照します.
+作成されたHTMLを以下のようにして参照します。
 
 ```
 $ firefox doc/html/index.html
@@ -179,7 +179,7 @@ $ firefox doc/html/index.html
 
 ## デバッグを有効にする
 
-デバッグを有効にするには
+デバッグを有効にするには、
 
 ```
 $ cmake -DCMAKE_BUILD_TYPE="DEBUG" ..
@@ -192,4 +192,3 @@ $ cmake -DCMAKE_BUILD_TYPE="DEBUG" -DDEBUG_EXTRA=ON ..
 ```
 
 とすると、メモリリークなどの検出に役立ちます。
-
