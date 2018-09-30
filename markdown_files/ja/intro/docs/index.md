@@ -11,15 +11,15 @@
 | ソフトウェア名称 | FrontISTR |
 | バージョン | 5.0 |
 | ライセンス形態 | MIT License |
-| 問い合わせ先 | 一般社団法人 FrontISTR Commons<br>東京都文京区弥生二丁目１１番１６号<br>(東京大学大学院工学系研究科 総合研究機構内)<br>E-mail：fstr_seminar@multi.k.u-tokyo.ac.jp |
+| 問い合わせ先 | 一般社団法人 FrontISTR Commons<br>東京都文京区弥生二丁目１１番１６号<br>(東京大学大学院工学系研究科 総合研究機構内)<br>E-mail：support@frontistr.com |
 
 ## マニュアルリスト
 
-  - [イントロダクション]()
-  - [インストールマニュアル]()
-  - [理論マニュアル]()
-  - [解析マニュアル]()
-  - [チュートリアル]()
+- [イントロダクション](./index.md)
+- [インストールマニュアル](../../install/index.md)
+- [理論マニュアル](../../theory/index.md)
+- [解析マニュアル](../../analysis/index.md)
+- [チュートリアル](../../tutorial/index.md)
 
 <!-- ここまでテンプレート -->
 ---
