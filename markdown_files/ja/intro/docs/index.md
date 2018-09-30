@@ -36,5 +36,4 @@
     - [解析マニュアル]()
     - [チュートリアル]()
 - [リリースノート](./A1_release_note/00_release_note.md)
-- [リリーススケジュール](./A1_release_note/01_release_schedule.md)
 - [チートシート (コマンド早見表)](./A2_cheat_sheet/00_cheat_sheet.md)
