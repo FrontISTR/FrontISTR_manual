@@ -11,7 +11,7 @@
 | Name of Software | FrontISTR |
 | Version | 5.0 |
 | License | MIT License |
-| Correnponding Clerks | FrontISTR Commons<br>2-11-16 Yayoi, Bunkyo-ku, Tokyo<br>(東京大学大学院工学系研究科 総合研究機構内)<br>E-mail：fstr_seminar@multi.k.u-tokyo.ac.jp | 
+| Correnponding Clerks | FrontISTR Commons<br>2-11-16 Yayoi, Bunkyo-ku, Tokyo, Japan<br>E-mail：support@frontistr.com | 
 
 ## Manuals
 
