@@ -1,8 +1,8 @@
 <!-- 表記は FrontISTR ver. 0.0 で統一します -->
 # Introduction to FrontISTR
 
-本ソフトウェアは文部科学省次世代IT基盤構築のための研究開発「イノベーション基盤シミュレーションソフトウェアの研究開発」プロジェクトによる成果をシーズとして，継続的に開発されている並列有限要素解析プログラムです。
-本ソフトウェアを無償または営利目的でご使用になる場合、「MITライセンス」をご了承頂くことが前提となります。
+This software is a parallel finite element analysis program that is being continuously developed with the result of research and development "Research and development of innovation platform simulation software" project for the construction of the next generation IT infrastructure of the Ministry of Education, Culture, Sports, Science and Technology, Japan.
+When using this software for free or for profit use, you need to agree "MIT license".
 
 <img src="./image/FrontISTR_logo.png" width="350px">
 
