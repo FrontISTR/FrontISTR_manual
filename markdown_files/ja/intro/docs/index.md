@@ -11,15 +11,15 @@
 | ソフトウェア名称 | FrontISTR |
 | バージョン | 5.0 |
 | ライセンス形態 | MIT License |
-| 問い合わせ先 | 一般社団法人 FrontISTR Commons<br>東京都文京区弥生二丁目１１番１６号<br>(東京大学大学院工学系研究科 総合研究機構内)<br>E-mail：fstr_seminar@multi.k.u-tokyo.ac.jp |
+| 問い合わせ先 | 一般社団法人 FrontISTR Commons<br>東京都文京区弥生二丁目１１番１６号<br>(東京大学大学院工学系研究科 総合研究機構内)<br>E-mail：support@frontistr.com |
 
 ## マニュアルリスト
 
-  - [イントロダクション]()
-  - [インストールマニュアル]()
-  - [理論マニュアル]()
-  - [解析マニュアル]()
-  - [チュートリアル]()
+- [イントロダクション](./index.md)
+- [インストールマニュアル](../markdown_files/ja/install/index.md)
+- [理論マニュアル](../markdown_files/ja/theory/index.md)
+- [解析マニュアル](../markdown_files/ja/analysis/index.md)
+- [チュートリアル](../markdown_files/ja/tutorial/index.md)
 
 <!-- ここまでテンプレート -->
 ---
@@ -31,10 +31,9 @@
 - 概要
     - [クイックスタートガイド]()
 - マニュアル
-    - [インストールマニュアル]()
-    - [理論マニュアル]()
-    - [解析マニュアル]()
-    - [チュートリアル]()
+    - [インストールマニュアル](../markdown_files/ja/install/index.md)
+    - [理論マニュアル](../markdown_files/ja/theory/index.md)
+    - [解析マニュアル](../markdown_files/ja/analysis/index.md)
+    - [チュートリアル](../markdown_files/ja/tutorial/index.md)
 - [リリースノート](./A1_release_note/00_release_note.md)
-- [リリーススケジュール](./A1_release_note/01_release_schedule.md)
 - [チートシート (コマンド早見表)](./A2_cheat_sheet/00_cheat_sheet.md)

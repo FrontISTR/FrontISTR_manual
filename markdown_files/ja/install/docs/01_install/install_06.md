@@ -46,8 +46,8 @@ MPI対応コンパイラーが自動参照している場合は、MPIに関す�
 | 変数名 | 説明 | 既定値 |
 |:--|:--|:--|
 | REFINERDIR | REVOCAP_Refinerがインストールされているディレクトリのパスを指定する | `$(HOME)/REVOCAP_Refiner` |
-| REFINERINCDIR | REVOCAP_Refinerのヘッダーファイル群がインストールされているディレクトリのパスを指定する | `$(PARMETISDIR)/include` |
-| REFINERLIBDIR | REVOCAP_Refinerのライブラリ群がインストールされているディレクトリのパスを指定する | `$(PARMETISDIR)/lib` |
+| REFINERINCDIR | REVOCAP_Refinerのヘッダーファイル群がインストールされているディレクトリのパスを指定する | `$(REFINERDIR)/include` |
+| REFINERLIBDIR | REVOCAP_Refinerのライブラリ群がインストールされているディレクトリのパスを指定する | `$(REFINERDIR)/lib` |
 
 ### REVOCAP_Couplerに関する設定
 
@@ -107,7 +107,7 @@ MPI対応コンパイラーが自動参照している場合は、MPIに関す�
 | 変数名 | 説明 | 既定値 |
 |:--|:--|:--|
 | MAKE | makeの起動コマンドを指定する。オプションが必要な場合は同時に指定する。 | `make` |
-| AR | アーカイブの作成、変更などを行なうコマンドを指定する。オプションが必要な場合は同時に指定する。 | `ar ruv` |
+| AR | アーカイブの作成、変更などを行うコマンドを指定する。オプションが必要な場合は同時に指定する。 | `ar ruv` |
 | CP | ファイルやディレクトリをコピーするコマンドを指定する。オプションが必要な場合は同時に指定する。 | `cp -f` |
 | RM | ファイルやディレクトリを削除するコマンドを指定する。オプションが必要な場合は同時に指定する。 | `rm -f` |
 | MKDIR | ディレクトリを作成するコマンドを指定する。オプションが必要な場合は同時に指定する。 | `mkdir -p` |
