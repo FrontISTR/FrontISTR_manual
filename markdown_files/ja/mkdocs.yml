@@ -1,0 +1,70 @@
+﻿site_name: FrontISTR ver. 5.0
+theme:
+    name: readthedocs
+    highlightjs: true
+    hljs_languages:
+        - fortran
+
+use_directory_urls: false
+
+nav:
+- ホーム: index.md
+- イントロダクション:
+    - 目次: intro/index.md
+    - リリースノート: intro/00_release_note.md
+    - チートシート(コマンド早見表): intro/00_cheat_sheet.md
+- インストール:
+    - 目次: install/index.md
+    - 動作環境: install/install_01.md
+    - アーカイブの解凍・展開: install/install_02.md
+    - インストールの概要: install/install_03.md
+    - cmakeでのインストール: install/install_04.md
+    - Makefile.confでのインストール: install/install_05.md
+    - Makefile.confでの設定項目: install/install_06.md
+    - CentOS7.3へのインストール手順例(cmake): install/install_07.md
+    - Ubuntu16.04へのインストール手順例(cmake): install/install_09.md
+    - CentOS7.3へのインストール手順例(Makefile.conf): install/install_08.md
+    - Ubuntu16.04へのインストール手順例(Makefile.conf): install/install_10.md
+    - Windows10へのインストール手順例(Makefile.conf): install/install_11.md
+- 理論マニュアル:
+    - 目次: theory/index.md
+    - 微小変形線形弾性静解析: theory/theory_01.md
+    - 非線形静解析手法: theory/theory_02.md
+    - 動的解析手法: theory/theory_03.md
+    - 固有値解析: theory/theory_05.md
+    - 周波数応答解析: theory/theory_06.md
+    - 熱伝導解析: theory/theory_04.md
+    - 参考文献: theory/theory_07.md
+- 解析マニュアル:
+    - 目次: analysis/index.md
+    - 解析の流れと入出力データの概略: analysis/analysis_01.md
+    - 要素ライブラリおよび材料データ: analysis/analysis_02.md
+    - 全体制御データ: analysis/analysis_03.md
+    - 単一領域メッシュデータ: analysis/analysis_04.md
+    - 解析制御データ: analysis/analysis_05.md
+    - ユーザーサブルーチン: analysis/analysis_06.md
+- チュートリアル:
+    - 目次: tutorial/index.md
+    - 静解析 (弾性): tutorial/tutorial_01.md
+    - 静解析 (弾性、並列): tutorial/tutorial_02.md
+    - 静解析 (超弾性1): tutorial/tutorial_03.md
+    - 静解析 (超弾性2): tutorial/tutorial_04.md
+    - 静解析 (弾塑性1): tutorial/tutorial_05.md
+    - 静解析 (弾塑性2): tutorial/tutorial_06.md
+    - 静解析 (粘弾性): tutorial/tutorial_07.md
+    - 静解析 (クリープ): tutorial/tutorial_08.md
+    - 接触解析 (1): tutorial/tutorial_09.md
+    - 接触解析 (2): tutorial/tutorial_10.md
+    - 接触解析 (3): tutorial/tutorial_11.md
+    - 線形動解析: tutorial/tutorial_12.md
+    - 非線形動解析: tutorial/tutorial_13.md
+    - 非線形接触動解析: tutorial/tutorial_14.md
+    - 固有値解析: tutorial/tutorial_15.md
+    - 熱伝導解析: tutorial/tutorial_16.md
+    - 周波数応答解析: tutorial/tutorial_17.md
+- 例題:
+    - 単純形状モデルによる検証: tutorial/example_01.md
+    - 弾性静解析用実モデル例題: tutorial/example_02.md
+    - 固有値解析用実モデル例題: tutorial/example_03.md
+    - 熱伝導解析用実モデル例題: tutorial/example_04.md
+    - 線形動的解析用実モデル例題: tutorial/example_05.md
