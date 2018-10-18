@@ -1,0 +1,33 @@
+image: python:3.6
+
+cache:
+  paths:
+    - markdown_files/ja/site
+    - markdown_files/en/site
+
+stages:
+  - build
+  - deploy
+
+mkdocs:
+  stage: build
+  only:
+    - tags
+  script:
+    - pip install --upgrade mkdocs
+    - cd markdown_files/ja
+    - mkdocs build
+    - cd ../en
+    - mkdocs build
+
+pages:
+  stage: deploy
+  only:
+    - tags
+  script:
+    - mkdir -p public/$CI_COMMIT_TAG
+    - cp -r markdown_files/ja/site public/$CI_COMMIT_TAG/ja
+    - cp -r markdown_files/en/site public/$CI_COMMIT_TAG/en
+  artifacts:
+    paths:
+    - public/$CI_COMMIT_TAG
