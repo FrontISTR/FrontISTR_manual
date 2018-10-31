@@ -82,7 +82,7 @@ TEST MODEL A361
 
 #節点座標の定義
 !NODE
-0.0, 0.0, 0.0
+1, 0.0, 0.0, 0.0
 
 #要素コネクティビティの定義
 !ELEMENT, TYPE=361
@@ -213,18 +213,6 @@ Windows版では、MPICH2 のライブラリを下記 URLよりダウンロー�
 並列実行の方法についてはMPICH2 のマニュアルを参照すること。
 
 http://www-unix.mcs.anl.gov/mpi/mpich/
-
-### 並列接触解析の実行
-
-FrontISTRの並列実行では、入力データとしてhecmw\_ctrl.dat、解析制御データおよび分散領域メッシュデータを準備するが、
-接触解析のみ分散領域メッシュデータではなく、単一領域メッシュデータを準備する。
-それに伴い並列実行であってもhecmw\_ctrl.dat中のメッシュデータファイル名の定義では単位領域モデルの指定を行う必要がある。
-
-```
-!MESH, NAME=fstrMSH,TYPE=HECMW-ENTIRE
-```
-
-その他のFrontISTRの準備、入力ファイルの準備、LinuxおよびWindows上での並列実行手順は通常のFrontISTRの実行と同様である。
 
 ## 実行時の制約
 
