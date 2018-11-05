@@ -39,6 +39,7 @@ nav:
     - 目次: analysis/index.md
     - 解析の流れと入出力データの概略: analysis/analysis_01.md
     - 要素ライブラリおよび材料データ: analysis/analysis_02.md
+    - ステップ制御: analysis/analysis_07.md
     - 全体制御データ: analysis/analysis_03.md
     - 単一領域メッシュデータ: analysis/analysis_04.md
     - 解析制御データ: analysis/analysis_05.md
