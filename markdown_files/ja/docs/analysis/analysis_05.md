@@ -1124,6 +1124,10 @@ FREQUENCY = 出力するステップ間隔 (デフォルト: 1)
 |PRINCV_NSTRAIN | 節点主ひずみ(ベクトル値)         |
 |SHELL_LAYER    | 積層シェル要素の積層ごとの出力   |
 |SHELL_SURFACE  | シェル要素の表面情報の出力       |
+|CONTACT_NFORCE | 接触法線力（ベクトル値）         |
+|CONTACT_FRICTION | 接触摩擦力（ベクトル値）       |
+|CONTACT_RELVEL | 接触相対滑り速度（ベクトル値）＊スレーブ節点のみ|
+|CONTACT_STATE  | 接触状態（スカラ値）＊スレーブ節点のみ。-1:解離, 0:未定義, 1:接触（固着）, 2:接触（滑り）|
 
 ##### 使用例
 
@@ -1178,6 +1182,10 @@ FREQUENCY = 出力するステップ間隔 (デフォルト: 1)
 | PRINCV_ESTRAIN | 要素ひずみ(スカラ値)             |
 | SHELL_LAYER    | 積層シェル要素の積層ごとの出力   |
 | SHELL_SURFACE  | シェル要素の表面情報の出力       |
+|CONTACT_NFORCE | 接触法線力（ベクトル値）         |
+|CONTACT_FRICTION | 接触摩擦力（ベクトル値）       |
+|CONTACT_RELVEL | 接触相対滑り速度（ベクトル値）＊スレーブ節点のみ|
+|CONTACT_STATE  | 接触状態（スカラ値）＊スレーブ節点のみ。-1:解離, 0:未定義, 1:接触（固着）, 2:接触（滑り）|
 
 ##### 使用例
 
