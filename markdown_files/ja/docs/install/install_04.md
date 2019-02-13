@@ -66,8 +66,8 @@ $ cmake -DCMAKE_INSTALL_PREFIX=$HOME/local ..
 コンパイルされたFrontISTR(`fistr1`)が、どの機能を有効になっているかは
 
 ```
-$ ./fistr1 -v
-FrontISTR version 5.0.0 (2d3fdb51979459c7ea9357a7c9b790fa69dfd4e2)
+ ./fistr1 -v
+FrontISTR version 5.0.0 (eb7fb1c1a3d210b0c1f70b41c92995bfcb050e82)
 MPI: Enabled
 OpenMP: Enabled
 HECMW_METIS_VER: 5
@@ -132,20 +132,22 @@ $ make test
 
 テストは以下のように実行されます。
 
-```
+``` 
+/home/fistr/Work/FrontISTR/build$ make test
 Running tests...
-Test project /home/fistr/FrontISTR/build
+Test project /home/fistr/Work/FrontISTR/build
       Start  1: Static_exA_Test
- 1/23 Test  #1: Static_exA_Test ..................   Passed    3.54 sec
+ 1/23 Test  #1: Static_exA_Test ..................   Passed    6.85 sec
       Start  2: Static_exB_Test
- 2/23 Test  #2: Static_exB_Test ..................   Passed    2.51 sec
+ 2/23 Test  #2: Static_exB_Test ..................   Passed    6.48 sec
+      Start  3: Static_exC_Test
 ...
 ```
 
 更に詳細なメッセージを出力する場合
 
 ```
-$ make test ARGS="-VV -j4 -O test_log.txt"
+$ make test ARGS="-VV -O test_log.txt"
 ```
 
 とすると、`test_log.txt`ファイルの中に結果が出力されます。オプションの詳細は

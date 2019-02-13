@@ -27,8 +27,8 @@ cmake will search libraries and headers and gererate proper Makefiles for compil
 
 #### Appendix
 
-  - [Appendix: Example of installation procedure to CentOS7.3(cmake)](install_07)
-  - [Appendix: Example of installation procedure to Ubuntu16.04(cmake)](install_09)
+  - [Appendix: Example of installation procedure to CentOS7.6(cmake)](install_07)
+  - [Appendix: Example of installation procedure to Ubuntu18.04(cmake)](install_09)
 
 ### Compile with editing Makefile.conf manually
 
@@ -50,8 +50,8 @@ When difficult to set automatic configuration with cmake, recommend manually edi
 
 #### Appendix
 
-  - [Appendix: Example of installation procedure to CentOS7.3(Makefile.conf)](install_08)
-  - [Appendix: Example of installation procedure to Ubuntu16.04(Makefile.conf)](install_10)
+  - [Appendix: Example of installation procedure to CentOS7.6(Makefile.conf)](install_08)
+  - [Appendix: Example of installation procedure to Ubuntu18.04(Makefile.conf)](install_10)
   - [Appendix: Example of installation procedure to Windows10(Makefile.conf)](install_11)
 
 

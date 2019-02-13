@@ -1,6 +1,6 @@
-# Appendix : Example of installation procedure to Ubuntu16.04(cmake)
+# Appendix : Example of installation procedure to Ubuntu18.04(cmake)
 
-We will explain how to install this software and how to build external libraries required this software on Ubuntu16.04.
+We will explain how to install this software and how to build external libraries required this software on Ubuntu18.04.
 
 More information for building each libraries, refer to their installation manuals.
 
@@ -44,8 +44,8 @@ Downloads the following software and save it to working directory `$HOME/work`.
 
 | Software | Link |
 |:--|:--|
-| REVOCAP\_Refiner-1.1.04.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
-| FrontISTR\_V50.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
+| REVOCAP\_Refiner-1.1.04.tar.gz | https://www.frontistr.com/ |
+| FrontISTR\_V50.tar.gz | https://www.frontistr.com/ |
 | OpenBLAS-0.2.20.tar.gz | http://www.openblas.net/ |
 | metis-5.1.0.tar.gz | http://glaros.dtc.umn.edu/gkhome/metis/metis/download |
 | scalapack-2.0.2.tgz | http://www.netlib.org/scalapack/ |

@@ -134,6 +134,9 @@ MLは下記のWEBサイトからダウンロードすることができます。
 | Intel Xeon Cluster<br> SUSE Linux Enterprise 10 | Intel Compiler | SGI MPT |
 | AMD Ryzen PC<br> ubuntu 16.04 | GNU Compiler | OpenMPI-1.10.2|
 | AMD Ryzen PC<br> ubuntu 16.04 | PGI Compiler | OpenMPI-1.10.2|
+| AMD Ryzen PC<br> ubuntu 18.04 | GNU Compiler | OpenMPI-2.1.1|
 | Intel Core i7 PC<br> ubuntu 16.04 | GNU Compiler | OpenMPI-1.10.2|
+| Intel Core i7 PC<br> ubuntu 18.04 | GNU Compiler | OpenMPI-2.1.1|
+| Intel Core i7 PC<br> CentOS 7 | GNU Compiler | OpenMPI-1.10.2 |
 | PC<br> Windows 7 <br> Windows 10 | GNU Compiler | Microsoft MPI-8.1 |
 | SBC<br> Raspberry Pi 3| GNU Compiler | OpenMPI-2.0.2 |

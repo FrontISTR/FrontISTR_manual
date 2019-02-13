@@ -1,4 +1,4 @@
-# Appendix : Example of installation procedure to CentOS7.3 (Makefile.conf)
+# Appendix : Example of installation procedure to CentOS7.666666 (Makefile.conf)
 
 We will explain how to install this software and how to build external libraries required this software on CentOS7.3.
 
@@ -58,8 +58,8 @@ Downloads the following software and save it to working directory `$HOME/work`.
 
 | Software | Link |
 |:--|:--|
-| REVOCAP\_Refiner-1.1.04.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
-| FrontISTR\_V50.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
+| REVOCAP\_Refiner-1.1.04.tar.gz | https://www.frontistr.com/ |
+| FrontISTR\_V50.tar.gz | https://www.frontistr.com/ |
 | OpenBLAS-0.2.20.tar.gz | http://www.openblas.net/ |
 | metis-5.1.0.tar.gz | http://glaros.dtc.umn.edu/gkhome/metis/metis/download |
 | scalapack-2.0.2.tgz | http://www.netlib.org/scalapack/ |
@@ -143,11 +143,15 @@ LAPACK = -L$(HOME)/local/lib -lopenblas
 
 SCALAP  = -L$(HOME)/local/lib -lscalapack
 
-INCPAR =
+INCPAR = -I/usr/include/openmpi-x86_64
 
-LIBPAR  = $(SCALAP)
+LIBPAR  = $(SCALAP) -L/usr/lib64/openmpi/lib -lmpi
 
 LIBBLAS = -L$(HOME)/local/lib -lopenblas
+
+OPTF    = -O -DBLR_MT -fopenmp
+OPTC    = -O -I. -fopenmp
+OPTL    = -O -fopenmp
 ```
 
 Then execute `make`.
@@ -174,6 +178,7 @@ $ cmake -DCMAKE_INSTALL_PREFIX=$HOME/local \
         -DTPL_ENABLE_SCALAPACK=ON \
         -DTPL_ENABLE_METIS=ON \
         -DTPL_ENABLE_MUMPS=ON \
+        -DTPL_MUMPS_INCLUDE_DIRS=$HOME/local/include \
         -DTrilinos_ENABLE_ML=ON \
         -DTrilinos_ENABLE_Zoltan=ON \
         -DTrilinos_ENABLE_OpenMP=ON \
@@ -263,7 +268,6 @@ MLDIR          = $(HOME)/local
 MLINCDIR       = $(MLDIR)/include
 MLLIBDIR       = $(MLDIR)/lib
 MLLIBS         = -lml -lamesos -ltrilinosss -lzoltan -lepetra -lteuchosremainder -lteuchosnumerics -lteuchoscomm -lteuchosparameterlist -lteuchoscore -ldmumps -lmumps_common -lpord -lmetis
-
 # C compiler settings
 CC             = mpicc -fopenmp
 CFLAGS         =

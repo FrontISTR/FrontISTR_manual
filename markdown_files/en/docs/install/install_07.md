@@ -1,6 +1,6 @@
-# Appendix : Example of installation procedure to CentOS7.3(cmake)
+# Appendix : Example of installation procedure to CentOS7.6(cmake)
 
-We will explain how to install this software and how to build external libraries required this software on CentOS7.3.
+We will explain how to install this software and how to build external libraries required this software on CentOS7.6.
 
 More information for building each libraries, refer to their installation manuals.
 
@@ -57,8 +57,8 @@ Downloads the following software and save it to working directory `$HOME/work`.
 
 | Software | Link |
 |:--|:--|
-| REVOCAP\_Refiner-1.1.04.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
-| FrontISTR\_V50.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
+| REVOCAP\_Refiner-1.1.04.tar.gz | https://www.frontistr.com/ |
+| FrontISTR\_V50.tar.gz | http://www.frontistr.com/ |
 | OpenBLAS-0.2.20.tar.gz | http://www.openblas.net/ |
 | metis-5.1.0.tar.gz | http://glaros.dtc.umn.edu/gkhome/metis/metis/download |
 | scalapack-2.0.2.tgz | http://www.netlib.org/scalapack/ |
@@ -91,7 +91,7 @@ $ make PREFIX=$HOME/local install
 $ cd $HOME/work
 $ tar xvf metis-5.1.0.tar.gz
 $ cd metis-5.1.0
-$ make config prefix=$HOME/local cc=gcc openmp=1
+$ make config prefix=~/local cc=gcc openmp=1
 $ make
 $ make install
 ```
@@ -105,6 +105,7 @@ $ cd scalapack-2.0.2
 $ mkdir build
 $ cmake -DCMAKE_INSTALL_PREFIX=$HOME/local \
         -DCMAKE_EXE_LINKER_FLAGS="-fopenmp" \
+        -DCMAKE_BUILD_TYPE="Release" \
         -DBLAS_LIBRARIES=$HOME/local/lib/libopenblas.a \
         -DLAPACK_LIBRARIES=$HOME/local/lib/libopenblas.a \
         ..
@@ -133,19 +134,23 @@ LMETIS    = -L$(LMETISDIR)/lib -lmetis
 
 ORDERINGSF  = -Dmetis -Dpord
 
-CC      = mpicc -fopenmp
-FC      = mpifort -fopenmp
-FL      = mpifort -fopenmp
+CC      = mpicc
+FC      = mpifort
+FL      = mpifort
 
 LAPACK = -L$(HOME)/local/lib -lopenblas
 
 SCALAP  = -L$(HOME)/local/lib -lscalapack
 
-INCPAR =
+INCPAR = -I/usr/include/openmpi-x86_64
 
-LIBPAR  = $(SCALAP)
+LIBPAR  = $(SCALAP) -L/usr/lib64/openmpi/lib -lmpi
 
 LIBBLAS = -L$(HOME)/local/lib -lopenblas
+
+OPTF    = -O -DBLR_MT -fopenmp
+OPTC    = -O -I. -fopenmp
+OPTL    = -O -fopenmp
 ```
 
 Then execute `make`.
@@ -172,6 +177,7 @@ $ cmake -DCMAKE_INSTALL_PREFIX=$HOME/local \
         -DTPL_ENABLE_SCALAPACK=ON \
         -DTPL_ENABLE_METIS=ON \
         -DTPL_ENABLE_MUMPS=ON \
+        -DTPL_MUMPS_INCLUDE_DIRS=$HOME/local/include \
         -DTrilinos_ENABLE_ML=ON \
         -DTrilinos_ENABLE_Zoltan=ON \
         -DTrilinos_ENABLE_OpenMP=ON \
@@ -198,6 +204,7 @@ $ cd $HOME/work/FrontISTR
 $ mkdir build
 $ cd build
 $ cmake -DCMAKE_INSTALL_PREFIX=$HOME/FrontISTR \
+        -DWITH_ML=ON \
         -DBLAS_LIBRARIES=$HOME/local/lib/libopenblas.a \
         -DLAPACK_LIBRARIES=$HOME/local/lib/libopenblas.a \
         ..

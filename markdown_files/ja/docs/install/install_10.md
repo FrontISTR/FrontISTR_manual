@@ -1,6 +1,6 @@
-# 参考 Ubuntu16.04へのインストール手順例(Makefile.conf)
+# 参考 Ubuntu18.04へのインストール手順例(Makefile.conf)
 
-Ubuntu16.04上へ本ソフトウェアと、それに必要な外部ライブラリの構築手順の例を示します。他の環境へのインストールの参考にしてください。
+Ubuntu18.04上へ本ソフトウェアと、それに必要な外部ライブラリの構築手順の例を示します。他の環境へのインストールの参考にしてください。
 
 また、各ライブラリの詳細な構築方法は、それぞれのドキュメントを参考にしてください。
 
@@ -43,8 +43,8 @@ $ export PATH=$HOME/local/bin:$PATH
 
 | ソフトウェア名 | ダウンロード先 |
 |:--|:--|
-| REVOCAP\_Refiner-1.1.04.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
-| FrontISTR\_V50.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
+| REVOCAP\_Refiner-1.1.04.tar.gz | https://www.frontistr.com/ |
+| FrontISTR\_V50.tar.gz | http://www.frontistr.com/ |
 | OpenBLAS-0.2.20.tar.gz | http://www.openblas.net/ |
 | metis-5.1.0.tar.gz | http://glaros.dtc.umn.edu/gkhome/metis/metis/download |
 | scalapack-2.0.2.tgz | http://www.netlib.org/scalapack/ |
@@ -119,9 +119,9 @@ LMETIS    = -L$(LMETISDIR)/lib -lmetis
 
 ORDERINGSF  = -Dmetis -Dpord
 
-CC      = mpicc -fopenmp
-FC      = mpifort -fopenmp
-FL      = mpifort -fopenmp
+CC      = mpicc
+FC      = mpifort
+FL      = mpifort
 
 LAPACK = -L$(HOME)/local/lib -lopenblas
 
@@ -132,6 +132,11 @@ INCPAR =
 LIBPAR  = $(SCALAP)
 
 LIBBLAS = -L$(HOME)/local/lib -lopenblas
+
+OPTF    = -O -DBLR_ML -fopenmp
+OPTC    = -O -I. -fopenmp
+OPTL    = -O -fopenmp
+
 ```
 
 書き換えが完了したら保存しmakeします。
@@ -198,7 +203,7 @@ $ vi Makefile.conf
 ##################################################
 
 # MPI
-MPIDIR         = /usr/lib/openmpi
+MPIDIR         = /usr/lib/x86_64-linux-gnu/openmpi
 MPIBINDIR      = /usr/bin
 MPILIBDIR      = $(MPIDIR)/lib
 MPIINCDIR      = $(MPIDIR)/include
@@ -235,7 +240,7 @@ REVOCAPLIBDIR  = $(REVOCAPDIR)/lib
 MUMPSDIR       = $(HOME)/local
 MUMPSINCDIR    = $(MUMPSDIR)/include
 MUMPSLIBDIR    = $(MUMPSDIR)/lib
-MUMPSLIBS      = -ldmumps -lmumps_common -lpord -L$HOME/local/lib -lscalapack
+MUMPSLIBS      = -ldmumps -lmumps_common -lpord -L$(HOME)/local/lib -lscalapack
 
 # MKL PARDISO
 MKLDIR     = $(HOME)/

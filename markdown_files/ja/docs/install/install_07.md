@@ -1,6 +1,6 @@
-# 参考 CentOS7.3へのインストール手順例(cmake)
+# 参考 CentOS7.6へのインストール手順例(cmake)
 
-CentOS7.3上へ本ソフトウェアと、それに必要な外部ライブラリの構築手順の例を示します。他の環境へのインストールの参考にしてください。
+CentOS7.6上へ本ソフトウェアと、それに必要な外部ライブラリの構築手順の例を示します。他の環境へのインストールの参考にしてください。
 
 また、各ライブラリの詳細な構築方法は、それぞれのドキュメントを参考にしてください。
 
@@ -20,7 +20,7 @@ $ su
 
 ```
 $ module purge
-$ module local mpi/openmpi-x86_64
+$ module load mpi/openmpi-x86_64
 ```
 
 `$HOME/.bash_profile`に記述しておけば、次回ログイン時も設定が反映されます。
@@ -56,8 +56,8 @@ $ export PATH=$HOME/local/bin:$PATH
 
 | ソフトウェア名 | ダウンロード先 |
 |:--|:--|
-| REVOCAP\_Refiner-1.1.04.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
-| FrontISTR\_V50.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
+| REVOCAP\_Refiner-1.1.04.tar.gz | https://www.frontistr.com/ |
+| FrontISTR\_V50.tar.gz | https://www.frontistr.com/ |
 | OpenBLAS-0.2.20.tar.gz | http://www.openblas.net/ |
 | metis-5.1.0.tar.gz | http://glaros.dtc.umn.edu/gkhome/metis/metis/download |
 | scalapack-2.0.2.tgz | http://www.netlib.org/scalapack/ |
@@ -71,8 +71,8 @@ $ cd $HOME/work
 $ tar xvf REVOCAP_Refiner-1.1.04.tar.gz
 $ cd REVOCAP_Refiner-1.1.04
 $ make
-$ cp lib/x86_64-linux/libRcapRefiner.a $HOME/local/lib
-$ cp Refiner/rcapRefiner.h $HOME/local/include
+$ cp lib/x86_64-linux/libRcapRefiner.a ~/local/lib
+$ cp Refiner/rcapRefiner.h ~/local/include
 ```
 
 ### OpenBLASのコンパイル
@@ -81,7 +81,7 @@ $ cp Refiner/rcapRefiner.h $HOME/local/include
 $ cd $HOME/work
 $ tar xvf OpenBLAS-0.2.20.tar.gz
 $ make BINARY=64 NO_SHARED=1 USE_OPENMP=1
-$ make PREFIX=$HOME/local install
+$ make PREFIX=~/local install
 ```
 
 ### METISのコンパイル
@@ -90,7 +90,7 @@ $ make PREFIX=$HOME/local install
 $ cd $HOME/work
 $ tar xvf metis-5.1.0.tar.gz
 $ cd metis-5.1.0
-$ make config prefix=$HOME/local cc=gcc openmp=1
+$ make config prefix=~/local cc=gcc openmp=1
 $ make
 $ make install
 ```
@@ -104,6 +104,7 @@ $ cd scalapack-2.0.2
 $ mkdir build
 $ cmake -DCMAKE_INSTALL_PREFIX=$HOME/local \
         -DCMAKE_EXE_LINKER_FLAGS="-fopenmp" \
+        -DCMAKE_BUILD_TYPE="Release" \
         -DBLAS_LIBRARIES=$HOME/local/lib/libopenblas.a \
         -DLAPACK_LIBRARIES=$HOME/local/lib/libopenblas.a \
         ..
@@ -123,7 +124,6 @@ $ cp Make.inc/Makefile.inc.generic Makefile.inc
 コピーした`Makefile.inc`の以下の部分を書き換えます。
 
 ```
-$ vi Makefile.inc
 $ cp Make.inc/Makefile.inc.generic Makefile.inc
 $ vi Makefile.inc
 LMETISDIR = $(HOME)/local
@@ -132,19 +132,23 @@ LMETIS    = -L$(LMETISDIR)/lib -lmetis
 
 ORDERINGSF  = -Dmetis -Dpord
 
-CC      = mpicc -fopenmp
-FC      = mpifort -fopenmp
-FL      = mpifort -fopenmp
+CC      = mpicc
+FC      = mpifort
+FL      = mpifort
 
 LAPACK = -L$(HOME)/local/lib -lopenblas
 
 SCALAP  = -L$(HOME)/local/lib -lscalapack
 
-INCPAR =
+INCPAR = -I/usr/include/openmpi-x86_64
 
-LIBPAR  = $(SCALAP)
+LIBPAR  = $(SCALAP) -L/usr/lib64/openmpi/lib -lmpi
 
 LIBBLAS = -L$(HOME)/local/lib -lopenblas
+
+OPTF    = -O -DBLR_MT -fopenmp
+OPTC    = -O -I. -fopenmp
+OPTL    = -O -fopenmp
 ```
 
 書き換えが完了したら保存しmakeします。
@@ -171,6 +175,7 @@ $ cmake -DCMAKE_INSTALL_PREFIX=$HOME/local \
         -DTPL_ENABLE_SCALAPACK=ON \
         -DTPL_ENABLE_METIS=ON \
         -DTPL_ENABLE_MUMPS=ON \
+        -DTPL_MUMPS_INCLUDE_DIRS=$HOME/local/include \
         -DTrilinos_ENABLE_ML=ON \
         -DTrilinos_ENABLE_Zoltan=ON \
         -DTrilinos_ENABLE_OpenMP=ON \
@@ -192,10 +197,13 @@ $ make install
 上記ライブラリのコンパイルが済んだらFrontISTRをコンパイルします。
 
 ```
-$ cd $HOME/work/FrontISTR
+$ cd $HOME/work
+$ tar xvf FrontISTR_V50.tar.gz
+$ cd FrontISTR
 $ mkdir build
 $ cd build
 $ cmake -DCMAKE_INSTALL_PREFIX=$HOME/FrontISTR \
+        -DWITH_ML=ON \
         -DBLAS_LIBRARIES=$HOME/local/lib/libopenblas.a \
         -DLAPACK_LIBRARIES=$HOME/local/lib/libopenblas.a \
         ..
@@ -219,7 +227,7 @@ $ make -j4
 
 ### make install の実行
 
-makeが完了したら、make installを実行しMakefile.confで指定したディレクトリへインストールします。この例では `$(HOME)/FrontISTR/bin` になります。
+makeが完了したら、make installを実行し指定したディレクトリへインストールします。この例では `$(HOME)/FrontISTR/bin` になります。
 
 ```
 $ make install
