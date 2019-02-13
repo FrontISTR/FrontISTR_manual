@@ -10,27 +10,28 @@ At first, install the basic build toolchains and libraries as follows.
 
 ### Installation of compilers and toolchains for Windows
 
-First, install development environment. Development environment uses MSYS2 in this example. We will install it from Git for Windows SDK.
+First, install development environment. Development environment uses MSYS2 in this example.
 
-[https://github.com/git-for-windows/build-extra/releases](https://github.com/git-for-windows/build-extra/releases)
+[https://www.msys2.org](https://www.msys2.org/)
 
-Download 64bit installer named `git-sdk-installer-X.X.X-64.7z.exe` (X.X.X is version number) and install it.
+Download 64bit installer named `msys2-x86_64-xxxxxxxx.exe` (xxxxxxxx is version number) and install it.
 
 ### Installing binary package
 
-Finished to install above software, run windows command prompt named `git for windows`, then install other required software.
+Finished to install above software, run windows command prompt named `MSYS2 MinGW 64-bit`, then install other required software.
 
 ```
-$ pacman -S base-devel mingw-w64-x86_64-toolchain \
+(MINGW64) pacman -S base-devel mingw-w64-x86_64-toolchain \
             mingw-w64-x86_64-cmake \
-            mingw-w64-x86_64-extra-cmake-module \
-            mingw-w64-x86_64-perl
+            mingw-w64-x86_64-binutils \
+            mingw-w64-x86_64-perl \
+            git
 ```
 
 Please check compilers works propery as follows.
 
 ```
-$ which gcc g++ gfortran
+(MINGW64) which gcc g++ gfortran
 /mingw64/bin/gcc
 /mingw64/bin/g++
 /mingw64/bin/gfortran
@@ -45,10 +46,10 @@ And add `$HOME/local/bin` to PATH environment variable as follows.
 
 
 ```
-$ cd $HOME
-$ mkdir work
-$ mkdir -p local/bin local/lib local/include
-$ export PATH=$HOME/local/bin:$PATH
+(MINGW64) cd $HOME
+(MINGW64) mkdir work
+(MINGW64) mkdir -p local/bin local/lib local/include
+(MINGW64) export PATH=$HOME/local/bin:$PATH
 ```
 
 ### Installing MPI
@@ -57,7 +58,7 @@ In this example, MPI libraries and runtime uses Microsoft MPI.
 
 You can download runtime (`msmpisetup.exe`) and SDK (`msmpisdk.msi`) from the following URL.
 
-[https://msdn.microsoft.com/ja-jp/library/windows/desktop/bb524831](https://msdn.microsoft.com/ja-jp/library/windows/desktop/bb524831)
+[https://www.microsoft.com/en-us/download/details.aspx?id=57467](https://www.microsoft.com/en-us/download/details.aspx?id=57467)
 
 #### Generating .a format library file
 
@@ -65,10 +66,10 @@ You can download runtime (`msmpisetup.exe`) and SDK (`msmpisdk.msi`) from the fo
 To link Microsoft MPI with gcc/gfortran provided from MinGW-w64, convert library format from DLL to .a.
 
 ```
-$ cd $HOME/local/lib
-$ gendef /c/Windows/System32/msmpi.dll
-$ dlltool -d msmpi.def -l libmsmpi.a -D /c/Windows/System32/msmpi.dll
-$ ls
+(MINGW64) cd $HOME/local/lib
+(MINGW64) gendef /c/Windows/System32/msmpi.dll
+(MINGW64) dlltool -d msmpi.def -l libmsmpi.a -D /c/Windows/System32/msmpi.dll
+(MINGW64) ls
 libmsmpi.a msmpi.def
 ```
 
@@ -77,34 +78,13 @@ libmsmpi.a msmpi.def
 Copy original header files from installation directory to current directory.
 
 ```
-$ cd $HOME/local/include
-$ cp /c/Program\ Files\ \(x86\)/Microsoft\ SDKs/MPI/Include/*.h .
-$ cp /c/Program\ Files\ \(x86\)/Microsoft\ SDKs/MPI/Include/x64/*.h .
-$ ls
+(MINGW64) cd $HOME/local/include
+(MINGW64) cp /c/Program\ Files\ \(x86\)/Microsoft\ SDKs/MPI/Include/*.h .
+(MINGW64) cp /c/Program\ Files\ \(x86\)/Microsoft\ SDKs/MPI/Include/x64/*.h .
+(MINGW64) ls
 mpi.h  mpif.h  mpifptr.h  mpio.h  mspms.h  pmidbg.h
 ```
 
-Modify `mpi.h` file as follows.
-
-```
-$ vi mpi.h
-
-#ifndef MPI_INCLUDE
-#define MPI_INCLUDE
-Add just below
-#include <stdint.h>
-```
-
-Modify `mpif.h` file as follows, also.
-
-```
-$ vi mpif.h
-
-line:409 change from
-PARAMETER (MPI_ADDRESS_KIND=INT_PTR_KIND())
-to
-PARAMETER (MPI_ADDRESS_KIND=8)
-```
 
 ### Downloads
 
@@ -112,8 +92,8 @@ Downloads the following software and save it to working directory `$HOME/work`.
 
 | Software | Link |
 |:--|:--|
-| REVOCAP\_Refiner-1.1.04.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
-| FrontISTR\_V50.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
+| REVOCAP\_Refiner-1.1.04.tar.gz | https://www.frontistr.com/ |
+| FrontISTR\_V50.tar.gz | https://www.frontistr.com/ |
 | OpenBLAS-0.2.20.tar.gz | http://www.openblas.net/ |
 | metis-5.1.0.tar.gz | http://glaros.dtc.umn.edu/gkhome/metis/metis/download |
 | scalapack-2.0.2.tgz | http://www.netlib.org/scalapack/ |
@@ -123,26 +103,26 @@ Downloads the following software and save it to working directory `$HOME/work`.
 ### Compiling REVOCAP\_Refiner
 
 ```
-$ cd $HOME/work
-$ tar xvf REVOCAP\_Refiner-1.1.04.tar.gz
-$ cd REVOCAP\_Refiner-1.1.04
-$ make
-$ cp lib/x86\_64-linux/libRcapRefiner.a $HOME/local/lib
-$ cp Refiner/rcapRefiner.h $HOME/local/include
+(MINGW64) cd $HOME/work
+(MINGW64) tar xvf REVOCAP\_Refiner-1.1.04.tar.gz
+(MINGW64) cd REVOCAP\_Refiner-1.1.04
+(MINGW64) make
+(MINGW64) cp lib/x86\_64-linux/libRcapRefiner.a $HOME/local/lib
+(MINGW64) cp Refiner/rcapRefiner.h $HOME/local/include
 ```
 
 ### Installing OpenBLAS
 
 ```
-$ pacman -S mingw-w64-x86_64-openblas
+(MINGW64) pacman -S mingw-w64-x86_64-openblas
 ```
 
 ### Compiling METIS
 
 ```
-$ cd $HOME/work
-$ tar xvf metis-5.1.0.tar.gz
-$ cd metis-5.1.0
+(MINGW64) cd $HOME/work
+(MINGW64) tar xvf metis-5.1.0.tar.gz
+(MINGW64) cd metis-5.1.0
 ```
 
 Correct the following file to fit MinGW environment.
@@ -160,13 +140,13 @@ cd $(BUILDDIR) && cmake -G "MSYS Makefiles" $(CURDIR) $(CONFIG_FLAGS)
 ```
 
 ```
-$ vim GKlib/gk_arch.h
+(MINGW64) vim GKlib/gk_arch.h
 line:44 remove
   #include <sys/resource.h>
 ```
 
 ```
-$ vim GKlib/gk_getopt.h
+(MINGW64) vim GKlib/gk_getopt.h
 line:54 remove following lines
 /* Function prototypes */
 extern int gk_getopt(int __argc, char **__argv, char *__shortopts);
@@ -177,21 +157,17 @@ extern int gk_getopt_long_only (int __argc, char **__argv,
 ```
 
 ```
-$ cd build
-$ cmake -G "MSYS Makefiles" \
-        -DCMAKE_INSTALL_PREFIX=$HOME/local \
-        -DOPENMP=ON \
-        ..
-$ make
-$ make install
+(MINGW64) make config prefix=$HOME/local/ cc=gcc openmp=1
+(MINGW64) make
+(MINGW64) make install
 ```
 
 ### Compiling ScaLAPACK
 
 ```
-$ cd $HOME/work
-$ tar xvf scalapack-2.0.2.tgz
-$ cd scalapack-2.0.2
+(MINGW64) cd $HOME/work
+(MINGW64) tar xvf scalapack-2.0.2.tgz
+(MINGW64) cd scalapack-2.0.2
 ```
 
 Copy template `SLmake.inc.example` to `SLmake.inc`. Then edit `SLmake.inc` as follows.
@@ -224,8 +200,8 @@ LIBS          = $(LAPACKLIB) $(BLASLIB)
 ```
 
 ```
-$ make
-$ cp libscalapack.a $HOME/local/lib
+(MINGW64) make
+(MINGW64) cp libscalapack.a $HOME/local/lib
 ```
 Finished to make, then copy libray.
 
@@ -234,27 +210,27 @@ Although an error is displayed at the end of compilation, ignore it.
 ### Compiling MUMPS
 
 ```
-$ cd $HOME/work
-$ tar xvf MUMPS_5.1.2.tar.gz
-$ cd MUMPS_5.1.2
-$ cp Make.inc/Makefile.inc.generic Makefile.inc
+(MINGW64) cd $HOME/work
+(MINGW64) tar xvf MUMPS_5.1.2.tar.gz
+(MINGW64) cd MUMPS_5.1.2
+(MINGW64) cp Make.inc/Makefile.inc.generic Makefile.inc
 ```
 
 Change the following parts of copied `Makefile.inc`.
 
 ```
-$ vi Makefile.inc
-$ cp Make.inc/Makefile.inc.generic Makefile.inc
-$ vi Makefile.inc
+(MINGW64) vi Makefile.inc
+(MINGW64) cp Make.inc/Makefile.inc.generic Makefile.inc
+(MINGW64) vi Makefile.inc
 LMETISDIR = $(HOME)/local
 IMETIS    = -I$(LMETISDIR)/include
 LMETIS    = -L$(LMETISDIR)/lib -lmetis
 
 ORDERINGSF  = -Dmetis -Dpord
 
-CC      = gcc -fopenmp
-FC      = gfortran -fopenmp -fno-range-check
-FL      = gfortran -fopenmp
+CC      = gcc
+FC      = gfortran -fno-range-check
+FL      = gfortran
 
 LAPACK = -lopenblas
 
@@ -272,21 +248,19 @@ LIBOTHERS = -lpthread -fopenmp
 Then execute `make`.
 
 ```
-$ make
-$ cp lib/*.a $HOME/local/lib
-$ cp include/*.h $HOME/local/include
+(MINGW64) make
+(MINGW64) cp lib/*.a $HOME/local/lib
+(MINGW64) cp include/*.h $HOME/local/include
 ```
-
-Although some error is displayed, you can ignore them.
 
 ### Compiling Trilinos ML
 
 ```
-$ cd $HOME/work
-$ tar xvf trilinos-12.12.1-Source.tar.gz
-$ cd trilinos-12.12.1-Source
-$ mkdir build
-$ cmake -G "MSYS Makefiles" \
+(MINGW64) cd $HOME/work
+(MINGW64) tar xvf trilinos-12.12.1-Source.tar.gz
+(MINGW64) cd trilinos-12.12.1-Source
+(MINGW64) mkdir build
+(MINGW64) cmake -G "MSYS Makefiles" \
         -DCMAKE_INSTALL_PREFIX="$HOME/local" \
         -DCMAKE_CXX_FLAGS="-I$HOME/local/include" \
         -DCMAKE_C_FLAGS="-I$HOME/local/include" \
@@ -301,8 +275,8 @@ $ cmake -G "MSYS Makefiles" \
         -DTrilinos_ENABLE_Zoltan=ON \
         -DTrilinos_ENABLE_ALL_OPTIONAL_PACKAGES=OFF \
         ..
-$ make
-$ make install
+(MINGW64) make
+(MINGW64) make install
 ```
 
 ## Compiling FrontISTR
@@ -310,9 +284,9 @@ $ make install
 Finishing compiling above libraries, compile FrontISTR.
 
 ```
-$ cd $HOME/work
-$ tar xvf FrontISTR_V50.tar.gz
-$ cd FrontISTR
+(MINGW64) cd $HOME/work
+(MINGW64) tar xvf FrontISTR_V50.tar.gz
+(MINGW64) cd FrontISTR
 ```
 
 ### Editing Makefile.conf
@@ -320,8 +294,8 @@ $ cd FrontISTR
 Copy template as `Makefile.conf.org` to `Makefile.conf`. Then edit `Makefile.conf` as follows.
 
 ```
-$ cp Makefile.conf.org Makefile.conf
-$ vi Makefile.conf
+(MINGW64) cp Makefile.conf.org Makefile.conf
+(MINGW64) vi Makefile.conf
 ##################################################
 #                                                #
 #     Setup Configulation File for FrontISTR     #
@@ -412,7 +386,7 @@ MKDIR          = mkdir -p
 Finished to edit `Makefile.conf`, then execute `setup.sh`.
 
 ```
-$ ./setup.sh -p --with-tools --with-refiner \
+(MINGW64) ./setup.sh -p --with-tools --with-refiner \
              --with-metis --with-mumps --with-lapack --with-ml
 ```
 
@@ -421,14 +395,14 @@ $ ./setup.sh -p --with-tools --with-refiner \
 Execute make command.
 
 ```
-$ make
+(MINGW64) make
 ```
 
 ### Executing `make install`
 
 
 ```
-$ make install
+(MINGW64) make install
 ```
 
 FrontISTR will be installed to `$(HOME)/FrontISTR/bin`.
@@ -438,9 +412,9 @@ FrontISTR will be installed to `$(HOME)/FrontISTR/bin`.
 Run sample case in the `tutorial` directory and check running of FrontISTR.
 
 ```
-$ cd $HOME/work/FrontISTR/tutorial
-$ cd 01_elastic_hinge
-$ $HOME/FrontISTR/bin/fistr1
+(MINGW64) cd $HOME/work/FrontISTR/tutorial
+(MINGW64) cd 01_elastic_hinge
+(MINGW64$) $HOME/FrontISTR/bin/fistr1
  Step control not defined! Using default step=1
  fstr_setup: OK
  Start visualize PSF 1 at timestep 0
@@ -505,7 +479,7 @@ To run in an environment where MinGW is not installed, you need to place followi
 You can find these libraries from 
 
 ```
-C:\git-sdk-64\mingw64\bin
+C:\\mingw64\bin
 ```
 
 You also need to setup Microsoft MPI runtime (`MSMpiSetup.exe`).

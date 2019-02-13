@@ -1,6 +1,6 @@
-# Appendix : Example of installation procedure to Ubuntu16.04(Makefile.conf)
+# Appendix : Example of installation procedure to Ubuntu18.04(Makefile.conf)
 
-We will explain how to install this software and how to build external libraries required this software on Ubuntu16.04.
+We will explain how to install this software and how to build external libraries required this software on Ubuntu18.04.
 
 More information for building each libraries, refer to their installation manuals.
 
@@ -44,8 +44,8 @@ Downloads the following software and save it to working directory `$HOME/work`.
 
 | Software | Link |
 |:--|:--|
-| REVOCAP\_Refiner-1.1.04.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
-| FrontISTR\_V50.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
+| REVOCAP\_Refiner-1.1.04.tar.gz | https://www.frontistr.com/ |
+| FrontISTR\_V50.tar.gz | https://www.frontistr.com/ |
 | OpenBLAS-0.2.20.tar.gz | http://www.openblas.net/ |
 | metis-5.1.0.tar.gz | http://glaros.dtc.umn.edu/gkhome/metis/metis/download |
 | scalapack-2.0.2.tgz | http://www.netlib.org/scalapack/ |
@@ -92,6 +92,7 @@ $ cd scalapack-2.0.2
 $ mkdir build
 $ cmake -DCMAKE_INSTALL_PREFIX=$HOME/local \
         -DCMAKE_EXE_LINKER_FLAGS="-fopenmp" \
+        -DWITH_ML=ON \
         -DBLAS_LIBRARIES=$HOME/local/lib/libopenblas.a \
         -DLAPACK_LIBRARIES=$HOME/local/lib/libopenblas.a \
         ..
@@ -120,9 +121,9 @@ LMETIS    = -L$(LMETISDIR)/lib -lmetis
 
 ORDERINGSF  = -Dmetis -Dpord
 
-CC      = mpicc -fopenmp
-FC      = mpifort -fopenmp
-FL      = mpifort -fopenmp
+CC      = mpicc
+FC      = mpifort
+FL      = mpifort
 
 LAPACK = -L$(HOME)/local/lib -lopenblas
 
@@ -133,6 +134,10 @@ INCPAR =
 LIBPAR  = $(SCALAP)
 
 LIBBLAS = -L$(HOME)/local/lib -lopenblas
+
+OPTF    = -O -DBLR_ML -fopenmp
+OPTC    = -O -I. -fopenmp
+OPTL    = -O -fopenmp
 ```
 
 Then execute `make`.
@@ -199,7 +204,7 @@ $ vi Makefile.conf
 ##################################################
 
 # MPI
-MPIDIR         = /usr/lib/openmpi
+MPIDIR         = /usr/lib/x86_64-linux-gnu/openmpi
 MPIBINDIR      = /usr/bin
 MPILIBDIR      = $(MPIDIR)/lib
 MPIINCDIR      = $(MPIDIR)/include
@@ -236,7 +241,7 @@ REVOCAPLIBDIR  = $(REVOCAPDIR)/lib
 MUMPSDIR       = $(HOME)/local
 MUMPSINCDIR    = $(MUMPSDIR)/include
 MUMPSLIBDIR    = $(MUMPSDIR)/lib
-MUMPSLIBS      = -ldmumps -lmumps_common -lpord -L$HOME/local/lib -lscalapack
+MUMPSLIBS      = -ldmumps -lmumps_common -lpord -L$(HOME)/local/lib -lscalapack
 
 # MKL PARDISO
 MKLDIR     = $(HOME)/

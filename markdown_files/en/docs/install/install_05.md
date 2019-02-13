@@ -117,3 +117,4 @@ In Windows environments, the following UNIX-like environments can be used to ins
 
 - Sequential processing version : MinGW, Cygwin
 - Parallel processing version : MinGW + Microsoft MPI, Cygwin + OpenMPI
+

@@ -1,6 +1,6 @@
-# 参考 CentOS7.3へのインストール手順例(Makefile.conf)
+# 参考 CentOS7.6へのインストール手順例(Makefile.conf)
 
-CentOS7.3上へ本ソフトウェアと、それに必要な外部ライブラリの構築手順の例を示します。他の環境へのインストールの参考にしてください。
+CentOS7.6上へ本ソフトウェアと、それに必要な外部ライブラリの構築手順の例を示します。他の環境へのインストールの参考にしてください。
 
 また、各ライブラリの詳細な構築方法は、それぞれのドキュメントを参考にしてください。
 
@@ -56,8 +56,8 @@ $ export PATH=$HOME/local/bin:$PATH
 
 | ソフトウェア名 | ダウンロード先 |
 |:--|:--|
-| REVOCAP\_Refiner-1.1.04.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
-| FrontISTR\_V50.tar.gz | http://www.multi.k.u-tokyo.ac.jp/FrontISTR/ |
+| REVOCAP\_Refiner-1.1.04.tar.gz | https://www.frontistr.com/ |
+| FrontISTR\_V50.tar.gz | https://www.frontistr.com/ |
 | OpenBLAS-0.2.20.tar.gz | http://www.openblas.net/ |
 | metis-5.1.0.tar.gz | http://glaros.dtc.umn.edu/gkhome/metis/metis/download |
 | scalapack-2.0.2.tgz | http://www.netlib.org/scalapack/ |
@@ -71,8 +71,8 @@ $ cd $HOME/work
 $ tar xvf REVOCAP_Refiner-1.1.04.tar.gz
 $ cd REVOCAP_Refiner-1.1.04
 $ make
-$ cp lib/x86_64-linux/libRcapRefiner.a $HOME/local/lib
-$ cp Refiner/rcapRefiner.h $HOME/local/include
+$ cp lib/x86_64-linux/libRcapRefiner.a ~/local/lib
+$ cp Refiner/rcapRefiner.h ~/local/include
 ```
 
 ### OpenBLASのコンパイル
@@ -81,7 +81,7 @@ $ cp Refiner/rcapRefiner.h $HOME/local/include
 $ cd $HOME/work
 $ tar xvf OpenBLAS-0.2.20.tar.gz
 $ make BINARY=64 NO_SHARED=1 USE_OPENMP=1
-$ make PREFIX=$HOME/local install
+$ make PREFIX=~/local install
 ```
 
 ### METISのコンパイル
@@ -90,7 +90,7 @@ $ make PREFIX=$HOME/local install
 $ cd $HOME/work
 $ tar xvf metis-5.1.0.tar.gz
 $ cd metis-5.1.0
-$ make config prefix=$HOME/local cc=gcc openmp=1
+$ make config prefix=~/local cc=gcc openmp=1
 $ make
 $ make install
 ```
@@ -132,19 +132,23 @@ LMETIS    = -L$(LMETISDIR)/lib -lmetis
 
 ORDERINGSF  = -Dmetis -Dpord
 
-CC      = mpicc -fopenmp
-FC      = mpifort -fopenmp
-FL      = mpifort -fopenmp
+CC      = mpicc
+FC      = mpifort
+FL      = mpifort
 
 LAPACK = -L$(HOME)/local/lib -lopenblas
 
 SCALAP  = -L$(HOME)/local/lib -lscalapack
 
-INCPAR =
+INCPAR = -I/usr/include/openmpi-x86_64
 
-LIBPAR  = $(SCALAP)
+LIBPAR  = $(SCALAP) -L/usr/lib64/openmpi/lib -lmpi
 
 LIBBLAS = -L$(HOME)/local/lib -lopenblas
+
+OPTF    = -O -DBLR_MT -fopenmp
+OPTC    = -O -I. -fopenmp
+OPTL    = -O -fopenmp
 ```
 
 書き換えが完了したら保存しmakeします。
@@ -248,7 +252,7 @@ REVOCAPLIBDIR  = $(REVOCAPDIR)/lib
 MUMPSDIR       = $(HOME)/local
 MUMPSINCDIR    = $(MUMPSDIR)/include
 MUMPSLIBDIR    = $(MUMPSDIR)/lib
-MUMPSLIBS      = -ldmumps -lmumps_common -lpord -L$HOME/local/lib -lscalapack
+MUMPSLIBS      = -ldmumps -lmumps_common -lpord -L$(HOME)/local/lib -lscalapack
 
 # MKL PARDISO
 MKLDIR     = $(HOME)/
@@ -308,7 +312,7 @@ $ make
 
 ### make install の実行
 
-makeが完了したら、make installを実行しMakefile.confで指定したディレクトリへインストールします。この例では  `$(HOME)/FrontISTR/bin` になります。
+makeが完了したら、make installを実行しMakefile.confで指定したディレクトリへインストールします。この例では  `$(HOME)/FrontISTR/bin` にインストールされます。
 
 ```
 $ make install
