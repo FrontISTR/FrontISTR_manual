@@ -21,10 +21,10 @@ nav:
     - cmakeでのインストール: install/install_04.md
     - Makefile.confでのインストール: install/install_05.md
     - Makefile.confでの設定項目: install/install_06.md
-    - CentOS7.3へのインストール手順例(cmake): install/install_07.md
-    - Ubuntu16.04へのインストール手順例(cmake): install/install_09.md
-    - CentOS7.3へのインストール手順例(Makefile.conf): install/install_08.md
-    - Ubuntu16.04へのインストール手順例(Makefile.conf): install/install_10.md
+    - CentOS7.6へのインストール手順例(cmake): install/install_07.md
+    - Ubuntu18.04へのインストール手順例(cmake): install/install_09.md
+    - CentOS7.6へのインストール手順例(Makefile.conf): install/install_08.md
+    - Ubuntu18.04へのインストール手順例(Makefile.conf): install/install_10.md
     - Windows10へのインストール手順例(Makefile.conf): install/install_11.md
 - 理論マニュアル:
     - 目次: theory/index.md

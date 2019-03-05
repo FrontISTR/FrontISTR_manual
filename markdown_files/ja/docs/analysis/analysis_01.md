@@ -31,9 +31,7 @@ neu2fstrの詳細は neu2fstr マニュアルを参照すること。
 FrontISTRの実行により、ログデータファイルと結果データファイルおよび可視化データを出力する。
 これらの出力の有無、内容は、解析制御ファイル中の記述および解析内容に依存する。可視化データは FrontISTRの実行後、作成された結果ファイルより、HEC-MW付属のツールであるhecmw\_vis プログラムにより生成することも出来る。hecmw\_vis の詳細はHEC-MW 可視化マニュアルを参照すること。
 
-(a) 入力ファイル
-
-(b) 出力ファイル
+<div style="text-align:center;"><img alt="FrontISTR入出力ファイル" src="media/analysis01_01.png" width="80%"></div>
 
 図 3.1.1　FrontISTR入出力ファイル
 
