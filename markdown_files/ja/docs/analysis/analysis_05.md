@@ -1248,7 +1248,7 @@ DEFINITION = COORDINATES (Default値)/NODES
 
 | 変数名     | 属性  | 内容   |
 |------------|-------|--------|
-| a, b, c    | R     |節点番号|
+| a, b, c    | I     |節点番号|
 
 <div style="text-align:center;"><img alt="Orientation" src="media/analysis05_02.png" width="50%"/></div>
 
