@@ -55,8 +55,7 @@ gcc/g++/gfortranが正しくインストールされているか確認してく�
 
 下記URLからランタイム(`msmpisetup.exe`)とSDK(`msmpisdk.msi`)がダウンロードできます。
 
-https://www.microsoft.com/en-us/download/details.aspx?id=57467[]
-[https://www.microsoft.com/en-us/download/details.aspx?id=57467](https://www.microsoft.com/en-us/download/details.aspx?id=57467)
+[Download Microsoft MPI v10.0](https://www.microsoft.com/en-us/download/details.aspx?id=57467)
 
 #### .aライブラリの作成
 
@@ -96,7 +95,7 @@ mpi.h  mpif.h  mpifptr.h  mpio.h  mspms.h  pmidbg.h
 | metis-5.1.0.tar.gz | http://glaros.dtc.umn.edu/gkhome/metis/metis/download |
 | scalapack-2.0.2.tgz | http://www.netlib.org/scalapack/ |
 | MUMPS_5.1.2.tar.gz | http://mumps.enseeiht.fr/ |
-| trilinos-12.12.1-Source.tar.bz2 | https://trilinos.org/download/ |
+| trilinos-12.14.1-Source.tar.bz2 | https://trilinos.org/download/ |
 
 ### REVOCAP_Refinerのコンパイル
 
@@ -265,8 +264,8 @@ OPTL      = -O -fopenmp
 
 ```
 (MINGW64) cd $HOME/work
-(MINGW64) tar xvf trilinos-12.12.1-Source.tar.gz
-(MINGW64) cd trilinos-12.12.1-Source
+(MINGW64) tar xvf trilinos-12.14.1-Source.tar.gz
+(MINGW64) cd trilinos-12.14.1-Source
 (MINGW64) mkdir build
 (MINGW64) cmake -G "MSYS Makefiles" \
         -DCMAKE_INSTALL_PREFIX="$HOME/local" \

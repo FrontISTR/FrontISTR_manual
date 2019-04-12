@@ -62,7 +62,7 @@ $ export PATH=$HOME/local/bin:$PATH
 | metis-5.1.0.tar.gz | http://glaros.dtc.umn.edu/gkhome/metis/metis/download |
 | scalapack-2.0.2.tgz | http://www.netlib.org/scalapack/ |
 | MUMPS\_5.1.2.tar.gz | http://mumps.enseeiht.fr/ |
-| trilinos-12.12.1-Source.tar.bz2 | https://trilinos.org/download/ |
+| trilinos-12.14.1-Source.tar.bz2 | https://trilinos.org/download/ |
 
 ### REVOCAP\_Refinerのコンパイル
 
@@ -163,8 +163,8 @@ $ cp include/*.h $HOME/local/include
 
 ```
 $ cd $HOME/work
-$ tar xvf trilinos-12.12.1-Source.tar.gz
-$ cd trilinos-12.12.1-Source
+$ tar xvf trilinos-12.14.1-Source.tar.gz
+$ cd trilinos-12.14.1-Source
 $ mkdir build
 $ cmake -DCMAKE_INSTALL_PREFIX=$HOME/local \
         -DCMAKE_C_COMPILER=mpicc \
