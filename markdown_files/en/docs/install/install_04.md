@@ -106,6 +106,7 @@ Other options are as follows.
 | -DCMAKE\_CXX\_COMPILER=     | Specify C++ compiler                             | -DCMAKE_CXX_COMPILER=icpc  (ex. Intel C++ compiler) |
 | -DCMAKE\_Fortran\_COMPILER= | Specify Fortran compiler                         | -DCMAKE_Fortran_COMPILER=ifort  (ex. Intel Fortran compiler)|
 | -DCMAKE\_PREFIX\_PATH=      | Specify path of libraries                        | -DCMAKE_PREFIX_PATH=$HOME/tools |
+| -DOLD\_RES\_FORMAT=OFF   | Revert result file format |
 
 ## About test
 

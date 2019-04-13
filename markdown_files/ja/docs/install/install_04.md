@@ -96,6 +96,7 @@ cmakeコマンドを実行する際、オプションを指定することで挙
 | -DWITH\_LAPACK=ON      | LAPACKの機能を有効                      | ライブラリが必要             |
 | -DWITH\_ML=ON          | Trilinos MLの機能を有効                 | ライブラリが必要             |
 | -DWITH\_DOC=OFF        | FrontISTRのソースコードをドキュメント化 | doxygenとgraphvizが必要      |
+| -DOLD\_RES\_FORMAT=OFF   | resultファイルを旧フォーマットで出力 |  |
 
 cmakeで設定されている変数の一覧は
 
