@@ -17,11 +17,11 @@ MathJax.Hub.Config({
 
 # Dynamic Analysis Method
 
-The dynamic problem analysis method with direct time integration applied is described in this section. As shown in the following, time history response analysis with an implicit method and explicit method can be performed in this development code.
+In this section, the dynamic problem analysis method with a direct time integration method applied is described. As presented below, with this development code, it is possible to perform time history response analysis by an implicit or explicit method. 
 
-## Formulation of Implicit Method
+## Formulation of the implicit method
 
-Direct time integration is applied to the solution of the equation of motion as shown in the following equation, targeting dynamic problems.
+Focusing on dynamic problems, the direct time integration method was applied to solve the following equation motion indicated: 
 
 $$
 \begin{equation}
@@ -30,9 +30,9 @@ M( t + \Delta t ) \ddot{U} (t + \Delta t) + C( t + \Delta t ) \dot{U}(t + \Delta
 \end{equation}
 $$
 
-Herein, $M$ and $C$ is the mass matrix and attenuation matrix, and $Q$ and $F$ are the internal force vector and external force vector. In addition, the change of mass is not considered in this software, and the mass matrix becomes constant regardless of the deformation in non-linearity.
+where $M$ and the mass matrix, $C$ is the damping matrix, and $Q$ is the internal stress vector, and $F$ is the external force vector. This software does not consider the changes in mass; thus, the mass matrix is non-linear and constant regardless of deformation.
 
-The displacement within time increment $\Delta t$, and the change of rate and acceleration are apporoximated as shown in equation $\eqref{eq:2.5.2}$ and equation $\eqref{eq:2.5.3}$ using the Newmark-&beta; method.
+The displacement within time increment $\Delta t$, and the change in speed and acceleration are approximated with the Newmark-$\beta$ method, as expressed in Eq.$\eqref{eq:2.5.2}$ and Eq.$\eqref{eq:2.5.3}$:
 
 $$
 \begin{equation}
@@ -49,16 +49,16 @@ $$
 \end{equation}
 $$
 
-Where,
+where $\gamma$ and $\beta$ are the parameters of the Newmark-$\beta$ method.
 
-  - $\gamma$, $\beta$ : Parameter
+if $\gamma$ and $\beta$ have the following values, it coincides with the linear acceleration method or the trapezoidal rule.
 
 As it is already known, when $\gamma$ and $\beta$ are substituted into the following values, it will match the linear acceleration method, or trapezoid rule.
 
-  - $\gamma=1/2$, $\beta=1/6$ (Linear acceleration method)
-  - $\gamma=1/2$, $\beta=1/4$ (Trapezoid rule)
+  - $\gamma=\frac{1}{2}$, $\beta=\frac{1}{6}$ (Linear acceleration method)
+  - $\gamma=\frac{1}{2}$, $\beta=\frac{1}{4}$ (Trapezoid rule)
 
-When equation $\eqref{eq:2.5.2}$ and equation $\eqref{eq:2.5.3}$ are substituted with equation $\eqref{eq:2.5.1}$, the following equation can be acquired.
+If Eq.$\eqref{eq:2.5.2}$ and Eq.$\eqref{eq:2.5.3}$ are substituted into Eq.$\eqref{eq:2.5.1}$, the following equation is obtaind:
 
 $$
 \begin{align}
@@ -72,7 +72,7 @@ $$
 \end{align}
 $$
 
-Particularly, when $K_L$ is assumed as the linear stiffness matrix for a linear problem, the equation becomes $Q ( t + \Delta t ) = K_L U (t + \Delta t)$. When this equation is substituted with the above equation, the following equation can be acquired.
+$K_L$ is linear stiffness matrix for linear problem; thus, $Q ( t + \Delta t ) = K_L U (t + \Delta t)$. If this equation is substituted into the equation above, the following equation is obtained:
 
 $$
 \begin{equation}
@@ -97,7 +97,7 @@ U(t+\Delta t)
 \end{equation}
 $$
 
-In addition, in locations where the acceleration is specified as geometric boundary condition, the displacement of the following equation can be acquired from equation $\eqref{eq:2.5.2}$.
+In the portion, where the acceleration is specified as a geometric boundary condition, the displacement of the following equation is obtained from Eq.$\eqref{eq:2.5.2}$.
 
 
 $$
@@ -107,7 +107,7 @@ u_{is} (t+\Delta{t}) = u_{is} (t) + \Delta t\, \dot{u}\_{is}(t) + (\Delta t)^2 \
 \end{equation}
 $$
 
-Similarly, in locations where the rate is specified, the displacement of the following equation can be acquired from equation $\eqref{eq:2.5.6}$.
+Similarly, if the speed is specified, the displacement of the following equation is obtained from Eq.$\eqref{eq:2.5.6}$:
 
 $$
 \begin{equation}
@@ -117,23 +117,23 @@ u\_{is}(t+\Delta t) = u\_{is}(t) + \Delta t \frac{\gamma-\beta}{\gamma}\dot{u}\_
 \end{equation}
 $$
 
-Where,
+Where 
 
-  - $u_{is}(t+\Delta t)$ : Node displacement at time $t + \Delta t$
-  - $\dot{u}_{is}(t+\Delta t)$ : Node rate at time $t + \Delta t$
-  - $\ddot{u}_{is}(t+\Delta t)$ : Node acceleration at time $t + \Delta t$
-  - $i$ : Node degree of freedom number (Number of degrees of freedom per 1 - 1 node)
-  - $s$ : Node number
+  - $u_{is}(t+\Delta t)$ is the nodal displacement at $t + \Delta t$,
+  - $\dot{u}_{is}(t+\Delta t)$ is the nodal speed at time $t + \Delta t$ 
+  - $\ddot{u}_{is}(t+\Delta t)$ is the nodal acceleration at time $t + \Delta t$
+  - $i$ is the nodal degree-of-freedom (DOF)
+  - $s$ is the Node number.
 
-The handling of the mass terms and the attenuation terms are as follows.
+Furthermore, the mass and damping terms were handled as follows: 
 
-#### (1) Handling of Mass Term
+#### (1) Handling of mass term
 
-Regarding mass matrices, it is handled as lumped mass matrices as a general rule.
+The mass matrices are handled as concentrated mass matrices. 
 
-#### (2) Handling of Attenuation Term
+#### (2) Handling of damping terms
 
-Regarding the attenuation term, it is handled as the Rayleigh attenuation expressed in equation $\eqref{eq:2.5.8}$.
+The damping terms are handled as Rayleigh damping expressed in Eq.$\eqref{eq:2.5.8}$.
 
 $$
 \begin{equation}
@@ -142,13 +142,11 @@ C = R_m M + R_k K_L
 \end{equation}
 $$
 
-Where,
-
-  - $R_m$, $R_k$ : Parameter
+where $R_m$ and $R_k$ are parameters of Rayleigh damping.
 
 ## Formulation of Explicit Method
 
-The equation of motion at time $t$ shown in the following equation is used as a reference in the explicit method.
+The explicit method is based on the motion equation at time $t$ expressed in the following equation: 
 
 $$
 \begin{equation}
@@ -157,7 +155,7 @@ M \ddot{U}(t) + C (t) \dot{U}(t) + Q(t) = F(t)
 \end{equation}
 $$
 
-In this case, when the displacement at time $t + \Delta t$ and time $t - \Delta t$ is expressed by the Taylor expansion at time $t$, and is taken to the second polynomial regarding $\Delta t$, the equation becomes as follows.
+where the displacement at time $t + \Delta t$ and that at time $t - \Delta t$ are expressed by the Taylor expansion at time $t$. If it is expanded up to the secondary term with $\Delta t$, it becomes
 
 
 $$
@@ -176,7 +174,7 @@ U(t-\Delta{t})=U(t)-\dot{U}(t)(\Delta{t})
 \end{equation}
 $$
 
-The following equation can be acquired from the difference and sum of equation $\eqref{eq:2.5.3}$ and equation $\eqref{eq:2.5.4}$.
+From the difference and sum of Eq.$\eqref{eq:2.5.3}$ and Eq.$\eqref{eq:2.5.4}$, the following equation is obtained:
 
 $$
 \begin{equation}
@@ -195,8 +193,7 @@ $$
 \end{equation}
 $$
 
-When equation $\eqref{eq:2.5.12}$ and equation $\eqref{eq:2.5.13}$ are substituted with equation $\eqref{eq:2.5.9}$, the following equation can be aquired.
-
+If Eq.$\eqref{eq:2.5.12}$ and Eq.$\eqref{eq:2.5.13}$ are substituted into Eq.$\eqref{eq:2.5.9}$, the following equation is obtained:
 
 $$
 \begin{align}
@@ -207,7 +204,7 @@ $$
 \end{align}
 $$
 
-Practicularly, the equation becomes $Q(t)=K_L U(t)$ for a linear problem, and the above equation becomes as follows.
+For linear problems, specifically, $Q(t)=K_L U(t)$, the above equation becomes
 
 $$
 \begin{align}
@@ -217,13 +214,9 @@ $$
 \end{align}
 $$
 
-In this case, when the mass matrix and the attenuation matrix are set as follows, problem solving operations of simultaneous equations is not required in equation $\eqref{eq:2.5.15}$.
+In this case, if mass matrix $M$ is set as a concentrated mass matrix, and the damping matrix as the proportional damping matrix $C=R_m M$, Eq.$\eqref{eq:2.5.15}$ eliminates the requirement of solving operations for simultaneous equations. 
 
-  - $M$ : Mass matrix (Lumped mass matrix)
-  - $C$ : Attenuation matrix (Proportional attenuation $C=R_mM$)
-  - $R_m$ : Parameter
-
-Therefore, from equation $\eqref{eq:2.5.15}$, $U(t+\Delta t)$ can be calculated by the following equation.
+Therefore, from Eq.$\eqref{eq:2.5.15}$, $U(t+\Delta t)$ can be determined by the following equation:
 
 $$
 \begin{equation}

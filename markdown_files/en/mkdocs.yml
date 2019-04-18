@@ -21,24 +21,25 @@ nav:
     - Installation using cmake: install/install_04.md
     - Editing Makefile.conf: install/install_05.md
     - List of Makefile.conf Variables: install/install_06.md
-    - Installation procedure to CentOS7.3(cmake): install/install_07.md
-    - Installation procedure to CentOS7.3(Makefile.conf): install/install_08.md
-    - Installation procedure to Ubuntu16.04(cmake): install/install_09.md
-    - Installation procedure to Ubuntu16.04(Makefile.conf): install/install_10.md
+    - Installation procedure to CentOS7.6(cmake): install/install_07.md
+    - Installation procedure to CentOS7.6(Makefile.conf): install/install_08.md
+    - Installation procedure to Ubuntu18.04(cmake): install/install_09.md
+    - Installation procedure to Ubuntu18.04(Makefile.conf): install/install_10.md
     - Installation procedure to Windows10(Makefile.conf): install/install_11.md
 - Theory:
     - TOC: theory/index.md
     - Infinitesimal Deformation Linear Elasticity Static Analysis: theory/theory_01.md
     - Nonlinear Static Analysis Method: theory/theory_02.md
     - Dynamic Analysis Method: theory/theory_03.md
+    - Heat Conduction Analysis: theory/theory_04.md
     - Eigenvalue Analysis: theory/theory_05.md
     - Frequency Response Analysis: theory/theory_06.md
-    - Heat Conduction Analysis: theory/theory_04.md
     - References: theory/theory_07.md
 - Analysis:
     - TOC: analysis/index.md
     - Analysis Flow: analysis/analysis_01.md
     - Element Library and Material Data: analysis/analysis_02.md
+    - ステップ制御: analysis/analysis_07.md
     - Overall Control Data: analysis/analysis_03.md
     - Single Domeain Mesh Data: analysis/analysis_04.md
     - Analysis Control Data: analysis/analysis_05.md

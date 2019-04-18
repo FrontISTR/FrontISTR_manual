@@ -1,11 +1,11 @@
-## Example of Actual Model for Eigenvalue Analysis
+## Actual Model Examples for Eigenvalue Analysis
 
-### Analysis Model
+### Analysis model
 
-A list of the verification examples of an actual model for the eigenvalue analysis is shown in Table 9.3.1. Among these models, the shapes of the model of EX07 (turbine rotor) and EX08 (spring) are shown in Figure 9.3.1 and Figure 9.3.2. The same shapes as in the verification example for the elastic static analysis where the verification contents are the same is used for the shape of the other models, and is already shown in the above. In order to execute an example of element type 731 and 741, a separate direct method solver is required.
+A list of examples of the actual verification models for eigenvalue analysis is presented in Table 9.3.1. The model shapes of EX07 (turbine rotor) and EX08 (spring) are also shown in Figs. 9.3.1 and 9.3.2. The other model shapes are the same as those of the examples previously discussed in the elastic static analysis, which has the same verification content. The examples of the element types 731 and 741 require a separate direct method solver. 
 
 <div style="text-align: center;">
-Table 9.3.1: Verification Example of Actual Model for Eigenvalue Analysis
+Table 9.3.1: Examples of actual model verification for eigenvalue analysis
 </div>
 
 | Case Name | Element Type | Verification Model  | No. of Nodes | No. of Degrees of Freedom |
@@ -19,12 +19,12 @@ Table 9.3.1: Verification Example of Actual Model for Eigenvalue Analysis
 
 <div style="text-align: center;">
 <img src="./media/example03_01.png" width="350px"><br>
-Figure 9.3.1: Turbine Rotor (EX07)
+Fig. 9.3.1: Turbine rotor (EX07)
 </div>
 
 <div style="text-align: center;">
 <img src="./media/example03_02.png" width="350px"><br>
-Figure 9.3.2: Spring (EX08)
+Fig. 9.3.2: Spring (EX08)
 </div>
 
 ### Analysis Results
@@ -44,7 +44,7 @@ The vibration mode and natural frequency are shown in the following.
 |(e) Mode 5(8210kHz)                              | |
 
 <div style="text-align: center;">
-Figure 9.3.3: EX06 Turbine Blade Vibration Mode
+Fig. 9.3.3: EX06, turbine blade vibration mode
 </div>
 
 #### (2) EX07 Turbine rotor
@@ -62,7 +62,7 @@ Figure 9.3.3: EX06 Turbine Blade Vibration Mode
 |  |  |
 
 <div style="text-align: center;">
-Figure 9.3.4: EX07 Turbine Rotor Vibration Mode
+Fig. 9.3.4: EX07, Turbine rotor vibration mode
 </div>
 
 #### EX08 Spring
@@ -84,7 +84,7 @@ Figure 9.3.4: EX07 Turbine Rotor Vibration Mode
 | 5|1810 Hz    |1810 Hz   |
 
 <div style="text-align: center;">
-Figure 9.3.5: EX08 Spring Vibration Mode
+Fig. 9.3.5: EX08, spring vibration mode
 </div>
 
 #### (4) EX09 Cylindrical shell
@@ -105,7 +105,7 @@ Figure 9.3.5: EX08 Spring Vibration Mode
 </div>
 
 <div style="text-align: center;">
-Figure 9.3.6: EX09 Cylindrical Shell Vibration Mode
+Fig. 9.3.6: EX09, cylindrical shell vibration mode
 </div>
 
 #### EX10A Wine glass
@@ -119,5 +119,6 @@ Figure 9.3.6: EX09 Cylindrical Shell Vibration Mode
 |(d) Mode 4(1335Hz)|(e) Mode 5(1336Hz)|   |
 
 <div style="text-align: center;">
-Figure 9.3.7: EX10A Wine Glass Vibration Mode
+Fig. 9.3.7: EX10A Wine Glass Vibration Mode
 </div>
+

@@ -15,13 +15,13 @@ MathJax.Hub.Config({
 </script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
-# Infinitesimal Deformation Linear Elasticity Static Analysis
+# Infinitesimal Deformation Linear Elastic Static Analysis
 
-The formulation for the elastic static analysis based on the infinitesimal deformation theory is described in this section. The linear elasticity is assumed as the stress and strain relationship.
+In this section, the elastic static analysis is formulated on the basis of the infinitesimal deformation theory, which assumes linear elasticity as a stress-strain relationship. 
 
-### Basic Equation
+### Basic equations
 
-The equilibrium equation of solid mechanics, dynamic boudary conditions and the geometric boundary conditions (basic boudary conditions) are given by the following equation (Refer to Figure 2.1.1).
+The equilibrium equation, mechanical boundary conditions, and geometric boundary conditions (basic boundary conditions) of solid mechanics are given by the following equations (see Fig. 2.1.1): 
 
 $$
 \begin{equation}
@@ -44,13 +44,12 @@ u = \overline{u} \quad on \ S_u
 \end{equation}
 $$
 
-Herein, $\sigma$ is the stress, $\overline{t}$ is the surface force, $\overline{b}$ is the body force, and $S_t$ expresses the dynamic boundary and $S_u$ expresses the geometric boundary.
 
-<div style="text-align:center;"><img alt="Figure 2.1.1 Boundry Value Problem in Solid Mechanics(Infinitesimal Deformation Problem)" src="media/theory01_01.png" width="30%"/></div>
+where $\sigma$, $\overline{t}$ and $S_t$ denote stress, surface force, and body force, respectively. $S_t$ and $S_u$ represent the geometric and mechanical boundaries, respectively.
 
-** Figure 2.1.1 Boundry Value Problem in Solid Mechanics(Infinitesimal Deformation Problem) **
+<div style="text-align:center;"><img alt="Fig. 2.1.1 Boundary value problem in solid mechanics (infinitesimal deformation problem)" src="media/theory01_01.png" width="30%"/><br/>Fig. 2.1.1 Boundary value problem in solid mechanics (infinitesimal deformation problem)</div>
 
-The strain and displacement relational expression in the infinitesimal deformation problem is given by the following equation.
+The strain-displacement relation in infinitesimal deformation problems is given by the following equation:
 
 $$
 \begin{equation}
@@ -59,7 +58,7 @@ $$
 \end{equation}
 $$
 
-The stress and strain relational expression (constitutive equation) in the linear elastic body is given by the following equation.
+Furthermore, the stress-strain relationship (constitutive equation) in linear elastic bodies is given by the following equation:
 
 $$
 \begin{equation}
@@ -68,11 +67,11 @@ $$
 \end{equation}
 $$
 
-Herein, $C$ is the fourth order elastic tensor.
+where, $C$ is a fourth-order elasticity tensor.
 
-## Principle of Virtual work
+## Principle of Virtual Work
 
-The principle of the virtual work regarding the infinitesimal deformation linear elasticity problem equivalent to the basic equations $\eqref{eq:2.1.1}$, $\eqref{eq:2.1.2}$ and $\eqref{eq:2.1.3}$, is expressed as in the following equation.
+The principle of the virtual work related to the infinitesimal deformation linear elasticity problem, which is equivalent to the basic equation Eq.$\eqref{eq:2.1.1}$, Eq.$\eqref{eq:2.1.2}$ and Eq.$\eqref{eq:2.1.3}$, is expressed as:
 
 $$
 \begin{equation}
@@ -88,7 +87,7 @@ $$
 \end{equation}
 $$
 
-Furthermore, in consideration of the constitutive equation $\eqref{eq:2.1.5}$, equation $\eqref{eq:2.1.6}$ is expressed as in the following equation.
+Moreover, considering the constitutive equation Eq.$\eqref{eq:2.1.5}$, Eq.$\eqref{eq:2.1.6}$, is expressed as follows:
 
 $$
 \begin{equation}
@@ -97,7 +96,7 @@ $$
 \end{equation}
 $$
 
-In equation $\eqref{eq:2.1.8}$, $\varepsilon$ is the strain tensor and $C$ is the forth order elastic tensor, In this case, when stress tensor $\sigma$ and strain tensor $\varepsilon$ are expressed by each vector forms $\hat{\sigma}$ and $\hat{\varepsilon}$, the consitutive equation $\eqref{eq:2.1.5}$ is expressed as in the following equation.
+In Eq.$\eqref{eq:2.1.8}$, $\varepsilon$ is the strain tensor and $C$ is the forth-order enasticity tensor. In this case, if the strain tensor $\sigma$ and $\varepsilon$ are represented by vector formats $\hat{\sigma}$ and $\hat{\varepsilon}$, respectively, the consitutive equation Eq.$\eqref{eq:2.1.5}$ is expressed as follows
 
 $$
 \begin{equation}
@@ -106,9 +105,9 @@ $$
 \end{equation}
 $$
 
-Herein, $D$ is the elastic matrix.
+where $D$ is an elastic matrix.
 
-In consideration of stress $\hat{\sigma}$ and $\hat{\varepsilon}$ expressed by the vector forms and equation $\eqref{eq:2.1.9}$, equation $\eqref{eq:2.1.8}$ is the expressed as in the following equation.
+Considering that the $\hat{\sigma}$, $\hat{\varepsilon}$ and Eq.$\eqref{eq:2.1.9}$ are expressed in vector format, Eq.$\eqref{eq:2.1.8}$ is expressed as follows:
 
 $$
 \begin{equation}
@@ -118,11 +117,11 @@ $$
 \end{equation}
 $$
 
-Equation $\eqref{eq:2.1.10}$ and equation $\eqref{eq:2.1.7}$ are the principles of the virtual work discretized in this development code.
+Eq.$\eqref{eq:2.1.10}$ and Eq.$\eqref{eq:2.1.7}$ are the principles of the virtual work discretized in this development code.
 
 ## Formulation
 
-The principle equation $\eqref{eq:2.1.10}$ of the virtual work is discretized for each finite element to acquire the following equation.
+If the principle of virtual work, Eq.$\eqref{eq:2.1.10}$, is discretized for each finite element, the following equation is obtained:  
 
 $$
 \begin{equation}
@@ -132,7 +131,7 @@ $$
 \end{equation}
 $$
 
-Using the displacement of the nodes which consist of elements, the displacement field is interpolated for each element as in the following equation.
+Using the displacement of the nodes that compose each element, the displacement field is interpolated as follows:
 
 $$
 \begin{equation}
@@ -141,7 +140,7 @@ u = \sum^m_{i=1} N_i u_i = N U
 \end{equation}
 $$
 
-The strain in this case, is given as in the following equation using equation $\eqref{eq:2.1.4}$.
+The strain at this moment, using Eq.$\eqref{eq:2.1.4}$,  is given as follows:
 
 $$
 \begin{equation}
@@ -150,7 +149,7 @@ $$
 \end{equation}
 $$
 
-Equations $\eqref{eq:2.1.12}$ and $\eqref{eq:2.1.13}$ are substituted with equation $\eqref{eq:2.1.11}$ to acquire the following equation.
+When Eq.$\eqref{eq:2.1.12}$ and Eq.$\eqref{eq:2.1.13}$ are substituted into Eq.$\eqref{eq:2.1.11}$, the following equation is obtained:
 
 $$
 \begin{equation}
@@ -162,7 +161,7 @@ N^T \overline{t}\, dS + \sum_{e} \delta U^T \int_{V^e} N^T
 \end{equation}
 $$
 
-Equation $\eqref{eq:2.1.14}$ can be summarized as in the following equation.
+Eq.$\eqref{eq:2.1.14}$ can be summarized as
 
 $$
 \begin{equation}
@@ -171,7 +170,7 @@ $$
 \end{equation}
 $$
 
-Where,
+In this case, the components of the matrix and vector defined by Eq.$\eqref{eq:2.1.16}$ and Eq.$\eqref{eq:2.1.17}$ can be calculated for each finite and overlapped element:
 
 $$
 \begin{equation}
@@ -187,9 +186,7 @@ F = \sum_e (\int_{S_t^e} N^T \overline{t}\, dS + \int_{V^e} N^T \overline{b}\, d
 \end{equation}
 $$
 
-The components of the matrix and vectors defined by the following equations $\eqref{eq:2.1.16}$ and $\eqref{eq:2.1.17}$ can be calculated and overlapped for each finite element.
-
-The following equation can be acquired by forming equation $\eqref{eq:2.1.15}$ for the arbitary virtual displacement $\delta U$.
+if Eq.$\eqref{eq:2.1.15}$ is true for an arbitary virtual displacement $\delta U$, tha following equation is obtained:
 
 $$
 \begin{equation}
@@ -198,7 +195,7 @@ K U = F
 \end{equation}
 $$
 
-On the other hand, the displacement boundary condition equation $\eqref{eq:2.1.3}$ is expressed as in the following equation.
+Meanwhile, the displacement boundary conditioni Eq.$\eqref{eq:2.1.3}$ is expressed as follows:
 
 $$
 \begin{equation}
@@ -207,4 +204,4 @@ U = \overline{U}
 \end{equation}
 $$
 
-Node displacement $U$ can be determined by solving equation $\eqref{eq:2.1.18}$ by the restriction condition equation $\eqref{eq:2.1.19}$.
+By solving Eq.$\eqref{eq:2.1.18}$ based on the constraint condition Eq.$\eqref{eq:2.1.19}$, it is possible to define the node displacement $U$.

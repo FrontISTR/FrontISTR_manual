@@ -1,24 +1,24 @@
-## Static Analysis (Elastoplasticity Part 2)
+## Static Analysis (Elastoplastic, Part 2)
 
-Data of `tutorial/06_plastic_can/` is used to implement this analysis.
+This analysis uses the data of `tutorial/06_plastic_can`.
 
-### Analysis Object
+### Analysis target
 
-The object for analysis is a 1/2 model of a can. The shape is shown in Figure 4.6.1, and the mesh data is shown in Figure 4.6.2. Quadratic tetrahedral elements are used for the mesh, and the scale of the mesh consists of 7,236 elements and 14,119 nodes.
+The target of this analysis is a 1/2 model of a container whose shape and mesh data are shown in Figs. 4.6.1 and 4.6.2, respectively. The mesh is a tetrahedral secondary element with 7236 elements and 14119 nodes.
 
 <div style="text-align: center;">
 <img src="./media/tutorial06_01.png" width="350px"><br>
-Figure 4.6.1: Shape of Can
+Fig. 4.6.1: Shape of the container
 </div>
 
 <div style="text-align: center;">
 <img src="./media/tutorial06_02.png" width="350px"><br>
-Figure 4.6.2: Mesh Data of Can
+Fig. 4.6.2: Mesh data of the container
 </div>
 
-### Analysis Content
+### Analysis content
 
-A stress analysis is implemented, where the displacement of the restrained surface shown in Figure 4.6.1 is restrained, and a distributed load was applied to the forced surface inside of the can. The Drucker-Prager model is used for the yield function. The analysis control data is shown in the following.
+In this stress analysis, the displacement of the constrained surface shown in Fig. 4.6.1 is restrained, and a concentrated load is applied to the internal part of the container (the forced surface). The Drucker–Prager model is used as the yield function. The analysis control data are presented below.
 
 ```
 # Control File for FISTR
@@ -56,13 +56,13 @@ A stress analysis is implemented, where the displacement of the restrained surfa
   1.0e-8, 1.0, 0.0
 ```
 
-### Analysis Results
+### Analysis results
 
-As analysis results of the 10th sub step, a deformed figure applied with a contour of the Mises stress was created by REVOCAP\_PrePost, and is shown in Figure 4.6.3. The deformation magnification is set to 30. Moreover, a portion of the analysis results log file is shown in the following as numeric data of the analysis results.
+The analysis results of the 10<sup>th</sup> sub-step are shown in Fig. 4.6.3 as a deformation diagram with a Mises stress contour created with REVOCAP\_PrePost. The deformation magnification was set to 30. Furthermore, a part of the log files of the analysis results is shown below as numerical data of the analysis.
 
 <div style="text-align: center;">
 <img src="./media/tutorial06_03.png" width="350px"><br>
-Figure 4.6.3: Analysis Results of Deformation and Mises Stress
+Fig. 4.6.3: Analysis results of deformation and Mises stress
 </div>
 
 ```

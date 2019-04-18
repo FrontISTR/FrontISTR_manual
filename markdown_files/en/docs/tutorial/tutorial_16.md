@@ -1,24 +1,24 @@
 ## Heat Conduction Analysis
 
-Data of `tutorial/16_heat_block/` is used to implement this analysis.
+This analysis uses the data of `tutorial/16_heat_block`.
 
-### Analysis Object
+### Analysis target
 
-A block with a hole is the object of the analysis. The shape is shown in Figure 4.16.1, and the mesh data is shown in Figure 4.16.2. Hexahedral linear elements are used for the mesh, and the scale of the mesh consists of 32,160 elements and 37,386 nodes.
+The target of this analysis is a perforated block whose shape and mesh data are shown in Figs. 4.16.1 and 4.16.2, respectively. The mesh is a hexahedral primary element with 32160 elements and 37386 nodes.
 
 <div style="text-align: center;">
 <img src="./media/tutorial16_01.png" width="350px"><br>
-Figure 4.16.1: Shape of Block with Hole
+Fig. 4.16.1: Shape of the perforated block
 </div>
 
 <div style="text-align: center;">
 <img src="./media/tutorial16_02.png" width="350px"><br>
-Figure 4.16.2: Mesh Data of Block with Hole
+Fig. 4.16.2: Mesh data of the perforated block
 </div>
 
-### Analysis Content
+### Analysis content
 
-A steady heat conduction analysis is implemented, where a heat source is applied to the cylindrical inner surface of the analysis object. The analysis control data is shown in the following.
+This is a steady-state heat conduction analysis wherein a heat source is provided to the cylindric internal surface of the analysis target. The analysis control data are presented below.
 
 ```
 #  Control File for FISTR
@@ -46,14 +46,13 @@ A steady heat conduction analysis is implemented, where a heat source is applied
  1.0e-8, 1.0, 0.0
 ```
 
-### Analysis Results
+### Analysis results
 
-A temperature contour figure was created by REVOCAP\_PrePost, and is shown in Figure 4.16.3. Moreover, a portion of the analysis results log file is shown in the following as numeric
-data of the analysis results.
+This analysis uses the data of `tutorial/17_freq_beam`. The first step of the analysis is to change the overall control data for eigenvalue analysis, `hecmw_ctrl_eigen.dat`, to `hecmw_ctrl.dat` and perform eigenvalue analysis. Further, change the overall control data for frequency response analysis, `hecmw_ctrl_freq.dat`, to `hecmw_ctrl.dat`, and the eigenvalue analysis result log file, `0.log`, to \`eigen_0.log` (which is specified within the analysis control data for frequency response analysis.) Finally, frequency response analysis is performed.
 
 <div style="text-align: center;">
 <img src="./media/tutorial16_03.png" width="350px"><br>
-Figure 4.16.3: Temperature Analysis Results
+Fig. 4.16.3: Analysis results of temperature
 </div>
 
 ```

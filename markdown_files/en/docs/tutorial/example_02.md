@@ -1,14 +1,14 @@
-## Example of Actual Model for Elastic Static Analysis
+## Actual Model Examples for Elastic Static Analysis
 
 ### Analysis Model
 
-A list of an actual model verification example for the elastic static analysis is shown in Table 9.2.1. The shape of the model (portions excluded) is shown in Figure 9.2.1 ~ Figure 9.2.5. In order to execute an example of element type 731 and 741, a separate direct method solver is required.
+A list of actual model verification examples for elastic static analysis are presented in Table 9.2.1. The different shapes of the models are shown in Figs. 9.2.1–9.2.5 (some models are excluded). The examples of the element types 731 and 741 require a separate direct method solver.
 
 <div style="text-align: center;margin-top:3em;">
-Table 9.2.1: Example of Actual Model Verification for Elastic Static Analysis
+Table 9.2.1: Actual model verification examples for elastic static analysis
 </div>
 
-| Case Name | Element Type | Verification Model | No. of Nodes | No. of Degrees of Freedom |
+| Case name | Element type | Verification model | Number of nodes | Freedom freequency |
 |:--|:--|:--|:--|:--|
 | EX01A    | 342        | Connecting rod (100,000 nodes) | 94,074  | 282,222 |
 | EX01B    | 342        | Connecting rod (330,000 nodes) | 331,142 | 993,426 |
@@ -21,87 +21,80 @@ Table 9.2.1: Example of Actual Model Verification for Elastic Static Analysis
 
 <div style="text-align: center;">
 <img src="./media/example02_01.png" width="250px"><br>
-Figure 9.2.1: Connecting Rod (EX01A)
+Fig. 9.2.1: Connecting Rod (EX01A)
 </div>
 
 <div style="text-align: center;">
 <img src="./media/example02_02.png" width="350px"><br>
-Figure 9.2.2: Block with Hole (EX02)
+Fig. 9.2.2: Perforated block (EX02)
 </div>
 
 <div style="text-align: center;">
 <img src="./media/example02_03.png" width="350px"><br>
-Figure 9.2.3: Turbine Blade (EX03, EX06)
+Fig. 9.2.3: Turbine blade (EX03, EX06)
 </div>
 
 <div style="text-align: center;">
 <img src="./media/example02_04.png" width="350px"><br>
-Figure 9.2.4: Cylindrical Shell (EX04, EX09)
+Fig. 9.2.4: Cylindrical shell (EX04, EX09)
 </div>
 
 <div style="text-align: center;">
 <img src="./media/example02_05.png" width="200px"><br>
-Figure 9.2.5: Wine Glass (EX05, EX10A)
+Fig. 9.2.5: Wine Glass (EX05, EX10A)
 </div>
 
-### Analysis Results
+### Analysis results
 
-#### Example of Analysis Results
+#### Example of analysis results
 
-An example of the analysis results is shown in Figure 9.2.6 ~ Figure 9.2.9.
+Examples of the analysis results are shown in Figs. 9.2.6–9.2.9. 
 
 <div style="text-align: center;">
 <img src="./media/example02_06.png" width="350px"><br>
-Figure 9.2.6: EX01A Analysis Results (Mises Stress and Deformed Figure (10 times))
+Fig. 9.2.6: EX01 analysis results (Mises stress and deformation diagram (10 times))
 </div>
 
 <div style="text-align: center;">
 <img src="./media/example02_07.png" width="350px"><br>
-Figure 9.2.7: EX02 Analysis Results (Mises Stress and Deformed Figure (100 times))
+Fig. 9.2.7: EX02 analysis results (Mises stress and deformation diagram (100 times))
 </div>
 
 <div style="text-align: center;">
 <img src="./media/example02_08.png" width="250px"><br>
-Figure 9.2.8: EX03 Analysis Results (Deformed Figure (10 times))
+Fig. 9.2.8: EX03 analysis results (deformation diagram (10 times))
 </div>
 
 <div style="text-align: center;">
 <img src="./media/example02_09.png" width="350px"><br>
-Figure 9.2.9: EX04 Analysis Results (Deformed Figure (100 times))
+Fig. 9.2.9: EX04 analysis results (deformation diagram (100 times))
 </div>
 
-#### Verification Results of Analysis Performance by Verification Example EX02
+#### Verification Results of Analysis Performance with Example EX02
 
-An equivalent block model with a hole as in verification example EX02 was used to perform the analysis by general purpose commercial software ABAQUS. The maximum and minimum comparison results of FrontISTR and the stress component are shown in Figure 9.2.10. This figure shows that the stress component is extremely coherent.
+An analysis was performed with the commercial software ABAQUS using a model equivalent to the verification example model EX02 (perforated block). A comparison of the maximum and minimum values of the stress components with the results of FrontISTR is shown in Fig. 9.2.10. It can be seen that the stress components are very close to each other. 
 
-Next, the results of investigating the affects of domain partitioning in the stress distribution are shown. The domain partitioning was performed according to the RCB method, and X, Y and Z were partitioned into two in each axial direction, and the overall model was partitioned into 8 domains. The partitioned state is shown in Figure 9.2.11. The stress distribution in the analysis results of a single domain model and a model partitioned into eight domains is shown in Figure 9.2.12.
+The effect of area division on stress distribution was also analyzed. The division was performed according to the RCB method, i.e., the model was halved in each of the X, Y, and Z axial directions, creating eight areas in total. Fig. 9.2.11 shows the division, while Fig. 9.2.12 shows the stress distribution of the analysis results with a single area and with the area divided into eight areas.
 
 <div style="text-align: center;">
 <img src="./media/example02_10.png" width="350px"><br>
-Figure 9.2.10: Comparison of Stress Component with General Purpose Software in EX02
+Fig. 9.2.10: Comparison of the stress components of EX02 with the commercial software
 </div>
 
 <div style="text-align: center;">
 <img src="./media/example02_11.png" width="350px"><br>
-Figure 9.2.11: Eight Domain Partitioned Results of EX02 by RCB Method
+Fig. 9.2.11: Result of the division of EX02 in eight areas by the RCB method
 </div>
 
 <div style="text-align: center;">
 <img src="./media/example02_12.png" width="350px"><br>
-(a) Single Domain Model
+Fig. 9.2.12: No difference between the stress distribution of the analysis results with a single area and with the area divided into eight areas
 </div>
 
-<div style="text-align: center;">
-<img src="./media/example02_13.png" width="350px"><br>
-(b) Eight Domain Partitioned Model
-</div>
-
-Figure 9.2.12 shows no difference between both models, and it is clear that both models are in complete agreement.
-
-Next, the comparison results of the execution time by setting the HEC-MW solver is shown in Table 9.2.2. The convergence history to the solution is shown in Figure 9.2.13.
+Furthermore, a comparison of the execution time with the settings of the HEC-MW solver used is presented in Table 9.2.2. Fig. 9.2.13 shows the convergence history until the solution was found.
 
 <div style="text-align: center;">
-Table 9.2.2: Comparison of Execution Time by HEC-MW Solver
+Table 9.2.2: Comparison of execution time with HEC-MW solvers
 </div>
 
 | Solver | Execution Time(s) |
@@ -113,22 +106,22 @@ Table 9.2.2: Comparison of Execution Time by HEC-MW Solver
 
 <div style="text-align: center;">
 <img src="./media/example02_14.png" width="350px"><br>
-Figure 9.2.13: Comparison of Convergence History by HEC-MW Solver (Convergence judgment threshold: $1.0x10^{-8})
+Fig. 9.2.13: Comparison of convergence history with the HEC-MW solver (convergence threshold: $1.0 \times 10^{-8}$ )
 </div>
 
-#### Comparison of Computing Time by Verification Example EX01A
+#### Comparison of calculation time with verification example EX01A
 
-Verification example EX01A (connecting rod) was used to verify the acceleration rate of the calculating speed by domain partitioning. A Xeon 2.8 GHz 24 node cluster computing system was used for the calculations. The results are shown in Figure 9.2.14. In this figure, it is clear that the calculating speed accelerated in proportion to the number of domains.
+The increase rate of the calculation speed because of area division was verified with the example EX01A (connecting rod.) The test was conducted with a Xeon 2.8 GHz 24 node cluster computer, and the results are shown in Fig. 9.2.14. This figure shows that the calculation speed increases proportionally to the number of areas. 
 
-The difference in the computing time by the environment of the computing system was also examined. The results are shown in Table 9.2.3.
+The difference in the calculation time because of the computer environment was also analyzed. The results are presented in Table 9.2.3. 
 
 <div style="text-align: center;">
 <img src="./media/example02_15.png" width="350px"><br>
-Figure 9.2.14: Accelerating Effectiveness by Domain Partitioning
+Fig. 9.2.14: Speed-increasing effect because of area division
 </div>
 
 <div style="text-align: center;margin-top:3em;">
-Table 9.2.3: Comparison of Computing Time by Computing System (1 CPU)
+Table 9.2.3: Comparison of calculation time with different computers (one CPU) 
 </div>
 
 |CPU | Frequancy [GHz] | OS | CPU Time [sec] | solver time [sec] |

@@ -10,54 +10,54 @@ MathJax.Hub.Config({
 </script>
 <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
 
-## Verification by Simple Geometric Model
+## Verification by Simple-Shaped Model
 
 ### Elastic static analysis
 
-The subject in this verification was a cantilever beam with mesh partitioning as shown in Figure 9.1.1. Regarding the verification conditions, the analysis was performed with 7 conditions from exA - exG where the load conditions were changed as shown in Figure 9.1.2. In addition, this is a verification case where a direct method solver was used, with the same load conditions as exA being applied to exG.
+This verification was performed with a mesh-divided cantilever, as shown in Fig. 9.1.1. The analysis was performed with seven load conditions, exA–exG, as illustrated in Fig. 9.1.2. Please note that exG has the same load conditions as those of exA using the direct method solver.
 
-The verification results for each case are shown in Table 9.1.1 ~ Table 9.1.7.
+The verification result of each load condition is presented in Tables 9.1.1–9.1.7.
 
 <div style="text-align: center;">
 <img src="./media/example01_01.png" width="350px"><br>
-Figure 9.1.1: Example of Mesh Partitioned Cantilever Beam (Hexahedral Element)
+Fig. 9.1.1: Example of Mesh Partitioned Cantilever Beam (Hexahedral Element)
 </div>
 
 |   |   |
 |---|---|
-|<img src="./media/example01_02.png" width="350px">|(a) exA,G : Concentrated load|
-|<img src="./media/example01_03.png" width="350px">|(b) exD : Gravity|
-|<img src="./media/example01_04.png" width="350px">|(c) exB : Surface distributed load|
-|<img src="./media/example01_05.png" width="350px">|(d) exE : Centrifugal force|
-|<img src="./media/example01_06.png" width="350px">|(e) exC : Volumetric load|
+|<img src="./media/example01_02.png" width="350px">|(a) exA, G: Concentrated load|
+|<img src="./media/example01_03.png" width="350px">|(b) exD: Gravitation|
+|<img src="./media/example01_04.png" width="350px">|(c) exB: Surface-distributed load|
+|<img src="./media/example01_05.png" width="350px">|(d) exE: Centrifugal force|
+|<img src="./media/example01_06.png" width="350px">|(e) exC: Volume load|
 |<img src="./media/example01_07.png" width="350px">|(f) exF : Heat load|
 
-|  |  |
+|Item |Value |
 |:--|:--|
-|Young's Modulus                      | $E = 4000.0\ kgf/mm^2$ |
-|Length                               | $L = 10.0\ mm$ |
-|Poisson's Ratio                      | $\nu = 0.3$ |
-|Cross-sectional area                 | $A = 1.0\ mm^2$ |
-|Mass density                         | $\rho = 8.0102 \times 10^{-10}\ kg\,s^2/mm^4$ |
-|Geometrical moment of inertia        | $I = 1.0/12.0\ mm^4$ |
-|Gravitational acceleration           | $g = 9800.0\ mm/s^2$ |
-|Linear thermal expansion coefficient | $\alpha = 1.0 \times 10^{-5}$ |
+|Young's Modulus                        | $E = 4000.0\ kgf/mm^2$ |
+|Length                                 | $L = 10.0\ mm$ |
+|Poisson's Ratio                        | $\nu = 0.3$ |
+|Sectional area                         | $A = 1.0\ mm^2$ |
+|Mass density                           | $\rho = 8.0102 \times 10^{-10}\ kg\,s^2/mm^4$ |
+|Second moment of area                  | $I = 1.0/12.0\ mm^4$ |
+|Gravitational acceleration             | $g = 9800.0\ mm/s^2$ |
+|Linear coefficient of thermal expansion| $\alpha = 1.0 \times 10^{-5}$ |
 
 <div style="text-align: center; margin-bottom: 3em;">
-Figure 9.1.2: Verification Conditions of Cantilever Beam Model
+Fig. 9.1.2: Verification conditions of the cantilever model
 </div>
 
 <div style="text-align: center; margin-top: 3em;">
-Table 9.1.1: exA: Verification Results of Concentrated Load Problem
+Table 9.1.1: exA: Verification results of the concentrated load problem
 </div>
 
-| Case Name | No. of Elements | | Predicated Value : $\delta\_{max}= -1.000$ | | Remarks |
+| Case Name | Number of elements | | Predicated Value : $\delta\_{max}= -1.000$ | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
-| A231 | 40  | -0.338 | -0.371 | -0.371 | 33 nodes / plane stress problem |
-| A232 | 40  | -0.942 | -1.002 | -1.002 | 105 nodes / plane stress problem |
-| A241 | 20  | -0.720 | -0.711 | -0.711 | 33 nodes / plane stress problem |
-| A242 | 20  | -0.910 | -1.002 | -1.002 | 85 nodes / plane stress problem |
+| A231 | 40  | -0.338 | -0.371 | -0.371 | 33 nodes / plane stress status problem |
+| A232 | 40  | -0.942 | -1.002 | -1.002 | 105 nodes / plane stress status problem |
+| A241 | 20  | -0.720 | -0.711 | -0.711 | 33 nodes / plane stress status problem |
+| A242 | 20  | -0.910 | -1.002 | -1.002 | 85 nodes / plane stress status problem |
 | A341 | 240 | -0.384 | -0.384 | -0.386 | 99 nodes |
 | A342 | 240 | -0.990 | -0.990 | -0.999 | 525 nodes |
 | A351 | 80  | -0.353 | -0.355 | -0.351 | 99 nodes |
@@ -68,16 +68,16 @@ Table 9.1.1: exA: Verification Results of Concentrated Load Problem
 | A741 | 20  | -      | -      | -0.996 | 33 nodes / direct method |
 
 <div style="text-align: center;margin-top: 3em;">
-Table 9.1.2: exB: Verification Results of Surface Distributed Load Problem
+Table 9.1.2: exB: Verification results of the surface-distributed load problem
 </div>
 
-| Case Name | No. of Elements | | Predicated Value : $\delta\_{max}= -3.750$ | | Remarks |
+| Case name | Number of elements | | Predicated value : $\delta\_{max}= -3.750$ | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
-| B231 | 40  | -1.281 | -1.403 | -1.403 | 33 nodes / plane stress problem |
-| B232 | 40  | -3.579 | -3.763 | -3.763 | 105 nodes / plane stress problem |
-| B241 | 20  | -3.198 | -2.680 | -2.680 | 33 nodes / plane stress problem |
-| B242 | 20  | -3.426 | -3.765 | -3.765 | 85 nodes / plane stress problem |
+| B231 | 40  | -1.281 | -1.403 | -1.403 | 33 nodes / plane stress status problem |
+| B232 | 40  | -3.579 | -3.763 | -3.763 | 105 nodes / plane stress status problem |
+| B241 | 20  | -3.198 | -2.680 | -2.680 | 33 nodes / plane stress status problem |
+| B242 | 20  | -3.426 | -3.765 | -3.765 | 85 nodes / plane stress status problem |
 | B341 | 240 | -1.088 | -1.449 | -1.454 | 99 nodes |
 | B342 | 240 | -3.704 | -3.704 | -3.748 | 525 nodes |
 | B351 | 80  | -3.547 | -1.338 | -1.325 | 99 nodes |
@@ -88,10 +88,10 @@ Table 9.1.2: exB: Verification Results of Surface Distributed Load Problem
 | B741 | 20  | -      | -      | -3.743 | 33 nodes / direct method |
 
 <div style="text-align: center;margin-top:3em;">
-Table 9.1.3: exC: Verification Results of Volumetric Load Problem
+Table 9.1.3: exC: Verification results of the volume load problem
 </div>
 
-| Case Name | No. of Elements | | Predicated Value : $\delta_{max}=$ -2.944e-5 | | Remarks |
+| Case Name | Number of elements | | Predicated Value : $\delta_{max}=$ -2.944e-5 | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
 | C231 | 40  | - | -1.101e-5 | -1.101e-5 | 33 nodes / plane stress problem |
@@ -108,16 +108,16 @@ Table 9.1.3: exC: Verification Results of Volumetric Load Problem
 | C741 | 20  | - | -         | -2.938e-5 | 33 nodes / direct method |
 
 <div style="text-align: center;margin-top: 3em;">
-Table 9.1.4: exD: Verification Results of Gravity Problem
+Table 9.1.4: exD: Verification results of the gravitation problem
 </div>
 
-| Case Name | No. of Elements | | Predicated Value : $\delta_{max}=$ -2.944e-5 | | Remarks |
+| Case name | Number of elements | | Predicated Value : $\delta_{max}=$ -2.944e-5 | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
-| D231 | 40  | -1.101e-5 | -1.101e-5 | -1.101e-5 | 33 nodes / plane stress problem |
-| D232 | 40  | -2.805e-5 | -2.951e-5 | -2.951e-5 | 105 nodes / plane stress problem |
-| D241 | 20  | -2.508e-5 | -2.102e-5 | -2.102e-5 | 33 nodes / plane stress problem |
-| D242 | 20  | -2.684e-5 | -2.953e-5 | -2.953e-5 | 85 nodes / plane stress problem |
+| D231 | 40  | -1.101e-5 | -1.101e-5 | -1.101e-5 | 33 nodes / plane stress status problem |
+| D232 | 40  | -2.805e-5 | -2.951e-5 | -2.951e-5 | 105 nodes / plane stress status problem |
+| D241 | 20  | -2.508e-5 | -2.102e-5 | -2.102e-5 | 33 nodes / plane stress status problem |
+| D242 | 20  | -2.684e-5 | -2.953e-5 | -2.953e-5 | 85 nodes / plane stress status problem |
 | D341 | 240 | -1.172e-5 | -1.136e-5 | -1.140e-5 | 99 nodes |
 | D342 | 240 | -2.906e-5 | -2.905e-5 | -2.937e-5 | 525 nodes |
 | D351 | 80  | -1.046e-5 | -1.050e-5 | -1.039e-5 | 99 nodes |
@@ -128,16 +128,16 @@ Table 9.1.4: exD: Verification Results of Gravity Problem
 | D741 | 20  | -         | -         | -2.938e-5 | 33 nodes / direct method |
 
 <div style="text-align: center; margin-top:3em;">
-Table 9.1.5: exE: Verification Results of Centrifugal Force Problem
+Table 9.1.5: exE: Verification results of the centrifugal force problem
 </div>
 
-| Case Name | No. of Elements | | Predicated Value : $\delta_{max}=$ 2.635e-5 | | Remarks |
+| Case name | Number of elements | | Predicated value : $\delta_{max}=$ 2.635e-5 | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
-| E231 | 40  | 2.410e-3 | 2.616e-3 | 2.650e-3 | 33 nodes / plane stress problem |
-| E232 | 40  | 2.447e-3 | 2.627e-3 | 2.628e-3 | 105 nodes / plane stress problem |
-| E241 | 20  | 2.386e-3 | 2.622e-3 | 2.624e-3 | 33 nodes / plane stress problem |
-| E242 | 20  | 2.387e-3 | 2.627e-3 | 2.629e-3 | 85 nodes / plane stress problem |
+| E231 | 40  | 2.410e-3 | 2.616e-3 | 2.650e-3 | 33 nodes / plane stress status problem |
+| E232 | 40  | 2.447e-3 | 2.627e-3 | 2.628e-3 | 105 nodes / plane stress status problem |
+| E241 | 20  | 2.386e-3 | 2.622e-3 | 2.624e-3 | 33 nodes / plane stress status problem |
+| E242 | 20  | 2.387e-3 | 2.627e-3 | 2.629e-3 | 85 nodes / plane stress status problem |
 | E341 | 240 | 2.708e-3 | 2.579e-3 | 2.625e-3 | 99 nodes |
 | E342 | 240 | 2.639e-3 | 2.614e-3 | 2.638e-3 | 525 nodes |
 | E351 | 80  | 2.642e-3 | 2.598e-3 | 2.625e-3 | 99 nodes |
@@ -148,16 +148,16 @@ Table 9.1.5: exE: Verification Results of Centrifugal Force Problem
 | E741 | 20  | -        | -        | 2.622e-3 | 33 nodes / direct method |
 
 <div style="text-align: center; margin-top:3em;">
-Table 9.1.6: exF: Verification Results of Thermal Stress Load Problem
+Table 9.1.6: exF: Verification results of the thermal stress load problem
 </div>
 
-| Case Name | No. of Elements | | Predicated Value : $\delta_{max}=$ 1.000e-2 | | Remarks |
+| Case name | Number of elements | | Predicated Value : $\delta_{max}=$ 1.000e-2 | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
-| F231 | 40  | - | 1.016e-2 | 1.007e-2 | 33 nodes / plane stress problem |
-| F232 | 40  | - | 1.007e-2 | 1.007e-2 | 105 nodes / plane stress problem |
-| F241 | 20  | - | 1.010e-2 | 1.010e-2 | 33 nodes / plane stress problem |
-| F242 | 20  | - | 1.006e-2 | 1.006e-2 | 85 nodes / plane stress problem |
+| F231 | 40  | - | 1.016e-2 | 1.007e-2 | 33 nodes / plane stress status problem |
+| F232 | 40  | - | 1.007e-2 | 1.007e-2 | 105 nodes / plane stress status problem |
+| F241 | 20  | - | 1.010e-2 | 1.010e-2 | 33 nodes / plane stress status problem |
+| F242 | 20  | - | 1.006e-2 | 1.006e-2 | 85 nodes / plane stress status problem |
 | F341 | 240 | - | 1.047e-2 | 1.083e-2 | 99 nodes |
 | F342 | 240 | - | 1.018e-2 | 1.022e-2 | 525 nodes |
 | F351 | 80  | - | 1.031e-2 | 1.062e-2 | 99 nodes |
@@ -166,16 +166,16 @@ Table 9.1.6: exF: Verification Results of Thermal Stress Load Problem
 | F362 | 40  | - | 1.016e-2 | 1.016e-2 | 220 nodes |
 
 <div style="text-align: center;margin-top: 3em;">
-Table 9.1.7: exG: Verification Results of Direct Method (Concentrated Load Problem)
+Table 9.1.7: exG: Verification results of the direct method (concentrated load problem)
 </div>
 
-| Case Name | No. of Elements | | Predicated Value : $\delta_{max}=$ -1.000 | | Remarks |
+| Case name | Number of elements | | Predicated value : $\delta_{max}=$ -1.000 | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
-| G231 | 40  | -0.338 | -0.371 | -0.371 | 33 nodes / plane stress problem |
-| G232 | 40  | -0.942 | -1.002 | -1.002 | 105 nodes / plane stress problem |
-| G241 | 20  | -0.720 | -0.711 | -0.711 | 33 nodes / plane stress problem |
-| G242 | 20  | -0.910 | -1.002 | -1.002 | 85 nodes / plane stress problem |
+| G231 | 40  | -0.338 | -0.371 | -0.371 | 33 nodes / plane stress status problem |
+| G232 | 40  | -0.942 | -1.002 | -1.002 | 105 nodes / plane stress status problem |
+| G241 | 20  | -0.720 | -0.711 | -0.711 | 33 nodes / plane stress status problem |
+| G242 | 20  | -0.910 | -1.002 | -1.002 | 85 nodes / plane stress status problem |
 | G341 | 240 | -0.384 | -0.384 | -0.386 | 99 nodes |
 | G342 | 240 | -0.990 | -0.990 | -0.999 | 52 nodes |
 | G351 | 80  | -0.353 | -0.355 | -0.351 | 99 nodes |
@@ -185,19 +185,21 @@ Table 9.1.7: exG: Verification Results of Direct Method (Concentrated Load Probl
 | G731 | 40  | -      | -      | -0.991 | 33 nodes / direct method |
 | G741 | 20  | -      | -      | -0.996 | 33 nodes / dierct method |
 
-### Nonlinear static analysis
+### Non-linear static analysis
 
-#### (2-1) exnl1: Geometrical nonlinear analysis
+#### (2-1) exnl1: Geometrical non-linear analysis
 
-The same model of verification case exA - G was used for the verification model of verification case exI. The conceptual diagram of the verification model is shown in Figure 9.1.3. A geometric nonlinear analysis is implemented in this model. The verification results are shown in Table 9.1.8. A nonlinear calculation of the load increment value of 0.1P for 10 steps is implemented for the final load of 1.0P.
+The verification model of exI is the same as those of exA–G. A schematic diagram of the verification model is shown in Fig. 9.1.3. A geometric non-linear analysis was performed on this model. The verification results are presented in Table 9.1.8.
+ 
+The non-linear calculation is a ten-step process with an increment value of 0.1 P and a final load of 1.0 P.
 
 <div style="text-align: center;">
 <img src="./media/example01_08.png" width="350px"><br>
-Figure 9.1.3: Verification Model
+Fig. 9.1.3: Verification model
 </div>
 
 <div style="text-align: center; margin-top: 3em;">
-Table 9.1.8: exI: Verification Results (Maximum Deflection Amount History)
+Table 9.1.8: exI: Verification results (maximum deflection amount log)
 </div>
 
 | Case Name | 0.1   | 0.2   | 0.3   | 0.4   | 0.5   | 0.6   | 0.7   | 0.8   | 0.9   | 1.0   | Linear Solution |
@@ -215,16 +217,16 @@ Table 9.1.8: exI: Verification Results (Maximum Deflection Amount History)
 
 #### (2-2) 　exnl2: Elastoplasticity deformation analysis
 
-The National Agency for Finite Element Methods and Standards (U.K.): Test NL1 from NAFEMS was referred to in this verification problem, and incorporated the geometrical non-linearity and multiple hardening rules in order to implement the elastoplasticity deformation analysis. The analysis model is shown in Figure 9.1.4.
+Based on the test conducted at National Agency for Finite Element Methods and Standards (NAFEMS; U.K.): Test NL1, this verification problem was verified by elastoplastic deformation analysis that incorporated geometric non-linearity and multiple hardening rules. The elastoplastic deformation analysis model is shown in Fig. 9.1.4.
 
 <div style="text-align: center;">
 <img src="./media/example01_09.png" width="350px"><br>
-Figure 9.1.4: Elastoplasticity Deformation Analysis Model
+Fig. 9.1.4: Elastoplasticity deformation analysis Model
 </div>
 
 (1) Verification conditions:
 
-|    |  |
+|Item |Value  |
 |:--|:--|
 |Material   | Mises elastoplastic material |
 |Young's Modulus   | $E = 250 GPa$ |
@@ -235,7 +237,7 @@ Figure 9.1.4: Elastoplasticity Deformation Analysis Model
 
 (2) Boundary conditions
 
-|   |   |   |
+|Item |Boundary conditions |Value   |
 |:--|:--|:--|
 |step 1 | Forced displacement in nodes 2 and 3 | $u_{x} =  0.2500031251 *10^{-4} $ |
 |step 2 | Forced displacement in nodes 2 and 3 | $u_{x} =  0.25000937518*10^{-4} $ |
@@ -246,9 +248,7 @@ Figure 9.1.4: Elastoplasticity Deformation Analysis Model
 |step 7 | Forced displacement in nodes 3 and 4 | $u_{y} = -0.25000937518*10^{-4} $ |
 |step 8 | Forced displacement in nodes 3 and 4 | $u_{y} = -0.2500031251 *10^{-4} $ |
 
-All the nodes not shown here will be completely restrained.
-
-The theoretical solution of this problem is as follows.
+All the nodes that are not mentioned here are fully constrained. The theoretical solution for this problem is presented as follows:
 
 | Strain ($\times10^{-4}$)<br/>[$\varepsilon_x$, $\varepsilon_y$, $\varepsilon_z$] | Equivalent Stress ($MPa$)<br/>[$H_i=0\ H_k=0$; $H_i=62.5\ H_k=0$] |
 |:--|:--|
@@ -261,7 +261,7 @@ The theoretical solution of this problem is as follows.
 | 0, 0.25, 0    | 3.917; 4.230 |
 | 0, 0, 0       | 5.0; 5.673 |
 
-The calculation results for the above are as follows.
+The results of the calculations are as follows:
 
 | Strain ($\times10^{-4}$)<br/>[$\varepsilon_x$, $\varepsilon_y$, $\varepsilon_z$] | Equivalent Stress ($MPa$)<br/>[$H_i=0\ H_k=0$; $H_i=62.5\ H_k=0$] |
 |:--|:--|
@@ -276,18 +276,24 @@ The calculation results for the above are as follows.
 
 ### Contact analysis (1)
 
-The National Agency a for Finite Element Methods and Standards (U.K.): Contact Patch Test Problem CGS-4 was referred to in this verification problem, to test the limited sliding contact problem function with friction. The analysis model is shown in Figure 9.1.5.
+Based on the contact patch test problem (CGS-4) from NAFEMS (U.K.), this verification problem tests the finite sliding contact problem function with friction. The contact analysis model is shown in Fig. 9.1.5
 
 <div style="text-align: center;">
 <img src="./media/example01_10.png" width="350px"><br>
-Figure 9.1.5: Contact Analysis Model
+Fig. 9.1.5: Contact analysis model
 </div>
 
-The equilibrium conditions of this problem are as follows.
+The equilibrium condition of this problem is as follows:
 
 $$Fcos\,\alpha - Gsin\,\alpha = \pm f_{c}$$
 
-The frictional force in the viscous friction stage was $f_{c} = E_t\Delta u$ and becomes $f_c = \mu(G \cos\,\alpha + F \sin\,\alpha)$ in te sliding friction stage.
+In the adhesive friction stage, the frictional force is as follows:
+
+$$f_{c} = E_t\Delta u$$
+
+In the sliding frictiopn stage, the frictional force is as follows:
+
+$$f_c = \mu(G \cos\,\alpha + F \sin\,\alpha)$$
 
 The comparison between the calculation results and the analysis solution is as follows.
 
@@ -300,70 +306,81 @@ The comparison between the calculation results and the analysis solution is as f
 
 ### Contact analysis (2): Hertz contact problem
 
-The Hertz contact problem of a cylinder of infinite length and an infinite plane surface was analyzed in this verification.
-
-The radius of the cylinder was set to $R = 8 mm$, and Young's modulus $E$ and Poisson's ratio $\mu$ of a deformable body was 1,100 Mpa and 0.0 respectively. Assuming that the contact area was sufficiently smaller than the radius of the cyclinder, a 1/4 cylindrical model was used to perform the analysis in consideration of the symmetry of the problem.
-
+In this verification, the Hertz contact problem between a cylinder of infinite length and an infinite plane was analyzed. The cylinder’s radius was R=8 mm, and the deformable body’s Young’s modulus E and Poisson’s ratio µ were 1100 MPa and 0.0, respectively. Moreover, assuming that the contact area was much smaller than the cylinder’s radius, and also considering the symmetry of the problem, the analysis was performed with a quarter model of the cylinder. 
 
 <div style="text-align: center;">
 <img src="./media/example01_11.png" width="350px"><br>
-Figure 9.1.6: Hertz Contact Problem Analysis Model
+Fig. 9.1.6: Hertz contact problem analysis model
 </div>
 
 #### (1) Verification results of contact radius
 
-The theoretical formula to calculate the contact radius is as follows.
+The theoretical formula to calculate the contact radius is as follows:
 
 $$a = \sqrt{\frac{4FR}{\pi E^{*}}}$$
 
-Herein, 
+where
 
 $$E^{*} = \frac{E}{2(1 - \mu^{2})}$$
 
-In this calculation, the contact radius becomes $a=1.36$ when pressure $F=100$.
+With the actual calculation, when the pressure is $F=100$, the contact radius is $a=1.36$.
 
-
-The equivalent nodal force of the point of contact is shown in Figure 9.1.7. This nodal force distribution is extrapolated to acquire the contact radius.
-
+Fig. 9.1.7 shows the equivalent nodal force of the contact point. The contact radius is obtained by extrapolating this nodal force distribution. 
 <div style="text-align: center;">
 <img src="./media/example01_12.png" width="512px"><br>
-Figure 9.1.7: Equivalent Nodal Force Distribution of Contact Point
+Fig. 9.1.7: Equivalent nodal force distribution of the contact point 
 </div>
 
 #### (2) Verification results of maximum shear stress
 
-In this theoretical solution, the maximum shear stress is $\tau\_{max} = 0.30\sqrt{\frac{FE^*}{\pi R}}$  in contact position $z = 0.78a$. 
+With the theoretical solution, when the contact position is $z=0.78a$, the maximum shear stress is as follows:
 
-In this calculation condition it becomes $\tau_{max}=14.2$. In contrast to this, the calculation result $\tau\_{max}=15.6$ was aquired.
+$$\tau_{max} = 0.30\sqrt{\frac{FE^*}{\pi R}}$$
+
+With the actual calculation conditions, it becomes
+
+$$
+\tau_{max} = 14.2
+$$
+
+The actual result obtained was
+
+$$
+\tau_{max} = 15.6
+$$
 
 <div style="text-align: center;">
 <img src="./media/example01_13.png" width="350px"><br>
-Figure 9.1.8: Shear Stress Distribution (Maximum Value = 15.6)
+Fig. 9.1.8: Shear stress distribution (maximum value = 15.6)
 </div>
 
 ### (3) Eigenvalue analysis
 
-The verification model of verification case exJ ~ K is the same model as in verification case exA ~ G. The conceptual diagram of the verification model is shown in Figure 9.1.9. An eigenvalue analysis for this model was implemented. The eigenvalues to be acquired are the linear - cubic eigenvalues. In addition, the iterative method solver is used in exJ, and the direct method solver is used in exK. The verifications results are shown in Table 9.1.9 ~ Table 9.1.12.
+The verification models of exJ and exK are the same as those of exA–G. A schematic diagram of the verification model is shown in Fig. 9.1.9. An eigenvalue analysis was performed for this model to determine the primary, secondary, and tertiary eigenvalues. The iteration and direct method solvers were used for exJ and exK, respectively. Furthermore, the verification results are presented in Tables 9.1.9–9.1.12. 
 
 <div style="text-align: center;">
 <img src="./media/example01_14.png" width="350px"><br>
-Figure 9.1.9: Verification Model
+Fig. 9.1.9: Verification Model
 </div>
 
-The vibration eigenvalue of the cantilever beam can be acquired by the following equations.
+The vibration eigenvalue of the cantilever is determined by the following equations: 
 
-Linear :
+
+Primary :
 $$ n_1 = \frac{1.875^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 
-Quadratic :
+
+Secondary :
 $$ n_2 = \frac{4.694^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 
-Cubic :
+
+Tertiary :
 $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 
-The characteristics of the verification model are as follows.
 
-|   |   |
+The property values of the verification model are:
+
+|Item |Value   |
 |:--|:--|
 | $I$ | $10.0 mm$ |
 | $E$ | $4000.0 kgf /mm^2$ |
@@ -371,25 +388,25 @@ The characteristics of the verification model are as follows.
 | $ \omega $ | $7.85 * 10^{-6} kgf/mm^3$ |
 | $g$ | $9800.0 mm/sec^2$ |
 
-Therefore, up to a cubic eigenvalue becomes as follows.
+Therefore, the primary to tertiary eigenvalue are as follows:
 
-| No of Mode | Value |
+| Mode number | Value |
 |:--|:--|
 | $n_1$ | 3.609e3 |
 | $n_2$ | 2.262e4 |
 | $n_3$ | 6.335e4 |
 
 <div style="text-align: center;margin-top: 3em;">
-Table 9.1.9: exJ: Verification Results with Iterative Method (Linear Eigenvalue)
+Table 9.1.9: exJ: Iteration method verification results with the primary eigenvalue
 </div>
 
-| Case Name | No. of Elements | Predicated Value : n1=3.609e3 | | Remarks |
+| Case Name |  Number of elements | Predicated value : n1=3.609e3 | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | FrontISTR | |
-| J231 | 40  | 5.861e3 | 5.861e3 | 33 nodes / plane stress problem |
-| J232 | 40  | 3.596e3 | 3.593e3 | 105 nodes / plane stress problem |
-| J241 | 20  | 3.586e3 | 4.245e3 | 33 nodes / plane stress problem |
-| J242 | 20  | 3.590e3 | 3.587e3 | 85 nodes / plane stress problem |
+| J231 | 40  | 5.861e3 | 5.861e3 | 33 nodes / plane stress status problem |
+| J232 | 40  | 3.596e3 | 3.593e3 | 105 nodes / plane stress status problem |
+| J241 | 20  | 3.586e3 | 4.245e3 | 33 nodes / plane stress status problem |
+| J242 | 20  | 3.590e3 | 3.587e3 | 85 nodes / plane stress status problem |
 | J341 | 240 | 5.442e3 | 5.429e3 | 99 nodes |
 | J342 | 240 | 3.621e3 | 3.595e3 | 525 nodes |
 | J351 | 80  | 3.695e3 | 4.298e3 | 99 nodes |
@@ -398,16 +415,16 @@ Table 9.1.9: exJ: Verification Results with Iterative Method (Linear Eigenvalue)
 | J362 | 40  | 3.611e3 | 3.606e3 | 220 nodes |
 
 <div style="text-align: center;margin-top:3em;">
-Table 9.1.10: exJ: Verification Results with Iterative Method (Quadratic Eigenvalue)
+Table 9.1.10: Iteration method verification results of exJ with the secondary eigenvalue
 </div>
 
-| Case Name | No. of Elements | Predicated Value : n2=2.262e4 | | Remarks |
+| Case name | Number of elements | Predicated value : n2=2.262e4 | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | FrontISTR | |
-| J231 | 40  | 3.350e4 | 3.351e4 | 33 nodes / plane stress problem |
-| J232 | 40  | 2.163e4 | 2.156e4 | 105 nodes / plane stress problem |
-| J241 | 20  | 2.149e4 | 2.516e4 | 33 nodes / plane stress problem |
-| J242 | 20  | 2.149e4 | 2.143e4 | 85 nodes / plane stress problem |
+| J231 | 40  | 3.350e4 | 3.351e4 | 33 nodes / plane stress status problem |
+| J232 | 40  | 2.163e4 | 2.156e4 | 105 nodes / plane stress status problem |
+| J241 | 20  | 2.149e4 | 2.516e4 | 33 nodes / plane stress status problem |
+| J242 | 20  | 2.149e4 | 2.143e4 | 85 nodes / plane stress status problem |
 | J341 | 240 | 3.145e4 | 3.138e4 | 99 nodes |
 | J342 | 240 | 2.171e4 | 2.155e4 | 525 nodes |
 | J351 | 80  | 2.208e4 | 2.546e4 | 99 nodes |
@@ -415,19 +432,19 @@ Table 9.1.10: exJ: Verification Results with Iterative Method (Quadratic Eigenva
 | J361 | 40  | 2.202e4 | 2.168e4 | 99 nodes |
 | J362 | 40  | 2.154e4 | 2.144e4 | 220 nodes |
 
-> Note: Since the linear and quadratic eigenvalues of the 3D model have multiple roots, the value based on the cubic equation is used to describe the quadratic value in the table.
+> Note: In the three-dimensional (3D) models, the primary and secondary values have equal roots. Therefore, the secondary value in the table represents the tertiary calculation value.
 
 <div style="text-align: center;margin-top: 3em;">
-Table 9.1.11: exK: Verification Results with Direct Method (Linear Eigenvalue)
+Table 9.1.11: Direct method verification results of exK with the primary eigenvalue
 </div>
 
-| Case Name | No. of Elements | Predicated Value : n1=3.609e3 | | Remarks |
+| Case name | Number of elements | Predicated Value : n1=3.609e3 | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | FrontISTR | |
-| J231 | 40  | 5.861e3 | 5.861e3 | 33 nodes / plane stress problem |
-| J232 | 40  | 3.596e3 | 3.593e3 | 105 nodes / plane stress problem |
-| J241 | 20  | 3.586e3 | 4.245e3 | 33 nodes / plane stress problem |
-| J242 | 20  | 3.590e3 | 3.587e3 | 85 nodes / plane stress problem |
+| J231 | 40  | 5.861e3 | 5.861e3 | 33 nodes / plane stress status problem |
+| J232 | 40  | 3.596e3 | 3.593e3 | 105 nodes / plane stress status problem |
+| J241 | 20  | 3.586e3 | 4.245e3 | 33 nodes / plane stress status problem |
+| J242 | 20  | 3.590e3 | 3.587e3 | 85 nodes / plane stress status problem |
 | J341 | 240 | 5.442e3 | 5.429e3 | 99 nodes |
 | J342 | 240 | 3.621e3 | 3.595e3 | 525 nodes |
 | J351 | 80  | 3.695e3 | 4.298e3 | 99 nodes |
@@ -438,16 +455,16 @@ Table 9.1.11: exK: Verification Results with Direct Method (Linear Eigenvalue)
 | J741 | 20  | -       | 3.594e3 | 220 nodes |
 
 <div style="text-align: center;margin-top:3em;">
-Table 9.1.12: exK: Verification Results with Direct Method (Quadratic Eigenvalue)
+Table 9.1.12: Direct method verification results of exK with the secondary eigenvalue
 </div>
 
-| Case Name | No. of Elements | Predicated Value : n2=2.262e4 | | Remarks |
+| Case name | Number of elements | Predicated value : n2=2.262e4 | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | FrontISTR | |
-| J231 | 40  | 3.350e4 | 3.351e4 | 33 nodes / plane stress problem |
-| J232 | 40  | 2.163e4 | 2.156e4 | 105 nodes / plane stress problem |
-| J241 | 20  | 2.149e4 | 2.516e4 | 33 nodes / plane stress problem |
-| J242 | 20  | 2.149e4 | 2.143e4 | 85 nodes / plane stress problem |
+| J231 | 40  | 3.350e4 | 3.351e4 | 33 nodes / plane stress status problem |
+| J232 | 40  | 2.163e4 | 2.156e4 | 105 nodes / plane stress status problem |
+| J241 | 20  | 2.149e4 | 2.516e4 | 33 nodes / plane stress status problem |
+| J242 | 20  | 2.149e4 | 2.143e4 | 85 nodes / plane stress status problem |
 | J341 | 240 | 3.145e4 | 3.138e4 | 99 nodes |
 | J342 | 240 | 2.171e4 | 2.155e4 | 525 nodes |
 | J351 | 80  | 2.208e4 | 2.546e4 | 99 nodes |
@@ -457,13 +474,13 @@ Table 9.1.12: exK: Verification Results with Direct Method (Quadratic Eigenvalue
 | J731 | 40  | -       | 2.156e4 | 220 nodes |
 | J741 | 20  | -       | 2.153e4 | 220 nodes |
 
-> Note: Since the linear and quadratic eigenvalues of the 3D model have multiple roots, the value based on the cubic equation is used to describe the quadratic value in the table.
+> Note: In the 3D models, the primary and secondary values have equal roots. Therefore, the secondary value in the table represents the tertiary calculation value.
 
 ### (4) Heat conduction analysis
 
-Conditions common to a steady heat conduction analysis are shown in Figure 9.1.10. The individual conditions of verification case exM - exT are shown in Figure 9.1.11. Mesh partitioning equivalent to that of exA was used.
+The common conditions for the steady-state heat conduction analysis are shown in Fig. 9.1.10. The individual conditions for the verification cases exM–exT are shown in Fig. 9.1.11. The mesh division used here is equivalent to that of exA.
 
-Temperature distribution tables for each case of the verification results are shown in Table 9.1.13 ~ Table 9.1.20.
+The verification results (temperature distribution table) of each case are presented in Tables 9.1.13–9.1.20.
 
 <div style="text-align: center; margin-top:3em;">
 <img src="./media/example01_15.png" width="350px">
@@ -482,7 +499,7 @@ Temperature dependency of thermal conductivity
 |20.0                        |1000.0          |
 
 <div style="text-align: center;">
-Figure 9.1.10: Verification Conditions of Steady Heat Conduction Analysis
+Fig. 9.1.10: Verification conditions of steady-heat conduction analysis
 </div>
 
 |   |   |
@@ -493,20 +510,20 @@ Figure 9.1.10: Verification Conditions of Steady Heat Conduction Analysis
 |exP: Distributed heat flux problem|<img src="./media/example01_18.png" width="350px">|
 |exQ: Convective heat transfer problem|<img src="./media/example01_19.png" width="350px">|
 |exR: Radiant heat transfer problem|<img src="./media/example01_20.png" width="350px">|
-|exS: Volumetric heat generation problem|<img src="./media/example01_21.png" width="350px">|
+|exS: Volume heat generation problem|<img src="./media/example01_21.png" width="350px">|
 |exT: Internal gap problem|<img src="./media/example01_22.png" width="350px">|
 
 <div style="text-align: center;margin-top:1em;">
-Figure 9.1.11: Analysis Conditions for each Verification Case
+Fig. 9.1.11: Analysis conditions for each verification case
 </div>
 
 <div style="text-align: center;margin-top:3em;">
-Table 9.1.13: exM: Verification Results of Steady Calculation by Linear Material
+Table 9.1.13: Verification results of exM (steady-state calculation of linear material)
 </div>
 
-| Case Name | Element Type | No. of Elements/Nodes | Distance from End A (m) |  |  |  |  |  |  |
+| Case name | Element type | Number of elements/nodes | Distance from edge A (m) |  |  |  |  |  |  |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|   |   |   | End A | 2.0 | 4.0 | 6.0 | 8,0 | End B |
+|   |   |   | Edge A | 2.0 | 4.0 | 6.0 | 8,0 | Edge B |
 | M361A | 361 | 40／33  | 0.0 | 100.0 | 200.0 | 300.0 | 400.0 | 500.0 |
 | M361B | 361 | 40／105 | 0.0 | 100.0 | 200.0 | 300.0 | 400.0 | 500.0 |
 | M361C | 361 | 20／33  | 0.0 | 100.0 | 200.0 | 300.0 | 400.0 | 500.0 |
@@ -516,12 +533,12 @@ Table 9.1.13: exM: Verification Results of Steady Calculation by Linear Material
 | M361G | 361 | 80／99  | 0.0 | 100.0 | 200.0 | 300.0 | 400.0 | 500.0 |
 
 <div style="text-align: center;margin-top:3em;">
-Table 9.1.14: exN: Verification Results of Specified Temperature Problem
+Table 9.1.14: Verification results of exN (specified temperature problem)
 </div>
 
-| Case Name | Element Type | No. of Elements/Nodes | Distance from End A (m) |  |  |  |  |  |  |
+| Case name | Element type | Number of elements/nodes | Distance from edge A (m) |  |  |  |  |  |  |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|   |   |   | End A | 2.0 | 4.0 | 6.0 | 8,0 | End B |
+|   |   |   | Edge A | 2.0 | 4.0 | 6.0 | 8,0 | Edge B |
 | ABAQUS | 361 | 40／99  | 0.0 | 87.3 | 179.7 | 278.2 | 384.3 | 500.0 |
 | N231   | 231 | 40／33  | 0.0 | 87.2 | 179.5 | 278.0 | 384.1 | 500.0 |
 | N232   | 232 | 40／105 | 0.0 | 86.0 | 178.3 | 276.8 | 382.9 | 500.0 |
@@ -537,12 +554,12 @@ Table 9.1.14: exN: Verification Results of Specified Temperature Problem
 | N741   | 741 | 20／33  | 0.0 | 87.3 | 179.7 | 278.2 | 384.3 | 500.0 |
 
 <div style="text-align: center;margin-top:3em;">
-Table 9.1.15: exO: Verification Results of Concentrated Heat Flux Problem
+Table 9.1.15: Verification results of exO (concentrated heat flux problem)
 </div>
 
-| Case Name | Element Type | No. of Elements/Nodes | Distance from End A (m) |  |  |  |  |  |  |
+| Case name | Element type | Numbewr of elements/nodes | Distance from edge A (m) |  |  |  |  |  |  |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|   |   |   | End A | 2.0 | 4.0 | 6.0 | 8,0 | End B |
+|   |   |   | Edge A | 2.0 | 4.0 | 6.0 | 8,0 | Edge B |
 | ABAQUS | 361 | 40／99  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 | O231   | 231 | 40／33  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 | O232   | 232 | 40／105 | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
@@ -558,12 +575,12 @@ Table 9.1.15: exO: Verification Results of Concentrated Heat Flux Problem
 | O741   | 741 | 20／33  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 
 <div style="text-align: center;margin-top:3em;">
-Table 9.1.16: exP: Verification Results of Distributed Heat Flux Problem
+Table 9.1.16: Verification results of exP (distribution heat flux problem)
 </div>
 
-| Case Name | Element Type | No. of Elements/Nodes | Distance from End A (m) |  |  |  |  |  |  |
+| Case name | Element type | Number of elements/nodes | Distance from edge A (m) |  |  |  |  |  |  |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|   |   |   | End A | 2.0 | 4.0 | 6.0 | 8,0 | End B |
+|   |   |   | Edge A | 2.0 | 4.0 | 6.0 | 8,0 | Edge B |
 | ABAQUS | 361 | 40／99  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 | P231   | 231 | 40／33  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 | P232   | 232 | 40／105 | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
@@ -579,12 +596,12 @@ Table 9.1.16: exP: Verification Results of Distributed Heat Flux Problem
 | P741   | 741 | 20／33  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 
 <div style="text-align: center;margin-top:3em;">
-Table 9.1.17: exQ: Verification Results of Convective Heat Transfer Problem
+Table 9.1.17: Verification results of exQ (convective heat transfer problem) 
 </div>
 
-| Case Name | Element Type | No. of Elements/Nodes | Distance from End A (m) |  |  |  |  |  |  |
+| Case name | Element type | Number of elements/nodes | Distance from edge A (m) |  |  |  |  |  |  |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|   |   |   | End A | 2.0 | 4.0 | 6.0 | 8,0 | End B |
+|   |   |   | Edge A | 2.0 | 4.0 | 6.0 | 8,0 | Edge B |
 | ABAQUS | 361 | 40／99  | 0.0 | 89.2 | 183.8 | 284.8 | 393.9 | 513.2 |
 | Q231   | 231 | 40／33  | 0.0 | 89.2 | 183.8 | 284.8 | 393.9 | 513.2 |
 | Q232   | 232 | 40／105 | 0.0 | 89.2 | 183.8 | 284.8 | 393.9 | 513.2 |
@@ -600,12 +617,12 @@ Table 9.1.17: exQ: Verification Results of Convective Heat Transfer Problem
 | Q741   | 741 | 20／33  | 0.0 | 89.2 | 183.8 | 284.8 | 393.9 | 513.2 |
 
 <div style="text-align: center;margin-top:3em;">
-Table 9.1.18: exR: Verification Results of Radiant Heat Transfer Problem
+Table 9.1.18: Verification results of exR (radiation heat transfer problem)
 </div>
 
-| Case Name | Element Type | No. of Elements/Nodes | Distance from End A (m) |  |  |  |  |  |  |
+| Case name | Element type | Number of elements/nodes | Distance from edge A (m) |  |  |  |  |  |  |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|   |   |   | End A | 2.0 | 4.0 | 6.0 | 8,0 | End B |
+|   |   |   | Edge A | 2.0 | 4.0 | 6.0 | 8,0 | Edge B |
 | ABAQUS | 361 | 40／99  | 0.0 | 89.5 | 184.4 | 285.8 | 395.3 | 515.2 |
 | R231   | 231 | 40／33  | 0.0 | 89.5 | 184.4 | 285.8 | 395.3 | 515.2 |
 | R232   | 232 | 40／105 | 0.0 | 89.5 | 184.4 | 285.8 | 395.3 | 515.2 |
@@ -621,12 +638,12 @@ Table 9.1.18: exR: Verification Results of Radiant Heat Transfer Problem
 | R741   | 741 | 20／33  | 0.0 | 89.5 | 184.4 | 285.8 | 395.3 | 515.2 |
 
 <div style="text-align: center;margin-top:3em;">
-Table 9.1.19: exS: Verification Results of Volumetric Heat Generation Problem
+Table 9.1.19: Verification results of exS (volume heat generation problem)
 </div>
 
-| Case Name | Element Type | No. of Elements/Nodes | Distance from End A (m) |  |  |  |  |  |  |
+| Case name | Element type | Number of elements/nodes | Distance from edge A (m) |  |  |  |  |  |  |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|   |   |   | End A | 2.0 | 4.0 | 6.0 | 8,0 | End B |
+|   |   |   | Edge A | 2.0 | 4.0 | 6.0 | 8,0 | Edge B |
 | ABAQUS | 361 | 40／99  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 | S231   | 231 | 40／33  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 | S232   | 232 | 40／105 | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
@@ -642,12 +659,12 @@ Table 9.1.19: exS: Verification Results of Volumetric Heat Generation Problem
 | S741   | 741 | 20／33  | 0.0 | 103.2 | 213.7 | 333.3 | 464.8 | 612.6 |
 
 <div style="text-align: center;margin-top:3em;">
-Table 9.1.20: exT: Verification Results of Internal Gap Problem
+Table 9.1.20: Verification results of exT (internal gap problem)
 </div>
 
-| Case Name | Element Type | No. of Elements/Nodes | Distance from End A (m) |  |  |  |  |  |  |
+| Case name | Element type | Number of elements/nodes | Distance from edge A (m) |  |  |  |  |  |  |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|   |   |   | End A | 2.0 | 4.0 | 6.0 | 8,0 | End B |
+|   |   |   | Edge A | 2.0 | 4.0 | 6.0 | 8,0 | Edge B |
 | ABAQUS | 361 | 40／99  | 0.0 | 88.6 | 182.4 | 282.6 | 387.7 | 500.0 |
 | S231   | 231 | 40／33  | 0.0 | 88.6 | 182.4 | 282.6 | 387.7 | 500.0 |
 | S232   | 232 | 40／105 | 0.0 | 88.6 | 182.4 | 282.6 | 387.7 | 500.0 |
@@ -664,7 +681,9 @@ Table 9.1.20: exT: Verification Results of Internal Gap Problem
 
 ### (5) Linear dynamic analysis
 
-In exW, the same cantilever beam as in item (1) was used as the subject to perform the linear dynamic analysis. The verification conditions are shown in Figure 9.1.12. In this verification, the affects in which the time increments may have on the results for the same mesh partition was verified. As a dynamic analysis method, both the implicit method and the explicit method were used, and element types 361 and 342 were used. The verification results are shown in Table 9.1.22 and Figure 9.1.13 ~ Figure 9.1.15.
+In exW, a linear dynamic analysis was performed on the same mesh-divided cantilever that was discussed earlier in the Elastic static analysis subsection, with the verification conditions shown in Fig. 9.1.12. The objective was to verify the impact of time increment on the results with the same mesh division. Both the implicit and explicit methods of dynamic analysis and the element types 361 and 342 were used. The verification results are presented in Table 9.1.22 and shown in Figs. 9.1.13–9.1.15.
+
+Analysis Model
 
 <div style="text-align: center;">
 <img src="./media/example01_23.png" width="350px"><br>
@@ -672,16 +691,16 @@ Analysis Model
 </div>
 <div style="text-align: center;">
 <img src="./media/example01_24.png" width="512px"><br>
-Time History of External Force F
+Time history of external force $F$
 </div>
 
-Theoretical solution of vibration point displacement:
+The theoretical solution for vibration point displacement is as follows:
 
 $$
 F(t)=F_0 I(t)
 $$
 
-Where,
+where
 
 $$
 F_0:Constant\ vector
@@ -704,7 +723,7 @@ u(t) = \frac{F_0 l^3}{EI} \sum^{\infty}\_{i=1} \frac{1-\cos{\omega_i t}}{{\lambd
 $$
 
 <div style="text-align: center;">
-Figure 9.1.12: Verification Conditions of Linear Dynamic Analysis
+Fig. 9.1.12: Verification conditions of linear dynamic analysis
 </div>
 
 Verification conditions:
@@ -714,8 +733,8 @@ Verification conditions:
 |Length                     | $L$    | $10.0\ mm$|
 |Cross-sectional width      | $a$    | $1.0\ mm$ |
 |Cross-sectional height     | $b$    | $1.0\ mm$ |
-|Young's Modulus            | $E$    | $4000.0\ kgf/mm^2$ |
-|Poisson's Ratio            | $\nu$  | 0.3 |
+|Young's modulus            | $E$    | $4000.0\ kgf/mm^2$ |
+|Poisson's ratio            | $\nu$  | 0.3 |
 |Density                    | $\rho$ | $1.0E-09\ kgf\,s^2/mm^3$ | 
 |Gravitational acceleration | $g$    | $9800.0\ mm/s^2$ |
 |External force             | $F_0$  | $1.0\ kgf$ |
@@ -723,7 +742,7 @@ Verification conditions:
 |   |   |
 |---|---|
 |Element  |Hexahedral linear element|
-|Tetrahedral quadratic element| |
+|Tetrahedral secondary element| |
 |Solution | Implicit method |
 |Parameter $\gamma$ of Newmark-$\beta$ method | 1/2 |
 |Parameter $\beta$ of Newmark-$\beta$ method | 1/4 |
@@ -731,7 +750,7 @@ Verification conditions:
 |Damping | N/A |
 
 <div style="text-align: center;margin-top:3em;">
-Table 9.1.21: Verification Conditions of Linear Dynamic Analysis (Continued)
+Table 9.1.21: Verification conditions of the linear dynamic analysis (continuation)
 </div>
 
 | Case Name | Element Type | No. of Nodes | No. of Elements | Solution | Time Increment $\Delta t$ [sec] |
@@ -750,12 +769,12 @@ Table 9.1.21: Verification Conditions of Linear Dynamic Analysis (Continued)
 | W342_c0_ex_m2_t3 | 342 | 525 | 240 | Explicit method | 1.0E-07 |
 
 <div style="text-align: center;margin-top:3em;">
-Table 9.1.22: exW: Verification Results of Linear Dynamic Analysis for Cantilever Beam
+Table 9.1.22: Verification results of linear dynamic analysis of exW (cantilever)
 </div>
 
-| Case Name | Element Type | No. of Nodes | No. of Elements | Solution | z Direction Displacement: $u_z(mm)$ when Time $t = 0.002(s)$ |  |
+| Case name | Element type | Number of nodes | Number of elements | Solution | z-direction displacement: $u_z(mm)$ when time $t = 0.002(s)$ |  |
 |:--|:--|:--|:--|:--|:--|:--|
-|                  |     |     |     |        |Theorical Solution Repeated to Sextic Equation|FrontISTR|
+|                  |     |     |     |        |Theorical solution repeated to sextic equation|FrontISTR|
 | W361_c0_im_m2_t1 | 361 |  99 |  40 | Implicit method | 1.9753 | 1.9302 |
 | W361_c0_im_m2_t2 | 361 |  99 |  40 | Implicit method | 1.9753 | 1.8686 |
 | W361_c0_im_m2_t3 | 361 |  99 |  40 | Implicit method | 1.9753 | 0.3794 |
@@ -771,7 +790,7 @@ Table 9.1.22: exW: Verification Results of Linear Dynamic Analysis for Cantileve
 
 <div style="text-align: center;">
 <img src="./media/example01_25.png" width="512px"><br>
-Figure 9.1.13: Deformed Figure and Equivalent Stress Distribution of Cantilever Beam (W361_c0_im_m2_t2)
+Fig. 9.1.13: Deformation diagram and equivalent stress distribution of the cantilever (W361_c0_im_m2_t2)
 </div>
 
 <div style="text-align: center;">
@@ -785,7 +804,7 @@ Figure 9.1.13: Deformed Figure and Equivalent Stress Distribution of Cantilever 
 </div>
 
 <div style="text-align: center;">
-Figure 9.1.14: Time History of Vibration Point Displacement $u_z$
+Fig. 9.1.14: Time history of vibration point displacement $u_z$
 </div>
 
 <div style="text-align: center;">
@@ -798,13 +817,9 @@ Figure 9.1.14: Time History of Vibration Point Displacement $u_z$
 (b) Element Type 342 : Explicit method
 </div>
 
-<div style="text-align: center;">
-Figure 9.1.15: Time History of Vibration Point Displacement $u_z$
-</div>
+### (6) Frequency response analysis
 
-### (6) Frequency Response Analysis
-
-A cantilever beam was used for the verification and validation of frequency response analayis.The results were compared with those of ABAQUS. The analysis model and boundary conditions are shown below.
+In this verification, a frequency response analysis was performed on a cantilever, and the results were compared with those obtained using the ABAQUS software. The analysis model and verification conditions are presented below:
 
 <div style="text-align: center;">
 <img src="./media/example01_30.png" width="350px">
@@ -815,19 +830,19 @@ Analysis conditions:
 
 |    |    |    |
 |----|----|----|
-|Young’s modulus| $E$ | $210000\ N/mm^2$  |
-|Poisson’s ratio| $\nu$ | $0.3$ |
+|Young's modulus| $E$ | $210000\ N/mm^2$  |
+|Poisson's ratio| $\nu$ | $0.3$ |
 |Density| $\rho$ | $7.89E-09\ t/mm^3$ |
-|Gravity| $g$ | $9800.0\ mm/s^2$ |
-|Applied force| $F_0$   | $1.0\ N$|
-|Rayleigh damping parameter |$R_m$ |$0.0$ |
-|Rayleigh damping parameter |$R_k$ |$7.2E-07$ |
+|Gravitational acceleration| $g$ | $9800.0\ mm/s^2$ |
+|Load| $F_0$   | $1.0\ N$|
+|Parameter of Rayleigh damping |$R_m$ |$0.0$ |
+|Parameter of Rayleigh damping |$R_k$ |$7.2E-07$ |
 
 <div style="text-align: center;">
-Figure 9.1.15 : Analysis model (Element type= 341, Number of Elements:126, Number of Nodes: 55)
+Fig. 9.1.15 : Analysis model (tetrahedral primary element (126 elements and 55 nodes))
 </div>
 
-Eigenvalue upto 5th mode obtained by eigenvalue analysis are listed below.
+The eigenvalues up to the fifth order and the frequency response of the vibration points obtained from eigenvalue analysis are as follows:
 
 | mode | FrontISTR | ABAQUS |
 |:--|:--|:--|
@@ -839,5 +854,7 @@ Eigenvalue upto 5th mode obtained by eigenvalue analysis are listed below.
 
 <div style="text-align: center;">
 <img src="./media/example01_32.png" width="512px"><br>
-Fig. 9.1.16 : Frequency dependency of the displacement amplitude at loaded point
+Fig. 9.1.16 : Frequency dependence of displacement strength of vibration points
 </div>
+
+

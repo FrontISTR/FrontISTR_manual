@@ -1,14 +1,14 @@
 ## Static Analysis (Creep)
 
-Data of `tutorial/08_creep_cylinder/` is used to implement this analysis.
+This analysis uses the data of `tutorial/08_creep_cylinder`.
 
-### Analysis Object
+### Analysis target
 
-The same 1/8 model cylinder as in the static analysis (hyperelasticity part 1) in Section 4.3 is the object of the analysis.
+The target of this analysis is the same 1/8 model of a round bar used in Section 4.3, Static Analysis (Hyperelasticity, Part 1).
 
-### Analysis Content
+### Analysis content
 
-Creep behavioral analysis is implemented where tension displacement is applied to the cylinder in the axial direction. The analysis control data is shown in the following.
+In this creep behavior analysis, an axial tensile displacement is given to a round bar. The analysis control data are presented below.
 
 ```
 # Control File for FISTR
@@ -40,13 +40,13 @@ Creep behavioral analysis is implemented where tension displacement is applied t
   1.0e-8, 1.0, 0.0
 ```
 
-### Analysis Results
+### Analysis results
 
-As analysis results of the 5th sub step, a deformed figure applied with a contour of the Mises stress was created by REVOCAP_PrePost, and is shown in Figure 4.8.1. Moreover, a portion of the analysis results log file is shown in the following as numeric data of the analysis results.
+The analysis results of the fifth sub-step are shown in Fig. 4.8.1 as a deformation diagram with a Mises stress contour created with REVOCAP_PrePost. Furthermore, a part of the log files of the analysis results is shown below as numerical data of the analysis.
 
 <div style="text-align: center;">
 <img src="./media/tutorial08_01.png" width="350px"><br>
-Figure 4.8.1: Analysis Results of Deformation and Mises Stress
+Fig. 4.8.1: Analysis results of deformation and Mises stress
 </div>
 
 ```
