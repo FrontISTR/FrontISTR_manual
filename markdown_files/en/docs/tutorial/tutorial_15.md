@@ -1,14 +1,14 @@
 ## Eigenvalue Analysis
 
-Data of `tutorial/15_eigen_spring/` is used to implement this analysis.
+This analysis uses the data of `tutorial/15_eigen_spring`.
 
-### Analysis Object
+### Analysis target
 
-The same spring as in the static analysis (hyperelasticity part 2) in Section 4.4 is the object of the analysis.
+The target of this analysis is the same spring used in Section 4.4, Static Analysis (Hyperelasticity, Part 2).
 
-### Analysis Content
+### Analysis content
 
-The displacement of the restrained surface shown in Figure 4.4.1 is restrained, and an eigenvalue analysis is implemented up to the 5th mode. The analysis control data is shown in the following.
+The displacement of the constrained surface shown in Fig. 4.4.1 is restrained, and the eigenvalue analysis is performed up to the fifth order. The analysis control data are presented below.
 
 ```
 # Control File for FISTR
@@ -32,13 +32,13 @@ The displacement of the restrained surface shown in Figure 4.4.1 is restrained, 
 !SOLVER,METHOD=DIRECT
 ```
 
-### Analysis Results
+### Analysis results
 
-Analysis results data file spring.res.0.3 is used, and a 3rd oscillation mode (compression extension of the spring in y direction) was created by REVOCAP_PrePost, and is shown in Figure 4.15.1. The deformation magnification is set to 1,000. The character frequency list output to the analysis results log file is shown in the following as numeric data of the analysis results.
+The third vibration mode (compression and decompression in y-direction of the spring,) created with REVOCAP_PrePost using the analysis result data file spring.res.0.3, is shown in Fig. 4.15.1. The deformation magnification was set to 1000. Furthermore, a list of eigenfrequency output to the analysis result log file is shown below as numerical data of the analysis.
 
 <div style="text-align: center;">
 <img src="./media/tutorial15_01.png" width="350px"><br>
-Figure 4.15.1: 3rd Oscillation Mode of Spring
+Fig. 4.15.1: Third vibration mode of a spring
 </div>
 
 ```

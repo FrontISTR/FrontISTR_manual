@@ -1,8 +1,8 @@
-## Example of Actual Model for Linear Dynamic Analysis
+## Actual Model Examples for Linear Dynamic Analysis
 
-### Analysis Mode
+### Analysis model
 
-In the linear dynamic analysis, the machine parts shown in Figure 9.5.1 were used as the actual model. In this actual model, a verification example was set for four cases with different load conditions and damping coefficients. A list is shown in Table 9.5.1.
+The linear dynamic analysis was performed with the machine parts shown in Fig. 9.5.1 as the actual models. For the analysis model, four cases were considered as verification examples with different load conditions and damping coefficients, as presented in Table 9.5.1.
 
 <div style="text-align: center;">
 Table 9.5.1: Verification Example of Actual Model for Linear Dynamic Analysis
@@ -17,12 +17,12 @@ Table 9.5.1: Verification Example of Actual Model for Linear Dynamic Analysis
 
 <div style="text-align: center;">
 <img src="./media/example05_01.png" width="512px"><br>
-Figure 9.5.1 : Mesh Model
+Fig. 9.5.1 : Mesh Model
 </div>
 
-### Analysis Results
+### Analysis results
 
-Examples of the analysis results are shown in Figure 9.5.2 ~ Figure 9.5.3.
+Examples of the analysis results are shown in Fig. 9.5.2 ~ Fig. 9.5.3.
 
 <div style="text-align: center;">
 <img src="./media/example05_02.png" width="512px"><br>
@@ -35,7 +35,7 @@ Examples of the analysis results are shown in Figure 9.5.2 ~ Figure 9.5.3.
 </div>
 
 <div style="text-align: center;">
-Figure 9.5.2: Time History of Vibration Point Displacement u<sub>z</sub>
+Fig. 9.5.2: Time history of vibration point displacement $u_z$
 </div>
 
 ---
@@ -51,5 +51,5 @@ Figure 9.5.2: Time History of Vibration Point Displacement u<sub>z</sub>
 </div>
 
 <div style="text-align: center;">
-Figure 9.5.3: Deformed Figure and Equivalent Stress Distribution (Deformed Magnification 5.0): EX31C
+Fig. 9.5.3: Deformation diagram and equivalent stress distribution (deformation ratio of 5.0), EX31C
 </div>

@@ -19,7 +19,7 @@ MathJax.Hub.Config({
 
 ## Formulation
 
-When damping is not considered, the equations of motion for natural frequancy analysis are given by
+The motion equation of frequency response analysis when damping is not considered becomes as follows: 
 
 $$
 \begin{equation}
@@ -28,7 +28,7 @@ M \ddot{U} + K U = 0
 \end{equation}
 $$
 
-In the frequency domain, the solution of equation $\eqref{eq:2.6.1}$ can be expressed by
+If this is expanded for each eigenmode, it becomes
 
 $$
 \begin{equation}
@@ -37,7 +37,7 @@ U = U_j e^{i \omega_j t}
 \end{equation}
 $$
 
-Substituting equation $\eqref{eq:2.6.2}$ into equation $\eqref{eq:2.6.1}$ gives
+If this is substituted into Eq.$\eqref{eq:2.6.1}$, the following equation is obtained:
 
 $$
 \begin{equation}
@@ -46,7 +46,7 @@ K U_j = \omega_j^2 M U_j
 \end{equation}
 $$
 
-The following derivation shows that the natural frequency is a real value. Substituting 。$\omega_j^2 = \lambda_j$ into equation $\eqref{eq:2.6.3}$ and complex conjugates are given by
+The following is the proof that this eigenfrequency is real. By defining $\omega_j^2 = \lambda_j$ removing the complex conjugate of Eq.$\eqref{eq:2.6.3}$, Eq.$\eqref{eq:2.6.4}$, the following equation is obtained:
 
 $$
 \begin{align}
@@ -56,7 +56,7 @@ K \overline{U_J} &= \overline{\lambda_J} M \overline{U_J}
 \end{align}
 $$
 
-Multiplying equation $\eqref{eq:2.6.4}$ by $\overline{U_J}^\mathrm{T}$ gives
+If this multiplied by $\overline{U_J}^\mathrm{T}$, the following equation is obtained:
 
 $$
 \begin{align}
@@ -66,7 +66,7 @@ $$
 \end{align}
 $$
 
-Accordingly, we get
+From Eq.$\eqref{eq:2.6.5}$, it becomes
 
 $$
 \begin{equation}
@@ -75,7 +75,7 @@ $$
 \end{equation}
 $$
 
-Since mass matrix is a positive definite, we have the following relation for non-zero eigen vector.
+In this case, the mass matrix is a positive-definite symmetric matrix; thus,
 
 $$
 \begin{equation}
@@ -84,7 +84,7 @@ $$
 \end{equation}
 $$
 
-Consequently, we get
+holds for eigenvectors that are not zero vectors. Therefore,
 
 $$
 \begin{equation}
@@ -93,7 +93,7 @@ $$
 \end{equation}
 $$
 
-It also gives that ${\omega_j}^2 = \lambda_j$ is a real value. Let us consider two distinct eigenvalues.
+and ${\omega_j}^2 = \lambda_j$ becomes a real number. In this case, two different modes are analyzed.
 
 $$
 \begin{align}
@@ -103,7 +103,7 @@ K U_j &= \lambda_j M U_j
 \end{align}
 $$
 
-From equation $\eqref{eq:2.6.9}$, we get
+From this, the following is obtained:
 
 $$
 \begin{equation}
@@ -112,7 +112,7 @@ $$
 \end{equation}
 $$
 
-In case the eigen values are distinct, we get
+If the eigenvalue is different, it becomes
 
 $$
 \begin{equation}
@@ -121,7 +121,16 @@ $$
 \end{equation}
 $$
 
-which means that the eigenvectors are said to be orthonormal with respect to the mass matrix. For the same eigenvectors, it can be easily handled by normalizing with respect to the mass matrix as shown by
+That is, different eigenmodes are orthogonal to the mass matrix. The advantage of same modes is that if they are normalized for the mass matrix Eq.$\eqref{eq:2.6.12}$, the handling becomes easier.
+
+$$
+\begin{equation}
+{U_i}^T M U_i = 1
+\label{eq:2.6.12}
+\end{equation}
+$$
+
+Further, the frequency response analysis is formulated when damping is considered. The motion equation to be analyzed is expressed in Eq. Eq.$\eqref{eq:2.6.13}$. 
 
 $$
 \begin{equation}
@@ -130,7 +139,7 @@ M \ddot{U} + C \dot{U} + K U = F
 \end{equation}
 $$
 
-Here we uses Rayleigh damping and the damping matrix can be obtained by
+The damping term, assuming a Rayleigh-type damping, can be expressed as Eq.$\eqref{eq:2.6.13}$.
 
 $$
 \begin{equation}
@@ -139,7 +148,7 @@ C = \alpha M + \beta K
 \end{equation}
 $$
 
-By using the eigenvector obtained by eigenvalue analysis, the displacement in time domain can be expressed by
+With the eigenvector obtained in eigenvalue analysis, the displacement vector can be expanded at time t as in Eq.$\eqref{eq:2.6.15}$:
 
 $$
 \begin{equation}
@@ -148,7 +157,7 @@ U(t) = \sum_{i} b_i(t) U_i
 \end{equation}
 $$
 
-Now, we determine $b_i(t)$ in case the external forces is a harmonic function.
+where the external force term,
 
 $$
 \begin{equation}
@@ -157,7 +166,7 @@ F(t) = \lbrace F_R + iF_I \rbrace e^{i\Omega t}
 \end{equation}
 $$
 
-Equation $\eqref{eq:2.6.13}$ can be considered forced vibration
+defines $b_j(t)$ in the harmonic oscillator equation. The following motion equation Eq.$\eqref{eq:2.6.13}$ acquires the form of forced vibration holds:
 
 $$
 \begin{equation}
@@ -166,7 +175,7 @@ b_j(t) = (b_{jR} + b_{jI}) e^{j\Omega t}
 \end{equation}
 $$
 
-The real and imaginary parts of $b_i(t)$ are given by
+If the real and imaginary parts of the expansion coefficient of $b_i(t)$ are determined, it becomes Eq.$\eqref{eq:2.6.18}$ and Eq.$\eqref{eq:2.6.19}$:
 
 $$
 \begin{equation}
@@ -176,8 +185,6 @@ b_{jR} =
 \label{eq:2.6.18}
 \end{equation}
 $$
-
-and 
 
 $$
 \begin{equation}

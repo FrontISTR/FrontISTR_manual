@@ -1,24 +1,24 @@
 ## Contact Analysis (Part 1)
 
-Data of `tutorial/09_contact_hertz/` is used to implement this analysis.
+This analysis uses the data of `tutorial/09_contact_hertz`.
 
-### Analysis Object
+### Analysis target
 
-The Hertz contact problem was applied in this analysis. The shape of the analysis object is shown in Figure 4.9.1, and the mesh data is shown in Figure 4.9.2. Hexahedral linear elements are used for the mesh, and the scale of the mesh consists of 168 elements and 408 nodes.
+This analysis is a Hertz contact problem with a target whose shape and mesh data of the analysis are shown in Figs. 4.9.1 and 4.9.2, respectively. The mesh is a hexahedral primary element with 168 elements and 408 nodes.
 
 <div style="text-align: center;">
 <img src="./media/tutorial09_01.png" width="350px"><br>
-Figure 4.9.1: Shape of Analysis Object
+Fig. 4.9.1: Shape of the analysis target
 </div>
 
 <div style="text-align: center;">
 <img src="./media/tutorial09_02.png" width="350px"><br>
-Figure 4.9.2: Mesh Data of Analysis Object
+Fig. 4.9.2: Mesh data of the analysis target
 </div>
 
-### Analysis Content
+### Analysis content
 
-An extended Lagrange multiplier method is used to implement the contact analysis where forced displacement is applied to the upper surface of a 1/4 model disc in the compression direction. The analysis control data is shown in the following.
+This is a contact analysis performed with the expanded method of Lagrange multipliers. A forced displacement in the compression direction is applied to the surface of a 1/4 model of a disk. The analysis control data are presented below.
 
 ```
 # Control File for FISTR
@@ -44,13 +44,12 @@ An extended Lagrange multiplier method is used to implement the contact analysis
   CONTACT, 1
 ```
 
-### Analysis Results
+### Analysis results
 
-As analysis results of the 5th sub step, a deformed figure applied with a contour of the displacement in the y direction was created by REVOCAP\_PrePost, and is shown in Figure 4.9.3. Moreover, a portion of the analysis results log file is shown in the following as numeric
-data of the analysis results.
+The analysis results of the fifth sub-step are shown in Fig. 4.9.3 as a deformation diagram with a y-direction displacement contour created with REVOCAP_PrePost. Furthermore, a part of the log files of the analysis results is shown below as numerical data of the analysis.
 
 <div style="text-align: center;">
 <img src="./media/tutorial09_03.png" width="350px"><br>
-Figure 4.9.3: Analysis Results of Deformation and y Direction Displacement
+Fig. 4.9.3: Analysis results of deformation and y-direction displacement
 </div>
 

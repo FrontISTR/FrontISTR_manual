@@ -1,25 +1,24 @@
 ## Linear Dynamic Analysis
 
-Data of `tutorial/12_dynamic_beam/` is used to implement this analysis.
+This analysis uses the data of `tutorial/12_dynamic_beam`.
 
-### Analysis Object
+### Analysis target
 
-A cantilever beam is the object of the analysis. The shape is shown in Figure 4.12.1, and the
-mesh data is shown in Figure 4.12.2. Quadratic tetrahedral elements are used for the mesh, and the scale of the mesh consists of 240 elements and 525 nodes.
+The target of this analysis is a cantilever whose shape and mesh data are shown in Figs. 4.12.1 and 4.12.2, respectively. The mesh is a tetrahedral secondary element with 240 elements and 525 nodes.
 
 <div style="text-align: center;">
 <img src="./media/tutorial12_01.png" width="350px"><br>
-Figure 4.12.1: Shape of Cantilever Beam
+Fig. 4.12.1: Shape of the cantilever
 </div>
 
 <div style="text-align: center;">
 <img src="./media/tutorial12_02.png" width="350px"><br>
-Figure 4.12.2: Mesh Data of Cantilever Beam
+Fig. 4.12.2: Mesh data of the cantilever
 </div>
 
-### Analysis Contents
+### Analysis contents
 
-A linear dynamic analysis is implemented, after the displacement of the restrained surface shown in Figure 4.12.1 is restrained, and a concentrated load is applied to the load node. The analysis control data is shown in the following.
+A linear dynamic analysis is performed after restraining the displacement of the constrained surface shown in Fig. 4.12.1 and applying a concentrated load to the load nodes. The analysis control data are presented below.
 
 ```
 # Control File for FISTR
@@ -48,13 +47,13 @@ A linear dynamic analysis is implemented, after the displacement of the restrain
   1.0e-06, 1.0, 0.0
 ```
 
-### Analysis Results
+### Analysis results
 
-A time sequence display of the displacement of the monitoring node (load node, node number 3121) specified by the analysis control data was created in Microsoft Excel, and is shown in Figure 4.12.3. A portion of the displacement output file (dyna_disp_p1.out) of the monitoring node is shown in the following as numeric data of the analysis results.
+The time-series display of the displacement of the monitoring nodes, specified with the analysis control data (load nodes, nodal number 3121) and created with Microsoft Excel, is shown in Fig. 4.12.3. Furthermore, a part of the displacement output files of the monitoring nodes (dyna\_disp\_p1.out) is shown in Fig. 4.12.3 as numerical data of the analysis.
 
 <div style="text-align: center;">
 <img src="./media/tutorial12_03.png" width="350px"><br>
-Figure 4.12.3: Displacement Time Sequence of Monitoring Node
+Fig. 4.12.3: Time-series displacement of monitoring nodes
 </div>
 
 ```

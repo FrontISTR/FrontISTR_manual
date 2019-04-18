@@ -17,9 +17,9 @@ MathJax.Hub.Config({
 
 # Eigenvalue Analysis
 
-## Generalized Eigenvalue Problem
+## Generalized Eigenvalue Problems
 
-When conducting a free oscillation analysis of the continuum, spatial discretization is performed, and a model is created with the multi degrees of freedom system by a central mass point as shown in Figure 2.3.1. In the case of the freeoscillation problem without attenuation, the governing equation (equation of motion) is as follows.
+In free oscillation analysis of continuous bodies, a spatial discretization is performed, and it is modeled with a multi-DOF system with concentrated mass points as shown in Fig. 2.3.1. In the case of free oscillation problems without damping, the governing equation (motion equation) is as follows:
 
 $$
 \begin{equation}
@@ -28,7 +28,7 @@ M\ddot{u} + K u = 0
 \end{equation}
 $$
 
-However, $u$ is the generalized displacement vector, $M$ is the mass matrix and $K$ is the stiffness matrix. Now, the function is defined assuming the natural angular frequency as $\omega$, $a$ and $b$ as the arbitary constants, and $x$ as the vector as follows.
+where $u$ is the generalized displacement vector, $M$ is the mass matrix and $K$ is the stiffness matrix. Further, the function is defined with $\omega$ as as the inherent angular frequency; $a$, $b$ and $c$ as arbitary constants; and $x$ as the vector: 
 
 $$
 \begin{equation}
@@ -37,7 +37,7 @@ u(t) = (a \sin \omega t + b \cos \omega t ) x
 \end{equation}
 $$
 
-Herein, when this equation and this second order differential,
+In this case, this equation and its second derivative, that is, 
 
 $$
 \begin{equation}
@@ -46,7 +46,7 @@ $$
 \end{equation}
 $$
 
-is substituted with equation $\eqref{eq:2.3.1}$, it will become as follows.
+is substituted into Eq.$\eqref{eq:2.3.1}$, which becomes
 
 $$
 \begin{equation}
@@ -55,7 +55,7 @@ M\ddot{u} + K u = (a \sin \omega t + b \cos \omega t) (- \omega^2 M + K x ) =  (
 \end{equation}
 $$
 
-Which becomes,
+That is, the following equation is obtained:
 
 $$
 \begin{equation}
@@ -64,15 +64,15 @@ K x = \lambda M x
 \end{equation}
 $$
 
-That is to say, if factor $\lambda(=\omega^2)$ and vector $x$ which satisfies equation $\eqref{eq:2.3.5}$ can be found, function $u(t)$ becomes the solution of equation $\eqref{eq:2.3.1}$. Factor $\lambda$ is called the eigenvalue, vector $x$ is called the eigenvector, and the problem in which these values are calculated by equation $\eqref{eq:2.3.1}$ is called the generalized eigenvalue problem.
+Therefore, if coefficient $\lambda(=\omega^2)$ and vector $x$ that satisfy Eq.$\eqref{eq:2.3.5}$ can be determined, function $u(t)$ becomes the solution of formula.
 
-<div style="text-align:center;"><img alt="Figure 2.3.1: Example of Multi Degrees of Freedom System of Free Oscillation without Attenuation" src="media/theory05_01.png" width="80%"/></div>
+The coefficient $\lambda$ and vector $x$ are called eigenvalue and eigenvector, respectively, and the problem that determines these from Eq.$\eqref{eq:2.3.1}$ is known as a generalized eigenvalue problem. 
 
-** Figure 2.3.1: Example of Multi Degrees of Freedom System of Free Oscillation without Attenuation **
+<div style="text-align:center;"><img alt="Fig. 2.3.1: Example of a multi-DOF system of free oscillation without damping" src="media/theory05_01.png" width="80%"/><br/>Fig. 2.3.1: Example of a multi-DOF system of free oscillation without damping</div>
 
 ## Problem Settings
 
-Equation $\eqref{eq:2.3.5}$ can be expanded to arbitary order frequencies, and appears in many situations. In order to handle many physical problems, there are many cases where the matrix is Hermitian (symmetrical). Thus, in a complex matrix, the transposed matrix is transposed into cojugate complex number, and a symmetric matrix in the real matrix. That is to say, when the $ij$ component of matrix $K$ is assumed to be $k_{ij}$, if the conjugate complex number of $k$ is transposed to $\overline{k}$, the relationship becomes as in the following equation.
+Eq.$\eqref{eq:2.3.5}$, which can be expanded to any order, appears in many situations. When dealing with physical problems, the matrix is often Hermitian (symmetric.) In a complex matrix, the transpose is a conjugate complex number, and the real matrix is a symmetric matrix. Therefore, when the $ij$ components of matrix $K$ are defined as $k_{ij}$, if the conjugate complex number $k$ is set as $\bar{k}$, the relationship becomes
 
 $$
 \begin{equation}
@@ -81,7 +81,7 @@ k_{ij} = \bar{k}_{ji}
 \end{equation}
 $$
 
-In this manual, the matrix is symmetrical, and assumes a positive definite. Positive definite means that all the eigenvalues are positive, in other words, it refers to a matrix which always satisfies the following equation $\eqref{eq:2.3.7}$.
+In this study, it is assumed that the matrices are symmetric and positive definite. A positive definite matrix is a symmetric matrix with all positive eigenvalues; that is, it always satisfies Eq.$\eqref{eq:2.3.7}$:
 
 $$
 \begin{equation}
@@ -92,9 +92,9 @@ $$
 
 ## Shifted Inverse Iteration Method
 
-In the structural analysis by the finite element method, all the eigenvalues are not required in practical use, and there are many cases where an extensive number of low order eigenvalues is sufficient. Now, the handling of large-scale problems is assumed in HEC-MW, and the size of the matrix is large and extremely sparse (many zero elements). Therefore, considering this fact, it is important to efficiently calculate the eigenvalues of the low order modes.
+Structural analyses with the finite element method do not require all eigenvalues. In many cases, just a few low-order eigenvalues are sufficient. As for HEC-MW, it was designed to deal with large-scale problems thus, the matrices are large and very sparse (with many zeros). Therefore, it is important to consider this and determine eigenvalues of low-order mode efficiently. 
 
-When the lower limit of eigenvalue is set too, equation $\eqref{eq:2.3.5}$ is deformed as in the following equation (mathmatically equivalent equation).
+When the lower limit of eigenvalues is set to $\sigma$, Eq.$\eqref{eq:2.3.5}$ is modified according to the following equation (which is mathematically equivalent): 
 
 $$
 \begin{equation}
@@ -103,31 +103,33 @@ $$
 \end{equation}
 $$
 
-In this case, there are the following convenient characteristics for calculation.
+This equation has the following convenient properties for calculation:
 
-  1. The mode is reversed.
-  2. The eigenvalue around $\rho$ is maximized.
+  1. The mode is inverted.
+  2. The eigenvalue around $\rho$ are maximized.
 
-In actual calculations, there are many cases where the maximum eigenvalue is calculated first. For this reason, the main convergence calculation is applied the equation $\eqref{eq:2.3.8}$, rather than equation $\eqref{eq:2.3.5}$, aiming to calculate from the eigenvalues around $\rho$. This method is called the shifted inverse iteration.
+In actual calculations, the maximum eigenvalue is often determined at the beginning. Therefore, the main convergence calculation is applied to Eq.$\eqref{eq:2.3.8}$, rather than Eq.$\eqref{eq:2.3.5}$ to determine from the eigenvalues around $\rho$. This method is called shifted inverse iteration. 
 
-## Algorithm to Solve Eigenvalues
+## Algorithm for Eigenvalue Solution
 
-The Jacobi method is well known as a classic method. This method is effective when the size of the matrix is small and dense. However, since large-scale and sparse matrices are handled by *HEC-MW*, this method is not used, the Lanczos iterative solution method is adopted.
+The Jacobi method is another such orthodox and popular method. 
+
+It is an effective method for small and dense matrices; however, the matrices dealt with by HEC-MW are large and sparse; thus, the Lanczos iterative is preferred. 
 
 ## Lanczos Method
 
-This method was proposed by C.Lanczos in the 1950s, and is calculation algorithm which perform tridiagonalization of matrices, and has the following features.
+The Lancos method was proposed by C. Lanczos in the 1950s and is a calculation algorithm for triply diagonalizing a matrix. The following are some of its characteristics: 
 
-  1. This is an iterative convergence solution, where caluculations can be advanced with sparse matricses.
-  2. The algorithm is mainly structured with matrix and vector products, and is sutable for parallelization.
-  3. This is suitable for the geometric domain decomposition method (DDM) accompanying the finite element mesh.
-  4. The number of the eigenvalues to be calculated and the mode range can be restricted, and efficient calculations can be performed.
+  1. It is an iterative convergence method that allows calculation of a matrix even if it is sparse.  
+  2. The algorithm is focused on matrices and vector product, and suitable for parallelization. 
+  3. It is suitable for the geometric segmentation associated with finite element mesh. 
+  4. It is possible to limit the number of eigenvalues to be determined and mode range to make the calculation more efficient.
 
-The Lanczos method is for performing calculations to acquire the base of partial spaces, by sequentially creating orthogonal vectors starting from the initial vector. This method is said to be faster than sub space method which is another iterative solution method, and is by errors of the calculator, which impairs the orthogonality of the vector, and the risks of failing in th middle can not be avoided. Therefore, it is essential to take measure against errors.
+The Lanczos method creates sequential orthogonal vectors, starting from the initial vector, to calculate the basis of subspaces. It is faster than the other subspace methods and is widely used in finite element method programs. However, this method is easily influenced by computer errors, which may impair the orthogonality of the vectors and interrupt it in the middle of the process. Therefore, it is essential to apply measures against errors. 
 
-## Geometric Meaning in the Lanczos Method
+## Geometric Significance of the Lanczos Method
 
-Transforming the variables of equation $\eqref{eq:2.3.8}$ as follows,
+By converting Eq.$\eqref{eq:2.3.8}$ into a variable
 
 $$
 \begin{align}
@@ -137,7 +139,7 @@ $$
 \end{align}
 $$
 
-to rewrite the problem, the following equation can be acquired.
+and rewriting the problem, the following equation is obtained:
 
 $$
 \begin{equation}
@@ -146,26 +148,21 @@ A x = \zeta x
 \end{equation}
 $$
 
-The linear transformation with matrix $A$ is performed for proper vector $q_0$ (refer to Figure 2.3.2).
+An appropriate vector $q_0$  linearly transformed with matrix $A$ (see Fig. 2.3.2).
 
-<div style="text-align:center;"><img alt="Figure 2.3.2: Linear Transformation of q0 with Matrix A" src="media/theory05_02.png" width="70%"></div>
+<div style="text-align:center;"><img alt="Fig. 2.3.2: Linear Transformation of q0 with Matrix A" src="media/theory05_02.png" width="70%"><br/>Fig. 2.3.2: Linear Transformation of $q_0$ with Matrix $A$ </div>
 
-** Figure 2.3.2: Linear Transformation of $q_0$ with Matrix $A$ **
+The transformed vector is orthogonalized within the space created by the original vector. That is, it is subjected to a so-called Gram–Schmidt orthogonalization shown in Fig. 2.3.2. Thus, if the vector obtained is defined as $r_1$ and normalized (to length 1), it generates $q_1$ (Fig. 2.3.3). With a similar calculation, $q_2$ is obtained from $q_1$ (Fig. 2.3.4), which is orthogonal to both $q_1$ and $q_0$. If the same calculation is repeated, mutually orthogonal vectors are determined up to the order of the maximum matrix. 
 
-The transformed vector is orthogonalized in the space created with the original vector. Thus, as Figure 2.3.2 the so called Gram-Schmidt orthogonalization is performed. The vector acquired in such a way, is normalized as $r_1$ (to length 1), to acquire $q_1$ (Figure 2.3.3). $q_2$ is acquired from $q_1$ with the same algorithm. At this time, $q_2$ is orthogonal to both $q_1$ and $q_0$ (Figure 2.3.4). When the same calculation is continued, the mutually orthogonal vectors can be acquired up to the order frequency of the maximum matrix.
+<div style="text-align:center;"><img alt="Fig. 2.3.3: Vector q1 orthogonal to q0" src="media/theory05_03.png" width="70%"><br/>Fig. 2.3.3: Vector $q_1$ orthogonal to $q_0$</div>
 
-<div style="text-align:center;"><img alt="Figure 2.3.3: Vector q1 Orthogonal to q0" src="media/theory05_03.png" width="70%"></div>
+<div style="text-align:center;"><img alt="Fig. 2.3.4: Vector q2 Orthogonal to q1 and q0" src="media/theory05_04.png" width="70%"><br/>Fig. 2.3.4: Vector $q_2$ Orthogonal to $q_1$ and $q_0$</div>
 
-** Figure 2.3.3: Vector $q_1$ Orthogonal to $q_0$ **
+The algorithm of the Lanczos method is a Gram–Schmidt orthogonalization on vector sequence $\\{A_{q_0}, A^2_{q_0}, A^3_{q_0}, \ldots, A^n_{q_0} \\}$ or, in other words, $\\{A_{q_0}, A_{q_1}, A_{q_2}, \ldots \\}$. This vector sequence is called Krylov sequence, and the space it creates is called Krylov subspace. If Gram–Schmidt orthogonalization is performed in this space, two adjacent vectors determine another vector. This is called the principle of Lanczos. 
 
-<div style="text-align:center;"><img alt="Figure 2.3.4: Vector q2 Orthogonal to q1 and q0" src="media/theory05_04.png" width="70%"></div>
-** Figure 2.3.4: Vector $q_2$ Orthogonal to $q_1$ and $q_0$ **
+## Triple Diagonalization
 
-Particularly, the algorithm of the Lanczos method is the Gram-Schmidt orthogonalization for column vectors $\\{A_{q_0}, A^2_{q_0}, A^3_{q_0}, \ldots, A^n_{q_0} \\}$ rephrased from $\\{A_{q_0}, A_{q_1}, A_{q_2}, \ldots \\}$. This column vector is called the columns of Krylov, and the space created by this is called the Krylov subspace. When the Gram-Schmidt orthogonalization is performed in this space, the vectors can be acquired using the two nearest vectors. This is called the principle of Lanczos.
-
-## Tridiagonalization
-
-While repeating the above calculation, the $i + 1$th calculation can be expressed as follows.
+The $i + 1$<sup>th</sup> calculation in the iteration above can be expressed as 
 
 $$
 \begin{equation}
@@ -174,7 +171,7 @@ $$
 \end{equation}
 $$
 
-However,
+In this case,
 
 $$
 \begin{align}
@@ -185,7 +182,7 @@ $$
 \end{align}
 $$
 
-When the above equation is indicated in the matrix, it becomes as follows.
+In matrix notation, this becomes
 
 $$
 \begin{equation}
@@ -194,7 +191,7 @@ AQ_m = Q_m T_m
 \end{equation}
 $$
 
-Which becomes, 
+In this case,
 
 $$
 \begin{align}
@@ -210,5 +207,5 @@ Q_m &= [q_1, q_2, q_3, \ldots , q_m]\ ,
 \end{align}
 $$
 
-Thus, the eigenvalue can be acquired by performing the eigenvalue calculation for the tridiagonal matrix acquired by equation $\eqref{eq:2.3.13}$.
+That is, the eigenvalues are obtained through eigenvalue calculation on the triply diagonalized matrix obtained with Eq.$\eqref{eq:2.3.13}$.
 

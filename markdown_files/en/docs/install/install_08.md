@@ -1,6 +1,6 @@
-# Appendix : Example of installation procedure to CentOS7.666666 (Makefile.conf)
+# Appendix : Example of installation procedure to CentOS7.6 (Makefile.conf)
 
-We will explain how to install this software and how to build external libraries required this software on CentOS7.3.
+We will explain how to install this software and how to build external libraries required this software on CentOS7.6.
 
 More information for building each libraries, refer to their installation manuals.
 

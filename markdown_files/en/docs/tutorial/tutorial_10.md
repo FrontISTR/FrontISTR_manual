@@ -1,24 +1,24 @@
 ## Contact Analysis (Part 2)
 
-Data of `tutorial/10_contact_2tubes/` is used to implement this analysis.
+This analysis uses the data of `tutorial/10_contact_2tubes`.
 
-### Analysis Object
+### Analysis target
 
-A pinched cylindrical problem was applied in this analysis. The shape of the analysis object is shown in Figure 4.10.1, and the mesh data is shown in Figure 4.10.2. Hexahedral linear elements are used for the mesh, and the scale of the mesh consists of 2,888 elements and 4,000 nodes.
+This analysis is a pushing problem of a cylinder with a target whose shape and mesh data are shown in Figs. 4.10.1 and 4.10.2, respectively. The mesh is a hexahedral primary element with 2888 elements and 4000 nodes.
 
 <div style="text-align: center;">
 <img src="./media/tutorial10_01.png" width="350px"><br>
-Figure 4.10.1: Shape of Analysis Object
+Fig. 4.10.1: Shape of the analysis target
 </div>
 
 <div style="text-align: center;">
 <img src="./media/tutorial10_02.png" width="350px"><br>
-Figure 4.10.2: Mesh Data of Analysis Object
+Fig. 4.10.2: Mesh data of the analysis target
 </div>
 
-### Analysis Content
+### Analysis content
 
-The Lagrange multiplier method is used to implement the contact analysis where forced displacement is applied to the forced surface shown in Figure 4.10.1 in the pinched direction.  The analysis control data is shown in the following.
+This is a contact analysis performed with the method of Lagrange multipliers. A forced displacement in the pushing direction is applied to the forced surface shown in Fig. 4.10.1. The analysis control data are presented below.
 
 ```
 # Control File for FISTR
@@ -54,15 +54,13 @@ CONTACT, 1
 !SOLVER,METHOD=MUMPS
 ```
 
-### Analysis Results
+### Analysis results
 
-As analysis results of the 4th sub step, a deformed figure applied with a contour of the
-Mises stress was created by REVOCAP_PrePost, and is shown in Figure 4.10.3. Moreover, a
-portion of the analysis results log file is shown in the following as numeric data of the analysis results.
+The analysis results of the fourth sub-step are shown in Fig. 4.10.3 as a deformation diagram with a Mises stress contour created with REVOCAP\_PrePost. Furthermore, a part of the log files of the analysis results is shown below as numerical data of the analysis.
 
 <div style="text-align: center;">
 <img src="./media/tutorial10_03.png" width="350px"><br>
-Figure 4.10.3: Analysis Results of Deformation and Mises Stress
+Fig. 4.10.3: Analysis results of deformation and Mises stress
 </div>
 
 ```

@@ -1,55 +1,54 @@
-## Example of Actual Model for Heat Conduction Analsis
+## Actual Model Examples for Heat Conduction Analysis
 
-### Analysis Model
+### Analysis model
 
-In heat conduction analysis, a spent nuclear fuel shipping container was used as the actual Neutron shield (Silicon rubber) where the roughness of the mesh model. A verification example of three types of actual models Radiation fins was changed was used for verification. A list is shown in Table 9.4.1. The shape of the models is shown in Figure 9.4.1 ~ Figure 9.4.4.
+The heat conduction analysis was performed with a used nuclear fuel transport container as an actual model. For this analysis, three verification examples were set, each with a model of different mesh roughness, as presented in Table 9.4.1. The shapes of the models are shown in Figs. 9.4.1–9.4.4. 
 
 <div style="text-align: center;">
-Table 9.4.1: Verification Example of Actual Model for Heat Conduction Analysis
+Table 9.4.1: Examples of actual verification models for heat conduction analysis
 </div>
 
-| Case Name | Element Type | Verification Model  | No. of Nodes    | No. of Degrees of Freedom |
+| Case ame | Element type | Verification model  | Number of nodes    | Freedom frequency |
 |:--|:--|:--|:--|:--|
-| EX21A    | 361        | Spent nuclear fuel shipping container | 88,938    | 79,920 |
+| EX21A    | 361        | Used unclear fuel transport container | 88,938    | 79,920 |
 | EX21B    | 361        |                                       | 309,941   | 289,800 |
 | EX21C    | 361        |                                       | 1,205,765 | 1,159,200 |
 
 <div style="text-align: center;">
 <img src="./media/example04_01.png" width="350px"><br>
-Figure 9.4.1: Spent Nuclear Fuel Shipping Container<br>
-Reference: Transport Engineering of Nuclear Fuel Materials (Nikkan Kogyo Shimbun) 1998
+Fig. 9.4.1: Used nuclear fuel transport container
 </div>
 
 <div style="text-align: center;">
 <img src="./media/example04_02.png" width="350px"><br>
-Figure 9.4.2: Dimensions of Spent Nuclear Fuel Shipping Container
+Fig. 9.4.2: Dimensions of the used nuclear fuel transport container
 </div>
 
 <div style="text-align: center;">
 <img src="./media/example04_03.png" width="350px"><br>
-Figure 9.4.3: Conceptual Diagram of Model
+Fig. 9.4.3: Model’s schematic diagram
 </div>
 
 <div style="text-align: center;">
 <img src="./media/example04_04.png" width="350px"><br>
-Figure 9.4.4: Model Boundary Conditions and Mesh Partitioning Figure (EX21A)
+Fig. 9.4.4: Model’s boundary conditions and mesh division diagram (EX21A)
 </div>
 
 ### Analysis Results
 
-An example of the analysis results is shown in Figure 9.4.5 ~ Figure 9.4.7.
+Examples of analysis results are shown in Figs. 9.4.5–9.4.7.
 
 <div style="text-align: center;">
 <img src="./media/example04_05.png" width="512px"><br>
-Figure 9.4.5: Temperature Distribution Figure
+Fig. 9.4.5: Temperature distribution diagram
 </div>
 
 <div style="text-align: center;">
 <img src="./media/example04_06.png" width="512px"><br>
-Figure 9.4.6: Distributed Model Figure
+Fig. 9.4.6: Distributed model diagram
 </div>
 
 <div style="text-align: center;">
 <img src="./media/example04_07.png" width="512px"><br>
-Figure 9.4.7: Level of Speed Improvement by Distribution Process
+Fig. 9.4.7: Speed improvement degree because of dispersion treatment
 </div>

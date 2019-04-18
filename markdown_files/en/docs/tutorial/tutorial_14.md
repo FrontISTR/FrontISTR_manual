@@ -1,24 +1,24 @@
-## Nonlinear Contact Dynamic Analysis
+## Non-Linear Contact Dynamic Analysis
 
-Data of `tutorial/14_dynamic_plate_contact/` is used to implement this analysis.
+This analysis uses the data of `tutorial/14_dynamic_plate_contact`.
 
-### Analysis Object
+### Analysis target
 
-A drop impact analysis of a square plate on a floor is the subject of the analysis. The shape is shown in Figure 4.14.1, and the mesh data is shown in Figure 4.14.2. Hexahedral linear elements are used for the mesh, and the scale of the mesh consists of 8,232 elements and 10,712 nodes.
+The target of this analysis is the falling impact of a square material on the floor surface. The shape and mesh data of the material are shown in Figs. 4.14.1 and 4.14.2, respectively. The mesh is a hexahedral primary element with 8232 elements and 10712 nodes.
 
 <div style="text-align: center;">
 <img src="./media/tutorial14_01.png" width="350px"><br>
-Figure 4.14.1: Shape of Floor and Square Plate
+Fig. 4.14.1: Shape of the floor surface and square material
 </div>
 
 <div style="text-align: center;">
 <img src="./media/tutorial14_02.png" width="350px"><br>
-Figure 4.14.2: Mesh Data of Floor and Square Plate
+Fig. 4.14.2: Mesh data of the floor surface and square material
 </div>
 
-### Analysis Content
+### Analysis content
 
-An initial velocity of 4,427 mm/s is set for the square plate of the analysis object, to implement the contact dynamic analysis. The analysis control data is shown in the following.
+A contact dynamic analysis is performed with the analysis target (square material) configured with an initial speed of 4427 mm/s. The analysis control data are presented below.
 
 ```
 !! Control File for FISTR
@@ -59,10 +59,10 @@ An initial velocity of 4,427 mm/s is set for the square plate of the analysis ob
 
 ### Analysis Results
 
-The contour figure of the Mises stress at the time of the drop impact is shown in Figure
-4.14.3. A portion of the energy output file (dyna_energy.txt) of the monitoring node is shown in the following as numeric data of the analysis results.
+A contour diagram of a Mises stress of the falling impact is shown in Fig. 4.14.3. Furthermore, a part of the energy output files of the monitoring nodes (dyna_energy.txt) is shown below as numerical data of the analysis.
 
 <div style="text-align: center;">
 <img src="./media/tutorial14_03.png" width="350px"><br>
-Figure 4.14.3: Mises Stress at time of Drop Impact
+Fig. 4.14.3: Mises stress of the falling impact
 </div>
+

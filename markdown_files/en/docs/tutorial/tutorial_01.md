@@ -1,24 +1,24 @@
 ## Static Analysis (Elasticity)
 
-Data of `tutorial/01_elastic_hinge/` is used for the implementation of this analysis.
+This analysis uses the data of `tutorial/01_elastic_hinge`.
 
-### Analysis Object
+### Analysis target
 
-A hinge component is the object of the analysis. The shape is shown in Figure 4.1.1, and the mesh data is shown in Figure 4.1.2. Quadratic tetrahedral elements are used for the mesh,and the scale of the mesh consists of 49,871 elements and 84,056 nodes.
+The target of this analysis is a hinge part whose shape and mesh data are shown in Figs. 4.1.1 and 4.1.2, respectively. The mesh is a tetrahedral secondary element with 49871 elements and 84056 nodes.
 
 <div style="text-align: center;">
 <img src="./media/tutorial01_01.png" width="350px"><br>
-Figure 4.1.1 : Shape of Hinge Component
+Fig. 4.1.1 : Shape of the hinge part
 </div>
 
 <div style="text-align: center;">
 <img src="./media/tutorial01_02.png" width="350px"><br>
-Figure 4.1.2 : Mesh Data of Hinge Component
+Fig. 4.1.2 : Mesh data of the hinge part
 </div>
 
-### Analysis Contents
+### Analysis contents
 
-A stress analysis is implemented, where the displacement of the restrained surface shown in Figure 4.1.1 is restrained, and a concentrated load is applied to the forced surface. The analysis control data is shown in the following.
+In this stress analysis, the displacement of the constrained surface shown in Fig. 4.1.1 is restrained, and a concentrated load is applied to the forced surface. The analysis control data are presented below.
 
 ```
 # Control File for FISTR
@@ -48,13 +48,13 @@ A stress analysis is implemented, where the displacement of the restrained surfa
   1.0e-8, 1.0, 0.0
 ```
 
-### Analysis Results
+### Analysis results
 
-A contour figure of the Mises stress was created by REVOCAP_PrePost, and is shown in Figure 4.1.3. Moreober, a portion of the analysis results log file is shown in the following as numeric data of the analysis results.
+The contour diagram of a Mises stress created with REVOCAP_PrePost is shown in Fig. 4.1.3. Furthermore, a part of the log files of the analysis results is shown below as numerical data of the analysis.
 
 <div style="text-align: center;">
 <img src="./media/tutorial01_03.png" width="350px"><br>
-Figure 4.1.3 : Analysis Results of Mises Stress
+Fig. 4.1.3 : Analysis results of Mises stress
 </div>
 
 ```
