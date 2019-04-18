@@ -1,3 +1,5 @@
+*** Last updated 2019-04-18 ***
+
 ##  線形動解析
 
 本解析の実施には、`tutorial/12_dynamic_beam` のデータを用います。

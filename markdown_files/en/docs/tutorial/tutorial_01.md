@@ -1,3 +1,5 @@
+*** Last updated 2019-04-18 ***
+
 ## Static Analysis (Elasticity)
 
 This analysis uses the data of `tutorial/01_elastic_hinge`.

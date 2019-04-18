@@ -1,3 +1,5 @@
+*** Last updated 2019-04-18 ***
+
 ## 接触解析（その１）
 
 本解析の実施には、`tutorial/09_contact_hertz` のデータを用います。

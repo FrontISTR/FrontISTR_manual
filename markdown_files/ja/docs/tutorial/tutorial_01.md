@@ -1,3 +1,5 @@
+*** Last updated 2019-04-18 ***
+
 ## 静解析（弾性）
 
 本解析の実施には、`tutorial/01_elastic_hinge` のデータを用います。

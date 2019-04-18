@@ -1,3 +1,5 @@
+*** Last updated 2019-04-18 ***
+
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   tex2jax: {

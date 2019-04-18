@@ -1,3 +1,5 @@
+*** Last updated 2019-04-18 ***
+
 ## Static Analysis (Elastoplastic, Part 2)
 
 This analysis uses the data of `tutorial/06_plastic_can`.

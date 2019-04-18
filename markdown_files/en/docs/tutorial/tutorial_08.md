@@ -1,3 +1,5 @@
+*** Last updated 2019-04-18 ***
+
 ## Static Analysis (Creep)
 
 This analysis uses the data of `tutorial/08_creep_cylinder`.

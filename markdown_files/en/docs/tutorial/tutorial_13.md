@@ -1,3 +1,5 @@
+*** Last updated 2019-04-18 ***
+
 ## Non-Linear Dynamic Analysis
 
 This analysis uses the data of `tutorial/13_dynamic_beam_nonlinear`.

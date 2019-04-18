@@ -1,3 +1,5 @@
+*** Last updated 2019-04-18 ***
+
 # Cheat sheet
 
 ## Installation

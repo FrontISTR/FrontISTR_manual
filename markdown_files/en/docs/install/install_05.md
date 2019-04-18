@@ -1,3 +1,5 @@
+*** Last updated 2019-04-18 ***
+
 # Compile with editing Makefile.conf manually
 
 ## Editing Makefile.conf

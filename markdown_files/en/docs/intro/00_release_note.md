@@ -1,3 +1,5 @@
+*** Last updated 2019-04-18 ***
+
 # Release Note
 
 ## Contents updated in Ver. 5.0

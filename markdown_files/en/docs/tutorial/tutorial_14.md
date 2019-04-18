@@ -1,3 +1,5 @@
+*** Last updated 2019-04-18 ***
+
 ## Non-Linear Contact Dynamic Analysis
 
 This analysis uses the data of `tutorial/14_dynamic_plate_contact`.
