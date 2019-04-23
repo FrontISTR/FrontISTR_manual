@@ -51,6 +51,7 @@ $ ./setup.sh
 | --with-mumps | MUMPSの使用 |  |
 | --with-lapack | Lapackルーチンの使用 | 条件数推定機能を利用する場合に必要 |
 | --with-ml | MLの使用 |  |
+| --old-res-format | FrontISTRのresultファイルを旧フォーマットで出力 |  |
 
 以下では、setup.sh 実行の例を示します。
 

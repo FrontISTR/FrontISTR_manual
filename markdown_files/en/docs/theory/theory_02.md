@@ -15,19 +15,29 @@ MathJax.Hub.Config({
 </script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
-# Nonlinear Static Analysis Method
+# Non-linear Static Analysis Method
 
-As mentioned before, in the analysis of the infinitesimal deformation problem, the finite element analysis can be performed by discretizing this equation with the finite element, using the principle of virtual work equivalent to a basic equation, such as the equilibrium equation.
-Even in the analysis of a finite deformation problem which handles finite deformation of structures, the point of using the principle of virtual work is basically the same. However, in a finite deformation problem, even thought linearity of the material is assumed, the principle equation of virtual work will become a nonlinear equation regarding the displacement. In order to solve the nonlinear equation, repeated calculations by an iterative method is generally used.
-In the iterative calculation, an incremental analysis method is used, where a calculation is sectionally performed for certain small load increments, and repeating this calculation results in a final deformed state. When an infinitesimal deformation problem is assumed the layout before and after deformation to define the strain and stress has not been distinguished in particular. Thus, when an infinitesimal deformation is assumed, the layout to describe the basic equation has not been a problem, even though it was before or after the deformation. However, when implementing an incremental analysis in a finite deformation problem, whether to refer to the initial status as a reference layout, or refer to the starting point of the increments can be selected. The former is called the total Lagrange method, and the latter is called the updated Lagrange method. For details, refer to the references and etc. at the end of this Chapter.
+As mentioned previously, in the analysis of infinitesimal deformation problems, it is possible to use the principle of virtual work, which is equivalent to the basic equations (the equilibrium equation), to perform finite element analysis by discretizing this equation with finite elements. Therefore, analyses of finite deformation problems that deal with large deformations of structures are typically conducted with the principle of virtual work. 
 
-Both the total Lagrange method and updated Lagrange method have been adopted for this development code.
 
-## Geometric Nonlinear Analysis Method
+However, in finite deformation problems, the equation of the principle of virtual work is non-linear in relation to displacement even if it the material is assumed to be linear.
 
-### Decomposition of Increments of Virtual Work Equation
+Generally, non-linear equations are solved by iteration methods. 
 
-The status to time $t$ is already known. The incremental analysis assumed here is where the status of $t'=t+\Delta t$ is unknown. (Refer to Figure 2.2.1) The equilibrium equation, dynamic boundary conditions and geometric boundary condidions (basic boundary condidions) of the static boudary value problems as follows.
+
+These type of iterative calculations are performed through incremental analysis, which is performed on small load increments that are accumulated until the final deformation state is reached. If an infinitesimal deformation problem is assumed, there will be no distinction in the arrangement to define the strain and stress before and after the deformation. Thus, the basic equation can be described before or after the deformation with no problem. 
+
+
+However, in the case of increment analysis in finite deformation problems, it is possible to choose between the initial state or the starting point of the increment. The former is called the total Lagrange method and the latter is called the updated Lagrange method. For more details, refer to the references at the end of this chapter.
+
+
+In this development code, both the total and updated Lagrange methods were adopted. 
+
+## Geometric non-linear analysis method
+
+### Incremental decomposition of virtual work equation
+
+In this section, an increment analysis is performed wherein the status is known until time $t$ and unknown until $t'=t+\Delta t$ (See to Fig. 2.2.1). The equilibrium equation, of the static boundary value problem, mechanical boundary conditions, and geometric boundary conditions (basic boundary condidions) are as follows:
 
 $$
 \begin{equation}
@@ -50,15 +60,13 @@ $$
 \end{equation}
 $$
 
-However, $^{t'} \sigma$，$^{t'} \overline{b}$，$^{t'} n$，$^{t'} \overline{t}$，$^{t'} \overline{u}$ are the Cauchy stress (true stress), body force, outward normal vector of the object's surface, fixed surface force and fixed displacement in each time $t'$. these equations are described for the layout of $^{t'}v$, $^{t'}s\_t$, $^{t'}s\_u$ in time $'t$.
+$^{t'} \sigma$，$^{t'} \overline{b}$，$^{t'} n$，$^{t'} \overline{t}$，and $^{t'} \overline{u}$ are the Cauchy stress (true stress), body force, outward until normal vector on body surface, predetermined surfacxe force, and predetermined displacement at time $t'$, respectively. These equations are described for the arrangements of $^{t'}v$, $^{t'}s\_t$, $^{t'}s\_u$ at time $'t$.
 
-<div style="text-align:center;"><img alt="Figure 2.2.1: Concept of Incremental Analysis" src="media/theory02_01.png" width="80%"/></div>
-
-** Figure 2.2.1: Concept of Incremental Analysis **
+<div style="text-align:center;"><img alt="Fig. 2.2.1: Concept of incremental analysis" src="media/theory02_01.png" width="80%"/><br/>Fig. 2.2.1: Concept of incremental analysis</div>
 
 ### Principle of Virtual Work
 
-The principle of virtual work equivalent to the equilibrium equation of equation $\eqref{eq:2.2.1}$ and the dynamic boundary conditions of equation $\eqref{eq:2.2.2}$ is given by the following equation.
+The principle of virtual work equivalent to the equilibrium equation of Eq.$\eqref{eq:2.2.1}$ and mechanical boundary conditions of Eq.$\eqref{eq:2.2.2}$ is given by the following equation:
 
 $$
 \begin{equation}
@@ -72,7 +80,7 @@ $$
 \end{equation}
 $$
 
-Herein, $^{t'} A\_{(L)}$ is the linear portion of the Almansi strain tensor, and is specifically expressed by the following equation.
+where $^{t'} A\_{(L)}$ is the linear part of the Almansi strain tensor, which is expressed by the following equation:
 
 $$
 \begin{equation}
@@ -82,13 +90,14 @@ $$
 \end{equation}
 $$
 
-Equation $\eqref{eq:2.2.4}$ should be solved with the geometric boundary conditions, strain displacement relational expresssion and the stress strain relational expression; however, equation $\eqref{eq:2.2.4}$ is described in the layout of time $t'$ is unknown at the present stage. Therefore, the formulation is performed referring to layout $V$ of time $0$ or layout $^{t'} v$ at time $t$.
+Eq.$\eqref{eq:2.2.4}$ should be solved along with the geometric boundary conditions, strain displacement relation, and stress-strain relationship equation; however Eq.$\eqref{eq:2.2.4}$ is described with the arrangement at time $t'$, which  is still unknown at this stage. Therefor, a formulation with reference to arrangement $V$ at time $0$ or arrangement $^{t'} v$ at time $t$ has to be performed.
 
-### Formulation of Total Lagrange Method
+### Formulation of total Lagrange method
 
-The formulation based on the total Lagrange method used in the development code is described in this section.
+In this section, a formulation based on the total Lagrange method used in the development code is described. 
 
-The principle equation of the virtual work at time $t'$ assuming the initial layout of time $0$ is the reference, is given by the following equation.
+
+The principle of virtual work equation at time ${t'}$ with reference to the initial arrangement at time $0$ is given by the following equation: 
 
 $$
 \begin{equation}
@@ -110,9 +119,7 @@ $$
 \end{equation}
 $$
 
-However, $^{t'}_0 S$, $^{t'}_0 E$ respectively express the 2nd Piola-Kirchhoff stress tensor and the Green-Lagrange strain tensor at time $t'$, assuming the initial layout of time $0$ is the reference.
-
-Moreover, $^{t'}_0 \overline{t}$, $^{t'}_0 \overline{b}$ is the body force converted per unit volume of the nominal surface force vector and the initial layout, and is given by the following equation in connection with equations $\eqref{eq:2.2.1}$, $\eqref{eq:2.2.2}$ and $\eqref{eq:2.2.3}$.
+where $^{t'}_0 S$ and $^{t'}_0 E$ represent the second Piola–Kirchhoff strain tensor and Green–Lagrange strain tensor, respectively, at time $t'$ with reference to the initial arrengement at time $0$. Furthermore, $^{t'}_0 \overline{t}$ and $^{t'}_0 \overline{b}$ are the surface force vector and body force coverted per unit volume of the initial arrangement, respectively, and are expressed as follows when associated with Eq.$\eqref{eq:2.2.1}$, Eq.$\eqref{eq:2.2.2}$ and Eq.$\eqref{eq:2.2.3}$:
 
 $$
 \begin{equation}
@@ -128,7 +135,7 @@ $$
 \end{equation}
 $$
 
-The Green-Langrange strain tensor at time $t$ is defined by the following equation.
+The Green-Langrange strain tensor at time $t$ is defined by the following equation:
 
 $$
 \begin{equation}
@@ -143,7 +150,7 @@ $$
 \end{equation}
 $$
 
-Thus, the displacement and the 2nd Piola-Kirchhoff stress $^{t'} u$, $_{0}^{t'} S$ at time ${t'}$ are expressed by the decomposed increments at in the following equation.
+The displacement at time $t'$ and the second Piola-Kirchhoff stress $^{t'} u$, $_{0}^{t'} S$ can be represented with incremental decomposition as follows:
 
 $$
 \begin{equation}
@@ -159,7 +166,7 @@ $$
 \end{equation}
 $$
 
-In this case, in relation to the displacement increment, the increment of the Green-Lagrange strain is defined by the following equation.
+The increment of Green-Lagrrange strain, in connection with the displacement increment, is defined by the following equation:
 
 $$
 \begin{equation}
@@ -196,7 +203,7 @@ $$
 \end{equation}
 $$
 
-Equations $\eqref{eq:2.2.11} \eqref{eq:2.2.12} \eqref{eq:2.2.13} \eqref{eq:2.2.14} \eqref{eq:2.2.15}$ and $\eqref{eq:2.2.16}$ are substituted with equations $\eqref{eq:2.2.6}$ and $\eqref{eq:2.2.7}$ to acquire the following equation.
+If Eq.$\eqref{eq:2.2.11}$, Eq.$\eqref{eq:2.2.12}$, Eq.$\eqref{eq:2.2.13}$, Eq.$\eqref{eq:2.2.14}$, Eq.$\eqref{eq:2.2.15}$ and Eq.$\eqref{eq:2.2.16}$ are substituted into Eq.$\eqref{eq:2.2.6}$ and Eq.$\eqref{eq:2.2.7}$, the following equation is obtained:
 
 $$
 \begin{equation}
@@ -205,7 +212,7 @@ $$
 \end{equation}
 $$
 
-Herein, $\Delta S$ is assumed to be expressed as in the following equation in connection with $\Delta E\_L$ and the forth order tensor $^{t}\_{0} C$.
+In this case, it is assumed that $\Delta S$ is associated with $\Delta E\_L$ and the forth-order tensor $^{t}\_{0} C$, and is expressed as follows:
 
 $$
 \begin{equation}
@@ -214,7 +221,7 @@ $$
 \end{equation}
 $$
 
-Equation $\eqref{eq:2.2.17}$ is substituted with equation $\eqref{eq:2.2.18}$ and $\Delta S :\delta \Delta E_{NL}$ having two or more polynominals of $\Delta u$ are omitted to acquire the following equation.
+By substituting Eq.$\eqref{eq:2.2.18}$ into Eq.$\eqref{eq:2.2.17}$, and omitting $\Delta S :\delta \Delta E_{NL}$ with $\Delta u$ of second or higher order, the following equation is obtained:
 
 $$
 \begin{equation}
@@ -224,7 +231,7 @@ C \Delta E\_{L} ) : \delta \Delta E\_{L}\, dV + \int_V\,^t\_{0} S : \delta \Delt
 \end{equation}
 $$
 
-Equation $\eqref{eq:2.2.19}$ is discretized by the finite element to acquire the following equation.
+Further, if Eq.$\eqref{eq:2.2.19}$ is discretized by the finite element, following equation is obtained:
 
 $$
 \begin{equation}
@@ -233,9 +240,9 @@ $$
 \end{equation}
 $$
 
-Herein, $^t_0 K$, $^t_0 K_{NL}$, $^{t'}_0 F$, $^t_0 Q$ are the initial displacement matrix, initial stress matrix, external force vector and internal force vector respectively.
+where $^t_0 K$, $^t_0 K_{NL}$, $^{t'}_0 F$, $^t_0 Q$ denote the initial displacement matrix, initial stress matrix, external force vector, and internal stress vector, respectively.
 
-Therefore, the recurrence equation to acquire the time $t'$ status from the time $t$ status is given by the following equation.
+Therefore, the recurrence formula to determine the status from time $t$ to time $t'$ is given by the following equation:
 
 $i = 0$
 
@@ -250,9 +257,9 @@ $ \,^{t'} U^{(i)}=^{t'} U^{(i-1)} + \Delta U^{(i)} $
 
 $i = i + 1$
 
-### Formulation of Updated Lagrange Method
+### Formulation of the Updated Lagrange Method
 
-The principle equation of the virtual work at time $t'$ assuming the current layout of time $t$ is the reference, is given by the following equation.
+The principle of the virtual work equation at time $t'$ with reference to the arrangement at time $t$ given by the following equation:
 
 $$
 \begin{equation}
@@ -285,7 +292,7 @@ $$
 \end{equation}
 $$
 
-although tensor $^{t'}_t S$, $^{t'}_t E$ and vector $^{t'}_t \overline{t}$, $^{t'}_t \overline{b}$ are using the current layout of time $t$ as reference, the Green-Lagrange strain does not include the initial displacement (displacement to time $t$) $^t u$;
+While tensor $^{t'}_t S$ and $^{t'}_t E$ and vector $^{t'}_t \overline{t}$ and $^{t'}_t \overline{b}$ are are based on arrangement at time $t$, the Green-Lagrange strain does not include the initial displacement (displacement until time $t$) $^t u$:
 
 $$
 \begin{equation}
@@ -294,7 +301,7 @@ $$
 \end{equation}
 $$
 
-however, the equation becomes as follows.
+Further, this becomes
 
 $$
 \begin{equation}
@@ -311,7 +318,7 @@ $$
 \end{equation}
 $$
 
-On the other hand,
+However,
 
 $$
 \begin{equation}
@@ -320,7 +327,7 @@ $$
 \end{equation}
 $$
 
-since the equation becomes as above, when this is arranged by substituting with equations $\eqref{eq:2.2.21}$ and $\eqref{eq:2.2.22}$, and equation $\eqref{eq:2.2.25}$, the eqation which must be solved is given as follows.
+Thus, if this is substituted into Eq.$\eqref{eq:2.2.21}$, Eq.$\eqref{eq:2.2.22}$, and Eq.$\eqref{eq:2.2.25}$, the eqation to be solved is as follows:
 
 $$
 \begin{equation}
@@ -329,7 +336,7 @@ $$
 \end{equation}
 $$
 
-In this case, $\Delta_t S$ is assumed to be expressed as in the following equation in connection with $\Delta_t E_t$ and forth order tensor $^t_t C$.
+In this case, it is assumed that $\Delta_t S$ with $\Delta_t E_t$ and forth-order tensor $^t_t C$, and is expressed as follows:
 
 $$
 \begin{equation}
@@ -338,7 +345,7 @@ $$
 \end{equation}
 $$
 
-This is substituted with equation $\eqref{eq:2.2.29}$ to acquire the following equation.
+If this is substituted Eq.$\eqref{eq:2.2.29}$, the following equation is obtained:
 
 $$
 \begin{equation}
@@ -347,7 +354,7 @@ $$
 \end{equation}
 $$
 
-Equation $\eqref{eq:2.2.31}$ is discretized by the finite element to acquire the following equations.
+By discretizing Eq.$\eqref{eq:2.2.31}$ with finite elements, as following equation is acquired:
 
 $$
 \begin{equation}
@@ -356,9 +363,9 @@ $$
 \end{equation}
 $$
 
-Herein, $^t_t K_L$, $^t_t K_{NL}$, $^{t'}_t F$, $^t_t Q$ are the initial displacement matrix, initial stress matrix, external force vector and internal force vector respectively.
+where $^t_t K_L$, $^t_t K_{NL}$, $^{t'}_t F$ and $^t_t Q$ denote the initial displacement matrix, initial stress matrix, external force vector, and internal stress vector, respectively.
 
-Therefore, the recurrence equation to acquire the time ${t'}$ status from the time $t$ status is given by the following equation.
+Therefore, the recurrence formula to determine the status from time $t$ to $t’$ is given by the following equation:
 
 $i = 0$
 
@@ -373,19 +380,21 @@ $\,\,\,^{t'} U^{(i)}=\, ^{t'} U^{(i-1)} + \Delta U^{(i)}$
 
 $i = i + 1$
 
-## Material Nonlinear Analysis Method
+## Material Non-linear Analysis Method
 
-In this development code, 2 types of analysis, such as isotropic hyperelasticity and the elastoplasticity can be performed for nonlinear materials. When the material applicable for analysis is elastoplastic material, the updated Lagrange method is applied, and the total Lagrange method is applied for hyperelastic material. Moreover, the Newton-Raphson method is applied to the repetitive analysis method.
+With this development code, it is possible to analyze two types of non-linear materials; materials with isotropic hyperelasticity and elastoplasticity. 
 
-The outline of these constitutive equations of materials is shown in the following.
+If the material to be analyzed is elastoplastic, the updated Lagrange method is applied. If it is hyperelastic, the total Lagrange method. Furthermore, the Newton–Raphson method is applied to the iterative analysis method. 
+
+These material constitutive equations are discussed ahead. 
 
 ### Hyperelastic Material
 
-The elastic potential energy in isotropic hyperelastic material can acquire the isotropic response from the initial state without the activation of stress. Therefore, the function of the main invariable of the right Cauchy-Green deformation tensor $C(I_1, I_2, I_3)$, or the main invariable of the deformation tensor excluding the change in volume $(\overline{I_1}, \overline{I_2}, \overline{I_3})$, can be expressed as $W = W(I_1, I_2, I_3)$, or $W=W(\overline{I_1}, \overline{I_2}, \overline{I_3})$.
+The elastic potential energy in isotropic hyperelastic materials is obtained from an isotropic response from an unstressed initial state. It can be represented as a function of the principal invariants of the Cauchy–Green deformation tensor $C(I_1, I_2, I_3)$ or  the principal invariants of deformation tensor $(\overline{I_1}, \overline{I_2}, \overline{I_3})$ excluding volume change; that is, as $W = W(I_1, I_2, I_3)$ or $W=W(\overline{I_1}, \overline{I_2}, \overline{I_3})$.
 
-The constitutive equation of hyperelastic material is defined by the relationship between the 2nd Piola-Kirchihoff stress and the Green-Lagrange strain, and the total Lagrange method is applied for the deformation analysis.
+The constitutive equation of a hyperelastic material is defined by the relationship between the second Piola–Kirchhoff stress and Green–Lagrange strain, and the total Lagrange method is applicable for its deformation analysis.
 
-The elastic potential energey $W$ of the hyperelasticity model included in this development code is listed in the following. If the elastic potential energey $W$ is known, the 2nd Piola-Kircchoff stress and the stress-strain relationship can be calculated as follows.
+The elastic potential energy $W$ of the hyperelastic models included in this development code is listed below. If the elastic potential energy $W$ is known, the second Piola–Kirchhoff stress and the stress-strain relationship can be calculated as follows: 
 
 $$
 \begin{equation}
@@ -401,9 +410,9 @@ C = 4 \frac{ \partial^2 W}{\partial C \partial C}
 \end{equation}
 $$
 
-#### (1) Neo Hookean Hyperelasticity Model
+#### (1) Neo-Hookean hyperelasticity model
 
-The Neo-Hookean hyperelasticity model is a material model with an expanded linear rule (Hooke rule) having isotropy so that it can respond to finite deformation problems. The elastic potential is as follows.
+The Neo-Hookean hyperelasticity model is an expansion of the isotropic linear law (Hooke’s law); thus, it is compatible with large deformation problems. Its elastic potential is as follows:
 
 $$
 \begin{equation}
@@ -412,9 +421,9 @@ W = C\_{10} ( {\overline I\_{1}} - 3 ) + \frac{1}{D_1} ( J - 1 )^2
 \end{equation}
 $$
 
-Herein, $C_{10}$ and $D_1$ are the material constants.
+where $C_{10}$ and $D_1$ are the material constants.
 
-#### (2) Mooney Rivlin Hyperelasticity Model
+#### (2) Mooney-Rivlin hyperelasticity model
 
 $$
 \begin{equation}
@@ -423,9 +432,9 @@ W = C_{10}(\overline{I_1}-3) + C_{01}(\overline{I_2}-3) + \frac{1}{D_1} (J-1)^2
 \end{equation}
 $$
 
-Herein, $C_{10}, C_{01}$ and $D_1$ are the material constants.
+where, $C_{10}, C_{01}$ and $D_1$ are the material constants.
 
-#### (3) Arruda Boyce Hyperelasticity Model
+#### (3) Arruda Boyce hyperelasticity model
 
 $$
 \begin{align}
@@ -446,17 +455,17 @@ $$
 \end{equation}
 $$
 
-Herein, $\mu$, $\lambda_m$ and $D$ are the material constants.
+where $\mu$, $\lambda_m$ and $D$ are the material constants.
 
-### Elastoplastic Material
+### Elastoplastic materials
 
-In this development code, the elastoplasticity constitutive equation accoding to the associated flow rule is applied. Moreover, the constitutive expresses the relationshop between the Jaumman rate and the deformation rate tensor of the Kirchhoff stress, and the updated Lagrange method is applied in the deformation analysis.
+In this development code, an elastoplastic constitutive equation that follows the associated flow rule is applied. Furthermore, its constitutive equation represents the relationship between the Jaumman speed of Kirchhoff stress and deformation speed tensor, and the updated Lagrange method is applicable for its deformation analysis. 
 
-#### (1) Elastoplastic Constitutive Equation
+#### (1) Elastoplastic constitutive Equation
 
-The yield criteria of an elasto-plastic solid is assumed to be given as follows.
+The yield criteria of an elasto-plastic solid is assumed to be given as follows:
 
-Initla Yield Criteria
+Initla yield conditions:
 
 $$
 \begin{equation}
@@ -465,7 +474,7 @@ F( \sigma, \sigma_{y_0})
 \end{equation}
 $$
 
-Consecutive Yield Criteria
+Subsequent yield conditions:
 
 $$
 \begin{equation}
@@ -474,7 +483,7 @@ F(\sigma, \sigma_y (\overline{e}^p))
 \end{equation}
 $$
 
-Where,
+where
 
   - $F$ : Yield function
   - $\sigma_{y_0}$ : Initial yield stress
@@ -484,9 +493,9 @@ Where,
   - $e^p$ : Plastic strain tensor
   - $\overline{e}^p$ : Equivalent plastic strain
 
-The yield stress-equivalent plastic strain relationship is assumed to conform to the stress-plastic strain relationship in a single axis state.
+It is assumed that the relationship between yield stress and equivalent plastic strain corresponds to that between stress in uniaxial state and plastic strain. 
 
-Stress-plastic strain relationship in a single axis state:
+##### The relationship between stress in uniaxial state and plastic strain 
 
 $$
 \begin{equation}
@@ -502,11 +511,9 @@ $$
 \end{equation}
 $$
 
-Where,
+where $H'$ is the modulus of strain hardening
 
-  - $H'$ : Strain hardening factor
-
-Eauivalent stress-equivalent plastic strain relationship:
+##### The relationship between equivalent stress and equivalent plastic strain
 
 $$
 \begin{equation}
@@ -522,9 +529,7 @@ $$
 \end{equation}
 $$
 
-The consecutive yield function is generally a function of temperature and plastic strain work.
-
-However, for simplification, the function is only assumed to be the equivalent plastic strain $\overline{e}^p$ in this section. Since $F=0$ continues to be satisfied during the progression of the plastic deformation, the following equation must be established.
+The subsequent yield function is normally a function of temperature and plastic strain work; however, to simplify, it is a function of only equivalent plastic strain $e^{-p}$ in this case. Moreover, $F=0$ continues to be satisfied during the plastic deformation; thus, the following equation must hold:
 
 $$
 \begin{equation}
@@ -533,9 +538,9 @@ $$
 \end{equation}
 $$
 
-$\dot{F}$ is equation $\eqref{eq:2.2.45}$ expresses the time derivative function of $F$, and the time derivative function of certain amount of $A$ is expressed as $\dot{A}$ hereafter.
+where $\dot{F}$ represents the time derivative of $F$, and the time derivative of a certain amount $A$ is represented by $\dot{A}$.
 
-In this case, assuming the existence of plastic potential $\Theta$, the plastic strain rate is expressed by the following equation.
+In this case, assuming the existence of plastic potential $\Theta$, the plastic strain speed is speed represented by the following equation:
 
 $$
 \begin{equation}
@@ -544,9 +549,9 @@ $$
 \end{equation}
 $$
 
-Herein, $\dot{\lambda}$ is the factor.
+where $\dot{\lambda}$ is a coefficient.
 
-Furthermore, assuming that plastic potential $\Theta$ is equivalent to yield function $F$, the associated flow rule is assumed as in the following equation.
+Moreover, considering that the plastic potential $\Theta$ is equivalent to the yield function $F$, the associated flow rule of the following equation is assumed: 
 
 $$
 \begin{equation}
@@ -555,7 +560,7 @@ $$
 \end{equation}
 $$
 
-When this equation is substituted with equation $\eqref{eq:2.2.45}$, the following equation can be acquired.
+If this is substituted into Eq.$\eqref{eq:2.2.45}$, the following equation is obtained: 
 
 $$
 \begin{equation}
@@ -564,7 +569,7 @@ $$
 \end{equation}
 $$
 
-Where, $D$ is the elastic matrix,
+Where $D$ is an elasticity matrix,
 
 $$
 \begin{align}
@@ -575,7 +580,7 @@ $$
 \end{align}
 $$
 
-the stress-strain relational expression of the elastoplasticity can be written as follows.
+The stress-strain relationship equation of elastoplasticity can be expressed as follows: 
 
 $$
 \begin{equation}
@@ -590,13 +595,13 @@ D -
 \end{equation}
 $$
 
-When the yield function $\eqref{eq:2.2.50}$ of an elastoplastic material is known, the constitutive equation can be acquired from this equation.
+When the yield function Eq.$\eqref{eq:2.2.50}$ of an elastoplastic material is known, the constitutive equation can be acquired from this equation.
 
 #### (1) Yield Function
 
-The elastoplastic yield functions included in this development code are listed in the following.
+The elastoplastic yield functions included in this development code are as follows:
 
-- Von Mises Yield Function
+- Von Mises yield function:
 
 $$
 \begin{equation}
@@ -605,7 +610,7 @@ F = \sqrt{3 J\_2} - \sigma\_y = 0
 \end{equation}
 $$
 
-- Mohr-Coulomb Yield Function
+- Mohr-Coulomb yield function:
 
 $$
 \begin{equation}
@@ -614,7 +619,7 @@ F = \sigma_1 - \sigma_3 + \ ( \ \sigma_1 + \sigma_3\  )\sin \phi - 2 \ c \cos \p
 \end{equation}
 $$
 
-- Drucker-Prager Yield Function
+- Drucker-Prager yield function:
 
 $$
 \begin{equation}
@@ -623,7 +628,7 @@ F = \sqrt{J\_2} - \ \alpha\ \sigma \ : I - \sigma_y = 0
 \end{equation}
 $$
 
-In this case, material constant $\alpha$ and $\sigma_y$ are calculated as follows from viscosity and friction angle of the material.
+where the material constants $\alpha$ and $\sigma_y$ are calculated from viscosity and friction angle of the material.
 
 $$
 \begin{align}
@@ -633,9 +638,9 @@ $$
 \end{align}
 $$
 
-### Viscoelastic Material
+### Viscoelastic material
 
-A generalized Maxwell model is applied in this development code. As shown in the following, the constitutive equation becomes a function of deviatoric strain $e$ and deviatoric viscosity strain $q$.
+In this development code, the generalized Maxwell model is applied for viscoelastic materials. The constitutive equation is a function of deviatoric strain $e$ and deviatoric viscous strain $q$.
 
 $$
 \begin{equation}
@@ -644,7 +649,7 @@ $$
 \end{equation}
 $$
 
-Which becomes,
+where
 
 $$
 \begin{align}
@@ -654,7 +659,7 @@ $$
 \end{align}
 $$
 
-Moreover, $q$ can be calculated from the following equation.
+Furthermore, $q$ can be determined from
 
 $$
 \begin{equation}
@@ -663,7 +668,7 @@ $$
 \end{equation}
 $$
 
-Herein, $\lambda_m$ is the relaxation. Relaxation factor $G$ is expressed by the following Prony series.
+where $\lambda_m$ is relaxation, and the relaxation coefficient $G$ is represented by the following Prony series:
 
 $$
 \begin{equation}
@@ -672,9 +677,11 @@ G (t) = G \left[ \mu_0 + \sum_{i = 1}^M {\mu_m \exp\left( \frac{-t}{\lambda_m \ 
 \end{equation}
 $$
 
-### Creep Material
+### Creep material
 
-Time dependent displacement under constant stress conditions is a phenomenon called "creep". The viscoelasticity behavior mentioned above can also be considered as a type of linear creep phenomenon. Sevral types of nonlinear creeping are described in this section. The method to form the constitutive equation by adding to the strain generated momentarily is generally used for this phenomenon, and the strain while a certain constant load is continued, is assumed to be creep strain $\varepsilon^c$. The creep strain rate $\dot{\varepsilon}^c$ which is defined as function of the stress and overall creep strain, is generally used in the constitutive equation in consideration of the creep.
+A displacement under constant stress with time dependence is a phenomenon called "creep".
+
+The previously mentioned viscoelastic behavior can also be considered as a type of linear creep phenomenon. In this section, a few types of non-linear creep are explained. For this phenomenon, a method that creates a constitutive equation by adding it to an instantaneous strain is typically used, and the strain when a constant load is applied is defined as creep strain $\varepsilon^c$. The most commonly used constitutive equation that considers creep is creep strain speed $\dot{\varepsilon^c}$, which is defined as a function of stress and total creep strain: 
 
 $$
 \begin{equation}
@@ -683,7 +690,7 @@ $$
 \end{equation}
 $$
 
-In this case, assuming the strain generated momentarily is the elastic strain $\varepsilon^e$, the overall strain can be expressed as int the following equation where the creep strain is added.
+In this case, if the instantaneous strain is assumed as the elasticity strain $\varepsilon^e$, the total strain is expressed as an addition of creep strain to it. 
 
 $$
 \begin{equation}
@@ -692,7 +699,7 @@ $$
 \end{equation}
 $$
 
-Which becomes,
+where
 
 $$
 \begin{equation}
@@ -701,7 +708,7 @@ $$
 \end{equation}
 $$
 
-A mentioned in the above plastic material, the time integration method for the numerical analysis must be indicated for the constitutive equation which indicates the creep. The constitutive equation when creep is taken into consideration is,
+As previously mentioned in plastic materials, it is necessary to show the method of time integration on numerical analysis for the constitutive equation that indicates creep. The constitutive equation when creep is considered is 
 
 $$
 \begin{equation}
@@ -717,7 +724,7 @@ $$
 \end{equation}
 $$
 
-Where, $\beta_{n+\theta}$ becomes as follows.
+where $\beta_{n+\theta}$ is
 
 $$
 \begin{equation}
@@ -726,7 +733,7 @@ $$
 \end{equation}
 $$
 
-Moreover, the creep strain increment $\Delta \varepsilon^c$ is assumed to be a simplified nonlinear equation.
+Furthermore, the creep strain increment $\Delta \varepsilon^c$ is a simplified non-linear equation,
 
 $$
 \begin{equation}
@@ -735,7 +742,7 @@ R\_{n + 1} = \varepsilon\_{n + 1} - \ c^{- 1}\ : \sigma\_{n + 1} - \ \varepsilon
 \end{equation}
 $$
 
-In the iterative calculation of the Newton-Raphson method, the following equation is used for the iterative solution and the increment solution as an incremental strain where the initial value is calculated by $\sigma_{n+1} = \sigma_n$ and the finite element method.
+In the iterative calculation of the Newton-Raphson method, using the initial value as a strain increment determined from $\sigma_{n+1} = \sigma_n$ and the finite element method, the iterative and incremental solution are as follows: 
 
 $$
 \begin{equation}
@@ -744,7 +751,7 @@ R\_{n + 1}^{(k + 1)} = \mathbf{0} = \ R_{n + 1}^{(k)} - ( \ c^{- 1} + \Delta t\ 
 \end{equation}
 $$
 
-Which becomes,
+where
 
 $$
 \begin{equation}
@@ -756,7 +763,7 @@ c^c_{n+1} =
 \end{equation}
 $$
 
-When the solution of equation $\eqref{eq:2.2.65}$ and equation $\eqref{eq:2.2.66}$ are used to perform the iterative solution method until the residual $R$ becomes $0$, stress $\sigma_{n+1}$ and the tangent tensile modulus are used.
+When the iterative solution is performed using the solutions of Eq.$\eqref{eq:2.2.65}$ and Eq.$\eqref{eq:2.2.66}$ until the residual $R$ becomes $0$, stress $\sigma_{n+1}$ and the tangent coefficient are used as follows:
 
 $$
 \begin{equation}
@@ -765,7 +772,7 @@ c\_{n + 1}^* = [ c^{-1} + \Delta t c\_{n + 1}^c ]^{- 1}
 \end{equation}
 $$
 
-As a detailed equation $\eqref{eq:2.2.58}$, the following Norton model is appliec in this development code. In the constitutive equation, the equivalent clip strain $\dot{\varepsilon}^{cr}$ as in the following equation expressed the function of the Mises stress $q$ and time $t$.
+As a specific equation of Eq.$\eqref{eq:2.2.58}$,  this development code applies the Norton model below. Its constitutive equation is represented as follows, where the equivalent creep strain $\dot{\varepsilon}^{cr}$ is a function of Mises stress $q$ and time $t$:
 
 $$
 \begin{equation}
@@ -774,13 +781,11 @@ $$
 \end{equation}
 $$
 
-Herein, $A$, $m$ and $n$ are the material constants.
+where $A$, $m$ and $n$ are the material constants.
 
 ## Contact Analysis Method
 
-When two objects are in contact, the contact force $t_c$ is transmitted via the contact surface.
-
-The primciple equation $\eqref{eq:2.2.4}$ of the virtual work can be rewritten as follows.
+When two objects contact each other, the contact force $t_c$ is conducted through the contact surface. The principle of virtual work Eq.$\eqref{eq:2.2.4}$ can be expressed as follows: 
 
 $$
 \begin{equation}
@@ -789,14 +794,14 @@ $$
 \end{equation}
 $$
 
-In this case, $S_c$ expresses the contact area, and $u^{(1)}$ and $u^{(2)}$ express the displacement of contact object 1 and contact object 2 respectively.
+where $S_c$ is contact area, and $u^{(1)}$ and $u^{(2)}$ represent the displacement of contact objects 1 and 2, respectively. 
 
-In the contact analysis, the surfaces which may contact are specified in a pair. One of these surfaces is called the master surface, and the other surface is the slave surface. In this master slave analysis method, the contact restriction conditions are assumed as follows.
+In the contact analysis, the surfaces with possible contact are designated as pairs; one of the surfaces is the master surface, and the other is the slave surface. In this master-slave analysis method, the following contact constraint conditions are assumed: 
 
-  1. The slave node does not penetrate the master surface.
-  2. When there is contact, the slave node becomes the contact position, and the master surface and the slave surface mutually transmit the contact force and the frictional force through this point of contact.
+  1. The slave nodes do not perforate the master surface. 
+  2. When the contact occurs, the slave node is defined as the contact position through which the master and slave surface transfer the contact and frictional forces to each other. 
 
-The last term of equation $\eqref{eq:2.2.55}$ is discretized by the finite element to acquire the following equation.
+If the last term of Eq.$\eqref{eq:2.2.55}$ is discretized by finite elements, the following equation is obtained:
 
 $$
 \begin{equation}
@@ -805,7 +810,7 @@ $$
 \end{equation}
 $$
 
-In this case, $K_c$ and $F_c$ express the contact rigid matrix and contact force respectively. When this equation is substituted with equation $\eqref{eq:2.2.20}$ or $\eqref{eq:2.2.32}$, the finite element method of the total Lagrange method and the updated Lagrange method in consideration of the contact restraint becomes as follows.
+where $K_c$ and $F_c$ represent the contact stiffness matrix and contact force, respectively. By substituting this equation into Eq.$\eqref{eq:2.2.20}$ or Eq.$\eqref{eq:2.2.32}$, the finite element equation of the total Lagrange method (which considers the contact constraint) and the updated Lagrange method become: 
 
 $$
 \begin{equation}
@@ -821,14 +826,14 @@ $$
 \end{equation}
 $$
 
-This development code allows for contact deformation analysis between deformable bodies, and the following analysis functions can be selected by the user.
+With this development software, it is possible to analyze the contact deformation between two deformable bodies, and the user can choose from the following analysis functions: 
 
-  - Infinitesimal sliding contact problem: This analysis assumes that there is no position change of the point of contact.
-  - Limited sliding contact problem: This analysis can be used when there is a change of the point of contact accompanying the deformation.
-  - Frictionless contact problem
-  - Friction contact problem: This analysis supports the Coulomb friction rule.
+  - Infinitesimal sliding contact problem: This analysis assumes that the position of the contact point does not change.
+  - Finite sliding contact problem: This analysis supports cases where the contact position changes because of deformation. 
+  - Contact problem without friction
+  - Contact problem with friction: This analysis supports the Coulomb friction law. 
 
-However, when the infinitesimal deformation linear elastic analysis is selected, it becomes an infinitesimal sliding frictionless problem.
+However, when the infinitesimal deformation linear elastic analysis is chosen, it becomes a problem without infinitesimal sliding friction.
 
-Moreover, it only corresponds to the contact analysis of a linear solid element (element numbers 341, 351, 361) at present.
+Furthermore, at this point, it only supports contact analysis of primary solid elements (element numbers 341, 351, and 361). 
 

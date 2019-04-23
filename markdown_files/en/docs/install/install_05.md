@@ -44,6 +44,7 @@ To generate a library for parallel computing, for example, execute `setup.sh` wi
 | --with-mumps | Uses MUMPS |  |
 | --with-lapack | Uses Lapack | Needed for condition number estimation |
 | --with-ml | Uses ML |  |
+| --old-res-format | Revert result file format |  |
 
 Examples of `setup.sh` execution are shown below.
 

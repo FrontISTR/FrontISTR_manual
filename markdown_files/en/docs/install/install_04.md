@@ -88,6 +88,7 @@ You can explicitly various options at configuration time.
 | -DWITH\_LAPACK=ON  | Enable LAPACK functionality                 | require libraries            |
 | -DWITH\_ML=ON      | Enable Trilinos ML functionality            | require libraries            |
 | -DWITH\_DOC=OFF    | Documentation of the source code            | require doxygen and graphviz |
+| -DOLD\_RES\_FORMAT=OFF   | Revert result file format if ON is specified |
 
 The list of variables that can be set with cmake can be confirmed with the following command.
 

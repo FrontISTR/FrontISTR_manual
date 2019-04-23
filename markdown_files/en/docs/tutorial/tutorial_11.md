@@ -1,20 +1,19 @@
 ## Contact Analysis (Part 3)
 
-Data of `tutorial/11_contact_2beam/` is used to implement this analysis.
+This analysis uses the data of `tutorial/11_contact_2beam`.
 
-### Analysis Object
+### Analysis target
 
-A two beam contact problem is applied in this analysis. The outline of the analysis model is shown in Figure 4.11.1. Hexahedral linear elements are used for the mesh, and the scale of the mesh consists of 80 elements and 252 nodes.
+This analysis is a contact problem of two beams. The outline of the analysis model is shown in Fig. 4.11.1. The mesh is a hexahedral primary element with 80 elements and 252 nodes.
 
 <div style="text-align: center;">
 <img src="./media/tutorial11_01.png" width="350px"><br>
-Figure 4.11.1 Outline of Analysis Model
+Fig. 4.11.1 Outline of Analysis Model
 </div>
 
+### Analysis contents
 
-### Analysis Contents
-
-The Lagrange multiplier method is used to implement the contact analysis where forced displacement is applied to the front edge surface of the upper beam. The analysis control data is shown in the following.
+This is a contact analysis performed with the method of Lagrange multipliers. A forced displacement is applied to the upper side of the edge of the beam. The analysis control data are presented below.
 
 ```
 !!
@@ -43,13 +42,13 @@ CONTACT, 1
 !SOLVER,METHOD=MUMPS
 ```
 
-### Analysis Results
+### Analysis results
 
-As analysis results of the 100th sub step, a deformed figure applied with a contour of the Mises stress was created by REVOCAP_PrePost, and is shown in Figure 4.11.2. Moreover, a portion of the analysis results log file is shown in the following as numeric data of the analysis results.
+The analysis results of the 100<sub>th</sub> sub-step are shown in Fig. 4.11.2 as a deformation diagram with a Mises stress contour created with REVOCAP\_PrePost. Furthermore, a part of the log files of the analysis results is illustrated below as numerical data of the analysis.
 
 <div style="text-align: center;">
 <img src="./media/tutorial11_02.png" width="350px"><br>
-Figure 4.11.2: Analysis Results of Deformation and Mises Stress
+Fig. 4.11.2: Analysis results of deformation and Mises stress
 </div>
 
 ```

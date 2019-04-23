@@ -1,36 +1,24 @@
 ## Frequency Response Analysis
 
-Use the files in the directory, `tutorial/17_freq_beam/`, in order to reproduce the test. The analysis consists of two steps; 1st Eigenvalue analysis, 2nd Frequency response analysis. For the 1s step, the following name change is required.
+This analysis uses the data of `tutorial/17_freq_beam`. The first step of the analysis is to change the overall control data for eigenvalue analysis, `hecmw_ctrl_eigen.dat`, to `hecmw_ctrl.dat` and perform eigenvalue analysis. Further, change the overall control data for frequency response analysis, `hecmw_ctrl_freq.dat`, to `hecmw_ctrl.dat`, and the eigenvalue analysis result log file, `0.log`, to `eigen_0.log` (which is specified within the analysis control data for frequency response analysis.) Finally, frequency response analysis is performed.
 
-```
-    hecmw_ctrl_eigen.dat -> hecmw_ctrl.dat
-```
+### Analysis target
 
-After changing the name of file, eigenvalues analysis should be executed. You will get 0.log as the result of eigenvalue analysis. The file name should be changed as follows.
-
-```
-    0.log -> eigen_0.log
-```
-
-Then start frequency response analysis.
-
-### Analysis Object
-
-The analysis model is shown in Fig. 4.17.1 and the discretized mesh is shown in Fig.4.17.2.  The model is mesh with Element Type 341 (Number of Elements: 126, Number of Nodes: 55).
+The target of this analysis is a cantilever whose shape and mesh data are shown in Figs. 4.17.1 and 4.17.2, respectively. The mesh is a tetrahedral primary element with 126 element and 55 nodes.
 
 <div style="text-align: center;">
 <img src="./media/tutorial17_01.png" width="350px"><br>
-Fig. 4.17.1 : The analysis model
+Fig. 4.17.1 : Shape of the cantilever
 </div>
 
 <div style="text-align: center;">
 <img src="./media/tutorial17_02.png" width="350px"><br>
-Fig. 4.17.2 : The mesh
+Fig. 4.17.2 : Mesh data of the cantilever
 </div>
 
-### Analysis Content
+### Analysis content
 
-One of the cantilever beam end was fixed and the other is applied load as nodal force on two nodes. The eigenvalues up to 10th mode are computed and the resulting eigenvalues and eigenvectors up to 5th mode are used for frequency response analysis。The analysis control data shown below.
+This is a frequency response analysis in which the edge of the cantilever was fully restrained, and concentrated load was added to two nodes on the opposite edge. After performing eigenvalue analysis up to the tenth order with the same boundary conditions, the frequency response analysis was conducted with the eigenvalues and eigenvectors up to the fifth order. The analysis control data for frequency response analysis is shown below.
 
 ```
 # Control File for FISTR
@@ -60,13 +48,13 @@ One of the cantilever beam end was fixed and the other is applied load as nodal 
   1.0e-8, 1.0, 0.0
 ```
 
-### Analysis Results
+### Analysis results
 
-The frequency dependency of amplitude of displacement at a monitoring node(Node ID 1) specified in the analysis control data is shown in Fig. 4.17.3. A portion of a log file is shown below to show the numerical data obtained by the frequency response analysis.
+The relationship between frequency and displacement amplitude of the monitoring nodes, specified with analysis control data (nodal number 1) and created with Microsoft Excel, is shown in Fig. 4.17.3. Furthermore, a part of the log files of the analysis results is shown below as numerical data of the analysis.
 
 <div style="text-align: center;">
 <img src="./media/tutorial17_03.png" width="350px"><br>
-Fig.4.17.3 Frequency dependency of amplitude of displacement at a monitoring node
+Fig.4.17.3 Relationship between frequency and displacement amplitude of the monitoring nodes
 </div>
 
 ```

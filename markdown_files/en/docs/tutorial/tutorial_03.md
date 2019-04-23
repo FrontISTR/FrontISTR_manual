@@ -1,24 +1,24 @@
-## Static Analysis (Hyperelasticity Part 1)
+## Static Analysis (Hyperelasticity, Part 1)
 
-Data of `tutorial/03_hyperelastic_cylinder/` is used to implement this analysis.
+This analysis uses the data of `tutorial/03_hyperelastic_cylinder`.
 
-### Analysis Object
+### Analysis target
 
-The object for analysis is a 1/8 model of a cylinder. The shape is shown in Figure 4.3.1, and the mesh data is shown in Figure 4.3.2. Hexahedral linear elements are used for the mesh, and the scale of the mesh consists of 432 elements and 629 nodes.
+The target of this analysis is a 1/8 model of a round bar whose shape and mesh data are shown in Figs. 4.3.1 and 4.3.2, respectively. The mesh is a hexahedral primary element with 432 elements and 629 nodes.
 
 <div style="text-align: center;">
 <img src="./media/tutorial03_01.png" width="350px"><br>
-Figure 4.3.1 : Shape of Cylinder (1/8 Model)
+Fig. 4.3.1 : Shape of the round bar (1/8 model)
 </div>
 
 <div style="text-align: center;">
 <img src="./media/tutorial03_02.png" width="350px"><br>
-Figure 4.3.2: Mesh Data of Cylinder (1/8 model)
+Fig. 4.3.2: Shape of the round bar (1/8 model)
 </div>
 
-### Analysis Content
+### Analysis content
 
-Stress analysis is implemented where tension displacement is applied to the cylinder in the axial direction. The Mooney-Rivlin model is used for the constitutive equation of the material of the hyperelasticity. The analysis control data is shown in the following.
+In this stress analysis, an axial tensile displacement is given to a round bar. The Mooney–Rivlin model was used in the material constitutive equation of hyperelasticity. The analysis control data are presented below.
 
 ```
 # Control File for FISTR
@@ -48,13 +48,13 @@ Stress analysis is implemented where tension displacement is applied to the cyli
   1.0e-8, 1.0, 0.0
 ```
 
-### Analysis Results
+### Analysis results
 
-As analysis results of the 5th sub step, a deformed figure applied with a contour of the Mises stress was created by REVOCAP\_PrePost, and is shown in Figure 4.3.3. Moreover, a portion of the analysis results log file is shown in the following as numeric data of the analysis results.
+The analysis results of the fifth sub-step are shown in Fig. 4.3.3 as a deformation diagram with a Mises stress contour created with REVOCAP\_PrePost. Furthermore, a part of the log files of the analysis results is shown below as numerical data of the analysis.
 
 <div style="text-align: center;">
 <img src="./media/tutorial03_03.png" width="350px"><br>
-Figure 4.3.3: Analysis Results of Deformation and Mises Stress
+Fig. 4.3.3: Analysis results of deformation and Mises stress
 </div>
 
 ```

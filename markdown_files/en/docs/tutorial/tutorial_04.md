@@ -1,24 +1,24 @@
-## Static Analysis (Hyperelasticity Part 2)
+## Static Analysis (Hyperelasticity, Part 2)
 
-Data of `tutorial/04_hyperelastic_spring/` is used to implement this analysis.
+This analysis uses the data of `tutorial/04_hyperelastic_spring`.
 
-### Analysis Object
+### Analysis target
 
-A spring is the object of the analysis. The shape is shown in Figure 4.4.1, and the mesh data is shown in Figure 4.4.2. Quadratic tetrahedral elements are used for the mesh, and the scale of the mesh consists of 46,454 elements and 78,771 nodes.
+The target of this analysis is a spring whose shape and mesh data are shown in Figs. 4.4.1 and 4.4.2, respectively. The mesh is a tetrahedral secondary element with 46454 elements and 78771 nodes.
 
 <div style="text-align: center;">
 <img src="./media/tutorial04_01.png" width="350px"><br>
-Figure 4.4.1: Shape of Spring
+Fig. 4.4.1: Shape of the spring
 </div>
 
 <div style="text-align: center;">
 <img src="./media/tutorial04_02.png" width="350px"><br>
-Figure 4.4.2: Mesh Data of Spring
+Fig. 4.4.2: Mesh data of the spring
 </div>
 
-### Analysis Content
+### Analysis content
 
-A stress analysis is implemented, where the displacement of the restrained surface shown in Figure 4.4.1 is restrained, and a displacement is applied to the forced surface. The Arruda-Boyce model is used for the constitutive equation of the material of the hyperelasticity. The analysis control data is shown in the following.
+In this stress analysis, the displacement of the constrained surface shown in Fig. 4.4.1 is restrained, and the displacement is given to the forced surface. The Arruda–Boyce model was used in the material constitutive equation of hyperelasticity. The analysis control data are presented below.
 
 ```
 # Control File for FISTR
@@ -46,13 +46,13 @@ A stress analysis is implemented, where the displacement of the restrained surfa
   1.0e-8, 1.0, 0.0
 ```
 
-### Analysis Results
+### Analysis results
 
-A deformed figure applied with a displacement contour was created by REVOCAP\_PrePost, and is shown in Figure 4.4.3. Moreover, a portion of the analysis results log file is shown in the following as numeric data of the analysis results.
+A deformation diagram with a displacement contour created with REVOCAP_PrePost is shown in Fig. 4.4.3. Furthermore, a part of the log files of the analysis results is shown below as numerical data of the analysis.
 
 <div style="text-align: center;">
 <img src="./media/tutorial04_03.png" width="350px"><br>
-Figure 4.4.3: Analysis Results of Deformation and Displacement
+Fig. 4.4.3: Analysis results of deformation and displacement
 </div>
 
 ```

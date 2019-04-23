@@ -1,14 +1,14 @@
-## Nonlinear Dynamic Analysis
+## Non-Linear Dynamic Analysis
 
-Data of `tutorial/13_dynamic_beam_nonlinear/` is used to implement this analysis.
+This analysis uses the data of `tutorial/13_dynamic_beam_nonlinear`.
 
-### Analysis Object
+### Analysis target
 
-The same cantilever beam as in the linear dynamic analysis in Section 4.12 is the object of the analysis.
+The target of this analysis is the same cantilever used in Section 4.12, Linear Dynamic Analysis.
 
-### Analysis Content
+### Analysis content
 
-A nonlinear dynamic analysis is implemented, after the displacement of the restrained surface shown in Figure 4.12.1 is restrained, and a concentrated load is applied to the load node. The analysis control data is shown in the following.
+A non-linear dynamic analysis is performed after restraining the displacement of the constrained surface shown in Fig. 4.12.1 and applying a concentrated load to the load nodes. The analysis control data are presented below.
 
 ```
 node. The analysis control data is shown in the following.
@@ -46,13 +46,13 @@ node. The analysis control data is shown in the following.
   1.0e-06, 1.0, 0.0
 ```
 
-### Analysis Results
+### Analysis results
 
-A time sequence display of the displacement of the monitoring node (load node, node number 3121) specified by the analysis control data was created in Microsoft Excel, and is shown in Figure 4.13.1. A portion of the displacement output file (dyna_disp_p1.out) of the monitoring node is shown in the following as numeric data of the analysis results.
+The time-series display of the displacement of the monitoring nodes, specified with analysis control data (load nodes, nodal number 3121) and created with Microsoft Excel, is shown in Fig. 4.13.1. Furthermore, a part of the displacement output files of the monitoring nodes (dyna\_disp\_p1.out) is shown below as numerical data of the analysis.
 
 <div style="text-align: center;">
 <img src="./media/tutorial13_01.png" width="350px"><br>
-Figure 4.13.1: Displacement Time Sequence of Monitoring Node
+Fig. 4.13.1: Time-series displacement of monitoring nodes
 </div>
 
 ```

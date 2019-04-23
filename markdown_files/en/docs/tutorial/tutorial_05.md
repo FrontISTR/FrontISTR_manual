@@ -1,14 +1,14 @@
-## Static Analysis (Elastoplasticity Part 1)
+## Static Analysis (Elastoplastic, Part 1)
 
-Data of `tutorial/05_plastic_cylinder/` is used to implement this analysis.
+This analysis uses the data of `tutorial/05_plastic_cylinder`.
 
-### Analysis Object
+### Analysis target
 
-The same 1/8 model cylinder as the static analysis (hyperelasticity part 1) in Section 4.3 is the object of the analysis.
+The target of this analysis is the same 1/8 model of a round bar used in Section 4.3, Static Analysis (Hyperelasticity, Part 1).
 
-### Analysis Content
+### Analysis content
 
-The necking phenomenon of the cylinder by plastic deformation is analyzed. The Mises model is used for the yield function. The analysis control data shown in the following.
+The necking phenomenon of round bars caused by plastic deformation is analyzed. The Mises model was used as the yield function. The analysis control data are presented below.
 
 ```
 # Control File for FISTR
@@ -51,13 +51,13 @@ The necking phenomenon of the cylinder by plastic deformation is analyzed. The M
   1.0e-8, 1.0, 0.0
 ```
 
-### Analysis Results
+### Analysis results
 
-As analysis results of the 35th sub step, a deformed figure applied with a contour of the Mises stress was created by REVOCAP\_PrePost, and is shown in Figure 4.5.1. Moreover, a portion of the analysis results log file is shown in the following as numeric data of the analysis results.
+The analysis results of the 35<sup>th</sup> sub-step are shown in Fig. 4.5.1 as a deformation diagram with a Mises stress contour created with REVOCAP\_PrePost. Furthermore, a part of the log files of the analysis results is shown below as numerical data of the analysis.
 
 <div style="text-align: center;">
 <img src="./media/tutorial05_01.png" width="350px"><br>
-Figure 4.5.1: Analysis Results of Deformation and Mises Stress
+Fig. 4.5.1: Analysis results of deformation and Mises stress
 </div>
 
 ```

@@ -17,11 +17,11 @@ MathJax.Hub.Config({
 
 # Heat Conduction Analysis
 
-The heat conduction analysis method for solids by the finite element method used in this development code is shown in the following.
+In this section, the method of heat conduction analysis for solid bodies with the finite element methods used in this development code is described. 
 
 ## Basic Equation
 
-The heat conduction equation during the continuum is as follows.
+The heat conduction equation in a continuous body is as follows: 
 
 $$
 \begin{equation}
@@ -33,19 +33,19 @@ $$
 \end{equation}
 $$
 
-However,
+where,
 
 |                  |                      |
 |------------------|----------------------|
-| $\rho = \rho(x)$ | Mass (Density)       |
-| $c = c(x, T)$    | Specific heat        |
-| $T=T(x, t)$      | Temperature          |
-| $K=k(x, T)$      | Thermal conductivity |
-| $Q=Q(x, T, t)$   | Calorific value      |
+| $\rho = \rho(x)$ | mass (density)       |
+| $c = c(x, T)$    | specific heat        |
+| $T=T(x, t)$      | temperature          |
+| $K=k(x, T)$      | thermal conductivity |
+| $Q=Q(x, T, t)$   | calorific value      |
 
-Herein, $x$ expresses the position, $T$ is the temperature and $t$ is the time.
+$x$ represents the position, $T$ represents the temperature and $t$ represents the time.
 
-The area being considered is $S$ and periphery is $\Gamma$. When assuming the boundary conditions of either the Dirichet type of the Neumann type is given everywhere on $\Gamma$, the boundary conditions become as follows.
+The area being considered is defined as $S$ and its surroundings as $\Gamma$. Assuming that Dirichet or Neumann-type boundary conditions are given throughout $\Gamma$, the boundary conditions become as follows:
 
 $$
 \begin{align}
@@ -54,7 +54,9 @@ k\frac{\partial T}{\partial n} = q(x, T, t)& \qquad X \in \Gamma_2 \label{eq:2.4
 \end{align}
 $$
 
-However, the function form $T_1$, $q$ is already known. $q$ is the heat flux outflow from the boundary. Three types of heat flux can be considered in this program.
+The function form of $T_1$ and $q$ is known. $q$ is the outflow heat flux from the boundaries. 
+
+With this program, it is possible to consider three types of heat flux.
 
 $$
 \begin{align}
@@ -65,22 +67,22 @@ $$
 \end{align}
 $$
 
-$q_s$ is the distributed heat flux, $q_c$ is the heat flux by the convective heat transfer, and $q_r$ is the heat flux by the radiant heat transfer.
+where $q_s$ is the distributed heat flux, $q_c$ is the heat flux by the convective heat transfer, and $q_r$ is the heat flux by the radiant heat transfer.
 
-However,
+Furthermore,
 
 |                                  |                                                          |
 |----------------------------------|----------------------------------------------------------|
-| $Tc=Tc(x,t)$                     | Convective heat transfer coefficient ambient temperature |
-| $hc=hc(x,t)$                     | Convective heat transfer factor                          |
-| $Tr=Tr(x,t)$                     | Radiant heat transfer coefficient ambient temperature    |
-| $hr=\varepsilon\sigma F=hr(x,t)$ | Radiant heat transfer factor                             |
+| $Tc=Tc(x,t)$                     | Convective heat transfer coefficient atomospheric temperature |
+| $hc=hc(x,t)$                     | Convective heat transfer coeffcient                           |
+| $Tr=Tr(x,t)$                     | Radiation heat transfer coefficient atmospheric temperature    |
+| $hr=\varepsilon\sigma F=hr(x,t)$ | Radiation heat transfer coefficient
 
-$\varepsilon$: Radiant rate, $\sigma$: Stefan-Boltzmann constant, $F$: Shape factor
+$\varepsilon$: radiation rate, $\sigma$: Stefan-Boltzmann constant, $F$: shape factor
 
 ## Discretization
 
-When equation $\eqref{eq:2.4.1}$ is discretized by the Galerkin method, it becomes as follows.
+If Eq.$\eqref{eq:2.4.1}$ is discretized with the Galerkin method,
 
 $$
 \begin{equation}
@@ -126,8 +128,6 @@ $$
 \end{align}
 $$
 
-Form function:
-
 $$
 \begin{equation}
 \lbrace N \rbrace = (N^1, N^2, \ldots, Ni)
@@ -135,7 +135,7 @@ $$
 \end{equation}
 $$
 
-Equation $\eqref{eq:2.4.8}$ is a nonlinear and unsteady equation. Now, when the time is discretized by the backward Euler's rule and the temperature at time $t = t_0$ is already known, the temperature at $t = t_0+\Delta t$ is calculated using the following equation.
+Eq.$\eqref{eq:2.4.8}$ is a formula of non-linear and non-steady-state. The objective now is to discretize it in time by the backward Euler method and calculate the temperature at time $t = t_0$ (when the temperature at $t = t_0+\Delta t$ is known) with the following equation:
 
 $$
 \begin{equation}
@@ -146,9 +146,9 @@ $$
 \end{equation}
 $$
 
-The acquisition of a solution with better accuracy $\lbrace T \rbrace\_{t=t\_0+\Delta t}^{(i)}$, is considered by improving the temperature vector $\lbrace T \rbrace\_{t=t\_0+\Delta t}^{(i)+1}$ which satisfies the apporoximation of equation $\eqref{eq:2.4.13}$.
+The next step is to improve the temperature vector $\lbrace T \rbrace\_{t=t\_0+\Delta t}^{(i)}$ which approximately satisfies Eq.$\eqref{eq:2.4.13}$ to determine the solution $\lbrace T \rbrace\_{t=t\_0+\Delta t}^{(i)+1}$ with a good precision.
 
-Therefore, first, the temperature vector is expressed as follows.
+Therefore, the temperature vector must be expressed as follows: 
 
 $$
 \begin{equation}
@@ -158,7 +158,7 @@ $$
 \end{equation}
 $$
 
-The product of the heat conduction matrix and temperature vector, mass matrix and etc. are expressed in apporoximation as in the following equation.
+The product of the heat transfer matrix and temperature vector, as well as the mass matrix, are expressed approximately by the following equations:
 
 $$
 \begin{align}
@@ -180,7 +180,7 @@ $$
 \end{equation}
 $$
 
-When equations $\eqref{eq:2.4.14}$ $\eqref{eq:2.4.15}$ and $\eqref{eq:2.4.16}$ are substituted with equation $\eqref{eq:2.4.13}$ and two or more polynominals are omitted, the following equation can be acquired.
+By substituting Eq.$\eqref{eq:2.4.14}$,  Eq.$\eqref{eq:2.4.15}$ and Eq.$\eqref{eq:2.4.16}$ into Eq.$\eqref{eq:2.4.13}$, and omitting the terms of second or higher order, the following equation is obtained:
 
 $$
 \begin{equation}
@@ -198,7 +198,7 @@ $$
 \end{equation}
 $$
 
-Furthermore, an approximation evaluation is performed for the left factor matrix using the following equation.
+Moreover, the coefficient matrix of the left side is approximately evaluated with the following equation: 
 
 $$
 \begin{align}
@@ -212,9 +212,9 @@ $$
 \end{align}
 $$
 
-In this case, $[K_T]^{(i)}_{t=t_0 + \Delta t}$ is the tangent stiffness matrix.
+where $[K_T]^{(i)}_{t=t_0 + \Delta t}$ is a tangent stiffness matrix.
 
-Finally, the temperature at time $t = t_0 + \Delta t$ can be calculated by performing an iterative calculation using the following equation.
+Finally, it is possible to calculate the temperature at time $t = t_0 + \Delta t$ through iterative calculation using the following equation: 
 
 $$
 \begin{align}
@@ -227,7 +227,7 @@ $$
 \end{align}
 $$
 
-Particularly, in the analysis for a steady state, the following equation is used to perform the iterative calculation.
+In steady-state analysis, the iterative calculation is performed with the following equation: 
 
 $$
 \begin{align}
@@ -237,5 +237,5 @@ $$
 \end{align}
 $$
 
-Since an implicit method is used for the discretization regarding the time to select time increment $\Delta t$ in the unsteady state analysis, generally, there are no concerns in the restrictions of the size. However, if time increment $\Delta t$ is to large, the convergence frequency will increase in the iterative calculation. Therefore, this program is equipped with an automatic increment function to always monitor the size of the residual vectors during the iterative calculation process, and if the convergence of the iterative calculation is to slow, time increment $\Delta t$ is decreased, and if the iterative calculation frequency decreases, time increment $\Delta t$ is increased.
+In non-steady-state analysis, the discretization in time is done through the implicit method; thus, the analysis is normally not affected by the restriction of the size of the time increment $\Delta t$. However, if the time increment $\Delta t$ is to large, the number of convergences in the iterative calculation increases. Therefore, this program is equipped with an automatic increment function, which constantly monitors the dimension of the residual vector in the iterative calculation process. If the convergence of the iterative calculation is too slow, it decreases the time increment $\Delta t$. Moreover, when the number of iterative calculations is too small, it increases the time increment $\Delta t$.
 
