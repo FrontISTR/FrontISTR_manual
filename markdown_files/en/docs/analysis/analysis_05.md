@@ -186,7 +186,8 @@ The header list of the common control data is shown in the following Table 7.3.1
 |`!ECHO`        |Echo output                                                      |         |1-9 |
 |`!ORIENTATION` |Definition of local coordinate system                            |         |1-10|
 |`!SECTION`     |Definition of local coordinate system the sction correspondent to|         |1-11|
-|`!END`         |Ending specification of control data                             |         |1-12|
+|`!INITIAL_CONDITION` | Definition of initial condition                           |         |1-12|
+|`!END`         |Ending specification of control data                             |         |1-13|
 
 ---
 **Table 7.3.2: Control Data for Static Analysis**
@@ -1259,7 +1260,44 @@ ORIENTATION = Name of local coordinate system defined in (1-10) above.
 
 N/A
 
-#### (12) `!END` (1-12)
+#### (12) `!INITIAL_CONDITION` (1-12)
+
+Definition of initial condition
+
+##### Parameter
+
+```
+TYPE = TEMPERATURE/VELOCITY/ACCELERATION
+```
+
+###### In case of `TYPE = TEMPERATURE`
+
+(2nd line) ng1, t1
+
+(3rd line or later) ng2, t2
+
+...
+
+|Parameter Name|Attributions|Contents                      |
+|---------------|-----------|---------------|
+| ng1,ng2, ...    | C/I         | name of node group/index of node |
+| t1, t2, ...    | R         | temperature |
+
+###### In case of `TYPE= VELOCITY/ACCELERATION`
+
+(2nd line) ng1, dof1, v1
+
+(3rd line or later) ng2, dof2, v2
+
+...
+
+|Parameter Name|Attributions|Contents                      |
+|---------------|-----------|---------------|
+| ng1,ng2, ...    | C/I         | name of node group/index of node |
+| dof1, dof2, ... | I         | dof number(1~6)　|
+| v1, v2, ...    | R         | velocity/acceleration |
+
+#### (13) `!END` (1-13)
 
 Displays the end of the control data.
 
