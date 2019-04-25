@@ -1,4 +1,3 @@
-*** Last updated 2019-04-18 ***
 
 # Appendix : Example of installation procedure to CentOS7.6(cmake)
 

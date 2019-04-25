@@ -1,4 +1,3 @@
-*** Last updated 2019-04-18 ***
 
 # Compile with cmake
 

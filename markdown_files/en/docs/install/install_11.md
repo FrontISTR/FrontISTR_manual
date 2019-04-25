@@ -1,4 +1,3 @@
-*** Last updated 2019-04-18 ***
 
 # Appendix : Example of installation procedure to Windows10(Makefile.conf)
 
