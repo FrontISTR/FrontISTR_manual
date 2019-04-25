@@ -1,4 +1,3 @@
-*** Last updated 2019-04-18 ***
 
 # 参考 Ubuntu18.04へのインストール手順例(Makefile.conf)
 
