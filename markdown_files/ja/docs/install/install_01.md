@@ -125,18 +125,18 @@ MLは下記のWEBサイトからダウンロードすることができます。
 
 ### 動作確認環境
 
-| 環境 (OS) | コンパイラ | 並列化環境 |
-|:--|:--|:--|
-| K computer | Fujitsu Compiler | Fujitsu MPI |
-| EARTH SIMULATOR (ES3) | NEC Compiler | NEC MPI |
-| Intel Xeon Cluster<br> CentOS 7 | Intel Compiler | Intel MPI |
-| Intel Xeon Cluster<br> RedHat Enterprise Linux 7 | Intel Compiler | OpenMPI |
-| Intel Xeon Cluster<br> SUSE Linux Enterprise 10 | Intel Compiler | SGI MPT |
-| AMD Ryzen PC<br> ubuntu 16.04 | GNU Compiler | OpenMPI-1.10.2|
-| AMD Ryzen PC<br> ubuntu 16.04 | PGI Compiler | OpenMPI-1.10.2|
-| AMD Ryzen PC<br> ubuntu 18.04 | GNU Compiler | OpenMPI-2.1.1|
-| Intel Core i7 PC<br> ubuntu 16.04 | GNU Compiler | OpenMPI-1.10.2|
-| Intel Core i7 PC<br> ubuntu 18.04 | GNU Compiler | OpenMPI-2.1.1|
-| Intel Core i7 PC<br> CentOS 7 | GNU Compiler | OpenMPI-1.10.2 |
-| PC<br> Windows 7 <br> Windows 10 | GNU Compiler | Microsoft MPI-8.1 |
-| SBC<br> Raspberry Pi 3| GNU Compiler | OpenMPI-2.0.2 |
+  | システム             | オペレーティングシステム          | CPU                 | コンパイラ           | 並列化環境    |
+  |----------------------|-----------------------------------|---------------------|----------------------|---------------|
+  | K computer           | Linux                             | SPARC64 VIIIfx      | Fujitsu compiler     | Fujitsu MPI   |
+  | PRIMEHPC FX100       | Linux                             | SPARC V9 + HPC-ACE2 | Fujitsu compiler     | Fujitsu MPI   |
+  | EARTH SIMULATOR(ES3) | SUPER UX                          | SX-ACE              | NEC compiler         | NEC MPI       |
+  | UV2000               | Linux (SUSE Linux Enterprise 10)  | Intel Xeon          | Intel compiler       | SGI MPT       |
+  | PC cluster           | Linux (CentOS-7)                  | Intel Xeon          | Intel compiler       | Intel MPI     |
+  | PC cluster           | Linux (RedHat Enterprise Linux 7) | Intel Xeon          | Intel compiler       | OpenMPI       |
+  | Desktop PC           | Linux (ubuntu 16.04)              | AMD Ryzen           | GNU compiler         | OpenMPI       |
+  | Desktop PC           | Linux (ubuntu 16.04)              | AMD Ryzen           | PGI compiler         | OpenMPI       |
+  | Desktop PC           | Linux (ubuntu 16.04)              | Intel Core-i7       | GNU compiler         | OpenMPI       |
+  | Desktop PC           | Windows (7, 10)                   | Intel Core-i7       | GNU compiler (mingw) | Microsoft MPI |
+  | Raspberry PI 3 B+    | Linux (raspbian 32bit)            | ARM Cortex-A53      | GNU compiler         | OpenMPI       |
+  | Notebook PC          | macOS Mojave                      | Intel Core i7       | GNU Compiler         | OpenMPI       |
+
