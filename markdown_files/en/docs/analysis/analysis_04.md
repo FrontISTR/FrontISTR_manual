@@ -82,15 +82,14 @@ The single domain mesh data consists of the following headers.
 |`!ELEMENT`          |Element information  |M1-3           |
 |`!EQUATION`         |Restricted point data|M1-4           |
 |`!HEADER`           |Title of mesh data   |M1-5           |
-|`!INITIAL CONDITION`|Initial conditions   |M1-6           |
-|`!MATERIAL`         |Material information |M1-7           |
-|`!NGROUP`           |Node group           |M1-8           |
-|`!NODE`             |Node information     |M1-9           |
-|`!SECTION`          |Section information  |M1-10          |
-|`!SGROUP`           |Surface group        |M1-11          |
-|`!ZERO`             |Absolute zero-point  |M1-12          |
-|`!CONTACT PAIR`     |Contact surface pair |M1-13          |
-|`!END`              |Read end             |M1-14          |
+|`!MATERIAL`         |Material information |M1-6           |
+|`!NGROUP`           |Node group           |M1-7           |
+|`!NODE`             |Node information     |M1-8           |
+|`!SECTION`          |Section information  |M1-9          |
+|`!SGROUP`           |Surface group        |M1-10          |
+|`!ZERO`             |Absolute zero-point  |M1-11          |
+|`!CONTACT PAIR`     |Contact surface pair |M1-12          |
+|`!END`              |Read end             |M1-13          |
 
 In each header, there are data items which are compatible to the parameter and each header.
 
@@ -102,7 +101,7 @@ Each of the above headers is briefly described in the following with examples of
 !HEADER                                         M1-5
   TEST MODEL CTLR10
 
-!NODE                                           M1-9
+!NODE                                           M1-8
   1, 0.00000E+00, 0.00000E+00, 0.00000E+00
   2, 0.50000E+01, 0.00000E+00, 0.00000E+00
   3, 0.10000E+02, 0.00000E+00, 0.00000E+00
@@ -113,26 +112,26 @@ Each of the above headers is briefly described in the following with examples of
   2, 2, 5, 4, 35, 38, 37
   3, 2, 3, 5, 35, 36, 38
 
-!SECTION, TYPE=SOLID, EGRP=ALL, MATERIAL=M1     M1-10
+!SECTION, TYPE=SOLID, EGRP=ALL, MATERIAL=M1     M1-9
   1.0
 
-!MATERIAL, NAME=M1, ITEM=2                      M1-7
+!MATERIAL, NAME=M1, ITEM=2                      M1-6
 !ITEM=1, SUBITEM=2
   2.1E5, 0.3
 !ITEM=2, SUBITEM=1
 7.8e-6
 
-!NGROUP, NGRP=FIX, GENERATE                     M1-8
+!NGROUP, NGRP=FIX, GENERATE                     M1-7
   2 , 2 , 1
   3 , 3 , 1
   1 , 1 , 1
   69 , 69 , 1
   67 , 67 , 1
 
-!NGROUP, NGRP=CL1                               M1-9
+!NGROUP, NGRP=CL1                               M1-8
   50
 
-!END                                            M1-14
+!END                                            M1-13
 ```
 
 ### (1) `!AMPLITUDE` (M1-1)
@@ -420,52 +419,7 @@ Mesh for CFD Analysis
 > - Although the header can use multiple lines, it can be recognized as a header up to the 127th column of the first line.
 > - When "`!HEADER`" is defined multiple times, the contents will be updated and a warning message will be displayed.
 
-### (6) `!INITIAL CONDITION` (M1-6)
-
-Definition of temperature initial condition
-
-#### 1st Line
-
-```
-!INITIAL CONDITION, TYPE=<type> [, optional parameter]
-```
-
-|Parameter|                              |
-|---------|------------------------------|
-|`TYPE`   |Type (mandatory)              |
-|`INPUT`  |External file name (omissible)|
-
-|Parameter Name|Parameter Value |Contents    |
-|--------------|----------------|------------|
-|`TYPE`        |`TEMPERATURE`   |Temperature |
-|`INPUT`       |&lt;filename&gt;|External file name (omissible), can also be used together with the 2nd line or later|
-
-#### 2nd Line or later
-
-```
-(2nd Line or later) nod1, VAL1 (One group for one line)
-Hereinafter repeated
-```
-
-|Parameter Name|Attributions|Contents                 |
-|--------------|------------|-------------------------|
-|`nod1`        |I/C         |Node number or node group|
-|`VAL1`        |R           |Node value               |
-
-#### Example of Use
-
-```
-!INITIAL CONDITION,TYPE=TEMPERATURE
- 101, 25.0
- NA01, 38.0
-```
-
-> Note:
->
-> - When a node or a node group not defined by "`!NODE`" is specified, it will be ignored and a warning message will be displayed.
-> - When the same node is redefined, an error will occur.
-
-### (7) `!MATERIAL` (M1-7)
+### (6) `!MATERIAL` (M1-6)
 
 Definition of material physical properties.
 
@@ -834,7 +788,7 @@ In the above `!SECTION`, the gap parameter of the element belonging to the "`gro
 end program TEST
 ```
 
-### (8) `!NGROUP`
+### (7) `!NGROUP` (M1-7)
 
 Definition of node group
 
@@ -905,7 +859,7 @@ Definition of node group
  311, 313
 ```
 
-### (9) `!NODE` (M1-9)
+### (8) `!NODE` (M1-8)
 
 Definition of node coordinates
 
@@ -959,7 +913,7 @@ Definition of node coordinates
  4,                             ----- X, Y and Z coordinates are "0.0"
 ```
 
-### (10) `!SECTION` (M1-10)
+### (9) `!SECTION` (M1-9)
 
 Definition of section
 
@@ -1058,7 +1012,7 @@ In the case of "`TYPE=SOLID`", the "`THICKNESS`" can be omitted, and default val
  1.0, 5
 ```
 
-### (11) `!SGROUP` (M1-11)
+### (10) `!SGROUP` (M1-10)
 
 Definition of surface group
 
@@ -1138,7 +1092,7 @@ Definition of surface group
                         will be disregarded.
 ```
 
-### (12) `!ZERO` (M1-12)
+### (11) `!ZERO` (M1-11)
 
 Absolute zero-point
 
@@ -1174,7 +1128,7 @@ Absolute zero-point
 -273.16
 ```
 
-### `!CONTACT PAIR` (M1-13)
+### (12) `!CONTACT PAIR` (M1-12)
 
 Definition of contact surface pair used for contact analysis
 
@@ -1206,7 +1160,7 @@ Definition of contact surface pair used for contact analysis
 |`SLAVE_GRP`   |C           |Slave surface node / surface group name |
 |`MASTER_GRP`  |C           |Surface group name of the master surface|
 
-### (14) `!END` (M1-14)
+### (13) `!END` (M1-13)
 
 End of mesh data
 

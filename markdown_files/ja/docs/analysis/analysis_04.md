@@ -77,7 +77,6 @@ FrontISTRのメッシュデータ取得には、単一領域メッシュデー�
 |`!ELEMENT`          | 要素情報                 |
 |`!EQUATION`         | 拘束点情報               |
 |`!HEADER`           | メッシュデータのタイトル |
-|`!INITIAL CONDITION`| 初期条件                 |
 |`!MATERIAL`         | 材料情報                 |
 |`!NGROUP`           | 節点グループ             |
 |`!NODE`             | 節点情報                 |
@@ -108,26 +107,26 @@ FrontISTRのメッシュデータ取得には、単一領域メッシュデー�
   2, 2, 5, 4, 35, 38, 37
   3, 2, 3, 5, 35, 36, 38
 
-!SECTION, TYPE=SOLID, EGRP=ALL, MATERIAL=M1     M1-10
+!SECTION, TYPE=SOLID, EGRP=ALL, MATERIAL=M1     M1-9
   1.0
 
-!MATERIAL, NAME=M1, ITEM=2                      M1-7
+!MATERIAL, NAME=M1, ITEM=2                      M1-6
 !ITEM=1, SUBITEM=2
   2.1E5, 0.3
 !ITEM=2, SUBITEM=1
 7.8e-6
 
-!NGROUP, NGRP=FIX, GENERATE                     M1-8
+!NGROUP, NGRP=FIX, GENERATE                     M1-7
   2 , 2 , 1
   3 , 3 , 1
   1 , 1 , 1
   69 , 69 , 1
   67 , 67 , 1
 
-!NGROUP, NGRP=CL1                               M1-9
+!NGROUP, NGRP=CL1                               M1-8
   50
 
-!END                                            M1-14
+!END                                            M1-13
 ```
 
 ### `!AMPLITUDE` (M1-1)
@@ -416,53 +415,7 @@ Mesh for CFD Analysis
   -   ヘッダーは複数行にわたってもよいが、ヘッダーとして認識されるのは最初の行の127カラム目までである。
   -   「`!HEADER`」を複数回定義すると、内容が更新され、警告メッセージが表示される。
 
-### `!INITIAL CONDITION` （M1-6）
-
-温度初期条件の定義
-
-1行目 {#行目-5 .afff5}
-
-```
-!INITIAL CONDITION, TYPE=<type> [, optional parameter]
-```
-
-| パラメータ  |                        |
-|:------------|:-----------------------|
-|`TYPE`       |タイプ（必須）          |
-|`INPUT`      |外部ファイル名（省略可）|
-
-| パラメータ名  |パラメータ値    |内容                                             |
-|:--------------|:---------------|:------------------------------------------------|
-|`TYPE`         |TEMPERATURE     |温度                                             |
-|`INPUT`        |&lt;filename&gt;|外部ファイル名（省略可）、2行目以降との併用も可能|
-
-2行目以降 {#行目以降-4 .afff5}
-
-```
-（2行目以降）nod1, VAL1（１行に１組）
-以下繰り返し
-```
-
-
-| 変数名  | 属性  | 内容                     |
-|:--------|:------|:-------------------------|
-| nod1    |I/C    |節点番号または節点グループ|
-| VAL1    |R      |節点値                    |
-
-使用例 {#使用例-4 .afff5}
-
-```
-!INITIAL CONDITION，TYPE=TEMPERATURE
-101, 25.0
-NA01, 38.0
-```
-
-注意 {#注意-4 .afff5}
-
-  -   「`!NODE`」で定義されていない節点、節点グループが指定された場合は無視され、警告メッセージが表示される。
-  -   同じ節点に対して再定義した場合はエラーとなる。
-
-### `!MATERIAL` (M1-7)
+### `!MATERIAL` (M1-6)
 
 材料物性の定義
 
@@ -826,7 +779,7 @@ ITEM=3　　　             ---　材料名M1の材料では3種の物値を定�
 end program TEST
 ```
 
-### `!NGROUP` (M1-8)
+### `!NGROUP` (M1-7)
 
 節点グループの定義
 
@@ -898,7 +851,7 @@ end program TEST
 311, 313
 ```
 
-### `!NODE` (M1-9)
+### `!NODE` (M1-8)
 
 節点座標の定義
 
@@ -952,7 +905,7 @@ end program TEST
 4,                            --- X,Y,Z座標は「0.0」
 ```
 
-### `!SECTION` (M1-10)
+### `!SECTION` (M1-9)
 
 セクションの定義
 
@@ -1047,7 +1000,7 @@ end program TEST
 1.0, 5
 ```
 
-### `!SGROUP` (M1-11)
+### `!SGROUP` (M1-10)
 
 面グループの定義
 
@@ -1126,7 +1079,7 @@ end program TEST
 101, 4                             --- 三角形要素に第4面は存在しないので，この組み合わせは無視される
 ```
 
-### `!ZERO` (M1-12)
+### `!ZERO` (M1-11)
 
 絶対零度
 
@@ -1162,7 +1115,7 @@ end program TEST
 -273.16
 ```
 
-### !CONTACT PAIR　(M1-13)
+### !CONTACT PAIR　(M1-12)
 
 接触解析に用いる接触面ペアの定義
 
@@ -1195,7 +1148,7 @@ end program TEST
 | `SLAVE_GRP`  | C     | スレーブ面の節点/面グループ名|
 | `MASTER_GRP` | C     | マスター面の面グループ名     |
 
-### `!END` (M1-14)
+### `!END` (M1-13)
 
 メッシュデータの終端
 
