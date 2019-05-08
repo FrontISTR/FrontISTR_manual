@@ -1,14 +1,14 @@
-# Appendix : Example of installation procedure to Windows10(Makefile.conf)
+## Appendix : Example of installation procedure to Windows10(Makefile.conf)
 
 We will explain how to install this software and how to build external libraries required this software on Windows10.
 
 More information for building each libraries, refer to their installation manuals.
 
-## Preparation
+### Preparation
 
 At first, install the basic build toolchains and libraries as follows.
 
-### Installation of compilers and toolchains for Windows
+#### Installation of compilers and toolchains for Windows
 
 First, install development environment. Development environment uses MSYS2 in this example.
 
@@ -16,7 +16,7 @@ First, install development environment. Development environment uses MSYS2 in th
 
 Download 64bit installer named `msys2-x86_64-xxxxxxxx.exe` (xxxxxxxx is version number) and install it.
 
-### Installing binary package
+#### Installing binary package
 
 Finished to install above software, run windows command prompt named `MSYS2 MinGW 64-bit`, then install other required software.
 
@@ -37,7 +37,7 @@ Please check compilers works propery as follows.
 /mingw64/bin/gfortran
 ```
 
-## Installing libraries
+### Installing libraries
 
 
 Compile and install required libraries this software. Working directory is `$HOME/work`, destination directory for install is `$HOME/local`.
@@ -52,7 +52,7 @@ And add `$HOME/local/bin` to PATH environment variable as follows.
 (MINGW64) export PATH=$HOME/local/bin:$PATH
 ```
 
-### Installing MPI
+#### Installing MPI
 
 In this example, MPI libraries and runtime uses Microsoft MPI.
 
@@ -60,7 +60,7 @@ You can download runtime (`msmpisetup.exe`) and SDK (`msmpisdk.msi`) from the fo
 
 [Download Microsoft MPI v10.0](https://www.microsoft.com/en-us/download/details.aspx?id=57467)
 
-#### Generating .a format library file
+##### Generating .a format library file
 
 
 To link Microsoft MPI with gcc/gfortran provided from MinGW-w64, convert library format from DLL to .a.
@@ -73,7 +73,7 @@ To link Microsoft MPI with gcc/gfortran provided from MinGW-w64, convert library
 libmsmpi.a msmpi.def
 ```
 
-#### Modifying header files provided from MS-MPI
+##### Modifying header files provided from MS-MPI
 
 Copy original header files from installation directory to current directory.
 
@@ -86,7 +86,7 @@ mpi.h  mpif.h  mpifptr.h  mpio.h  mspms.h  pmidbg.h
 ```
 
 
-### Downloads
+#### Downloads
 
 Downloads the following software and save it to working directory `$HOME/work`.
 
@@ -100,7 +100,7 @@ Downloads the following software and save it to working directory `$HOME/work`.
 | MUMPS\_5.1.2.tar.gz | http://mumps.enseeiht.fr/ |
 | trilinos-12.14.1-Source.tar.bz2 | https://trilinos.org/download/ |
 
-### Compiling REVOCAP\_Refiner
+#### Compiling REVOCAP\_Refiner
 
 ```
 (MINGW64) cd $HOME/work
@@ -111,13 +111,13 @@ Downloads the following software and save it to working directory `$HOME/work`.
 (MINGW64) cp Refiner/rcapRefiner.h $HOME/local/include
 ```
 
-### Installing OpenBLAS
+#### Installing OpenBLAS
 
 ```
 (MINGW64) pacman -S mingw-w64-x86_64-openblas
 ```
 
-### Compiling METIS
+#### Compiling METIS
 
 ```
 (MINGW64) cd $HOME/work
@@ -162,7 +162,7 @@ extern int gk_getopt_long_only (int __argc, char **__argv,
 (MINGW64) make install
 ```
 
-### Compiling ScaLAPACK
+#### Compiling ScaLAPACK
 
 ```
 (MINGW64) cd $HOME/work
@@ -207,7 +207,7 @@ Finished to make, then copy libray.
 
 Although an error is displayed at the end of compilation, ignore it.
 
-### Compiling MUMPS
+#### Compiling MUMPS
 
 ```
 (MINGW64) cd $HOME/work
@@ -253,7 +253,7 @@ Then execute `make`.
 (MINGW64) cp include/*.h $HOME/local/include
 ```
 
-### Compiling Trilinos ML
+#### Compiling Trilinos ML
 
 ```
 (MINGW64) cd $HOME/work
@@ -279,7 +279,7 @@ Then execute `make`.
 (MINGW64) make install
 ```
 
-## Compiling FrontISTR
+### Compiling FrontISTR
 
 Finishing compiling above libraries, compile FrontISTR.
 
@@ -289,7 +289,7 @@ Finishing compiling above libraries, compile FrontISTR.
 (MINGW64) cd FrontISTR
 ```
 
-### Editing Makefile.conf
+#### Editing Makefile.conf
 
 Copy template as `Makefile.conf.org` to `Makefile.conf`. Then edit `Makefile.conf` as follows.
 
@@ -381,7 +381,7 @@ RM             = rm -f
 MKDIR          = mkdir -p
 ```
 
-### Executing setup.sh
+#### Executing setup.sh
 
 Finished to edit `Makefile.conf`, then execute `setup.sh`.
 
@@ -390,7 +390,7 @@ Finished to edit `Makefile.conf`, then execute `setup.sh`.
              --with-metis --with-mumps --with-lapack --with-ml
 ```
 
-### Executing make
+#### Executing make
 
 Execute make command.
 
@@ -398,7 +398,7 @@ Execute make command.
 (MINGW64) make
 ```
 
-### Executing `make install`
+#### Executing `make install`
 
 
 ```
@@ -407,7 +407,7 @@ Execute make command.
 
 FrontISTR will be installed to `$(HOME)/FrontISTR/bin`.
 
-### Testing FrontISTR
+#### Testing FrontISTR
 
 Run sample case in the `tutorial` directory and check running of FrontISTR.
 
@@ -465,7 +465,7 @@ When finished analysis, displayed message as follows.
  FrontISTR Completed !!
 ```
 
-### Supplement
+#### Supplement
 
 To run in an environment where MinGW is not installed, you need to place following files in the same directory as FrontISTR `fistr1.exe`.
 

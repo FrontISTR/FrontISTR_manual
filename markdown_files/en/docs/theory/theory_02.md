@@ -15,7 +15,7 @@ MathJax.Hub.Config({
 </script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
-# Non-linear Static Analysis Method
+## Non-linear Static Analysis Method
 
 As mentioned previously, in the analysis of infinitesimal deformation problems, it is possible to use the principle of virtual work, which is equivalent to the basic equations (the equilibrium equation), to perform finite element analysis by discretizing this equation with finite elements. Therefore, analyses of finite deformation problems that deal with large deformations of structures are typically conducted with the principle of virtual work. 
 
@@ -33,9 +33,9 @@ However, in the case of increment analysis in finite deformation problems, it is
 
 In this development code, both the total and updated Lagrange methods were adopted. 
 
-## Geometric non-linear analysis method
+### Geometric non-linear analysis method
 
-### Incremental decomposition of virtual work equation
+#### Incremental decomposition of virtual work equation
 
 In this section, an increment analysis is performed wherein the status is known until time $t$ and unknown until $t'=t+\Delta t$ (See to Fig. 2.2.1). The equilibrium equation, of the static boundary value problem, mechanical boundary conditions, and geometric boundary conditions (basic boundary condidions) are as follows:
 
@@ -69,7 +69,7 @@ $^{t'} \sigma$，$^{t'} \overline{b}$，$^{t'} n$，$^{t'} \overline{t}$，and $
 The principle of virtual work equivalent to the equilibrium equation of Eq.$\eqref{eq:2.2.1}$ and mechanical boundary conditions of Eq.$\eqref{eq:2.2.2}$ is given by the following equation:
 
 $$
-\begin{equation}
+\begin{e1Gquation}
 \int_{^{t'}v}{^{t'} \sigma} : \delta^{t'} A\_{(L)} \, d^{t'}v =
 \int_{^{t'} s\_{t}}^{t'}
 \overline{t}
@@ -92,7 +92,7 @@ $$
 
 Eq.$\eqref{eq:2.2.4}$ should be solved along with the geometric boundary conditions, strain displacement relation, and stress-strain relationship equation; however Eq.$\eqref{eq:2.2.4}$ is described with the arrangement at time $t'$, which  is still unknown at this stage. Therefor, a formulation with reference to arrangement $V$ at time $0$ or arrangement $^{t'} v$ at time $t$ has to be performed.
 
-### Formulation of total Lagrange method
+#### Formulation of total Lagrange method
 
 In this section, a formulation based on the total Lagrange method used in the development code is described. 
 
@@ -257,7 +257,7 @@ $ \,^{t'} U^{(i)}=^{t'} U^{(i-1)} + \Delta U^{(i)} $
 
 $i = i + 1$
 
-### Formulation of the Updated Lagrange Method
+#### Formulation of the Updated Lagrange Method
 
 The principle of the virtual work equation at time $t'$ with reference to the arrangement at time $t$ given by the following equation:
 
@@ -380,7 +380,7 @@ $\,\,\,^{t'} U^{(i)}=\, ^{t'} U^{(i-1)} + \Delta U^{(i)}$
 
 $i = i + 1$
 
-## Material Non-linear Analysis Method
+### Material Non-linear Analysis Method
 
 With this development code, it is possible to analyze two types of non-linear materials; materials with isotropic hyperelasticity and elastoplasticity. 
 
@@ -388,7 +388,7 @@ If the material to be analyzed is elastoplastic, the updated Lagrange method is 
 
 These material constitutive equations are discussed ahead. 
 
-### Hyperelastic Material
+#### Hyperelastic Material
 
 The elastic potential energy in isotropic hyperelastic materials is obtained from an isotropic response from an unstressed initial state. It can be represented as a function of the principal invariants of the Cauchy–Green deformation tensor $C(I_1, I_2, I_3)$ or  the principal invariants of deformation tensor $(\overline{I_1}, \overline{I_2}, \overline{I_3})$ excluding volume change; that is, as $W = W(I_1, I_2, I_3)$ or $W=W(\overline{I_1}, \overline{I_2}, \overline{I_3})$.
 
@@ -410,7 +410,7 @@ C = 4 \frac{ \partial^2 W}{\partial C \partial C}
 \end{equation}
 $$
 
-#### (1) Neo-Hookean hyperelasticity model
+##### (1) Neo-Hookean hyperelasticity model
 
 The Neo-Hookean hyperelasticity model is an expansion of the isotropic linear law (Hooke’s law); thus, it is compatible with large deformation problems. Its elastic potential is as follows:
 
@@ -423,7 +423,7 @@ $$
 
 where $C_{10}$ and $D_1$ are the material constants.
 
-#### (2) Mooney-Rivlin hyperelasticity model
+##### (2) Mooney-Rivlin hyperelasticity model
 
 $$
 \begin{equation}
@@ -434,7 +434,7 @@ $$
 
 where, $C_{10}, C_{01}$ and $D_1$ are the material constants.
 
-#### (3) Arruda Boyce hyperelasticity model
+##### (3) Arruda Boyce hyperelasticity model
 
 $$
 \begin{align}
@@ -457,11 +457,11 @@ $$
 
 where $\mu$, $\lambda_m$ and $D$ are the material constants.
 
-### Elastoplastic materials
+#### Elastoplastic materials
 
 In this development code, an elastoplastic constitutive equation that follows the associated flow rule is applied. Furthermore, its constitutive equation represents the relationship between the Jaumman speed of Kirchhoff stress and deformation speed tensor, and the updated Lagrange method is applicable for its deformation analysis. 
 
-#### (1) Elastoplastic constitutive Equation
+##### (1) Elastoplastic constitutive Equation
 
 The yield criteria of an elasto-plastic solid is assumed to be given as follows:
 
@@ -495,7 +495,7 @@ where
 
 It is assumed that the relationship between yield stress and equivalent plastic strain corresponds to that between stress in uniaxial state and plastic strain. 
 
-##### The relationship between stress in uniaxial state and plastic strain 
+**The relationship between stress in uniaxial state and plastic strain**
 
 $$
 \begin{equation}
@@ -513,7 +513,7 @@ $$
 
 where $H'$ is the modulus of strain hardening
 
-##### The relationship between equivalent stress and equivalent plastic strain
+**The relationship between equivalent stress and equivalent plastic strain**
 
 $$
 \begin{equation}
@@ -597,7 +597,7 @@ $$
 
 When the yield function Eq.$\eqref{eq:2.2.50}$ of an elastoplastic material is known, the constitutive equation can be acquired from this equation.
 
-#### (1) Yield Function
+##### (1) Yield Function
 
 The elastoplastic yield functions included in this development code are as follows:
 
@@ -638,7 +638,7 @@ $$
 \end{align}
 $$
 
-### Viscoelastic material
+#### Viscoelastic material
 
 In this development code, the generalized Maxwell model is applied for viscoelastic materials. The constitutive equation is a function of deviatoric strain $e$ and deviatoric viscous strain $q$.
 
@@ -677,7 +677,7 @@ G (t) = G \left[ \mu_0 + \sum_{i = 1}^M {\mu_m \exp\left( \frac{-t}{\lambda_m \ 
 \end{equation}
 $$
 
-### Creep material
+#### Creep material
 
 A displacement under constant stress with time dependence is a phenomenon called "creep".
 
@@ -783,7 +783,7 @@ $$
 
 where $A$, $m$ and $n$ are the material constants.
 
-## Contact Analysis Method
+### Contact Analysis Method
 
 When two objects contact each other, the contact force $t_c$ is conducted through the contact surface. The principle of virtual work Eq.$\eqref{eq:2.2.4}$ can be expressed as follows: 
 

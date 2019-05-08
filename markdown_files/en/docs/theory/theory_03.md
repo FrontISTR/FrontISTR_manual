@@ -15,11 +15,11 @@ MathJax.Hub.Config({
 </script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
-# Dynamic Analysis Method
+## Dynamic Analysis Method
 
 In this section, the dynamic problem analysis method with a direct time integration method applied is described. As presented below, with this development code, it is possible to perform time history response analysis by an implicit or explicit method. 
 
-## Formulation of the implicit method
+### Formulation of the implicit method
 
 Focusing on dynamic problems, the direct time integration method was applied to solve the following equation motion indicated: 
 
@@ -144,7 +144,7 @@ $$
 
 where $R_m$ and $R_k$ are parameters of Rayleigh damping.
 
-## Formulation of Explicit Method
+### Formulation of Explicit Method
 
 The explicit method is based on the motion equation at time $t$ expressed in the following equation: 
 

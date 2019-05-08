@@ -1,10 +1,10 @@
-# Appendix : Example of installation procedure to Ubuntu18.04(cmake)
+## Appendix : Example of installation procedure to Ubuntu18.04(cmake)
 
 We will explain how to install this software and how to build external libraries required this software on Ubuntu18.04.
 
 More information for building each libraries, refer to their installation manuals.
 
-## Preparation
+### Preparation
 
 At first, install the basic build toolchains and libraries as follows.
 
@@ -24,7 +24,7 @@ $ which gcc g++ gfortran mpicc mpic++ mpifort
 /usr/bin/mpifort
 ```
 
-## Installing libraries
+### Installing libraries
 
 Compile and install required libraries this software. Working directory is `$HOME/work`, destination directory for install is `$HOME/local`.
 
@@ -38,7 +38,7 @@ $ mkdir -p local/bin local/lib local/include
 $ export PATH=$HOME/local/bin:$PATH
 ```
 
-### Downloads
+#### Downloads
 
 Downloads the following software and save it to working directory `$HOME/work`.
 
@@ -52,7 +52,7 @@ Downloads the following software and save it to working directory `$HOME/work`.
 | MUMPS\_5.1.2.tar.gz | http://mumps.enseeiht.fr/ |
 | trilinos-12.14.1-Source.tar.bz2 | https://trilinos.org/download/ |
 
-### Compiling REVOCAP\_Refiner
+#### Compiling REVOCAP\_Refiner
 
 ```
 $ cd $HOME/work
@@ -63,7 +63,7 @@ $ cp lib/x86_64-linux/libRcapRefiner.a $HOME/local/lib
 $ cp Refiner/rcapRefiner.h $HOME/local/include
 ```
 
-### Compiling OpenBLAS
+#### Compiling OpenBLAS
 
 ```
 $ cd $HOME/work
@@ -72,7 +72,7 @@ $ make BINARY=64 NO_SHARED=1 USE_OPENMP=1
 $ make PREFIX=$HOME/local install
 ```
 
-### Compiling METIS
+#### Compiling METIS
 
 ```
 $ cd $HOME/work
@@ -83,7 +83,7 @@ $ make
 $ make install
 ```
 
-### Compiling ScaLAPACK
+#### Compiling ScaLAPACK
 
 ```
 $ cd $HOME/work
@@ -99,7 +99,7 @@ $ make
 $ make install
 ```
 
-### Compiling MUMPS
+#### Compiling MUMPS
 
 ```
 $ cd $HOME/work
@@ -143,7 +143,7 @@ $ cp lib/*.a $HOME/local/lib
 $ cp include/*.h $HOME/local/include
 ```
 
-### Compiling Trilinos ML
+#### Compiling Trilinos ML
 
 ```
 $ cd $HOME/work
@@ -175,7 +175,7 @@ $ make
 $ make install
 ```
 
-## Compiling FrontISTR
+### Compiling FrontISTR
 
 Finishing compiling above libraeies, compile FrontISTR.
 
@@ -189,7 +189,7 @@ $ cmake -DCMAKE_INSTALL_PREFIX=$HOME/FrontISTR \
         ..
 ```
 
-### Executing make
+#### Executing make
 
 
 ```
@@ -204,7 +204,7 @@ $ make -j4
 
 Reduce compile time when increase the number of simultaneous.
 
-### Executing `make install`
+#### Executing `make install`
 
 
 ```
@@ -213,7 +213,7 @@ $ make install
 
 FrontISTR will be installed to `$(HOME)/FrontISTR/bin`.
 
-### Testing FrontISTR
+#### Testing FrontISTR
 
 Run sample case in the `tutorial` directory and check running of FrontISTR.
 

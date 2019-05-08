@@ -15,9 +15,9 @@ MathJax.Hub.Config({
 </script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
-# Frequency Response Analysis
+## Frequency Response Analysis
 
-## Formulation
+### Formulation
 
 The motion equation of frequency response analysis when damping is not considered becomes as follows: 
 

@@ -15,11 +15,11 @@ MathJax.Hub.Config({
 </script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
-# Heat Conduction Analysis
+## Heat Conduction Analysis
 
 In this section, the method of heat conduction analysis for solid bodies with the finite element methods used in this development code is described. 
 
-## Basic Equation
+### Basic Equation
 
 The heat conduction equation in a continuous body is as follows: 
 
@@ -80,7 +80,7 @@ Furthermore,
 
 $\varepsilon$: radiation rate, $\sigma$: Stefan-Boltzmann constant, $F$: shape factor
 
-## Discretization
+### Discretization
 
 If Eq.$\eqref{eq:2.4.1}$ is discretized with the Galerkin method,
 

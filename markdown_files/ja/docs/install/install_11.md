@@ -1,21 +1,21 @@
-# 参考 Windows10へのインストール手順例(Makefile.conf)
+## 参考 Windows10へのインストール手順例(Makefile.conf)
 
 Windows10上へ、本ソフトウェアとそれに必要な外部ライブラリの構築手順の例を示します。他の環境へのインストールの参考にしてください。
 
 また、各ライブラリの詳細な構築方法は、それぞれのドキュメントを参考にしてください。
 
-## 準備
+### 準備
 
 最初に本ソフトウェアをコンパイルするのに必要なツールやパッケージをインストールしてください。
 
-### 開発環境の準備
+#### 開発環境の準備
 はじめに開発環境をインストールします。使用する開発環境は MSYS2 です。
 
 [https://www.msys2.org/](https://www.msys2.org/)
 
 下記URLから64ビット版のインストーラ`msys2-x86_64-xxxxxxxx.exe`(xxxxxxxxはバージョン番号)をダウンロードしインストールします。
 
-### パッケージのインストール
+#### パッケージのインストール
 
 インストールが完了したら`MSYS2 MinGW 64-bit`と書かれたコマンドプロンプトを立ち上げ、コンパイルに必要なパッケージをインストールします。
 
@@ -36,7 +36,7 @@ gcc/g++/gfortranが正しくインストールされているか確認してく�
 /mingw64/bin/gfortran
 ```
 
-## ライブラリのインストール
+### ライブラリのインストール
 
 本ソフトウェアに必要なライブラリをインストールします。作業ディレクトリは`$HOME/work` 、インストール先のディレクトリは`$HOME/local`とします。
 
@@ -49,7 +49,7 @@ gcc/g++/gfortranが正しくインストールされているか確認してく�
 (MINGW64) export PATH=$HOME/local/bin:$PATH
 ```
 
-### MPIのインストール
+#### MPIのインストール
 
 この例では、MPIとしてMicrosoft社のMPIを利用します。
 
@@ -57,7 +57,7 @@ gcc/g++/gfortranが正しくインストールされているか確認してく�
 
 [Download Microsoft MPI v10.0](https://www.microsoft.com/en-us/download/details.aspx?id=57467)
 
-#### .aライブラリの作成
+##### .aライブラリの作成
 
 インストールしたライブラリをMinGW-w64のgccやgfortranでリンクできるように変更を加えます。
 
@@ -71,7 +71,7 @@ gcc/g++/gfortranが正しくインストールされているか確認してく�
 libmsmpi.a msmpi.def
 ```
 
-#### ヘッダファイルの修正
+##### ヘッダファイルの修正
 
 次にヘッダファイルをコピーします。
 
@@ -83,7 +83,7 @@ libmsmpi.a msmpi.def
 mpi.h  mpif.h  mpifptr.h  mpio.h  mspms.h  pmidbg.h
 ```
 
-### ダウンロード
+#### ダウンロード
 
 その他のソフトウェアをダウンロードし、作業ディレクトリ`$HOME/work`へ保存します。
 
@@ -97,7 +97,7 @@ mpi.h  mpif.h  mpifptr.h  mpio.h  mspms.h  pmidbg.h
 | MUMPS_5.1.2.tar.gz | http://mumps.enseeiht.fr/ |
 | trilinos-12.14.1-Source.tar.bz2 | https://trilinos.org/download/ |
 
-### REVOCAP_Refinerのコンパイル
+#### REVOCAP_Refinerのコンパイル
 
 ```
 (MINGW64) cd $HOME/work
@@ -108,7 +108,7 @@ mpi.h  mpif.h  mpifptr.h  mpio.h  mspms.h  pmidbg.h
 (MINGW64) cp Refiner/rcapRefiner.h $HOME/local/include
 ```
 
-### OpenBLASのインストール
+#### OpenBLASのインストール
 
 OpenBLASはMSYS2から提供されるバイナリパッケージを利用します。
 
@@ -116,7 +116,7 @@ OpenBLASはMSYS2から提供されるバイナリパッケージを利用しま�
 (MINGW64) pacman -S mingw-w64-x86_64-openblas
 ```
 
-### METISのコンパイル
+#### METISのコンパイル
 
 ```
 (MINGW64) cd $HOME/work
@@ -164,7 +164,7 @@ extern int gk_getopt_long_only (int __argc, char **__argv,
 (MINGW64) make install
 ```
 
-### ScaLAPACKのコンパイル
+#### ScaLAPACKのコンパイル
 
 ```
 (MINGW64) cd $HOME/work
@@ -210,7 +210,7 @@ LIBS          = $(LAPACKLIB) $(BLASLIB)
 
 コンパイル終了時にエラーが表示されますが無視して構いません。
 
-### MUMPSのコンパイル
+#### MUMPSのコンパイル
 
 ```
 (MINGW64) cd $HOME/work
@@ -260,7 +260,7 @@ OPTL      = -O -fopenmp
 (MINGW64) cp include/*.h $HOME/local/include
 ```
 
-### Trilinos MLのコンパイル
+#### Trilinos MLのコンパイル
 
 ```
 (MINGW64) cd $HOME/work
@@ -286,7 +286,7 @@ OPTL      = -O -fopenmp
 (MINGW64) make install
 ```
 
-## FrontISTRのコンパイル
+### FrontISTRのコンパイル
 
 上記ライブラリのコンパイルが済んだらFrontISTRをコンパイルします。
 
@@ -296,7 +296,7 @@ OPTL      = -O -fopenmp
 (MINGW64) cd FrontISTR
 ```
 
-### Makefile.confの編集
+#### Makefile.confの編集
 
 雛形をコピーして、環境に合わせた内容に編集します。この例では、以下の様に編集します。
 
@@ -388,7 +388,7 @@ RM             = rm -f
 MKDIR          = mkdir -p
 ```
 
-### setup.shの実行
+#### setup.shの実行
 
 編集が完了したら、setup.sh を実行します。
 
@@ -397,7 +397,7 @@ MKDIR          = mkdir -p
              --with-metis --with-mumps --with-lapack --with-ml
 ```
 
-### makeの実行
+#### makeの実行
 
 makeを実行します。
 
@@ -405,7 +405,7 @@ makeを実行します。
 (MINGW64) make
 ```
 
-### make install の実行
+#### make install の実行
 
 makeが完了したら、make installを実行しMakefile.confで指定したディレクトリへインストールします。この例では  `$(HOME)/FrontISTR/bin` です。
 
@@ -413,7 +413,7 @@ makeが完了したら、make installを実行しMakefile.confで指定したデ
 (MINGW64) make install
 ```
 
-### 動作確認
+#### 動作確認
 
 本ソフトウェアに同梱されているチュートリアルを実行して、動作を確認します。
 
@@ -471,7 +471,7 @@ makeが完了したら、make installを実行しMakefile.confで指定したデ
  FrontISTR Completed !!
 ```
 
-### 補足
+#### 補足
 
 MinGWのインストールされていない環境で実行するには、FrontISTR `fistr1.exe` と同じディレクトリに
 以下のファイルをコピーします。

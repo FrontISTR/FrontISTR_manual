@@ -1,6 +1,6 @@
-# Analysis Flow and Input/Output File
+## Analysis Flow and Input/Output File
 
-## Analysis Flow
+### Analysis Flow
 
 The input and output file of the structural analysis code FrontISTR is shown in Figure 3.1.1.
 
@@ -15,7 +15,7 @@ Executing FrontISTR will output the log data file, results data file and visuali
 After FrontISTR is executed, the visualization data can also be created from the created results file by the `hecmw_vis` program which is a tool included in *HEC-MW*.
 
 
-## Overall Control Data
+### Overall Control Data
 
 This file specifies the input file and results output file of the mesh data and analysis control data.
 
@@ -54,7 +54,7 @@ Definition of analysis results data file name (arbitary) : `Foo.res`
 Definition of visualization file name (arbitary) : `Foo.vis`
 
 
-## Mesh Data
+### Mesh Data
 
 This file defines the finite element mesh, and defines the material data and section data. This file also defines the group data used in analysis control data.
 
@@ -81,7 +81,7 @@ The details of the mesh data are described in Chapter 6
 ```
 
 
-## Analysis Control Data
+### Analysis Control Data
 
 This file defines analysis control data, such as the type of analysis, displacement boudary conditions, concentrated load and etc. Control of solver and the control data of the visualizer are also included in the analysis control data.
 
@@ -116,7 +116,8 @@ The details of the analysis control data described in Chapter 7
 !surface_style=1
 !END
 ```
-## Output File
+
+### Output File
 
 When the execution is completed, the log file (`Ext.log`) will be output. The analysis results file (`Ext.res`) for visualization will also be output by specifying the output.
 
@@ -126,17 +127,17 @@ The contents of the log files shown in the following will be output.
   - Eigenvalues
   - Engenvector values
 
-## Execution Procedure
+### Execution Procedure
 
-###  1. Preparation of FrontISTR
+####  1. Preparation of FrontISTR
 
 Save the main body of FrontISTR (Linux ver.: `fistr1`, Windows ver. : `fistr1.exe`) in the path directory, or the current direct directory at the time of execution.
 
-###  2. Preparation of Input Files
+####  2. Preparation of Input Files
 
 Prepare three types of input files `hecmw_ctrl.dat`, analysis control and (single or distributed domain) mesh data, and enter the file name (pathname) of the analysis control data and mesh data in `hecmw_ctrl.dat`. If necessary, also specify the analysis results data file and the visualization data file.
 
-###  3. Execution of Single Domain Analysis
+####  3. Execution of Single Domain Analysis
 
 Start the Linux terminal or the command prompt of Windows, move the current directory to the directory with the input file, and execute the analysis as follows (however, `>` refers to the prompt).
 
@@ -152,7 +153,7 @@ Example : In the case of Windows
 > fistr1
 ```
 
-###  4. Parallel Execution on Linux
+####  4. Parallel Execution on Linux
 
 In the Linux ver., the MPI must be installed in advance, and compiled for parallel execution. For details of the compiling method, refer to the Installation Manual. The execution depends on the settings of the execution environment of MPI. An example of execution int four domains is shows in the following.
 
@@ -160,13 +161,13 @@ In the Linux ver., the MPI must be installed in advance, and compiled for parall
 > mpirun -np 4 ./fistr1
 ```
 
-###  5. Parallel Execution on Windows
+####  5. Parallel Execution on Windows
 
 In the Windows ver., it is necessary to download the library of MPICH2 from the following URL and install. For the method of parallel execution, refer to MPICH2 Manual.
 
   - [http://www-unix.mcs.anl.gov/mpi/mpich/](http://www-unix.mcs.anl.gov/mpi/mpich/)
 
-###  6. Execution of Parallel Domain Contact Analysis
+####  6. Execution of Parallel Domain Contact Analysis
 
 FrontISTR requires `hecmw_ctrl.dat`, analysis control data and distributed domain mesh data for parallel execution in general. Parallel domain contact analysis does not requires distributed domain mesh as it partitions the domain after reading the single domain mesh data.
 

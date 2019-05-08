@@ -1,6 +1,6 @@
-# Element Library and Material Data
+## Element Library and Material Data
 
-## Element Library
+### Element Library
 
 In FrontISTR, the element groups shows in Table 4.1.1 can be used for analysis. Since HEC-MW is used to input the mesh data into FrontISTR, the following descriptions of the element library is based on the description of HEC-MW. The element library is shown in Figure 4.1.1, and element connectivity and the definitions of the surface number are shown in Figure 4.1.2.
 
@@ -37,11 +37,11 @@ In FrontISTR, the element groups shows in Table 4.1.1 can be used for analysis. 
 
 **Figure 4.1.1: Element Library**
 
-### (Line Element)
+#### (Line Element)
 
 <div style="text-align:center;"><img alt="Line Element" src="media/analysis02_02.png" width="50%"></div>
 
-### (Triangular Plane Element)
+#### (Triangular Plane Element)
 
 <div style="text-align:center;"><img alt="Triangular Plane Element" src="media/analysis02_03.png" width="50%"></div>
 
@@ -51,7 +51,7 @@ In FrontISTR, the element groups shows in Table 4.1.1 can be used for analysis. 
 | 2           | 2 - 3  | 2 - 4 - 3 |
 | 3           | 3 - 1  | 3 - 5 - 1 |
 
-### (Quadrilateral Plane Element)
+#### (Quadrilateral Plane Element)
 
 <div style="text-align:center;"><img alt="Quadrilateral Plane Element" src="media/analysis02_04.png" width="50%"></div>
 
@@ -62,7 +62,7 @@ In FrontISTR, the element groups shows in Table 4.1.1 can be used for analysis. 
 | 3           | 3 - 4  | 3 - 7 - 4 |
 | 4           | 4 - 1  | 4 - 8 - 1 |
 
-### (Tetrahedral Element)
+#### (Tetrahedral Element)
 
 <div style="text-align:center;"><img alt="Tetrahedral Element" src="media/analysis02_05.png" width="50%"></div>
 
@@ -73,7 +73,7 @@ In FrontISTR, the element groups shows in Table 4.1.1 can be used for analysis. 
 |3           | 2 - 3 - 4 | 2 - 5 - 3 - 10 - 4 - 9 |
 |4           | 3 - 1 - 4 | 3 - 6 - 1 - 10 - 4 - 8 |
 
-### (Pentahedral Element)
+#### (Pentahedral Element)
 
 <div style="text-align:center;"><img alt="Pentahedral Element" src="media/analysis02_06.png" width="50%"></div>
 
@@ -85,7 +85,7 @@ In FrontISTR, the element groups shows in Table 4.1.1 can be used for analysis. 
 | 4           | 2 - 3 - 6 - 5 | 2 - 7 - 3 - 15 - 6 - 10  - 5 - 14 |
 | 5           | 3 - 1 - 4 - 6 | 3 - 8 - 1 - 13 - 4 - 11  - 6 - 15 |
 
-### (Hexahedral Element)
+#### (Hexahedral Element)
 
 <div style="text-align:center;"<img alt="Hexahedral Element" src="media/analysis02_07.png" width="50%"></div>
 
@@ -98,17 +98,17 @@ In FrontISTR, the element groups shows in Table 4.1.1 can be used for analysis. 
 | 5           | 3 - 4 - 8 - 7 | 3 - 11 - 4 - 20 - 8 - 15 - 7 - 19 |
 | 6           | 4 - 1 - 5 - 8 | 4 - 12 - 1 - 17 - 5 - 16 - 8 - 20 |
 
-### (Beam Element)
+#### (Beam Element)
 
 <div style="text-align:center;"><img alt="Beam Element" src="media/analysis02_08.png" width="30%"/></div>
 
-### (Beam Element with 3-dof nodes)
+#### (Beam Element with 3-dof nodes)
 
 <div style="text-align:center;"><img alt="Beam Element with 3-dof nodes" src="media/analysis02_09.png" width="30%"/></div>
 
 Nodes 1 and 2 for translational DOF, nodes 3 and 4 for rotational DOF.
 
-### (Triangular Shell Element)
+#### (Triangular Shell Element)
 
 <div style="text-align:center;"><img alt="Triangular Shell Element" src="media/analysis02_10.png" width="50%"/></div>
 
@@ -117,7 +117,7 @@ Nodes 1 and 2 for translational DOF, nodes 3 and 4 for rotational DOF.
 | 1           | 1 - 2 - 3 \[front\] | 1 - 6 - 2 - 4 - 3 - 5 \[front\] |
 | 2           | 3 - 2 - 1 \[back\]  | 3 - 4 - 2 - 6 - 1 - 5 \[back\]  |
 
-### (Triangular Shell Element with 3-dof nodes)
+#### (Triangular Shell Element with 3-dof nodes)
 
 <div style="text-align:center;"><img alt="Triangular Shell Element with 3-dof nodes" src="media/analysis02_11.png" width="30%"/></div>
 
@@ -128,7 +128,7 @@ Node 1, 2 and 3 for translational DOF, nodes 4, 5 and 6 for rotational DOF.
 | 1           | 1 - 2 - 3 \[front\] |
 | 2           | 3 - 2 - 1 \[back\]  |
 
-### (Quadrilateral Shell Element)
+#### (Quadrilateral Shell Element)
 
 <div style="text-align:center;"><img alt="Quadrilateral Shell Element" src="media/analysis02_12.png" width="50%"/></div>
 
@@ -137,7 +137,7 @@ Node 1, 2 and 3 for translational DOF, nodes 4, 5 and 6 for rotational DOF.
 | 1           | 1 - 2 - 3 - 4 \[front\] | 1 - 5 - 2 - 6 - 3 - 7 - 4 - 8 \[front\] |
 | 2           | 4 - 3 - 2 - 1 \[back\]  | 4 - 7 - 3 - 6 - 2 - 5 - 1 - 8 \[back\]  |
 
-### (Quadrilateral shell Element with 3-dof nodes)
+#### (Quadrilateral shell Element with 3-dof nodes)
 
 <div style="text-align:center;"><img alt="Quadrilateral shell Element with 3-dof nodes" src="media/analysis02_13.png" width="30%"/></div>
 
@@ -150,9 +150,9 @@ Nodes 1, 2, 3 and 4 for translational DOF, nodes 5, 6, 7 and 8 for rotational DO
 
 **Figure 4.1.2: Connectivity and Surface Number**
 
-## Material Data
+### Material Data
 
-### Elastic Static Analysis, Linear Dynamic Analysis and Eigenvalue Analysis
+#### Elastic Static Analysis, Linear Dynamic Analysis and Eigenvalue Analysis
 
 In the elastic static analysis and eigenvalue analysis of FrontISTR, it is necessary to use isotropic elastic material and define the Young's modulus, Poisson's ratio density and the coefficient of linear expansion for each element. The property value of these materials is defined in the header `!SECTION` and `!MATERIAL` of the data. An example of the definition is in the following.
 
@@ -188,11 +188,11 @@ Next, the definition method of the material data is shown in the following.
 
 As long as each item number and the type of physical property are compatible, and the `ITEM` number is correct, it can be defined in any order. However, `ITEM=1` must be defined in the order of the Young's modulus and Poisson's ratio.
 
-### Heat Conduction Analysis
+#### Heat Conduction Analysis
 
 In the heat conduction analysis of FrontISTR, isotropic material taking into consideration the temperature dependency can be used. Regarding the property values to be defined, the density, specific heat and thermal conductivity are defined for the link, plane surface, solid and shell element, and the gap heat transfer coefficient and the gap radiation factor are defined in the interface element. An example of the definition method of these property values is shown in the following.
 
-#### (1) In the case of link, plane surface and solid element
+##### (1) In the case of link, plane surface and solid element
 
 Defined in the `!SECTION` and `!MATERIAL` header.
 
@@ -233,7 +233,7 @@ In the above `!SECTION`, the material data name of the element belonging to the 
 
 Since the type of physical properties are identified by each item number in FrontISTR, it can be defined in any order as long as both are consistent.
 
-#### (2) In the case of an interface element
+##### (2) In the case of an interface element
 
 Defined in the `!SECTION` header. (Material data is not required)
 
@@ -252,7 +252,7 @@ In the above `!SECTION`, the gap parameter of the element belonging to the `grou
   - 3rd parameter : Gap radiation factor 1
   - 4th parameter : Gap radiation factor 2
 
-#### (3) In the case of a shell element
+##### (3) In the case of a shell element
 
 Defined in the `!SECTION` and `MATERIAL` header.
 
@@ -327,7 +327,7 @@ By specifying as many material constants as needed for the number of layers, the
 
 Orthotropy angle is specified in *&theta;* [degree].
 
-##(Example) Orthotropic, double-layered shell**
+**(Example) Orthotropic, double-layered shell**
 
 ```
 !MATERIAL, NAME=M1, ITEM=1
