@@ -1,5 +1,3 @@
-# cmakeでのインストール
-
 ## cmakeでのインストール
 
 cmakeには、ライブラリの自動探索機能が備わっています。それらを手動で明示することもできます。
@@ -83,10 +81,10 @@ cmakeコマンドを実行する際、オプションを指定することで挙
 | オプション(デフォルト) | 説明                                    | 備考                         |
 |:-----------------------|:----------------------------------------|:-----------------------------|
 | -DWITH\_TOOLS=ON       | パーティショナなどのツールもコンパイル  | hecmw_part1などツール        |
-| -DWITH\_MPI=ON         | MPIを有効                               | ライブラリが必要             |
-| -DWITH\_OPENMP=ON      | OpenMPを有効                            | コンパイラの対応が必要       |
-| -DWITH\_REFINER=ON     | REVOCAP_Refinerの機能を有効             | ライブラリが必要             |
-| -DWITH\_REVOCAP=ON     | REVOCAP_Couplerの機能を有効             | ライブラリが必要             |
+| -DWITH\_MPI=ON         | MPIを有効                          | ライブラリが必要             |
+| -DWITH\_OPENMP=ON      | OpenMPを有効                       | コンパイラの対応が必要       |
+| -DWITH\_REFINER=ON     | REVOCAP_Refinerの機能を有効         | ライブラリが必要             |
+| -DWITH\_REVOCAP=ON     | REVOCAP_Couplerの機能を有効         | ライブラリが必要             |
 | -DWITH\_METIS=ON       | METISの機能を有効                       | 4.0.3と5.1.0に対応           |
 | -DMETIS\_VER_4=OFF     | metis-4.0.3を使う場合に設定             | metis-5.1.0の場合指定不要    |
 | -DWITH_PARMETIS=ON     | ParMETISの機能を有効                    | 3.2.0と4.0.3に対応           |

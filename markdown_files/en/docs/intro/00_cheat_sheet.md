@@ -1,6 +1,6 @@
-# Cheat sheet
+## Cheat sheet
 
-## Installation
+### Installation
 
 ~~~
 $ ./setup.sh -p --with-tools --with-metis
@@ -8,14 +8,14 @@ $ make
 $ make install
 ~~~
 
-## Parallel execution
+### Parallel execution
 
 ~~~
 $ hecmw_part1
 $ mpirun -np <4> fistr1
 ~~~
 
-## Input/Output
+### Input/Output
 
 |File type|File name|I/O|
 |:-|:-|:-|
@@ -26,8 +26,9 @@ $ mpirun -np <4> fistr1
 |Log file|\<0\>.log|O|
 |Results file|\<ModelName\>.res|O|
 
-## Overall control data
-###（hecmw_ctrl.dat）
+### Overall control data
+
+####（hecmw_ctrl.dat）
 
 ~~~
 !MESH, NAME=part_in, TYPE=HECMW-ENTIRE
@@ -42,14 +43,15 @@ $ mpirun -np <4> fistr1
  <ModelName>.res
 ~~~
 
-## Mesh partitioning control data
-###(hecmw_part_ctrl.dat)
+### Mesh partitioning control data
+
+####(hecmw_part_ctrl.dat)
 
 ~~~
 !PARTITION, TYPE=NODE-BASED, METHOD=PMETIS, DOMAIN=<4>
 ~~~
 
-## Mesh data
+### Mesh data
 
 ~~~
 !HEADER
@@ -78,7 +80,7 @@ $ mpirun -np <4> fistr1
 !END
 ~~~
 
-## Analysis control file (common)
+### Analysis control file (common)
 
 ~~~
 !VERSION
@@ -110,7 +112,7 @@ $ mpirun -np <4> fistr1
 |VEL|velocity|VIS,RES|
 |ACC|acceleration|VIS,RES|
 
-## Analysis control file (Static analysis)
+### Analysis control file (Static analysis)
 
 ~~~
 !SOLUTION, TYPE=<STATIC|NLSTATIC>
@@ -125,7 +127,7 @@ $ mpirun -np <4> fistr1
  NODE_ID, <Constraint DOF>, <Spring constant>
 ~~~
 
-## Analysis control file (Contact)
+### Analysis control file (Contact)
 
 ~~~
 !CONTACT_ALGO, TYPE=<SLAGRANGE|ALAGRANGE>
@@ -133,7 +135,7 @@ $ mpirun -np <4> fistr1
  <Name of contact pair>, <friction coefficient>, <摩擦のペナルティ剛性>
 ~~~
 
-## Analysis control file (Heat stress)
+### Analysis control file (Heat stress)
 
 ~~~
 !REFTEMP
@@ -141,7 +143,7 @@ $ mpirun -np <4> fistr1
 !TEMPERATURE, READRESULT=<Total number of steps>, SSTEP=<Start step>, INTERVAL=<step interval>
 ~~~
 
-## Analysis control file (Eigenvalue)
+### Analysis control file (Eigenvalue)
 
 ~~~
 !EIGEN
@@ -149,7 +151,7 @@ $ mpirun -np <4> fistr1
 !BOUNDARY
 ~~~
 
-## Analysis control file (Heat conduction)
+### Analysis control file (Heat conduction)
 
 ~~~
 !HEAT
@@ -172,7 +174,7 @@ $ mpirun -np <4> fistr1
  SGRP, <輻射係数>, <雰囲気温度>
 ~~~
 
-## 解析制御ファイル（動解析共通）
+### 解析制御ファイル（動解析共通）
 
 ~~~
 !BOUNDARY
@@ -183,7 +185,7 @@ $ mpirun -np <4> fistr1
  Node_ID, <自由度>, <自由度>, <拘束値>
 ~~~
 
-## 解析制御ファイル（時刻歴応答）
+### 解析制御ファイル（時刻歴応答）
 
 ~~~
 !DYNAMIC, TYPE=NONLINEAR
@@ -195,7 +197,7 @@ $ mpirun -np <4> fistr1
  <変位>, <速度>, <加速度>, <反力>, <ひずみ>, <応力>
 ~~~
 
-## 解析制御ファイル（周波数応答）
+### 解析制御ファイル（周波数応答）
 
 ~~~
 !DYNAMIC, TYPE=NONLINEAR
@@ -212,7 +214,7 @@ $ mpirun -np <4> fistr1
  NODE_ID, <自由度>, <荷重値>
 ~~~
 
-## 解析ステップ
+### 解析ステップ
 
 ~~~
 !STEP, TYPE=<STATIC|VISCO>, SUBSTEPS=<分割数>, CONVERG=<判定値>
@@ -228,7 +230,7 @@ $ mpirun -np <4> fistr1
 | LOAD | !CLOAD, !DLOAD, !TEMPERATURE |
 | CONTACT | !CONTACT |
 
-## 材料物性値
+### 材料物性値
 
 ~~~
 !MATERIAL, NAME=<材料名>
@@ -277,7 +279,7 @@ $ mpirun -np <4> fistr1
  <A>, <n>, <m>
 ~~~
 
-## ソルバー制御
+### ソルバー制御
 
 ~~~
 !SOLVER, METHOD=<CG>, PRECOND=<1>, MPCMETHOD=<3>
@@ -310,14 +312,14 @@ $ mpirun -np <4> fistr1
 | 2 | MPC-CG法 |
 | 3 | 陽的自由度消去法 |
 
-## Post-process (Output of AVS format)
+### Post-process (Output of AVS format)
 
 ~~~
 !VISUAL
 !output_type=COMPLETE_REORDER_AVS
 ~~~
 
-## Post-process (Output of BMP format)
+### Post-process (Output of BMP format)
 
 ~~~
 !VISUAL, method=PSR
@@ -332,7 +334,7 @@ $ mpirun -np <4> fistr1
 !output_type=BMP
 ~~~
 
-## Non-linear analysis
+### Non-linear analysis
 
 | Type of analysis | Related card |
 |:-|:-|

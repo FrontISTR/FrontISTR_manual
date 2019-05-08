@@ -1,10 +1,10 @@
-# 参考 CentOS7.6へのインストール手順例(cmake)
+## 参考 CentOS7.6へのインストール手順例(cmake)
 
 CentOS7.6上へ本ソフトウェアと、それに必要な外部ライブラリの構築手順の例を示します。他の環境へのインストールの参考にしてください。
 
 また、各ライブラリの詳細な構築方法は、それぞれのドキュメントを参考にしてください。
 
-## 準備
+### 準備
 
 最初に本ソフトウェアをコンパイルするのに必要なツールやパッケージをインストールしてください。
 
@@ -37,7 +37,7 @@ $ which gcc g++ gfortran mpicc mpic++ mpifort
 /usr/lib64/openmpi/bin/mpifort
 ```
 
-## ライブラリのインストール
+### ライブラリのインストール
 
 本ソフトウェアに必要なライブラリをインストールします。作業ディレクトリは`$HOME/work` 、インストール先のディレクトリは`$HOME/local`とします。
 
@@ -50,7 +50,7 @@ $ mkdir -p local/bin local/lib local/include
 $ export PATH=$HOME/local/bin:$PATH
 ```
 
-### ダウンロード
+#### ダウンロード
 
 以下のソフトウェアをダウンロードし、作業ディレクトリ`$HOME/work`へ保存します。
 
@@ -64,7 +64,7 @@ $ export PATH=$HOME/local/bin:$PATH
 | MUMPS\_5.1.2.tar.gz | http://mumps.enseeiht.fr/ |
 | trilinos-12.14.1-Source.tar.bz2 | https://trilinos.org/download/ |
 
-### REVOCAP\_Refinerのコンパイル
+#### REVOCAP\_Refinerのコンパイル
 
 ```
 $ cd $HOME/work
@@ -75,7 +75,7 @@ $ cp lib/x86_64-linux/libRcapRefiner.a ~/local/lib
 $ cp Refiner/rcapRefiner.h ~/local/include
 ```
 
-### OpenBLASのコンパイル
+#### OpenBLASのコンパイル
 
 ```
 $ cd $HOME/work
@@ -84,7 +84,7 @@ $ make BINARY=64 NO_SHARED=1 USE_OPENMP=1
 $ make PREFIX=~/local install
 ```
 
-### METISのコンパイル
+#### METISのコンパイル
 
 ```
 $ cd $HOME/work
@@ -95,7 +95,7 @@ $ make
 $ make install
 ```
 
-### ScaLAPACKのコンパイル
+#### ScaLAPACKのコンパイル
 
 ```
 $ cd $HOME/work
@@ -112,7 +112,7 @@ $ make
 $ make install
 ```
 
-### MUMPSのコンパイル
+#### MUMPSのコンパイル
 
 ```
 $ cd $HOME/work
@@ -159,7 +159,7 @@ $ cp lib/*.a $HOME/local/lib
 $ cp include/*.h $HOME/local/include
 ```
 
-### Trilinos MLのコンパイル
+#### Trilinos MLのコンパイル
 
 ```
 $ cd $HOME/work
@@ -192,7 +192,7 @@ $ make
 $ make install
 ```
 
-## FrontISTRのコンパイル
+### FrontISTRのコンパイル
 
 上記ライブラリのコンパイルが済んだらFrontISTRをコンパイルします。
 
@@ -209,7 +209,7 @@ $ cmake -DCMAKE_INSTALL_PREFIX=$HOME/FrontISTR \
         ..
 ```
 
-### makeの実行
+#### makeの実行
 
 makeを実行します。
 
@@ -225,7 +225,7 @@ $ make -j4
 
 とします。並列コンパイルにより、コンパイル時間が短縮されます。
 
-### make install の実行
+#### make install の実行
 
 makeが完了したら、make installを実行し指定したディレクトリへインストールします。この例では `$(HOME)/FrontISTR/bin` になります。
 
@@ -233,7 +233,7 @@ makeが完了したら、make installを実行し指定したディレクトリ�
 $ make install
 ```
 
-### 動作確認
+#### 動作確認
 
 本ソフトウェアに同梱されているチュートリアルを実行して、動作を確認します。
 

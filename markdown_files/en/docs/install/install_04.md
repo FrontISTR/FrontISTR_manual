@@ -1,5 +1,3 @@
-# Compile with cmake
-
 ## Compile with cmake
 
 cmake will find libraries and headers automatically. You can also specify libraries and headers manually.

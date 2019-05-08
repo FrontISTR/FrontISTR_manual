@@ -11,7 +11,7 @@
 | ソフトウェア名称 | FrontISTR |
 | バージョン | 5.0 |
 | ライセンス形態 | MIT License |
-| 問い合わせ先 | 一般社団法人 FrontISTR Commons<br>東京都文京区弥生二丁目１１番１６号<br>(東京大学大学院工学系研究科 総合研究機構内)<br>E-mail：support@frontistr.com |
+| 問い合わせ先 | 一般社団法人 FrontISTR Commons<br>東京都文京区弥生二丁目11番16号<br>(東京大学大学院工学系研究科 総合研究機構内)<br>E-mail：support@frontistr.com |
 
 ## マニュアルリスト
 

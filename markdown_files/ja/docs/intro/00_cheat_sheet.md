@@ -1,6 +1,6 @@
-# チートシート
+## チートシート
 
-## インストール
+### インストール
 
 ~~~
 $ ./setup.sh -p --with-tools --with-metis
@@ -8,14 +8,14 @@ $ make
 $ make install
 ~~~
 
-## 並列実行
+### 並列実行
 
 ~~~
 $ hecmw_part1
 $ mpirun -np <4> fistr1
 ~~~
 
-## 入出力
+### 入出力
 
 |ファイルの種類|ファイル名|入出力|
 |:-|:-|:-|
@@ -26,8 +26,9 @@ $ mpirun -np <4> fistr1
 |ログファイル|\<0\>.log|出|
 |解析結果ファイル|\<ModelName\>.res|出|
 
-## 全体制御ファイル
-###（hecmw_ctrl.dat）
+### 全体制御ファイル
+
+####（hecmw_ctrl.dat）
 
 ~~~
 !MESH, NAME=part_in, TYPE=HECMW-ENTIRE
@@ -42,14 +43,15 @@ $ mpirun -np <4> fistr1
  <ModelName>.res
 ~~~
 
-## 領域分割制御データ
-###(hecmw_part_ctrl.dat)
+### 領域分割制御データ
+
+####(hecmw_part_ctrl.dat)
 
 ~~~
 !PARTITION, TYPE=NODE-BASED, METHOD=PMETIS, DOMAIN=<4>
 ~~~
 
-## メッシュファイル
+### メッシュファイル
 
 ~~~
 !HEADER
@@ -78,7 +80,7 @@ $ mpirun -np <4> fistr1
 !END
 ~~~
 
-## 解析制御ファイル（共通）
+### 解析制御ファイル（共通）
 
 ~~~
 !VERSION
@@ -110,7 +112,7 @@ $ mpirun -np <4> fistr1
 |VEL|速度|VIS,RES|
 |ACC|加速度|VIS,RES|
 
-## 解析制御ファイル（静解析）
+### 解析制御ファイル（静解析）
 
 ~~~
 !SOLUTION, TYPE=<STATIC|NLSTATIC>
@@ -125,7 +127,7 @@ $ mpirun -np <4> fistr1
  NODE_ID, <拘束自由度>, <ばね定数>
 ~~~
 
-## 解析制御ファイル（接触）
+### 解析制御ファイル（接触）
 
 ~~~
 !CONTACT_ALGO, TYPE=<SLAGRANGE|ALAGRANGE>
@@ -133,7 +135,7 @@ $ mpirun -np <4> fistr1
  <接触ペア名>, <摩擦係数>, <摩擦のペナルティ剛性>
 ~~~
 
-## 解析制御ファイル（熱応力）
+### 解析制御ファイル（熱応力）
 
 ~~~
 !REFTEMP
@@ -141,7 +143,7 @@ $ mpirun -np <4> fistr1
 !TEMPERATURE, READRESULT=<結果ステップ数>, SSTEP=<開始ステップ>, INTERVAL=<ステップ間隔>
 ~~~
 
-## 解析制御ファイル（固有値）
+### 解析制御ファイル（固有値）
 
 ~~~
 !EIGEN
@@ -149,7 +151,7 @@ $ mpirun -np <4> fistr1
 !BOUNDARY
 ~~~
 
-## 解析制御ファイル（熱伝導）
+### 解析制御ファイル（熱伝導）
 
 ~~~
 !HEAT
@@ -172,7 +174,7 @@ $ mpirun -np <4> fistr1
  SGRP, <輻射係数>, <雰囲気温度>
 ~~~
 
-## 解析制御ファイル（動解析共通）
+### 解析制御ファイル（動解析共通）
 
 ~~~
 !BOUNDARY
@@ -183,7 +185,7 @@ $ mpirun -np <4> fistr1
  Node_ID, <自由度>, <自由度>, <拘束値>
 ~~~
 
-## 解析制御ファイル（時刻歴応答）
+### 解析制御ファイル（時刻歴応答）
 
 ~~~
 !DYNAMIC, TYPE=NONLINEAR
@@ -195,7 +197,7 @@ $ mpirun -np <4> fistr1
  <変位>, <速度>, <加速度>, <反力>, <ひずみ>, <応力>
 ~~~
 
-## 解析制御ファイル（周波数応答）
+### 解析制御ファイル（周波数応答）
 
 ~~~
 !DYNAMIC, TYPE=NONLINEAR
@@ -212,7 +214,7 @@ $ mpirun -np <4> fistr1
  NODE_ID, <自由度>, <荷重値>
 ~~~
 
-## 解析ステップ
+### 解析ステップ
 
 ~~~
 !STEP, TYPE=<STATIC|VISCO>, SUBSTEPS=<分割数>, CONVERG=<判定値>
@@ -228,7 +230,7 @@ $ mpirun -np <4> fistr1
 | LOAD | !CLOAD, !DLOAD, !TEMPERATURE |
 | CONTACT | !CONTACT |
 
-## 材料物性値
+### 材料物性値
 
 ~~~
 !MATERIAL, NAME=<材料名>
@@ -277,7 +279,7 @@ $ mpirun -np <4> fistr1
  <A>, <n>, <m>
 ~~~
 
-## ソルバー制御
+### ソルバー制御
 
 ~~~
 !SOLVER, METHOD=<CG>, PRECOND=<1>, MPCMETHOD=<3>
@@ -310,14 +312,14 @@ $ mpirun -np <4> fistr1
 | 2 | MPC-CG法 |
 | 3 | 陽的自由度消去法 |
 
-## ポスト処理（AVS用データ出力）
+### ポスト処理（AVS用データ出力）
 
 ~~~
 !VISUAL
 !output_type=COMPLETE_REORDER_AVS
 ~~~
 
-## ポスト処理（BMP画像出力）
+### ポスト処理（BMP画像出力）
 
 ~~~
 !VISUAL, method=PSR
@@ -332,7 +334,7 @@ $ mpirun -np <4> fistr1
 !output_type=BMP
 ~~~
 
-## 非線形解析
+### 非線形解析
 
 | 解析の種類 | 関連するカード |
 |:-|:-|

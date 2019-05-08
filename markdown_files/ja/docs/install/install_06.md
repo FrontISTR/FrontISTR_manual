@@ -1,10 +1,10 @@
 <!-- include, libの順に記載する -->
 
-# 付録
+## 付録
 
-## Makefile.confの変数一覧
+### Makefile.confの変数一覧
 
-### MPIに関する設定
+#### MPIに関する設定
 
 MPI対応コンパイラーが自動参照している場合は、MPIに関する設定は不要である。
 
@@ -16,7 +16,7 @@ MPI対応コンパイラーが自動参照している場合は、MPIに関す�
 | MPILIBDIR | MPIのライブラリ群がインストールされているディレクトリのパスを指定する | . |
 | MPILIBS | CおよびFortran90のオブジェクトファイルにリンクさせるMPIライブラリを指定する | なし |
 
-### インストールディレクトリに関する設定
+#### インストールディレクトリに関する設定
 
 | 変数名 | 説明 | 既定値 |
 |:--|:--|:--|
@@ -25,7 +25,7 @@ MPI対応コンパイラーが自動参照している場合は、MPIに関す�
 | INCLUDEDIR | 本ソフトウェアのヘッダーファイル群をインストールするディレクトリのパスを指定する | `$(PREFIX)/include` |
 | LIBDIR | 本ソフトウェアのライブラリ群をインストールするディレクトリのパスを指定する | `$(PREFIX)/lib` |
 
-### METISに関する設定
+#### METISに関する設定
 
 | 変数名 | 説明 | 既定値 |
 |:--|:--|:--|
@@ -33,7 +33,7 @@ MPI対応コンパイラーが自動参照している場合は、MPIに関す�
 | METISINCDIR | METISのヘッダーファイル群（metis.hなど）がインストールされているディレクトリのパスを指定する | `$(METISDIR)/include` |
 | METISLIBDIR | METISのライブラリ（libmetis.a）がインストールされているディレクトリのパスを指定する | `$(METISDIR)/lib` |
 
-### ParMETISに関する設定
+#### ParMETISに関する設定
 
 | 変数名 | 説明 | 既定値 |
 |:--|:--|:--|
@@ -41,7 +41,7 @@ MPI対応コンパイラーが自動参照している場合は、MPIに関す�
 | PAEMETISINCDIR | ParMETISのヘッダーファイル群（parmetis.hなど）がインストールされているディレクトリのパスを指定する | `$(PARMETISDIR)/include` |
 | PARMETISLIBDIR | ParMETISのライブラリ（libparmetis.a）がインストールされているディレクトリのパスを指定する | `$(PARMETISDIR)/lib` |
 
-### REVOCAP_Refinerに関する設定
+#### REVOCAP_Refinerに関する設定
 
 | 変数名 | 説明 | 既定値 |
 |:--|:--|:--|
@@ -49,7 +49,7 @@ MPI対応コンパイラーが自動参照している場合は、MPIに関す�
 | REFINERINCDIR | REVOCAP_Refinerのヘッダーファイル群がインストールされているディレクトリのパスを指定する | `$(REFINERDIR)/include` |
 | REFINERLIBDIR | REVOCAP_Refinerのライブラリ群がインストールされているディレクトリのパスを指定する | `$(REFINERDIR)/lib` |
 
-### REVOCAP_Couplerに関する設定
+#### REVOCAP_Couplerに関する設定
 
 | 変数名 | 説明 | 既定値 |
 |:--|:--|:--|
@@ -57,7 +57,7 @@ MPI対応コンパイラーが自動参照している場合は、MPIに関す�
 | REVOCAPINCDIR | REVOCAP_Couplerのヘッダーファイル群がインストールされているディレクトリのパスを指定する | `$(REVOCAPDIR)/include` |
 | REVOCAPLIBDIR | REVOCAP_Couplerのライブラリ群がインストールされているディレクトリのパスを指定する | `$(REVOCAPDIR)/lib` |
 
-### MUMPSに関する設定
+#### MUMPSに関する設定
 
 | 変数名 | 説明 | 既定値 |
 |:--|:--|:--|
@@ -65,7 +65,7 @@ MPI対応コンパイラーが自動参照している場合は、MPIに関す�
 | MUMPSINCDIR | MUMPSのヘッダーファイル群がインストールされているディレクトリのパスを指定する | `$(MUMPSDIR)/include` |
 | MUMPSLIBDIR | MUMPSのライブラリ群がインストールされているディレクトリのパスを指定する | `$(MUMPSDIR)/lib` |
 
-### MLに関する設定
+#### MLに関する設定
 
 | 変数名 | 説明 | 既定値 |
 |:--|:--|:--|
@@ -73,7 +73,7 @@ MPI対応コンパイラーが自動参照している場合は、MPIに関す�
 | MLINCDIR | MLのヘッダーファイル群がインストールされているディレクトリのパスを指定する | `$(MLDIR)/include` |
 | MLLIBDIR | MLのライブラリ群がインストールされているディレクトリのパスを指定する | `$(MLDIR)/lib` |
 
-### Cコンパイラーに関する設定
+#### Cコンパイラーに関する設定
 
 | 変数名 | 説明 | 既定値 |
 |:--|:--|:--|
@@ -83,7 +83,7 @@ MPI対応コンパイラーが自動参照している場合は、MPIに関す�
 | OPTFLAGS | Cコンパイラーに付与する最適化オプションなどを指定する | `-O3` |
 | CLINKER | Cプログラムのリンク時に用いるコマンドを指定する。REVOCAP_Refinerを使用する場合で、CプログラムのリンクにC++コンパイラーを用いる必要がある場合などに指定する。 | `$(CC)` |
 
-### C++コンパイラーに関する設定
+#### C++コンパイラーに関する設定
 
 | 変数名 | 説明 | 既定値 |
 |:--|:--|:--|
@@ -92,7 +92,7 @@ MPI対応コンパイラーが自動参照している場合は、MPIに関す�
 | CPPLDFLAGS | C++リンカーに付与するオプションを指定する | なし |
 | CPPOPTFLAGS | C++コンパイラーに付与する最適化オプションなどを指定する | `-O3` |
 
-### Fortran90コンパイラーに関する設定
+#### Fortran90コンパイラーに関する設定
 
 | 変数名 | 説明 | 既定値 |
 |:--|:--|:--|
@@ -102,7 +102,7 @@ MPI対応コンパイラーが自動参照している場合は、MPIに関す�
 | F90OPTFLAGS | Fortran90コンパイラーに付与する最適化オプションなどを指定する | `-O2` |
 | F90LINKER | Fortran90プログラムのリンク時に用いるコマンドを指定する。REVOCAP_Refinerを使用する場合で、Fortran90プログラムのリンクにC++コンパイラーを用いる必要がある場合などに指定する（京コンピュータでは“mpiFCCpx --linkfortran” を指定する）。 | `$(F90)` |
 
-### UNIXコマンドに関する設定
+#### UNIXコマンドに関する設定
 
 | 変数名 | 説明 | 既定値 |
 |:--|:--|:--|
@@ -113,9 +113,75 @@ MPI対応コンパイラーが自動参照している場合は、MPIに関す�
 | MKDIR | ディレクトリを作成するコマンドを指定する。オプションが必要な場合は同時に指定する。 | `mkdir -p` |
 | MV | ファイルを移動するコマンドを指定する。オプションが必要な場合は同時に指定する。 | `mv` |
 
-## Makefile.confの設定例
+### Makefile.confの設定例
 
-## 京コンピュータおよび富士通FX10における注意
+
+```
+# MPI
+MPIDIR    =
+MPIBINDIR =
+MPILIBDIR =
+MPIINCDIR =
+MPILIBS   =
+
+# for install option only
+PREFIX     = $(HOME)/FrontISTR
+BINDIR     = $(PREFIX)/bin
+LIBDIR     = $(PREFIX)/lib
+INCLUDEDIR = $(PREFIX)/include
+
+# Metis
+METISDIR    = $(HOME)/Metis-4.0
+METISLIBDIR = $(METISDIR)
+METISINCDIR = $(METISDIR)/Lib
+
+# ParMetis
+PARMETISDIR    = $(HOME)/ParMetis-3.1
+PARMETISLIBDIR = $(PARMETISDIR)
+PARMETISINCDIR = $(PARMETISDIR)/ParMETISLib
+
+# Refiner
+REFINERDIR    = $(HOME)/REVOCAP_Refiner-1.1.0
+REFINERINCDIR = $(REFINERDIR)/Refiner
+REFINERLIBDIR = $(REFINERDIR)/lib/x86_64-linux
+
+# Coupler
+REVOCAPDIR    = $(HOME)/REVOCAP_Coupler-1.6.2
+REVOCAPINCDIR = $(REVOCAPDIR)/librcap
+REVOCAPLIBDIR = $(REVOCAPDIR)/librcap
+
+# MUMPS
+MUMPSDIR    = $(HOME)/MUMPS_4.10.0
+MUMPSINCDIR = $(MUMPSDIR)/include
+MUMPSLIBDIR = $(MUMPSDIR)/lib
+
+# ML
+MLDIR    = $(HOME)/trilinos/11.8.1/ml
+MLINCDIR = $(MLDIR)/include
+MLLIBDIR = $(MLDIR)/lib
+
+# C compiler settings
+CC       = mpiicc
+CFLAGS   =
+LDFLAGS  = -lm
+OPTFLAGS = -O3
+CLINKER  = mpiicc
+
+# C++ compiler settings
+CPP         = mpiicpc
+CPPFLAGS    = -DMPICH_IGNORE_CXX_SEEK -I$(HOME)/include
+CPPLDFLAGS  =
+CPPOPTFLAGS = -O3
+
+# Fortran compiler settings
+F90         = mpiifort
+F90FLAGS    =
+F90LDFLAGS  = -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -liomp5
+F90OPTFLAGS = -O2
+F90LINKER   = mpiifort
+```
+
+### 京コンピュータおよび富士通FX10における注意
 
 本バージョンでは、京コンピュータおよび富士通FX10向けのチューニングが行われていますが、これに伴い、利用する環境に応じてソースコードの一部を変更する必要があります。
 
