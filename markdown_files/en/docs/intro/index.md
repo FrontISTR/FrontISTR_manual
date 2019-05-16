@@ -6,11 +6,11 @@ When using this software for free or for profit use, you need to agree "MIT lice
 
 <img src="../image/FrontISTR_logo.png" width="350px">
 
-| Item | Content |
-|:---------:|:---------|
-| Name of Software | FrontISTR |
-| Version | 5.0 |
-| License | MIT License |
+| Item                 | Content                |
+|:--------------------:|:-----------------------|
+| Name of Software     | FrontISTR              |
+| Version              | 5.0                    |
+| License              | MIT License            |
 | Correnponding Clerks | FrontISTR Commons<br>2-11-16 Yayoi, Bunkyo-ku, Tokyo, Japan<br>c/o Institute of Engineering Innovation, School of Engineering<br>E-mail：support@frontistr.com | 
 
 ## Manuals
@@ -39,3 +39,4 @@ FrontISTR is Open-Source Large-Scale Parallel FEM Program for Nonlinear Structur
     - [Tutorial](../tutorial/index.md)
 - [Release note](00_release_note.md)
 - [Cheat sheet](00_cheat_sheet.md)
+

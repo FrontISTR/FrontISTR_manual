@@ -90,24 +90,24 @@ mpi.h  mpif.h  mpifptr.h  mpio.h  mspms.h  pmidbg.h
 
 Downloads the following software and save it to working directory `$HOME/work`.
 
-| Software | Link |
-|:--|:--|
-| REVOCAP\_Refiner-1.1.04.tar.gz | https://www.frontistr.com/ |
-| FrontISTR\_V50.tar.gz | https://www.frontistr.com/ |
-| OpenBLAS-0.2.20.tar.gz | http://www.openblas.net/ |
-| metis-5.1.0.tar.gz | http://glaros.dtc.umn.edu/gkhome/metis/metis/download |
-| scalapack-2.0.2.tgz | http://www.netlib.org/scalapack/ |
-| MUMPS\_5.1.2.tar.gz | http://mumps.enseeiht.fr/ |
-| trilinos-12.14.1-Source.tar.bz2 | https://trilinos.org/download/ |
+| Software                        | Link                                                  |
+|:--------------------------------|:------------------------------------------------------|
+| REVOCAP_Refiner-1.1.04.tar.gz   | https://www.frontistr.com/                            |
+| FrontISTR_V50.tar.gz            | https://www.frontistr.com/                            |
+| OpenBLAS-0.2.20.tar.gz          | http://www.openblas.net/                              |
+| metis-5.1.0.tar.gz              | http://glaros.dtc.umn.edu/gkhome/metis/metis/download |
+| scalapack-2.0.2.tgz             | http://www.netlib.org/scalapack/                      |
+| MUMPS_5.1.2.tar.gz              | http://mumps.enseeiht.fr/                             |
+| trilinos-12.14.1-Source.tar.bz2 | https://trilinos.org/download/                        |
 
-#### Compiling REVOCAP\_Refiner
+#### Compiling REVOCAP_Refiner
 
 ```
 (MINGW64) cd $HOME/work
-(MINGW64) tar xvf REVOCAP\_Refiner-1.1.04.tar.gz
-(MINGW64) cd REVOCAP\_Refiner-1.1.04
+(MINGW64) tar xvf REVOCAP_Refiner-1.1.04.tar.gz
+(MINGW64) cd REVOCAP_Refiner-1.1.04
 (MINGW64) make
-(MINGW64) cp lib/x86\_64-linux/libRcapRefiner.a $HOME/local/lib
+(MINGW64) cp lib/x86_64-linux/libRcapRefiner.a $HOME/local/lib
 (MINGW64) cp Refiner/rcapRefiner.h $HOME/local/include
 ```
 

@@ -17,14 +17,14 @@ $ mpirun -np <4> fistr1
 
 ### Input/Output
 
-|File type|File name|I/O|
-|:-|:-|:-|
-|Overall control data|hecmw_ctrl.dat|I|
-|Mesh data|\<ModelName\>.msh|I|
-|Analysis control file|\<ModelName\>.cnt|I|
-|Mesh partitioning control file|hecmw_part_ctrl.dat|I|
-|Log file|\<0\>.log|O|
-|Results file|\<ModelName\>.res|O|
+| File type                      | File name           | I/O |
+|:-------------------------------|:--------------------|:----|
+| Overall control data           | hecmw_ctrl.dat      | I   |
+| Mesh data                      | <ModelName\>.msh    | I   |
+| Analysis control file          | <ModelName\>.cnt    | I   |
+| Mesh partitioning control file | hecmw_part_ctrl.dat | I   |
+| Log file                       | <0>.log             | O   |
+| Results file                   | <ModelName\>.res    | O   |
 
 ### Overall control data
 
@@ -95,22 +95,22 @@ $ mpirun -np <4> fistr1
 !END
 ~~~
 
-|Variable name|Physical value|Target|
-|:-|:-|:-|
-|DISP|displacement|VIS,RES|
-|ROT|rotation|VIS,RES|
-|REACTION|nodal reactive force|VIS,RES|
-|NSTRAIN|nodal strain|VIS,RES|
-|NSTRESS|nodal stress|VIS,RES|
-|NMISES|nodal mises stress|VIS,RES|
-|ESTRAIN|elemental strain|RES|
-|ESTRESS|elemental stress|RES|
-|EMISES|elemental mises stress|RES|
-|ISTRAIN|integration point strain|RES|
-|ISTRESS|integration point stress|RES|
-|PL_ISTRAIN|integration point plastic strain|RES|
-|VEL|velocity|VIS,RES|
-|ACC|acceleration|VIS,RES|
+| Variable name | Physical value                   | Target  |
+|:--------------|:---------------------------------|:--------|
+| DISP          | displacement                     | VIS,RES |
+| ROT           | rotation                         | VIS,RES |
+| REACTION      | nodal reactive force             | VIS,RES |
+| NSTRAIN       | nodal strain                     | VIS,RES |
+| NSTRESS       | nodal stress                     | VIS,RES |
+| NMISES        | nodal mises stress               | VIS,RES |
+| ESTRAIN       | elemental strain                 | RES     |
+| ESTRESS       | elemental stress                 | RES     |
+| EMISES        | elemental mises stress           | RES     |
+| ISTRAIN       | integration point strain         | RES     |
+| ISTRESS       | integration point stress         | RES     |
+| PL_ISTRAIN    | integration point plastic strain | RES     |
+| VEL           | velocity                         | VIS,RES |
+| ACC           | acceleration                     | VIS,RES |
 
 ### Analysis control file (Static analysis)
 
@@ -224,11 +224,11 @@ $ mpirun -np <4> fistr1
  CONTACT, <GRPID>
 ~~~
 
-| 境界条件種類 | 属するカード |
-|:-|:-|
-| BOUNDARY | !BOUNDARY, !SPRING |
-| LOAD | !CLOAD, !DLOAD, !TEMPERATURE |
-| CONTACT | !CONTACT |
+| 境界条件種類 | 属するカード                 |
+|:-------------|:-----------------------------|
+| BOUNDARY     | !BOUNDARY, !SPRING           |
+| LOAD         | !CLOAD, !DLOAD, !TEMPERATURE |
+| CONTACT      | !CONTACT                     |
 
 ### 材料物性値
 
@@ -287,30 +287,30 @@ $ mpirun -np <4> fistr1
  <打切り誤差>, <対角成分倍率>, 0.0
 ~~~
 
-| 解法 | 備考 |
-|:-|:-|
-|CG||
-|BiCGSTAB||
-|GMRES|クリロフ部分空間数を設定すること|
-|GPBiCG||
-|DIRECT||
-|DIRECTmkl|接触解析で使う|
-|MUMPS||
+| 解法      | 備考                             |
+|:----------|:---------------------------------|
+| CG        |                                  |
+| BiCGSTAB  |                                  |
+| GMRES     | クリロフ部分空間数を設定すること |
+| GPBiCG    |                                  |
+| DIRECT    |                                  |
+| DIRECTmkl | 接触解析で使う                   |
+| MUMPS     |                                  |
 
-| 値 | 前処理 |
-|:-|:-|
-| 1,2 | SSOR |
-| 3 | Diagonal Scaling |
-| 5 | AMG |
-| 10 | Block ILU(0) |
-| 11 | Block ILU(1) |
-| 12 | Block ILU(2) |
+| 値  | 前処理           |
+|:----|:-----------------|
+| 1,2 | SSOR             |
+| 3   | Diagonal Scaling |
+| 5   | AMG              |
+| 10  | Block ILU(0)     |
+| 11  | Block ILU(1)     |
+| 12  | Block ILU(2)     |
 
-| 値 | MPC手法 |
-|:-|:-|
-| 1 | ペナルティ法 |
-| 2 | MPC-CG法 |
-| 3 | 陽的自由度消去法 |
+| 値 | MPC手法          |
+|:---|:-----------------|
+| 1  | ペナルティ法     |
+| 2  | MPC-CG法         |
+| 3  | 陽的自由度消去法 |
 
 ### Post-process (Output of AVS format)
 
@@ -336,9 +336,9 @@ $ mpirun -np <4> fistr1
 
 ### Non-linear analysis
 
-| Type of analysis | Related card |
-|:-|:-|
-| Static analysis | !SOLUTION, TYPE=NLSTATIC<BR>!STEP |
-| Dynamic analysis | !DYNAMIC, TYPE=NONLINEAR<BR>!STEP |
+| Type of analysis       | Related card                                                      |
+|:-----------------------|:------------------------------------------------------------------|
+| Static analysis        | !SOLUTION, TYPE=NLSTATIC<BR>!STEP                                 |
+| Dynamic analysis       | !DYNAMIC, TYPE=NONLINEAR<BR>!STEP                                 |
 | Material nonlinearlity | !MATERIAL<BR>!PLASTIC<BR>!HYPERELASTIC<BR>!VISCOELASTIC<BR>!CREEP |
 

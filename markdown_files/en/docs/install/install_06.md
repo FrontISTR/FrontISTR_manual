@@ -39,21 +39,21 @@
 | PAEMETISINCDIR | This variable specifies the path to the directory where the header files (such as parmetis.h) of ParMETIS have been installed. Normally, there is no need to change the value of this variable from the default value. | `$(PARMETISDIR)/include` |
 | PARMETISLIBDIR | This variable specifies the path to the directory where the library (libparmetis.a) of ParMETIS has been installed. Normally, there is no need to change the value of this variable from the default value. | `$(PARMETISDIR)/lib` |
 
-#### Settings related to REVOCAP\_Refiner
+#### Settings related to REVOCAP_Refiner
 
 | Variable name | Description | Default |
 |:--|:--|:--|
-| REFINERDIR | This variable specifies the path to the directory where REVOCAP\_Refiner has been installed. | `$(HOME)/REVOCAP\_Refiner` |
-| REFINERINCDIR | This variable specifies the path to the directory where REVOCAP\_Refiner header files have been installed. Normally, there is no need to change the value of this variable from the default value. | `$(PARMETISDIR)/include` |
-| REFINERLIBDIR | This variable specifies the path to the directory where REVOCAP\_Refiner libraries have been installed. Normally, there is no need to change the value of this variable from the default value.| `$(PARMETISDIR)/lib` |
+| REFINERDIR | This variable specifies the path to the directory where REVOCAP_Refiner has been installed. | `$(HOME)/REVOCAP_Refiner` |
+| REFINERINCDIR | This variable specifies the path to the directory where REVOCAP_Refiner header files have been installed. Normally, there is no need to change the value of this variable from the default value. | `$(PARMETISDIR)/include` |
+| REFINERLIBDIR | This variable specifies the path to the directory where REVOCAP_Refiner libraries have been installed. Normally, there is no need to change the value of this variable from the default value.| `$(PARMETISDIR)/lib` |
 
-#### Settings related to REVOCAP\_Coupler
+#### Settings related to REVOCAP_Coupler
 
 | Variable name | Description | Default |
 |:--|:--|:--|
-| REVOCAPDIR | This variable specifies the path to the directory where REVOCAP\_Coupler has been installed. | `$(HOME)/REVOCAP_Coupler` |
-| REVOCAPINCDIR | This variable specifies the path to the directory where REVOCAP\_Coupler header files have been installed. Normally, there is no need to change the value of this variable from the default value. | `$(REVOCAPDIR)/include` |
-| REVOCAPLIBDIR | This variable specifies the path to the directory where REVOCAP\_Coupler libraries have been installed. Normally, there is no need to change the value of this variable from the default value. | `$(REVOCAPDIR)/lib` |
+| REVOCAPDIR | This variable specifies the path to the directory where REVOCAP_Coupler has been installed. | `$(HOME)/REVOCAP_Coupler` |
+| REVOCAPINCDIR | This variable specifies the path to the directory where REVOCAP_Coupler header files have been installed. Normally, there is no need to change the value of this variable from the default value. | `$(REVOCAPDIR)/include` |
+| REVOCAPLIBDIR | This variable specifies the path to the directory where REVOCAP_Coupler libraries have been installed. Normally, there is no need to change the value of this variable from the default value. | `$(REVOCAPDIR)/lib` |
 
 #### Settings related to MUMPS
 
@@ -77,9 +77,9 @@
 |:--|:--|:--|
 | CC | This variable specifies the C compiler start command | `mpicc` |
 | CFLAGS | This variable specifies the option to be assigned to the C compiler.  Normally, there is no need to change the value of this variable from the default value. | なし |
-| LDFLAGS | This variable specifies the option to be assigned to the C linker.  Normally, there is no need to change the value of this variable from the default value.  However, when REVOCAP\_Refiner (written in C++) is to be used and C compiler is used for linking C programs, C++ standard library (e.g. -lstdc++) needs to be specified here. | `-lm` |
+| LDFLAGS | This variable specifies the option to be assigned to the C linker.  Normally, there is no need to change the value of this variable from the default value.  However, when REVOCAP_Refiner (written in C++) is to be used and C compiler is used for linking C programs, C++ standard library (e.g. -lstdc++) needs to be specified here. | `-lm` |
 | OPTFLAGS | This variable specifies the optimization option (or another option) to be assigned to the C compiler.| `-O3` |
-| CLINKER | This variable specifies the linker command for C program. This is used when, for example, REVOCAP\_Refiner (written in C++) is to be used and C++ compiler needs to be used for linking C programs with C++ libraries.| `$(CC)` |
+| CLINKER | This variable specifies the linker command for C program. This is used when, for example, REVOCAP_Refiner (written in C++) is to be used and C++ compiler needs to be used for linking C programs with C++ libraries.| `$(CC)` |
 
 #### Settings related to the C++ compiler
 
@@ -96,9 +96,9 @@
 |:--|:--|:--|
 | F90 | This variable specifies the Fortran90 compiler start command. | `mpif90` |
 | F90FLAGS | This variable specifies the option to be assigned to the Fortran90 compiler. Normally, there is no need to change the value of this variable from the default value. | `-DMPICH_IGNORE_CXX_SEEK` |
-| F90LDFLAGS | This variable specifies the option to be assigned to the Fortran90 linker.  Normally, there is no need to change the value of this variable from the default value.  However, if Intel MKL is used, specify its link option. Also, when REVOCAP\_Refiner (written in C++) is to be used and Fortran90 compiler is used for linking Fortran90 programs, C++ standard library (e.g. -lstdc++) needs to be specified here. | None |
+| F90LDFLAGS | This variable specifies the option to be assigned to the Fortran90 linker.  Normally, there is no need to change the value of this variable from the default value.  However, if Intel MKL is used, specify its link option. Also, when REVOCAP_Refiner (written in C++) is to be used and Fortran90 compiler is used for linking Fortran90 programs, C++ standard library (e.g. -lstdc++) needs to be specified here. | None |
 | F90OPTFLAGS | This variable specifies the optimization option (or another option) to be assigned to the Fortran90 compiler. | `-O2` |
-| F90LINKER | This variable specifies the linker command for Fortran90 program. This is used when, for example, REVOCAP\_Refiner (written in C++) is to be used and C++ compiler needs to be used for linking Fortran90 programs with C++ libraries. (E.g. on K-computer, “mpiFCCpx --linkfortran” needs to be specified.)| `$(F90)` |
+| F90LINKER | This variable specifies the linker command for Fortran90 program. This is used when, for example, REVOCAP_Refiner (written in C++) is to be used and C++ compiler needs to be used for linking Fortran90 programs with C++ libraries. (E.g. on K-computer, “mpiFCCpx --linkfortran” needs to be specified.)| `$(F90)` |
 
 #### Settings related to UNIX commands
 

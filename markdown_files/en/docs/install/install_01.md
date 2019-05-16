@@ -49,7 +49,7 @@ HEC-MW comes bundled with the FrontISTR archive file, and is automatically compi
 
 #### REVOCAP_Refiner
 
-This software is compatible with the REVOCAP\_Coupler coupled analysis tool developed by the "Research and Development of Innovative Simulation Software" project.
+This software is compatible with the REVOCAP_Coupler coupled analysis tool developed by the "Research and Development of Innovative Simulation Software" project.
 REVOCAP_Coupler is required to use the coupled analysis function. REVOCAP_Coupler can
 be downloaded from the following website:
 
@@ -57,7 +57,7 @@ be downloaded from the following website:
 
 #### REVOCAP_Coupler
 
-This software is compatible with the REVOCAP\_Coupler coupled analysis tool developed by the "Research and Development of Innovative Simulation Software" project.REVOCAP\_Coupler is required to use the coupled analysis function. REVOCAP\_Coupler can be downloaded from the following website:
+This software is compatible with the REVOCAP_Coupler coupled analysis tool developed by the "Research and Development of Innovative Simulation Software" project.REVOCAP_Coupler is required to use the coupled analysis function. REVOCAP_Coupler can be downloaded from the following website:
 
   - [http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php](http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php)
 
@@ -111,18 +111,19 @@ Operations of this software have been verified in the following environment. How
 
 #### Operation verification environment
 
-| Environment<br/>(operating system) | Compiler | Parallel processing<br/>environment |
-|:--|:--|:--|
-| K computer | Fujitsu Compiler | Fujitsu MPI |
-| EARTH SIMULATOR (ES3) | NEC Compiler | NEC MPI |
-| Intel Xeon Cluster<br> CentOS 7 | Intel Compiler | Intel MPI |
-| Intel Xeon Cluster<br> RedHat Enterprise Linux 7 | Intel Compiler | OpenMPI |
-| Intel Xeon Cluster<br> SUSE Linux Enterprise 10 | Intel Compiler | SGI MPT |
-| AMD Ryzen PC<br> ubuntu 16.04 | GNU Compiler | OpenMPI-1.10.2|
-| AMD Ryzen PC<br> ubuntu 16.04 | PGI Compiler | OpenMPI-1.10.2|
-| AMD Ryzen PC<br> ubuntu 18.04 | GNU Compiler | OpenMPI-2.1.1|
-| Intel Core i7 PC<br> ubuntu 16.04 | GNU Compiler | OpenMPI-1.10.2|
-| Intel Core i7 PC<br> ubuntu 18.04 | GNU Compiler | OpenMPI-2.1.1|
-| PC<br> Windows 7 <br> Windows 10 | GNU Compiler | Microsoft MPI-8.1 |
-| SBC<br> Raspberry Pi 3| GNU Compiler | OpenMPI-2.0.2 |
+| System               | Operatingsystem                   | CPU                 | Compiler             | Parallel processing<br/>environment |
+|----------------------|-----------------------------------|---------------------|----------------------|-------------------------------------|
+| K computer           | Linux                             | SPARC64 VIIIfx      | Fujitsu compiler     | Fujitsu MPI                         |
+| PRIMEHPC FX100       | Linux                             | SPARC V9 + HPC-ACE2 | Fujitsu compiler     | Fujitsu MPI                         |
+| EARTH SIMULATOR(ES3) | SUPER UX                          | SX-ACE              | NEC compiler         | NEC MPI                             |
+| UV2000               | Linux (SUSE Linux Enterprise 10)  | Intel Xeon          | Intel compiler       | SGI MPT                             |
+| PC cluster           | Linux (CentOS-7)                  | Intel Xeon          | Intel compiler       | Intel MPI                           |
+| PC cluster           | Linux (RedHat Enterprise Linux 7) | Intel Xeon          | Intel compiler       | OpenMPI                             |
+| Desktop PC           | Linux (ubuntu 16.04)              | AMD Ryzen           | GNU compiler         | OpenMPI                             |
+| Desktop PC           | Linux (ubuntu 16.04)              | AMD Ryzen           | PGI compiler         | OpenMPI                             |
+| Desktop PC           | Linux (ubuntu 16.04)              | Intel Core-i7       | GNU compiler         | OpenMPI                             |
+| Desktop PC           | Windows (7, 10)                   | Intel Core-i7       | GNU compiler (mingw) | Microsoft MPI                       |
+| Raspberry PI 3 B+    | Linux (raspbian 32bit)            | ARM Cortex-A53      | GNU compiler         | OpenMPI                             |
+| Notebook PC          | macOS Mojave                      | Intel Core i7       | GNU Compiler         | OpenMPI                             |
+
 

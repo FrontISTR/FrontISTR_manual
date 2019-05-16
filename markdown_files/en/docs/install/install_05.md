@@ -4,18 +4,18 @@
 
 Create `Makefile.conf` by editing `Makefile.conf.org` in ${FSTRBUILDDIR} to match the computer environment where this software is to be installed. There are a large number of variables that can be defined, but most of them can be used “as is” (without having to change the default values). For most environments, there should be no need to change variables other than those shown below.
 
-| Variable | Description |
-|:--|:--|
-| MPIDIR | Specifies the directory where MPI has been installed |
-| PREFIX | Specifies the directory where the executable module of this software is to be installed |
-| METISDIR | Specifies the directory where METIS has been installed |
-| PARMETISDIR | Specifies the directory where ParMETIS has been installed |
-| REFINERDIR | Specifies the directory where REVOCAP\_Refiner has been installed |
-| REVOCAPDIR | Specifies the directory where REVOCAP\_Coupler has been installed |
-| MUMPSDIR | Specifies the directory where MUMPS has been installed |
-| CC | Specifies the C compiler start command |
-| CPP | Specifies the C++ compiler start command |
-| F90 | Specifies the Fortran90 compiler start command |
+| Variable    | Description                                                                             |
+|:------------|:----------------------------------------------------------------------------------------|
+| MPIDIR      | Specifies the directory where MPI has been installed                                    |
+| PREFIX      | Specifies the directory where the executable module of this software is to be installed |
+| METISDIR    | Specifies the directory where METIS has been installed                                  |
+| PARMETISDIR | Specifies the directory where ParMETIS has been installed                               |
+| REFINERDIR  | Specifies the directory where REVOCAP_Refiner has been installed                        |
+| REVOCAPDIR  | Specifies the directory where REVOCAP_Coupler has been installed                        |
+| MUMPSDIR    | Specifies the directory where MUMPS has been installed                                  |
+| CC          | Specifies the C compiler start command                                                  |
+| CPP         | Specifies the C++ compiler start command                                                |
+| F90         | Specifies the Fortran90 compiler start command                                          |
 
 Refer to Appendix A, “List of Makefile.conf Variables” for details on all variables. Refer also to Appendix B, “Makefile.conf Setting Example” for an example of Makefile.conf settings.
 
@@ -31,20 +31,20 @@ To generate a library for parallel computing, for example, execute `setup.sh` wi
 
 #### Options specified when setup.sh is executed
 
-| Option | Description | Remarks |
-|:--|:--|:--|
-| -g or --debug | Generates a library for debugging |  |
-| -p or --parallel | Generates a library for parallel execution |  |
-| --with-tools | Generates a tool such as a partitioner |  |
-| --with-refiner | Includes REVOCAP\_Refiner |  |
-| --with-revocap | Includes REVOCAP\_Coupler |  |
-| --with-metis | Uses METIS |  |
-| --with-parmetis | Uses ParMETIS | Disabled at present |
-| --with-mkl | Uses Intel MKL |  |
-| --with-mumps | Uses MUMPS |  |
-| --with-lapack | Uses Lapack | Needed for condition number estimation |
-| --with-ml | Uses ML |  |
-| --old-res-format | Revert result file format |  |
+| Option           | Description                                | Remarks                                |
+|:-----------------|:-------------------------------------------|:---------------------------------------|
+| -g or --debug    | Generates a library for debugging          |                                        |
+| -p or --parallel | Generates a library for parallel execution |                                        |
+| --with-tools     | Generates a tool such as a partitioner     |                                        |
+| --with-refiner   | Includes REVOCAP_Refiner                   |                                        |
+| --with-revocap   | Includes REVOCAP_Coupler                   |                                        |
+| --with-metis     | Uses METIS                                 |                                        |
+| --with-parmetis  | Uses ParMETIS                              | Disabled at present                    |
+| --with-mkl       | Uses Intel MKL                             |                                        |
+| --with-mumps     | Uses MUMPS                                 |                                        |
+| --with-lapack    | Uses Lapack                                | Needed for condition number estimation |
+| --with-ml        | Uses ML                                    |                                        |
+| --old-res-format | Revert result file format                  |                                        |
 
 Examples of `setup.sh` execution are shown below.
 

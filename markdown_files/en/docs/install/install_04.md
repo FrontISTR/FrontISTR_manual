@@ -70,23 +70,23 @@ Compile Option: -p --with-tools --with-metis --with-mumps --with-lapack --with-m
 
 You can explicitly various options at configuration time.
 
-| Options (Default)  | Contents                                    | Remarks                      |
-|:-------------------|:--------------------------------------------|:-----------------------------|
-| -DWITH\_TOOLS=ON   | Compiling tools such as partitioners        | hecmw_part1 etc.             |
-| -DWITH\_MPI=ON     | Enable MPI                                  | require libraries            |
-| -DWITH\_OPENMP=ON  | Enable OpenMP                               | require supported compiler   |
-| -DWITH\_REFINER=ON | Enable REVOCAP_Refiner functionality        | require libraries            |
-| -DWITH\_REVOCAP=ON | Enable REVOCAP_Coupler functionality        | require libraries            |
-| -DWITH\_METIS=ON   | Enable METIS functionality                  | 4.0.3 and 5.1.0 supported    |
-| -DMETIS\_VER_4=OFF | In case of using metis-4.0.3, specify ON    | In case of using metis-5.1.0, it isn't necessary to specify it. |
-| -DWITH_PARMETIS=ON | Enable ParMETIS functionality               | 3.2.0 and 4.0.3 supported    |
-| -DMETIS\_VER_3=OFF | In case of using ParMetis-3.2.0, specify ON | In case of using parmetis-4.0.3, it isn't necessary to specify it. |
-| -DWITH\_MKL=ON     | Enable MKL PARDISO functionality            | require libraries            |
-| -DWITH\_MUMPS=ON   | Enable MUMPS functionality                  | require libraries            |
-| -DWITH\_LAPACK=ON  | Enable LAPACK functionality                 | require libraries            |
-| -DWITH\_ML=ON      | Enable Trilinos ML functionality            | require libraries            |
-| -DWITH\_DOC=OFF    | Documentation of the source code            | require doxygen and graphviz |
-| -DOLD\_RES\_FORMAT=OFF   | Revert result file format if ON is specified |
+| Options (Default)    | Contents                                     | Remarks                                                            |
+|:---------------------|:---------------------------------------------|:-------------------------------------------------------------------|
+| -DWITH_TOOLS=ON      | Compiling tools such as partitioners         | hecmw_part1 etc.                                                   |
+| -DWITH_MPI=ON        | Enable MPI                                   | require libraries                                                  |
+| -DWITH_OPENMP=ON     | Enable OpenMP                                | require supported compiler                                         |
+| -DWITH_REFINER=ON    | Enable REVOCAP_Refiner functionality         | require libraries                                                  |
+| -DWITH_REVOCAP=ON    | Enable REVOCAP_Coupler functionality         | require libraries                                                  |
+| -DWITH_METIS=ON      | Enable METIS functionality                   | 4.0.3 and 5.1.0 supported                                          |
+| -DMETIS_VER_4=OFF    | In case of using metis-4.0.3, specify ON     | In case of using metis-5.1.0, it isn't necessary to specify it.    |
+| -DWITH_PARMETIS=ON   | Enable ParMETIS functionality                | 3.2.0 and 4.0.3 supported                                          |
+| -DMETIS_VER_3=OFF    | In case of using ParMetis-3.2.0, specify ON  | In case of using parmetis-4.0.3, it isn't necessary to specify it. |
+| -DWITH_MKL=ON        | Enable MKL PARDISO functionality             | require libraries                                                  |
+| -DWITH_MUMPS=ON      | Enable MUMPS functionality                   | require libraries                                                  |
+| -DWITH_LAPACK=ON     | Enable LAPACK functionality                  | require libraries                                                  |
+| -DWITH_ML=ON         | Enable Trilinos ML functionality             | require libraries                                                  |
+| -DWITH_DOC=OFF       | Documentation of the source code             | require doxygen and graphviz                                       |
+| -DOLD_RES_FORMAT=OFF | Revert result file format if ON is specified |
 
 The list of variables that can be set with cmake can be confirmed with the following command.
 
@@ -97,14 +97,14 @@ Other options are as follows.
 
 | Options                     | Contents                                         | Remarks                                          |
 |:----------------------------|:-------------------------------------------------|:-------------------------------------------------|
-| -DBLA\_VENDOR=              | Specify vendor name of BLAS and LAPACK           | Refer to the FindBLAS.cmake                      |
-| -DBLAS\_LIBRARIES=          | Directly specifies BLAS library                  | Absolute path                                    |
-| -DLAPACK\_LIBRARIES=        | Directly specifies LAPACK library                | Absolute path                                    |
-| -DCMAKE\_INSTALL\_PREFIX=   | Specify installing path. Default is `/usr/local` | If specifies -DCMAKE\_INSTALL\_PREFIX=$HOME/local,<br/>binaries will copy to  $HOME/local/bin |
-| -DCMAKE\_C\_COMPILER=       | Specify C compiler                               | -DCMAKE_C_COMPILER=icc  (ex. Intel C compiler)   |
-| -DCMAKE\_CXX\_COMPILER=     | Specify C++ compiler                             | -DCMAKE_CXX_COMPILER=icpc  (ex. Intel C++ compiler) |
-| -DCMAKE\_Fortran\_COMPILER= | Specify Fortran compiler                         | -DCMAKE_Fortran_COMPILER=ifort  (ex. Intel Fortran compiler)|
-| -DCMAKE\_PREFIX\_PATH=      | Specify path of libraries                        | -DCMAKE_PREFIX_PATH=$HOME/tools |
+| -DBLA_VENDOR=              | Specify vendor name of BLAS and LAPACK           | Refer to the FindBLAS.cmake                      |
+| -DBLAS_LIBRARIES=          | Directly specifies BLAS library                  | Absolute path                                    |
+| -DLAPACK_LIBRARIES=        | Directly specifies LAPACK library                | Absolute path                                    |
+| -DCMAKE_INSTALL_PREFIX=   | Specify installing path. Default is `/usr/local` | If specifies -DCMAKE_INSTALL_PREFIX=$HOME/local,<br/>binaries will copy to  $HOME/local/bin |
+| -DCMAKE_C_COMPILER=       | Specify C compiler                               | -DCMAKE_C_COMPILER=icc  (ex. Intel C compiler)   |
+| -DCMAKE_CXX_COMPILER=     | Specify C++ compiler                             | -DCMAKE_CXX_COMPILER=icpc  (ex. Intel C++ compiler) |
+| -DCMAKE_Fortran_COMPILER= | Specify Fortran compiler                         | -DCMAKE_Fortran_COMPILER=ifort  (ex. Intel Fortran compiler)|
+| -DCMAKE_PREFIX_PATH=      | Specify path of libraries                        | -DCMAKE_PREFIX_PATH=$HOME/tools                  |
 
 ## About test
 
