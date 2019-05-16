@@ -52,16 +52,16 @@ ParMETISは下記のWEBサイトからダウンロードすることができま
 
 #### REVOCAP_Refiner
 
-本ソフトウェアは、「イノベーション基盤シミュレーションソフトウェアの研究開発」プロジェクトで開発されたメッシュ細分化ツールREVOCAP\_Refinerに対応しています。
+本ソフトウェアは、「イノベーション基盤シミュレーションソフトウェアの研究開発」プロジェクトで開発されたメッシュ細分化ツールREVOCAP_Refinerに対応しています。
 
-メッシュ細分化機能を利用する場合にはREVOCAP\_Refinerが必要となります。
-REVOCAP\_Refinerの最新版は下記のWEBサイトからダウンロードすることができます。
+メッシュ細分化機能を利用する場合にはREVOCAP_Refinerが必要となります。
+REVOCAP_Refinerの最新版は下記のWEBサイトからダウンロードすることができます。
 
 [http://www.multi.k.u-tokyo.ac.jp/FrontISTR/](http://www.multi.k.u-tokyo.ac.jp/FrontISTR/)
 
 #### REVOCAP_Coupler
 
-本ソフトウェアは、「イノベーション基盤シミュレーションソフトウェアの研究開発」プロジェクトで開発された連成解析ツールREVOCAP\_Couplerに対応しています。連成解析機能を利用する場合にはREVOCAP\_Couplerが必要となります。REVOCAP\_Couplerは下記のWEBサイトからダウンロードすることができます。
+本ソフトウェアは、「イノベーション基盤シミュレーションソフトウェアの研究開発」プロジェクトで開発された連成解析ツールREVOCAP_Couplerに対応しています。連成解析機能を利用する場合にはREVOCAP_Couplerが必要となります。REVOCAP_Couplerは下記のWEBサイトからダウンロードすることができます。
 
 [http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php](http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php)
 
@@ -125,18 +125,18 @@ MLは下記のWEBサイトからダウンロードすることができます。
 
 #### 動作確認環境
 
-  | システム             | オペレーティングシステム          | CPU                 | コンパイラ           | 並列化環境    |
-  |----------------------|-----------------------------------|---------------------|----------------------|---------------|
-  | K computer           | Linux                             | SPARC64 VIIIfx      | Fujitsu compiler     | Fujitsu MPI   |
-  | PRIMEHPC FX100       | Linux                             | SPARC V9 + HPC-ACE2 | Fujitsu compiler     | Fujitsu MPI   |
-  | EARTH SIMULATOR(ES3) | SUPER UX                          | SX-ACE              | NEC compiler         | NEC MPI       |
-  | UV2000               | Linux (SUSE Linux Enterprise 10)  | Intel Xeon          | Intel compiler       | SGI MPT       |
-  | PC cluster           | Linux (CentOS-7)                  | Intel Xeon          | Intel compiler       | Intel MPI     |
-  | PC cluster           | Linux (RedHat Enterprise Linux 7) | Intel Xeon          | Intel compiler       | OpenMPI       |
-  | Desktop PC           | Linux (ubuntu 16.04)              | AMD Ryzen           | GNU compiler         | OpenMPI       |
-  | Desktop PC           | Linux (ubuntu 16.04)              | AMD Ryzen           | PGI compiler         | OpenMPI       |
-  | Desktop PC           | Linux (ubuntu 16.04)              | Intel Core-i7       | GNU compiler         | OpenMPI       |
-  | Desktop PC           | Windows (7, 10)                   | Intel Core-i7       | GNU compiler (mingw) | Microsoft MPI |
-  | Raspberry PI 3 B+    | Linux (raspbian 32bit)            | ARM Cortex-A53      | GNU compiler         | OpenMPI       |
-  | Notebook PC          | macOS Mojave                      | Intel Core i7       | GNU Compiler         | OpenMPI       |
+| システム             | オペレーティングシステム          | CPU                 | コンパイラ           | 並列化環境    |
+|----------------------|-----------------------------------|---------------------|----------------------|---------------|
+| K computer           | Linux                             | SPARC64 VIIIfx      | Fujitsu compiler     | Fujitsu MPI   |
+| PRIMEHPC FX100       | Linux                             | SPARC V9 + HPC-ACE2 | Fujitsu compiler     | Fujitsu MPI   |
+| EARTH SIMULATOR(ES3) | SUPER UX                          | SX-ACE              | NEC compiler         | NEC MPI       |
+| UV2000               | Linux (SUSE Linux Enterprise 10)  | Intel Xeon          | Intel compiler       | SGI MPT       |
+| PC cluster           | Linux (CentOS-7)                  | Intel Xeon          | Intel compiler       | Intel MPI     |
+| PC cluster           | Linux (RedHat Enterprise Linux 7) | Intel Xeon          | Intel compiler       | OpenMPI       |
+| Desktop PC           | Linux (ubuntu 16.04)              | AMD Ryzen           | GNU compiler         | OpenMPI       |
+| Desktop PC           | Linux (ubuntu 16.04)              | AMD Ryzen           | PGI compiler         | OpenMPI       |
+| Desktop PC           | Linux (ubuntu 16.04)              | Intel Core-i7       | GNU compiler         | OpenMPI       |
+| Desktop PC           | Windows (7, 10)                   | Intel Core-i7       | GNU compiler (mingw) | Microsoft MPI |
+| Raspberry PI 3 B+    | Linux (raspbian 32bit)            | ARM Cortex-A53      | GNU compiler         | OpenMPI       |
+| Notebook PC          | macOS Mojave                      | Intel Core i7       | GNU Compiler         | OpenMPI       |
 

@@ -8,18 +8,18 @@
 定義できる変数は数多くありますが、ほとんどの変数については既定値をそのまま利用できます。
 多くの環境では、下記の変数以外を変更する必要はないと思われます。
 
-| 変数名 | 説明 |
-|:--|:--|
-| MPIDIR | MPIがインストールされているディレクトリ |
-| PREFIX | 本ソフトウェアの実行モジュールをインストールするディレクトリ |
-| METISDIR | METISがインストールされているディレクトリ |
-| PARMETISDIR | ParMETISがインストールされているディレクトリ |
-| REFINERDIR | REVOCAP_Refinerがインストールされているディレクトリ |
-| REVOCAPDIR |  REVOCAP_Couplerがインストールされているディレクトリ |
-| MUMPSDIR | MUMPSがインストールされているディレクトリ |
-| CC | Cコンパイラー起動コマンド |
-| CPP | C++コンパイラー起動コマンド |
-| F90 |Fortran90コンパイラー起動コマンド  |
+| 変数名      | 説明                                                         |
+|:------------|:-------------------------------------------------------------|
+| MPIDIR      | MPIがインストールされているディレクトリ                      |
+| PREFIX      | 本ソフトウェアの実行モジュールをインストールするディレクトリ |
+| METISDIR    | METISがインストールされているディレクトリ                    |
+| PARMETISDIR | ParMETISがインストールされているディレクトリ                 |
+| REFINERDIR  | REVOCAP_Refinerがインストールされているディレクトリ          |
+| REVOCAPDIR  | REVOCAP_Couplerがインストールされているディレクトリ          |
+| MUMPSDIR    | MUMPSがインストールされているディレクトリ                    |
+| CC          | Cコンパイラー起動コマンド                                    |
+| CPP         | C++コンパイラー起動コマンド                                  |
+| F90         | Fortran90コンパイラー起動コマンド                            |
 
 すべての変数の詳細については、「付録1 Makefile.confの変数一覧」をご参照ください。
 また、「付録2 Makefile.confの設定例」にMakefile.confの一例を記載します。
@@ -38,20 +38,20 @@ $ ./setup.sh
 
 #### setup.sh 実行時オプション
 
-| オプション | 意味 | 備考 |
-|:--|:--|:--|
-| -g または --debug | デバック用ライブラリの生成 |  |
-| -p または --parallel | 並列実行用ライブラリの生成 |  |
-| --with-tools | パーティショナーなどのツール生成 |  |
-| --with-refiner | REVOCAP_Refinerの組み込み |  |
-| --with-revocap | REVOCAP_Couplerの組み込み |  |
-| --with-metis | METISの使用 |  |
-| --with-parmetis | ParMETISの使用 | 現時点では無効 |
-| --with-mkl | Intel MKLの使用 |  |
-| --with-mumps | MUMPSの使用 |  |
-| --with-lapack | Lapackルーチンの使用 | 条件数推定機能を利用する場合に必要 |
-| --with-ml | MLの使用 |  |
-| --old-res-format | FrontISTRのresultファイルを旧フォーマットで出力 |  |
+| オプション           | 意味                                            | 備考                               |
+|:---------------------|:------------------------------------------------|:-----------------------------------|
+| -g または --debug    | デバック用ライブラリの生成                      |                                    |
+| -p または --parallel | 並列実行用ライブラリの生成                      |                                    |
+| --with-tools         | パーティショナーなどのツール生成                |                                    |
+| --with-refiner       | REVOCAP_Refinerの組み込み                       |                                    |
+| --with-revocap       | REVOCAP_Couplerの組み込み                       |                                    |
+| --with-metis         | METISの使用                                     |                                    |
+| --with-parmetis      | ParMETISの使用                                  | 現時点では無効                     |
+| --with-mkl           | Intel MKLの使用                                 |                                    |
+| --with-mumps         | MUMPSの使用                                     |                                    |
+| --with-lapack        | Lapackルーチンの使用                            | 条件数推定機能を利用する場合に必要 |
+| --with-ml            | MLの使用                                        |                                    |
+| --old-res-format     | FrontISTRのresultファイルを旧フォーマットで出力 |                                    |
 
 以下では、setup.sh 実行の例を示します。
 

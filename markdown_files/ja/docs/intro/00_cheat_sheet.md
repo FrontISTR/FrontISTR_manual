@@ -17,14 +17,14 @@ $ mpirun -np <4> fistr1
 
 ### 入出力
 
-|ファイルの種類|ファイル名|入出力|
-|:-|:-|:-|
-|全体制御ファイル|hecmw_ctrl.dat|入|
-|メッシュデータ|\<ModelName\>.msh|入|
-|解析制御データ|\<ModelName\>.cnt|入|
-|領域分割制御データ|hecmw_part_ctrl.dat|入|
-|ログファイル|\<0\>.log|出|
-|解析結果ファイル|\<ModelName\>.res|出|
+| ファイルの種類     | ファイル名          | 入出力 |
+|:-------------------|:--------------------|:-------|
+| 全体制御ファイル   | hecmw_ctrl.dat      | 入     |
+| メッシュデータ     | <ModelName>.msh     | 入     |
+| 解析制御データ     | <ModelName>.cnt     | 入     |
+| 領域分割制御データ | hecmw_part_ctrl.dat | 入     |
+| ログファイル       | <0>.log             | 出     |
+| 解析結果ファイル   | <ModelName>.res     | 出     |
 
 ### 全体制御ファイル
 
@@ -45,7 +45,7 @@ $ mpirun -np <4> fistr1
 
 ### 領域分割制御データ
 
-####(hecmw_part_ctrl.dat)
+#### (hecmw_part_ctrl.dat)
 
 ~~~
 !PARTITION, TYPE=NODE-BASED, METHOD=PMETIS, DOMAIN=<4>
@@ -95,22 +95,22 @@ $ mpirun -np <4> fistr1
 !END
 ~~~
 
-|変数名|物理量|対象|
-|:-|:-|:-|
-|DISP|変位|VIS,RES|
-|ROT|回転|VIS,RES|
-|REACTION|節点反力|VIS,RES|
-|NSTRAIN|節点ひずみ|VIS,RES|
-|NSTRESS|節点応力|VIS,RES|
-|NMISES|節点Mises応力|VIS,RES|
-|ESTRAIN|要素ひずみ|RES|
-|ESTRESS|要素応力|RES|
-|EMISES|要素Mises応力|RES|
-|ISTRAIN|積分点ひずみ|RES|
-|ISTRESS|積分点応力|RES|
-|PL_ISTRAIN|積分点塑性ひずみ|RES|
-|VEL|速度|VIS,RES|
-|ACC|加速度|VIS,RES|
+| 変数名     | 物理量           | 対象    |
+|:-----------|:-----------------|:--------|
+| DISP       | 変位             | VIS,RES |
+| ROT        | 回転             | VIS,RES |
+| REACTION   | 節点反力         | VIS,RES |
+| NSTRAIN    | 節点ひずみ       | VIS,RES |
+| NSTRESS    | 節点応力         | VIS,RES |
+| NMISES     | 節点Mises応力    | VIS,RES |
+| ESTRAIN    | 要素ひずみ       | RES     |
+| ESTRESS    | 要素応力         | RES     |
+| EMISES     | 要素Mises応力    | RES     |
+| ISTRAIN    | 積分点ひずみ     | RES     |
+| ISTRESS    | 積分点応力       | RES     |
+| PL_ISTRAIN | 積分点塑性ひずみ | RES     |
+| VEL        | 速度             | VIS,RES |
+| ACC        | 加速度           | VIS,RES |
 
 ### 解析制御ファイル（静解析）
 
@@ -224,11 +224,11 @@ $ mpirun -np <4> fistr1
  CONTACT, <GRPID>
 ~~~
 
-| 境界条件種類 | 属するカード |
-|:-|:-|
-| BOUNDARY | !BOUNDARY, !SPRING |
-| LOAD | !CLOAD, !DLOAD, !TEMPERATURE |
-| CONTACT | !CONTACT |
+| 境界条件種類 | 属するカード                 |
+|:-------------|:-----------------------------|
+| BOUNDARY     | !BOUNDARY, !SPRING           |
+| LOAD         | !CLOAD, !DLOAD, !TEMPERATURE |
+| CONTACT      | !CONTACT                     |
 
 ### 材料物性値
 
@@ -287,30 +287,30 @@ $ mpirun -np <4> fistr1
  <打切り誤差>, <対角成分倍率>, 0.0
 ~~~
 
-| 解法 | 備考 |
-|:-|:-|
-|CG||
-|BiCGSTAB||
-|GMRES|クリロフ部分空間数を設定すること|
-|GPBiCG||
-|DIRECT||
-|DIRECTmkl|接触解析で使う|
-|MUMPS||
+| 解法      | 備考                             |
+|:----------|:---------------------------------|
+| CG        |                                  |
+| BiCGSTAB  |                                  |
+| GMRES     | クリロフ部分空間数を設定すること |
+| GPBiCG    |                                  |
+| DIRECT    |                                  |
+| DIRECTmkl | 接触解析で使う                   |
+| MUMPS     |                                  |
 
-| 値 | 前処理 |
-|:-|:-|
-| 1,2 | SSOR |
-| 3 | Diagonal Scaling |
-| 5 | AMG |
-| 10 | Block ILU(0) |
-| 11 | Block ILU(1) |
-| 12 | Block ILU(2) |
+| 値  | 前処理           |
+|:----|:-----------------|
+| 1,2 | SSOR             |
+| 3   | Diagonal Scaling |
+| 5   | AMG              |
+| 10  | Block ILU(0)     |
+| 11  | Block ILU(1)     |
+| 12  | Block ILU(2)     |
 
-| 値 | MPC手法 |
-|:-|:-|
-| 1 | ペナルティ法 |
-| 2 | MPC-CG法 |
-| 3 | 陽的自由度消去法 |
+| 値 | MPC手法          |
+|:---|:-----------------|
+| 1  | ペナルティ法     |
+| 2  | MPC-CG法         |
+| 3  | 陽的自由度消去法 |
 
 ### ポスト処理（AVS用データ出力）
 
@@ -336,9 +336,9 @@ $ mpirun -np <4> fistr1
 
 ### 非線形解析
 
-| 解析の種類 | 関連するカード |
-|:-|:-|
-| 静解析 | !SOLUTION, TYPE=NLSTATIC<BR>!STEP |
-| 動解析 | !DYNAMIC, TYPE=NONLINEAR<BR>!STEP |
+| 解析の種類 | 関連するカード                                                    |
+|:-----------|:------------------------------------------------------------------|
+| 静解析     | !SOLUTION, TYPE=NLSTATIC<BR>!STEP                                 |
+| 動解析     | !DYNAMIC, TYPE=NONLINEAR<BR>!STEP                                 |
 | 材料非線形 | !MATERIAL<BR>!PLASTIC<BR>!HYPERELASTIC<BR>!VISCOELASTIC<BR>!CREEP |
 

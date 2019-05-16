@@ -23,7 +23,7 @@
 
 ### 解析結果
 
-温度のコンター図をREVOCAP\_PrePostで作成して図4.16.3に示します。また、解析結果の数値データとして、解析結果ログファイルの一部を以下に示します。
+温度のコンター図をREVOCAP_PrePostで作成して図4.16.3に示します。また、解析結果の数値データとして、解析結果ログファイルの一部を以下に示します。
 
 <div style="text-align: center;">
 <img src="./media/tutorial16_03.png" width="350px"><br>
