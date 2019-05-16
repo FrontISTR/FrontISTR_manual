@@ -18,8 +18,8 @@ markdown_extensions:
 #  - 'javascripts/extra.js'
 #  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
 
-#extra_css:
-#  - 'css/extra.css'
+extra_css:
+  - 'css/extra.css'
 
 nav:
 - HOME: index.md

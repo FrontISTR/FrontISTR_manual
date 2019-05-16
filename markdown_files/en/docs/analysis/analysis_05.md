@@ -88,47 +88,45 @@ The analysis control data consists of a header line, data line and a comment lin
 
 One header is always included in the header line.
 
-<dl>
-  <dt>Header</dt>
-  <dd>The header specifies the meaning of the data and the data block in the analysis control data. When the head of the term starts with a "`!`", it is considered to be a header.</dd>
+Header
+:  The header specifies the meaning of the data and the data block in the analysis control data. When the head of the term starts with a "`!`", it is considered to be a header.
 
-  <dt>Header Line</dt>
-    <dd>The header and the parameter accompanying this are described in this line.</dd>
-    <dd>The header line must start with a header. When a parameter is required, a "`,`" must be used to continue after that. When the parameter takes on a value, use an "`=`" after the parameter and describe the value after that.</dd>
-    <dd>The header line can not be described in more than two lines.</dd>
+Header Line
+:   The header and the parameter accompanying this are described in this line.
+:   The header line must start with a header. When a parameter is required, a "`,`" must be used to continue after that. When the parameter takes on a value, use an "`=`" after the parameter and describe the value after that.
+:   The header line can not be described in more than two lines.
 
-  <dt>Data Line</dt>
-    <dd>The data line starts after the header line, and the necessary data is described.</dd>
-    <dd>The data lines may be in multiple lines; however, this is determined according to the rules of the data description defined by each header.</dd>
-    <dd>There are cases where data lines are not required.</dd>
+Data Line
+:   The data line starts after the header line, and the necessary data is described.
+:   The data lines may be in multiple lines; however, this is determined according to the rules of the data description defined by each header.
+:   There are cases where data lines are not required.
 
-  <dt>Punctuation</dt>
-    <dd>A comma "`,`" is used as a punctuation of the data.</dd>
+Punctuation
+:   A comma "`,`" is used as a punctuation of the data.
 
-  <dt>Handling of Blanks</dt>
-    <dd>Blanks are disregarded.</dd>
+Handling of Blanks
+:   Blanks are disregarded.
 
-  <dt>Name</dt>
-    <dd>Regarding the characters which can be used for the name, there is the underscore "`_`", hyphen "`-`", and alphanumeric characters "`a - z, A - Z, 0 - 9`"; however, the first letter of the name must start with "`_`", or an alphabetic character "`a - z, A - Z`". There is no distinction between uppercase and lowercase letters, and all letters are internally handled as uppercase letters.</dd>
-    <dd>The maximum length of the name is 63 characters.</dd>
+Name
+:   Regarding the characters which can be used for the name, there is the underscore "`_`", hyphen "`-`", and alphanumeric characters "`a - z, A - Z, 0 - 9`"; however, the first letter of the name must start with "`_`", or an alphabetic character "`a - z, A - Z`". There is no distinction between uppercase and lowercase letters, and all letters are internally handled as uppercase letters.
+:   The maximum length of the name is 63 characters.
 
-  <dt>File Name</dt>
-    <dd>Regarding the characters which can be used for the file name, there are the underscore "`_`", hyphen "`-`", period "`.`", slash "`/`", and the alphanumeric characters "`a - z, A - Z, 0 - 9`".</dd>
-    <dd>As long as there is no specific description, a path can be included in the file name. Both the relative path and the absolute path can be specified.</dd>
-    <dd>The maximum length of the file name is 1,023 characters.</dd>
+File Name
+:   Regarding the characters which can be used for the file name, there are the underscore "`_`", hyphen "`-`", period "`.`", slash "`/`", and the alphanumeric characters "`a - z, A - Z, 0 - 9`".
+:   As long as there is no specific description, a path can be included in the file name. Both the relative path and the absolute path can be specified.
+:   The maximum length of the file name is 1,023 characters.
 
-  <dt>Floating Point Data</dt>
-    <dd>Exponents are optional. An "`E`" or "`e`" character must be added before the exponent.</dd>
-    <dd>The selection of "`E`" or "`e`" is optional.</dd>
+Floating Point Data
+:   Exponents are optional. An "`E`" or "`e`" character must be added before the exponent.
+:   The selection of "`E`" or "`e`" is optional.
 
-  <dt>`!!`, `#`, Comment Line</dt>
-    <dd>Lines starting with "`!!`" or "`#`" are considered to be comment lines, and are disregarded.</dd>
-    <dd>A comment line can be inserted in any position in the file, and there are no restrictions on the number of lines.</dd>
+`!!`, `#`, Comment Line
+:   Lines starting with "`!!`" or "`#`" are considered to be comment lines, and are disregarded.
+:   A comment line can be inserted in any position in the file, and there are no restrictions on the number of lines.
 
-  <dt>`!END`</dt>
-    <dd>End of mesh data</dd>
-    <dd>When this header is displayed, the reading of the mesh data is completed.</dd>
-</dl>
+`!END`
+:   End of mesh data
+:   When this header is displayed, the reading of the mesh data is completed.
 
 ### Analysis Control Data
 
@@ -155,84 +153,84 @@ The header list of the common control data is shown in the following Table 7.3.1
 ---
 **Table 7.3.1: Control Data Common to All Analysis**
 
-|Header         |Meaning                                                          |Remarks  |Description No.|
-|---------------|-----------------------------------------------------------------|---------|---------------|
-|`!VERSION`     |Solver version number                                            |         |1-1 |
-|`!SOLUTION`    |Specification of analysis type                                   |Mandatory|1-2 |
-|`!WRITE,VISUAL`|Specification of visualization output                            |         |1-3 |
-|`!WRITE,RESULT`|Specification of results output                                  |         |1-4 |
-|`!WRITE,LOG`   |Specification of results output                                  |         |1-5 |
-|`!OUTPUT_VIS`  |Control of visualization output items                            |         |1-6 |
-|`!OUTPUT_RES`  |Control of results output items                                  |         |1-7 |
-|`!RESTART`     |Control of restarting                                            |         |1-8 |
-|`!ECHO`        |Echo output                                                      |         |1-9 |
-|`!ORIENTATION` |Definition of local coordinate system                            |         |1-10|
-|`!SECTION`     |Definition of local coordinate system the sction correspondent to|         |1-11|
-|`!INITIAL_CONDITION` | Definition of initial condition                           |         |1-12|
-|`!END`         |Ending specification of control data                             |         |1-13|
+| Header               | Meaning                                                           | Remarks   | Description No. |
+|----------------------|-------------------------------------------------------------------|-----------|-----------------|
+| `!VERSION`           | Solver version number                                             |           | 1-1             |
+| `!SOLUTION`          | Specification of analysis type                                    | Mandatory | 1-2             |
+| `!WRITE,VISUAL`      | Specification of visualization output                             |           | 1-3             |
+| `!WRITE,RESULT`      | Specification of results output                                   |           | 1-4             |
+| `!WRITE,LOG`         | Specification of results output                                   |           | 1-5             |
+| `!OUTPUT_VIS`        | Control of visualization output items                             |           | 1-6             |
+| `!OUTPUT_RES`        | Control of results output items                                   |           | 1-7             |
+| `!RESTART`           | Control of restarting                                             |           | 1-8             |
+| `!ECHO`              | Echo output                                                       |           | 1-9             |
+| `!ORIENTATION`       | Definition of local coordinate system                             |           | 1-10            |
+| `!SECTION`           | Definition of local coordinate system the sction correspondent to |           | 1-11            |
+| `!INITIAL_CONDITION` | Definition of initial condition                                   |           | 1-12            |
+| `!END`               | Ending specification of control data                              |           | 1-13            |
 
 ---
 **Table 7.3.2: Control Data for Static Analysis**
 
-|Header             |Meaning                                                 |Remarks|Description No.|
-|-------------------|--------------------------------------------------------|-------|---------------|
-|`!STATIC`          |Static analysis control                                 |       |2-1            |
-|`!MATERIAL`        |Material name                                           |       |2-2            |
-|`!ELASTIC`         |Elastic material physical properties                    |       |2-2-1          |
-|`!PLASTIC`         |Plastic material physical properties                    |       |2-2-2          |
-|`!HYPERELASTIC`    |Hyperelastic material physical properties               |       |2-2-3          |
-|`!VISCOELASTIC`    |Viscoelastic material physical properties               |       |2-2-4          |
-|`!CREEP`           |Creep material physical properties                      |       |2-2-5          |
-|`!DENSITY`         |Mass density                                            |       |2-2-6          |
-|`!EXPANSION_COEFF` |Coefficient of linear expansion                         |       |2-2-7          |
-|`!TRS`             |Tempearture dependent behaviour of viscoelastic material|       |2-2-8          |
-|`!FLUID`           |Flow Condition                                          |       |2-2-9          |
-|`!USE_MATERIAL`    |User defined material                                   |       |2-2-10         |
-|`!BOUNDARY`        |Displacement boundary conditions                        |       |2-3            |
-|`!SPRING`          |Spring boundary conditions                              |       |2-3-1          |
-|`!CLOAD`           |Concentrated load                                       |       |2-4            |
-|`!DLOAD`           |Distributed load                                        |       |2-5            |
-|`!ULOAD`           |User defined external load                              |       |2-6            |
-|`!CONTACT_ALGO`    |Contact analytic algorithm                              |       |2-7            |
-|`!CONTACT`         |Contact                                                 |       |2-8            |
-|`!TEMPERATURE`     |Nodal temperature in thermal stress analysis            |       |2-9            |
-|`!REFTEMP`         |Reference temperature in thermal stress analysis        |       |2-10           |
-|`!STEP`            |Analysis step control                                   |       |2-11           |
+| Header             | Meaning                                                  | Remarks | Description No. |
+|--------------------|----------------------------------------------------------|---------|-----------------|
+| `!STATIC`          | Static analysis control                                  |         | 2-1             |
+| `!MATERIAL`        | Material name                                            |         | 2-2             |
+| `!ELASTIC`         | Elastic material physical properties                     |         | 2-2-1           |
+| `!PLASTIC`         | Plastic material physical properties                     |         | 2-2-2           |
+| `!HYPERELASTIC`    | Hyperelastic material physical properties                |         | 2-2-3           |
+| `!VISCOELASTIC`    | Viscoelastic material physical properties                |         | 2-2-4           |
+| `!CREEP`           | Creep material physical properties                       |         | 2-2-5           |
+| `!DENSITY`         | Mass density                                             |         | 2-2-6           |
+| `!EXPANSION_COEFF` | Coefficient of linear expansion                          |         | 2-2-7           |
+| `!TRS`             | Tempearture dependent behaviour of viscoelastic material |         | 2-2-8           |
+| `!FLUID`           | Flow Condition                                           |         | 2-2-9           |
+| `!USE_MATERIAL`    | User defined material                                    |         | 2-2-10          |
+| `!BOUNDARY`        | Displacement boundary conditions                         |         | 2-3             |
+| `!SPRING`          | Spring boundary conditions                               |         | 2-3-1           |
+| `!CLOAD`           | Concentrated load                                        |         | 2-4             |
+| `!DLOAD`           | Distributed load                                         |         | 2-5             |
+| `!ULOAD`           | User defined external load                               |         | 2-6             |
+| `!CONTACT_ALGO`    | Contact analytic algorithm                               |         | 2-7             |
+| `!CONTACT`         | Contact                                                  |         | 2-8             |
+| `!TEMPERATURE`     | Nodal temperature in thermal stress analysis             |         | 2-9             |
+| `!REFTEMP`         | Reference temperature in thermal stress analysis         |         | 2-10            |
+| `!STEP`            | Analysis step control                                    |         | 2-11            |
 
 ---
 **Table 7.3.3: Control Data for Eigenvalue Analysis**
 
-|Header  |Meaning                    |Remarks                         |Description No.|
-|--------|---------------------------|--------------------------------|---------------|
-|`!EIGEN`|Eigenvalue analysis control|Mandatory in eigenvalue analysis|3-1            |
+| Header   | Meaning                     | Remarks                          | Description No. |
+|----------|-----------------------------|----------------------------------|-----------------|
+| `!EIGEN` | Eigenvalue analysis control | Mandatory in eigenvalue analysis | 3-1             |
 
 ---
 **Table 7.3.4: Control Data for Heat Conduction Analysis**
 
-|Header      |Meaning                                                                  |Remarks   |Description No.|
-|------------|-------------------------------------------------------------------------|----------|---------------|
-|`!HEAT`     |Heat conduction analysis control                                         |Mandatory in heat conduction analysis| 4-1|
-|`!FIXTEMP`  |Nodal temperature                                                        || 4-2|
-|`!CFLUX`    |Concentrated heat flux given to node                                     || 4-3|
-|`!DFLUX`    |Distributed heat flux / internal heat generation given to element surface|| 4-4|
-|`!SFLUX`    |Distributed heat flux by surface group                                   || 4-5|
-|`!FILM`     |Heat transfer coefficient given to boundary plain                        || 4-6|
-|`!SFILM`    |Heat transfer coefficient by surface group                               || 4-7|
-|`!RADIATE`  |Radiation factor given to boundary plane                                 || 4-8|
-|`!SRADIATE` |Radiation factor by surface group                                        || 4-9|
-|`!WELD_LINE`|Weld line                                                                || 4-10|
+| Header       | Meaning                                                                   | Remarks                               | Description No. |
+|--------------|---------------------------------------------------------------------------|---------------------------------------|-----------------|
+| `!HEAT`      | Heat conduction analysis control                                          | Mandatory in heat conduction analysis | 4-1             |
+| `!FIXTEMP`   | Nodal temperature                                                         |                                       | 4-2             |
+| `!CFLUX`     | Concentrated heat flux given to node                                      |                                       | 4-3             |
+| `!DFLUX`     | Distributed heat flux / internal heat generation given to element surface |                                       | 4-4             |
+| `!SFLUX`     | Distributed heat flux by surface group                                    |                                       | 4-5             |
+| `!FILM`      | Heat transfer coefficient given to boundary plain                         |                                       | 4-6             |
+| `!SFILM`     | Heat transfer coefficient by surface group                                |                                       | 4-7             |
+| `!RADIATE`   | Radiation factor given to boundary plane                                  |                                       | 4-8             |
+| `!SRADIATE`  | Radiation factor by surface group                                         |                                       | 4-9             |
+| `!WELD_LINE` | Weld line                                                                 |                                       | 4-10            |
 
 ---
 **Table 7.3.5: Control Data for Dynamic Analysis**
 
-|Header         |Meaning                     |Remarks                      |Description No.|
-|---------------|----------------------------|-----------------------------|---------------|
-|`!DYNAMIC`     |Dynamic analysis control    |Mandatory in dynamic analysis|5-1|
-|`!VELOCITY`    |Velocity boundary conditions|                             |5-2|
-|`!ACCELERATION`|Acceleration boundary conditions|                         |5-3|
-|`!COUPLE`      |Coupled surface definition Required in coupled analysis|  |5-4|
-|`!EIGENREAD`   |Specification of eigenvalues and eigenvectors|Mandatory in frequency response analysis|5-5|
-|`!FLOAD`       |Definition of concentrated load for frequency response analysis ||5-6|
+| Header          | Meaning                                                         | Remarks                                  | Description No. |
+|-----------------|-----------------------------------------------------------------|------------------------------------------|-----------------|
+| `!DYNAMIC`      | Dynamic analysis control                                        | Mandatory in dynamic analysis            | 5-1             |
+| `!VELOCITY`     | Velocity boundary conditions                                    |                                          | 5-2             |
+| `!ACCELERATION` | Acceleration boundary conditions                                |                                          | 5-3             |
+| `!COUPLE`       | Coupled surface definition Required in coupled analysis         |                                          | 5-4             |
+| `!EIGENREAD`    | Specification of eigenvalues and eigenvectors                   | Mandatory in frequency response analysis | 5-5             |
+| `!FLOAD`        | Definition of concentrated load for frequency response analysis |                                          | 5-6             |
 
 In each header, there are data items which comply with the parameter and each header.
 
@@ -500,100 +498,100 @@ Node group name, or node ID and fixed temperature
 
 Definition of concentrated heat flux given to node
 
-|Node Group Name or Node ID|Heat Flux Value|
-|--------------------------|---------------|
-|NODE_GRP_NAME             |Value          |
-|<font color="Red">ALL</font>,|<font color="Red">1.0E-3</font>|
+| Node Group Name or Node ID    | Heat Flux Value                 |
+|-------------------------------|---------------------------------|
+| NODE_GRP_NAME                 | Value                           |
+| <font color="Red">ALL</font>, | <font color="Red">1.0E-3</font> |
 
 ###### 4-4 `!DFLUX`
 
 Definition of distributed heat flux and internal heat generation given to surface of element
 
-|Element Group Name or Element ID|Load Type No.|Heat Flux Value|
-|--------------------------------|-------------|---------------|
-|<font color="Red">ALL</font>,|<font color="Red">S1</font>,|<font color="Red">1.0</font>|
+| Element Group Name or Element ID | Load Type No.                | Heat Flux Value              |
+|----------------------------------|------------------------------|------------------------------|
+| <font color="Red">ALL</font>,    | <font color="Red">S1</font>, | <font color="Red">1.0</font> |
 
 **Load Parameter**
 
-|Load Type No.|Applied Surface|Parameter      |
-|-------------|---------------|---------------|
-|BF           |Element Overall|Calorific value|
-|S1           |Surface No. 1  |Heat flux value|
-|S2           |Surface No. 2  |Heat flux value|
-|S3           |Surface No. 3  |Heat flux value|
-|S4           |Surface No. 4  |Heat flux value|
-|S5           |Surface No. 5  |Heat flux value|
-|S6           |Surface No. 6  |Heat flux value|
-|S0           |Shell surface  |Heat flux value|
+| Load Type No. | Applied Surface | Parameter       |
+|---------------|-----------------|-----------------|
+| BF            | Element Overall | Calorific value |
+| S1            | Surface No. 1   | Heat flux value |
+| S2            | Surface No. 2   | Heat flux value |
+| S3            | Surface No. 3   | Heat flux value |
+| S4            | Surface No. 4   | Heat flux value |
+| S5            | Surface No. 5   | Heat flux value |
+| S6            | Surface No. 6   | Heat flux value |
+| S0            | Shell surface   | Heat flux value |
 
 ###### 4-5 `!SFLUX`
 
 Definition of distributed heat flux by surface group
 
-|Surface Group Name|Heat Flux Value|
-|------------------|---------------|
-|SURFACE_GRP_NAME  |Value          |
-|<font color="Red">SURF</font>,|<font color="Red">1.0</font>|
+| Surface Group Name             | Heat Flux Value              |
+|--------------------------------|------------------------------|
+| SURFACE_GRP_NAME               | Value                        |
+| <font color="Red">SURF</font>, | <font color="Red">1.0</font> |
 
 ###### 4-6 `!FILM`
 
 Definition of heat transfer coefficient given to boundary plane
 
-|Element Group Name or Element ID|Load Type No.|Heat Transfer Coefficient|Ambient Temperature|
-|--------------------------------|-------------|-------------------------|-------------------|
-|ELEMENT_GRP_NAME                |LOAD_type    |Value                    |Sink               |
-|<font color="Red">FSURF</font>, |<font color="Red">F1</font>,|<font color="Red">1.0</font>,|<font color="Red">800.0</font>|
+| Element Group Name or Element ID | Load Type No.                | Heat Transfer Coefficient     | Ambient Temperature            |
+|----------------------------------|------------------------------|-------------------------------|--------------------------------|
+| ELEMENT_GRP_NAME                 | LOAD_type                    | Value                         | Sink                           |
+| <font color="Red">FSURF</font>,  | <font color="Red">F1</font>, | <font color="Red">1.0</font>, | <font color="Red">800.0</font> |
 
 **Load Parameter**
 
-|Load Type No.|Applied Surface|Parameter                             |
-|-------------|---------------|--------------------------------------|
-|F1| Surface No. 1| Heat transfer coefficient and ambient temperature|
-|F2| Surface No. 2| Heat transfer coefficient and ambient temperature|
-|F3| Surface No. 3| Heat transfer coefficient and ambient temperature|
-|F4| Surface No. 4| Heat transfer coefficient and ambient temperature|
-|F5| Surface No. 5| Heat transfer coefficient and ambient temperature|
-|F6| Surface No. 6| Heat transfer coefficient and ambient temperature|
-|F0| Shell surface| Heat transfer coefficient and ambient temperature|
+| Load Type No. | Applied Surface | Parameter                                         |
+|---------------|-----------------|---------------------------------------------------|
+| F1            | Surface No. 1   | Heat transfer coefficient and ambient temperature |
+| F2            | Surface No. 2   | Heat transfer coefficient and ambient temperature |
+| F3            | Surface No. 3   | Heat transfer coefficient and ambient temperature |
+| F4            | Surface No. 4   | Heat transfer coefficient and ambient temperature |
+| F5            | Surface No. 5   | Heat transfer coefficient and ambient temperature |
+| F6            | Surface No. 6   | Heat transfer coefficient and ambient temperature |
+| F0            | Shell surface   | Heat transfer coefficient and ambient temperature |
 
 ###### 4-7 `!SFILM`
 
 Definition of heat transfer coefficient by surface group
 
-|Surface Group Name|Heat Transfer Rate|Ambient Temperature|
-|------------------|------------------|-------------------|
-|SURFACE_GRP_NAME  |Value             |Sink               |
-|<font color="Red">SFSURF</font>,|<font color="Red">1.0</font>,|<font color="Red">800.0</font>|
+| Surface Group Name               | Heat Transfer Rate            | Ambient Temperature            |
+|----------------------------------|-------------------------------|--------------------------------|
+| SURFACE_GRP_NAME                 | Value                         | Sink                           |
+| <font color="Red">SFSURF</font>, | <font color="Red">1.0</font>, | <font color="Red">800.0</font> |
 
 ###### 4-8 `!RADIATE`
 
 Definition of radiation factor given to boundary plane
 
-|Element Group Name or Element ID|Load Type No.|Radiation Factor|Ambient Temperature|
-|--------------------------------|-------------|----------------|-------------------|
-|ELEMENT_GRP_NAME                |LOAD_type    |Value           |Sink               |
-|<font color="Red">RSURF</font>,|<font color="Red">R1</font>,|<font color="Red">1.0E-9</font>,|<font color="Red">800.0</font>|
+| Element Group Name or Element ID | Load Type No.                | Radiation Factor                 | Ambient Temperature            |
+|----------------------------------|------------------------------|----------------------------------|--------------------------------|
+| ELEMENT_GRP_NAME                 | LOAD_type                    | Value                            | Sink                           |
+| <font color="Red">RSURF</font>,  | <font color="Red">R1</font>, | <font color="Red">1.0E-9</font>, | <font color="Red">800.0</font> |
 
 **Load Parameter**
 
-|Load Type No.| Applied Surface| Parameter|
-|-------------|----------------|----------|
-|R1| Surface No. 1| Radiation factor and ambient temperature|
-|R2| Surface No. 2| Radiation factor and ambient temperature|
-|R3| Surface No. 3| Radiation factor and ambient temperature|
-|R4| Surface No. 4| Radiation factor and ambient temperature|
-|R5| Surface No. 5| Radiation factor and ambient temperature|
-|R6| Surface No. 6| Radiation factor and ambient temperature|
-|R0| Shell surface| Radiation factor and ambient temperature|
+| Load Type No. | Applied Surface | Parameter                                |
+|---------------|-----------------|------------------------------------------|
+| R1            | Surface No. 1   | Radiation factor and ambient temperature |
+| R2            | Surface No. 2   | Radiation factor and ambient temperature |
+| R3            | Surface No. 3   | Radiation factor and ambient temperature |
+| R4            | Surface No. 4   | Radiation factor and ambient temperature |
+| R5            | Surface No. 5   | Radiation factor and ambient temperature |
+| R6            | Surface No. 6   | Radiation factor and ambient temperature |
+| R0            | Shell surface   | Radiation factor and ambient temperature |
 
 ###### 4-9 `!SRADIATE`
 
 Definition of radiation factor by surface group
 
-|Surface Group Name|Radiation Factor|Ambient Temperature|
-|------------------|----------------|-------------------|
-|SURFACE_GRP_NAME  |Value           |Sink               |
-|<font color="Red">SRSURF</font>,|<font color="Red">1.0E-9</font>,|<font color="Red">800.0</font>|
+| Surface Group Name               | Radiation Factor                 | Ambient Temperature            |
+|----------------------------------|----------------------------------|--------------------------------|
+| SURFACE_GRP_NAME                 | Value                            | Sink                           |
+| <font color="Red">SRSURF</font>, | <font color="Red">1.0E-9</font>, | <font color="Red">800.0</font> |
 
 #### (5) Dynamic analysis control data
 
@@ -628,30 +626,30 @@ Definition of radiation factor by surface group
 
 Controlling the linear dynamic analysis
 
-|Solution of Equation of Motion|Analysis Types|
-|------------------------------|--------------|
-|idx_eqa                       |idx_resp      |
-|<font color="Red">11</font>   |<font color="Red">1</font>|
+| Solution of Equation of Motion | Analysis Types             |
+|--------------------------------|----------------------------|
+| idx_eqa                        | idx_resp                   |
+| <font color="Red">11</font>    | <font color="Red">1</font> |
 
-|Analysis Start Time|Analysis End Time|Overall No. of STEPS|Time Increment|
-|-------------------|-----------------|--------------------|--------------|
-|t_start            |t_end            |n_step              |t_delta       |
-|<font color="Red">0.0</font>|<font color="Red">1.0</font>|<font color="Red">500</font>|<font color="Red">1.0000e-5</font>|
+| Analysis Start Time          | Analysis End Time            | Overall No. of STEPS         | Time Increment                     |
+|------------------------------|------------------------------|------------------------------|------------------------------------|
+| t_start                      | t_end                        | n_step                       | t_delta                            |
+| <font color="Red">0.0</font> | <font color="Red">1.0</font> | <font color="Red">500</font> | <font color="Red">1.0000e-5</font> |
 
-|Parameter &gamma; of Newmark-&beta; Method|Parameter &beta; of Newmark-&beta; Method|
-|------------------------------------------|-----------------------------------------|
-|gamma                                     |beta                                     |
-|<font color="Red">0.5</font>              |<font color="Red">0.25</font>            |
+| Parameter $\gamma$ of Newmark-$\beta$ Method | Parameter $\beta$ of Newmark-$\beta$ Method |
+|----------------------------------------------|---------------------------------------------|
+| gamma                                        | beta                                        |
+| <font color="Red">0.5</font>                 | <font color="Red">0.25</font>               |
 
-|Type of Mass Matrix |Type of Damping |Parameter R<sub>m</sub> of Rayleigh Damping |Parameter of R<sub>k</sub> of Rayleigh Damping |
-|--------------------|----------------|--------------------------------------------|-----------------------------------------------|
-|idx_mass            |idx_dmp         |ray_m                                       |ray_k                                          |
-|<font color="Red">1</font>|<font color="Red">1</font>|<font color="Red">0.0</font>|<font color="Red">0.0</font>                   |
+| Type of Mass Matrix        | Type of Damping            | Parameter $R_m$ of Rayleigh Damping | Parameter of $R_k$ of Rayleigh Damping |
+|----------------------------|----------------------------|-------------------------------------|----------------------------------------|
+| idx_mass                   | idx_dmp                    | ray_m                               | ray_k                                  |
+| <font color="Red">1</font> | <font color="Red">1</font> | <font color="Red">0.0</font>        | <font color="Red">0.0</font>           |
 
-|Resules Output Interval |Monitoring Node ID or Node Group Name |Results Output Interval of Displacement Monitoring |
-|------------------------|--------------------------------------|---------------------------------------------------|
-|nout                    |node_monit_1                          |nout_monit                                         |
-|<font color="Red">100</font>|<font color="Red">55</font>       |<font color="Red">nout_monit</font>                |
+| Resules Output Interval      | Monitoring Node ID or Node Group Name | Results Output Interval of Displacement Monitoring |
+|------------------------------|---------------------------------------|----------------------------------------------------|
+| nout                         | node_monit_1                          | nout_monit                                         |
+| <font color="Red">100</font> | <font color="Red">55</font>           | <font color="Red">nout_monit</font>                |
 
 |Output Control Displacement|Output Control Velocity|Output Control Acceleration|Output Control Reaction Force|Output Control Strain|Output Control Stress|
 |---------------------------|-----------------------|---------------------------|-----------------------------|---------------------|---------------------|
@@ -662,26 +660,26 @@ Controlling the linear dynamic analysis
 
 Definition of displacement boundary conditions
 
-|Node ID or Node Group Name|Start No. of Restricted Degree of Freedom|End No. of Restricted Degree of Freedom|Restricted Value|
-|--------------------------|-----------------------------------------|---------------------------------------|----------------|
-|NODE_ID                   |DOF_idS                                  |DOF_idE                                |Value           |
-|<font color="Red">FIX</font>,|<font color="Red">1</font>,|<font color="Red">3</font>,|<font color="Red">0.0</font>|
+| Node ID or Node Group Name    | Start No. of Restricted Degree of Freedom | End No. of Restricted Degree of Freedom | Restricted Value             |
+|-------------------------------|-------------------------------------------|-----------------------------------------|------------------------------|
+| NODE_ID                       | DOF_idS                                   | DOF_idE                                 | Value                        |
+| <font color="Red">FIX</font>, | <font color="Red">1</font>,               | <font color="Red">3</font>,             | <font color="Red">0.0</font> |
 
 ###### 2-4 `!CLOAD` (Same items as in Static Analysis)
 
 Definition of concentrated load
 
-|Node ID or Node Group Name|Degree of Freedom No.|Load Value|
-|--------------------------|---------------------|----------|
-|<font color="Red">CL1</font>,|<font color="Red">3</font>,|<font color="Red">-1.0</font>|
+| Node ID or Node Group Name    | Degree of Freedom No.       | Load Value                    |
+|-------------------------------|-----------------------------|-------------------------------|
+| <font color="Red">CL1</font>, | <font color="Red">3</font>, | <font color="Red">-1.0</font> |
 
 ###### 5-4 `!COUPLE, TYPE=1`
 
 Definition of coupled surface
 
-|Coupling Surface Group Name|
-|---------------------------|
-|<font color="Red">SCOUPLE</font>|
+| Coupling Surface Group Name      |
+|----------------------------------|
+| <font color="Red">SCOUPLE</font> |
 
 ###### 2-11 `!STEP, CONVERG=1.E-10, ITMAX=20`
 
@@ -689,10 +687,10 @@ Control of nonlinear static analysis
 
 (Omissible in the case of linear analysis, and unnecessary for explicit method)
 
-|Convergence Value Judgment Threshold (Default: 1.0E-06)|No. of Sub Steps (When AMP exists, AMP has priority)|Max No. of Iterative Calculations|
-|-------------------------------------------------------|----------------------------------------------------|---------------------------------|
-|CONVERG                                                |SUBSTEPS                                            |ITMAX                            |
-|<font color="Red">1.0E-10</font>                       |                                                    |<font color="Red">20</font>      |
+| Convergence Value Judgment Threshold (Default: 1.0E-06) | No. of Sub Steps (When AMP exists, AMP has priority) | Max No. of Iterative Calculations |
+|---------------------------------------------------------|------------------------------------------------------|-----------------------------------|
+| CONVERG                                                 | SUBSTEPS                                             | ITMAX                             |
+| <font color="Red">1.0E-10</font>                        |                                                      | <font color="Red">20</font>       |
 
 #### (6) Dynamic analysis (Frequency Response Analysis) Control Data
 
@@ -725,29 +723,29 @@ Control of nonlinear static analysis
 
 Controlling the frequency response analysis
 
-|Solution of Equation of Motion|Analysis Types|
-|------------------------------|--------------|
-|idx_eqa                       |idx_resp      |
-|<font color="Red">11</font>   |<font color="Red">2</font>|
+| Solution of Equation of Motion | Analysis Types             |
+|--------------------------------|----------------------------|
+| idx_eqa                        | idx_resp                   |
+| <font color="Red">11</font>    | <font color="Red">2</font> |
 
-|Minimum Frequency|Maximum Frequency|Number of divisions for the frequency range|Frequency to obtain displacement|
-|-----------------|-----------------|-------------------------------------------|--------------------------------|
-|f_start          |f_end            |n_freq                                     |f_disp                          |
-|<font color="Red">14000</font>|<font color="Red">16000</font>|<font color="Red">20</font>|<font color="Red">15000.0</font>|
+| Minimum Frequency              | Maximum Frequency              | Number of divisions for the frequency range | Frequency to obtain displacement |
+|--------------------------------|--------------------------------|---------------------------------------------|----------------------------------|
+| f_start                        | f_end                          | n_freq                                      | f_disp                           |
+| <font color="Red">14000</font> | <font color="Red">16000</font> | <font color="Red">20</font>                 | <font color="Red">15000.0</font> |
 
-|Analysis Start Time|Analysis End Time|
-|-------------------|-----------------|
-|<font color="Red">0.0</font>|<font color="Red">6.6e-5</font>|
+| Analysis Start Time          | Analysis End Time               |
+|------------------------------|---------------------------------|
+| <font color="Red">0.0</font> | <font color="Red">6.6e-5</font> |
 
-|Type of Mass Matrix|Type of Damping|Parameter R<sub>m</sub> of Rayleigh Damping|Parameter R<sub>k</sub> of Rayleigh Damping|
-|-------------------|---------------|-------------------------------------------|-------------------------------------------|
-|idx_mass           |idx_dmp        |ray_m                                      |ray_k                                      |
-|<font color="Red">1</font>|<font color="Red">1</font>|<font color="Red">0.0</font>|<font color="Red">7.2E-7</font>|
+| Type of Mass Matrix        | Type of Damping            | Parameter $R_m$ of Rayleigh Damping | Parameter $R_k$ of Rayleigh Damping |
+|----------------------------|----------------------------|-------------------------------------|-------------------------------------|
+| idx_mass                   | idx_dmp                    | ray_m                               | ray_k                               |
+| <font color="Red">1</font> | <font color="Red">1</font> | <font color="Red">0.0</font>        | <font color="Red">7.2E-7</font>     |
 
-|Results Output Interval in Time Domain|Visualization Type<br/>(1-Mode shapes,<br/>2-Time history result at f_disp)|Monitoring Node ID in Frequency Domain|
-|--------------------------------------|---------------------------------------------------------------------------|--------------------------------------|
-|nout                                  |vistype                                                                    |nodeout                               |
-|<font color="Red">10</font>           |<font color="Red">2</font>                                                 |<font color="Red">1</font>            |
+| Results Output Interval in Time Domain | Visualization Type<br/>(1-Mode shapes,<br/>2-Time history result at f_disp) | Monitoring Node ID in Frequency Domain |
+|----------------------------------------|-----------------------------------------------------------------------------|----------------------------------------|
+| nout                                   | vistype                                                                     | nodeout                                |
+| <font color="Red">10</font>            | <font color="Red">2</font>                                                  | <font color="Red">1</font>             |
 
 |Output Control<br/>Displacement|Output Control<br/>Velocity|Output Control<br/>Acceleration|Output Control<br/>ignored|Output Control<br/>ignored|Output Control<br/>ignored|
 |-------------------------------|---------------------------|-------------------------------|--------------------------|--------------------------|--------------------------|
@@ -758,10 +756,10 @@ Controlling the frequency response analysis
 
 Controlling the input file for frequency response analysis
 
-|The name of eigenvalue analysis log|
-|-----------------------------------|
-|eigenlog_filename                  |
-|<font color="Red">eigen0.log       |
+| The name of eigenvalue analysis log |
+|-------------------------------------|
+| eigenlog_filename                   |
+| <font color="Red">eigen0.log</font> |
 
 |lowest mode to be used in frequency response analysis|highest mode to be used frequency response analysis|
 |-----------------------------------------------------|---------------------------------------------------|
@@ -772,9 +770,9 @@ Controlling the input file for frequency response analysis
 
 Defining external forces applied in frequency response analysis
 
-|Node ID, Node Group Name<br/> or Surface Group Name|Degree of Freedom No.|Load Value|
-|----------------------------------------------|---------------------|----------|
-|<font color="Red">_PickedSet5</font> |<font color="Red">2</font> |<font color="Red">1.0</font> |
+| Node ID, Node Group Name<br/> or Surface Group Name | Degree of Freedom No.      | Load Value                   |
+|-----------------------------------------------------|----------------------------|------------------------------|
+| <font color="Red">_PickedSet5</font>                | <font color="Red">2</font> | <font color="Red">1.0</font> |
 
 ### Solver Control Data
 
@@ -819,16 +817,16 @@ ESTCOND   = frequency for estimating condition number
 
 ###### 6-2
 
-|No. of Iterations|Iteration Count of Preconditioning|No. of Krylov Subspaces|No. of Colors for Multi-Color ordering|
-|-----------------|----------------------------------|-----------------------|--------------------------------------|
-|NIER             |iterPREMAX                        |NREST                  |NCOLOR_IN                             |
-|<font color="Red">10000</font>|<font color="Red">10000</font>|              |                                      |
+| No. of Iterations              | Iteration Count of Preconditioning | No. of Krylov Subspaces | No. of Colors for Multi-Color ordering |
+|--------------------------------|------------------------------------|-------------------------|----------------------------------------|
+| NIER                           | iterPREMAX                         | NREST                   | NCOLOR_IN                              |
+| <font color="Red">10000</font> | <font color="Red">10000</font>     |                         |                                        |
 
 ###### 6-3
 
-|Truncation Error|Scale Factor for Diagonal Elements<br/>when computing Preconditioning Matrix|Not Used|
-|----------------|------------------------------------------------------------------------|--------|
-|<font color="Red">1.0e-8</font>,|<font color="Red">1.0</font>,       |<font color="Red">0.0</font>|
+| Truncation Error                 | Scale Factor for Diagonal Elements<br/>when computing Preconditioning Matrix | Not Used                     |
+|----------------------------------|------------------------------------------------------------------------------|------------------------------|
+| <font color="Red">1.0e-8</font>, | <font color="Red">1.0</font>,                                                | <font color="Red">0.0</font> |
 
 ### Post Process (Visualization) Control Data
 
@@ -838,7 +836,7 @@ An example of the post process (visualization) control data and the contents are
 
 Each description number (P1-0, P1-1, etc.) is linked to the number of the detailed descriptions in the following.
 
-  - P1-&#9675; expresses the common data, and P2-&E9675; expresses the parameter for the purpose of the rendering.<br/>In addition, the rendering will become valid only when the `output_type=BMP`.
+  - P1-&#9675; expresses the common data, and P2-&#9675; expresses the parameter for the purpose of the rendering.<br/>In addition, the rendering will become valid only when the `output_type=BMP`.
   - When the surface_style is `!surface_style = 2` (isosurface) `!surface_style = 3` (user specified curved surface), a separate setting is required. The data is indicated collectively after the common data.<br/>(P3-&#9675; is a description of the isosurface in `!surface_style = 2`. P4-&#9675; is a description of the user specified curved surface in `!surface_style = 3`.)
   - The items indicated with two `!` like "`!!`", will be recognized as a comment and will not affect the analysis.
 

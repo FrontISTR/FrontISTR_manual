@@ -8,16 +8,16 @@ A list of actual model verification examples for elastic static analysis are pre
 Table 9.2.1: Actual model verification examples for elastic static analysis
 </div>
 
-| Case name | Element type | Verification model | Number of nodes | Freedom freequency |
-|:--|:--|:--|:--|:--|
-| EX01A    | 342        | Connecting rod (100,000 nodes) | 94,074  | 282,222 |
-| EX01B    | 342        | Connecting rod (330,000 nodes) | 331,142 | 993,426 |
-| EX02     | 361        | Block with hole | 37,386  | 112,158 |
-| EX03     | 342        | Turbine blade | 10,095  | 30,285 |
-| EX04     | 741        | Cylindrical shell | 10,100  | 60,600 |
-| EX05A    | 731        | Wine glass (coarse) | 7,240   | 43,440 |
-| EX05B    | 731        | Wine glass (midium) | 48,803  | 292,818 |
-| EX05C    | 731        | Wine glass (fine)   | 100,602 | 603,612 |
+| Case name | Element type | Verification model             | Number of nodes | Freedom freequency |
+|:----------|:-------------|:-------------------------------|:----------------|:-------------------|
+| EX01A     | 342          | Connecting rod (100,000 nodes) | 94,074          | 282,222            |
+| EX01B     | 342          | Connecting rod (330,000 nodes) | 331,142         | 993,426            |
+| EX02      | 361          | Block with hole                | 37,386          | 112,158            |
+| EX03      | 342          | Turbine blade                  | 10,095          | 30,285             |
+| EX04      | 741          | Cylindrical shell              | 10,100          | 60,600             |
+| EX05A     | 731          | Wine glass (coarse)            | 7,240           | 43,440             |
+| EX05B     | 731          | Wine glass (midium)            | 48,803          | 292,818            |
+| EX05C     | 731          | Wine glass (fine)              | 100,602         | 603,612            |
 
 <div style="text-align: center;">
 <img src="./media/example02_01.png" width="250px"><br>
@@ -124,13 +124,13 @@ Fig. 9.2.14: Speed-increasing effect because of area division
 Table 9.2.3: Comparison of calculation time with different computers (one CPU) 
 </div>
 
-|CPU | Frequancy [GHz] | OS | CPU Time [sec] | solver time [sec] |
-|:--|:--|:--|:--|:--|
-| Xeon        | 2.8   | Linux   | 850  | 817 |
-| Pentium III | 0.866 | Win2000 | 2008 | 1980 |
-| Pentium M   | 0.760 | WinXP   | 1096 | 1070 |
-| Pentium 4   | 2.0   | WinXP   | 802  | 785 |
-| Pentium 4   | 2.8   | WinXP   | 738  | 718 |
-| Celeron     | 0.700 | Win2000 | 2252 | 2215 |
-| Pentium 4   | 2.4   | WinXP   | 830  | 804 |
+| CPU         | Frequancy [GHz] | OS      | CPU Time [sec] | solver time [sec] |
+|:------------|:----------------|:--------|:---------------|:------------------|
+| Xeon        | 2.8             | Linux   | 850            | 817               |
+| Pentium III | 0.866           | Win2000 | 2008           | 1980              |
+| Pentium M   | 0.760           | WinXP   | 1096           | 1070              |
+| Pentium 4   | 2.0             | WinXP   | 802            | 785               |
+| Pentium 4   | 2.8             | WinXP   | 738            | 718               |
+| Celeron     | 0.700           | Win2000 | 2252           | 2215              |
+| Pentium 4   | 2.4             | WinXP   | 830            | 804               |
 
