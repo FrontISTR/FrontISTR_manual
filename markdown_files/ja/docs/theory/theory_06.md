@@ -194,3 +194,6 @@ b_{jI} = \frac{ U^T_j F_I(\omega^2_j - \Omega^2) - U^T_j F_R(\alpha + \beta \ome
 $$
 
 となる。
+
+
+

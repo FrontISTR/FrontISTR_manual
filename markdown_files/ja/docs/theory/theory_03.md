@@ -204,4 +204,8 @@ $$
 U( t + \Delta t ) \\\
 = \frac{1}{( \frac{1}{\Delta t^{2}} M + \frac{1}{2\Delta t} C )} \{ F(t) - Q(t) - \frac{1}{\Delta t^{2}} M U(t) - U(t - \Delta t) - \frac{1}{2\Delta t} C U(t - \Delta t) \}
 \label{eq:2.5.17}
-\end{equation}$$
+\end{equation}
+$$
+
+
+

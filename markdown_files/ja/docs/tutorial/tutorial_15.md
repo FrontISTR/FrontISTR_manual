@@ -19,3 +19,5 @@
 <img src="./media/tutorial15_01.png" width="350px"><br>
 図4.15.1　スプリングの3次振動モード
 </div>
+
+

@@ -52,3 +52,5 @@ Fig. 9.4.6: Distributed model diagram
 <img src="./media/example04_07.png" width="512px"><br>
 Fig. 9.4.7: Speed improvement degree because of dispersion treatment
 </div>
+
+

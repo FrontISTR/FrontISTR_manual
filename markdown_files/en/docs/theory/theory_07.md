@@ -9,3 +9,4 @@
   - Hayato Togawa, Oscillation analysis with the finite element method, SAIENSU-SHA (1997) (in Japanese)
   - Genki Yagawa, Noriyuki Miyazaki, Thermal Stress and creep with the finite element method, Heat Conduction Analysis, SAIENSU-SHA (1985) (in Japanese)
 
+

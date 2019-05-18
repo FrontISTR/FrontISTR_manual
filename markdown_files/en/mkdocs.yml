@@ -10,12 +10,13 @@ use_directory_urls: false
 markdown_extensions:
     - attr_list
     - def_list
+    - mdx_math
 
 #plugins:
 #  - pdf-export
 
-#extra_javascript:
-#  - 'javascripts/extra.js'
+extra_javascript:
+  - 'javascripts/extra.js'
 #  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
 
 extra_css:

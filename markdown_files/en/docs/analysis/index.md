@@ -21,7 +21,6 @@ This software is the outcome of "Research and Development of Innovative Simulati
   - [Tutorial](../tutorial/index.md)
 
 <!-- ここまでテンプレート -->
----
 
 This manual describes the analysis method by the finite element method (FEM) used in FrontISTR. 
 
@@ -41,4 +40,5 @@ Regarding the stress analysis method of solids, the infinitesimal deformation li
     - [Restart Data](analysis_05.md)
     - [Visualization Data](analysis_05.md)
 - [User Subroutines](analysis_06.md)
+
 

@@ -25,3 +25,5 @@
 <img src="./media/tutorial11_02.png" width="350px"><br>
 図4.11.2　変形およびミーゼス応力の解析結果
 </div>
+
+

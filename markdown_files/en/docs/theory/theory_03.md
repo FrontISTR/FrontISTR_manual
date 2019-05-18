@@ -63,9 +63,9 @@ If Eq.$\eqref{eq:2.5.2}$ and Eq.$\eqref{eq:2.5.3}$ are substituted into Eq.$\eqr
 $$
 \begin{align}
 \nonumber \left( \frac{1}{\beta \Delta t^2} \mathbf{M} + \frac{\gamma}{\beta \Delta t} C + K \right) \Delta U ( t + \Delta t ) &= F ( t + \Delta t )
-- Q ( t + \Delta t ) \\\
+- Q ( t + \Delta t ) \\
 \nonumber &+ \frac{1}{\beta \Delta t} M \dot{U} ( t )
-           + \frac{1 - 2\beta}{2\beta} M \ddot{U} ( t ) \\\
+           + \frac{1 - 2\beta}{2\beta} M \ddot{U} ( t ) \\
 &+ \frac{\gamma - \beta}{\beta} C \dot{U} (t)
            + \Delta t \frac{\gamma - 2\beta}{2 \beta} C \ddot{U}(t)
 \label{eq:2.5.4}
@@ -102,7 +102,7 @@ In the portion, where the acceleration is specified as a geometric boundary cond
 
 $$
 \begin{equation}
-u_{is} (t+\Delta{t}) = u_{is} (t) + \Delta t\, \dot{u}\_{is}(t) + (\Delta t)^2 \left(\frac{1}{2} -\beta \right) {\ddot{u}}_{is}(t) + (\Delta t)^2 \beta \ddot{u}\_{is}(t + \Delta t)
+u_{is} (t+\Delta{t}) = u_{is} (t) + \Delta t\, \dot{u}_{is}(t) + (\Delta t)^2 \left(\frac{1}{2} -\beta \right) {\ddot{u}}_{is}(t) + (\Delta t)^2 \beta \ddot{u}_{is}(t + \Delta t)
 \label{eq:2.5.6}
 \end{equation}
 $$
@@ -111,8 +111,8 @@ Similarly, if the speed is specified, the displacement of the following equation
 
 $$
 \begin{equation}
-u\_{is}(t+\Delta t) = u\_{is}(t) + \Delta t \frac{\gamma-\beta}{\gamma}\dot{u}\_{is}
-+ (\Delta t)^2 \frac{\gamma-2\beta}{2\gamma} \ddot{u}\_{is} + \Delta t \frac{\beta}{\gamma} \dot{u}\_{is}(t+\Delta t)
+u_{is}(t+\Delta t) = u_{is}(t) + \Delta t \frac{\gamma-\beta}{\gamma}\dot{u}_{is}
++ (\Delta t)^2 \frac{\gamma-2\beta}{2\gamma} \ddot{u}_{is} + \Delta t \frac{\beta}{\gamma} \dot{u}_{is}(t+\Delta t)
 \label{eq:2.5.7}
 \end{equation}
 $$
@@ -220,13 +220,14 @@ Therefore, from Eq.$\eqref{eq:2.5.15}$, $U(t+\Delta t)$ can be determined by the
 
 $$
 \begin{equation}
-U(t + \Delta t)  =
-\frac{1}{\left(\cfrac{1}{\Delta t^2}M + \cfrac{1}{2\Delta t}C\right)}
-\left \\{
+U(t + \Delta t)  = \\
+\frac{1}{\left(\cfrac{1}{\Delta t^2}M + \cfrac{1}{2\Delta t}C\right)} \\
+\left \{
 F(t) - Q(t) - \frac{1}{\Delta t^2} M [2U(t) - U(t-\Delta t)] - \frac{1}{2\Delta t} C(t-\Delta t) U
-\right \\}
+\right \}
 \label{eq:2.5.17}
 \end{equation}
 $$
+
 
 

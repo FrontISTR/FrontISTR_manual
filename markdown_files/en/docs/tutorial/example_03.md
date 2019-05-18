@@ -124,3 +124,4 @@ Fig. 9.3.6: EX09, cylindrical shell vibration mode
 Fig. 9.3.7: EX10A Wine Glass Vibration Mode
 </div>
 
+

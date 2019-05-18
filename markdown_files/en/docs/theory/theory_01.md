@@ -205,3 +205,5 @@ U = \overline{U}
 $$
 
 By solving Eq.$\eqref{eq:2.1.18}$ based on the constraint condition Eq.$\eqref{eq:2.1.19}$, it is possible to define the node displacement $U$.
+
+

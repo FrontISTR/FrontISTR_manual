@@ -195,3 +195,4 @@ $ cmake -DCMAKE_BUILD_TYPE="DEBUG" -DDEBUG_EXTRA=ON ..
 
 とすると、メモリリークなどの検出に役立ちます。
 
+

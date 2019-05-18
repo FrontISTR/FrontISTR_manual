@@ -21,7 +21,6 @@ This software is the outcome of "Research and Development of Innovative Simulati
   - [Tutorial](../tutorial/index.md)
 
 <!-- ここまでテンプレート -->
----
 
 This manual explains the installation procedure for a large-scale structural analysis program using the finite element method (FEM), FrontISTR.
 
@@ -39,4 +38,5 @@ This manual explains the installation procedure for a large-scale structural ana
     - [Example of installation procedure to CentOS7.6 (Makefile.conf)](install_08.md)
     - [Example of installation procedure to Ubuntu18.04 (Makefile.conf)](install_10.md)
     - [Example of installation procedure to Windows10 (Makefile.conf)](install_11.md)
+
 

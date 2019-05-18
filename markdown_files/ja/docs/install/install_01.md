@@ -140,3 +140,5 @@ MLは下記のWEBサイトからダウンロードすることができます。
 | Raspberry PI 3 B+    | Linux (raspbian 32bit)            | ARM Cortex-A53      | GNU compiler         | OpenMPI       |
 | Notebook PC          | macOS Mojave                      | Intel Core i7       | GNU Compiler         | OpenMPI       |
 
+
+

@@ -1,8 +1,18 @@
 # Documentationについて
 
 ## 概要
+
 - ファイルはmarkdown形式で記述
 - [mkdocs](http://www.mkdocs.org)でビルドするとDocumentation サイト（英語版・日本語版）を作成することができる
+
+## mkdocs のセットアップ
+
+mkdocsの他、Python-MarkdownとMath extension for Python-Markdownを利用する。
+
+~~~
+% pip install mkdocs
+% pip install pytho-markdown python-markdown-math
+~~~
 
 ## フォルダ構成
 
@@ -20,6 +30,7 @@
     - mkdocs.yml: mkdocs設定ファイル
 
 ## ビルド方法
+
 [mkdocs](http://www.mkdocs.org)をインストールしておく。英語版・日本語版それぞれでビルドを実行する
 
 1. enまたはjaフォルダ以下のマニュアルディレクトリに移動

@@ -1,21 +1,12 @@
-window.MathJax = {
-  tex2jax: {
-    inlineMath: [ ["\\(","\\)"] ],
-    displayMath: [ ["\\[","\\]"] ]
-  },
-  TeX: {
-    TagSide: "right",
-    TagIndent: ".8em",
-    MultLineWidth: "85%",
-    equationNumbers: {
-      autoNumber: "AMS",
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
     },
-    unicode: {
-      fonts: "STIXGeneral,'Arial Unicode MS'"
-    }
-  },
-  displayAlign: "left",
-  showProcessingMessages: false,
-  messageStyle: "none"
-};
-
+    CommonHTML: { matchFontHeight: true },
+    displayAlign: "center"
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>

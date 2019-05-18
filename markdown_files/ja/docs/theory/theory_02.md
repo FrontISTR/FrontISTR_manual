@@ -2,6 +2,7 @@
 MathJax.Hub.Config({
   tex2jax: {
     inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
     processEscapes: true
   },
   TeX: {
@@ -60,7 +61,7 @@ $$
 $$
 
 ただし$^{t'} \sigma$，$^{t'} \overline{b}$，$^{t'} n$，$^{t'} \overline{t}$，$^{t'} \overline{u}$は、それぞれ時刻$t’$におけるCauchy応力(真応力)、物体力、物体表面での外向き単位法線ベクトル、既定された表面力、既定された変位である。
-これらの式は、時刻$t’$での配置$^{t'}v$, $^{t'}s\_t$, $^{t'}s\_u$に対して記述されるものである。
+これらの式は、時刻$t’$での配置$^{t'}v$, $^{t'}s_t$, $^{t'}s_u$に対して記述されるものである。
 
 <div style="text-align:center;"><img src="media/theory02_01.png" width="80%"></div>
 
@@ -72,8 +73,8 @@ $$
 
 $$
 \begin{equation}
-\int_{^{t'}v}{^{t'} \sigma} : \delta^{t'} A\_{(L)} \, d^{t'}v =
-\int_{^{t'} s\_{t}}^{t'}
+\int_{^{t'}v}{^{t'} \sigma} : \delta^{t'} A_{(L)} \, d^{t'}v =
+\int_{^{t'} s_t}^{t'}
 \overline{t}
 \cdot \delta u \, d^{t'}s +
 \int_{V}^{t'}
@@ -82,7 +83,7 @@ $$
 \end{equation}
 $$
 
-ここで、$^{t'} A\_L$はAlmansiひずみテンソルの線形部分であり、具体的には次式で表される。
+ここで、$^{t'} A_L$はAlmansiひずみテンソルの線形部分であり、具体的には次式で表される。
 
 $$
 \begin{equation}
@@ -94,13 +95,13 @@ $$
 
 式$\eqref{eq:2.2.4}$を幾何学的境界条件、ひずみ変位関係式、応力ひずみ関係式とともに解けばよいのであるが、
 式$\eqref{eq:2.2.4}$は時刻$t’$の配置で記述されており、現段階で時刻$t’$の配置は未知である。
-そこで、時刻$0$の配置$V$または時刻$t$での配置$^{t'} v$を参照した定式化が行われる。
+そこで、時刻 $0$ の配置 $V$ または時刻 $t$ での配置 $^{t'} v$ を参照した定式化が行われる。
 
 #### total Lagrange法の定式化
 
 ここでは、開発コードで用いられるtotal Lagrange法に基づく定式化を示す。
 
-時刻$0$の初期配置を基準とする時刻$t’$での仮想仕事の原理式は、次式で与えられる。
+時刻 $0$ の初期配置を基準とする時刻 $t'$ での仮想仕事の原理式は、次式で与えられる。
 
 $$
 \begin{equation}
@@ -110,30 +111,31 @@ E dV=^{t'}\delta R
 \end{equation}
 $$
 
+
 $$
 \begin{equation}
-^{t'} \delta R=
-\int_{S_t}\,
-^{t'}\_{0} \overline{t} \cdot \delta u dS+
-\int_{V}\,
-^{t'}\_{0} \overline{b} \cdot \delta u dV
+^{t'} \delta R =
+\int_{S_t} \,
+^{t'}_0 \overline{t} \cdot \delta u dS+
+\int_{V} \,
+^{t'}_{0} \overline{b} \cdot \delta u dV
 \label{eq:2.2.7}
 \end{equation}
 $$
 
-ただし$^{t'}\_{0} S$, $^{t'}\_{0} E$は、それぞれ時刻$0$の初期配置を基準とする時刻$t’$での2nd Piola-Kirchhoff応力テンソル、Green-Lagrangeひずみテンソルを表す。
-また、$_{0}^{t'}\overline{t}$, $\,\_{0}^{t'}\overline{b}$は、公称表面力ベクトル、初期配置の単位体積あたりに換算した物体力であり、式$\eqref{eq:2.2.1}$、式$\eqref{eq:2.2.2}$、式$\eqref{eq:2.2.3}$と関連させて、次式で与えられる。
+ただし$^{t'}_0 S$, $^{t'}_0 E$は、それぞれ時刻$0$の初期配置を基準とする時刻$t’$での2nd Piola-Kirchhoff応力テンソル、Green-Lagrangeひずみテンソルを表す。
+また、$_{0}^{t'}\overline{t}$, $\,_0^{t'}\overline{b}$は、公称表面力ベクトル、初期配置の単位体積あたりに換算した物体力であり、式$\eqref{eq:2.2.1}$、式$\eqref{eq:2.2.2}$、式$\eqref{eq:2.2.3}$と関連させて、次式で与えられる。
 
 $$
 \begin{equation}
-^{t'}\_0\overline{t}=\frac{d^{t'}s\_{t'}}{dS}\overline{t}
+^{t'}_0\overline{t}=\frac{d^{t'}s_{t'}}{dS}\overline{t}
 \label{eq:2.2.8}
 \end{equation}
 $$
 
 $$
 \begin{equation}
-^{t'}\_0\overline{b}=\frac{d^{t'}v\_{t'}}{dV}\overline{b}
+^{t'}_0\overline{b}=\frac{d^{t'}v_{t'}}{dV}\overline{b}
 \label{eq:2.2.9}
 \end{equation}
 $$
@@ -142,7 +144,7 @@ $$
 
 $$
 \begin{equation}
-^{t'}\_{0} E=\frac{1}{2}
+^{t'}_{0} E=\frac{1}{2}
 \left\lbrace
   \frac{\partial ^{t}u}{\partial X}
  +\left(\frac{\partial ^{t} u}{\partial X} \right)^T
@@ -164,7 +166,7 @@ $$
 
 $$
 \begin{equation}
-\_{0}^{t'} S = _{0}^{t} S + \Delta S
+_{0}^{t'} S = _{0}^{t} S + \Delta S
 \label{eq:2.2.12}
 \end{equation}
 $$
@@ -173,21 +175,21 @@ $$
 
 $$
 \begin{equation}
-\_{0}^{t'} E = _{0}^{t} E + \Delta E
+_{0}^{t'} E = _{0}^{t} E + \Delta E
 \label{eq:2.2.13}
 \end{equation}
 $$
 
 $$
 \begin{equation}
-\Delta E = \Delta E\_{L} + \Delta E_{NL}
+\Delta E = \Delta E_{L} + \Delta E_{NL}
 \label{eq:2.2.14}
 \end{equation}
 $$
 
 $$
 \begin{equation}
-\Delta E\_{L}=\frac{1}{2}
+\Delta E_L=\frac{1}{2}
 \left\lbrace
 \frac{\partial \Delta u}{\partial X}
 +\left(\frac{\partial \Delta u}{\partial X}\right)^T
@@ -210,12 +212,12 @@ $$
 
 $$
 \begin{equation}
-\int_{V} \Delta S: (\delta \Delta E\_{L} + \delta \Delta E\_{NL})dV + \int_{V}\,\_{0}^{t} S : \delta \Delta E\_{NL} dV = ^{t'} \delta R - \int_V{\_{0}^t S} : \delta \Delta E\_{L}dV
+\int_{V} \Delta S: (\delta \Delta E_L + \delta \Delta E_{NL})dV + \int_{V}\,_0^{t} S : \delta \Delta E_{NL} dV = ^{t'} \delta R - \int_V{_0^t S} : \delta \Delta E_LdV
 \label{eq:2.2.17}
 \end{equation}
 $$
 
-ここで、$\Delta S$は、$\Delta E\_L$と4階テンソル$^{t}\_{0} C$と関連づけて次式のように表されると仮定する。
+ここで、$\Delta S$は、$\Delta E_L$と4階テンソル$^{t}_{0} C$と関連づけて次式のように表されると仮定する。
 
 $$
 \begin{equation}
@@ -224,12 +226,12 @@ $$
 \end{equation}
 $$
 
-式$\eqref{eq:2.2.17}$に式$\eqref{eq:2.2.18}$を代入し、$\Delta u $の二次以上の項を有する$\Delta S :\delta \Delta E_{NL}$を省略して次式を得る。
+式$\eqref{eq:2.2.17}$に式$\eqref{eq:2.2.18}$を代入し、$\Delta u$ の二次以上の項を有する $\Delta S :\delta \Delta E_{NL}$ を省略して次式を得る。
 
 $$
 \begin{equation}
-\int_V ( ^t\_{0}
-C \Delta E\_{L} ) : \delta \Delta E\_{L} dV + \int_V\,^t\_{0} S : \delta \Delta E\_{NL} dV = \_{0}^{t'}\delta R - \int_V{\_{0}^t S} : \delta \Delta E_{L} dV
+\int_V ( ^t_{0}
+C \Delta E_L ) : \delta \Delta E_L dV + \int_V\,^t_0 S : \delta \Delta E_{NL} dV = _0^{t'}\delta R - \int_V{_0^t S} : \delta \Delta E_{L} dV
 \label{eq:2.2.19}
 \end{equation}
 $$
@@ -238,22 +240,22 @@ $$
 
 $$
 \begin{equation}
-\delta U^T ( ^t\_{0} K\_{L} + ^t\_{0} K\_{NL} ) \Delta U = \delta U^{T}\,\_{0}^{t'} F - \partial U^T\,^t\_{0} Q
+\delta U^T ( ^t_0 K_L + ^t_0 K_{NL} ) \Delta U = \delta U^{T}\,_{0}^{t'} F - \partial U^T\,^t_{0} Q
 \label{eq:2.2.20}
 \end{equation}
 $$
 
-ここで、$^t_0\ K\_L$, $^t\_0 K\_{NL}$, $\_0^{t'} F$, $^t\_0 Q$ は、それぞれ、初期変位マトリクス、初期応力マトリクス、外力ベクトル、内力ベクトルである。
+ここで、$^t_0\ K_L$, $^t_0 K_{NL}$, $_0^{t'} F$, $^t_0 Q$ は、それぞれ、初期変位マトリクス、初期応力マトリクス、外力ベクトル、内力ベクトルである。
 
 したがって、時刻$t$の状態から、時刻$t’$の状態を求めるための漸化式は次式で与えられる。
 
 $i = 0$
 
 Step1 :
-$ \,^{t'}\_0 K^{(0)}=^{t}\_0 K\_L+^{t}\_0 K\_{NL};\,^{t'}\_0 Q^{(0)}=^{t}\_0 Q;\, U^{(0)}=^{t} U $
+$ \,^{t'}_0 K^{(0)}=^{t}_0 K_L+^{t}_0 K_{NL};\,^{t'}_0 Q^{(0)}=^{t}_0 Q;\, U^{(0)}=^{t} U $
 
 Step2 :
-$ ^{t'}\_0 K^{(i)}\Delta U^{(i)}=^{t'}\_0 F-^{t'}\_0 Q^{(i-1)} $
+$ ^{t'}_0 K^{(i)}\Delta U^{(i)}=^{t'}_0 F-^{t'}_0 Q^{(i-1)} $
 
 Step3 :
 $ \,^{t'} U^{(i)}=^{t'} U^{(i-1)} + \Delta U^{(i)} $
@@ -274,7 +276,7 @@ $$
 
 $$
 \begin{equation}
-^{t'}\delta R = \int_{S_t}\,^{t'}\_{t}\overline{t} \cdot \delta u dS + \int_{V}\,^{t'}\_{t}\overline{b} \cdot \delta u dV
+^{t'}\delta R = \int_{S_t}\,^{t'}_t\overline{t} \cdot \delta u dS + \int_{V}\,^{t'}_t\overline{b} \cdot \delta u dV
 \label{eq:2.2.22}
 \end{equation}
 $$
@@ -283,23 +285,23 @@ $$
 
 $$
 \begin{equation}
-^{t'}\_{t} \overline{t} = \frac{d^{t'}s\_{t'}}{d^ts}\overline{t}
+^{t'}_{t} \overline{t} = \frac{d^{t'}s_{t'}}{d^ts}\overline{t}
 \label{eq:2.2.23}
 \end{equation}
 $$
 
 $$
 \begin{equation}
-^{t'}\_{t} \overline{b} = \frac{d^{t'}v\_{t'}}{d^tv}\overline{b}
+^{t'}_{t} \overline{b} = \frac{d^{t'}v_{t'}}{d^tv}\overline{b}
 \label{eq:2.2.24}
 \end{equation}
 $$
 
-テンソル$^{t'}\_{t} S$,$^{t'}\_{t} E$やベクトル、$^{t'}\_t\overline{t}$、$^{t'}\_t\overline{b}$が時刻$t$の現配置を基準としているが、Green-Lagrangeひずみについては初期変位(時刻$t$までの変位)$^t u$を含まず
+テンソル$^{t'}_{t} S$,$^{t'}_{t} E$やベクトル、$^{t'}_t\overline{t}$、$^{t'}_t\overline{b}$が時刻$t$の現配置を基準としているが、Green-Lagrangeひずみについては初期変位(時刻$t$までの変位)$^t u$を含まず
 
 $$
 \begin{equation}
-^{t'}\_{t} E = \Delta\_{t} E\_{L} + \Delta\_{t} E\_{NL}
+^{t'}_{t} E = \Delta_{t} E_{L} + \Delta_{t} E_{NL}
 \label{eq:2.2.25}
 \end{equation}
 $$
@@ -308,7 +310,7 @@ $$
 
 $$
 \begin{equation}
-\Delta\_{t} E\_{L}=\frac{1}{2}
+\Delta_{t} E_{L}=\frac{1}{2}
 \left\lbrace \frac{\partial \Delta u}{\partial^t\, x} + \left(\frac{ \partial \Delta u}{\partial ^t\,x}\right)^T \right\rbrace
 \label{eq:2.2.26}
 \end{equation}
@@ -325,7 +327,7 @@ $$
 
 $$
 \begin{equation}
-\_{t'}^{t} S = \_{t}^{t} S + \Delta \_{t} S
+_{t'}^{t} S = _{t}^{t} S + \Delta _{t} S
 \label{eq:2.2.28}
 \end{equation}
 $$
@@ -334,12 +336,12 @@ $$
 
 $$
 \begin{equation}
-\int_{t_{v}} \Delta\_{t} S : (\delta \Delta\_{t}{E\_{L}} + \delta \Delta\_t{E\_{NL}})d^t{v} + \int_{t\_{v}}{\_{t}^{t'}S} : \delta \Delta\_{t} {E\_{NL}}d^t{v}=^{t'} \delta R - \int_{t\_{v}}{\_{t}^t S} : \delta \Delta\_{t} E\_{L}d^t{v}
+\int_{t_{v}} \Delta_{t} S : (\delta \Delta_{t}{E_{L}} + \delta \Delta_t{E_{NL}})d^t{v} + \int_{t_{v}}{_{t}^{t'}S} : \delta \Delta_{t} {E_{NL}}d^t{v}=^{t'} \delta R - \int_{t_{v}}{_{t}^t S} : \delta \Delta_{t} E_{L}d^t{v}
 \label{eq:2.2.29}
 \end{equation}
 $$
 
-ここで、$\Delta\_t S$は、$\Delta\_{t}{E_{L}}$と4階テンソル$^t\_t C$と関連づけて次式のように表されると仮定する。
+ここで、$\Delta_t S$は、$\Delta_{t}{E_{L}}$と4階テンソル$^t_t C$と関連づけて次式のように表されると仮定する。
 
 $$
 \begin{equation}
@@ -352,7 +354,7 @@ $$
 
 $$
 \begin{equation}
-\int_V ( ^t_t C \Delta\_{t} E\_{L} ) : \delta \Delta\_{t} E\_{L} dV+\int_V{^t\_{t} S} : \delta \Delta\_{t} E\_{NL} dV = ^{t'} \delta R - \int_V{\_{t}^t S} : \delta \Delta_t E\_{L} dV
+\int_V ( ^t_t C \Delta_{t} E_{L} ) : \delta \Delta_{t} E_{L} dV+\int_V{^t_{t} S} : \delta \Delta_{t} E_{NL} dV = ^{t'} \delta R - \int_V{_{t}^t S} : \delta \Delta_t E_{L} dV
 \label{eq:2.2.31}
 \end{equation}
 $$
@@ -361,22 +363,22 @@ $$
 
 $$
 \begin{equation}
-\delta U^T ( ^t_t K\_{L} + ^t_t K\_{NL} ) \Delta U = \delta U^{T}\, {\_{t}^{t'}} F - \partial U^T\, {^t\_{t} Q}
+\delta U^T ( ^t_t K_{L} + ^t_t K_{NL} ) \Delta U = \delta U^{T}\, {_{t}^{t'}} F - \partial U^T\, {^t_{t} Q}
 \label{eq:2.2.32}
 \end{equation}
 $$
 
-ここで、$^t\_t K\_L$, $^t\_t K\_{NL}$, ${\_t^{t'}} F$, ${^t\_t Q}$は、それぞれ、初期変位マトリクス、初期応力マトリクス、外力ベクトル、内力ベクトルである。
+ここで、$^t_t K_L$, $^t_t K_{NL}$, ${_t^{t'}} F$, ${^t_t Q}$は、それぞれ、初期変位マトリクス、初期応力マトリクス、外力ベクトル、内力ベクトルである。
 
 したがって、時刻$t$の状態から、時刻$t’$の状態を求めるための漸化式は次式で与えられる。
 
 $i = 0$
 
 Step1 :
-$\,\,\,^{t'}\_t K^{(i)}=\,^{t}\_t K\_L+^{t}\_t K\_{NL};\,^{t'}\_t Q^{(i)}=\, ^{t}\_t Q;\, U^{(i)}=\,^{t} U$
+$\,\,\,^{t'}_t K^{(i)}=\,^{t}_t K_L+^{t}_t K_{NL};\,^{t'}_t Q^{(i)}=\, ^{t}_t Q;\, U^{(i)}=\,^{t} U$
 
 Step2 :
-$\,\,\,^{t'}\_t K^{(i)} \Delta U^{(i)}=\, ^{t'}\_t F - ^{t'}\_t Q^{(i-1)}$
+$\,\,\,^{t'}_t K^{(i)} \Delta U^{(i)}=\, ^{t'}_t F - ^{t'}_t Q^{(i-1)}$
 
 Step3 :
 $\,\,\,^{t'} U^{(i)}=\, ^{t'} U^{(i-1)} + \Delta U^{(i)}$
@@ -395,7 +397,7 @@ $i = i + 1$
 #### 超弾性材料
 
 等方性超弾性材料における弾性ポテンシャルエネルギーは、応力の作用していない初期状態からの等方性を持った応答から得られるものであり、
-右Cauchy-Green変形テンソル$C$の主不変量$( I\_1, I\_2, I\_3 )$、または体積変化を除いた変形テンソルの主不変量$(\overline{I}\_1 , \overline{I}\_2 , \overline{I}\_3)$の関数,つまり、$ W = W ( I\_1, I\_2, I\_3 )$あるいは$W = W ( \overline{I}\_1 , \overline{I}\_2 , \overline{I}\_3)$として表すことができる。
+右Cauchy-Green変形テンソル$C$の主不変量$( I_1, I_2, I_3 )$、または体積変化を除いた変形テンソルの主不変量$(\overline{I}_1 , \overline{I}_2 , \overline{I}_3)$の関数,つまり、$ W = W ( I_1, I_2, I_3 )$ あるいは $W = W ( \overline{I}_1 , \overline{I}_2 , \overline{I}_3)$ として表すことができる。
 
 超弾性材の構成式は2nd Piola-Kirchhoff応力とGreen-Lagrangeひずみの関係で定義され、その変形解析はtotal Lagrange法を適用する。
 
@@ -423,23 +425,23 @@ Neo-Hookean超弾性モデルは等方性を持つ線形則(Hooke則)を大変�
 
 $$
 \begin{equation}
-W = C\_{10} ( {\overline I\_{1}} - 3 ) + \frac{1}{D_1} ( J - 1 )^2
+W = C_{10} ( {\overline I_{1}} - 3 ) + \frac{1}{D_1} ( J - 1 )^2
 \label{eq:2.2.35}
 \end{equation}
 $$
 
-ここで、$C\_{10}$と$D\_1 $は材料定数である。
+ここで、$C_{10}$と$D_1 $は材料定数である。
 
 ##### (2) Mooney Rivlin超弾性モデル
 
 $$
 \begin{equation}
-W = C\_{10} ( \overline{I}\_1 - 3 ) + C\_{01} ( \overline{I}\_2 - 3 ) + \frac{1}{D_1} ( J - 1 )^2
+W = C_{10} ( \overline{I}_1 - 3 ) + C_{01} ( \overline{I}_2 - 3 ) + \frac{1}{D_1} ( J - 1 )^2
 \label{eq:2.2.36}
 \end{equation}
 $$
 
-ここで、$C\_{10}$, $C\_{01}$と$D\_1$は材料定数である。
+ここで、$C_{10}$, $C_{01}$と$D_1$は材料定数である。
 
 ##### (3) Arruda Boyce超弾性モデル
 
@@ -593,7 +595,7 @@ $$
 
 $$
 \begin{equation}
-\sigma = \left\lbrace D - \frac{ d\_D \otimes d^T\_D}{ A + d^T\_D a} \right\rbrace : \dot{e}
+\sigma = \left\lbrace D - \frac{ d_D \otimes d^T_D}{ A + d^T_D a} \right\rbrace : \dot{e}
 \label{eq:2.2.50}
 \end{equation}
 $$
@@ -608,7 +610,7 @@ $$
 
 $$
 \begin{equation}
-F = \sqrt{3 J\_2} - \sigma\_y = 0
+F = \sqrt{3 J_2} - \sigma_y = 0
 \label{2.2.51}
 \end{equation}
 $$
@@ -626,7 +628,7 @@ $$
 
 $$
 \begin{equation}
-F = \sqrt{J\_2} - \ \alpha\ \sigma \ : I - \sigma_y = 0
+F = \sqrt{J_2} - \ \alpha\ \sigma \ : I - \sigma_y = 0
 \label{eq:2.2.53}
 \end{equation}
 $$
@@ -721,14 +723,14 @@ $$
 
 $$
 \begin{equation}
-\sigma\_{n + 1} = c\ :\ ( \varepsilon\_{n + 1} - \varepsilon\_{n + 1}^c )
+\sigma_{n + 1} = c\ :\ ( \varepsilon_{n + 1} - \varepsilon_{n + 1}^c )
 \label{eq:2.2.62}
 \end{equation}
 $$
 
 $$
 \begin{equation}
-\varepsilon\_{n + 1}^c = \varepsilon\_n^c + \ \Delta t\ \beta\_{n + \theta}
+\varepsilon_{n + 1}^c = \varepsilon_n^c + \ \Delta t\ \beta_{n + \theta}
 \label{eq:2.2.63}
 \end{equation}
 $$
@@ -737,7 +739,7 @@ $$
 
 $$
 \begin{equation}
-\beta_{n + \theta} = ( 1 - \theta  ) \beta\_n + \theta \beta\_{n + 1}
+\beta_{n + \theta} = ( 1 - \theta  ) \beta_n + \theta \beta_{n + 1}
 \label{eq:2.2.64}
 \end{equation}
 $$
@@ -746,18 +748,18 @@ $$
 
 $$
 \begin{equation}
-R\_{n + 1} = \varepsilon\_{n + 1} - \ c^{- 1}\ : \sigma\_{n + 1} - \ \varepsilon\_n^c - \ \Delta t\ \beta\_{n + \theta} = \mathbf{0}
+R_{n + 1} = \varepsilon_{n + 1} - \ c^{- 1}\ : \sigma_{n + 1} - \ \varepsilon_n^c - \ \Delta t\ \beta_{n + \theta} = \mathbf{0}
 \label{eq:2.2.65}
 \end{equation}
 $$
 
 とする。
 
-Newton-Raphson法での反復計算では、初期値を$\sigma\_{n + 1} = \sigma\_n\ $および有限要素法から求められるひずみ増分として、反復解と増分解は次式とする。
+Newton-Raphson法での反復計算では、初期値を$\sigma_{n + 1} = \sigma_n\ $および有限要素法から求められるひずみ増分として、反復解と増分解は次式とする。
 
 $$
 \begin{equation}
-R\_{n + 1}^{(k + 1)} = \mathbf{0} = \ R_{n + 1}^{(k)} - ( \ c^{- 1} + \Delta t\ c\_{n + 1}^c\  ) d \sigma\_{n + 1}^{(k)}
+R_{n + 1}^{(k + 1)} = \mathbf{0} = \ R_{n + 1}^{(k)} - ( \ c^{- 1} + \Delta t\ c_{n + 1}^c\  ) d \sigma_{n + 1}^{(k)}
 \label{eq:2.2.66}
 \end{equation}
 $$
@@ -766,7 +768,7 @@ $$
 
 $$
 \begin{equation}
-c\_{n + 1}^c = \frac{ \partial \beta} {\partial \sigma}\  |\_{n + \theta} = \theta \frac{ \partial \beta}{\partial \sigma}\ |\_{n + 1}
+c_{n + 1}^c = \frac{ \partial \beta} {\partial \sigma}\  |_{n + \theta} = \theta \frac{ \partial \beta}{\partial \sigma}\ |_{n + 1}
 \label{eq:2.2.67}
 \end{equation}
 $$
@@ -776,7 +778,7 @@ $$
 
 $$
 \begin{equation}
-c\_{n + 1}^* = ( c^{-1} + \Delta t c\_{n + 1}^c )^{- 1}
+c_{n + 1}^* = ( c^{-1} + \Delta t c_{n + 1}^c )^{- 1}
 \label{eq:2.2.68}
 \end{equation}
 $$
@@ -802,7 +804,7 @@ $$
 
 $$
 \begin{equation}
-\int^{t'}\_{^{t'}v}\,^{t'} \sigma : \delta^{t'} A\_{(L)} d^{t'}v = \int^{t'}\_{^{t'}S\_{t}}\,^{t'} \overline{t} \cdot \delta u d^{t'}s+ \int^{t'}\_{V} \overline{b} \cdot \delta u d^{t'}v + \int^{t'}\_{^{t'} S \_{c}}t\_{c}[\delta u^{(1)} - u^{(2)}]
+\int^{t'}_{^{t'}v}\,^{t'} \sigma : \delta^{t'} A_{(L)} d^{t'}v = \int^{t'}_{^{t'}S_{t}}\,^{t'} \overline{t} \cdot \delta u d^{t'}s+ \int^{t'}_{V} \overline{b} \cdot \delta u d^{t'}v + \int^{t'}_{^{t'} S _{c}}t_{c}[\delta u^{(1)} - u^{(2)}]
 \label{eq:2.2.70}
 \end{equation}
 $$
@@ -820,7 +822,7 @@ $$
 
 $$
 \begin{equation}
-\int^{t'}\_{^{t'}S\_{c}} t\_c [\delta u^{(1)} - \delta u^{(2)}] \approx \delta UK\_c \Delta U + \delta UF\_c
+\int^{t'}_{^{t'}S_{c}} t_c [\delta u^{(1)} - \delta u^{(2)}] \approx \delta UK_c \Delta U + \delta UF_c
 \label{eq:2.2.71}
 \end{equation}
 $$
@@ -830,14 +832,14 @@ $$
 
 $$
 \begin{equation}
-\delta U^T ( ^t\_0 K\_L + ^t\_0 K\_{NL} + K\_c ) \Delta U = \delta U^T {\_0^{t'} F} - \partial U^T {^t\_0 Q} + \delta UF\_c
+\delta U^T ( ^t_0 K_L + ^t_0 K_{NL} + K_c ) \Delta U = \delta U^T {_0^{t'} F} - \partial U^T {^t_0 Q} + \delta UF_c
 \label{eq:2.2.72}
 \end{equation}
 $$
 
 $$
 \begin{equation}
-\delta U^T (^t\_t K\_L + ^t\_t K\_{NL} + K\_c ) \Delta U = \delta U^T {\_{t} ^{t'} F} - \partial U^T {^t\_t Q}+ \delta UF\_c
+\delta U^T (^t_t K_L + ^t_t K_{NL} + K_c ) \Delta U = \delta U^T {_{t} ^{t'} F} - \partial U^T {^t_t Q}+ \delta UF_c
 \label{eq:2.2.73}
 \end{equation}
 $$
@@ -852,3 +854,5 @@ $$
 ただし、微小変形線形弾性解析を選択した場合は、微小すべり摩擦なし問題となる。
 
 また、現時点では一次ソリッド要素（要素番号341, 351, 361）の接触解析のみ対応している。
+
+

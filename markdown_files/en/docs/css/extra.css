@@ -3,6 +3,14 @@
   margin: 0 auto;
 }
 
+@media print {
+  font-size: 20pt;
+}
+@page {
+  size: A4;
+  margin: 12.7mm 9.7mm;
+}
+
 /*
 body {
   counter-reset: h1;

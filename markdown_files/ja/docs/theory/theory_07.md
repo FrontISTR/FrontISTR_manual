@@ -8,3 +8,5 @@
   - Lois Komzsik:The Lanczos Method Evolution and Application:Siam、2003.
   - 戸川隼人、有限要素法による振動解析、サイエンス社(1997)
   - 矢川元基・宮崎則幸、有限要素法による熱応力・クリープ。熱伝導解析、サイエンス社（1985）
+
+

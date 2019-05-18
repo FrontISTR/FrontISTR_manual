@@ -78,3 +78,4 @@ Fig. 4.1.3 : Analysis results of Mises stress
  //SMS   2.8195E+04     77625  1.2755E+00     75112
 ```
 
+

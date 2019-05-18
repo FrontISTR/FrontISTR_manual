@@ -16,3 +16,4 @@ $ gzip –dc FrontISTR_V50.tar.gz | tar xf –
 アーカイブファイルを解凍・展開すると、アーカイブを展開したディレクトリに `FrontISTR` というディレクトリが作成されます。
 以下、このディレクトリを `${FSTRBUILDDIR}` と記します。
 
+

@@ -60,7 +60,7 @@ $$
 \end{equation}
 $$
 
-$^{t'} \sigma$，$^{t'} \overline{b}$，$^{t'} n$，$^{t'} \overline{t}$，and $^{t'} \overline{u}$ are the Cauchy stress (true stress), body force, outward until normal vector on body surface, predetermined surfacxe force, and predetermined displacement at time $t'$, respectively. These equations are described for the arrangements of $^{t'}v$, $^{t'}s\_t$, $^{t'}s\_u$ at time $'t$.
+$^{t'} \sigma$，$^{t'} \overline{b}$，$^{t'} n$，$^{t'} \overline{t}$，and $^{t'} \overline{u}$ are the Cauchy stress (true stress), body force, outward until normal vector on body surface, predetermined surfacxe force, and predetermined displacement at time $t'$, respectively. These equations are described for the arrangements of $^{t'}v$, $^{t'}s_t$, $^{t'}s_u$ at time $'t$.
 
 <div style="text-align:center;"><img alt="Fig. 2.2.1: Concept of incremental analysis" src="media/theory02_01.png" width="80%"/><br/>Fig. 2.2.1: Concept of incremental analysis</div>
 
@@ -69,9 +69,9 @@ $^{t'} \sigma$，$^{t'} \overline{b}$，$^{t'} n$，$^{t'} \overline{t}$，and $
 The principle of virtual work equivalent to the equilibrium equation of Eq.$\eqref{eq:2.2.1}$ and mechanical boundary conditions of Eq.$\eqref{eq:2.2.2}$ is given by the following equation:
 
 $$
-\begin{e1Gquation}
-\int_{^{t'}v}{^{t'} \sigma} : \delta^{t'} A\_{(L)} \, d^{t'}v =
-\int_{^{t'} s\_{t}}^{t'}
+\begin{equation}
+\int_{^{t'}v}{^{t'} \sigma} : \delta^{t'} A_{(L)} \, d^{t'}v =
+\int_{^{t'} s_{t}}^{t'}
 \overline{t}
 \cdot \delta u \, d^{t'}s +
 \int_{V}^{t'}
@@ -80,7 +80,7 @@ $$
 \end{equation}
 $$
 
-where $^{t'} A\_{(L)}$ is the linear part of the Almansi strain tensor, which is expressed by the following equation:
+where $^{t'} A_{(L)}$ is the linear part of the Almansi strain tensor, which is expressed by the following equation:
 
 $$
 \begin{equation}
@@ -111,10 +111,10 @@ $$
 \begin{equation}
 ^{t'} \delta R=
 \int_{S_t}\,
-^{t'}\_{0} \overline{t} \cdot \delta u\, dS
+^{t'}_{0} \overline{t} \cdot \delta u\, dS
 +
 \int_{V}\,
-^{t'}\_{0} \overline{b} \cdot \delta u\, dV
+^{t'}_{0} \overline{b} \cdot \delta u\, dV
 \label{eq:2.2.7}
 \end{equation}
 $$
@@ -123,14 +123,14 @@ where $^{t'}_0 S$ and $^{t'}_0 E$ represent the second Piola–Kirchhoff strain 
 
 $$
 \begin{equation}
-^{t'}_0 \overline{t}=\frac{d^{t'}s\_{t'}}{dS}\overline{t}
+^{t'}_0 \overline{t}=\frac{d^{t'}s_{t'}}{dS}\overline{t}
 \label{eq:2.2.8}
 \end{equation}
 $$
 
 $$
 \begin{equation}
-^{t'}_0\overline{b}=\frac{d^{t'}v\_{t'}}{dV}\overline{b}
+^{t'}_0\overline{b}=\frac{d^{t'}v_{t'}}{dV}\overline{b}
 \label{eq:2.2.9}
 \end{equation}
 $$
@@ -139,7 +139,7 @@ The Green-Langrange strain tensor at time $t$ is defined by the following equati
 
 $$
 \begin{equation}
-^{t'}\_{0} E=\frac{1}{2}
+^{t'}_{0} E=\frac{1}{2}
 \left\lbrace
   \frac{\partial ^{t}u}{\partial X}
  +\left(\frac{\partial ^{t} u}{\partial X} \right)^T
@@ -161,7 +161,7 @@ $$
 
 $$
 \begin{equation}
-\_{0}^{t'} S = _{0}^{t} S + \Delta S
+_{0}^{t'} S = _{0}^{t} S + \Delta S
 \label{eq:2.2.12}
 \end{equation}
 $$
@@ -170,21 +170,21 @@ The increment of Green-Lagrrange strain, in connection with the displacement inc
 
 $$
 \begin{equation}
-\_{0}^{t'} E = _{0}^{t} E + \Delta E
+_{0}^{t'} E = _{0}^{t} E + \Delta E
 \label{eq:2.2.13}
 \end{equation}
 $$
 
 $$
 \begin{equation}
-\Delta E = \Delta E\_{L} + \Delta E_{NL}
+\Delta E = \Delta E_{L} + \Delta E_{NL}
 \label{eq:2.2.14}
 \end{equation}
 $$
 
 $$
 \begin{equation}
-\Delta E\_{L}=\frac{1}{2}
+\Delta E_{L}=\frac{1}{2}
 \left\lbrace
 \frac{\partial \Delta u}{\partial X}
 +\left(\frac{\partial \Delta u}{\partial X}\right)^\mathrm{T}
@@ -207,12 +207,12 @@ If Eq.$\eqref{eq:2.2.11}$, Eq.$\eqref{eq:2.2.12}$, Eq.$\eqref{eq:2.2.13}$, Eq.$\
 
 $$
 \begin{equation}
-\int_{V} \Delta S: (\delta \Delta E\_{L} + \delta \Delta E\_{NL})dV + \int_{V}\,\_{0}^{t} S : \delta \Delta E\_{NL}\, dV = ^{t'} \delta R - \int_V{\_{0}^t S} : \delta \Delta E\_{L}\,dV
+\int_{V} \Delta S: (\delta \Delta E_{L} + \delta \Delta E_{NL})dV + \int_{V}\,_{0}^{t} S : \delta \Delta E_{NL}\, dV = ^{t'} \delta R - \int_V{_{0}^t S} : \delta \Delta E_{L}\,dV
 \label{eq:2.2.17}
 \end{equation}
 $$
 
-In this case, it is assumed that $\Delta S$ is associated with $\Delta E\_L$ and the forth-order tensor $^{t}\_{0} C$, and is expressed as follows:
+In this case, it is assumed that $\Delta S$ is associated with $\Delta E_L$ and the forth-order tensor $^{t}_{0} C$, and is expressed as follows:
 
 $$
 \begin{equation}
@@ -225,8 +225,8 @@ By substituting Eq.$\eqref{eq:2.2.18}$ into Eq.$\eqref{eq:2.2.17}$, and omitting
 
 $$
 \begin{equation}
-\int_V ( ^t\_{0}
-C \Delta E\_{L} ) : \delta \Delta E\_{L}\, dV + \int_V\,^t\_{0} S : \delta \Delta E\_{NL}\, dV = \_{0}^{t'}\delta R - \int_V{\_{0}^t S} : \delta \Delta E_{L}\, dV
+\int_V ( ^t_{0}
+C \Delta E_{L} ) : \delta \Delta E_{L}\, dV + \int_V\,^t_{0} S : \delta \Delta E_{NL}\, dV = _{0}^{t'}\delta R - \int_V{_{0}^t S} : \delta \Delta E_{L}\, dV
 \label{eq:2.2.19}
 \end{equation}
 $$
@@ -235,7 +235,7 @@ Further, if Eq.$\eqref{eq:2.2.19}$ is discretized by the finite element, followi
 
 $$
 \begin{equation}
-\delta U^T ( ^t\_{0} K\_{L} + ^t\_{0} K\_{NL} ) \Delta U = \delta U^{T}\,\_{0}^{t'} F - \partial U^T\,^t\_{0} Q
+\delta U^T ( ^t_{0} K_{L} + ^t_{0} K_{NL} ) \Delta U = \delta U^{T}\,_{0}^{t'} F - \partial U^T\,^t_{0} Q
 \label{eq:2.2.20}
 \end{equation}
 $$
@@ -247,7 +247,7 @@ Therefore, the recurrence formula to determine the status from time $t$ to time 
 $i = 0$
 
 Step1 :
-$ \,^{t'}_0 K^{(0)}=^{t}_0 K_L+^{t}_0 K\_{NL};\,^{t'}_0 Q^{(0)}=^{t}_0 Q;\ U^{(0)}=^{t} U $
+$ \,^{t'}_0 K^{(0)}=^{t}_0 K_L+^{t}_0 K_{NL};\,^{t'}_0 Q^{(0)}=^{t}_0 Q;\ U^{(0)}=^{t} U $
  
 Step2 :
 $ ^{t'}_0 K^{(i)}\Delta U^{(i)}=^{t'}_0 F-^{t'}_0 Q^{(i-1)} $
@@ -271,7 +271,7 @@ $$
 
 $$
 \begin{equation}
-^{t'}\delta R = \int_{S_t}\,^{t'}\_{t}\overline{t} \cdot \delta u\, dS + \int_{V}\,^{t'}\_{t}\overline{b} \cdot \delta u\, dV
+^{t'}\delta R = \int_{S_t}\,^{t'}_{t}\overline{t} \cdot \delta u\, dS + \int_{V}\,^{t'}_{t}\overline{b} \cdot \delta u\, dV
 \label{eq:2.2.22}
 \end{equation}
 $$
@@ -280,14 +280,14 @@ However,
 
 $$
 \begin{equation}
-^{t'}\_{t} \overline{t} = \frac{d^{t'}s\_{t'}}{d^ts}\overline{t}
+^{t'}_{t} \overline{t} = \frac{d^{t'}s_{t'}}{d^ts}\overline{t}
 \label{eq:2.2.23}
 \end{equation}
 $$
 
 $$
 \begin{equation}
-^{t'}\_{t} \overline{b} = \frac{d^{t'}v\_{t'}}{d^tv}\overline{b}
+^{t'}_{t} \overline{b} = \frac{d^{t'}v_{t'}}{d^tv}\overline{b}
 \label{eq:2.2.24}
 \end{equation}
 $$
@@ -296,7 +296,7 @@ While tensor $^{t'}_t S$ and $^{t'}_t E$ and vector $^{t'}_t \overline{t}$ and $
 
 $$
 \begin{equation}
-^{t'}\_{t} E = \Delta\_{t} E\_{L} + \Delta\_{t} E\_{NL}
+^{t'}_{t} E = \Delta_{t} E_{L} + \Delta_{t} E_{NL}
 \label{eq:2.2.25}
 \end{equation}
 $$
@@ -305,7 +305,7 @@ Further, this becomes
 
 $$
 \begin{equation}
-\Delta\_{t} E\_{L}=\frac{1}{2}
+\Delta_{t} E_{L}=\frac{1}{2}
 \left\lbrace \frac{\partial \Delta u}{\partial^t\, x} + \left(\frac{ \partial \Delta u}{\partial ^t\,x}\right)^\mathrm{T} \right\rbrace
 \label{eq:2.2.26}
 \end{equation}
@@ -322,7 +322,7 @@ However,
 
 $$
 \begin{equation}
-\_{t'}^{t} S = \_{t}^{t} S + \Delta \_{t} S
+_{t'}^{t} S = _{t}^{t} S + \Delta _{t} S
 \label{eq:2.2.28}
 \end{equation}
 $$
@@ -331,7 +331,7 @@ Thus, if this is substituted into Eq.$\eqref{eq:2.2.21}$, Eq.$\eqref{eq:2.2.22}$
 
 $$
 \begin{equation}
-\int_{t_{v}} \Delta\_{t} S : (\delta \Delta\_{t}{E\_{L}} + \delta \Delta\_t{E\_{NL}})d^t{v} + \int_{t\_{v}}{\_{t}^{t'}S} : \delta \Delta\_{t} {E\_{NL}}\,d^t{v}=^{t'} \delta R - \int_{t\_{v}}{\_{t}^t S} : \delta \Delta\_{t} E\_{L}\,d^t{v}
+\int_{t_{v}} \Delta_{t} S : (\delta \Delta_{t}{E_{L}} + \delta \Delta_t{E_{NL}})d^t{v} + \int_{t_{v}}{_{t}^{t'}S} : \delta \Delta_{t} {E_{NL}}\,d^t{v}=^{t'} \delta R - \int_{t_{v}}{_{t}^t S} : \delta \Delta_{t} E_{L}\,d^t{v}
 \label{eq:2.2.29}
 \end{equation}
 $$
@@ -349,7 +349,7 @@ If this is substituted Eq.$\eqref{eq:2.2.29}$, the following equation is obtaine
 
 $$
 \begin{equation}
-\int_V ( ^t_t C \Delta\_{t} E\_{L} ) : \delta \Delta\_{t} E\_{L}\, dV+\int_V{^t\_{t} S} : \delta \Delta\_{t} E\_{NL}\, dV = ^{t'} \delta R - \int_V{\_{t}^t S} : \delta \Delta_t E\_{L}\, dV
+\int_V ( ^t_t C \Delta_{t} E_{L} ) : \delta \Delta_{t} E_{L}\, dV+\int_V{^t_{t} S} : \delta \Delta_{t} E_{NL}\, dV = ^{t'} \delta R - \int_V{_{t}^t S} : \delta \Delta_t E_{L}\, dV
 \label{eq:2.2.31}
 \end{equation}
 $$
@@ -358,7 +358,7 @@ By discretizing Eq.$\eqref{eq:2.2.31}$ with finite elements, as following equati
 
 $$
 \begin{equation}
-\delta U^T ( ^t_t K\_{L} + ^t_t K\_{NL} ) \Delta U = \delta U^{T}\, {\_{t}^{t'}} F - \partial U^T\, {^t\_{t} Q}
+\delta U^T ( ^t_t K_{L} + ^t_t K_{NL} ) \Delta U = \delta U^{T}\, {_{t}^{t'}} F - \partial U^T\, {^t_{t} Q}
 \label{eq:2.2.32}
 \end{equation}
 $$
@@ -370,10 +370,10 @@ Therefore, the recurrence formula to determine the status from time $t$ to $t’
 $i = 0$
 
 Step1 :
-$\,\,\,^{t'}\_t K^{(i)}=\,^{t}\_t K\_L+^{t}\_t K\_{NL};\,^{t'}\_t Q^{(i)}=\, ^{t}\_t Q;\, U^{(i)}=\,^{t} U$
+$\,\,\,^{t'}_t K^{(i)}=\,^{t}_t K_L+^{t}_t K_{NL};\,^{t'}_t Q^{(i)}=\, ^{t}_t Q;\, U^{(i)}=\,^{t} U$
 
 Step2 :
-$\,\,\,^{t'}\_t K^{(i)} \Delta U^{(i)}=\, ^{t'}\_t F - ^{t'}\_t Q^{(i-1)}$
+$\,\,\,^{t'}_t K^{(i)} \Delta U^{(i)}=\, ^{t'}_t F - ^{t'}_t Q^{(i-1)}$
 
 Step3 :
 $\,\,\,^{t'} U^{(i)}=\, ^{t'} U^{(i-1)} + \Delta U^{(i)}$
@@ -416,7 +416,7 @@ The Neo-Hookean hyperelasticity model is an expansion of the isotropic linear la
 
 $$
 \begin{equation}
-W = C\_{10} ( {\overline I\_{1}} - 3 ) + \frac{1}{D_1} ( J - 1 )^2
+W = C_{10} ( {\overline I_{1}} - 3 ) + \frac{1}{D_1} ( J - 1 )^2
 \label{eq:2.2.35}
 \end{equation}
 $$
@@ -580,17 +580,17 @@ $$
 \end{align}
 $$
 
-The stress-strain relationship equation of elastoplasticity can be expressed as follows: 
+The stress-strain relationship equation of elastoplasticity can be expressed as follows
 
 $$
 \begin{equation}
 \dot{\sigma} =
-\left\lbrace
+\left\{
 D -
 \frac{d_D \otimes {d_D}^\mathrm{T}}
      {A + {d_D}^\mathrm{T} a}
-\right\rbrace
-: \dot{e}
+\right\}
+\colon \dot{e}
 \label{eq:2.2.50}
 \end{equation}
 $$
@@ -605,7 +605,7 @@ The elastoplastic yield functions included in this development code are as follo
 
 $$
 \begin{equation}
-F = \sqrt{3 J\_2} - \sigma\_y = 0
+F = \sqrt{3 J_2} - \sigma_y = 0
 \label{2.2.51}
 \end{equation}
 $$
@@ -623,7 +623,7 @@ $$
 
 $$
 \begin{equation}
-F = \sqrt{J\_2} - \ \alpha\ \sigma \ : I - \sigma_y = 0
+F = \sqrt{J_2} - \ \alpha\ \sigma \ : I - \sigma_y = 0
 \label{eq:2.2.53}
 \end{equation}
 $$
@@ -712,14 +712,14 @@ As previously mentioned in plastic materials, it is necessary to show the method
 
 $$
 \begin{equation}
-\sigma\_{n + 1} = c\ :\ ( \varepsilon\_{n + 1} - \varepsilon\_{n + 1}^c )
+\sigma_{n + 1} = c\ :\ ( \varepsilon_{n + 1} - \varepsilon_{n + 1}^c )
 \label{eq:2.2.62}
 \end{equation}
 $$
 
 $$
 \begin{equation}
-\varepsilon\_{n + 1}^c = \varepsilon\_n^c + \ \Delta t\ \beta\_{n + \theta}
+\varepsilon_{n + 1}^c = \varepsilon_n^c + \ \Delta t\ \beta_{n + \theta}
 \label{eq:2.2.63}
 \end{equation}
 $$
@@ -728,7 +728,7 @@ where $\beta_{n+\theta}$ is
 
 $$
 \begin{equation}
-\beta_{n + \theta} = ( 1 - \theta  ) \beta\_n + \theta \beta\_{n + 1}
+\beta_{n + \theta} = ( 1 - \theta  ) \beta_n + \theta \beta_{n + 1}
 \label{eq:2.2.64}
 \end{equation}
 $$
@@ -737,7 +737,7 @@ Furthermore, the creep strain increment $\Delta \varepsilon^c$ is a simplified n
 
 $$
 \begin{equation}
-R\_{n + 1} = \varepsilon\_{n + 1} - \ c^{- 1}\ : \sigma\_{n + 1} - \ \varepsilon\_n^c - \ \Delta t\ \beta\_{n + \theta} = \mathbf{0}
+R_{n + 1} = \varepsilon_{n + 1} - \ c^{- 1}\ : \sigma_{n + 1} - \ \varepsilon_n^c - \ \Delta t\ \beta_{n + \theta} = \mathbf{0}
 \label{eq:2.2.65}
 \end{equation}
 $$
@@ -746,7 +746,7 @@ In the iterative calculation of the Newton-Raphson method, using the initial val
 
 $$
 \begin{equation}
-R\_{n + 1}^{(k + 1)} = \mathbf{0} = \ R_{n + 1}^{(k)} - ( \ c^{- 1} + \Delta t\ c\_{n + 1}^c\  ) d \sigma\_{n + 1}^{(k)}
+R_{n + 1}^{(k + 1)} = \mathbf{0} = \ R_{n + 1}^{(k)} - ( \ c^{- 1} + \Delta t\ c_{n + 1}^c\  ) d \sigma_{n + 1}^{(k)}
 \label{eq:2.2.66}
 \end{equation}
 $$
@@ -756,9 +756,9 @@ where
 $$
 \begin{equation}
 c^c_{n+1} = 
-\left. \frac{\partial\beta}{\partial\sigma} \right|\_{n+\theta}
+\left. \frac{\partial\beta}{\partial\sigma} \right|_{n+\theta}
 =
-\left. \theta\frac{\partial\beta}{\partial\sigma} \right|\_{n+1}
+\left. \theta\frac{\partial\beta}{\partial\sigma} \right|_{n+1}
 \label{eq:2.2.67}
 \end{equation}
 $$
@@ -767,7 +767,7 @@ When the iterative solution is performed using the solutions of Eq.$\eqref{eq:2.
 
 $$
 \begin{equation}
-c\_{n + 1}^* = [ c^{-1} + \Delta t c\_{n + 1}^c ]^{- 1}
+c_{n + 1}^* = [ c^{-1} + \Delta t c_{n + 1}^c ]^{- 1}
 \label{eq:2.2.68}
 \end{equation}
 $$
@@ -789,7 +789,7 @@ When two objects contact each other, the contact force $t_c$ is conducted throug
 
 $$
 \begin{equation}
-\int^{t'}\_{^{t'}v}\,^{t'} \sigma : \delta^{t'} A\_{(L)} d^{t'}v = \int^{t'}\_{^{t'}S\_{t}}\,^{t'} \overline{t} \cdot \delta u d^{t'}s+ \int^{t'}\_{V} \overline{b} \cdot \delta u d^{t'}v + \int^{t'}\_{^{t'} S \_{c}}t\_{c}[\delta u^{(1)} - u^{(2)}]
+\int^{t'}_{^{t'}v}\,^{t'} \sigma : \delta^{t'} A_{(L)} d^{t'}v = \int^{t'}_{^{t'}S_{t}}\,^{t'} \overline{t} \cdot \delta u d^{t'}s+ \int^{t'}_{V} \overline{b} \cdot \delta u d^{t'}v + \int^{t'}_{^{t'} S _{c}}t_{c}[\delta u^{(1)} - u^{(2)}]
 \label{eq:2.2.70}
 \end{equation}
 $$
@@ -805,7 +805,7 @@ If the last term of Eq.$\eqref{eq:2.2.55}$ is discretized by finite elements, th
 
 $$
 \begin{equation}
-\int^{t'}\_{^{t'}S\_{c}} t\_c [\delta u^{(1)} - \delta u^{(2)}] \approx \delta UK\_c \Delta U + \delta UF\_c
+\int^{t'}_{^{t'}S_{c}} t_c [\delta u^{(1)} - \delta u^{(2)}] \approx \delta UK_c \Delta U + \delta UF_c
 \label{eq:2.2.71}
 \end{equation}
 $$
@@ -814,14 +814,14 @@ where $K_c$ and $F_c$ represent the contact stiffness matrix and contact force, 
 
 $$
 \begin{equation}
-\delta U^T ( ^t\_0 K\_L + ^t\_0 K\_{NL} + K\_c ) \Delta U = \delta U^T {\_0^{t'} F} - \partial U^T {^t\_0 Q} + \delta UF\_c
+\delta U^T ( ^t_0 K_L + ^t_0 K_{NL} + K_c ) \Delta U = \delta U^T {_0^{t'} F} - \partial U^T {^t_0 Q} + \delta UF_c
 \label{eq:2.2.72}
 \end{equation}
 $$
 
 $$
 \begin{equation}
-\delta U^T (^t\_t K\_L + ^t\_t K\_{NL} + K\_c ) \Delta U = \delta U^T {\_{t} ^{t'} F} - \partial U^T {^t\_t Q}+ \delta UF\_c
+\delta U^T (^t_t K_L + ^t_t K_{NL} + K_c ) \Delta U = \delta U^T {_{t} ^{t'} F} - \partial U^T {^t_t Q}+ \delta UF_c
 \label{eq:2.2.73}
 \end{equation}
 $$
@@ -836,4 +836,6 @@ With this development software, it is possible to analyze the contact deformatio
 However, when the infinitesimal deformation linear elastic analysis is chosen, it becomes a problem without infinitesimal sliding friction.
 
 Furthermore, at this point, it only supports contact analysis of primary solid elements (element numbers 341, 351, and 361). 
+
+
 

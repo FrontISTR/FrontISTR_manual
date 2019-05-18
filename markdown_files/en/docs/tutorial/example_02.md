@@ -134,3 +134,4 @@ Table 9.2.3: Comparison of calculation time with different computers (one CPU)
 | Celeron     | 0.700           | Win2000 | 2252           | 2215              |
 | Pentium 4   | 2.4             | WinXP   | 830            | 804               |
 
+

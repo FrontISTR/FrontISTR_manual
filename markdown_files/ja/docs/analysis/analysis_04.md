@@ -1169,3 +1169,5 @@ end program TEST
 2行目以降 {#行目以降-11 .afff5}
 
 なし
+
+

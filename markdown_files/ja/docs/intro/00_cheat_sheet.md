@@ -342,3 +342,4 @@ $ mpirun -np <4> fistr1
 | 動解析     | !DYNAMIC, TYPE=NONLINEAR<BR>!STEP                                 |
 | 材料非線形 | !MATERIAL<BR>!PLASTIC<BR>!HYPERELASTIC<BR>!VISCOELASTIC<BR>!CREEP |
 
+

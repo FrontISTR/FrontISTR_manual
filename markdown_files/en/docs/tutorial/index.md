@@ -21,7 +21,6 @@ This software is the outcome of "Research and Development of Innovative Simulati
   - [Tutorial](../tutorial/index.md)
 
 <!-- ここまでテンプレート -->
----
 
 This manual describes the analysis implementation guidelines using a large-scale structural analysis program using the finite elment method FrontISTR based on examples.
 
@@ -51,3 +50,5 @@ This manual describes the analysis implementation guidelines using a large-scale
     - [Example of Actual Model for Eigenvalue Analysis](example_03.md)
     - [Example of Actual Model for Heat Conduction Analysis](example_04.md)
     - [Example of Actual Model for Linear Dynamic Analysis](example_05.md)
+
+

@@ -18,3 +18,5 @@
 <img src="./media/tutorial08_01.png" width="350px"><br>
 図4.8.1　変形およびミーゼス応力の解析結果
 </div>
+
+

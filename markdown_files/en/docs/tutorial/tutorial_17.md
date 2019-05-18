@@ -87,3 +87,5 @@ Fig.4.17.3 Relationship between frequency and displacement amplitude of the moni
    14900.000000000000      [Hz] :            9 .res
 
 ```
+
+
