@@ -2,7 +2,7 @@
 
 CWD=`pwd`
 cd ../ja/docs/theory
-cat index.md theory_01.md theory_02.md theory_03.md theory_04.md theory_05.md theory_06.md theory_06.md theory_07.md > theory.md
+cat index.md theory_01.md theory_02.md theory_03.md theory_04.md theory_05.md theory_06.md theory_07.md > theory.md
 pandoc -f markdown+link_attributes+tex_math_dollars \
 	theory.md \
 	-t html5 \
@@ -14,7 +14,7 @@ rm -rf theory.md *.html
 
 cd $CWD
 cd ../en/docs/theory
-cat index.md theory_01.md theory_02.md theory_03.md theory_04.md theory_05.md theory_06.md theory_06.md theory_07.md > theory.md
+cat index.md theory_01.md theory_02.md theory_03.md theory_04.md theory_05.md theory_06.md theory_07.md > theory.md
 pandoc -f markdown+link_attributes+tex_math_dollars \
 	theory.md \
 	-t html5 \
