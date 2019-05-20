@@ -8,6 +8,7 @@ pandoc -f markdown+link_attributes+tex_math_dollars \
 	-t html5 \
 	-o ../../../pdf/intro_ja.pdf \
 	-s --pdf-engine=wkhtmltopdf \
+	--metadata pagetitle="FrontISTR イントロダクション" \
 	--toc --number-sections --css ../css/extra.css
 rm -rf intro.md *.html
 
@@ -19,6 +20,7 @@ pandoc -f markdown+link_attributes+tex_math_dollars \
 	-t html5 \
 	-o ../../../pdf/intro_en.pdf \
 	-s --pdf-engine=wkhtmltopdf \
+	--metadata pagetitle="Introduction to FrontISTR" \
 	--toc --number-sections --css ../css/extra.css
 rm -rf intro.md *.html
 

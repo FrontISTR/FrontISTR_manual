@@ -8,6 +8,7 @@ pandoc -f markdown+link_attributes+tex_math_dollars \
 	-t html5 \
 	-o ../../../pdf/tutorial_ja.pdf \
 	-s --mathjax --pdf-engine=wkhtmltopdf \
+	--metadata pagetitle="FrontISTR チュートリアルマニュアル" \
 	--toc --number-sections --css ../css/extra.css
 rm tutorial.md *.html
 
@@ -19,5 +20,6 @@ pandoc -f markdown+link_attributes+tex_math_dollars \
 	-t html5 \
 	-o ../../../pdf/tutorial_en.pdf \
 	-s --mathjax --pdf-engine=wkhtmltopdf \
+	--metadata pagetitle="FrontISTR Tutorial manual" \
 	--toc --number-sections --css ../css/extra.css
 rm tutorial.md *.html

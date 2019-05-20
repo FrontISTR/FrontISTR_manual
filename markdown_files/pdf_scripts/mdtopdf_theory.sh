@@ -8,6 +8,7 @@ pandoc -f markdown+link_attributes+tex_math_dollars \
 	-t html5 \
 	-o ../../../pdf/theory_ja.pdf \
 	-s --mathjax --pdf-engine=wkhtmltopdf \
+	--metadata pagetitle="FrontISTR 理論マニュアル" \
 	--toc --number-sections --css ../css/extra.css
 rm -rf theory.md *.html
 
@@ -19,6 +20,7 @@ pandoc -f markdown+link_attributes+tex_math_dollars \
 	-t html5 \
 	-o ../../../pdf/theory_en.pdf \
 	-s --mathjax --pdf-engine=wkhtmltopdf \
+	--metadata pagetitle="FrontISTR Theory manual" \
 	--toc --number-sections --css ../css/extra.css
 rm -rf theory.md *.html
 

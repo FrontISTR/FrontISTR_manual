@@ -7,6 +7,7 @@ pandoc -f markdown+link_attributes+tex_math_dollars \
 	install.md \
 	-t html5 \
 	-o ../../../pdf/install_ja.pdf \
+	--metadata pagetitle="FrontISTR インストールマニュアル" \
 	-s --mathjax --pdf-engine=wkhtmltopdf \
 	--toc --number-sections --css ../css/extra.css
 rm -rf install.md *.html
@@ -19,6 +20,7 @@ pandoc -f markdown+link_attributes+tex_math_dollars \
 	-t html5 \
 	-o ../../../pdf/install_en.pdf \
 	-s --mathjax --pdf-engine=wkhtmltopdf \
+	--metadata pagetitle="FrontISTR Installation manual" \
 	--toc --number-sections --css ../css/extra.css
 rm -rf install.md *.html
 
