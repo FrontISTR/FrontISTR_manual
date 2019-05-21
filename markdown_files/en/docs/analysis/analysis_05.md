@@ -150,7 +150,6 @@ The same as the mesh data, the `!HEADER` format is used as the definition method
 
 The header list of the common control data is shown in the following Table 7.3.1, and the header list for each analysis type is shown in Table 7.3.2.
 
----
 **Table 7.3.1: Control Data Common to All Analysis**
 
 | Header               | Meaning                                                           | Remarks   | Description No. |
@@ -169,7 +168,6 @@ The header list of the common control data is shown in the following Table 7.3.1
 | `!INITIAL_CONDITION` | Definition of initial condition                                   |           | 1-12            |
 | `!END`               | Ending specification of control data                              |           | 1-13            |
 
----
 **Table 7.3.2: Control Data for Static Analysis**
 
 | Header             | Meaning                                                  | Remarks | Description No. |
@@ -197,14 +195,13 @@ The header list of the common control data is shown in the following Table 7.3.1
 | `!REFTEMP`         | Reference temperature in thermal stress analysis         |         | 2-10            |
 | `!STEP`            | Analysis step control                                    |         | 2-11            |
 
----
 **Table 7.3.3: Control Data for Eigenvalue Analysis**
 
 | Header   | Meaning                     | Remarks                          | Description No. |
 |----------|-----------------------------|----------------------------------|-----------------|
 | `!EIGEN` | Eigenvalue analysis control | Mandatory in eigenvalue analysis | 3-1             |
 
----
+
 **Table 7.3.4: Control Data for Heat Conduction Analysis**
 
 | Header       | Meaning                                                                   | Remarks                               | Description No. |
@@ -220,7 +217,6 @@ The header list of the common control data is shown in the following Table 7.3.1
 | `!SRADIATE`  | Radiation factor by surface group                                         |                                       | 4-9             |
 | `!WELD_LINE` | Weld line                                                                 |                                       | 4-10            |
 
----
 **Table 7.3.5: Control Data for Dynamic Analysis**
 
 | Header          | Meaning                                                         | Remarks                                  | Description No. |
