@@ -1,4 +1,3 @@
-
 ## Heat Conduction Analysis
 
 This analysis uses the data of `tutorial/16_heat_block`.

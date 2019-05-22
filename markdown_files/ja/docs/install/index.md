@@ -1,5 +1,3 @@
-*** Last updated 2019-04-18 ***
-
 <!-- 表記は FrontISTR ver. 0.0 で統一します -->
 # FrontISTR インストールマニュアル
 

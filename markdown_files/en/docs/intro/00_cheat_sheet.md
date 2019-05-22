@@ -1,4 +1,3 @@
-
 # Cheat sheet
 
 ## Installation

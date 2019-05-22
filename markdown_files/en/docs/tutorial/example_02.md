@@ -1,4 +1,3 @@
-
 ## Actual Model Examples for Elastic Static Analysis
 
 ### Analysis Model

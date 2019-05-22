@@ -1,4 +1,3 @@
-
 # Appendix : Example of installation procedure to Ubuntu18.04(cmake)
 
 We will explain how to install this software and how to build external libraries required this software on Ubuntu18.04.

@@ -1,4 +1,3 @@
-
 ## 静解析（超弾性その１）
 
 本解析の実施には、`tutorial/03_hyperelastic_cylinder` のデータを用います。

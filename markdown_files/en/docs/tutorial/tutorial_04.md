@@ -1,4 +1,3 @@
-
 ## Static Analysis (Hyperelasticity, Part 2)
 
 This analysis uses the data of `tutorial/04_hyperelastic_spring`.

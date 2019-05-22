@@ -1,4 +1,3 @@
-
 # References
 
   - Hisada and Noguchi, Fundamentals and applications of the non-linear finite element method, Maruzen, 1995 (in Japanese)
