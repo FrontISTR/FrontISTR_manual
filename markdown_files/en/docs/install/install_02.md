@@ -1,3 +1,4 @@
+
 # Extracting the Archive File
 
 The archive file has been archiving with the tar command and compressing with gzip. It can be extracted using the following command. (“$” at the beginning of the command string represents a prompt.)
