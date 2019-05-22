@@ -1,4 +1,3 @@
-
 ##  非線形接触動解析
 
 本解析の実施には、`tutorial/14_dynamic_plate_contact` のデータを用います。

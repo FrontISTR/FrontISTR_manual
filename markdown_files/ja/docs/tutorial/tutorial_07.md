@@ -1,4 +1,3 @@
-
 ## 静解析（粘弾性）
 
 本解析の実施には、`tutorial/07_viscoelastic_cylinder` のデータを用います。

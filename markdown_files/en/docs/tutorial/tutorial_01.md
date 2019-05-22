@@ -1,4 +1,3 @@
-
 ## Static Analysis (Elasticity)
 
 This analysis uses the data of `tutorial/01_elastic_hinge`.

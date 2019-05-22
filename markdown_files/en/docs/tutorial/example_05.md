@@ -1,4 +1,3 @@
-
 ## Actual Model Examples for Linear Dynamic Analysis
 
 ### Analysis model

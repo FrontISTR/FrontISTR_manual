@@ -1,4 +1,3 @@
-
 # Appendix : Example of installation procedure to Windows10(Makefile.conf)
 
 We will explain how to install this software and how to build external libraries required this software on Windows10.

@@ -1,4 +1,3 @@
-
 ## Static Analysis (Creep)
 
 This analysis uses the data of `tutorial/08_creep_cylinder`.

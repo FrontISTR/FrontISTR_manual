@@ -1,4 +1,3 @@
-
 ## Static Analysis (Viscoelasticity)
 
 This analysis uses the data of `tutorial/07_viscoelastic_cylinder`.

@@ -1,4 +1,3 @@
-
 ## Actual Model Examples for Eigenvalue Analysis
 
 ### Analysis model

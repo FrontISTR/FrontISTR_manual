@@ -1,4 +1,3 @@
-
 # Installation
 
 ## Supported installation procedure

@@ -1,4 +1,3 @@
-
 ##  非線形動解析
 
 本解析の実施には、`tutorial/13_dynamic_beam_nonlinear` のデータを用います。

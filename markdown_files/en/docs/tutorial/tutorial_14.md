@@ -1,4 +1,3 @@
-
 ## Non-Linear Contact Dynamic Analysis
 
 This analysis uses the data of `tutorial/14_dynamic_plate_contact`.

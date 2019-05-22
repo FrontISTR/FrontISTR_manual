@@ -1,4 +1,3 @@
-
 # Operating Environment
 
 ## Required software
