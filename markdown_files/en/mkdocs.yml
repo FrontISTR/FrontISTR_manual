@@ -7,6 +7,21 @@ theme:
 
 use_directory_urls: false
 
+markdown_extensions:
+    - attr_list
+    - def_list
+    - mdx_math
+
+#plugins:
+#  - pdf-export
+
+extra_javascript:
+  - 'javascripts/extra.js'
+#  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+
+extra_css:
+  - 'css/extra.css'
+
 nav:
 - HOME: index.md
 - Introduction:
@@ -31,9 +46,9 @@ nav:
     - Infinitesimal Deformation Linear Elasticity Static Analysis: theory/theory_01.md
     - Nonlinear Static Analysis Method: theory/theory_02.md
     - Dynamic Analysis Method: theory/theory_03.md
-    - Heat Conduction Analysis: theory/theory_04.md
     - Eigenvalue Analysis: theory/theory_05.md
     - Frequency Response Analysis: theory/theory_06.md
+    - Heat Conduction Analysis: theory/theory_04.md
     - References: theory/theory_07.md
 - Analysis:
     - TOC: analysis/index.md

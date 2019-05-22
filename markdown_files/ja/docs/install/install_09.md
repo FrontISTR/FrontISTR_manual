@@ -1,10 +1,10 @@
-# 参考 Ubuntu18.04へのインストール手順例(cmake)
+## 参考 Ubuntu18.04へのインストール手順例(cmake)
 
 Ubuntu18.04上へ本ソフトウェアと、それに必要な外部ライブラリの構築手順の例を示します。他の環境へのインストールの参考にしてください。
 
 また、各ライブラリの詳細な構築方法は、それぞれのドキュメントを参考にしてください。
 
-## 準備
+### 準備
 
 最初に本ソフトウェアをコンパイルするのに必要なツールやパッケージをインストールしてください。
 
@@ -24,7 +24,7 @@ $ which gcc g++ gfortran mpicc mpic++ mpifort
 /usr/bin/mpifort
 ```
 
-## ライブラリのインストール
+### ライブラリのインストール
 
 本ソフトウェアに必要なライブラリをインストールします。作業ディレクトリは`$HOME/work` 、インストール先のディレクトリは`$HOME/local`とします。
 
@@ -37,21 +37,21 @@ $ mkdir -p local/bin local/lib local/include
 $ export PATH=$HOME/local/bin:$PATH
 ```
 
-### ダウンロード
+#### ダウンロード
 
 以下のソフトウェアをダウンロードし、作業ディレクトリ`$HOME/work`へ保存します。
 
-| ソフトウェア名 | ダウンロード先 |
-|:--|:--|
-| REVOCAP\_Refiner-1.1.04.tar.gz | http://www.frontistr.com/ |
-| FrontISTR\_V50.tar.gz | https://www.frontistr.com/ |
-| OpenBLAS-0.2.20.tar.gz | http://www.openblas.net/ |
-| metis-5.1.0.tar.gz | http://glaros.dtc.umn.edu/gkhome/metis/metis/download |
-| scalapack-2.0.2.tgz | http://www.netlib.org/scalapack/ |
-| MUMPS\_5.1.2.tar.gz | http://mumps.enseeiht.fr/ |
-| trilinos-12.14.1-Source.tar.bz2 | https://trilinos.org/download/ |
+| ソフトウェア名                  | ダウンロード先                                        |
+|:--------------------------------|:------------------------------------------------------|
+| REVOCAP_Refiner-1.1.04.tar.gz   | http://www.frontistr.com/                             |
+| FrontISTR_V50.tar.gz            | https://www.frontistr.com/                            |
+| OpenBLAS-0.2.20.tar.gz          | http://www.openblas.net/                              |
+| metis-5.1.0.tar.gz              | http://glaros.dtc.umn.edu/gkhome/metis/metis/download |
+| scalapack-2.0.2.tgz             | http://www.netlib.org/scalapack/                      |
+| MUMPS_5.1.2.tar.gz              | http://mumps.enseeiht.fr/                             |
+| trilinos-12.14.1-Source.tar.bz2 | https://trilinos.org/download/                        |
 
-### REVOCAP\_Refinerのコンパイル
+#### REVOCAP_Refinerのコンパイル
 
 ```
 $ cd $HOME/work
@@ -62,7 +62,7 @@ $ cp lib/x86_64-linux/libRcapRefiner.a $HOME/local/lib
 $ cp Refiner/rcapRefiner.h $HOME/local/include
 ```
 
-### OpenBLASのコンパイル
+#### OpenBLASのコンパイル
 
 ```
 $ cd $HOME/work
@@ -71,7 +71,7 @@ $ make BINARY=64 NO_SHARED=1 USE_OPENMP=1
 $ make PREFIX=$HOME/local install
 ```
 
-### METISのコンパイル
+#### METISのコンパイル
 
 ```
 $ cd $HOME/work
@@ -82,7 +82,7 @@ $ make
 $ make install
 ```
 
-### ScaLAPACKのコンパイル
+#### ScaLAPACKのコンパイル
 
 ```
 $ cd $HOME/work
@@ -98,7 +98,7 @@ $ make
 $ make install
 ```
 
-### MUMPSのコンパイル
+#### MUMPSのコンパイル
 
 ```
 $ cd $HOME/work
@@ -146,7 +146,7 @@ $ cp lib/*.a $HOME/local/lib
 $ cp include/*.h $HOME/local/include
 ```
 
-### Trilinos MLのコンパイル
+#### Trilinos MLのコンパイル
 
 ```
 $ cd $HOME/work
@@ -178,7 +178,7 @@ $ make
 $ make install
 ```
 
-## FrontISTRのコンパイル
+### FrontISTRのコンパイル
 
 上記ライブラリのコンパイルが済んだらFrontISTRをコンパイルします。
 
@@ -193,7 +193,7 @@ $ cmake -DCMAKE_INSTALL_PREFIX=$HOME/FrontISTR \
         ..
 ```
 
-### makeの実行
+#### makeの実行
 
 makeを実行します。
 
@@ -209,7 +209,7 @@ $ make -j4
 
 とします。並列コンパイルにより、コンパイル時間が短縮されます。
 
-### make install の実行
+#### make install の実行
 
 makeが完了したら、make installを実行しMakefile.confで指定したディレクトリへインストールします。この例では `$(HOME)/FrontISTR/bin` になります。
 
@@ -217,7 +217,7 @@ makeが完了したら、make installを実行しMakefile.confで指定したデ
 $ make install
 ```
 
-### 動作確認
+#### 動作確認
 
 本ソフトウェアに同梱されているチュートリアルを実行して、動作を確認します。
 

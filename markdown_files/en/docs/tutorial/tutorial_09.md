@@ -53,3 +53,4 @@ The analysis results of the fifth sub-step are shown in Fig. 4.9.3 as a deformat
 Fig. 4.9.3: Analysis results of deformation and y-direction displacement
 </div>
 
+

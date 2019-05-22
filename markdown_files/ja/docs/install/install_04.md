@@ -1,10 +1,8 @@
-# cmakeでのインストール
-
 ## cmakeでのインストール
 
 cmakeには、ライブラリの自動探索機能が備わっています。それらを手動で明示することもできます。
 
-cmakeコマンドの詳細は、 [https://cmake.org/](https://cmake.org/documentation/)をご覧ください。
+cmakeコマンドの詳細は、 [https://cmake.org/](https://cmake.org/documentation/) をご覧ください。
 
 ### 準備
 
@@ -57,6 +55,7 @@ $ make install
 
 インストールする場所を変えるには、cmakeコマンドにオプションを追加します。
 
+
 ```
 $ cmake -DCMAKE_INSTALL_PREFIX=$HOME/local ..
 ```
@@ -80,23 +79,23 @@ Compile Option: -p --with-tools --with-metis --with-mumps --with-lapack --with-m
 
 cmakeコマンドを実行する際、オプションを指定することで挙動を明示的に指定することができます。
 
-| オプション(デフォルト) | 説明                                    | 備考                         |
-|:-----------------------|:----------------------------------------|:-----------------------------|
-| -DWITH\_TOOLS=ON       | パーティショナなどのツールもコンパイル  | hecmw_part1などツール        |
-| -DWITH\_MPI=ON         | MPIを有効                               | ライブラリが必要             |
-| -DWITH\_OPENMP=ON      | OpenMPを有効                            | コンパイラの対応が必要       |
-| -DWITH\_REFINER=ON     | REVOCAP_Refinerの機能を有効             | ライブラリが必要             |
-| -DWITH\_REVOCAP=ON     | REVOCAP_Couplerの機能を有効             | ライブラリが必要             |
-| -DWITH\_METIS=ON       | METISの機能を有効                       | 4.0.3と5.1.0に対応           |
-| -DMETIS\_VER_4=OFF     | metis-4.0.3を使う場合に設定             | metis-5.1.0の場合指定不要    |
-| -DWITH_PARMETIS=ON     | ParMETISの機能を有効                    | 3.2.0と4.0.3に対応           |
-| -DMETIS\_VER_3=OFF     | ParMetis-3.2.0を使う場合に設定          | parmetis-4.0.3の場合指定不要 |
-| -DWITH\_MKL=ON         | MKL PARDISOの機能を有効                 | ライブラリが必要             |
-| -DWITH\_MUMPS=ON       | MUMPSの機能を有効                       | ライブラリが必要             |
-| -DWITH\_LAPACK=ON      | LAPACKの機能を有効                      | ライブラリが必要             |
-| -DWITH\_ML=ON          | Trilinos MLの機能を有効                 | ライブラリが必要             |
-| -DWITH\_DOC=OFF        | FrontISTRのソースコードをドキュメント化 | doxygenとgraphvizが必要      |
-| -DOLD\_RES\_FORMAT=OFF   | ONでresultファイルの旧フォーマット出力を有効化 |  |
+| オプション(デフォルト) | 説明                                           | 備考                         |
+|:-----------------------|:-----------------------------------------------|:-----------------------------|
+| -DWITH_TOOLS=ON        | パーティショナなどのツールもコンパイル         | hecmw_part1などツール        |
+| -DWITH_MPI=ON          | MPIを有効                                      | ライブラリが必要             |
+| -DWITH_OPENMP=ON       | OpenMPを有効                                   | コンパイラの対応が必要       |
+| -DWITH_REFINER=ON      | REVOCAP_Refinerの機能を有効                    | ライブラリが必要             |
+| -DWITH_REVOCAP=ON      | REVOCAP_Couplerの機能を有効                    | ライブラリが必要             |
+| -DWITH_METIS=ON        | METISの機能を有効                              | 4.0.3と5.1.0に対応           |
+| -DMETIS_VER_4=OFF      | metis-4.0.3を使う場合に設定                    | metis-5.1.0の場合指定不要    |
+| -DWITH_PARMETIS=ON     | ParMETISの機能を有効                           | 3.2.0と4.0.3に対応           |
+| -DMETIS_VER_3=OFF      | ParMetis-3.2.0を使う場合に設定                 | parmetis-4.0.3の場合指定不要 |
+| -DWITH_MKL=ON          | MKL PARDISOの機能を有効                        | ライブラリが必要             |
+| -DWITH_MUMPS=ON        | MUMPSの機能を有効                              | ライブラリが必要             |
+| -DWITH_LAPACK=ON       | LAPACKの機能を有効                             | ライブラリが必要             |
+| -DWITH_ML=ON           | Trilinos MLの機能を有効                        | ライブラリが必要             |
+| -DWITH_DOC=OFF         | FrontISTRのソースコードをドキュメント化        | doxygenとgraphvizが必要      |
+| -DOLD_RES_FORMAT=OFF   | ONでresultファイルの旧フォーマット出力を有効化 |                              |
 
 cmakeで設定されている変数の一覧は
 
@@ -108,16 +107,16 @@ $ cmake -L
 
 その他、使用するコンパイラの指定やライブラリの指定をするオプションは以下の通りです。
 
-| オプション                  | 説明                                                 | 備考                                                                                         |
-|:----------------------------|:-----------------------------------------------------|:---------------------------------------------------------------------------------------------|
-| -DBLA\_VENDOR=              | 利用するBLASのベンダーを指定                         | FindBLAS.cmakeを参照                                                                         |
-| -DBLAS\_LIBRARIES=          | BLASライブラリを直接指定                             | ライブラリを絶対パスで直接指定                                                               |
-| -DLAPACK\_LIBRARIES=        | LAPACKライブラリを直接指定                           | ライブラリを絶対パスで直接指定                                                               |
-| -DCMAKE\_INSTALL\_PREFIX=   | インストールするパスを設定。デフォルトは`/usr/local` | -DCMAKE\_INSTALL\_PREFIX=$HOME/local で $HOME/local/bin などにプログラムがインストールされる |
-| -DCMAKE\_C\_COMPILER=       | Cコンパイラを指定                                    | -DCMAKE_C_COMPILER=icc  (Intel Cコンパイラ）                                                 |
-| -DCMAKE\_CXX\_COMPILER=     | C++コンパイラを指定                                  | -DCMAKE_CXX_COMPILER=icpc  (Intel C++コンパイラ)                                             |
-| -DCMAKE\_Fortran\_COMPILER= | Fortranコンパイラを指定                              | -DCMAKE_Fortran_COMPILER=ifort  (Intel Fortranコンパイラ)                                    |
-| -DCMAKE\_PREFIX\_PATH=      | ライブラリ等の格納場所を指定                         | -DCMAKE_PREFIX_PATH=$HOME/tools (ライブラリなどを探索するパス)                               |
+| オプション                | 説明                                                 | 備考                                                                                       |
+|:--------------------------|:-----------------------------------------------------|:-------------------------------------------------------------------------------------------|
+| -DBLA_VENDOR=             | 利用するBLASのベンダーを指定                         | FindBLAS.cmakeを参照                                                                       |
+| -DBLAS_LIBRARIES=         | BLASライブラリを直接指定                             | ライブラリを絶対パスで直接指定                                                             |
+| -DLAPACK_LIBRARIES=       | LAPACKライブラリを直接指定                           | ライブラリを絶対パスで直接指定                                                             |
+| -DCMAKE_INSTALL_PREFIX=   | インストールするパスを設定。デフォルトは`/usr/local` | -DCMAKE_INSTALL_PREFIX=$HOME/local で $HOME/local/bin などにプログラムがインストールされる |
+| -DCMAKE_C_COMPILER=       | Cコンパイラを指定                                    | -DCMAKE_C_COMPILER=icc  (Intel Cコンパイラ）                                               |
+| -DCMAKE_CXX_COMPILER=     | C++コンパイラを指定                                  | -DCMAKE_CXX_COMPILER=icpc  (Intel C++コンパイラ)                                           |
+| -DCMAKE_Fortran_COMPILER= | Fortranコンパイラを指定                              | -DCMAKE_Fortran_COMPILER=ifort  (Intel Fortranコンパイラ)                                  |
+| -DCMAKE_PREFIX_PATH=      | ライブラリ等の格納場所を指定                         | -DCMAKE_PREFIX_PATH=$HOME/tools (ライブラリなどを探索するパス)                             |
 
 ## 簡易テスト機能について
 
@@ -195,3 +194,5 @@ $ cmake -DCMAKE_BUILD_TYPE="DEBUG" -DDEBUG_EXTRA=ON ..
 ```
 
 とすると、メモリリークなどの検出に役立ちます。
+
+

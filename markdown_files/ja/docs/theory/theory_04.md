@@ -15,11 +15,11 @@ MathJax.Hub.Config({
 </script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
-# 熱伝導解析
+## 熱伝導解析
 
 本開発コードで用いられる有限要素法（Finite ElementMethod）による固体についての熱伝導解析手法を示す。
 
-## 基礎方程式
+### 基礎方程式
 
 連続体中での熱伝導方程式は以下のようになる。
 
@@ -93,7 +93,7 @@ $Tr=Tr(x,t)$は輻射熱伝達率雰囲気温度、
 $hr=\varepsilon \sigma F = {hr(x,t)}$は輻射熱伝達係数、
 $\varepsilon$は輻射率，$\sigma$はStefanBoltzmann定数、$F$は形態係数である．
 
-## 離散化
+### 離散化
 
 方程式$\eqref{eq:2.4.1}$をGalerkin法によって離散化すると、
 
@@ -244,4 +244,5 @@ $$
 
 非定常解析において時間増分$\Delta t$の選び方は、時間に関する離散化に陰解法を採用しているので、一般にその大きさの制約を受けない。ただし時間増分$\Delta t$が大きすぎると、反復計算における収束回数は増加する。
 そこで本プログラムは、反復計算過程における残差ベクトルの大きさをつねにモニターし、反復計算の収束がおそすぎれば時間増分$\Delta t$を減少させ、反復計算回数が少なくなると時間増分$\Delta t$を増加される自動増分機能を備えている。
+
 

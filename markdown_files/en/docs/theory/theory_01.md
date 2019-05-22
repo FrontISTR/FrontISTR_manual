@@ -15,7 +15,7 @@ MathJax.Hub.Config({
 </script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
-# Infinitesimal Deformation Linear Elastic Static Analysis
+## Infinitesimal Deformation Linear Elastic Static Analysis
 
 In this section, the elastic static analysis is formulated on the basis of the infinitesimal deformation theory, which assumes linear elasticity as a stress-strain relationship. 
 
@@ -69,7 +69,7 @@ $$
 
 where, $C$ is a fourth-order elasticity tensor.
 
-## Principle of Virtual Work
+### Principle of Virtual Work
 
 The principle of the virtual work related to the infinitesimal deformation linear elasticity problem, which is equivalent to the basic equation Eq.$\eqref{eq:2.1.1}$, Eq.$\eqref{eq:2.1.2}$ and Eq.$\eqref{eq:2.1.3}$, is expressed as:
 
@@ -119,7 +119,7 @@ $$
 
 Eq.$\eqref{eq:2.1.10}$ and Eq.$\eqref{eq:2.1.7}$ are the principles of the virtual work discretized in this development code.
 
-## Formulation
+### Formulation
 
 If the principle of virtual work, Eq.$\eqref{eq:2.1.10}$, is discretized for each finite element, the following equation is obtained:  
 
@@ -205,3 +205,5 @@ U = \overline{U}
 $$
 
 By solving Eq.$\eqref{eq:2.1.18}$ based on the constraint condition Eq.$\eqref{eq:2.1.19}$, it is possible to define the node displacement $U$.
+
+

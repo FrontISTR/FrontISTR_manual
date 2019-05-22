@@ -71,3 +71,5 @@ Fig. 4.7.1: Analysis results of deformation and Mises stress
   //S13  5.2254E+00        64 -1.5313E+02       95
   //SMS  3.8602E+04        13 3.7194E+04        50
 ```
+
+

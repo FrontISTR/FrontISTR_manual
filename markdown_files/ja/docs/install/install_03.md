@@ -1,10 +1,10 @@
-# インストール
+## インストール
 
-## サポートされているインストール方法
+### サポートされているインストール方法
 
 本ソフトウェアでは、2つのインストール方法がサポートされています。
 
-### cmakeでのインストール
+#### cmakeでのインストール
 
 本ソフトウェアは、cmakeを用いたインストールをサポートしています。
 
@@ -13,7 +13,7 @@ cmakeを予めインストールしておく必要があります。cmakeは下�
 [https://cmake.org/](https://cmake.org/)
 
 ```
-$ cd `${FSTRBUILDDIR}`
+$ cd ${FSTRBUILDDIR}
 $ mkdir build
 $ cd build
 $ cmake ..
@@ -25,17 +25,17 @@ $ make install
 
 [cmakeでのインストール つづき](install_04)
 
-#### 参考
+##### 参考
 
   - [参考 CentOS7.6へのインストール手順例(cmake)](install_07)
   - [参考 Ubuntu18.04へのインストール手順例(cmake)](install_09)
 
-### Makefile.confでのインストール
+#### Makefile.confでのインストール
 
 本ソフトウェアでは、手動でライブラリやコンパイラ、有効にする機能を指定する方法がサポートされています。
 
 ```
-$ cd `${FSTRBUILDDIR}`
+$ cd ${FSTRBUILDDIR}
 $ cp Makefile.conf.org Makefile.conf
 $ vi Makefile.conf
   ファイルを編集しコンパイラやライブラリの場所を指定
@@ -48,7 +48,7 @@ cmake での自動設定が困難な環境では、こちらの方法での構�
 
 [Makefile.confでのインストール つづき](install_05)
 
-#### 参考
+##### 参考
 
   - [参考 CentOS7.6へのインストール手順例(Makefile.conf)](install_08)
   - [参考 Ubuntu18.04へのインストール手順例(Makefile.conf)](install_10)

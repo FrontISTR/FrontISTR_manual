@@ -5,11 +5,11 @@ This software is the outcome of "Research and Development of Innovative Simulati
 
 <img src="../image/FrontISTR_logo.png" width="350px">
 
-| Item | Content |
-|:---------:|:---------|
-| Name of Software | FrontISTR |
-| Version | 5.0 |
-| License | MIT License |
+| Item                 | Content     |
+|:--------------------:|:------------|
+| Name of Software     | FrontISTR   |
+| Version              | 5.0         |
+| License              | MIT License |
 | Correnponding Clerks | FrontISTR Commons<br>2-11-16 Yayoi, Bunkyo-ku, Tokyo<br>c/o Institute of Engineering Innovation, School of Engineering<br>E-mail：support@frontistr.com |
 
 ## Manuals
@@ -21,7 +21,6 @@ This software is the outcome of "Research and Development of Innovative Simulati
   - [Tutorial](../tutorial/index.md)
 
 <!-- ここまでテンプレート -->
----
 
 This manual describes the analysis method by the finite element method (FEM) used in FrontISTR. 
 
@@ -41,4 +40,5 @@ Regarding the stress analysis method of solids, the infinitesimal deformation li
     - [Restart Data](analysis_05.md)
     - [Visualization Data](analysis_05.md)
 - [User Subroutines](analysis_06.md)
+
 

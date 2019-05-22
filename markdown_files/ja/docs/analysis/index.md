@@ -1,3 +1,4 @@
+
 <!-- 表記は FrontISTR ver. 0.0 で統一します -->
 # FrontISTR 解析マニュアル
 
@@ -6,12 +7,12 @@
 
 <img src="../image/FrontISTR_logo.png" width="350px">
 
-| 項目 | 説明 |
-|:---------:|:---------|
-| ソフトウェア名称 | FrontISTR |
-| バージョン | 5.0 |
-| ライセンス形態 | MIT License |
-| 問い合わせ先 | 一般社団法人 FrontISTR Commons<br>東京都文京区弥生二丁目１１番１６号<br>(東京大学大学院工学系研究科 総合研究機構内)<br>E-mail：support@frontistr.com |
+| 項目             | 説明        |
+|:----------------:|:------------|
+| ソフトウェア名称 | FrontISTR   |
+| バージョン       | 5.0         |
+| ライセンス形態   | MIT License |
+| 問い合わせ先     | 一般社団法人 FrontISTR Commons<br>東京都文京区弥生二丁目11番16号<br>(東京大学大学院工学系研究科 総合研究機構内)<br>E-mail：support@frontistr.com |
 
 ## マニュアルリスト
 
@@ -22,7 +23,6 @@
 - [チュートリアル](../tutorial/index.md)
 
 <!-- ここまでテンプレート -->
----
 
 本マニュアルでは、大規模並列FEM非線形構造解析プログラムFrontISTRのデータ入力方法と実行方法を説明します。
 
@@ -35,3 +35,5 @@
 - [単一領域メッシュデータ](analysis_04.md)
 - [解析制御データ](analysis_05.md)
 - [ユーザーサブルーチン](analysis_06.md)
+
+

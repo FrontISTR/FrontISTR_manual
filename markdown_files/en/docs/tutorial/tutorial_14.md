@@ -66,3 +66,5 @@ A contour diagram of a Mises stress of the falling impact is shown in Fig. 4.14.
 Fig. 4.14.3: Mises stress of the falling impact
 </div>
 
+
+

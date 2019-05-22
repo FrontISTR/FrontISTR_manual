@@ -110,11 +110,11 @@ $u_{is}(t+\Delta{t})$は時刻$t+\Delta{t}$における節点変位、$\dot{u_{i
 $\ddot{u_{is}}(t+\Delta{t})$は時刻$t+\Delta{t}$の節点加速度、$i$は節点自由度番号、$s$は節点番号である．
 また、質量項及び減衰項の取り扱いは次のとおりとした。
 
-##### 質量項の取り扱い
+#### 質量項の取り扱い
 
 質量マトリックスについては原則として集中質量マトリックスとして扱っている。
 
-##### 減衰項の取り扱い
+#### 減衰項の取り扱い
 
 減衰項については式$\eqref{eq:2.5.8}$で表されるRayleigh減衰として扱っている。
 
@@ -204,4 +204,8 @@ $$
 U( t + \Delta t ) \\\
 = \frac{1}{( \frac{1}{\Delta t^{2}} M + \frac{1}{2\Delta t} C )} \{ F(t) - Q(t) - \frac{1}{\Delta t^{2}} M U(t) - U(t - \Delta t) - \frac{1}{2\Delta t} C U(t - \Delta t) \}
 \label{eq:2.5.17}
-\end{equation}$$
+\end{equation}
+$$
+
+
+

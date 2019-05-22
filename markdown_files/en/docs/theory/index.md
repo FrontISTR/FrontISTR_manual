@@ -21,7 +21,6 @@ This software is the outcome of "Research and Development of Innovative Simulati
   - [Tutorial](../tutorial/index.md)
 
 <!-- ここまでテンプレート -->
----
 
 This manual describes the analysis method by the finite element method (FEM) used in FrontISTR. 
 

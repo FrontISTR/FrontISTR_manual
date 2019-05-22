@@ -15,9 +15,9 @@ MathJax.Hub.Config({
 </script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
-# Eigenvalue Analysis
+## Eigenvalue Analysis
 
-## Generalized Eigenvalue Problems
+### Generalized Eigenvalue Problems
 
 In free oscillation analysis of continuous bodies, a spatial discretization is performed, and it is modeled with a multi-DOF system with concentrated mass points as shown in Fig. 2.3.1. In the case of free oscillation problems without damping, the governing equation (motion equation) is as follows:
 
@@ -70,7 +70,7 @@ The coefficient $\lambda$ and vector $x$ are called eigenvalue and eigenvector, 
 
 <div style="text-align:center;"><img alt="Fig. 2.3.1: Example of a multi-DOF system of free oscillation without damping" src="media/theory05_01.png" width="80%"/><br/>Fig. 2.3.1: Example of a multi-DOF system of free oscillation without damping</div>
 
-## Problem Settings
+### Problem Settings
 
 Eq.$\eqref{eq:2.3.5}$, which can be expanded to any order, appears in many situations. When dealing with physical problems, the matrix is often Hermitian (symmetric.) In a complex matrix, the transpose is a conjugate complex number, and the real matrix is a symmetric matrix. Therefore, when the $ij$ components of matrix $K$ are defined as $k_{ij}$, if the conjugate complex number $k$ is set as $\bar{k}$, the relationship becomes
 
@@ -90,7 +90,7 @@ x^\mathrm{T} A x > 0
 \end{equation}
 $$
 
-## Shifted Inverse Iteration Method
+### Shifted Inverse Iteration Method
 
 Structural analyses with the finite element method do not require all eigenvalues. In many cases, just a few low-order eigenvalues are sufficient. As for HEC-MW, it was designed to deal with large-scale problems thus, the matrices are large and very sparse (with many zeros). Therefore, it is important to consider this and determine eigenvalues of low-order mode efficiently. 
 
@@ -110,13 +110,13 @@ This equation has the following convenient properties for calculation:
 
 In actual calculations, the maximum eigenvalue is often determined at the beginning. Therefore, the main convergence calculation is applied to Eq.$\eqref{eq:2.3.8}$, rather than Eq.$\eqref{eq:2.3.5}$ to determine from the eigenvalues around $\rho$. This method is called shifted inverse iteration. 
 
-## Algorithm for Eigenvalue Solution
+### Algorithm for Eigenvalue Solution
 
 The Jacobi method is another such orthodox and popular method. 
 
 It is an effective method for small and dense matrices; however, the matrices dealt with by HEC-MW are large and sparse; thus, the Lanczos iterative is preferred. 
 
-## Lanczos Method
+### Lanczos Method
 
 The Lancos method was proposed by C. Lanczos in the 1950s and is a calculation algorithm for triply diagonalizing a matrix. The following are some of its characteristics: 
 
@@ -127,7 +127,7 @@ The Lancos method was proposed by C. Lanczos in the 1950s and is a calculation a
 
 The Lanczos method creates sequential orthogonal vectors, starting from the initial vector, to calculate the basis of subspaces. It is faster than the other subspace methods and is widely used in finite element method programs. However, this method is easily influenced by computer errors, which may impair the orthogonality of the vectors and interrupt it in the middle of the process. Therefore, it is essential to apply measures against errors. 
 
-## Geometric Significance of the Lanczos Method
+### Geometric Significance of the Lanczos Method
 
 By converting Eq.$\eqref{eq:2.3.8}$ into a variable
 
@@ -160,7 +160,7 @@ The transformed vector is orthogonalized within the space created by the origina
 
 The algorithm of the Lanczos method is a Gram–Schmidt orthogonalization on vector sequence $\\{A_{q_0}, A^2_{q_0}, A^3_{q_0}, \ldots, A^n_{q_0} \\}$ or, in other words, $\\{A_{q_0}, A_{q_1}, A_{q_2}, \ldots \\}$. This vector sequence is called Krylov sequence, and the space it creates is called Krylov subspace. If Gram–Schmidt orthogonalization is performed in this space, two adjacent vectors determine another vector. This is called the principle of Lanczos. 
 
-## Triple Diagonalization
+### Triple Diagonalization
 
 The $i + 1$<sup>th</sup> calculation in the iteration above can be expressed as 
 
@@ -208,4 +208,5 @@ Q_m &= [q_1, q_2, q_3, \ldots , q_m]\ ,
 $$
 
 That is, the eigenvalues are obtained through eigenvalue calculation on the triply diagonalized matrix obtained with Eq.$\eqref{eq:2.3.13}$.
+
 

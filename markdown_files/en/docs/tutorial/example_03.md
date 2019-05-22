@@ -9,13 +9,14 @@ Table 9.3.1: Examples of actual model verification for eigenvalue analysis
 </div>
 
 | Case Name | Element Type | Verification Model  | No. of Nodes | No. of Degrees of Freedom |
-|:--|:--|:--|:--|:--|
-| EX06     | 342        | Turbine blade       | 10,095  | 30,285 |
-| EX07     | 361        | Turbine rotor       | 127,440 | 382,320 |
-| EX08     | 342        | Spring              | 78,771  | 236,313 |
-| EX09     | 741        | Cylindrical shell   | 10,100  | 60,600 |
-| EX10A    | 731        | Wine glass (coarse) | 7,240   | 43,440 |
-| EX10B    | 731        | Wine glass (midium) | 48,803  | 292,818 |
+|:----------|:-------------|:--------------------|:-------------|:--------------------------|
+| EX06      | 342          | Turbine blade       | 10,095       | 30,285                    |
+| EX07      | 361          | Turbine rotor       | 127,440      | 382,320                   |
+| EX08      | 342          | Spring              | 78,771       | 236,313                   |
+| EX09      | 741          | Cylindrical shell   | 10,100       | 60,600                    |
+| EX10A     | 731          | Wine glass (coarse) | 7,240        | 43,440                    |
+| EX10B     | 731          | Wine glass (midium) | 48,803       | 292,818                   |
+
 
 <div style="text-align: center;">
 <img src="./media/example03_01.png" width="350px"><br>
@@ -33,15 +34,16 @@ The vibration mode and natural frequency are shown in the following.
 
 #### (1) EX06 Turbine blade
 
-|  |  |
-|--|--|
-|<img src="./media/example03_03.png" width="200px">|<img src="./media/example03_04.png" width="200px">|
-|(a) Mode 1 (1170 kHz)                            |(b) Mode 2(3250kHz)                              |
-|                                                 |                                                 |
-|<img src="./media/example03_05.png" width="200px">|<img src="./media/example03_06.png" width="200px">|
-|(c) Mode 3(4130kHz)                              |(d) Mode 4(4140kHz)                              | 
-|<img src="./media/example03_07.png" width="200px">| |
-|(e) Mode 5(8210kHz)                              | |
+|                                                    |                                                    |
+|----------------------------------------------------|----------------------------------------------------|
+| <img src="./media/example03_03.png" width="200px"> | <img src="./media/example03_04.png" width="200px"> |
+| (a) Mode 1 (1170 kHz)                              | (b) Mode 2(3250kHz)                                |
+|                                                    |                                                    |
+| <img src="./media/example03_05.png" width="200px"> | <img src="./media/example03_06.png" width="200px"> |
+| (c) Mode 3(4130kHz)                                | (d) Mode 4(4140kHz)                                |
+|                                                    |                                                    |
+| <img src="./media/example03_07.png" width="200px"> |                                                    |
+| (e) Mode 5(8210kHz)                                |                                                    |
 
 <div style="text-align: center;">
 Fig. 9.3.3: EX06, turbine blade vibration mode
@@ -49,17 +51,17 @@ Fig. 9.3.3: EX06, turbine blade vibration mode
 
 #### (2) EX07 Turbine rotor
 
-|  |  |
-|--|--|
-|<img src="./media/example03_08.png" width="300px">|<img src="./media/example03_09.png" width="300px">|
-|(a) Mode 1(1067Hz)|(b) Mode 2(1072Hz)|
-|  |  |
-|<img src="./media/example03_10.png" width="300px">|<img src="./media/example03_11.png" width="300px">|
-|(c) Mode 3(1072Hz)|(d) Mode 4(1093Hz)|
-|  |  |
-|<img src="./media/example03_12.png" width="300px">| |
-|(e) Mode 5(1093Hz)| |
-|  |  |
+|                                                    |                                                    |
+|----------------------------------------------------|----------------------------------------------------|
+| <img src="./media/example03_08.png" width="300px"> | <img src="./media/example03_09.png" width="300px"> |
+| (a) Mode 1(1067Hz)                                 | (b) Mode 2(1072Hz)                                 |
+|                                                    |                                                    |
+| <img src="./media/example03_10.png" width="300px"> | <img src="./media/example03_11.png" width="300px"> |
+| (c) Mode 3(1072Hz)                                 | (d) Mode 4(1093Hz)                                 |
+|                                                    |                                                    |
+| <img src="./media/example03_12.png" width="300px"> |                                                    |
+| (e) Mode 5(1093Hz)                                 |                                                    |
+|                                                    |                                                    |
 
 <div style="text-align: center;">
 Fig. 9.3.4: EX07, Turbine rotor vibration mode
@@ -75,13 +77,13 @@ Fig. 9.3.4: EX07, Turbine rotor vibration mode
 |Mode 4 (985Hz)                                   |Mode 5 (1819Hz)                                  |   |
 |<img src="./media/example03_16.png" width="160px">|<img src="./media/example03_17.png" width="160px">|   |
 
-|  | FrontISTR | NASTRAN |
-|--|----------:|--------:|
-| 1|445 Hz     |445 Hz    |
-| 2|446 Hz     |446 Hz    |
-| 3|908 Hz     |908 Hz    |
-| 4|985 Hz     |986 Hz    |
-| 5|1810 Hz    |1810 Hz   |
+|   | FrontISTR | NASTRAN |
+|---|----------:|--------:|
+| 1 | 445 Hz    | 445 Hz  |
+| 2 | 446 Hz    | 446 Hz  |
+| 3 | 908 Hz    | 908 Hz  |
+| 4 | 985 Hz    | 986 Hz  |
+| 5 | 1810 Hz   | 1810 Hz |
 
 <div style="text-align: center;">
 Fig. 9.3.5: EX08, spring vibration mode
@@ -121,4 +123,5 @@ Fig. 9.3.6: EX09, cylindrical shell vibration mode
 <div style="text-align: center;">
 Fig. 9.3.7: EX10A Wine Glass Vibration Mode
 </div>
+
 

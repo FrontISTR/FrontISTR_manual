@@ -23,25 +23,25 @@ The verification result of each load condition is presented in Tables 9.1.1–9.
 Fig. 9.1.1: Example of Mesh Partitioned Cantilever Beam (Hexahedral Element)
 </div>
 
-|   |   |
-|---|---|
-|<img src="./media/example01_02.png" width="350px">|(a) exA, G: Concentrated load|
-|<img src="./media/example01_03.png" width="350px">|(b) exD: Gravitation|
-|<img src="./media/example01_04.png" width="350px">|(c) exB: Surface-distributed load|
-|<img src="./media/example01_05.png" width="350px">|(d) exE: Centrifugal force|
-|<img src="./media/example01_06.png" width="350px">|(e) exC: Volume load|
-|<img src="./media/example01_07.png" width="350px">|(f) exF : Heat load|
+|                                                    |                                   |
+|----------------------------------------------------|-----------------------------------|
+| <img src="./media/example01_02.png" width="350px"> | (a) exA, G: Concentrated load     |
+| <img src="./media/example01_03.png" width="350px"> | (b) exD: Gravitation              |
+| <img src="./media/example01_04.png" width="350px"> | (c) exB: Surface-distributed load |
+| <img src="./media/example01_05.png" width="350px"> | (d) exE: Centrifugal force        |
+| <img src="./media/example01_06.png" width="350px"> | (e) exC: Volume load              |
+| <img src="./media/example01_07.png" width="350px"> | (f) exF : Heat load               |
 
-|Item |Value |
-|:--|:--|
-|Young's Modulus                        | $E = 4000.0\ kgf/mm^2$ |
-|Length                                 | $L = 10.0\ mm$ |
-|Poisson's Ratio                        | $\nu = 0.3$ |
-|Sectional area                         | $A = 1.0\ mm^2$ |
-|Mass density                           | $\rho = 8.0102 \times 10^{-10}\ kg\,s^2/mm^4$ |
-|Second moment of area                  | $I = 1.0/12.0\ mm^4$ |
-|Gravitational acceleration             | $g = 9800.0\ mm/s^2$ |
-|Linear coefficient of thermal expansion| $\alpha = 1.0 \times 10^{-5}$ |
+| Item                                    | Value                                          |
+|:----------------------------------------|:-----------------------------------------------|
+| Young's Modulus                         | $E = 4000.0\ kgf/mm^2$                         |
+| Length                                  | $L = 10.0\ mm$                                 |
+| Poisson's Ratio                         | $\nu = 0.3$                                    |
+| Sectional area                          | $A = 1.0\ mm^2$                                |
+| Mass density                            | $\rho = 8.0102 \times 10^\{-10}\ kg\,s^2/mm^4$ |
+| Second moment of area                   | $I = 1.0/12.0\ mm^4$                           |
+| Gravitational acceleration              | $g = 9800.0\ mm/s^2$                           |
+| Linear coefficient of thermal expansion | $\alpha = 1.0 \times 10^\{-5}$                 |
 
 <div style="text-align: center; margin-bottom: 3em;">
 Fig. 9.1.2: Verification conditions of the cantilever model
@@ -239,14 +239,14 @@ Fig. 9.1.4: Elastoplasticity deformation analysis Model
 
 |Item |Boundary conditions |Value   |
 |:--|:--|:--|
-|step 1 | Forced displacement in nodes 2 and 3 | $u_{x} =  0.2500031251 *10^{-4} $ |
-|step 2 | Forced displacement in nodes 2 and 3 | $u_{x} =  0.25000937518*10^{-4} $ |
-|step 3 | Forced displacement in nodes 3 and 4 | $u_{y} =  0.2500031251 *10^{-4} $ |
-|step 4 | Forced displacement in nodes 3 and 4 | $u_{y} =  0.25000937518*10^{-4} $ |
-|step 5 | Forced displacement in nodes 2 and 3 | $u_{x} = -0.25000937518*10^{-4} $ |
-|step 6 | Forced displacement in nodes 2 and 3 | $u_{x} = -0.2500031251 *10^{-4} $ |
-|step 7 | Forced displacement in nodes 3 and 4 | $u_{y} = -0.25000937518*10^{-4} $ |
-|step 8 | Forced displacement in nodes 3 and 4 | $u_{y} = -0.2500031251 *10^{-4} $ |
+|step 1 | Forced displacement in nodes 2 and 3 | $u_x =  0.2500031251 *10^\{-4} $ |
+|step 2 | Forced displacement in nodes 2 and 3 | $u_x =  0.25000937518*10^\{-4} $ |
+|step 3 | Forced displacement in nodes 3 and 4 | $u_y =  0.2500031251 *10^\{-4} $ |
+|step 4 | Forced displacement in nodes 3 and 4 | $u_y =  0.25000937518*10^\{-4} $ |
+|step 5 | Forced displacement in nodes 2 and 3 | $u_x = -0.25000937518*10^\{-4} $ |
+|step 6 | Forced displacement in nodes 2 and 3 | $u_x = -0.2500031251 *10^\{-4} $ |
+|step 7 | Forced displacement in nodes 3 and 4 | $u_y = -0.25000937518*10^\{-4} $ |
+|step 8 | Forced displacement in nodes 3 and 4 | $u_y = -0.2500031251 *10^\{-4} $ |
 
 All the nodes that are not mentioned here are fully constrained. The theoretical solution for this problem is presented as follows:
 
@@ -380,21 +380,21 @@ $$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
 
 The property values of the verification model are:
 
-|Item |Value   |
-|:--|:--|
-| $I$ | $10.0 mm$ |
-| $E$ | $4000.0 kgf /mm^2$ |
-| $l$ | $1.0/12.0 mm^4$ |
-| $ \omega $ | $7.85 * 10^{-6} kgf/mm^3$ |
-| $g$ | $9800.0 mm/sec^2$ |
+| Item     | Value                      |
+|:---------|:---------------------------|
+| $I$      | $10.0 mm$                  |
+| $E$      | $4000.0 kgf /mm^2$         |
+| $l$      | $1.0/12.0 mm^4$            |
+| $\omega$ | $7.85 * 10^\{-6} kgf/mm^3$ |
+| $g$      | $9800.0 mm/sec^2$          |
 
 Therefore, the primary to tertiary eigenvalue are as follows:
 
-| Mode number | Value |
-|:--|:--|
-| $n_1$ | 3.609e3 |
-| $n_2$ | 2.262e4 |
-| $n_3$ | 6.335e4 |
+| Mode number | Value   |
+|:------------|:--------|
+| $n_1$       | 3.609e3 |
+| $n_2$       | 2.262e4 |
+| $n_3$       | 6.335e4 |
 
 <div style="text-align: center;margin-top: 3em;">
 Table 9.1.9: exJ: Iteration method verification results with the primary eigenvalue
@@ -728,16 +728,16 @@ Fig. 9.1.12: Verification conditions of linear dynamic analysis
 
 Verification conditions:
 
-|   |   |   |
-|---|---|---|
-|Length                     | $L$    | $10.0\ mm$|
-|Cross-sectional width      | $a$    | $1.0\ mm$ |
-|Cross-sectional height     | $b$    | $1.0\ mm$ |
-|Young's modulus            | $E$    | $4000.0\ kgf/mm^2$ |
-|Poisson's ratio            | $\nu$  | 0.3 |
-|Density                    | $\rho$ | $1.0E-09\ kgf\,s^2/mm^3$ | 
-|Gravitational acceleration | $g$    | $9800.0\ mm/s^2$ |
-|External force             | $F_0$  | $1.0\ kgf$ |
+|                            |        |                          |
+|----------------------------|--------|--------------------------|
+| Length                     | $L$    | $10.0\ mm$               |
+| Cross-sectional width      | $a$    | $1.0\ mm$                |
+| Cross-sectional height     | $b$    | $1.0\ mm$                |
+| Young's modulus            | $E$    | $4000.0\ kgf/mm^2$       |
+| Poisson's ratio            | $\nu$  | $0.3$                    |
+| Density                    | $\rho$ | $1.0E-09\ kgf\,s^2/mm^3$ |
+| Gravitational acceleration | $g$    | $9800.0\ mm/s^2$         |
+| External force             | $F_0$  | $1.0\ kgf$               |
 
 |   |   |
 |---|---|

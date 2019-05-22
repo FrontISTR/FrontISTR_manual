@@ -1,10 +1,10 @@
-# Installation
+## Installation
 
-## Supported installation procedure
+### Supported installation procedure
 
 This software supports two procedure for compiling.
 
-### Compile with cmake
+#### Compile with cmake
 
 This software supports compiling the software using cmake.
 
@@ -25,12 +25,12 @@ cmake will search libraries and headers and gererate proper Makefiles for compil
 
 [continue... (Compile with cmake)](install_04)
 
-#### Appendix
+##### Appendix
 
   - [Appendix: Example of installation procedure to CentOS7.6(cmake)](install_07)
   - [Appendix: Example of installation procedure to Ubuntu18.04(cmake)](install_09)
 
-### Compile with editing Makefile.conf manually
+#### Compile with editing Makefile.conf manually
 
 This software supports compiling the software manually edited Makfile.conf.
 
@@ -48,10 +48,11 @@ When difficult to set automatic configuration with cmake, recommend manually edi
 
 [continue... (Compile with editing Makefile.conf)](install_05)
 
-#### Appendix
+##### Appendix
 
   - [Appendix: Example of installation procedure to CentOS7.6(Makefile.conf)](install_08)
   - [Appendix: Example of installation procedure to Ubuntu18.04(Makefile.conf)](install_10)
   - [Appendix: Example of installation procedure to Windows10(Makefile.conf)](install_11)
+
 
 

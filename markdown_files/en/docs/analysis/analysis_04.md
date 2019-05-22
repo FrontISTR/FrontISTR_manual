@@ -1,6 +1,6 @@
-# Single Domain Mesh Data
+## Single Domain Mesh Data
 
-## Outline of Single Mesh Data
+### Outline of Single Mesh Data
 
 In order to acquire the mesh data of FrontISTR, there are two methods, such as the method to input the single domain mesh data file, and the method to input the distributed mesh data file to perform parallel processing. Single domain mesh data is described in this section.
 
@@ -11,91 +11,80 @@ The features of single domain mesh data are as follows.
   - The order of description of the header is basically free.
   - A "`,`" is used as a punctuation mark of the data.
 
-## Input Rules
+### Input Rules
 
 The single domain mesh data file consists of a header line, data line and a comment line.  One header is always included in the header line.
 
-### Header
+Header
+:    The meaning of the data and data block is specified in the single domain mesh data file.
+:    When the head of the term starts with a "`!`", it is considered to be a header.
 
-The meaning of the data and data block is specified in the single domain mesh data file.
+Header Line
+:    The contents of the header and the parameter accompanying this are described in this line.
+:    The header line must start with a header. When a parameter is required, a "`,`" must be used to continue after that. 
+:    When the parameter takes on a value, use an "`=`" after the parameter and describe the value after that. The header line can not be described in more than two lines.
 
-When the head of the term starts with a "`!`", it is considered to be a header.
+Data Line
+:    The data line starts after the header line, and the necessary data is described.
+:    The data lines may be in multiple lines; however, this is determined according to the rules of the data description defined by each header.
+:    There are cases where data lines are not required.
 
-### Header Line
+Punctuation
+:    A comma "`,`" is used as a punctuation of the data.
 
-The contents of the header and the parameter accompanying this are described in this line.
+Handling of Blanks
+:    Blanks are disregarded.
 
-The header line must start with a header. When a parameter is required, a "`,`" must be used to continue after that. 
+Name
+:    Regarding the characters which can be used for the name, there is the underscore "`_`", hyphen "`-`", and alphanumeric characters "`a - z, A - Z, 0 - 9`"; however, the first letter of the name must start with "`_`", or an alphabetic character "`a - z, A - Z`". There is no distinction between uppercase and lowercase letters, and all letters are internally handled as uppercase letters.
+:    The maximum length of the name is 63 characters.
 
-When the parameter takes on a value, use an "`=`" after the parameter and describe the value after that. The header line can not be described in more than two lines.
+File Name
+:    Regarding the characters which can be used for the file name, there are the underscore "`_`", hyphen "`-`", period "`.`", slash "`/`", and the alphanumeric characters "`a - z, A - Z, 0 - 9`".
+:    As long as there is no specific description, a path can be included in the file name. Both the relative path and the absolute path can be specified.
+:    The maximum length of the file name is 1,023 characters.
 
-### Data Line
+Floating Point Data
+:    Exponents are optional. An "`E`" or "`e`" character must be added before the exponent.
+:    The selection of "`E`" or "`e`" is optional. "`D`" or "`d`" can not be used.
 
-The data line starts after the header line, and the necessary data is described.
+!!, # Comment Line
+:    Lines starting with "`!!`" or "`#`" are considered to be comment lines, and are disregarded.
+:    A comment line can be inserted in any position in the file, and there are no restrictions on the number of lines.
 
-The data lines may be in multiple lines; however, this is determined according to the rules of the data description defined by each header.
-
-There are cases where data lines are not required.
-
-### Punctuation
-
-A comma "`,`" is used as a punctuation of the data.
-
-### Handling of Blanks
-
-Blanks are disregarded.
-
-### Name
-
-Regarding the characters which can be used for the name, there is the underscore "`_`", hyphen "`-`", and alphanumeric characters "`a - z, A - Z, 0 - 9`"; however, the first letter of the name must start with "`_`", or an alphabetic character "`a - z, A - Z`". There is no distinction between uppercase and lowercase letters, and all letters are internally handled as uppercase letters.
-
-The maximum length of the name is 63 characters.
-
-### File Name
-
-Regarding the characters which can be used for the file name, there are the underscore "`_`", hyphen "`-`", period "`.`", slash "`/`", and the alphanumeric characters "`a - z, A - Z, 0 - 9`".
-
-As long as there is no specific description, a path can be included in the file name. Both the relative path and the absolute path can be specified.
-
-The maximum length of the file name is 1,023 characters.
-
-### Floating Point Data
-
-Exponents are optional. An "`E`" or "`e`" character must be added before the exponent.
-
-The selection of "`E`" or "`e`" is optional. "`D`" or "`d`" can not be used.
-
-### `!!`, `#` Comment Line
-
-Lines starting with "`!!`" or "`#`" are considered to be comment lines, and are disregarded.
-
-A comment line can be inserted in any position in the file, and there are no restrictions on the number of lines.
-
-## Header List of Single Domain Mesh Data
+### Header List of Single Domain Mesh Data
 
 The single domain mesh data consists of the following headers.
 
-|Header Name         |Contents             |Description No.|
-|--------------------|---------------------|---------------|
-|`!AMPLITUDE`        |Unsteady load        |M1-1           |
-|`!EGROUP`           |Element group        |M1-2           |
-|`!ELEMENT`          |Element information  |M1-3           |
-|`!EQUATION`         |Restricted point data|M1-4           |
-|`!HEADER`           |Title of mesh data   |M1-5           |
-|`!MATERIAL`         |Material information |M1-6           |
-|`!NGROUP`           |Node group           |M1-7           |
-|`!NODE`             |Node information     |M1-8           |
-|`!SECTION`          |Section information  |M1-9          |
-|`!SGROUP`           |Surface group        |M1-10          |
-|`!ZERO`             |Absolute zero-point  |M1-11          |
-|`!CONTACT PAIR`     |Contact surface pair |M1-12          |
-|`!END`              |Read end             |M1-13          |
+| Header Name | Contents                          |
+|:------------|:----------------------------------|
+| `!CONTROL`  | Specify of analysis control file  |
+| `!MESH`     | Specify of mesh file              |
+| `!RESTART`  | Specify of restart file           |
+| `!RESULT`   | Specify of analysis results file  |
+| `!SUBDIR`   | Specify of making sub-directories |
+
+| Header Name     | Contents              | Description No. |
+|-----------------|-----------------------|-----------------|
+| `!AMPLITUDE`    | Unsteady load         | M1-1            |
+| `!EGROUP`       | Element group         | M1-2            |
+| `!ELEMENT`      | Element information   | M1-3            |
+| `!EQUATION`     | Restricted point data | M1-4            |
+| `!HEADER`       | Title of mesh data    | M1-5            |
+| `!MATERIAL`     | Material information  | M1-6            |
+| `!NGROUP`       | Node group            | M1-7            |
+| `!NODE`         | Node information      | M1-8            |
+| `!SECTION`      | Section information   | M1-9            |
+| `!SGROUP`       | Surface group         | M1-10           |
+| `!ZERO`         | Absolute zero-point   | M1-11           |
+| `!CONTACT PAIR` | Contact surface pair  | M1-12           |
+| `!END`          | Read end              | M1-13           |
 
 In each header, there are data items which are compatible to the parameter and each header.
 
 Each of the above headers is briefly described in the following with examples of data creation.  The number indicated on the right end of the data creation is the description number of the above Table.
 
-### Example of Mesh Data
+#### Example of Mesh Data
 
 ```
 !HEADER                                         M1-5
@@ -134,14 +123,15 @@ Each of the above headers is briefly described in the following with examples of
 !END                                            M1-13
 ```
 
-### (1) `!AMPLITUDE` (M1-1)
+#### (1) `!AMPLITUDE` (M1-1)
 
 Specifies the changes of time of the variables which provide the load conditions in the step.
 
-#### 1st line
-
 ```
 !AMPLITUDE, NAME=<name> [, optional parameter]
+VAL1, T1, VAL2, T2, VAL3, T3 ...
+
+(up to four items in one line)
 ```
 
 |Parameter   |                              |
@@ -161,12 +151,6 @@ Specifies the changes of time of the variables which provide the load conditions
 |              |`ABSOLUTE`       |Absolute value                           |
 |`INPUT`       | &lt;filename&gt;|External file name (omissible), can also be use together with the 2nd line or later|
 
-#### 2nd Line or later
-
-```
-(2nd Line or later) VAL1, T1, VAL2, T2, VAL3, T3 ... (up to four items in one line)
-Hereinafter repeated
-```
 
 |Parameter Name |Attributions|Contents        |
 |---------------|------------|----------------|
@@ -177,11 +161,9 @@ Hereinafter repeated
 |`VAL3`         |R           |Value at time T3|
 |`T3`           |R           |Time T3         |
 
-### (2) `!EGROUP` (M1-2)
+#### (2) `!EGROUP` (M1-2)
 
 Definition of element group
-
-#### 1st Line
 
 ```
 !EGROUP, EGRP=<egrp> [, optional parameter]
@@ -193,35 +175,35 @@ Definition of element group
 |`GENERATE`|Automatic generation of nodes belonging to the element group (omissible)|
 |`INPUT`   |External file name (omissible)                                          |
 
-|Parameter Name|Parameter Value |Contents|
-|--------------|----------------|--------|
-|`EGRP`        |&lt;egrp&gt;    |Element group name|
-|`GENERATE`    |N/A             |Automatic generation of nodes belonging to the element group|
-|`INPUT`       |&lt;filename&gt;|External file name (omissible), can also be use together with the 2nd line or later|
+| Parameter Name | Parameter Value  | Contents                                                                            |
+|----------------|------------------|-------------------------------------------------------------------------------------|
+| `EGRP`         | &lt;egrp&gt;     | Element group name                                                                  |
+| `GENERATE`     | N/A              | Automatic generation of nodes belonging to the element group                        |
+| `INPUT`        | &lt;filename&gt; | External file name (omissible), can also be use together with the 2nd line or later |
 
-#### 2nd Line or later (when `GENERATE` is not used)
+2nd Line or later (when `GENERATE` is not used)
 
 ```
 (2nd Line) elem1, elem2, elem3 ...
 (Hereinafter the same)
 ```
 
-|Parameter Name|Attributions|Contents                                     |
-|--------------|------------|---------------------------------------------|
-|`elemX`       |I           |Element number belonging to the element group|
+| Parameter Name | Attributions | Contents                                      |
+|----------------|--------------|-----------------------------------------------|
+| `elemX`        | I            | Element number belonging to the element group |
 
-#### 2nd Line or later (when `GENERATE` is used)
+2nd Line or later (when `GENERATE` used)
 
 ```
 (2nd Line) elem1, elem2, elem3
 (Hereinafter the same)
 ```
 
-|Parameter Name|Attributions|Contents                                 |
-|--------------|------------|-----------------------------------------|
-|`elem1`       |I           |First element number in the element group|
-|`elem2`       |I           |Last element number in the element group |
-|`elem3`       |I           |Element number increment (omissible, number becomes elem3=1 when omitted)|
+| Parameter Name | Attributions | Contents                                                                  |
+|----------------|--------------|---------------------------------------------------------------------------|
+| `elem1`        | I            | First element number in the element group                                 |
+| `elem2`        | I            | Last element number in the element group                                  |
+| `elem3`        | I            | Element number increment (omissible, number becomes elem3=1 when omitted) |
 
 > Note:
 >
@@ -232,7 +214,7 @@ Definition of element group
 > All the elements belong to the element group named "`ALL`" (generated automatically).
 > One group can be defined by dividing into multiple groups.
 
-#### Example of Use
+Example of Use
 
 ```
 !EGROUP, EGRP=EA01
@@ -248,11 +230,11 @@ Definition of element group
  311, 313
 ```
 
-### `!ELEMENT` (M1-3)
+#### `!ELEMENT` (M1-3)
 
 Definition of elements
 
-#### 1st Line
+1st Line
 
 ```
 !ELEMENT, TYPE=<type> [, optional parameter]
@@ -265,32 +247,32 @@ Definition of elements
 |`MATITEM` |Number of physical property items when defining the material physical properties for each element (not used when defining physical properties for each section)|
 |`INPUT`   |External file name (omissible)|
 
-|Parameter Name|Parameter Value|Contents                                               |
-|--------------|---------------|-------------------------------------------------------|
-|`TYPE`        |111            |Rod, link element (Linear)                             |
-|              |231            |Triangular element (Linear)                            |
-|              |232            |Triangular element (Quadratic)                         |
-|              |241            |Quadrilateral element (Linear)                         |
-|              |242            |Quadrilateral element (Quadratic)                      |
-|              |301            |Truss element (Linear)                                 |
-|              |341            |Tetrahedral element (Linear)                           |
-|              |342            |Tetrahedral element (Quadratic)                        |
-|              |351            |Triangular prism element (Linear)                      |
-|              |352            |Triangular prism element (Quadratic)                   |
-|              |361            |Hexahedral element (Linear)                            |
-|              |362            |Hexahedral element (Quadratic)                         |
-|              |541            |Interface element (Quadrilateral cross section, Linear)|
-|              |611            |Beam element(Linear)                                   |
-|              |641            |Beam element(Linear, with 3-dof nodes)                 |
-|              |731            |Triangular shell element (Linear)                      |
-|              |741            |Quadrilateral shell element (Linear)                   |
-|              |743            |Quadrilateral shell element (Quadratic)                |
-|              |761            |Triangular shell element (Linear, with 3-dof nodes)    |
-|              |781            |Quadrilateral shell element (Linear, with 3-dof nodes) |
-|`EGRP`        |&lt;egrp&gt;   |Element group name (omissible)                         |
-|`INPUT`       |&lt;filename&gt;|External file name (omissible), can also be used together with the 2nd line or later|
+| Parameter Name | Parameter Value  | Contents                                                                             |
+|----------------|------------------|--------------------------------------------------------------------------------------|
+| `TYPE`         | 111              | Rod, link element (Linear)                                                           |
+|                | 231              | Triangular element (Linear)                                                          |
+|                | 232              | Triangular element (Quadratic)                                                       |
+|                | 241              | Quadrilateral element (Linear)                                                       |
+|                | 242              | Quadrilateral element (Quadratic)                                                    |
+|                | 301              | Truss element (Linear)                                                               |
+|                | 341              | Tetrahedral element (Linear)                                                         |
+|                | 342              | Tetrahedral element (Quadratic)                                                      |
+|                | 351              | Triangular prism element (Linear)                                                    |
+|                | 352              | Triangular prism element (Quadratic)                                                 |
+|                | 361              | Hexahedral element (Linear)                                                          |
+|                | 362              | Hexahedral element (Quadratic)                                                       |
+|                | 541              | Interface element (Quadrilateral cross section, Linear)                              |
+|                | 611              | Beam element(Linear)                                                                 |
+|                | 641              | Beam element(Linear, with 3-dof nodes)                                               |
+|                | 731              | Triangular shell element (Linear)                                                    |
+|                | 741              | Quadrilateral shell element (Linear)                                                 |
+|                | 743              | Quadrilateral shell element (Quadratic)                                              |
+|                | 761              | Triangular shell element (Linear, with 3-dof nodes)                                  |
+|                | 781              | Quadrilateral shell element (Linear, with 3-dof nodes)                               |
+| `EGRP`         | &lt;egrp&gt;     | Element group name (omissible)                                                       |
+| `INPUT`        | &lt;filename&gt; | External file name (omissible), can also be used together with the 2nd line or later |
 
-#### 2nd Line or later
+2nd Line or later
 
 ```
 (2nd Line) ELEM_ID, nod1, nod2, nod3, ..., MAT1, MAT2, ...
@@ -314,7 +296,7 @@ Definition of elements
 > - Undefined nodes can not be used for connectivity.
 > - The definition of one element can be described in multiple lines.
 
-#### Example of Use
+Example of Use
 
 ```
 !ELEMENT, TYPE=231
@@ -327,11 +309,11 @@ Definition of elements
  103, 103, 104, 124, 123, 203, 204, 224, 223
 ```
 
-### (4) `!EQUATION` (1-4)
+#### (4) `!EQUATION` (1-4)
 
 Definition of restricted node group
 
-#### 1st Line
+1st Line
 
 ```
 !EQUATION [, optional parameter]
@@ -346,12 +328,15 @@ Definition of restricted node group
 |--------------|----------------|---------|
 |`INPUT`       |&lt;filename&gt;|External file name (omissible), can also be used together with the 2nd line or later|
 
-#### 2nd Line or later
+2nd Line or later
 
 ```
 (2nd Line) NEQ, CONST
+```
+
+```
 (3rd Line or later) nod1, DOF1, A1, nod2, DOF2, A2 ... (up to seven terms for one line)
-Hereinafter repeated
+(Hereinafter repeated)
 ```
 
 |Parameter Name|Attributions|Contents                                              |
@@ -372,7 +357,7 @@ Hereinafter repeated
 > - When a node group is specified, if the number of nodes is not consistent an error will occur.
 > - The degree of freedom number differs by the type of analysis and elements. An inconsistent degree of freedom will be ignored, and a warning message will be displayed.
 
-#### Example of Use
+Example of Use
 
 ```
 !EQUATION
@@ -382,11 +367,11 @@ Hereinafter repeated
  NG1, 2, 1.0, NG5, 2, -1.0
 ```
 
-### (3) `!HEADER` (M1-5)
+#### (3) `!HEADER` (M1-5)
 
 Title of mesh data
 
-#### 1st Line
+1st Line
 
 ```
 !HEADER
@@ -396,7 +381,7 @@ Title of mesh data
 |---------|
 |N/A      |
 
-#### 2nd Line or later
+2nd Line or later
 
 ```
 (2nd Line) TITLE
@@ -406,7 +391,7 @@ Title of mesh data
 |--------------|------------|------------|
 |`TITLE`       |C           |Header title|
 
-#### Example of Use
+Example of Use
 
 ```
 !HEADER
@@ -419,7 +404,7 @@ Mesh for CFD Analysis
 > - Although the header can use multiple lines, it can be recognized as a header up to the 127th column of the first line.
 > - When "`!HEADER`" is defined multiple times, the contents will be updated and a warning message will be displayed.
 
-### (6) `!MATERIAL` (M1-6)
+#### (6) `!MATERIAL` (M1-6)
 
 Definition of material physical properties.
 
@@ -427,7 +412,7 @@ When the physical properties depend on the temperature, table input can be perfo
 
 The table input can also be performed for the relationship of the stress strain in a stress analysis.
 
-#### 1st Line
+1st Line
 
 ```
 !MATERIAL, NAME=<name> [, optional parameter]
@@ -445,7 +430,7 @@ The table input can also be performed for the relationship of the stress strain 
 |`ITEM`        |&lt;ITEMnum&gt; |Number of physical property items by user definition|
 |`INPUT`       |&lt;filename&gt;|External file name (omissible), can also be used together with the 2nd line or later|
 
-#### 2nd Line or later
+2nd Line or later
 
 ```
 (2nd Line) !ITEM=1, SUBITEM=<k>
@@ -510,7 +495,7 @@ Must be input as `TEMPm1` < `TEMPm2` < ... < `TEMPmN`.
 > - When using the temperature dependency, it must be defined in order from the lower temperature.
 > - When using the temperature dependency, if the same temperature is used twice or more, an error will occur.
 
-#### Example of Use
+Example of Use
 
 ```
 !MATERIAL, NAME= STEEL, ITEM= 2
@@ -524,7 +509,7 @@ Must be input as `TEMPm1` < `TEMPm2` < ... < `TEMPmN`.
 !ITEM=1                                         ----- No temperature dependency
  80.0
 ```
-#### Incorrect Example of Use
+Incorrect Example of Use
 
 - Example 1: [Number of parameter "`ITEM`" and "`!ITEM=m`" suboptions are not consistent -1]
 
@@ -550,7 +535,7 @@ Must be input as `TEMPm1` < `TEMPm2` < ... < `TEMPmN`.
 ...
 ```
 
-#### Elastic Static Analysis and Eigenvalue Analysis
+Elastic Static Analysis and Eigenvalue Analysis
 
 ```
 !MATERIAL, NAME=<name>, ITEM=<ITEMnum>
@@ -567,7 +552,7 @@ Must be input as `TEMPm1` < `TEMPm2` < ... < `TEMPmN`.
 |`NAME`        |&lt;name&gt;   |Compatible to material name, and MATERIAL of `!SECTION`|
 |`ITEM`        |&lt;ITEMnum&gt;|Number of physical property items by user definition (1 or more)<br/> &lt;Yang_modulus&gt; ... Young's modulus (mandatory)<br/> &lt;Poisson_ratio&gt; ... Poisson's ratio (mandatory)<br/> &lt;Density&gt; ... Mass density (mandatory when ITEMnum=3)<br/> &lt;Expansion_coeff&gt; ... Coefficient of linear expansion (when ITEMnum=3)|
 
-##### (Example)
+Example
 
 ```
 !! Intention of defining three types of property values in the material of material name M1
@@ -586,7 +571,7 @@ Must be input as `TEMPm1` < `TEMPm2` < ... < `TEMPmN`.
  1.0E‐5
 ```
 
-#### Heat Conduction Analysis
+Heat Conduction Analysis
 
 In the case of link, plane surface, solid and three-dimensional plate elements
 
@@ -605,7 +590,7 @@ In the case of link, plane surface, solid and three-dimensional plate elements
 |`NAME`        |&lt;name&gt;   |Compatible to material name, and MATERIAL of `!SECTION`|
 |`ITEM`        |&lt;ITEMnum&gt;|Number of physical property items by user definition (always 3)<br/>&lt;Density&gt; ... Density<br/>&lt;Specific_heat&gt; ... Specific heat<br/>&lt;Conductivity&gt; ... Thermal conductivity<br/>&lt;Temperature&gt; ... Temperature|
 
-##### (Example)
+Example
 
 ```
 !! Intention of defining three types of property
@@ -635,7 +620,7 @@ In the case of interface element
 
 Defined in the `!SECTION` header. (Material data is not required)
 
-##### (Example)
+Example
 
 ```
 !! Definition of section
@@ -650,7 +635,7 @@ In the above `!SECTION`, the gap parameter of the element belonging to the "`gro
   - 3rd parameter : Gap radiation factor 1
   - 4th parameter : Gap radiation factor 2
 
-##### Reference
+Reference
 
 ```
       program TEST
@@ -788,11 +773,11 @@ In the above `!SECTION`, the gap parameter of the element belonging to the "`gro
 end program TEST
 ```
 
-### (7) `!NGROUP` (M1-7)
+#### (7) `!NGROUP` (M1-7)
 
 Definition of node group
 
-#### 1st Line
+1st Line
 
 ```
 !NGROUP, NGRP=<ngrp> [, optional parameter]
@@ -809,7 +794,7 @@ Definition of node group
 |`NGRP`        |&lt;ngrp&gt;    |Node group name GENERATE N/A Automatic generation of nodes belonging to the node group|
 |`INPUT`       |&lt;filename&gt;|External file name (omissible), can also be used together with the 2nd line or later|
 
-#### 2nd Line or later (when `GENERATE` is not used)
+2nd Line or later (when `GENERATE` is not used)
 
 ```
 (2nd Line) nod1, nod2, nod3
@@ -820,7 +805,7 @@ Definition of node group
 |--------------|------------|---------------------------------------|
 |`nodX`        |I           |Node number belonging to the node group|
 
-#### 2nd Line or later (when `GENERATE` is used)
+2nd Line or later (when `GENERATE` is used)
 
 ```
 (2nd Line) nod1, nod2, nod3
@@ -842,7 +827,7 @@ Definition of node group
 > - All the nodes belong to the node group named "`ALL`" (generated automatically).
 > - One group can be defined by dividing into multiple groups.
 
-#### Example of Use
+Example of Use
 
 ```
 !NGROUP, NGRP=NA01
@@ -859,11 +844,11 @@ Definition of node group
  311, 313
 ```
 
-### (8) `!NODE` (M1-8)
+#### (8) `!NODE` (M1-8)
 
 Definition of node coordinates
 
-#### 1st Line
+1st Line
 
 ```
 !NODE [, optional parameter]
@@ -882,7 +867,7 @@ Definition of node coordinates
 |`NGRP`        |&lt;ngrp&gt;    |Node group name (omissible)                                                         |
 |`INPUT`       |&lt;filename&gt;|External file name (omissible), can also be used together with the 2nd line or later|
 
-#### 2nd Line or later
+2nd Line or later
 
 ```
 (2nd Line) NODE_ID, Xcoord, Ycoord, Zcoord
@@ -903,7 +888,7 @@ Definition of node coordinates
 > - The node which is not referred to in "`!ELEMENT`" will be excluded. 
 > - The node defined in "`!ELEMENT`" must be defined before "`!ELEMENT`".
 
-#### Example of Use
+Example of Use
 
 ```
 !NODE, NGRP=TEST
@@ -913,11 +898,11 @@ Definition of node coordinates
  4,                             ----- X, Y and Z coordinates are "0.0"
 ```
 
-### (9) `!SECTION` (M1-9)
+#### (9) `!SECTION` (M1-9)
 
 Definition of section
 
-#### 1st Line
+1st Line
 
 ```
 !SECTION, TYPE=<type>, EGRP=<egrp> [, optional parameter]
@@ -931,23 +916,23 @@ Definition of section
 |`SECOPT`   |Auxiliary parameter for the element type (omissible, becomes =0 when omitted)|
 |`INPUT`    |External file name (omissible)                                               |
 
-|Parameter Name |Parameter Value |Contents      |
-|---------------|----------------|--------------|
-|`TYPE`         |`SOLID`         |Rod, triangular, quadrilateral, tetrahedral, pentahedral, hexadedral elements|
-|               |`SHELL`         |Shell element                                                                |
-|               |`BEAM`          |Beam element                                                                 |
-|               |`INTERFACE`     |Interface element                                                            |
-|`EGRP`         |&lt;egrp&gt;    |Element group name                                                           |
-|`MATERIAL`     |&lt;material&gt;|Material name defined by user                                                |
-|`SECOPT`       |&lt;secopt&gt;  |= 0: Not specified, plane stress                                             |
-|               |                |= 1: Plane strain                                                            |
-|               |                |= 2: Axial symmetry                                                          |
-|               |                |= 10: 0 + reduced integration                                                |
-|               |                |= 11: 1 + reduced integration                                                |
-|               |                |= 12: 2 + reduced integration                                                |
-|`INPUT`        |&lt;filename&gt;|External file name (omissible), can also be used together with the 2nd line or later |
+| Parameter Name | Parameter Value  | Contents                                                                             |
+|----------------|------------------|--------------------------------------------------------------------------------------|
+| `TYPE`         | `SOLID`          | Rod, triangular, quadrilateral, tetrahedral, pentahedral, hexadedral elements        |
+|                | `SHELL`          | Shell element                                                                        |
+|                | `BEAM`           | Beam element                                                                         |
+|                | `INTERFACE`      | Interface element                                                                    |
+| `EGRP`         | &lt;egrp&gt;     | Element group name                                                                   |
+| `MATERIAL`     | &lt;material&gt; | Material name defined by user                                                        |
+| `SECOPT`       | &lt;secopt&gt;   | = 0: Not specified, plane stress                                                     |
+|                |                  | = 1: Plane strain                                                                    |
+|                |                  | = 2: Axial symmetry                                                                  |
+|                |                  | = 10: 0 + reduced integration                                                        |
+|                |                  | = 11: 1 + reduced integration                                                        |
+|                |                  | = 12: 2 + reduced integration                                                        |
+| `INPUT`        | &lt;filename&gt; | External file name (omissible), can also be used together with the 2nd line or later |
 
-#### 2nd Line or later
+2nd Line or later
 
 **In the case of [`TYPE=SOLID`]**
 
@@ -1004,7 +989,7 @@ In the case of "`TYPE=SOLID`", the "`THICKNESS`" can be omitted, and default val
 > - When there is an element without `SECTION` information, an error will occur.
 > - When the section name is duplicated, an error will occur.
 
-#### Example of Use
+Example of Use
 
 ```
 !SECTION, EGRP=SOLID1, TYPE=SOLID, MATERIAL=STEEL
@@ -1012,11 +997,11 @@ In the case of "`TYPE=SOLID`", the "`THICKNESS`" can be omitted, and default val
  1.0, 5
 ```
 
-### (10) `!SGROUP` (M1-10)
+#### (10) `!SGROUP` (M1-10)
 
 Definition of surface group
 
-#### 1st Line
+1st Line
 
 ```
 !SGROUP, SGRP=<sgrp> [, optional parameter]
@@ -1032,7 +1017,7 @@ Definition of surface group
 |`SGRP`        |&lt;sgrp&gt;    |Surface group name                                                                  |
 |`INPUT`       |&lt;filename&gt;|External file name (omissible), can also be used together with the 2nd line or later|
 
-#### 2nd Line or later
+2nd Line or later
 
 ```
 (2nd Line) elem1, lsuf1, elem2, lsuf2, elem3, lsuf3, ...
@@ -1054,7 +1039,7 @@ Definition of surface group
 > - The surface where the element type and the surface number are not consistent will be excluded, and a warning message will be displayed.
 > - One group can be defined by dividing into multiple groups.
 
-#### Example of Use
+Example of Use
 
 ```
 !SGROUP, SGRP= SUF01
@@ -1068,7 +1053,7 @@ Definition of surface group
  602, 2
 ```
 
-#### Incorrect Example of Use
+Incorrect Example of Use
 
 - Example 1: [When (elements, and local surface numbers) group exists in multiple lines]
 
@@ -1092,11 +1077,11 @@ Definition of surface group
                         will be disregarded.
 ```
 
-### (11) `!ZERO` (M1-11)
+#### (11) `!ZERO` (M1-11)
 
 Absolute zero-point
 
-#### 1st Line
+1st Line
 
 ```
 !ZERO
@@ -1106,7 +1091,7 @@ Absolute zero-point
 |-----------|
 | N/A       |
 
-#### 2nd Line or later
+2nd Line or later
 
 ```
 (2nd Line) ZERO
@@ -1121,18 +1106,18 @@ Absolute zero-point
 > - Omissible. Becomes "absolute zero-point = 0" when omitted.
 > - When "`!ZERO`" is defined multiple times, the contents will be updated and a warning message will be displayed.
 
-#### Example of Use
+Example of Use
 
 ```
 !ZERO
 -273.16
 ```
 
-### (12) `!CONTACT PAIR` (M1-12)
+#### (12) `!CONTACT PAIR` (M1-12)
 
 Definition of contact surface pair used for contact analysis
 
-#### 1st Line
+1st Line
 
 ```
 !CONTACT PAIR, NAME=<name> [,optional parameter]
@@ -1143,12 +1128,12 @@ Definition of contact surface pair used for contact analysis
 |`NAME`   |Contact pair name (mandatory)|
 |`TYPE`   |Type (omissible)             |
 
-|Parameter Name|Parameter Value|Contents          |
-|`NAME`        |&lt;name&gt;   |Contact pair name |
-|`TYPE`        |`NODE-SURF`    |Slave surface is the node group<br/>Master surface is the surface group (default)|
-|              |`SURF-SURF`    |Both the slave surface and master surface are the surface group                  |
+| Parameter Name | Parameter Value | Contents                                                                          |
+|----------------|-----------------|-----------------------------------------------------------------------------------|
+| `TYPE`         | `NODE-SURF`     | Slave surface is the node group<br/>Master surface is the surface group (default) |
+|                | `SURF-SURF`     | Both the slave surface and master surface are the surface group                   |
 
-#### 2nd Line or later
+2nd Line or later
 
 ```
 (2nd Line or later) SLAVE_GRP, MASTER_GRP
@@ -1160,7 +1145,7 @@ Definition of contact surface pair used for contact analysis
 |`SLAVE_GRP`   |C           |Slave surface node / surface group name |
 |`MASTER_GRP`  |C           |Surface group name of the master surface|
 
-### (13) `!END` (M1-13)
+#### (13) `!END` (M1-13)
 
 End of mesh data
 
@@ -1181,5 +1166,6 @@ When this header is displayed, the reading of the mesh data is completed.
 |Parameter|
 |---------|
 |N/A      |
+
 
 

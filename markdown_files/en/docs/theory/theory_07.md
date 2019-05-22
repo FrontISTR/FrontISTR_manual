@@ -1,4 +1,4 @@
-# References
+## References
 
   - Hisada and Noguchi, Fundamentals and applications of the non-linear finite element method, Maruzen, 1995 (in Japanese)
   - O.C.Zienkiewicz and R.L.Taylor, The Finite Element Method, 6th ed., Vol.2: McGraw-Hill (2005)
@@ -8,4 +8,5 @@
   - Lois Komzsik, The Lanczos method evolution and application, Siam (2003).
   - Hayato Togawa, Oscillation analysis with the finite element method, SAIENSU-SHA (1997) (in Japanese)
   - Genki Yagawa, Noriyuki Miyazaki, Thermal Stress and creep with the finite element method, Heat Conduction Analysis, SAIENSU-SHA (1985) (in Japanese)
+
 

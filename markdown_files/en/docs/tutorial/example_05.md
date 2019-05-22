@@ -53,3 +53,5 @@ Fig. 9.5.2: Time history of vibration point displacement $u_z$
 <div style="text-align: center;">
 Fig. 9.5.3: Deformation diagram and equivalent stress distribution (deformation ratio of 5.0), EX31C
 </div>
+
+

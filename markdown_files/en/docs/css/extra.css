@@ -1,0 +1,24 @@
+.center {
+  display: block;
+  margin: 0 auto;
+}
+
+
+@media print {
+  @page {
+    size: A4 portrait;
+    white-space: pre;
+    @bottom-center {
+      content: counter(page)
+    }
+  }
+  body {
+    font-size: 12pt;
+    line-height: 1.8;
+  }
+  h2 {
+    page-break-before: always;
+  }
+}
+
+

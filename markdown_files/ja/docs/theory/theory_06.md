@@ -1,3 +1,4 @@
+
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   tex2jax: {
@@ -15,9 +16,9 @@ MathJax.Hub.Config({
 </script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
-# 周波数応答解析
+## 周波数応答解析
 
-## 定式化
+### 定式化
 
 減衰を考慮しない場合の周波数応答解析の運動方程式は式のようになる。
 
@@ -194,3 +195,6 @@ b_{jI} = \frac{ U^T_j F_I(\omega^2_j - \Omega^2) - U^T_j F_R(\alpha + \beta \ome
 $$
 
 となる。
+
+
+

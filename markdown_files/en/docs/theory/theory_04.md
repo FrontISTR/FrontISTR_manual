@@ -15,11 +15,11 @@ MathJax.Hub.Config({
 </script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
-# Heat Conduction Analysis
+## Heat Conduction Analysis
 
 In this section, the method of heat conduction analysis for solid bodies with the finite element methods used in this development code is described. 
 
-## Basic Equation
+### Basic Equation
 
 The heat conduction equation in a continuous body is as follows: 
 
@@ -80,7 +80,7 @@ Furthermore,
 
 $\varepsilon$: radiation rate, $\sigma$: Stefan-Boltzmann constant, $F$: shape factor
 
-## Discretization
+### Discretization
 
 If Eq.$\eqref{eq:2.4.1}$ is discretized with the Galerkin method,
 
@@ -139,21 +139,21 @@ Eq.$\eqref{eq:2.4.8}$ is a formula of non-linear and non-steady-state. The objec
 
 $$
 \begin{equation}
-[K]\_{t=t\_0+\Delta t} \lbrace T \rbrace\_{t=t\_0+\Delta t} + [M]\_{t=t\_0+\Delta t}
-\frac{\lbrace T \rbrace\_{t=t\_0+\Delta t} - \lbrace T\rbrace\_{t=t_0}} {\Delta t}
-= \lbrace F \rbrace\_{t=t\_0+\Delta t}
+[K]_{t=t_0+\Delta t} \lbrace T \rbrace_{t=t_0+\Delta t} + [M]_{t=t_0+\Delta t}
+\frac{\lbrace T \rbrace_{t=t_0+\Delta t} - \lbrace T\rbrace_{t=t_0}} {\Delta t}
+= \lbrace F \rbrace_{t=t_0+\Delta t}
 \label{eq:2.4.13}
 \end{equation}
 $$
 
-The next step is to improve the temperature vector $\lbrace T \rbrace\_{t=t\_0+\Delta t}^{(i)}$ which approximately satisfies Eq.$\eqref{eq:2.4.13}$ to determine the solution $\lbrace T \rbrace\_{t=t\_0+\Delta t}^{(i)+1}$ with a good precision.
+The next step is to improve the temperature vector $\lbrace T \rbrace_{t=t_0+\Delta t}^{(i)}$ which approximately satisfies Eq.$\eqref{eq:2.4.13}$ to determine the solution $\lbrace T \rbrace_{t=t_0+\Delta t}^{(i)+1}$ with a good precision.
 
 Therefore, the temperature vector must be expressed as follows: 
 
 $$
 \begin{equation}
-\lbrace T \rbrace\_{t=t\_0+\Delta t}=
-\lbrace T \rbrace_{t=t\_0+\Delta t}^{(i)} + \Delta \lbrace T \rbrace\_{t=t\_0+\Delta t}^{(i)}
+\lbrace T \rbrace_{t=t_0+\Delta t}=
+\lbrace T \rbrace_{t=t_0+\Delta t}^{(i)} + \Delta \lbrace T \rbrace_{t=t_0+\Delta t}^{(i)}
 \label{eq:2.4.14}
 \end{equation}
 $$
@@ -162,20 +162,20 @@ The product of the heat transfer matrix and temperature vector, as well as the m
 
 $$
 \begin{align}
-[K]\_{t=t\_{0+\Delta t}} \lbrace T \rbrace\_{t=t\_0+\Delta t} \nonumber
-& \cong [K]\_{t=t\_0+\Delta t}^{(i)} \lbrace T \rbrace\_{t=t\_0+\Delta t}^{(i)} \\\
-& + \frac{\partial [K]\_{t=t\_0+\Delta t}^{(i)}{\lbrace T \rbrace\_{t=t\_0+\Delta t}^{(i)}}}{\partial \lbrace T \rbrace_{t=t\_0+\Delta t}^{(i)}}
-\lbrace\Delta T \rbrace\_{t=t\_0+\Delta t}^{(i)}
+[K]_{t=t_{0+\Delta t}} \lbrace T \rbrace_{t=t_0+\Delta t} \nonumber
+& \cong [K]_{t=t_0+\Delta t}^{(i)} \lbrace T \rbrace_{t=t_0+\Delta t}^{(i)} \\\
+& + \frac{\partial [K]_{t=t_0+\Delta t}^{(i)}{\lbrace T \rbrace_{t=t_0+\Delta t}^{(i)}}}{\partial \lbrace T \rbrace_{t=t_0+\Delta t}^{(i)}}
+\lbrace\Delta T \rbrace_{t=t_0+\Delta t}^{(i)}
 \label{eq:2.4.15}
 \end{align}
 $$
 
 $$
 \begin{equation}
-[M]\_{t=t\_0+\Delta t}
-\cong [M]\_{t=t\_0+\Delta t}^{(i)}
-+ \frac{\partial [M]\_{t=t\_0+\Delta t}^{(i)}}{\partial \lbrace T \rbrace\_{t=t\_0+\Delta t}^{(i)}}
-\Delta \lbrace T \rbrace\_{t=t\_0+\Delta t}^{(i)}
+[M]_{t=t_0+\Delta t}
+\cong [M]_{t=t_0+\Delta t}^{(i)}
++ \frac{\partial [M]_{t=t_0+\Delta t}^{(i)}}{\partial \lbrace T \rbrace_{t=t_0+\Delta t}^{(i)}}
+\Delta \lbrace T \rbrace_{t=t_0+\Delta t}^{(i)}
 \label{eq:2.4.16}
 \end{equation}
 $$
@@ -184,16 +184,16 @@ By substituting Eq.$\eqref{eq:2.4.14}$,  Eq.$\eqref{eq:2.4.15}$ and Eq.$\eqref{e
 
 $$
 \begin{equation}
-\left(\frac{[M]\_{t=t\_0+\Delta t}^{(i)}}{\Delta t}
-+ \frac{\partial [M]\_{t=t_0+\Delta t}^{(i)} \lbrace T\rbrace\_{t=t\_0+\Delta t}^{(i)}}
-{\partial \lbrace T\rbrace\_{t=t\_0+\Delta t}^{(i)}}
-\frac{\lbrace T\rbrace\_{t=t\_0+\Delta t}^{(i)} - \lbrace T\rbrace\_{t=t_0}}{\Delta t}
-+ \frac{\partial [K]\_{t=t\_0+\Delta t}^{(i)} \lbrace T\rbrace\_{t=t\_0+\Delta t}^{(i)}}
-{\partial \lbrace T\rbrace\_{t=t\_0+\Delta t}^{(i)}} \right)
-\lbrace\Delta T\rbrace\_{t=t\_0+\Delta t}^{(i)} \\\
-= \lbrace F\rbrace\_{t=t_0+\Delta t} - [M]\_{t=t\_0+\Delta t}^{(i)}
-\frac{\lbrace T\rbrace\_{t=t\_0+\Delta t}^{(i)} - \lbrace T\rbrace\_{t=t_0}}{\Delta t}
-- [K]\_{t=t\_0+\Delta t}^{(i)} \lbrace T\rbrace_{t=t\_0+\Delta t}^{(i)}
+\left(\frac{[M]_{t=t_0+\Delta t}^{(i)}}{\Delta t}
++ \frac{\partial [M]_{t=t_0+\Delta t}^{(i)} \lbrace T\rbrace_{t=t_0+\Delta t}^{(i)}}
+{\partial \lbrace T\rbrace_{t=t_0+\Delta t}^{(i)}}
+\frac{\lbrace T\rbrace_{t=t_0+\Delta t}^{(i)} - \lbrace T\rbrace_{t=t_0}}{\Delta t} \\
++ \frac{\partial [K]_{t=t_0+\Delta t}^{(i)} \lbrace T\rbrace_{t=t_0+\Delta t}^{(i)}}
+{\partial \lbrace T\rbrace_{t=t_0+\Delta t}^{(i)}} \right)
+\lbrace\Delta T\rbrace_{t=t_0+\Delta t}^{(i)} \\\
+= \lbrace F\rbrace_{t=t_0+\Delta t} - [M]_{t=t_0+\Delta t}^{(i)}
+\frac{\lbrace T\rbrace_{t=t_0+\Delta t}^{(i)} - \lbrace T\rbrace_{t=t_0}}{\Delta t}
+- [K]_{t=t_0+\Delta t}^{(i)} \lbrace T\rbrace_{t=t_0+\Delta t}^{(i)}
 \label{eq:2.4.17}
 \end{equation}
 $$
@@ -203,11 +203,11 @@ Moreover, the coefficient matrix of the left side is approximately evaluated wit
 $$
 \begin{align}
 [K^*]^{(i)}
-&= \frac{[M]^{(i)}\_{t=t\_0+\Delta t}}{\Delta t}
-+ \frac{\partial[K]^{(i)}\_{t=t\_0+\Delta t}}{\partial\lbrace T\rbrace^{(i)}\_{t=t\_0+\Delta t}}
-\lbrace T\rbrace^{(i)}\_{t=t\_0+\Delta t} \nonumber \\\
-& =  \frac{[M]^{(i)}\_{t=t\_0+\Delta t}}{\Delta t}
-+ [K_T]^{(i)}\_{t=t\_0+\Delta t}
+&= \frac{[M]^{(i)}_{t=t_0+\Delta t}}{\Delta t}
++ \frac{\partial[K]^{(i)}_{t=t_0+\Delta t}}{\partial\lbrace T\rbrace^{(i)}_{t=t_0+\Delta t}}
+\lbrace T\rbrace^{(i)}_{t=t_0+\Delta t} \nonumber \\\
+& =  \frac{[M]^{(i)}_{t=t_0+\Delta t}}{\Delta t}
++ [K_T]^{(i)}_{t=t_0+\Delta t}
 \label{eq:2.4.18}
 \end{align}
 $$
@@ -219,10 +219,10 @@ Finally, it is possible to calculate the temperature at time $t = t_0 + \Delta t
 $$
 \begin{align}
 [K^*]^{(i)}\lbrace T\rbrace^{(i)}_{t=t_0+\Delta t} 
-  &= \lbrace F\rbrace\_{t=t_0 + \Delta t} \nonumber \\\
-  & - [M]^{(i)}\_{t=t_0+\Delta t} \frac{\lbrace T\rbrace^{(i)}\_{t=t_0+\Delta t}-\lbrace T\rbrace\_{t=t_0}}{\Delta t} \nonumber \\\
-  &- [K]^{(i)}\_{t=t_0+\Delta t} \lbrace T\rbrace^{(i)}\_{t=t_0 + \Delta t} \nonumber \\\
-\lbrace T\rbrace^{(i+1)}\_{t=t_0 + \Delta t}  &= \lbrace T\rbrace^{(i)}\_{t=t_0+\Delta t} + \lbrace \Delta T\rbrace^{(i)}\_{t=t_0 + \Delta t}
+  &= \lbrace F\rbrace_{t=t_0 + \Delta t} \nonumber \\\
+  & - [M]^{(i)}_{t=t_0+\Delta t} \frac{\lbrace T\rbrace^{(i)}_{t=t_0+\Delta t}-\lbrace T\rbrace_{t=t_0}}{\Delta t} \nonumber \\\
+  &- [K]^{(i)}_{t=t_0+\Delta t} \lbrace T\rbrace^{(i)}_{t=t_0 + \Delta t} \nonumber \\\
+\lbrace T\rbrace^{(i+1)}_{t=t_0 + \Delta t}  &= \lbrace T\rbrace^{(i)}_{t=t_0+\Delta t} + \lbrace \Delta T\rbrace^{(i)}_{t=t_0 + \Delta t}
 \label{eq:2.4.19}
 \end{align}
 $$
@@ -231,11 +231,12 @@ In steady-state analysis, the iterative calculation is performed with the follow
 
 $$
 \begin{align}
-[K_T]^{(i)} \lbrace \Delta T\rbrace^{(i)}\_{t=\infty} &= \lbrace F\rbrace\_{t=\infty} - [K_T]^{(i)} \lbrace \Delta T\rbrace^{(i)}\_{t=\infty} \nonumber \\\
-\lbrace T\rbrace^{(i+1)}\_{t=\infty} &= \lbrace T\rbrace^{(i)}\_{t=\infty} + \lbrace \Delta T\rbrace^{(i)}\_{t=\infty}
+[K_T]^{(i)} \lbrace \Delta T\rbrace^{(i)}_{t=\infty} &= \lbrace F\rbrace_{t=\infty} - [K_T]^{(i)} \lbrace \Delta T\rbrace^{(i)}_{t=\infty} \nonumber \\\
+\lbrace T\rbrace^{(i+1)}_{t=\infty} &= \lbrace T\rbrace^{(i)}_{t=\infty} + \lbrace \Delta T\rbrace^{(i)}_{t=\infty}
 \label{eq:2.4.20}
 \end{align}
 $$
 
 In non-steady-state analysis, the discretization in time is done through the implicit method; thus, the analysis is normally not affected by the restriction of the size of the time increment $\Delta t$. However, if the time increment $\Delta t$ is to large, the number of convergences in the iterative calculation increases. Therefore, this program is equipped with an automatic increment function, which constantly monitors the dimension of the residual vector in the iterative calculation process. If the convergence of the iterative calculation is too slow, it decreases the time increment $\Delta t$. Moreover, when the number of iterative calculations is too small, it increases the time increment $\Delta t$.
+
 

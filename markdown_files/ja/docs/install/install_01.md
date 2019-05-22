@@ -1,15 +1,15 @@
-# 動作環境
+## 動作環境
 
-## 必要なソフトウェア
+### 必要なソフトウェア
 
 本ソフトウェアのインストールに際して、インストールする環境に以下のソフトウェアがインストールされている必要があります。
 なお、これらのソフトウェアのインストールについては、各ソフトウェアのインストールマニュアルをご参照ください。
 
-### C、C++、Fortran90コンパイラー
+#### C、C++、Fortran90コンパイラー
 
 本ソフトウェアのインストールには、C、C++およびFortran90コンパイラーが必要です。
 
-### MPI
+#### MPI
 
 本ソフトウェアはMPIにより並列化されているため、MPI-1規格に準拠したMPIライブラリが必要となります。
 MPIを実装したフリーで利用できるライブラリの代表的なものには、MPICHやOpenMPIなどがあります。
@@ -22,7 +22,7 @@ MPICHは下記のWEBサイトからダウンロードすることができます
 
 [http://www.mpich.org/](http://www.mpich.org/)
 
-### METIS
+#### METIS
 
 本ソフトウェアの領域分割ユーティリティは、METISのライブラリを使用することでpMETIS、kMETISによる領域分割が可能です。
 これらの領域分割機能を利用する場合にはMETISが必要となります。
@@ -34,7 +34,7 @@ METISは下記のWEBサイトからダウンロードすることができます
 
 [http://glaros.dtc.umn.edu/gkhome/metis/metis/overview](http://glaros.dtc.umn.edu/gkhome/metis/metis/overview)
 
-### ParMETIS
+#### ParMETIS
 
 本ソフトウェアの並列領域分割ユーティリティは、ParMETISライブラリを使用する予定です。
 
@@ -44,28 +44,28 @@ ParMETISは下記のWEBサイトからダウンロードすることができま
 
 [http://glaros.dtc.umn.edu/gkhome/metis/parmetis/overview](http://glaros.dtc.umn.edu/gkhome/metis/parmetis/overview)
 
-### HEC-MW
+#### HEC-MW
 
 本ソフトウェアは、「革新的シミュレーションソフトウェアの研究開発」プロジェクトおよび「イノベーション基盤シミュレーションソフトウェアの研究開発」プロジェクトで開発されたHEC-MWライブラリを利用しています。
 
 このHEC-MWはFrontISTRのアーカイブに同梱されており、本ソフトウェアのインストール時に自動的にコンパイルされるため、別途インストールする必要はありません。
 
-### REVOCAP\_Refiner
+#### REVOCAP_Refiner
 
-本ソフトウェアは、「イノベーション基盤シミュレーションソフトウェアの研究開発」プロジェクトで開発されたメッシュ細分化ツールREVOCAP\_Refinerに対応しています。
+本ソフトウェアは、「イノベーション基盤シミュレーションソフトウェアの研究開発」プロジェクトで開発されたメッシュ細分化ツールREVOCAP_Refinerに対応しています。
 
-メッシュ細分化機能を利用する場合にはREVOCAP\_Refinerが必要となります。
-REVOCAP\_Refinerの最新版は下記のWEBサイトからダウンロードすることができます。
+メッシュ細分化機能を利用する場合にはREVOCAP_Refinerが必要となります。
+REVOCAP_Refinerの最新版は下記のWEBサイトからダウンロードすることができます。
 
 [http://www.multi.k.u-tokyo.ac.jp/FrontISTR/](http://www.multi.k.u-tokyo.ac.jp/FrontISTR/)
 
-### REVOCAP\_Coupler
+#### REVOCAP_Coupler
 
-本ソフトウェアは、「イノベーション基盤シミュレーションソフトウェアの研究開発」プロジェクトで開発された連成解析ツールREVOCAP\_Couplerに対応しています。連成解析機能を利用する場合にはREVOCAP\_Couplerが必要となります。REVOCAP\_Couplerは下記のWEBサイトからダウンロードすることができます。
+本ソフトウェアは、「イノベーション基盤シミュレーションソフトウェアの研究開発」プロジェクトで開発された連成解析ツールREVOCAP_Couplerに対応しています。連成解析機能を利用する場合にはREVOCAP_Couplerが必要となります。REVOCAP_Couplerは下記のWEBサイトからダウンロードすることができます。
 
 [http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php](http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php)
 
-### LAPACK/BLAS
+#### LAPACK/BLAS
 
 本ソフトウェアは、CG法およびGMRES法を用いた前処理適用後行列の条件数推定機能が実装されています。
 本機能を利用する場合にはLAPACKが必要になります。また、LAPACKを利用するにはBLASが必要となります。
@@ -84,7 +84,7 @@ BLASのリファレンス実装は下記WEBサイトからダウンロードす�
 
 なお、後述するIntel MKLがインストールされている場合、改めてインストールする必要はありません。
 
-### MUMPS
+#### MUMPS
 
 本ソフトウェアは、パブリックドメインの並列直接法ソルバーMUMPS（a
 MUltifrontal Massively Parallel sparse direct
@@ -95,7 +95,7 @@ Bordeauxの各機関により研究開発されたものです。MUMPSは下記�
 
 [http://mumps.enseeiht.fr/](http://mumps.enseeiht.fr/)
 
-### ScaLAPACK
+#### ScaLAPACK
 
 本ソフトウェアで直接利用していませんが、上述のMUMPSはScaLAPACKを利用します。ScaLAPACKは下記のWEBサイトからダウンロードすることができます。
 
@@ -103,7 +103,7 @@ Bordeauxの各機関により研究開発されたものです。MUMPSは下記�
 
 なお、後述するIntel MKLがインストールされScaLAPACKライブラリがインストールされている場合、改めてインストールする必要はありません。
 
-### ML
+#### ML
 
 本ソフトウェアは、代数マルチグリッド法に基づく前処理ライブラリML（Multi-Level
 Preconditioner）に対応しています。MLは、Sandia National
@@ -112,31 +112,33 @@ MLは下記のWEBサイトからダウンロードすることができます。
 
 [https://trilinos.org/](https://trilinos.org/)
 
-### Intel MKL（Math Kernel Library）
+#### Intel MKL（Math Kernel Library）
 
 本ソフトウェアの接触解析モジュールでは、Intel MKLを利用しています。
 
 インストールする環境にIntel MKLがインストールされていない場合、接触解析の一部の機能が利用できません。
 
-## 動作確認環境
+### 動作確認環境
 
 本ソフトウェアは、下記の環境において動作確認を行っています。
 ただし、これ以外の環境においても、前述のインストールに必要なソフトウェアが導入されている場合、正常に動作すると思われます。
 
-### 動作確認環境
+#### 動作確認環境
 
-  | システム             | オペレーティングシステム          | CPU                 | コンパイラ           | 並列化環境    |
-  |----------------------|-----------------------------------|---------------------|----------------------|---------------|
-  | K computer           | Linux                             | SPARC64 VIIIfx      | Fujitsu compiler     | Fujitsu MPI   |
-  | PRIMEHPC FX100       | Linux                             | SPARC V9 + HPC-ACE2 | Fujitsu compiler     | Fujitsu MPI   |
-  | EARTH SIMULATOR(ES3) | SUPER UX                          | SX-ACE              | NEC compiler         | NEC MPI       |
-  | UV2000               | Linux (SUSE Linux Enterprise 10)  | Intel Xeon          | Intel compiler       | SGI MPT       |
-  | PC cluster           | Linux (CentOS-7)                  | Intel Xeon          | Intel compiler       | Intel MPI     |
-  | PC cluster           | Linux (RedHat Enterprise Linux 7) | Intel Xeon          | Intel compiler       | OpenMPI       |
-  | Desktop PC           | Linux (ubuntu 16.04)              | AMD Ryzen           | GNU compiler         | OpenMPI       |
-  | Desktop PC           | Linux (ubuntu 16.04)              | AMD Ryzen           | PGI compiler         | OpenMPI       |
-  | Desktop PC           | Linux (ubuntu 16.04)              | Intel Core-i7       | GNU compiler         | OpenMPI       |
-  | Desktop PC           | Windows (7, 10)                   | Intel Core-i7       | GNU compiler (mingw) | Microsoft MPI |
-  | Raspberry PI 3 B+    | Linux (raspbian 32bit)            | ARM Cortex-A53      | GNU compiler         | OpenMPI       |
-  | Notebook PC          | macOS Mojave                      | Intel Core i7       | GNU Compiler         | OpenMPI       |
+| システム             | オペレーティングシステム          | CPU                 | コンパイラ           | 並列化環境    |
+|----------------------|-----------------------------------|---------------------|----------------------|---------------|
+| K computer           | Linux                             | SPARC64 VIIIfx      | Fujitsu compiler     | Fujitsu MPI   |
+| PRIMEHPC FX100       | Linux                             | SPARC V9 + HPC-ACE2 | Fujitsu compiler     | Fujitsu MPI   |
+| EARTH SIMULATOR(ES3) | SUPER UX                          | SX-ACE              | NEC compiler         | NEC MPI       |
+| UV2000               | Linux (SUSE Linux Enterprise 10)  | Intel Xeon          | Intel compiler       | SGI MPT       |
+| PC cluster           | Linux (CentOS-7)                  | Intel Xeon          | Intel compiler       | Intel MPI     |
+| PC cluster           | Linux (RedHat Enterprise Linux 7) | Intel Xeon          | Intel compiler       | OpenMPI       |
+| Desktop PC           | Linux (ubuntu 16.04)              | AMD Ryzen           | GNU compiler         | OpenMPI       |
+| Desktop PC           | Linux (ubuntu 16.04)              | AMD Ryzen           | PGI compiler         | OpenMPI       |
+| Desktop PC           | Linux (ubuntu 16.04)              | Intel Core-i7       | GNU compiler         | OpenMPI       |
+| Desktop PC           | Windows (7, 10)                   | Intel Core-i7       | GNU compiler (mingw) | Microsoft MPI |
+| Raspberry PI 3 B+    | Linux (raspbian 32bit)            | ARM Cortex-A53      | GNU compiler         | OpenMPI       |
+| Notebook PC          | macOS Mojave                      | Intel Core i7       | GNU Compiler         | OpenMPI       |
+
+
 

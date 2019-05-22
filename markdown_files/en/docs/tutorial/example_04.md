@@ -8,11 +8,11 @@ The heat conduction analysis was performed with a used nuclear fuel transport co
 Table 9.4.1: Examples of actual verification models for heat conduction analysis
 </div>
 
-| Case ame | Element type | Verification model  | Number of nodes    | Freedom frequency |
-|:--|:--|:--|:--|:--|
-| EX21A    | 361        | Used unclear fuel transport container | 88,938    | 79,920 |
-| EX21B    | 361        |                                       | 309,941   | 289,800 |
-| EX21C    | 361        |                                       | 1,205,765 | 1,159,200 |
+| Case ame | Element type | Verification model                    | Number of nodes | Freedom frequency |
+|:---------|:-------------|:--------------------------------------|:----------------|:------------------|
+| EX21A    | 361          | Used unclear fuel transport container | 88,938          | 79,920            |
+| EX21B    | 361          |                                       | 309,941         | 289,800           |
+| EX21C    | 361          |                                       | 1,205,765       | 1,159,200         |
 
 <div style="text-align: center;">
 <img src="./media/example04_01.png" width="350px"><br>
@@ -52,3 +52,5 @@ Fig. 9.4.6: Distributed model diagram
 <img src="./media/example04_07.png" width="512px"><br>
 Fig. 9.4.7: Speed improvement degree because of dispersion treatment
 </div>
+
+

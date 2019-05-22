@@ -1,10 +1,10 @@
 <!-- include, libの順に記載する -->
 
-# Appendix
+## Appendix
 
-## List of `Makefile.conf` Variables
+### List of `Makefile.conf` Variables
 
-### Setting related to MPI
+#### Setting related to MPI
 
 | Variable name | Description | Default |
 |:--|:--|:--|
@@ -14,7 +14,7 @@
 | MPILIBDIR | This variable specifies the path to the directory where MPI libraries have been installed.|.|
 | MPILIBS | This variable specifies the MPI library that will be linked to C and Fortran90 object files.|None|
 
-### Setting related to the installation directory
+#### Setting related to the installation directory
 
 | Variable name | Description | Default |
 |:--|:--|:--|
@@ -23,7 +23,7 @@
 | INCLUDEDIR | This variable specifies the path to the directory where the header files of this software are to be installed. Normally, there is no need to change the value of this variable from the default value. | `$(PREFIX)/include` |
 | LIBDIR | This variable specifies the path to the directory where the libraries of this software are to be installed. Normally, there is no need to change the value of this variable from the default value. | `$(PREFIX)/lib` |
 
-### Settings related to METIS
+#### Settings related to METIS
 
 | Variable name | Description | Default |
 |:--|:--|:--|
@@ -31,7 +31,7 @@
 | METISINCDIR | This variable specifies the path to the directory where the header files (such as `metis.h`) of METIS have been installed. Normally, there is no need to change the value of this variable from the default value. | `$(METISDIR)/include` |
 | METISLIBDIR | This variable specifies the path to the directory where the library (`libmetis.a`) of METIS has been installed. Normally, ther is no need to change the value of this variable from the default value.| `$(METISDIR)/lib` |
 
-### Settings related to ParMETIS
+#### Settings related to ParMETIS
 
 | Variable name | Description | Default |
 |:--|:--|:--|
@@ -39,23 +39,23 @@
 | PAEMETISINCDIR | This variable specifies the path to the directory where the header files (such as parmetis.h) of ParMETIS have been installed. Normally, there is no need to change the value of this variable from the default value. | `$(PARMETISDIR)/include` |
 | PARMETISLIBDIR | This variable specifies the path to the directory where the library (libparmetis.a) of ParMETIS has been installed. Normally, there is no need to change the value of this variable from the default value. | `$(PARMETISDIR)/lib` |
 
-### Settings related to REVOCAP\_Refiner
+#### Settings related to REVOCAP_Refiner
 
 | Variable name | Description | Default |
 |:--|:--|:--|
-| REFINERDIR | This variable specifies the path to the directory where REVOCAP\_Refiner has been installed. | `$(HOME)/REVOCAP\_Refiner` |
-| REFINERINCDIR | This variable specifies the path to the directory where REVOCAP\_Refiner header files have been installed. Normally, there is no need to change the value of this variable from the default value. | `$(PARMETISDIR)/include` |
-| REFINERLIBDIR | This variable specifies the path to the directory where REVOCAP\_Refiner libraries have been installed. Normally, there is no need to change the value of this variable from the default value.| `$(PARMETISDIR)/lib` |
+| REFINERDIR | This variable specifies the path to the directory where REVOCAP_Refiner has been installed. | `$(HOME)/REVOCAP_Refiner` |
+| REFINERINCDIR | This variable specifies the path to the directory where REVOCAP_Refiner header files have been installed. Normally, there is no need to change the value of this variable from the default value. | `$(PARMETISDIR)/include` |
+| REFINERLIBDIR | This variable specifies the path to the directory where REVOCAP_Refiner libraries have been installed. Normally, there is no need to change the value of this variable from the default value.| `$(PARMETISDIR)/lib` |
 
-### Settings related to REVOCAP\_Coupler
+#### Settings related to REVOCAP_Coupler
 
 | Variable name | Description | Default |
 |:--|:--|:--|
-| REVOCAPDIR | This variable specifies the path to the directory where REVOCAP\_Coupler has been installed. | `$(HOME)/REVOCAP_Coupler` |
-| REVOCAPINCDIR | This variable specifies the path to the directory where REVOCAP\_Coupler header files have been installed. Normally, there is no need to change the value of this variable from the default value. | `$(REVOCAPDIR)/include` |
-| REVOCAPLIBDIR | This variable specifies the path to the directory where REVOCAP\_Coupler libraries have been installed. Normally, there is no need to change the value of this variable from the default value. | `$(REVOCAPDIR)/lib` |
+| REVOCAPDIR | This variable specifies the path to the directory where REVOCAP_Coupler has been installed. | `$(HOME)/REVOCAP_Coupler` |
+| REVOCAPINCDIR | This variable specifies the path to the directory where REVOCAP_Coupler header files have been installed. Normally, there is no need to change the value of this variable from the default value. | `$(REVOCAPDIR)/include` |
+| REVOCAPLIBDIR | This variable specifies the path to the directory where REVOCAP_Coupler libraries have been installed. Normally, there is no need to change the value of this variable from the default value. | `$(REVOCAPDIR)/lib` |
 
-### Settings related to MUMPS
+#### Settings related to MUMPS
 
 | Variable name | Description | Default |
 |:--|:--|:--|
@@ -63,7 +63,7 @@
 | MUMPSINCDIR | This variable specifies the path to the directory where MUMPS header files have been installed. Normally, there is no need to change the value of this variable from the default value. | `$(MUMPSDIR)/include` |
 | MUMPSLIBDIR | This variable specifies the path to the directory where MUMPS libraries have been installed. Normally, there is no need to change the value of this variable from the default value. | `$(MUMPSDIR)/lib` |
 
-### Settins related to ML
+#### Settins related to ML
 
 | Variable name | Description | Default |
 |:--|:--|:--|
@@ -71,17 +71,17 @@
 | MLINCDIR | This variable specivies the path to the directory where ML header files are installed. Normally, there is no need to change the value of this variable from the default value. | `$(MLDIR)/include` |
 | MLLIBDIR | This variable specivies the path to the directory where ML libraries are installed. Normally, there is no need to change the value of this variable from the default value. | `$(MLDIR)/lib` |
 
-### Settings related to the C compiler
+#### Settings related to the C compiler
 
 | Variable name | Description | Default |
 |:--|:--|:--|
 | CC | This variable specifies the C compiler start command | `mpicc` |
 | CFLAGS | This variable specifies the option to be assigned to the C compiler.  Normally, there is no need to change the value of this variable from the default value. | なし |
-| LDFLAGS | This variable specifies the option to be assigned to the C linker.  Normally, there is no need to change the value of this variable from the default value.  However, when REVOCAP\_Refiner (written in C++) is to be used and C compiler is used for linking C programs, C++ standard library (e.g. -lstdc++) needs to be specified here. | `-lm` |
+| LDFLAGS | This variable specifies the option to be assigned to the C linker.  Normally, there is no need to change the value of this variable from the default value.  However, when REVOCAP_Refiner (written in C++) is to be used and C compiler is used for linking C programs, C++ standard library (e.g. -lstdc++) needs to be specified here. | `-lm` |
 | OPTFLAGS | This variable specifies the optimization option (or another option) to be assigned to the C compiler.| `-O3` |
-| CLINKER | This variable specifies the linker command for C program. This is used when, for example, REVOCAP\_Refiner (written in C++) is to be used and C++ compiler needs to be used for linking C programs with C++ libraries.| `$(CC)` |
+| CLINKER | This variable specifies the linker command for C program. This is used when, for example, REVOCAP_Refiner (written in C++) is to be used and C++ compiler needs to be used for linking C programs with C++ libraries.| `$(CC)` |
 
-### Settings related to the C++ compiler
+#### Settings related to the C++ compiler
 
 | Variable name | Description | Default |
 |:--|:--|:--|
@@ -90,17 +90,17 @@
 | CPPLDFLAGS | This variable specifies the option to be assigned to the C++ linker. Normally, there is no need to change the value of this variable from the default value.| None |
 | CPPOPTFLAGS | This variable specifies the optimization option (or another option) to be assigned to the C++ compiler. | `-O3` |
 
-### Settings related to Fortran90 compiler
+#### Settings related to Fortran90 compiler
 
 | Variable name | Description | Default |
 |:--|:--|:--|
 | F90 | This variable specifies the Fortran90 compiler start command. | `mpif90` |
 | F90FLAGS | This variable specifies the option to be assigned to the Fortran90 compiler. Normally, there is no need to change the value of this variable from the default value. | `-DMPICH_IGNORE_CXX_SEEK` |
-| F90LDFLAGS | This variable specifies the option to be assigned to the Fortran90 linker.  Normally, there is no need to change the value of this variable from the default value.  However, if Intel MKL is used, specify its link option. Also, when REVOCAP\_Refiner (written in C++) is to be used and Fortran90 compiler is used for linking Fortran90 programs, C++ standard library (e.g. -lstdc++) needs to be specified here. | None |
+| F90LDFLAGS | This variable specifies the option to be assigned to the Fortran90 linker.  Normally, there is no need to change the value of this variable from the default value.  However, if Intel MKL is used, specify its link option. Also, when REVOCAP_Refiner (written in C++) is to be used and Fortran90 compiler is used for linking Fortran90 programs, C++ standard library (e.g. -lstdc++) needs to be specified here. | None |
 | F90OPTFLAGS | This variable specifies the optimization option (or another option) to be assigned to the Fortran90 compiler. | `-O2` |
-| F90LINKER | This variable specifies the linker command for Fortran90 program. This is used when, for example, REVOCAP\_Refiner (written in C++) is to be used and C++ compiler needs to be used for linking Fortran90 programs with C++ libraries. (E.g. on K-computer, “mpiFCCpx --linkfortran” needs to be specified.)| `$(F90)` |
+| F90LINKER | This variable specifies the linker command for Fortran90 program. This is used when, for example, REVOCAP_Refiner (written in C++) is to be used and C++ compiler needs to be used for linking Fortran90 programs with C++ libraries. (E.g. on K-computer, “mpiFCCpx --linkfortran” needs to be specified.)| `$(F90)` |
 
-### Settings related to UNIX commands
+#### Settings related to UNIX commands
 
 | Variable name | Description | Default |
 |:--|:--|:--|
@@ -111,7 +111,7 @@
 | MKDIR | This variable specifies the command for creating directories. If options are required, specify them together. Normally, there is no need to change the value of this variable from the default value. | `mkdir -p` |
 | MV | This variable specifies the command for moving files or directories. If options are required, specify them together. Normally, there is no need to change the value of this variable from the default value. | `mv` |
 
-## Example of Makefile.conf
+### Example of Makefile.conf
 
 ```
 # MPI
@@ -178,7 +178,7 @@ F90OPTFLAGS = -O2
 F90LINKER   = mpiifort
 ```
 
-## Notes on K-computer and Fujitsu FX10
+### Notes on K-computer and Fujitsu FX10
 
 This version includes tuned codes for K-computer and Fujitsu FX10. However, in order to maximize the performance, a part of the source code needs to be changed for corresponding environment.
 
@@ -194,4 +194,6 @@ Set the value of parameter `TotalSectorCacheSize` defined in the file to
   - 24 on FX10.
 
 Initially, the parameter is set for K-computer.
+
+
 

@@ -5,11 +5,11 @@ This software is the outcome of "Research and Development of Innovative Simulati
 
 <img src="../image/FrontISTR_logo.png" width="350px">
 
-| Item | Content |
-|:---------:|:---------|
-| Name of Software | FrontISTR |
-| Version | 5.0 |
-| License | MIT License |
+| Item                | Content     |
+|:-------------------:|:------------|
+| Name of Software    | FrontISTR   |
+| Version             | 5.0         |
+| License             | MIT License |
 | Corresonding Clerks | FrontISTR Commons<br>2-11-16 Yayoi, Bunkyo-ku, Tokyo<br>c/o Institute of Engineering Innovation, School of Engineering<br>E-mail：support@frontistr.com |
 
 ## Manuals
@@ -21,7 +21,6 @@ This software is the outcome of "Research and Development of Innovative Simulati
   - [Tutorial](../tutorial/index.md)
 
 <!-- ここまでテンプレート -->
----
 
 This manual describes the analysis implementation guidelines using a large-scale structural analysis program using the finite elment method FrontISTR based on examples.
 
@@ -51,3 +50,5 @@ This manual describes the analysis implementation guidelines using a large-scale
     - [Example of Actual Model for Eigenvalue Analysis](example_03.md)
     - [Example of Actual Model for Heat Conduction Analysis](example_04.md)
     - [Example of Actual Model for Linear Dynamic Analysis](example_05.md)
+
+

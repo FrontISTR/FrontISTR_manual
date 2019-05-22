@@ -1,10 +1,10 @@
-# Release Note
+## Release Note
 
-## Contents updated in Ver. 5.0
+### Contents updated in Ver. 5.0
 
 The following functions were added in FrontISTR Ver. 5.0.
 
-## Contents updated in Ver. 3.8
+### Contents updated in Ver. 3.8
 
 The following functions were added in FrontISTR Ver. 3.8:
 
@@ -38,7 +38,7 @@ The following functions were added in FrontISTR Ver. 3.8:
     - Change in the header of the program code top
     - Change in LICENSE files
 
-## Contents updated in Ver. 3.7
+### Contents updated in Ver. 3.7
 
 The following functions were added in FrontISTR Ver. 3.7:
 
@@ -100,7 +100,7 @@ The following functions were added in FrontISTR Ver. 3.7:
     - Initialization of fstr_setup_util.f90 
     - Correction of the intent sentence
 
-## Contents updated in Ver. 3.6
+### Contents updated in Ver. 3.6
 
 The following functions were added in FrontISTR Ver. 3.6:
 
@@ -146,7 +146,7 @@ The following functions were added in FrontISTR Ver. 3.6:
     - Expansion of the log output function
     - OpenMP parallelization of the dispersion mesh creation loop
 
-## Contents updated in Ver. 3.5
+### Contents updated in Ver. 3.5
 
 The following functions were added in FrontISTR Ver. 3.5:
 
@@ -181,4 +181,5 @@ The following functions were added in FrontISTR Ver. 3.5:
     - Correction of the node number display in the message of coupled analysis
     - Correction of ILU preprocessing
     - Error prevention during optimization with some compilers
+
 
