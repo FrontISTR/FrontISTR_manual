@@ -15,9 +15,12 @@ mkdocs:
     - tags
   script:
     - pip install --upgrade mkdocs
+    - pip install --upgrade pyyaml
     - cd markdown_files/ja
+    - python ../numbering.py
     - mkdocs build
     - cd ../en
+    - python ../numbering.py
     - mkdocs build
 
 pages:
