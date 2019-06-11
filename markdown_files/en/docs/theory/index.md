@@ -3,7 +3,7 @@
 
 This software is the outcome of "Research and Development of Innovative Simulation Software" project supported by Research and Development for Next-generation Information Technology of Ministry of Education, Culture, Sports, Science and Technology. We assume that you agree with our license agreement of "MIT License" by using this software either for the purpose of profit-making business or for free of charge. This software is protected by the copyright law and the other related laws, regarding unspecified issues in our license agreement and contact, or condition without either license agreement or contact.
 
-<img src="../image/FrontISTR_logo.png" width="350px">
+[![FrontISTR](../image/FrontISTR_logo.png){.center width=350px}](https://www.frontistr.com)
 
 | Item | Content |
 |:---------:|:---------|
