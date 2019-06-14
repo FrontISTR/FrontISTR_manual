@@ -16,7 +16,6 @@ mkdocs:
   script:
     - pip install --upgrade mkdocs
     - pip install --upgrade pyyaml
-    - pip install --upgrade python-markdown
     - pip install --upgrade python-markdown-math
     - pip install --upgrade mkdocs-windmill
     - cd markdown_files/ja
