@@ -1,6 +1,6 @@
 site_name: FrontISTR ver. 5.0
 theme:
-    name: readthedocs
+    name: windmill
     highlightjs: true
     hljs_languages:
         - fortran
