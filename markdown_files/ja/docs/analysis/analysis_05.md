@@ -1,14 +1,3 @@
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    processEscapes: true
-  },
-  CommonHTML: { matchFontHeight: true },
-  displayAlign: "center"
-});
-</script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 ## 解析制御データ
 
@@ -629,7 +618,7 @@ TYPE＝解析の種類
 |t_start     |t_end       |n_step  |t_delta |
 |<font color="Red">0.0</font>|<font color="Red">1.0</font>|<font color="Red">500</font>|<font color="Red">1.0000e-5</font>|
 
-| Newmark-$\beta$法のパラメータ $\gamma$ | Newmark-$\beta$法のパラメータ $\beta$ |
+| Newmark-i\(\beta\)法のパラメータ \(\gamma\) | Newmark-\(\beta\)法のパラメータ \(\beta\) |
 |----------------------------------------|---------------------------------------|
 | gamma                                  | beta                                  |
 |<font color="Red">0.5</font>            |<font color="Red">0.25</font>          |
@@ -1352,7 +1341,7 @@ DEPENDENCIES = 0 (Default値) / 1
 (2行目) E1, E2, E3, ν12, ν13, ν23, G12, G13, G23, Tempreature
 ```
 
-$$
+\[
 \begin{bmatrix}
   \varepsilon_{11} \\\
   \varepsilon_{22} \\\
@@ -1378,7 +1367,7 @@ $$
   \sigma_{23} \\\
   \sigma_{31}
 \end{bmatrix}
-$$
+\]
 
 ####### `TYPE = USER`の場合
 
@@ -1465,8 +1454,8 @@ DEPENDENCIES = 0 (Default値) / 1
 | H          | R    | 硬化係数            |
 | PSTRAIN 　 | R    | 塑性ひずみ          |
 | YIELD      | R    | 降伏応力            |
-| $\varepsilon0, K, n$   | R    |$\overline{\sigma} = k\left( \varepsilon_{0} + \overline{\varepsilon} \right)^{n}$|
-| $\varepsilon0, D, n$   | R    |$\varepsilon = \frac{\sigma}{E} + \varepsilon_{0}\left( \frac{\sigma}{D} \right)^{n}$|
+| \(varepsilon0, K, n\)   | R    |\(\overline{\sigma} = k\left( \varepsilon_{0} + \overline{\varepsilon} \right)^{n}\)|
+| \(\varepsilon0, D, n\)   | R    |\(\varepsilon = \frac{\sigma}{E} + \varepsilon_{0}\left( \frac{\sigma}{D} \right)^{n}\)|
 | FAI        | R    | 内部摩擦角          |
 | c          | R    | 粘着力              |
 | C          | R    | 線形移動硬化係数    |
@@ -1774,7 +1763,7 @@ ROT_CENTER = 回転変位拘束の中心節点番号または節点集合名。
   ROT_NODES, 2, 2, -4.188
 ```
 
-`ROT_NODES`に対して、節点7を中心とし、大きさ $||(3.141, -4.188)|| = 5.233[rad]$、回転軸 $(3/5, -4/5, 0)$ の回転を加える。
+`ROT_NODES`に対して、節点7を中心とし、大きさ \(||(3.141, -4.188)|| = 5.233[rad]\)、回転軸 \((3/5, -4/5, 0)\) の回転を加える。
 
 `ROT_CENTER`による回転は並進3自由度に対する変位拘束であり、シェル要素に対する 4, 5, 6 自由度拘束とは異なる。
 
@@ -1848,7 +1837,7 @@ ROT_CENTER = 回転中心節点番号または節点集合名。指定した場�
   TORQUE_NODES, 3, -4
 ```
 
-`ROT_NODES`に対して、節点7を中心とし、大きさ$||(3, 0, -4)|| = 5$、回転軸$(3/5, 0, -4/5)$のトルク荷重を加える。
+`ROT_NODES`に対して、節点7を中心とし、大きさ\(||(3, 0, -4)|| = 5\)、回転軸\((3/5, 0, -4/5)\)のトルク荷重を加える。
 
 `ROT_CENTER`によるトルク荷重は、内部的には指定したトルク相当の節点荷重を与えるものであり、シェル要素に対する4, 5, 6自由度への節点荷重とは異なる。
 
@@ -2901,7 +2890,7 @@ ISTEP =   ステップ数
 WINDOW => 0 ：流体力にウィンドウ関数(*)を乗じて適用
 ```
 
-(\*) $\frac{1}{2}(1 - \cos\frac{2\pi i}{N}),(i: 現ステップ、N: 現在の解析の総ステップ数)$
+(\*) \(\frac{1}{2}(1 - \cos\frac{2\pi i}{N}),(i: 現ステップ、N: 現在の解析の総ステップ数)\)
 
 ** 2行目以降 **
 
