@@ -1,19 +1,3 @@
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    processEscapes: true
-  },
-  TeX: {
-    equationNumbers: {
-      autoNumber: "AMS"
-    }
-  },
-  CommonHTML: { matchFontHeight: true },
-  displayAlign: "center"
-});
-</script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 ## Non-linear Static Analysis Method
 
@@ -39,36 +23,36 @@ In this development code, both the total and updated Lagrange methods were adopt
 
 In this section, an increment analysis is performed wherein the status is known until time $t$ and unknown until $t'=t+\Delta t$ (See to Fig. 2.2.1). The equilibrium equation, of the static boundary value problem, mechanical boundary conditions, and geometric boundary conditions (basic boundary condidions) are as follows:
 
-$$
+\[
 \begin{equation}
 \nabla_{t'_x} \cdot ^{t'} \sigma +^{t'} \overline{b} =0 \qquad in \ V
 \label{eq:2.2.1}
 \end{equation}
-$$
+\]
 
-$$
+\[
 \begin{equation}
 ^{t'} \sigma \cdot^{t'} n = ^{t'} \overline{t} \qquad on \ ^{t'}S_t
 \label{eq:2.2.2}
 \end{equation}
-$$
+\]
 
-$$
+\[
 \begin{equation}
 ^{t'} u = ^{t'} \overline{u} \qquad on \ ^{t'} S_u
 \label{eq:2.2.3}
 \end{equation}
-$$
+\]
 
-$^{t'} \sigma$，$^{t'} \overline{b}$，$^{t'} n$，$^{t'} \overline{t}$，and $^{t'} \overline{u}$ are the Cauchy stress (true stress), body force, outward until normal vector on body surface, predetermined surfacxe force, and predetermined displacement at time $t'$, respectively. These equations are described for the arrangements of $^{t'}v$, $^{t'}s_t$, $^{t'}s_u$ at time $'t$.
+\(^{t'} \sigma\)，\(^{t'} \overline{b}\)，\(^{t'} n\)，\(^{t'} \overline{t}\)，and \(^{t'} \overline{u}\) are the Cauchy stress (true stress), body force, outward until normal vector on body surface, predetermined surfacxe force, and predetermined displacement at time \(t'\), respectively. These equations are described for the arrangements of \(^{t'}v\), \(^{t'}s_t\), \(^{t'}s_u\) at time \('t\).
 
 <div style="text-align:center;"><img alt="Fig. 2.2.1: Concept of incremental analysis" src="media/theory02_01.png" width="80%"/><br/>Fig. 2.2.1: Concept of incremental analysis</div>
 
 ### Principle of Virtual Work
 
-The principle of virtual work equivalent to the equilibrium equation of Eq.$\eqref{eq:2.2.1}$ and mechanical boundary conditions of Eq.$\eqref{eq:2.2.2}$ is given by the following equation:
+The principle of virtual work equivalent to the equilibrium equation of Eq.\(\eqref{eq:2.2.1}\) and mechanical boundary conditions of Eq.\(\eqref{eq:2.2.2}\) is given by the following equation:
 
-$$
+\[
 \begin{equation}
 \int_{^{t'}v}{^{t'} \sigma} : \delta^{t'} A_{(L)} \, d^{t'}v =
 \int_{^{t'} s_{t}}^{t'}
@@ -78,36 +62,36 @@ $$
 \overline{b} \cdot \delta u \, d^{t'}v
 \label{eq:2.2.4}
 \end{equation}
-$$
+\]
 
-where $^{t'} A_{(L)}$ is the linear part of the Almansi strain tensor, which is expressed by the following equation:
+where \(^{t'} A_{(L)}\) is the linear part of the Almansi strain tensor, which is expressed by the following equation:
 
-$$
+\[
 \begin{equation}
 ^{t'} A_{(L)} = \frac{1}{2}
 \left\lbrace \frac{\partial ^{t'} u}{\partial ^{t'} x} + \left( \frac{ \partial ^{t'} u}{\partial ^{t'} x} \right) ^\mathrm{T} \right\rbrace
 \label{eq:2.2.5}
 \end{equation}
-$$
+\]
 
-Eq.$\eqref{eq:2.2.4}$ should be solved along with the geometric boundary conditions, strain displacement relation, and stress-strain relationship equation; however Eq.$\eqref{eq:2.2.4}$ is described with the arrangement at time $t'$, which  is still unknown at this stage. Therefor, a formulation with reference to arrangement $V$ at time $0$ or arrangement $^{t'} v$ at time $t$ has to be performed.
+Eq.\(\eqref{eq:2.2.4}\) should be solved along with the geometric boundary conditions, strain displacement relation, and stress-strain relationship equation; however Eq.\(\eqref{eq:2.2.4}\) is described with the arrangement at time \(t'\), which  is still unknown at this stage. Therefor, a formulation with reference to arrangement \(V\) at time \(0\) or arrangement \(^{t'} v\) at time \(t\) has to be performed.
 
 #### Formulation of total Lagrange method
 
 In this section, a formulation based on the total Lagrange method used in the development code is described. 
 
 
-The principle of virtual work equation at time ${t'}$ with reference to the initial arrangement at time $0$ is given by the following equation: 
+The principle of virtual work equation at time \({t'}\) with reference to the initial arrangement at time \(0\) is given by the following equation: 
 
-$$
+\[
 \begin{equation}
 \int_{V}\,^{t'}_{0} S:\delta_0^{t'}
 E\, dV=^{t'}\delta R
 \label{eq:2.2.6}
 \end{equation}
-$$
+\]
 
-$$
+\[
 \begin{equation}
 ^{t'} \delta R=
 \int_{S_t}\,
@@ -117,27 +101,27 @@ $$
 ^{t'}_{0} \overline{b} \cdot \delta u\, dV
 \label{eq:2.2.7}
 \end{equation}
-$$
+\]
 
-where $^{t'}_0 S$ and $^{t'}_0 E$ represent the second Piola–Kirchhoff strain tensor and Green–Lagrange strain tensor, respectively, at time $t'$ with reference to the initial arrengement at time $0$. Furthermore, $^{t'}_0 \overline{t}$ and $^{t'}_0 \overline{b}$ are the surface force vector and body force coverted per unit volume of the initial arrangement, respectively, and are expressed as follows when associated with Eq.$\eqref{eq:2.2.1}$, Eq.$\eqref{eq:2.2.2}$ and Eq.$\eqref{eq:2.2.3}$:
+where \(^{t'}_0 S\) and \(^{t'}_0 E\) represent the second Piola–Kirchhoff strain tensor and Green–Lagrange strain tensor, respectively, at time \(t'\) with reference to the initial arrengement at time \(0\). Furthermore, \(^{t'}_0 \overline{t}\) and \(^{t'}_0 \overline{b}\) are the surface force vector and body force coverted per unit volume of the initial arrangement, respectively, and are expressed as follows when associated with Eq.\(\eqref{eq:2.2.1}\), Eq.\(\eqref{eq:2.2.2}\) and Eq.\(\eqref{eq:2.2.3}\):
 
-$$
+\[
 \begin{equation}
 ^{t'}_0 \overline{t}=\frac{d^{t'}s_{t'}}{dS}\overline{t}
 \label{eq:2.2.8}
 \end{equation}
-$$
+\]
 
-$$
+\[
 \begin{equation}
 ^{t'}_0\overline{b}=\frac{d^{t'}v_{t'}}{dV}\overline{b}
 \label{eq:2.2.9}
 \end{equation}
-$$
+\]
 
-The Green-Langrange strain tensor at time $t$ is defined by the following equation:
+The Green-Langrange strain tensor at time \(t\) is defined by the following equation:
 
-$$
+\[
 \begin{equation}
 ^{t'}_{0} E=\frac{1}{2}
 \left\lbrace
@@ -148,41 +132,41 @@ $$
 \right\rbrace
 \label{eq:2.2.10}
 \end{equation}
-$$
+\]
 
-The displacement at time $t'$ and the second Piola-Kirchhoff stress $^{t'} u$, $_{0}^{t'} S$ can be represented with incremental decomposition as follows:
+The displacement at time \(t'\) and the second Piola-Kirchhoff stress \(^{t'} u\), \(_{0}^{t'} S\) can be represented with incremental decomposition as follows:
 
-$$
+\[
 \begin{equation}
 ^{t'} u =^{t} u + \Delta u
 \label{eq:2.2.11}
 \end{equation}
-$$
+\]
 
-$$
+\[
 \begin{equation}
 _{0}^{t'} S = _{0}^{t} S + \Delta S
 \label{eq:2.2.12}
 \end{equation}
-$$
+\]
 
 The increment of Green-Lagrrange strain, in connection with the displacement increment, is defined by the following equation:
 
-$$
+\[
 \begin{equation}
 _{0}^{t'} E = _{0}^{t} E + \Delta E
 \label{eq:2.2.13}
 \end{equation}
-$$
+\]
 
-$$
+\[
 \begin{equation}
 \Delta E = \Delta E_{L} + \Delta E_{NL}
 \label{eq:2.2.14}
 \end{equation}
-$$
+\]
 
-$$
+\[
 \begin{equation}
 \Delta E_{L}=\frac{1}{2}
 \left\lbrace
@@ -194,32 +178,32 @@ $$
 \cdot\frac{\partial \Delta u}{\partial X} \right\rbrace
 \label{eq:2.2.15}
 \end{equation}
-$$
+\]
 
-$$
+\[
 \begin{equation}
 \Delta E_{NL} = \frac{1}{2}\left(\frac{\partial \Delta u}{\partial X}\right)^\mathrm{T}\cdot\frac{\partial \Delta u}{\partial X}
 \label{eq:2.2.16}
 \end{equation}
-$$
+\]
 
-If Eq.$\eqref{eq:2.2.11}$, Eq.$\eqref{eq:2.2.12}$, Eq.$\eqref{eq:2.2.13}$, Eq.$\eqref{eq:2.2.14}$, Eq.$\eqref{eq:2.2.15}$ and Eq.$\eqref{eq:2.2.16}$ are substituted into Eq.$\eqref{eq:2.2.6}$ and Eq.$\eqref{eq:2.2.7}$, the following equation is obtained:
+If Eq.\(\eqref{eq:2.2.11}\), Eq.\(\eqref{eq:2.2.12}\), Eq.\(\eqref{eq:2.2.13}\), Eq.\(\eqref{eq:2.2.14}\), Eq.\(\eqref{eq:2.2.15}\) and Eq.\(\eqref{eq:2.2.16}\) are substituted into Eq.\(\eqref{eq:2.2.6}\) and Eq.\(\eqref{eq:2.2.7}\), the following equation is obtained:
 
-$$
+\[
 \begin{equation}
 \int_{V} \Delta S: (\delta \Delta E_{L} + \delta \Delta E_{NL})dV + \int_{V}\,_{0}^{t} S : \delta \Delta E_{NL}\, dV = ^{t'} \delta R - \int_V{_{0}^t S} : \delta \Delta E_{L}\,dV
 \label{eq:2.2.17}
 \end{equation}
-$$
+\]
 
-In this case, it is assumed that $\Delta S$ is associated with $\Delta E_L$ and the forth-order tensor $^{t}_{0} C$, and is expressed as follows:
+In this case, it is assumed that \(\Delta S\) is associated with \(\Delta E_L\) and the forth-order tensor \(^{t}_{0} C\), and is expressed as follows:
 
-$$
+\[
 \begin{equation}
 \Delta S=^t_0 C:\Delta_t E_{L}
 \label{eq:2.2.18}
 \end{equation}
-$$
+\]
 
 By substituting Eq.$\eqref{eq:2.2.18}$ into Eq.$\eqref{eq:2.2.17}$, and omitting $\Delta S :\delta \Delta E_{NL}$ with $\Delta u$ of second or higher order, the following equation is obtained:
 

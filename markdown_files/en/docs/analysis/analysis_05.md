@@ -1,14 +1,3 @@
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    processEscapes: true
-  }, 
-  CommonHTML: { matchFontHeight: true },
-  displayAlign: "center"
-});
-</script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 ## Analysis Control Data
 
@@ -632,12 +621,12 @@ Controlling the linear dynamic analysis
 | t_start                      | t_end                        | n_step                       | t_delta                            |
 | <font color="Red">0.0</font> | <font color="Red">1.0</font> | <font color="Red">500</font> | <font color="Red">1.0000e-5</font> |
 
-| Parameter $\gamma$ of Newmark-$\beta$ Method | Parameter $\beta$ of Newmark-$\beta$ Method |
+| Parameter \(\gamma\) of Newmark-\(\beta\) Method | Parameter \(\beta\) of Newmark-\(\beta\) Method |
 |----------------------------------------------|---------------------------------------------|
 | gamma                                        | beta                                        |
 | <font color="Red">0.5</font>                 | <font color="Red">0.25</font>               |
 
-| Type of Mass Matrix        | Type of Damping            | Parameter $R_m$ of Rayleigh Damping | Parameter of $R_k$ of Rayleigh Damping |
+| Type of Mass Matrix        | Type of Damping            | Parameter \(R_m\) of Rayleigh Damping | Parameter of \(R_k\) of Rayleigh Damping |
 |----------------------------|----------------------------|-------------------------------------|----------------------------------------|
 | idx_mass                   | idx_dmp                    | ray_m                               | ray_k                                  |
 | <font color="Red">1</font> | <font color="Red">1</font> | <font color="Red">0.0</font>        | <font color="Red">0.0</font>           |
@@ -733,7 +722,7 @@ Controlling the frequency response analysis
 |------------------------------|---------------------------------|
 | <font color="Red">0.0</font> | <font color="Red">6.6e-5</font> |
 
-| Type of Mass Matrix        | Type of Damping            | Parameter $R_m$ of Rayleigh Damping | Parameter $R_k$ of Rayleigh Damping |
+| Type of Mass Matrix        | Type of Damping            | Parameter \(R_m\) of Rayleigh Damping | Parameter \(R_k\) of Rayleigh Damping |
 |----------------------------|----------------------------|-------------------------------------|-------------------------------------|
 | idx_mass                   | idx_dmp                    | ray_m                               | ray_k                               |
 | <font color="Red">1</font> | <font color="Red">1</font> | <font color="Red">0.0</font>        | <font color="Red">7.2E-7</font>     |
@@ -1335,7 +1324,7 @@ DEPENDENCIES = 0 (Default)/1
 
 (2nd Line) E1, E2, E3, &nu;12, &nu;13, &nu;23, G12, G13, G23, Temperature
 
-$$
+\[
 \begin{equation}
 \begin{bmatrix}
   \varepsilon\_{11} \\\
@@ -1363,7 +1352,7 @@ $$
   \sigma\_{31}
 \end{bmatrix}
 \end{equation}
-$$
+\]
 
 - In the case of `TYPE=USER`
 
@@ -1452,8 +1441,8 @@ DEPENDENCIES = 0 (Default)/1
 | H          | R    | Hardening factor                               |
 | PSTRAIN 　 | R    | Plastic strain                                 |
 | YIELD      | R    | Yield stress                                   |
-| $\varepsilon0, K, n$   | R    |$\overline{\sigma} = k\left( \varepsilon_{0} + \overline{\varepsilon} \right)^{n}$|
-| $\varepsilon0, D, n$   | R    |$\varepsilon = \frac{\sigma}{E} + \varepsilon_{0}\left( \frac{\sigma}{D} \right)^{n}$|
+| \(\varepsilon0, K, n\)   | R    |\(\overline{\sigma} = k\left( \varepsilon_{0} + \overline{\varepsilon} \right)^{n}\)|
+| \(\varepsilon0, D, n\)   | R    |\(\varepsilon = \frac{\sigma}{E} + \varepsilon_{0}\left( \frac{\sigma}{D} \right)^{n}\)|
 | FAI        | R    | Internal frictional angle                      |
 | c          | R    | Viscosity                                      |
 | C          | R    | Linear motion hardening factor                 |
@@ -2709,7 +2698,7 @@ ISTEP = Step No.
 WINDOW => 0 ：Multiply window function(*) to input fluid traction
 ```
 
-(\*) $\frac{1}{2}(1 - \cos\frac{2\pi i}{N})$, $i$: current step, $N$: no. of steps of current analysis
+(\*) \(\frac{1}{2}(1 - \cos\frac{2\pi i}{N})\), \(i\): current step, \(N\): no. of steps of current analysis
 
 ** 2nd line or later **
 
