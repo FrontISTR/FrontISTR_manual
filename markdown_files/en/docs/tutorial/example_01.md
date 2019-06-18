@@ -1,14 +1,3 @@
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    processEscapes: true
-  },
-  CommonHTML: { matchFontHeight: true },
-  displayAlign: "center"
-});
-</script>
-<script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
 
 ## Verification by Simple-Shaped Model
 
@@ -32,16 +21,16 @@ Fig. 9.1.1: Example of Mesh Partitioned Cantilever Beam (Hexahedral Element)
 | <img src="./media/example01_06.png" width="350px"> | (e) exC: Volume load              |
 | <img src="./media/example01_07.png" width="350px"> | (f) exF : Heat load               |
 
-| Item                                    | Value                                          |
-|:----------------------------------------|:-----------------------------------------------|
-| Young's Modulus                         | $E = 4000.0\ kgf/mm^2$                         |
-| Length                                  | $L = 10.0\ mm$                                 |
-| Poisson's Ratio                         | $\nu = 0.3$                                    |
-| Sectional area                          | $A = 1.0\ mm^2$                                |
-| Mass density                            | $\rho = 8.0102 \times 10^\{-10}\ kg\,s^2/mm^4$ |
-| Second moment of area                   | $I = 1.0/12.0\ mm^4$                           |
-| Gravitational acceleration              | $g = 9800.0\ mm/s^2$                           |
-| Linear coefficient of thermal expansion | $\alpha = 1.0 \times 10^\{-5}$                 |
+| Item                                    | Value                                           |
+|:----------------------------------------|:------------------------------------------------|
+| Young's Modulus                         | \(E = 4000.0\ kgf/mm^2\)                        |
+| Length                                  | \(L = 10.0\ mm\)                                |
+| Poisson's Ratio                         | \(\nu = 0.3\)                                   |
+| Sectional area                          | \(A = 1.0\ mm^2\)                               |
+| Mass density                            | \(\rho = 8.0102 \times 10^{-10}\ kg\,s^2/mm^4\) |
+| Second moment of area                   | \(I = 1.0/12.0\ mm^4\)                          |
+| Gravitational acceleration              | \(g = 9800.0\ mm/s^2\)                          |
+| Linear coefficient of thermal expansion | \(\alpha = 1.0 \times 10^{-5}\)                 |
 
 <div style="text-align: center; margin-bottom: 3em;">
 Fig. 9.1.2: Verification conditions of the cantilever model
@@ -51,7 +40,7 @@ Fig. 9.1.2: Verification conditions of the cantilever model
 Table 9.1.1: exA: Verification results of the concentrated load problem
 </div>
 
-| Case Name | Number of elements | | Predicated Value : $\delta\_{max}= -1.000$ | | Remarks |
+| Case Name | Number of elements | | Predicated Value : \(\delta_{max}= -1.000\) | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
 | A231 | 40  | -0.338 | -0.371 | -0.371 | 33 nodes / plane stress status problem |
@@ -71,7 +60,7 @@ Table 9.1.1: exA: Verification results of the concentrated load problem
 Table 9.1.2: exB: Verification results of the surface-distributed load problem
 </div>
 
-| Case name | Number of elements | | Predicated value : $\delta\_{max}= -3.750$ | | Remarks |
+| Case name | Number of elements | | Predicated value : \(\delta_{max}= -3.750\) | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
 | B231 | 40  | -1.281 | -1.403 | -1.403 | 33 nodes / plane stress status problem |
@@ -91,7 +80,7 @@ Table 9.1.2: exB: Verification results of the surface-distributed load problem
 Table 9.1.3: exC: Verification results of the volume load problem
 </div>
 
-| Case Name | Number of elements | | Predicated Value : $\delta_{max}=$ -2.944e-5 | | Remarks |
+| Case Name | Number of elements | | Predicated Value : \(\delta_{max}= -2.944^{-5}\) | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
 | C231 | 40  | - | -1.101e-5 | -1.101e-5 | 33 nodes / plane stress problem |
@@ -111,7 +100,7 @@ Table 9.1.3: exC: Verification results of the volume load problem
 Table 9.1.4: exD: Verification results of the gravitation problem
 </div>
 
-| Case name | Number of elements | | Predicated Value : $\delta_{max}=$ -2.944e-5 | | Remarks |
+| Case name | Number of elements | | Predicated Value : \(\delta_{max}= -2.944^{-5}\) | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
 | D231 | 40  | -1.101e-5 | -1.101e-5 | -1.101e-5 | 33 nodes / plane stress status problem |
@@ -131,7 +120,7 @@ Table 9.1.4: exD: Verification results of the gravitation problem
 Table 9.1.5: exE: Verification results of the centrifugal force problem
 </div>
 
-| Case name | Number of elements | | Predicated value : $\delta_{max}=$ 2.635e-5 | | Remarks |
+| Case name | Number of elements | | Predicated value : \(\delta_{max}= 2.635^{-3}\) | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
 | E231 | 40  | 2.410e-3 | 2.616e-3 | 2.650e-3 | 33 nodes / plane stress status problem |
@@ -151,7 +140,7 @@ Table 9.1.5: exE: Verification results of the centrifugal force problem
 Table 9.1.6: exF: Verification results of the thermal stress load problem
 </div>
 
-| Case name | Number of elements | | Predicated Value : $\delta_{max}=$ 1.000e-2 | | Remarks |
+| Case name | Number of elements | | Predicated Value : \(\delta_{max}= 1.000^{-2}\) | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
 | F231 | 40  | - | 1.016e-2 | 1.007e-2 | 33 nodes / plane stress status problem |
@@ -169,7 +158,7 @@ Table 9.1.6: exF: Verification results of the thermal stress load problem
 Table 9.1.7: exG: Verification results of the direct method (concentrated load problem)
 </div>
 
-| Case name | Number of elements | | Predicated value : $\delta_{max}=$ -1.000 | | Remarks |
+| Case name | Number of elements | | Predicated value : \(\delta_{max}= -1.000\) | | Remarks |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
 | G231 | 40  | -0.338 | -0.371 | -0.371 | 33 nodes / plane stress status problem |
@@ -229,28 +218,28 @@ Fig. 9.1.4: Elastoplasticity deformation analysis Model
 |Item |Value  |
 |:--|:--|
 |Material   | Mises elastoplastic material |
-|Young's Modulus   | $E = 250 GPa$ |
-|Poisson's Ratio | $\nu = 0.25$ |
-|Initial yield stress  | $5 MPa$ |
-|Initial yield strain | $0.25\times 10^{-4}$ |
-|Isotropic hardening factor | $H_i = 0$ or $62.5 GPa$ |
+|Young's Modulus   | \(E = 250 GPa\) |
+|Poisson's Ratio | \(\nu = 0.25\) |
+|Initial yield stress  | \(5 MPa\) |
+|Initial yield strain | \(0.25\times 10^{-4}\) |
+|Isotropic hardening factor | \(H_i = 0\) or \(62.5 GPa\) |
 
 (2) Boundary conditions
 
 |Item |Boundary conditions |Value   |
 |:--|:--|:--|
-|step 1 | Forced displacement in nodes 2 and 3 | $u_x =  0.2500031251 *10^\{-4} $ |
-|step 2 | Forced displacement in nodes 2 and 3 | $u_x =  0.25000937518*10^\{-4} $ |
-|step 3 | Forced displacement in nodes 3 and 4 | $u_y =  0.2500031251 *10^\{-4} $ |
-|step 4 | Forced displacement in nodes 3 and 4 | $u_y =  0.25000937518*10^\{-4} $ |
-|step 5 | Forced displacement in nodes 2 and 3 | $u_x = -0.25000937518*10^\{-4} $ |
-|step 6 | Forced displacement in nodes 2 and 3 | $u_x = -0.2500031251 *10^\{-4} $ |
-|step 7 | Forced displacement in nodes 3 and 4 | $u_y = -0.25000937518*10^\{-4} $ |
-|step 8 | Forced displacement in nodes 3 and 4 | $u_y = -0.2500031251 *10^\{-4} $ |
+|step 1 | Forced displacement in nodes 2 and 3 | \(u_x =  0.2500031251 *10^{-4} \) |
+|step 2 | Forced displacement in nodes 2 and 3 | \(u_x =  0.25000937518*10^{-4} \) |
+|step 3 | Forced displacement in nodes 3 and 4 | \(u_y =  0.2500031251 *10^{-4} \) |
+|step 4 | Forced displacement in nodes 3 and 4 | \(u_y =  0.25000937518*10^{-4} \) |
+|step 5 | Forced displacement in nodes 2 and 3 | \(u_x = -0.25000937518*10^{-4} \) |
+|step 6 | Forced displacement in nodes 2 and 3 | \(u_x = -0.2500031251 *10^{-4} \) |
+|step 7 | Forced displacement in nodes 3 and 4 | \(u_y = -0.25000937518*10^{-4} \) |
+|step 8 | Forced displacement in nodes 3 and 4 | \(u_y = -0.2500031251 *10^{-4} \) |
 
 All the nodes that are not mentioned here are fully constrained. The theoretical solution for this problem is presented as follows:
 
-| Strain ($\times10^{-4}$)<br/>[$\varepsilon_x$, $\varepsilon_y$, $\varepsilon_z$] | Equivalent Stress ($MPa$)<br/>[$H_i=0\ H_k=0$; $H_i=62.5\ H_k=0$] |
+| Strain (\(\times10^{-4}\))<br/>[\(\varepsilon_x\), \(\varepsilon_y\), \(\varepsilon_z\)] | Equivalent Stress (\(MPa\))<br/>[\(H_i=0\ H_k=0\); \(H_i=62.5\ H_k=0\)] |
 |:--|:--|
 | 0.25, 0, 0    | 5.0; 5.0 | 
 | 0.50, 0, 0    | 5.0; 5.862 |
@@ -263,7 +252,7 @@ All the nodes that are not mentioned here are fully constrained. The theoretical
 
 The results of the calculations are as follows:
 
-| Strain ($\times10^{-4}$)<br/>[$\varepsilon_x$, $\varepsilon_y$, $\varepsilon_z$] | Equivalent Stress ($MPa$)<br/>[$H_i=0\ H_k=0$; $H_i=62.5\ H_k=0$] |
+| Strain (\(\times10^{-4}\))<br/>[\(\varepsilon_x\), \(\varepsilon_y\), \(\varepsilon_z\)] | Equivalent Stress (\(MPa\))<br/>[\(H_i=0\ H_k=0\); \(H_i=62.5\ H_k=0\)] |
 |:--|:--|
 | 0.25, 0, 0    | 5.0 (0.0%); 5.0 (0.0%) | 
 | 0.50, 0, 0    | 5.0 (0.0%); 5.862 (0.0%) |
@@ -285,24 +274,30 @@ Fig. 9.1.5: Contact analysis model
 
 The equilibrium condition of this problem is as follows:
 
-$$Fcos\,\alpha - Gsin\,\alpha = \pm f_{c}$$
+\[
+  Fcos\,\alpha - Gsin\,\alpha = \pm f_{c}
+\]
 
 In the adhesive friction stage, the frictional force is as follows:
 
-$$f_{c} = E_t\Delta u$$
+\[
+  f_{c} = E_t\Delta u
+\]
 
-In the sliding frictiopn stage, the frictional force is as follows:
+In the sliding friction stage, the frictional force is as follows:
 
-$$f_c = \mu(G \cos\,\alpha + F \sin\,\alpha)$$
+\[
+  f_c = \mu(G \cos\,\alpha + F \sin\,\alpha)
+\]
 
 The comparison between the calculation results and the analysis solution is as follows.
 
-| $\mu$ | $F/G$ Analysis Solution | $F/G$ Calculation Results |
-|:--|:--|:--|
-| 0.0 | 0.1   | 0.1   |
-| 0.1 | 0.202 | 0.202 |
-| 0.2 | 0.306 | 0.306 |
-| 0.3 | 0.412 | 0.412 |
+| \(\mu\) | \(F/G\) Analysis Solution | \(F/G\) Calculation Results |
+|:--------|:--------------------------|:----------------------------|
+| 0.0     | 0.1                       | 0.1                         |
+| 0.1     | 0.202                     | 0.202                       |
+| 0.2     | 0.306                     | 0.306                       |
+| 0.3     | 0.412                     | 0.412                       |
 
 ### Contact analysis (2): Hertz contact problem
 
@@ -317,13 +312,17 @@ Fig. 9.1.6: Hertz contact problem analysis model
 
 The theoretical formula to calculate the contact radius is as follows:
 
-$$a = \sqrt{\frac{4FR}{\pi E^{*}}}$$
+\[
+  a = \sqrt{\frac{4FR}{\pi E^{*}}}
+\]
 
 where
 
-$$E^{*} = \frac{E}{2(1 - \mu^{2})}$$
+\[
+  E^{*} = \frac{E}{2(1 - \mu^{2})}
+\]
 
-With the actual calculation, when the pressure is $F=100$, the contact radius is $a=1.36$.
+With the actual calculation, when the pressure is \(F=100\), the contact radius is \(a=1.36\).
 
 Fig. 9.1.7 shows the equivalent nodal force of the contact point. The contact radius is obtained by extrapolating this nodal force distribution. 
 <div style="text-align: center;">
@@ -333,21 +332,23 @@ Fig. 9.1.7: Equivalent nodal force distribution of the contact point
 
 #### (2) Verification results of maximum shear stress
 
-With the theoretical solution, when the contact position is $z=0.78a$, the maximum shear stress is as follows:
+With the theoretical solution, when the contact position is \(z=0.78a\), the maximum shear stress is as follows:
 
-$$\tau_{max} = 0.30\sqrt{\frac{FE^*}{\pi R}}$$
+\[
+  \tau_{max} = 0.30\sqrt{\frac{FE^*}{\pi R}}
+\]
 
 With the actual calculation conditions, it becomes
 
-$$
+\[
 \tau_{max} = 14.2
-$$
+\]
 
 The actual result obtained was
 
-$$
+\[
 \tau_{max} = 15.6
-$$
+\]
 
 <div style="text-align: center;">
 <img src="./media/example01_13.png" width="350px"><br>
@@ -367,34 +368,40 @@ The vibration eigenvalue of the cantilever is determined by the following equati
 
 
 Primary :
-$$ n_1 = \frac{1.875^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
+\[
+n_1 = \frac{1.875^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} }
+\]
 
 
 Secondary :
-$$ n_2 = \frac{4.694^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
+\[
+n_2 = \frac{4.694^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} }
+\]
 
 
 Tertiary :
-$$ n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} } $$
+\[
+n_3 = \frac{7.855^2}{2 \pi l^2} \sqrt{ \frac{gEI}{\omega} }
+\]
 
 
 The property values of the verification model are:
 
-| Item     | Value                      |
-|:---------|:---------------------------|
-| $I$      | $10.0 mm$                  |
-| $E$      | $4000.0 kgf /mm^2$         |
-| $l$      | $1.0/12.0 mm^4$            |
-| $\omega$ | $7.85 * 10^\{-6} kgf/mm^3$ |
-| $g$      | $9800.0 mm/sec^2$          |
+| Item       | Value                       |
+|:-----------|:----------------------------|
+| \(I\)      | \(10.0 mm\)                 |
+| \(E\)      | \(4000.0 kgf /mm^2\)        |
+| \(l\)      | \(1.0/12.0 mm^4\)           |
+| \(\omega\) | \(7.85 * 10^{-6} kgf/mm^3\) |
+| \(g\)      | \(9800.0 mm/sec^2\)         |
 
 Therefore, the primary to tertiary eigenvalue are as follows:
 
-| Mode number | Value   |
-|:------------|:--------|
-| $n_1$       | 3.609e3 |
-| $n_2$       | 2.262e4 |
-| $n_3$       | 6.335e4 |
+| Mode number   | Value   |
+|:--------------|:--------|
+| \(n_1\)       | 3.609e3 |
+| \(n_2\)       | 2.262e4 |
+| \(n_3\)       | 6.335e4 |
 
 <div style="text-align: center;margin-top: 3em;">
 Table 9.1.9: exJ: Iteration method verification results with the primary eigenvalue
@@ -485,18 +492,18 @@ The verification results (temperature distribution table) of each case are prese
 <div style="text-align: center; margin-top:3em;">
 <img src="./media/example01_15.png" width="350px">
 </div>
-|   |   |
-|---|---|
-|Length between AB|$L = 10.0m$|
-|Cross-sectional area|$A = 1.0 mm^2$|
+|                    |                |
+|--------------------|----------------|
+|Length between AB   |\(L = 10.0m\)   |
+|Cross-sectional area|\(A = 1.0 mm^2\)|
 
 Temperature dependency of thermal conductivity
 
-|Thermal conductivity $\lambda(W/mK)$|Temperature $(^\circ C)$|
-|----------------------------|----------------|
-|50.0                        |0.0             |
-|35.0                        |500.0           |
-|20.0                        |1000.0          |
+|Thermal conductivity \(\lambda(W/mK)\)|Temperature \((^\circ C)\)|
+|--------------------------------------|--------------------------|
+|50.0                                  |0.0                       |
+|35.0                                  |500.0                     |
+|20.0                                  |1000.0                    |
 
 <div style="text-align: center;">
 Fig. 9.1.10: Verification conditions of steady-heat conduction analysis
@@ -691,36 +698,36 @@ Analysis Model
 </div>
 <div style="text-align: center;">
 <img src="./media/example01_24.png" width="512px"><br>
-Time history of external force $F$
+Time history of external force \(F\)
 </div>
 
 The theoretical solution for vibration point displacement is as follows:
 
-$$
+\[
 F(t)=F_0 I(t)
-$$
+\]
 
 where
 
-$$
+\[
 F_0:Constant\ vector
-$$
+\]
 
-$$
+\[
 I(t)=
 \begin{cases}
 0, t < 0 \\\
 1, 0 \leq t
 \end{cases}
-$$
+\]
 
-$$
+\[
 u(t) = \frac{F_0 l^3}{EI} \sum^{\infty}\_{i=1} \frac{1-\cos{\omega_i t}}{{\lambda_i}^4}
 \left\lbrace
 \cosh{\lambda_i}-\cos{\lambda_i}-\frac{\cosh{\lambda_i} + \cos{\lambda_i}}{\sin{\lambda_i}+\sin{\lambda_i}}
 (\sinh{\lambda_i} - \sin{\lambda_i})
 \right\rbrace^2
-$$
+\]
 
 <div style="text-align: center;">
 Fig. 9.1.12: Verification conditions of linear dynamic analysis
@@ -728,32 +735,32 @@ Fig. 9.1.12: Verification conditions of linear dynamic analysis
 
 Verification conditions:
 
-|                            |        |                          |
-|----------------------------|--------|--------------------------|
-| Length                     | $L$    | $10.0\ mm$               |
-| Cross-sectional width      | $a$    | $1.0\ mm$                |
-| Cross-sectional height     | $b$    | $1.0\ mm$                |
-| Young's modulus            | $E$    | $4000.0\ kgf/mm^2$       |
-| Poisson's ratio            | $\nu$  | $0.3$                    |
-| Density                    | $\rho$ | $1.0E-09\ kgf\,s^2/mm^3$ |
-| Gravitational acceleration | $g$    | $9800.0\ mm/s^2$         |
-| External force             | $F_0$  | $1.0\ kgf$               |
+|                            |          |                            |
+|:---------------------------|:--------:|:---------------------------|
+| Length                     | \(L\)    | \(10.0\ mm\)               |
+| Cross-sectional width      | \(a\)    | \(1.0\ mm\)                |
+| Cross-sectional height     | \(b\)    | \(1.0\ mm\)                |
+| Young's modulus            | \(E\)    | \(4000.0\ kgf/mm^2\)       |
+| Poisson's ratio            | \(\nu\)  | \(0.3\)                    |
+| Density                    | \(\rho\) | \(1.0E-09\ kgf\,s^2/mm^3\) |
+| Gravitational acceleration | \(g\)    | \(9800.0\ mm/s^2\)         |
+| External force             | \(F_0\)  | \(1.0\ kgf\)               |
 
-|   |   |
-|---|---|
-|Element  |Hexahedral linear element|
-|Tetrahedral secondary element| |
-|Solution | Implicit method |
-|Parameter $\gamma$ of Newmark-$\beta$ method | 1/2 |
-|Parameter $\beta$ of Newmark-$\beta$ method | 1/4 |
-|Explicit method| |
-|Damping | N/A |
+|                                                  |                           |
+|--------------------------------------------------|---------------------------|
+| Element                                          | Hexahedral linear element |
+| Tetrahedral secondary element                    |                           |
+| Solution                                         | Implicit method           |
+| Parameter \(\gamma\) of Newmark-\(\beta\) method | 1/2                       |
+| Parameter \(\beta\) of Newmark-\(\beta\) method  | 1/4                       |
+| Explicit method                                  |                           |
+| Damping                                          | N/A                       |
 
 <div style="text-align: center;margin-top:3em;">
 Table 9.1.21: Verification conditions of the linear dynamic analysis (continuation)
 </div>
 
-| Case Name | Element Type | No. of Nodes | No. of Elements | Solution | Time Increment $\Delta t$ [sec] |
+| Case Name | Element Type | No. of Nodes | No. of Elements | Solution | Time Increment \(\Delta t\) [sec] |
 |:--|:--|:--|:--|:--|:--|
 | W361_c0_im_m2_t1 | 361 |  99 |  40 | Implicit method | 1.0E-06 |
 | W361_c0_im_m2_t2 | 361 |  99 |  40 | Implicit method | 1.0E-05 |
@@ -772,7 +779,7 @@ Table 9.1.21: Verification conditions of the linear dynamic analysis (continuati
 Table 9.1.22: Verification results of linear dynamic analysis of exW (cantilever)
 </div>
 
-| Case name | Element type | Number of nodes | Number of elements | Solution | z-direction displacement: $u_z(mm)$ when time $t = 0.002(s)$ |  |
+| Case name | Element type | Number of nodes | Number of elements | Solution | z-direction displacement: \(u_z(mm)\) when time \(t = 0.002(s)\) |  |
 |:--|:--|:--|:--|:--|:--|:--|
 |                  |     |     |     |        |Theorical solution repeated to sextic equation|FrontISTR|
 | W361_c0_im_m2_t1 | 361 |  99 |  40 | Implicit method | 1.9753 | 1.9302 |
@@ -804,7 +811,7 @@ Fig. 9.1.13: Deformation diagram and equivalent stress distribution of the canti
 </div>
 
 <div style="text-align: center;">
-Fig. 9.1.14: Time history of vibration point displacement $u_z$
+Fig. 9.1.14: Time history of vibration point displacement \(u_z\)
 </div>
 
 <div style="text-align: center;">
@@ -828,15 +835,15 @@ In this verification, a frequency response analysis was performed on a cantileve
 
 Analysis conditions:
 
-|    |    |    |
-|----|----|----|
-|Young's modulus| $E$ | $210000\ N/mm^2$  |
-|Poisson's ratio| $\nu$ | $0.3$ |
-|Density| $\rho$ | $7.89E-09\ t/mm^3$ |
-|Gravitational acceleration| $g$ | $9800.0\ mm/s^2$ |
-|Load| $F_0$   | $1.0\ N$|
-|Parameter of Rayleigh damping |$R_m$ |$0.0$ |
-|Parameter of Rayleigh damping |$R_k$ |$7.2E-07$ |
+|                               |          |                      |
+|-------------------------------|----------|----------------------|
+| Young's modulus               | \(E\)    | \(210000\ N/mm^2\)   |
+| Poisson's ratio               | \(\nu\)  | \(0.3\)              |
+| Density                       | \(\rho\) | \(7.89E-09\ t/mm^3\) |
+| Gravitational acceleration    | \(g\)    | \(9800.0\ mm/s^2\)   |
+| Load                          | \(F_0\)  | \(1.0\ N\)           |
+| Parameter of Rayleigh damping | \(R_m\)  | \(0.0\)              |
+| Parameter of Rayleigh damping | \(R_k\)  | \(7.2E-07\)          |
 
 <div style="text-align: center;">
 Fig. 9.1.15 : Analysis model (tetrahedral primary element (126 elements and 55 nodes))
@@ -845,12 +852,12 @@ Fig. 9.1.15 : Analysis model (tetrahedral primary element (126 elements and 55 n
 The eigenvalues up to the fifth order and the frequency response of the vibration points obtained from eigenvalue analysis are as follows:
 
 | mode | FrontISTR | ABAQUS |
-|:--|:--|:--|
-| 1 | 14952  | 14952  |
-| 2 | 15002  | 15003  |
-| 3 | 84604  | 84539  |
-| 4 | 84771  | 84697  |
-| 5 | 127054 | 126852 |
+|:-----|:----------|:-------|
+| 1    | 14952     | 14952  |
+| 2    | 15002     | 15003  |
+| 3    | 84604     | 84539  |
+| 4    | 84771     | 84697  |
+| 5    | 127054    | 126852 |
 
 <div style="text-align: center;">
 <img src="./media/example01_32.png" width="512px"><br>
