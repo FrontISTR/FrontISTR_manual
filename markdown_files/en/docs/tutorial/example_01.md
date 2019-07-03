@@ -710,7 +710,7 @@ F(t)=F_0 I(t)
 where
 
 \[
-F_0:Constant\ vector
+F_0:{\rm Constant\ vector}
 \]
 
 \[

@@ -5,48 +5,38 @@
 
 In free oscillation analysis of continuous bodies, a spatial discretization is performed, and it is modeled with a multi-DOF system with concentrated mass points as shown in Fig. 2.3.1. In the case of free oscillation problems without damping, the governing equation (motion equation) is as follows:
 
-\[
 \begin{equation}
 M\ddot{u} + K u = 0
 \label{eq:2.3.1}
 \end{equation}
-\]
 
 where \(u\) is the generalized displacement vector, \(M\) is the mass matrix and \(K\) is the stiffness matrix. Further, the function is defined with \(\omega\) as as the inherent angular frequency; \(a\), \(b\) and \(c\) as arbitary constants; and \(x\) as the vector: 
 
-\[
 \begin{equation}
 u(t) = (a \sin \omega t + b \cos \omega t ) x
 \label{eq:2.3.2}
 \end{equation}
-\]
 
 In this case, this equation and its second derivative, that is, 
 
-\[
 \begin{equation}
 \ddot{u}(t) = -\omega^2 (a \sin \omega t + b \cos \omega t) x
 \label{eq:2.3.3}
 \end{equation}
-\]
 
 is substituted into Eq.\(\eqref{eq:2.3.1}\), which becomes
 
-\[
 \begin{equation}
 M\ddot{u} + K u = (a \sin \omega t + b \cos \omega t) (- \omega^2 M + K x ) =  ( -\lambda M + K x) = 0
 \label{eq:2.3.4}
 \end{equation}
-\]
 
 That is, the following equation is obtained:
 
-\[
 \begin{equation}
 K x = \lambda M x
 \label{eq:2.3.5}
 \end{equation}
-\]
 
 Therefore, if coefficient \(\lambda(=\omega^2)\) and vector \(x\) that satisfy Eq.\(\eqref{eq:2.3.5}\) can be determined, function \(u(t)\) becomes the solution of formula.
 
@@ -58,21 +48,17 @@ The coefficient \(\lambda\) and vector \(x\) are called eigenvalue and eigenvect
 
 Eq.\(\eqref{eq:2.3.5}\), which can be expanded to any order, appears in many situations. When dealing with physical problems, the matrix is often Hermitian (symmetric.) In a complex matrix, the transpose is a conjugate complex number, and the real matrix is a symmetric matrix. Therefore, when the \(ij\) components of matrix \(K\) are defined as \(k_{ij}\), if the conjugate complex number \(k\) is set as \(\bar{k}\), the relationship becomes
 
-\[
 \begin{equation}
 k_{ij} = \bar{k}_{ji}
 \label{eq:2.3.6}
 \end{equation}
-\]
 
 In this study, it is assumed that the matrices are symmetric and positive definite. A positive definite matrix is a symmetric matrix with all positive eigenvalues; that is, it always satisfies Eq.\(\eqref{eq:2.3.7}\):
 
-\[
 \begin{equation}
 x^\mathrm{T} A x > 0
 \label{eq:2.3.7}
 \end{equation}
-\]
 
 ### Shifted Inverse Iteration Method
 
@@ -80,12 +66,10 @@ Structural analyses with the finite element method do not require all eigenvalue
 
 When the lower limit of eigenvalues is set to \(\sigma\), Eq.\(\eqref{eq:2.3.5}\) is modified according to the following equation (which is mathematically equivalent): 
 
-\[
 \begin{equation}
 (K - \sigma M)^{-1} M x = \frac{1}{(\lambda-\sigma)} x
 \label{eq:2.3.8}
 \end{equation}
-\]
 
 This equation has the following convenient properties for calculation:
 
@@ -115,22 +99,18 @@ The Lanczos method creates sequential orthogonal vectors, starting from the init
 
 By converting Eq.\(\eqref{eq:2.3.8}\) into a variable
 
-\[
 \begin{align}
   a^T &= \frac{\partial F}{\partial \sigma}\ ,
 & \left[ \frac{1}{(\lambda-\sigma)}\right] &= \zeta
 \label{eq:2.3.9}
 \end{align}
-\]
 
 and rewriting the problem, the following equation is obtained:
 
-\[
 \begin{equation}
 A x = \zeta x
 \label{eq:2.3.10}
 \end{equation}
-\]
 
 An appropriate vector \(q_0\)  linearly transformed with matrix \(A\) (see Fig. 2.3.2).
 
@@ -148,36 +128,29 @@ The algorithm of the Lanczos method is a Gram–Schmidt orthogonalization on vec
 
 The \(i + 1\)<sup>th</sup> calculation in the iteration above can be expressed as 
 
-\[
 \begin{equation}
 \beta_{i+1} q_{i+1} + \alpha_{i+1} q_{i} + \gamma_{i+1} q_{i-1} = Aq_{i}
 \label{eq:2.3.11}
 \end{equation}
-\]
 
 In this case,
 
-\[
 \begin{align}
   \beta_{i+1} &= \frac{1}{|r_{i+1}|}\ ,
 & \alpha_{i+1} &= \frac{(q_i, Aq_i)}{q_i, q_i}\ ,
 & \gamma_{i+1} &= \frac{(q_{i-1}, Aq_i)}{(q_{i-1}, q_{i-1})}
 \label{eq:2.3.12}
 \end{align}
-\]
 
 In matrix notation, this becomes
 
-\[
 \begin{equation}
 AQ_m = Q_m T_m
 \label{eq:2.3.13}
 \end{equation}
-\]
 
 In this case,
 
-\[
 \begin{align}
 Q_m &= [q_1, q_2, q_3, \ldots , q_m]\ ,
 &T &=
@@ -189,7 +162,6 @@ Q_m &= [q_1, q_2, q_3, \ldots , q_m]\ ,
   \end{pmatrix}
 \label{eq:2.3.14}
 \end{align}
-\]
 
 That is, the eigenvalues are obtained through eigenvalue calculation on the triply diagonalized matrix obtained with Eq.\(\eqref{eq:2.3.13}\).
 

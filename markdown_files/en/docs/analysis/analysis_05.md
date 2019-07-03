@@ -1324,7 +1324,6 @@ DEPENDENCIES = 0 (Default)/1
 
 (2nd Line) E1, E2, E3, &nu;12, &nu;13, &nu;23, G12, G13, G23, Temperature
 
-\[
 \begin{equation}
 \begin{bmatrix}
   \varepsilon\_{11} \\\
@@ -1352,7 +1351,6 @@ DEPENDENCIES = 0 (Default)/1
   \sigma\_{31}
 \end{bmatrix}
 \end{equation}
-\]
 
 - In the case of `TYPE=USER`
 
