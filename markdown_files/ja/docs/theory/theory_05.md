@@ -6,49 +6,39 @@
 連続体の自由振動解析を行う場合、空間的離散化を行い、図2.3.1に示すような集中質点による多自由度系でモデル化さられる。
 減衰のない自由振動問題の場合、支配方程式（運動方程式）は以下のとおりである。
 
-\[
 \begin{equation}
 M u + K \ddot{u} = 0
 \label{eq:2.3.1}
 \end{equation}
-\]
 
 ただし、\(u\) は一般化変位ベクトル、\(M\) は質量マトリックス、\(K\)は剛性マトリックスである。
 ところで、固有角振動数を\(\omega\)とし、\(a\)、\(b\)、\(c\)を任意定数、\(x\)をベクトルとして、関数
 
-\[
 \begin{equation}
 u(t) = (a \sin \omega t + b \cos \omega t ) x
 \label{eq:2.3.2}
 \end{equation}
-\]
 
 を定義する。ここで、この式と、この2階の微分、すなわち、
 
-\[
 \begin{equation}
 \ddot{u}(t) = -\omega^2 (a \sin \omega t + b \cos \omega t) x
 \label{eq:2.3.3}
 \end{equation}
-\]
 
 を式\(\eqref{eq:2.3.1}\)に代入すれば、
 
-\[
 \begin{equation}
 M u + K \ddot{u} = (a \sin \omega t + b \cos \omega t) (- \omega^2 M + K x ) =  ( -\lambda M + K x) = 0
 \label{eq:2.3.4}
 \end{equation}
-\]
 
 となる。すなわち、
 
-\[
 \begin{equation}
 K x = \lambda M x
 \label{eq:2.3.5}
 \end{equation}
-\]
 
 を得る。
 
@@ -66,23 +56,19 @@ K x = \lambda M x
 式\(\eqref{eq:2.3.5}\)は任意の次数に拡張でき、多くの場面で登場する。多くの物理問題を扱う上では行列はエルミート（対称）であることが多い。
 即ち、複素行列においては、転置行列が共役複素数になっており、実行列においては対称行列である。つまり、行列\(K\)の\(ij\)成分を\(k_{ij}\)とした時、\(k\)の共役複素数を\(\bar{k}\)とおけば、
 
-\[
 \begin{equation}
 k_{ij} = \bar{k}_{ji}
 \label{eq:2.3.6}
 \end{equation}
-\]
 
 の関係にある。
 
 このマニュアル内では、行列は対称で正定値を仮定する。正定値とは固有値がすべて正、言い換えれば下記の式\(\eqref{eq:2.3.7}\)を常に満足する行列である。
 
-\[
 \begin{equation}
 x^{t} A x > 0
 \label{eq:2.3.7}
 \end{equation}
-\]
 
 ### シフト付逆反復法
 
@@ -92,12 +78,10 @@ x^{t} A x > 0
 
 固有値の下限を\(\sigma\)とした時、式\(\eqref{eq:2.3.5}\)を次式のように変形する（数学的には等価な式である）。
 
-\[
 \begin{equation}
 (K - \sigma M)^{-1} M x = \frac{1}{(\lambda-\sigma)} x
 \label{eq:2.3.8}
 \end{equation}
-\]
 
 この時、計算に当たっては次のような好都合な性質がある。
 
@@ -135,21 +119,17 @@ x^{t} A x > 0
 A = (K - \sigma M)^{-1} M
 \]
 
-\[
 \begin{equation}
 \frac{1}{\lambda-\sigma}= \zeta
 \label{eq:2.3.9}
 \end{equation}
-\]
 
 問題を書き直すと
 
-\[
 \begin{equation}
 A x = \zeta x
 \label{eq:2.3.10}
 \end{equation}
-\]
 
 を得る。
 
@@ -186,12 +166,10 @@ A x = \zeta x
 
 上記繰り返しの中でi+1番目の計算は
 
-\[
 \begin{equation}
 \beta_{i+1} q_{i+1} + \alpha_{i+1} q_{i} + \gamma_{i+1} q_{i-1} = Aq_{i}
 \label{eq:2.3.11}
 \end{equation}
-\]
 
 と表せる。ただし、
 
@@ -203,21 +181,17 @@ A x = \zeta x
 \alpha_{i+1} = \frac{(q_i, Aq_i)}{(q_i, q_i)}
 \]
 
-\[
 \begin{equation}
 \gamma_{i+1} = \frac{(q_{i-1}, Aq_i)}{(q_{i-1}, q_{i-1})}
 \label{eq:2.3.12}
 \end{equation}
-\]
 
 である。これを行列表記すると
 
-\[
 \begin{equation}
 AQ_m = Q_m T_m
 \label{eq:2.3.13}
 \end{equation}
-\]
 
 となる。ここで、
 
@@ -225,7 +199,6 @@ AQ_m = Q_m T_m
 Q_m = [q_{1}, q_{2}, q_{3}, \ldots ,q_{m}]
 \]
 
-\[
 \begin{equation}
 T=
 \begin{pmatrix}
@@ -236,7 +209,6 @@ T=
 \end{pmatrix}
 \label{2.3.14}
 \end{equation}
-\]
 
 である。すなわち、式\(\eqref{eq:2.3.13}\)で得られる3重対角行列について固有値計算を行うことにより固有値が得られる。
 
