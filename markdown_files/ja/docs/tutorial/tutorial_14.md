@@ -7,13 +7,13 @@
 解析対象は床面への角材の落下衝撃解析で、形状を図4.14.1に、メッシュデータを図4.14.2に示します。
 メッシュには六面体1次要素を用い、メッシュ規模は要素数8,232、節点数10,712です。
 
+![床面と角材の形状](./media/tutorial14_01.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial14_01.png" width="350px"><br>
 図4.14.1　床面と角材の形状
 </div>
 
+![床面と角材のメッシュデータ](./media/tutorial14_02.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial14_02.png" width="350px"><br>
 図4.14.2　床面と角材のメッシュデータ
 </div>
 
@@ -26,8 +26,8 @@
 落下衝撃時のミーゼス応力のコンター図を図4.14.3に示します。
 また、解析結果の数値データとして、モニタリング節点のエネルギー出力ファイル（dyna_energy.txt）の一部を以下に示します。
 
+![落下衝撃時のミーゼス応力](./media/tutorial14_03.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial14_03.png" width="350px"><br>
 図4.14.3　落下衝撃時のミーゼス応力
 </div>
 

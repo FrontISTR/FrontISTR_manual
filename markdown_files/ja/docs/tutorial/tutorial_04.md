@@ -6,13 +6,13 @@
 
 解析対象はスプリングで、形状を図4.4.1に、メッシュデータを図4.4.2に示します。メッシュには四面体2次要素を用い、メッシュ規模は要素数46,454、節点数78,771です。
 
+![スプリングの形状](./media/tutorial04_01.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial04_01.png" width="350px"><br>
 図4.4.1　スプリングの形状
 </div>
 
+![スプリングのメッシュデータ](./media/tutorial04_02.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial04_02.png" width="350px"><br>
 図4.4.2　スプリングのメッシュデータ
 </div>
 
@@ -24,8 +24,8 @@
 
 変位のコンターを付加した変形図をREVOCAP_PrePostで作成して図4.4.3に示します。また、解析結果の数値データとして、解析結果ログファイルの一部を以下に示します。
 
+![変形および変位の解析結果](./media/tutorial04_03.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial04_03.png" width="350px"><br>
 図4.4.3　変形および変位の解析結果
 </div>
 

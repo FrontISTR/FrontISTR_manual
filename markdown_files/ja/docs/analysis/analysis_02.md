@@ -34,16 +34,16 @@ FrontISTRはメッシュデータをHEC-MWを使用して入力するので、�
 |                      | 761      | 3節点三次元一次要素（3自由度節点6点による） |
 |                      | 781      | 4節点三次元一次要素（3自由度節点8点による） |
 
-<div style="text-align:center;"><img src="media/analysis02_01.png" width="50%"/></div>
+![要素ライブラリ](media/analysis02_01.png){: .center width="50%"}
 図 4.1.1　要素ライブラリ
 
 #### (線要素)
 
-<div style="text-align:center;"><img src="media/analysis02_02.png" width="50%"/></div>
+![線要素](media/analysis02_02.png){: .center width="50%"}
 
 #### (三角形平面要素)
 
-<div style="text-align:center;"><img src="media/analysis02_03.png" width="50%"/></div>
+![三角形平面要素](media/analysis02_03.png){: .center width="50%"}
 
 | 面番号 | 一次  | 二次      |
 |--------|-------|-----------|
@@ -53,7 +53,7 @@ FrontISTRはメッシュデータをHEC-MWを使用して入力するので、�
 
 #### (四角形平面要素)
 
-<div style="text-align:center;"><img src="media/analysis02_04.png" width="50%"/></div>
+![四角形平面要素](media/analysis02_04.png){: .center width="50%"}
 
 | 面番号 | 一次  | 二次      |
 |--------|-------|-----------|
@@ -64,7 +64,7 @@ FrontISTRはメッシュデータをHEC-MWを使用して入力するので、�
 
 #### (四面体要素)
 
-<div style="text-align:center;"><img src="media/analysis02_05.png" width="50%"/></div>
+![四面体要素](media/analysis02_05.png){: .center width="50%"}
 
 | 面番号 | 一次      | 二次                   |
 |--------|-----------|------------------------|
@@ -75,7 +75,7 @@ FrontISTRはメッシュデータをHEC-MWを使用して入力するので、�
 
 #### (五面体要素)
 
-<div style="text-align:center;"><img src="media/analysis02_06.png" width="50%"/></div>
+![五面体要素](media/analysis02_06.png){: .center width="50%"}
 
 | 面番号 | 一次          | 二次                              |
 |--------|---------------|-----------------------------------|
@@ -87,7 +87,7 @@ FrontISTRはメッシュデータをHEC-MWを使用して入力するので、�
 
 #### (六面体要素)
 
-<div style="text-align:center;"><img src="media/analysis02_07.png" width="50%"/></div>
+![六面体要素](media/analysis02_07.png){: .center width="50%"}
 
 | 面番号 | 一次          | 二次                              |
 |--------|---------------|-----------------------------------|
@@ -100,53 +100,53 @@ FrontISTRはメッシュデータをHEC-MWを使用して入力するので、�
 
 #### (梁要素)
 
-<div style="text-align:center;"><img src="media/analysis02_08.png" width="30%"/></div>
+![梁要素](media/analysis02_08.png){: .center width="30%"}
 
 #### (3自由度節点による梁要素)
 
-<div style="text-align:center;"><img src="media/analysis02_09.png" width="30%"/></div>
+![3自由度節点による梁要素](media/analysis02_09.png){: .center width="30%"}
 
 節点1, 2は並進自由度、節点3, 4は回転自由度
 
 #### (三角形シェル要素)
 
-<div style="text-align:center;"><img src="media/analysis02_10.png" width="50%"/></div>
+![三角形シェル要素](media/analysis02_10.png){: .center width="50%"}
 
-| Surface No. |  Linear             | Quadratic                       |
-|-------------|---------------------|---------------------------------|
-| 1           | 1 - 2 - 3 \[front\] | 1 - 6 - 2 - 4 - 3 - 5 \[front\] |
-| 2           | 3 - 2 - 1 \[back\]  | 3 - 4 - 2 - 6 - 1 - 5 \[back\]  |
+| Surface No. |  Linear           | Quadratic                     |
+|-------------|-------------------|-------------------------------|
+| 1           | 1 - 2 - 3 [front] | 1 - 6 - 2 - 4 - 3 - 5 [front] |
+| 2           | 3 - 2 - 1 [back]  | 3 - 4 - 2 - 6 - 1 - 5 [back]  |
 
 #### (3自由度節点による三角形シェル要素)
 
-<div style="text-align:center;"><img src="media/analysis02_11.png" width="30%"/></div>
+![3自由度節点による三角形シェル要素](media/analysis02_11.png){: .center width="30%"}
 
 節点1, 2, 3は並進自由度、節点4, 5, 6は回転自由度
 
-| Surface No. | Linear              |
-|-------------|---------------------|
-| 1           | 1 - 2 - 3 \[front\] |
-| 2           | 3 - 2 - 1 \[back\]  |
+| Surface No. | Linear            |
+|-------------|-------------------|
+| 1           | 1 - 2 - 3 [front] |
+| 2           | 3 - 2 - 1 [back]  |
 
 #### (四角形シェル要素)
 
-<div style="text-align:center;"><img src="media/analysis02_12.png" width="50%"/></div>
+![四角形シェル要素](media/analysis02_12.png){: .center width="50%"}
 
-| Surface No. | Linear                  | Quadratic                               |
-|-------------|-------------------------|-----------------------------------------|
-| 1           | 1 - 2 - 3 - 4 \[front\] | 1 - 5 - 2 - 6 - 3 - 7 - 4 - 8 \[front\] |
-| 2           | 4 - 3 - 2 - 1 \[back\]  | 4 - 7 - 3 - 6 - 2 - 5 - 1 - 8 \[back\]  |
+| Surface No. | Linear                | Quadratic                             |
+|-------------|-----------------------|---------------------------------------|
+| 1           | 1 - 2 - 3 - 4 [front] | 1 - 5 - 2 - 6 - 3 - 7 - 4 - 8 [front] |
+| 2           | 4 - 3 - 2 - 1 [back]  | 4 - 7 - 3 - 6 - 2 - 5 - 1 - 8 [back]  |
 
 #### (3自由度節点による四角形シェル要素)
 
-<div style="text-align:center;"><img src="media/analysis02_13.png" width="30%"/></div>
+![3自由度節点による四角形シェル要素](media/analysis02_13.png){: .center width="30%"}
 
 節点1, 2, 3, 4は並進自由度、節点5, 6, 7, 8は回転自由度
 
-| Surface No. | Linear                  |
-|-------------|-------------------------|
-| 1           | 1 - 2 - 3 - 4 \[front\] |
-| 2           | 4 - 3 - 2 - 1 \[back\]  |
+| Surface No. | Linear                |
+|-------------|-----------------------|
+| 1           | 1 - 2 - 3 - 4 [front] |
+| 2           | 4 - 3 - 2 - 1 [back]  |
 
 図 4.1.2　コネクティビティおよび面番号
 

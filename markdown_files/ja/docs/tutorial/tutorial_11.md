@@ -6,8 +6,8 @@
 
 解析はふたつの梁の接触問題で、解析モデルの概要を図4.11.1に示します。メッシュには六面体1次要素を用い、メッシュ規模は要素数80、節点数252です。
 
+![解析モデルの概要](./media/tutorial11_01.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial11_01.png" width="350px"><br>
 図4.11.1　解析モデルの概要
 </div>
 
@@ -21,8 +21,8 @@
 100サブステップ目の解析結果について、ミーゼス応力のコンターを付加した変形図をREVOCAP_PrePostで作成して図4.11.2に示します。
 また、解析結果の数値データとして、解析結果ログファイルの一部を以下に示します。
 
+![変形およびミーゼス応力の解析結果](./media/tutorial11_02.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial11_02.png" width="350px"><br>
 図4.11.2　変形およびミーゼス応力の解析結果
 </div>
 

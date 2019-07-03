@@ -47,7 +47,7 @@ K x = \lambda M x
 
 係数\(\lambda\)を固有値、ベクトル\(x\)を固有ベクトルと呼び、これらを式\(\eqref{eq:2.3.1}\)から求める問題を一般化固有値問題と呼ぶ。
 
-<div style="text-align:center;"><img src="media/theory05_01.png" width="80%"></div>
+![減衰のない自由振動の多自由度系の例](media/theory05_01.png){: .center width="80%"}
 
 図 2.3.1　減衰のない自由振動の多自由度系の例
 
@@ -135,7 +135,7 @@ A x = \zeta x
 
 適当なベクトル \(q_0\)に対して行列\(A\)による一次変換を行う（図2.3.2参照）。
 
-<div style="text-align:center;"><img src="media/theory05_02.png" width="70%"></div>
+![行列\(A\)による\(q_0\)の一次変換](media/theory05_02.png){: .center width="70%"}
 図 2.3.2　行列\(A\)による\(q_0\)の一次変換
 
 変換されたベクトルは、元のベクトルとつくる空間の中で直交化される。
@@ -146,10 +146,10 @@ A x = \zeta x
 同様の計算を続けると互いに直交するベクトルが最大行列の次数まで求まる。
 
 
-<div style="text-align:center;"><img src="media/theory05_03.png" width="70%"></div>
+![\(q_0\)に直交なベクトル\(q_1\)](media/theory05_03.png){: .center width="70%"}
 図 2.3.3　 \(q_0\)に直交なベクトル\(q_1\)
 
-<div style="text-align:center"><img src="media/theory05_04.png" width="70%"></div>
+![\(q_1\)と\(q_0\)に直交なベクトル\(q_2\)](media/theory05_04.png){: .center width="70%"}
 
 図 2.3.4　 \(q_1\)と\(q_0\)に直交なベクトル\(q_2\)
 

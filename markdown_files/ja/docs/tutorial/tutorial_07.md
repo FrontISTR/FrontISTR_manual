@@ -15,8 +15,8 @@
 ミーゼス応力のコンターを付加した変形図をREVOCAP_PrePostで作成して図4.7.1に示します。
 2秒後（10ステップ目）の解析結果です。また、解析結果の数値データとして、解析結果ログファイルの一部を以下に示します。
 
+![変形およびミーゼス応力の解析結果](./media/tutorial07_01.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial07_01.png" width="350px"><br>
 図4.7.1　変形およびミーゼス応力の解析結果
 </div>
 

@@ -6,13 +6,13 @@
 
 解析はHerz接触問題で、解析対象の形状を図4.9.1に、メッシュデータを図4.9.2に示します。メッシュには六面体1次要素を用い、メッシュ規模は要素数168、節点数408です。
 
+![解析対象の形状](./media/tutorial09_01.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial09_01.png" width="350px"><br>
 図4.9.1　解析対象の形状
 </div>
 
+![解析対象のメッシュデータ](./media/tutorial09_02.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial09_02.png" width="350px"><br>
 図4.9.2　解析対象のメッシュデータ
 </div>
 
@@ -24,8 +24,8 @@
 
 5サブステップ目の解析結果について、y方向変位のコンターを付加した変形図をREVOCAP_PrePostで作成して図4.9.3に示します。また、解析結果の数値データとして、解析結果ログファイルの一部を以下に示します。
 
+![変形およびy方向変位の解析結果](./media/tutorial09_03.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial09_03.png" width="350px"><br>
 図4.9.3　変形およびy方向変位の解析結果
 </div>
 
