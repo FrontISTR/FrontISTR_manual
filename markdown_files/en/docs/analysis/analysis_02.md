@@ -33,17 +33,17 @@ In FrontISTR, the element groups shows in Table 4.1.1 can be used for analysis. 
 |                   | 781         | Four node three-dimensional linear element (with eight 3-dof nodes) |
 
 
-<div style="text-align:center;"><img alt="Figure 4.1.1: Element Library" src="media/analysis02_01.png" width="50%"></div>
+![Element Library](media/analysis02_01.png){: .center width="50%"}
 
 **Figure 4.1.1: Element Library**
 
 #### (Line Element)
 
-<div style="text-align:center;"><img alt="Line Element" src="media/analysis02_02.png" width="50%"></div>
+![Line Element](media/analysis02_02.png){: .center width="50%"}
 
 #### (Triangular Plane Element)
 
-<div style="text-align:center;"><img alt="Triangular Plane Element" src="media/analysis02_03.png" width="50%"></div>
+![Triangular Plane Element](media/analysis02_03.png){: .center width="50%"}
 
 | Surface No. | Linear | Quadratic |
 |-------------|--------|-----------|
@@ -53,7 +53,7 @@ In FrontISTR, the element groups shows in Table 4.1.1 can be used for analysis. 
 
 #### (Quadrilateral Plane Element)
 
-<div style="text-align:center;"><img alt="Quadrilateral Plane Element" src="media/analysis02_04.png" width="50%"></div>
+![Quadrilateral Plane Element](media/analysis02_04.png){: .center width="50%"}
 
 | Surface No. | Linear | Quadratic |
 |-------------|--------|-----------|
@@ -64,7 +64,7 @@ In FrontISTR, the element groups shows in Table 4.1.1 can be used for analysis. 
 
 #### (Tetrahedral Element)
 
-<div style="text-align:center;"><img alt="Tetrahedral Element" src="media/analysis02_05.png" width="50%"></div>
+![Tetrahedral Element](media/analysis02_05.png){: .center width="50%"}
 
 |Surface No. | Linear    | Quadratic              |
 |------------|-----------|------------------------|
@@ -75,7 +75,7 @@ In FrontISTR, the element groups shows in Table 4.1.1 can be used for analysis. 
 
 #### (Pentahedral Element)
 
-<div style="text-align:center;"><img alt="Pentahedral Element" src="media/analysis02_06.png" width="50%"></div>
+![Pentahedral Element](media/analysis02_06.png){: .center width="50%"}
 
 | Surface No. | Linear        | Quadratic                         |
 |-------------|---------------|-----------------------------------|
@@ -87,7 +87,7 @@ In FrontISTR, the element groups shows in Table 4.1.1 can be used for analysis. 
 
 #### (Hexahedral Element)
 
-<div style="text-align:center;"<img alt="Hexahedral Element" src="media/analysis02_07.png" width="50%"></div>
+![Hexahedral Element](media/analysis02_07.png){: .center width="50%"}
 
 | Surface No. | Linear        | Quadratic                         |
 |-------------|---------------|-----------------------------------|
@@ -100,53 +100,53 @@ In FrontISTR, the element groups shows in Table 4.1.1 can be used for analysis. 
 
 #### (Beam Element)
 
-<div style="text-align:center;"><img alt="Beam Element" src="media/analysis02_08.png" width="30%"/></div>
+![Beam Element](media/analysis02_08.png){: .center width="30%"}
 
 #### (Beam Element with 3-dof nodes)
 
-<div style="text-align:center;"><img alt="Beam Element with 3-dof nodes" src="media/analysis02_09.png" width="30%"/></div>
+![Beam Element with 3-dof nodes](media/analysis02_09.png){: .center width="30%"}
 
 Nodes 1 and 2 for translational DOF, nodes 3 and 4 for rotational DOF.
 
 #### (Triangular Shell Element)
 
-<div style="text-align:center;"><img alt="Triangular Shell Element" src="media/analysis02_10.png" width="50%"/></div>
+![Triangular Shell Element](media/analysis02_10.png){: .center width="50%"}
 
-| Surface No. |  Linear             | Quadratic                       |
-|-------------|---------------------|---------------------------------|
-| 1           | 1 - 2 - 3 \[front\] | 1 - 6 - 2 - 4 - 3 - 5 \[front\] |
-| 2           | 3 - 2 - 1 \[back\]  | 3 - 4 - 2 - 6 - 1 - 5 \[back\]  |
+| Surface No. |  Linear           | Quadratic                     |
+|-------------|-------------------|-------------------------------|
+| 1           | 1 - 2 - 3 [front] | 1 - 6 - 2 - 4 - 3 - 5 [front] |
+| 2           | 3 - 2 - 1 [back]  | 3 - 4 - 2 - 6 - 1 - 5 [back]  |
 
 #### (Triangular Shell Element with 3-dof nodes)
 
-<div style="text-align:center;"><img alt="Triangular Shell Element with 3-dof nodes" src="media/analysis02_11.png" width="30%"/></div>
+![Triangular Shell Element with 3-dof nodes](media/analysis02_11.png){: .center width="30%"}
 
 Node 1, 2 and 3 for translational DOF, nodes 4, 5 and 6 for rotational DOF.
 
-| Surface No. | Linear              |
-|-------------|---------------------|
-| 1           | 1 - 2 - 3 \[front\] |
-| 2           | 3 - 2 - 1 \[back\]  |
+| Surface No. | Linear            |
+|-------------|-------------------|
+| 1           | 1 - 2 - 3 [front] |
+| 2           | 3 - 2 - 1 [back]  |
 
 #### (Quadrilateral Shell Element)
 
-<div style="text-align:center;"><img alt="Quadrilateral Shell Element" src="media/analysis02_12.png" width="50%"/></div>
+![Quadrilateral Shell Element](media/analysis02_12.png){: .center width="50%"}
 
-| Surface No. | Linear                  | Quadratic                               |
-|-------------|-------------------------|-----------------------------------------|
-| 1           | 1 - 2 - 3 - 4 \[front\] | 1 - 5 - 2 - 6 - 3 - 7 - 4 - 8 \[front\] |
-| 2           | 4 - 3 - 2 - 1 \[back\]  | 4 - 7 - 3 - 6 - 2 - 5 - 1 - 8 \[back\]  |
+| Surface No. | Linear                | Quadratic                             |
+|-------------|-----------------------|---------------------------------------|
+| 1           | 1 - 2 - 3 - 4 [front] | 1 - 5 - 2 - 6 - 3 - 7 - 4 - 8 [front] |
+| 2           | 4 - 3 - 2 - 1 [back]  | 4 - 7 - 3 - 6 - 2 - 5 - 1 - 8 [back]  |
 
 #### (Quadrilateral shell Element with 3-dof nodes)
 
-<div style="text-align:center;"><img alt="Quadrilateral shell Element with 3-dof nodes" src="media/analysis02_13.png" width="30%"/></div>
+![Quadrilateral shell Element with 3-dof nodes](media/analysis02_13.png){: .center width="30%"}
 
 Nodes 1, 2, 3 and 4 for translational DOF, nodes 5, 6, 7 and 8 for rotational DOF.
 
 | Surface No. | Linear                  |
 |-------------|-------------------------|
-| 1           | 1 - 2 - 3 - 4 \[front\] |
-| 2           | 4 - 3 - 2 - 1 \[back\]  |
+| 1           | 1 - 2 - 3 - 4 [front] |
+| 2           | 4 - 3 - 2 - 1 [back]  |
 
 **Figure 4.1.2: Connectivity and Surface Number**
 

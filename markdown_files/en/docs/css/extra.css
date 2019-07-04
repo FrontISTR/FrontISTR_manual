@@ -4,6 +4,9 @@ p img.center {
   text-align: center;
 }
 
+td, th {
+  padding: 0.2em 0.6em;
+}
 
 @media print {
   @page {

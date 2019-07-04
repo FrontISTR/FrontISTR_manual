@@ -6,13 +6,13 @@ This analysis uses the data of `tutorial/01_elastic_hinge`.
 
 The target of this analysis is a hinge part whose shape and mesh data are shown in Figs. 4.1.1 and 4.1.2, respectively. The mesh is a tetrahedral secondary element with 49871 elements and 84056 nodes.
 
+![Shape of the hinge part](./media/tutorial01_01.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial01_01.png" width="350px"><br>
 Fig. 4.1.1 : Shape of the hinge part
 </div>
 
+![Mesh data of the hinge part](./media/tutorial01_02.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial01_02.png" width="350px"><br>
 Fig. 4.1.2 : Mesh data of the hinge part
 </div>
 
@@ -52,8 +52,8 @@ In this stress analysis, the displacement of the constrained surface shown in Fi
 
 The contour diagram of a Mises stress created with REVOCAP_PrePost is shown in Fig. 4.1.3. Furthermore, a part of the log files of the analysis results is shown below as numerical data of the analysis.
 
+![Analysis results of Mises stress](./media/tutorial01_03.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial01_03.png" width="350px"><br>
 Fig. 4.1.3 : Analysis results of Mises stress
 </div>
 
