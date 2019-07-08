@@ -50,8 +50,8 @@ node. The analysis control data is shown in the following.
 
 The time-series display of the displacement of the monitoring nodes, specified with analysis control data (load nodes, nodal number 3121) and created with Microsoft Excel, is shown in Fig. 4.13.1. Furthermore, a part of the displacement output files of the monitoring nodes (dyna\_disp\_p1.out) is shown below as numerical data of the analysis.
 
+![Time-series displacement of monitoring nodes](./media/tutorial13_01.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial13_01.png" width="350px"><br>
 Fig. 4.13.1: Time-series displacement of monitoring nodes
 </div>
 

@@ -14,23 +14,23 @@ Table 9.4.1: Examples of actual verification models for heat conduction analysis
 | EX21B    | 361          |                                       | 309,941         | 289,800           |
 | EX21C    | 361          |                                       | 1,205,765       | 1,159,200         |
 
+![Used nuclear fuel transport container](./media/example04_01.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/example04_01.png" width="350px"><br>
 Fig. 9.4.1: Used nuclear fuel transport container
 </div>
 
+![Dimensions of the used nuclear fuel transport container](./media/example04_02.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/example04_02.png" width="350px"><br>
 Fig. 9.4.2: Dimensions of the used nuclear fuel transport container
 </div>
 
+![Model’s schematic diagram](./media/example04_03.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/example04_03.png" width="350px"><br>
 Fig. 9.4.3: Model’s schematic diagram
 </div>
 
+![Model’s boundary conditions and mesh division diagram (EX21A)](./media/example04_04.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/example04_04.png" width="350px"><br>
 Fig. 9.4.4: Model’s boundary conditions and mesh division diagram (EX21A)
 </div>
 
@@ -38,18 +38,18 @@ Fig. 9.4.4: Model’s boundary conditions and mesh division diagram (EX21A)
 
 Examples of analysis results are shown in Figs. 9.4.5–9.4.7.
 
+![Temperature distribution diagram](./media/example04_05.png){: .center width="512px"}
 <div style="text-align: center;">
-<img src="./media/example04_05.png" width="512px"><br>
 Fig. 9.4.5: Temperature distribution diagram
 </div>
 
+![Distributed model diagram](./media/example04_06.png){: .center width="512px"}
 <div style="text-align: center;">
-<img src="./media/example04_06.png" width="512px"><br>
 Fig. 9.4.6: Distributed model diagram
 </div>
 
+![Speed improvement degree because of dispersion treatment](./media/example04_07.png){: .center width="512px"}
 <div style="text-align: center;">
-<img src="./media/example04_07.png" width="512px"><br>
 Fig. 9.4.7: Speed improvement degree because of dispersion treatment
 </div>
 

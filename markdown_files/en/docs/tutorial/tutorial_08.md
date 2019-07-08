@@ -44,8 +44,8 @@ In this creep behavior analysis, an axial tensile displacement is given to a rou
 
 The analysis results of the fifth sub-step are shown in Fig. 4.8.1 as a deformation diagram with a Mises stress contour created with REVOCAP_PrePost. Furthermore, a part of the log files of the analysis results is shown below as numerical data of the analysis.
 
+![Analysis results of deformation and Mises stress](./media/tutorial08_01.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial08_01.png" width="350px"><br>
 Fig. 4.8.1: Analysis results of deformation and Mises stress
 </div>
 

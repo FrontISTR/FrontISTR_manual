@@ -19,28 +19,28 @@ Table 9.2.1: Actual model verification examples for elastic static analysis
 | EX05B     | 731          | Wine glass (midium)            | 48,803          | 292,818            |
 | EX05C     | 731          | Wine glass (fine)              | 100,602         | 603,612            |
 
+![Connecting Rod (EX01A)](./media/example02_01.png){: .center width="250px"}
 <div style="text-align: center;">
-<img src="./media/example02_01.png" width="250px"><br>
 Fig. 9.2.1: Connecting Rod (EX01A)
 </div>
 
+![Perforated block (EX02)](./media/example02_02.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/example02_02.png" width="350px"><br>
 Fig. 9.2.2: Perforated block (EX02)
 </div>
 
+![Turbine blade (EX03, EX06)](./media/example02_03.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/example02_03.png" width="350px"><br>
 Fig. 9.2.3: Turbine blade (EX03, EX06)
 </div>
 
+![Cylindrical shell (EX04, EX09)](./media/example02_04.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/example02_04.png" width="350px"><br>
 Fig. 9.2.4: Cylindrical shell (EX04, EX09)
 </div>
 
+![Wine Glass (EX05, EX10A)](./media/example02_05.png){: .center width="200px"}
 <div style="text-align: center;">
-<img src="./media/example02_05.png" width="200px"><br>
 Fig. 9.2.5: Wine Glass (EX05, EX10A)
 </div>
 
@@ -50,23 +50,23 @@ Fig. 9.2.5: Wine Glass (EX05, EX10A)
 
 Examples of the analysis results are shown in Figs. 9.2.6–9.2.9. 
 
+![EX01 analysis results (Mises stress and deformation diagram (10 times))](./media/example02_06.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/example02_06.png" width="350px"><br>
 Fig. 9.2.6: EX01 analysis results (Mises stress and deformation diagram (10 times))
 </div>
 
+![EX02 analysis results (Mises stress and deformation diagram (100 times))](./media/example02_07.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/example02_07.png" width="350px"><br>
 Fig. 9.2.7: EX02 analysis results (Mises stress and deformation diagram (100 times))
 </div>
 
+![EX03 analysis results (deformation diagram (10 times))](./media/example02_08.png){: .center width="250px"}
 <div style="text-align: center;">
-<img src="./media/example02_08.png" width="250px"><br>
 Fig. 9.2.8: EX03 analysis results (deformation diagram (10 times))
 </div>
 
+![EX04 analysis results (deformation diagram (100 times))](./media/example02_09.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/example02_09.png" width="350px"><br>
 Fig. 9.2.9: EX04 analysis results (deformation diagram (100 times))
 </div>
 
@@ -76,18 +76,18 @@ An analysis was performed with the commercial software ABAQUS using a model equi
 
 The effect of area division on stress distribution was also analyzed. The division was performed according to the RCB method, i.e., the model was halved in each of the X, Y, and Z axial directions, creating eight areas in total. Fig. 9.2.11 shows the division, while Fig. 9.2.12 shows the stress distribution of the analysis results with a single area and with the area divided into eight areas.
 
+![Comparison of the stress components of EX02 with the commercial software](./media/example02_10.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/example02_10.png" width="350px"><br>
 Fig. 9.2.10: Comparison of the stress components of EX02 with the commercial software
 </div>
 
+![Result of the division of EX02 in eight areas by the RCB method](./media/example02_11.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/example02_11.png" width="350px"><br>
 Fig. 9.2.11: Result of the division of EX02 in eight areas by the RCB method
 </div>
 
+![No difference between the stress distribution of the analysis results with a single area and with the area divided into eight areas](./media/example02_12.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/example02_12.png" width="350px"><br>
 Fig. 9.2.12: No difference between the stress distribution of the analysis results with a single area and with the area divided into eight areas
 </div>
 
@@ -104,9 +104,9 @@ Table 9.2.2: Comparison of execution time with HEC-MW solvers
 | BCGS     | 60.79 |
 | CG8      | 6.65 |
 
+![Comparison of convergence history with the HEC-MW solver (convergence threshold: \(1.0 \times 10^{-8}\) )](./media/example02_14.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/example02_14.png" width="350px"><br>
-Fig. 9.2.13: Comparison of convergence history with the HEC-MW solver (convergence threshold: $1.0 \times 10^{-8}$ )
+Fig. 9.2.13: Comparison of convergence history with the HEC-MW solver (convergence threshold: \(1.0 \times 10^{-8}\) )
 </div>
 
 #### Comparison of calculation time with verification example EX01A
@@ -115,8 +115,8 @@ The increase rate of the calculation speed because of area division was verified
 
 The difference in the calculation time because of the computer environment was also analyzed. The results are presented in Table 9.2.3. 
 
+![Speed-increasing effect because of area division](./media/example02_15.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/example02_15.png" width="350px"><br>
 Fig. 9.2.14: Speed-increasing effect because of area division
 </div>
 

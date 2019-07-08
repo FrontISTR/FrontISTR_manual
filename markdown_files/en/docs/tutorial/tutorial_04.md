@@ -6,13 +6,13 @@ This analysis uses the data of `tutorial/04_hyperelastic_spring`.
 
 The target of this analysis is a spring whose shape and mesh data are shown in Figs. 4.4.1 and 4.4.2, respectively. The mesh is a tetrahedral secondary element with 46454 elements and 78771 nodes.
 
+![Shape of the spring](./media/tutorial04_01.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial04_01.png" width="350px"><br>
 Fig. 4.4.1: Shape of the spring
 </div>
 
+![Mesh data of the spring](./media/tutorial04_02.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial04_02.png" width="350px"><br>
 Fig. 4.4.2: Mesh data of the spring
 </div>
 
@@ -50,8 +50,8 @@ In this stress analysis, the displacement of the constrained surface shown in Fi
 
 A deformation diagram with a displacement contour created with REVOCAP_PrePost is shown in Fig. 4.4.3. Furthermore, a part of the log files of the analysis results is shown below as numerical data of the analysis.
 
+![Analysis results of deformation and displacement](./media/tutorial04_03.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial04_03.png" width="350px"><br>
 Fig. 4.4.3: Analysis results of deformation and displacement
 </div>
 

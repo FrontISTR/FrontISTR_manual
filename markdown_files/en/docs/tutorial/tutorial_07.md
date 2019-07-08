@@ -45,8 +45,8 @@ In this stress relaxation analysis, an axial tensile displacement is given to a 
 
 A deformation diagram with a Mises stress contour created with REVOCAP_PrePost is shown in Fig. 4.7.1. This is the analysis results after 2 s (10<sup>th</sup> step.) Furthermore, a part of the log files of the analysis results is shown below as numerical data of the analysis.
 
+![Analysis results of deformation and Mises stress](./media/tutorial07_01.png){: .center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial07_01.png" width="350px"><br>
 Fig. 4.7.1: Analysis results of deformation and Mises stress
 </div>
 
