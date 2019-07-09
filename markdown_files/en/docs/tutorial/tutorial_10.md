@@ -6,12 +6,12 @@ This analysis uses the data of `tutorial/10_contact_2tubes`.
 
 This analysis is a pushing problem of a cylinder with a target whose shape and mesh data are shown in Figs. 4.10.1 and 4.10.2, respectively. The mesh is a hexahedral primary element with 2888 elements and 4000 nodes.
 
-![Shape of the analysis target](./media/tutorial10_01.png){: .center width="350px"}
+![Shape of the analysis target](./media/tutorial10_01.png){.center width="350px"}
 <div style="text-align: center;">
 Fig. 4.10.1: Shape of the analysis target
 </div>
 
-![Mesh data of the analysis target](./media/tutorial10_02.png){: .center width="350px"}
+![Mesh data of the analysis target](./media/tutorial10_02.png){.center width="350px"}
 <div style="text-align: center;">
 Fig. 4.10.2: Mesh data of the analysis target
 </div>
@@ -58,7 +58,7 @@ CONTACT, 1
 
 The analysis results of the fourth sub-step are shown in Fig. 4.10.3 as a deformation diagram with a Mises stress contour created with REVOCAP\_PrePost. Furthermore, a part of the log files of the analysis results is shown below as numerical data of the analysis.
 
-![Analysis results of deformation and Mises stress](./media/tutorial10_03.png){: .center width="350px"}
+![Analysis results of deformation and Mises stress](./media/tutorial10_03.png){.center width="350px"}
 <div style="text-align: center;">
 Fig. 4.10.3: Analysis results of deformation and Mises stress
 </div>

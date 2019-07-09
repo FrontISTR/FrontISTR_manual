@@ -15,7 +15,7 @@
 解析結果データファイルspring.res.0.3を用いて、3次の振動モード（スプリングのy方向圧縮伸長）をREVOCAP_PrePostで作成して図4.15.1に示します。
 変形倍率を1000としています。また、解析結果の数値データとして、解析結果ログファイルに出力された固有振動数リストを以下に示します。
 
-![スプリングの3次振動モード](./media/tutorial15_01.png){: .center width="350px"}
+![スプリングの3次振動モード](./media/tutorial15_01.png){.center width="350px"}
 <div style="text-align: center;">
 図4.15.1　スプリングの3次振動モード
 </div>

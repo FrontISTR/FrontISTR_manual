@@ -6,12 +6,12 @@ This analysis uses the data of `tutorial/17_freq_beam`. The first step of the an
 
 The target of this analysis is a cantilever whose shape and mesh data are shown in Figs. 4.17.1 and 4.17.2, respectively. The mesh is a tetrahedral primary element with 126 element and 55 nodes.
 
-![Shape of the cantilever](./media/tutorial17_01.png){: .center width="350px"}
+![Shape of the cantilever](./media/tutorial17_01.png){.center width="350px"}
 <div style="text-align: center;">
 Fig. 4.17.1 : Shape of the cantilever
 </div>
 
-![Mesh data of the cantilever](./media/tutorial17_02.png){: .center width="350px"}
+![Mesh data of the cantilever](./media/tutorial17_02.png){.center width="350px"}
 <div style="text-align: center;">
 Fig. 4.17.2 : Mesh data of the cantilever
 </div>
@@ -52,7 +52,7 @@ This is a frequency response analysis in which the edge of the cantilever was fu
 
 The relationship between frequency and displacement amplitude of the monitoring nodes, specified with analysis control data (nodal number 1) and created with Microsoft Excel, is shown in Fig. 4.17.3. Furthermore, a part of the log files of the analysis results is shown below as numerical data of the analysis.
 
-![Relationship between frequency and displacement amplitude of the monitoring nodes](./media/tutorial17_03.png){: .center width="350px"}
+![Relationship between frequency and displacement amplitude of the monitoring nodes](./media/tutorial17_03.png){.center width="350px"}
 <div style="text-align: center;">
 Fig.4.17.3 Relationship between frequency and displacement amplitude of the monitoring nodes
 </div>

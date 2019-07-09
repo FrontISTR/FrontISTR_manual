@@ -17,22 +17,22 @@
 | EX21B    | 361        |                      | 309,941   | 289,800   |
 | EX21C    | 361        |                      | 1,205,765 | 1,159,200 |
 
-![使用済核燃料輸送容器](./media/example04_01.png){: .center width="350px"}
+![使用済核燃料輸送容器](./media/example04_01.png){.center width="350px"}
 <div style="text-align: center;">
 図 9.4.1　使用済核燃料輸送容器
 </div>
 
-![使用済核燃料輸送容器の寸法](./media/example04_02.png){: .center width="512px"}
+![使用済核燃料輸送容器の寸法](./media/example04_02.png){.center width="512px"}
 <div style="text-align: center;">
 図 9.4.2　使用済核燃料輸送容器の寸法
 </div>
 
-![モデル概念図](./media/example04_03.png){: .center width="350px"}
+![モデル概念図](./media/example04_03.png){.center width="350px"}
 <div style="text-align: center;">
 図 9.4.3　モデル概念図
 </div>
 
-![モデル境界条件とメッシュ分割図（EX21A）](./media/example04_04.png){: .center width="350px"}
+![モデル境界条件とメッシュ分割図（EX21A）](./media/example04_04.png){.center width="350px"}
 <div style="text-align: center;">
 図 9.4.4　モデル境界条件とメッシュ分割図（EX21A）
 </div>
@@ -41,17 +41,17 @@
 
 解析結果の例を図 9.4.5～図 9.4.7に示す。
 
-![温度分布図](./media/example04_05.png){: .center width="512px"}
+![温度分布図](./media/example04_05.png){.center width="512px"}
 <div style="text-align: center;margin-bottom:3em;">
 図 9.4.5　温度分布図
 </div>
 
-![分散モデル図](./media/example04_06.png){: .center width="512px"}
+![分散モデル図](./media/example04_06.png){.center width="512px"}
 <div style="text-align: center;margin-bottom:3em;">
 図 9.4.6　分散モデル図
 </div>
 
-![分散処理による速度向上度](./media/example04_07.png){: .center width="512px"}
+![分散処理による速度向上度](./media/example04_07.png){.center width="512px"}
 <div style="text-align: center;">
 図 9.4.7　分散処理による速度向上度
 </div>

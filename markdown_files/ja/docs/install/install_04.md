@@ -177,7 +177,7 @@ $ make doc
 $ firefox doc/html/index.html
 ```
 
-![ドキュメンテーション](media/install04_01.png){: .center width="80%"}
+![ドキュメンテーション](media/install04_01.png){.center width="80%"}
 
 ## デバッグを有効にする
 

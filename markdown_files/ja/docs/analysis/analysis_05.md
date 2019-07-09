@@ -5,7 +5,7 @@
 
 FrontISTRは、解析制御データファイルを入力して、下図に示す計算制御データ、ソルバー制御データおよびポスト処理（可視化）制御データを取得し、解析計算を実施する。
 
-![解析制御データ](media/analysis05_01.png){: .center width="50%"}
+![解析制御データ](media/analysis05_01.png){.center width="50%"}
 
 解析制御データファイルの特徴は以下のとおりである。
 
@@ -1215,7 +1215,7 @@ DEFINITION = COORDINATES (Default値)/NODES
 |------------|-------|--------|
 | a, b, c    | I     |節点番号|
 
-![Orientation](media/analysis05_02.png){: .center width="50%"}
+![Orientation](media/analysis05_02.png){.center width="50%"}
 
 ##### `!SECTION` (1-11)
 
@@ -3087,7 +3087,7 @@ METHOD = PSR             : サーフェスレンダリング
 
 例: 図7.4.1は4つのサーフェスがあり、2つは等値面でpressure=1000.0 とpressure=-1000.0、 2つは平面の切り口で z= -1.0 とz= 1.0である。
 
-![surface_numの設定例](media/analysis05_03.png){: .center width="50%"}
+![surface_numの設定例](media/analysis05_03.png){.center width="50%"}
 図7.4.1 `surface_num`の設定例
 
 ##### `!surface` (P1-2)
@@ -3096,7 +3096,7 @@ METHOD = PSR             : サーフェスレンダリング
 
 例： 図7.4.2は4つのサーフェスがありその内容は以下の通りである。
 
-![surfaceの設定例](media/analysis05_04.png){: .center width="50%"}
+![surfaceの設定例](media/analysis05_04.png){.center width="50%"}
 
 図7.4.2 `surface`の設定例
 
@@ -3125,7 +3125,7 @@ METHOD = PSR             : サーフェスレンダリング
   2. 等値面
   3. 任意の2次曲面<br/>coef[1]x2 + coef[2]y2 + coef[3]z2 + coef[4]xy + coef[5]xz<br/>+ coef[6]yz + coef[7]x + coef[8]y + coef[9]z + coef[10]=0
 
-![surface/styleの設定例](media/analysis05_05.png){: .center width="80%"}
+![surface/styleの設定例](media/analysis05_05.png){.center width="80%"}
 
 図7.4.3　surface/styleの設定例
 
@@ -3139,7 +3139,7 @@ METHOD = PSR             : サーフェスレンダリング
   4. 指定色一色の表示
   5. 色分けにによる等値線表示
 
-![display_methodの設定例](media/analysis05_06.png){: .center width="80%"}
+![display_methodの設定例](media/analysis05_06.png){.center width="80%"}
 
 図7.4.4　display_methodの設定例
 
@@ -3202,7 +3202,7 @@ Then you can define which one you hope to map into color by
 |----------|------|--------|------|
 | 自由度数 | 3    | 6      | 7    |
 
-![color_comp, color_subcompおよびcolor_comp_nameの設定例](media/analysis05_07.png){: .center width="80%"}
+![color_comp, color_subcompおよびcolor_comp_nameの設定例](media/analysis05_07.png){.center width="80%"}
 
 図7.4.5 `color_comp`, `color_subcomp`および`color_comp_name`の設定例
 
@@ -3210,7 +3210,7 @@ Then you can define which one you hope to map into color by
 
 `display_method=2`,`3`または`5`の時
 
-![isoline_numberとisoline_colorの設定例](media/analysis05_08.png){: .center width="80%"}
+![isoline_numberとisoline_colorの設定例](media/analysis05_08.png){.center width="80%"}
 
 図7.4.6 `isoline_number`と`isoline_color`の設定例
 
@@ -3232,11 +3232,11 @@ Default: 自動
 
 `standard_scale` = 0.1 * sqrt(`x_range`<sup>2</sup> + `y_range`<sup>2</sup> + `z_range`<sup>2</sup>) / `max_deform`
 
-![display_stylesの設定例](media/analysis05_09.png){: .center width="80%"}
+![display_stylesの設定例](media/analysis05_09.png){.center width="80%"}
 
 図7.4.7 `display_styles`の設定例
 
-![deform_scaleの設定例](media/analysis05_10.png){: .center width="50%"}
+![deform_scaleの設定例](media/analysis05_10.png){.center width="50%"}
 
 図7.4.8 `deform_scale`の設定例
 
@@ -3255,7 +3255,7 @@ BIN_COMPLETE_AVS      : COMPLETE_AVSをバイナリー形式で出力する
 FSTR_FEMAP_NEUTRAL    : FEMAP用ニュートラルファイル
 ```
 
-![output_typeの例](media/analysis05_11.png){: .center width="80%"}
+![output_typeの例](media/analysis05_11.png){.center width="80%"}
 
 図7.4.9　output_typeの例
 
@@ -3263,7 +3263,7 @@ FSTR_FEMAP_NEUTRAL    : FEMAP用ニュートラルファイル
 
 `output_type=BMP`の時、解像度を指定する。
 
-![x_resolutionとy_resolutionの設定例](media/analysis05_12.png){: .center width="80%"}
+![x_resolutionとy_resolutionの設定例](media/analysis05_12.png){.center width="80%"}
 
 図7.4.10 `x_resolution`と`y_resolution`の設定例
 
@@ -3293,11 +3293,11 @@ View coordinate frame:
               y軸     : z axis × x axis
 ```
 
-![ビューフレームの決定法](media/analysis05_15.png){: .center width="50%"}
+![ビューフレームの決定法](media/analysis05_15.png){.center width="50%"}
 
 図7.4.11　ビューフレームの決定法
 
-![!viewpoint, !look_at_pointとup_directionの設定例](media/analysis05_13.png){: .center width="80%"}
+![!viewpoint, !look_at_pointとup_directionの設定例](media/analysis05_13.png){.center width="80%"}
 
 図7.4.12 `!viewpoint`, `!look_at_point`と`up_direction`の設定例
 
@@ -3307,7 +3307,7 @@ View coordinate frame:
 
 `ambient_coef`を増加すると3次元の奥行き方向の情報が損なわれる。
 
-![照明モデルパラメータの設定例](media/analysis05_14.png){: .center width="80%"}
+![照明モデルパラメータの設定例](media/analysis05_14.png){.center width="80%"}
 
 図7.4.13 照明モデルパラメータの設定例
 
@@ -3324,7 +3324,7 @@ View coordinate frame:
                          (省略値: 3)
 ```
 
-![color_mapping_barの表示の例](media/analysis05_16.png){: .center width="80%"}
+![color_mapping_barの表示の例](media/analysis05_16.png){.center width="80%"}
 
 図7.4.14 `color_mapping_bar`の表示の例
 
@@ -3332,7 +3332,7 @@ View coordinate frame:
 
 背景色や文字フォントを指定する。
 
-![backgroundとfontの設定例](media/analysis05_17.png){: .center width="80%"}
+![backgroundとfontの設定例](media/analysis05_17.png){.center width="80%"}
 
 図7.4.15 `background`と`font`の設定例
 
@@ -3340,7 +3340,7 @@ View coordinate frame:
 
 `surface_style=2`の時、可視化する等値面の物理量を指定する。
 
-![data_comp, data_subcomp及びdata_comp_nameの設定例](media/analysis05_18.png){: .center width="80%"}
+![data_comp, data_subcomp及びdata_comp_nameの設定例](media/analysis05_18.png){.center width="80%"}
 
 図7.4.16 `data_comp`, `data_subcomp`及び`data_comp_name`の設定例
 

@@ -7,19 +7,19 @@ This verification was performed with a mesh-divided cantilever, as shown in Fig.
 
 The verification result of each load condition is presented in Tables 9.1.1–9.1.7.
 
-![Example of Mesh Partitioned Cantilever Beam (Hexahedral Element)](./media/example01_01.png){: .center width="350px"}
+![Example of Mesh Partitioned Cantilever Beam (Hexahedral Element)](./media/example01_01.png){.center width="350px"}
 <div style="text-align: center;">
 Fig. 9.1.1: Example of Mesh Partitioned Cantilever Beam (Hexahedral Element)
 </div>
 
 |                                                |                                   |
 |------------------------------------------------|-----------------------------------|
-| ![](./media/example01_02.png){: width="350px"} | (a) exA, G: Concentrated load     |
-| ![](./media/example01_03.png){: width="350px"} | (b) exD: Gravitation              |
-| ![](./media/example01_04.png){: width="350px"} | (c) exB: Surface-distributed load |
-| ![](./media/example01_05.png){: width="350px"} | (d) exE: Centrifugal force        |
-| ![](./media/example01_06.png){: width="350px"} | (e) exC: Volume load              |
-| ![](./media/example01_07.png){: width="350px"} | (f) exF : Heat load               |
+| ![](./media/example01_02.png){width="350px"} | (a) exA, G: Concentrated load     |
+| ![](./media/example01_03.png){width="350px"} | (b) exD: Gravitation              |
+| ![](./media/example01_04.png){width="350px"} | (c) exB: Surface-distributed load |
+| ![](./media/example01_05.png){width="350px"} | (d) exE: Centrifugal force        |
+| ![](./media/example01_06.png){width="350px"} | (e) exC: Volume load              |
+| ![](./media/example01_07.png){width="350px"} | (f) exF : Heat load               |
 
 | Item                                    | Value                                           |
 |:----------------------------------------|:------------------------------------------------|
@@ -182,7 +182,7 @@ The verification model of exI is the same as those of exA–G. A schematic diagr
  
 The non-linear calculation is a ten-step process with an increment value of 0.1 P and a final load of 1.0 P.
 
-![Verification model](./media/example01_08.png){: .center width="350px"}
+![Verification model](./media/example01_08.png){.center width="350px"}
 <div style="text-align: center;">
 Fig. 9.1.3: Verification model
 </div>
@@ -208,7 +208,7 @@ Table 9.1.8: exI: Verification results (maximum deflection amount log)
 
 Based on the test conducted at National Agency for Finite Element Methods and Standards (NAFEMS; U.K.): Test NL1, this verification problem was verified by elastoplastic deformation analysis that incorporated geometric non-linearity and multiple hardening rules. The elastoplastic deformation analysis model is shown in Fig. 9.1.4.
 
-![Elastoplasticity deformation analysis Model](./media/example01_09.png){: .center width="350px"}
+![Elastoplasticity deformation analysis Model](./media/example01_09.png){.center width="350px"}
 <div style="text-align: center;">
 Fig. 9.1.4: Elastoplasticity deformation analysis Model
 </div>
@@ -267,7 +267,7 @@ The results of the calculations are as follows:
 
 Based on the contact patch test problem (CGS-4) from NAFEMS (U.K.), this verification problem tests the finite sliding contact problem function with friction. The contact analysis model is shown in Fig. 9.1.5
 
-![Contact analysis model](./media/example01_10.png){: .center width="350px"}
+![Contact analysis model](./media/example01_10.png){.center width="350px"}
 <div style="text-align: center;">
 Fig. 9.1.5: Contact analysis model
 </div>
@@ -303,7 +303,7 @@ The comparison between the calculation results and the analysis solution is as f
 
 In this verification, the Hertz contact problem between a cylinder of infinite length and an infinite plane was analyzed. The cylinder’s radius was R=8 mm, and the deformable body’s Young’s modulus E and Poisson’s ratio µ were 1100 MPa and 0.0, respectively. Moreover, assuming that the contact area was much smaller than the cylinder’s radius, and also considering the symmetry of the problem, the analysis was performed with a quarter model of the cylinder. 
 
-![Hertz contact problem analysis model](./media/example01_11.png){: .center width="350px"}
+![Hertz contact problem analysis model](./media/example01_11.png){.center width="350px"}
 <div style="text-align: center;">
 Fig. 9.1.6: Hertz contact problem analysis model
 </div>
@@ -325,7 +325,7 @@ where
 With the actual calculation, when the pressure is \(F=100\), the contact radius is \(a=1.36\).
 
 Fig. 9.1.7 shows the equivalent nodal force of the contact point. The contact radius is obtained by extrapolating this nodal force distribution. 
-![Equivalent nodal force distribution of the contact point](./media/example01_12.png){: .center width="512px"}
+![Equivalent nodal force distribution of the contact point](./media/example01_12.png){.center width="512px"}
 <div style="text-align: center;">
 Fig. 9.1.7: Equivalent nodal force distribution of the contact point 
 </div>
@@ -350,7 +350,7 @@ The actual result obtained was
 \tau_{max} = 15.6
 \]
 
-![Shear stress distribution (maximum value = 15.6)](./media/example01_13.png){: .center width="350px"}
+![Shear stress distribution (maximum value = 15.6)](./media/example01_13.png){.center width="350px"}
 <div style="text-align: center;">
 Fig. 9.1.8: Shear stress distribution (maximum value = 15.6)
 </div>
@@ -359,7 +359,7 @@ Fig. 9.1.8: Shear stress distribution (maximum value = 15.6)
 
 The verification models of exJ and exK are the same as those of exA–G. A schematic diagram of the verification model is shown in Fig. 9.1.9. An eigenvalue analysis was performed for this model to determine the primary, secondary, and tertiary eigenvalues. The iteration and direct method solvers were used for exJ and exK, respectively. Furthermore, the verification results are presented in Tables 9.1.9–9.1.12. 
 
-![Verification Model](./media/example01_14.png){: .center width="350px"}
+![Verification Model](./media/example01_14.png){.center width="350px"}
 <div style="text-align: center;">
 Fig. 9.1.9: Verification Model
 </div>
@@ -489,7 +489,7 @@ The common conditions for the steady-state heat conduction analysis are shown in
 
 The verification results (temperature distribution table) of each case are presented in Tables 9.1.13–9.1.20.
 
-![Heat conduction analysis](./media/example01_15.png){: .center width="350px"}
+![Heat conduction analysis](./media/example01_15.png){.center width="350px"}
 
 |                    |                |
 |--------------------|----------------|
@@ -511,13 +511,13 @@ Fig. 9.1.10: Verification conditions of steady-heat conduction analysis
 |   |   |
 |---|---|
 |exM: Linear material|  |
-|exN: Specified tempreature problem    |![](./media/example01_16.png){: width="350px"}|
-|exO: Concentrated heat flux problem   |![](./media/example01_17.png){: width="350px"}|
-|exP: Distributed heat flux problem    |![](./media/example01_18.png){: width="350px"}|
-|exQ: Convective heat transfer problem |![](./media/example01_19.png){: width="350px"}|
-|exR: Radiant heat transfer problem    |![](./media/example01_20.png){: width="350px"}|
-|exS: Volume heat generation problem   |![](./media/example01_21.png){: width="350px"}|
-|exT: Internal gap problem             |![](./media/example01_22.png){: width="350px"}|
+|exN: Specified tempreature problem    |![](./media/example01_16.png){width="350px"}|
+|exO: Concentrated heat flux problem   |![](./media/example01_17.png){width="350px"}|
+|exP: Distributed heat flux problem    |![](./media/example01_18.png){width="350px"}|
+|exQ: Convective heat transfer problem |![](./media/example01_19.png){width="350px"}|
+|exR: Radiant heat transfer problem    |![](./media/example01_20.png){width="350px"}|
+|exS: Volume heat generation problem   |![](./media/example01_21.png){width="350px"}|
+|exT: Internal gap problem             |![](./media/example01_22.png){width="350px"}|
 
 <div style="text-align: center;margin-top:1em;">
 Fig. 9.1.11: Analysis conditions for each verification case
@@ -691,12 +691,12 @@ In exW, a linear dynamic analysis was performed on the same mesh-divided cantile
 
 Analysis Model
 
-![Analysis Model](./media/example01_23.png){: .center width="350px"}
+![Analysis Model](./media/example01_23.png){.center width="350px"}
 <div style="text-align: center;">
 Analysis Model
 </div>
 
-![Time history of external force \(F\)](./media/example01_24.png){: width="512px"}
+![Time history of external force \(F\)](./media/example01_24.png){width="512px"}
 <div style="text-align: center;">
 Time history of external force \(F\)
 </div>
@@ -795,17 +795,17 @@ Table 9.1.22: Verification results of linear dynamic analysis of exW (cantilever
 | W342_c0_ex_m2_t2 | 342 | 525 | 240 | Explicit method | 1.9753 | 1.9358 |
 | W342_c0_ex_m2_t3 | 342 | 525 | 240 | Explicit method | 1.9753 | Divergence |
 
-![Deformation diagram and equivalent stress distribution of the cantilever (W361_c0_im_m2_t2)](./media/example01_25.png){: .center width="512px"}
+![Deformation diagram and equivalent stress distribution of the cantilever (W361_c0_im_m2_t2)](./media/example01_25.png){.center width="512px"}
 <div style="text-align: center;">
 Fig. 9.1.13: Deformation diagram and equivalent stress distribution of the cantilever (W361_c0_im_m2_t2)
 </div>
 
-![(a) Element Type 361 : Implicit method](./media/example01_26.png){: .center width="512px"}
+![(a) Element Type 361 : Implicit method](./media/example01_26.png){.center width="512px"}
 <div style="text-align: center;">
 (a) Element Type 361 : Implicit method
 </div>
 
-![(b) Element Type 361 : Explicit method](./media/example01_27.png){: .center width="512px"}
+![(b) Element Type 361 : Explicit method](./media/example01_27.png){.center width="512px"}
 <div style="text-align: center;">
 (b) Element Type 361 : Explicit method
 </div>
@@ -814,12 +814,12 @@ Fig. 9.1.13: Deformation diagram and equivalent stress distribution of the canti
 Fig. 9.1.14: Time history of vibration point displacement \(u_z\)
 </div>
 
-![(a) Element Type 342 : Implicit method](./media/example01_28.png){: .center width="512px"}
+![(a) Element Type 342 : Implicit method](./media/example01_28.png){.center width="512px"}
 <div style="text-align: center;">
 (a) Element Type 342 : Implicit method
 </div>
 
-![(b) Element Type 342 : Explicit method](./media/example01_29.png){: .center width="512px"}
+![(b) Element Type 342 : Explicit method](./media/example01_29.png){.center width="512px"}
 <div style="text-align: center;">
 (b) Element Type 342 : Explicit method
 </div>
@@ -828,8 +828,8 @@ Fig. 9.1.14: Time history of vibration point displacement \(u_z\)
 
 In this verification, a frequency response analysis was performed on a cantilever, and the results were compared with those obtained using the ABAQUS software. The analysis model and verification conditions are presented below:
 
-![](./media/example01_30.png){: .center width="350px"}
-![](./media/example01_31.png){: .center width="350px"}
+![](./media/example01_30.png){.center width="350px"}
+![](./media/example01_31.png){.center width="350px"}
 
 Analysis conditions:
 
@@ -857,7 +857,7 @@ The eigenvalues up to the fifth order and the frequency response of the vibratio
 | 4    | 84771     | 84697  |
 | 5    | 127054    | 126852 |
 
-![Frequency dependence of displacement strength of vibration points](./media/example01_32.png){: .center width="512px"}
+![Frequency dependence of displacement strength of vibration points](./media/example01_32.png){.center width="512px"}
 <div style="text-align: center;">
 Fig. 9.1.16 : Frequency dependence of displacement strength of vibration points
 </div>

@@ -40,7 +40,7 @@ In this section, an increment analysis is performed wherein the status is known 
 
 \(^{t'} \sigma\)，\(^{t'} \overline{b}\)，\(^{t'} n\)，\(^{t'} \overline{t}\)，and \(^{t'} \overline{u}\) are the Cauchy stress (true stress), body force, outward until normal vector on body surface, predetermined surfacxe force, and predetermined displacement at time \(t'\), respectively. These equations are described for the arrangements of \(^{t'}v\), \(^{t'}s_t\), \(^{t'}s_u\) at time \('t\).
 
-![Concept of incremental analysis](media/theory02_01.png){: .center width="80%"}
+![Concept of incremental analysis](media/theory02_01.png){.center width="80%"}
 <div style="text-align:center;">
 Fig. 2.2.1: Concept of incremental analysis
 </div>

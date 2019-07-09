@@ -42,7 +42,7 @@ Therefore, if coefficient \(\lambda(=\omega^2)\) and vector \(x\) that satisfy E
 
 The coefficient \(\lambda\) and vector \(x\) are called eigenvalue and eigenvector, respectively, and the problem that determines these from Eq.\(\eqref{eq:2.3.1}\) is known as a generalized eigenvalue problem. 
 
-![Example of a multi-DOF system of free oscillation without damping](media/theory05_01.png){: .center width="80%"}
+![Example of a multi-DOF system of free oscillation without damping](media/theory05_01.png){.center width="80%"}
 <div style="text-align:center;">
 Fig. 2.3.1: Example of a multi-DOF system of free oscillation without damping
 </div>
@@ -117,19 +117,19 @@ A x = \zeta x
 
 An appropriate vector \(q_0\)  linearly transformed with matrix \(A\) (see Fig. 2.3.2).
 
-![Linear Transformation of q0 with Matrix A](media/theory05_02.png){: .center width="70%"}
+![Linear Transformation of q0 with Matrix A](media/theory05_02.png){.center width="70%"}
 <div style="text-align:center;">
 Fig. 2.3.2: Linear Transformation of \(q_0\) with Matrix \(A\)
 </div>
 
 The transformed vector is orthogonalized within the space created by the original vector. That is, it is subjected to a so-called Gram–Schmidt orthogonalization shown in Fig. 2.3.2. Thus, if the vector obtained is defined as \(r_1\) and normalized (to length 1), it generates \(q_1\) (Fig. 2.3.3). With a similar calculation, \(q_2\) is obtained from \(q_1\) (Fig. 2.3.4), which is orthogonal to both \(q_1\) and \(q_0\). If the same calculation is repeated, mutually orthogonal vectors are determined up to the order of the maximum matrix. 
 
-![Vector q1 orthogonal to q0](media/theory05_03.png){: .center width="70%"}
+![Vector q1 orthogonal to q0](media/theory05_03.png){.center width="70%"}
 <div style="text-align:center;">
 Fig. 2.3.3: Vector \(q_1\) orthogonal to \(q_0\)
 </div>
 
-![Vector q2 Orthogonal to q1 and q0](media/theory05_04.png){: .center width="70%"}
+![Vector q2 Orthogonal to q1 and q0](media/theory05_04.png){.center width="70%"}
 <div style="text-align:center;">
 Fig. 2.3.4: Vector \(q_2\) Orthogonal to \(q_1\) and \(q_0\)
 </div>

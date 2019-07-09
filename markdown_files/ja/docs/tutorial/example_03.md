@@ -20,12 +20,12 @@
 | EX10A    | 731        | ワイングラス(coarse) | 7,240   | 43,440   |
 | EX10B    | 731        | ワイングラス(midium) | 48,803  | 292,818  |
 
-![タービンロータ（EX07）](./media/example03_01.png){: .center width="350px"}
+![タービンロータ（EX07）](./media/example03_01.png){.center width="350px"}
 <div style="text-align: center;">
 図 9.3.1　タービンロータ（EX07）
 </div>
 
-![スプリング（EX08）](./media/example03_02.png){: .center width="350px"}
+![スプリング（EX08）](./media/example03_02.png){.center width="350px"}
 <div style="text-align: center;">
 図 9.3.2　スプリング（EX08）
 </div>
@@ -91,17 +91,17 @@
 
 #### EX09 円筒シェル
 
-![(a) モード 1, 2 (109 Hz)](./media/example03_18.png){: .center width="350px"}
+![(a) モード 1, 2 (109 Hz)](./media/example03_18.png){.center width="350px"}
 <div style="text-align: center;">
 (a) モード 1, 2 (109 Hz)
 </div>
 
-![(b) モード 3,4(570Hz)](./media/example03_19.png){: .center width="350px"}
+![(b) モード 3,4(570Hz)](./media/example03_19.png){.center width="350px"}
 <div style="text-align: center;">
 (b) モード 3,4(570Hz)
 </div>
 
-![(c) モード 5(615Hz)](./media/example03_20.png){: .center width="350px"}
+![(c) モード 5(615Hz)](./media/example03_20.png){.center width="350px"}
 <div style="text-align: center;">
 (c) モード 5(615Hz)
 </div>

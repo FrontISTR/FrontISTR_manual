@@ -161,7 +161,7 @@ Generated HTML can browse like as follow.
 $ firefox doc/html/index.html
 ```
 
-![Doxygen](media/install04_01.png){: .center width="80%"}
+![Doxygen](media/install04_01.png){.center width="80%"}
 
 ## Enable Debugging
 

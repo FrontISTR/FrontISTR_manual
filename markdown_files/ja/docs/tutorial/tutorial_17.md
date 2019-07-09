@@ -7,12 +7,12 @@
 
 解析対象は片持ち梁で、形状を図4.17.1に、メッシュデータを図4.17.2に示します。メッシュには四面体1次要素を用い、メッシュ規模は要素数126、節点数55です。
 
-![片持ち梁の形状](./media/tutorial17_01.png){: .center width="350px"}
+![片持ち梁の形状](./media/tutorial17_01.png){.center width="350px"}
 <div style="text-align: center;">
 図4.17.1　片持ち梁の形状
 </div>
 
-![片持ち梁のメッシュデータ](./media/tutorial17_02.png){: .center width="350px"}
+![片持ち梁のメッシュデータ](./media/tutorial17_02.png){.center width="350px"}
 <div style="text-align: center;">
 図4.17.2　片持ち梁のメッシュデータ
 </div>
@@ -27,7 +27,7 @@
 解析制御データで指定したモニタリング節点（節点番号1）の周波数と変位振幅の関係をMicrosoft Excelで作成して図4.17.3に示します。
 また、解析結果の数値データとして、解析結果ログファイルの一部を以下に示します。
 
-![モニタリング節点の周波数と変位振幅の関係](./media/tutorial17_03.png){: .center width="350px"}
+![モニタリング節点の周波数と変位振幅の関係](./media/tutorial17_03.png){.center width="350px"}
 <div style="text-align: center;">
 図4.17.3　モニタリング節点の周波数と変位振幅の関係
 </div>

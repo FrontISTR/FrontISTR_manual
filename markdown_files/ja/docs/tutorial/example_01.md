@@ -9,7 +9,7 @@
 
 表 9.1.1～表 9.1.7にケース別検証結果を示す。
 
-![片持ち梁のメッシュ分割例（六面体要素）](./media/example01_01.png){: .center width="350px"}
+![片持ち梁のメッシュ分割例（六面体要素）](./media/example01_01.png){.center width="350px"}
 図 9.1.1　片持ち梁のメッシュ分割例（六面体要素）
 
 |                                              |                     |
@@ -185,7 +185,7 @@
 
 非線形計算は、最終荷重1.0Pに対して、荷重増分値0.1P，10ステップとする。
 
-![検証モデル](./media/example01_08.png){: .center width="350px"}
+![検証モデル](./media/example01_08.png){.center width="350px"}
 図 9.1.3　検証モデル
 
 <div style="text-align: center;margin-top:3em;">
@@ -210,7 +210,7 @@
 本検証問題はNational Agency for Finite Element Methods and Standards (U.K.): Test NL1 from NAFEMSを参考し、
 幾何学的非線形および複数の硬化則を取り入れ弾塑性変形解析を行った。図9.1.4に解析モデルを示す。
 
-![弾塑性変形解析モデル](./media/example01_09.png){: .center width="350px"}
+![弾塑性変形解析モデル](./media/example01_09.png){.center width="350px"}
 
 図9.1.4　弾塑性変形解析モデル
 
@@ -273,7 +273,7 @@
 摩擦ありの有限すべり接触問題機能をテストするものである。
 図9.1.5に解析モデルを示す。
 
-![接触解析モデル](./media/example01_10.png){: .center width="350px"}
+![接触解析モデル](./media/example01_10.png){.center width="350px"}
 
 図9.1.5　接触解析モデル
 
@@ -308,7 +308,7 @@
 円柱の半径をR=8mmとし、変形体のヤング率E及びポアソンµ比はそれぞれ1100Mpaと0.0である。
 また、接触面積は円柱の半径と比べ十分小さいと仮定し、問題の対称性も考慮して、円柱の四分の一モデルにより解析を行った。
 
-![ヘルツ接触問題解析モデル](./media/example01_11.png){: .center width="350px"}
+![ヘルツ接触問題解析モデル](./media/example01_11.png){.center width="350px"}
 図9.1.6　ヘルツ接触問題解析モデル
 
 #### （1） 接触半径の検証結果
@@ -328,7 +328,7 @@
 
 図9.1.7では接触点の等価節点力を示している。この節点力分布を外挿して、接触半径が得られる。
 
-![接触点の等価節点力分布](./media/example01_12.png){: .center width="512px"}
+![接触点の等価節点力分布](./media/example01_12.png){.center width="512px"}
 図9.1.7　接触点の等価節点力分布
 
 #### （2） 最大せん断応力の検証結果
@@ -353,7 +353,7 @@
 \]
 の計算結果が得られた。
 
-![せん断応力分布（最大値=15.6](./media/example01_13.png){: .center width="350px"}
+![せん断応力分布（最大値=15.6](./media/example01_13.png){.center width="350px"}
 図9.1.8　せん断応力分布（最大値=15.6）
 
 ### (3) 固有値解析
@@ -365,7 +365,7 @@
 なお、exJでは反復法ソルバーを、exKでは直接法ソルバーを使用するものとする。
 また、検証結果を表9.1.9～表 9.1.12に示す。
 
-![検証モデル](./media/example01_14.png){: .center width="350px"}
+![検証モデル](./media/example01_14.png){.center width="350px"}
 図 9.1.9　検証モデル
 
 片持ち梁の振動固有値は次式で求まる。
@@ -489,7 +489,7 @@
 
 表 9.1.13～表 9.1.20にケース別に検証結果である温度分布テーブルを示す。
 
-![熱伝導解析](./media/example01_15.png){: .center width="350px"}
+![熱伝導解析](./media/example01_15.png){.center width="350px"}
 
 |          |                |
 |----------|----------------|
@@ -509,16 +509,16 @@
 図 9.1.10　定常熱伝導解析の検証条件
 </div>
 
-|                      |                                                |
-|----------------------|------------------------------------------------|
-| exM:線形材料         |                                                |
-| exN:規定温度問題     | ![](./media/example01_16.png){: width="350px"} |
-| exO:集中熱流束問題   | ![](./media/example01_17.png){: width="350px"} |
-| exP:分布熱流束問題   | ![](./media/example01_18.png){: width="350px"} |
-| exQ:対流熱伝達問題   | ![](./media/example01_19.png){: width="350px"} |
-| exR:輻射熱伝達問題   | ![](./media/example01_20.png){: width="350px"} |
-| exS:体積発熱問題     | ![](./media/example01_21.png){: width="350px"} |
-| exT:内部ギャップ問題 | ![](./media/example01_22.png){: width="350px"} |
+|                      |                                              |
+|----------------------|----------------------------------------------|
+| exM:線形材料         |                                              |
+| exN:規定温度問題     | ![](./media/example01_16.png){width="350px"} |
+| exO:集中熱流束問題   | ![](./media/example01_17.png){width="350px"} |
+| exP:分布熱流束問題   | ![](./media/example01_18.png){width="350px"} |
+| exQ:対流熱伝達問題   | ![](./media/example01_19.png){width="350px"} |
+| exR:輻射熱伝達問題   | ![](./media/example01_20.png){width="350px"} |
+| exS:体積発熱問題     | ![](./media/example01_21.png){width="350px"} |
+| exT:内部ギャップ問題 | ![](./media/example01_22.png){width="350px"} |
 
 <div style="text-align: center;margin-top:1em;">
 図 9.1.11　検証ケース別解析条件
@@ -694,12 +694,12 @@ exWでは(1)項と同様の片持ち梁を対象に線形動解析を行った�
 動的解析手法として、陰解法及び陽解法の両手法を使用し、要素タイプは361及び342を使用した。
 表9.1.22及び図 9.1.13～図 9.1.15に検証結果を示す。
 
-![解析モデル](./media/example01_23.png){: .center width="350px"}
+![解析モデル](./media/example01_23.png){.center width="350px"}
 <div style="text-align: center;">
 解析モデル
 </div>
 
-![外力Fの時刻歴](./media/example01_24.png){: .center width="512px"}
+![外力Fの時刻歴](./media/example01_24.png){.center width="512px"}
 <div style="text-align: center;">
 外力Fの時刻歴
 </div>
@@ -797,17 +797,17 @@ u(t) = \frac{F_0 l^3}{EI} \sum^{\infty}_{i=1} \frac{1-\cos{\omega_i t}}{{\lambda
 | W342_c0_ex_m2_t2 | 342        | 525    | 240    | 陽解法 | 1.9753                                  | 1.9358 |
 | W342_c0_ex_m2_t3 | 342        | 525    | 240    | 陽解法 | 1.9753                                  | 発散   |
 
-![片もち梁の変形図及び相当応力分布](./media/example01_25.png){: .center width="512px"}
+![片もち梁の変形図及び相当応力分布](./media/example01_25.png){.center width="512px"}
 <div style="text-align: center;">
 図 9.1.13　片もち梁の変形図及び相当応力分布
 </div>
 
-![(a) 要素タイプ 361:陰解法](./media/example01_26.png){: .center width="512px"}
+![(a) 要素タイプ 361:陰解法](./media/example01_26.png){.center width="512px"}
 <div style="text-align: center;">
 (a) 要素タイプ 361:陰解法
 </div>
 
-![(b) 要素タイプ 361:陽解法](./media/example01_27.png){: .center width="512px"}
+![(b) 要素タイプ 361:陽解法](./media/example01_27.png){.center width="512px"}
 <div style="text-align: center;">
 (b) 要素タイプ 361:陽解法
 </div>
@@ -816,12 +816,12 @@ u(t) = \frac{F_0 l^3}{EI} \sum^{\infty}_{i=1} \frac{1-\cos{\omega_i t}}{{\lambda
 図9.1.14 加振点変位 \(u_z\) の時刻歴
 </div>
 
-![(a) 要素タイプ 342:陰解法](./media/example01_28.png){: .center width="512px"}
+![(a) 要素タイプ 342:陰解法](./media/example01_28.png){.center width="512px"}
 <div style="text-align: center;">
 (a) 要素タイプ 342:陰解法
 </div>
 
-![(b) 要素タイプ 342:陽解法](./media/example01_29.png){: .center width="512px"}
+![(b) 要素タイプ 342:陽解法](./media/example01_29.png){.center width="512px"}
 <div style="text-align: center;">
 (b) 要素タイプ 342:陽解法
 </div>
@@ -836,8 +836,8 @@ u(t) = \frac{F_0 l^3}{EI} \sum^{\infty}_{i=1} \frac{1-\cos{\omega_i t}}{{\lambda
 解析モデル、検証条件を示す。
 
 
-![](./media/example01_30.png){: .center width="350px"}
-![](./media/example01_31.png){: .center width="350px"}
+![](./media/example01_30.png){.center width="350px"}
+![](./media/example01_31.png){.center width="350px"}
 
 解析条件:
 
@@ -865,7 +865,7 @@ u(t) = \frac{F_0 l^3}{EI} \sum^{\infty}_{i=1} \frac{1-\cos{\omega_i t}}{{\lambda
 | 4      | 84771     | 84697  |
 | 5      | 127054    | 126852 |
 
-![加振点の変位強度の周波数依存性](./media/example01_32.png){: .center width="512px"}
+![加振点の変位強度の周波数依存性](./media/example01_32.png){.center width="512px"}
 <div style="text-align: center;">
 図 9.1.16　加振点の変位強度の周波数依存性
 </div>

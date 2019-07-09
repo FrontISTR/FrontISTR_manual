@@ -4,7 +4,7 @@
 
 The input and output file of the structural analysis code FrontISTR is shown in Figure 3.1.1.
 
-![FronntISTR Input/Output File](media/analysis01_01.png){: .center width="80%"}
+![FronntISTR Input/Output File](media/analysis01_01.png){.center width="80%"}
 
 **Figure 3.1.1:FronntISTR Input/Output File**
 

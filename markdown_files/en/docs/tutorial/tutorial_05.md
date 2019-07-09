@@ -55,7 +55,7 @@ The necking phenomenon of round bars caused by plastic deformation is analyzed. 
 
 The analysis results of the 35<sup>th</sup> sub-step are shown in Fig. 4.5.1 as a deformation diagram with a Mises stress contour created with REVOCAP\_PrePost. Furthermore, a part of the log files of the analysis results is shown below as numerical data of the analysis.
 
-![Analysis results of deformation and Mises stress](./media/tutorial05_01.png){: .center width="350px"}
+![Analysis results of deformation and Mises stress](./media/tutorial05_01.png){.center width="350px"}
 <div style="text-align: center;">
 Fig. 4.5.1: Analysis results of deformation and Mises stress
 </div>

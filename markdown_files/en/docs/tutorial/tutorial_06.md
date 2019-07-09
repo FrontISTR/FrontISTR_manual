@@ -6,12 +6,12 @@ This analysis uses the data of `tutorial/06_plastic_can`.
 
 The target of this analysis is a 1/2 model of a container whose shape and mesh data are shown in Figs. 4.6.1 and 4.6.2, respectively. The mesh is a tetrahedral secondary element with 7236 elements and 14119 nodes.
 
-![Shape of the container](./media/tutorial06_01.png){: .center width="350px"}
+![Shape of the container](./media/tutorial06_01.png){.center width="350px"}
 <div style="text-align: center;">
 Fig. 4.6.1: Shape of the container
 </div>
 
-![Mesh data of the container](./media/tutorial06_02.png){: .center width="350px"}
+![Mesh data of the container](./media/tutorial06_02.png){.center width="350px"}
 <div style="text-align: center;">
 Fig. 4.6.2: Mesh data of the container
 </div>
@@ -60,7 +60,7 @@ In this stress analysis, the displacement of the constrained surface shown in Fi
 
 The analysis results of the 10<sup>th</sup> sub-step are shown in Fig. 4.6.3 as a deformation diagram with a Mises stress contour created with REVOCAP\_PrePost. The deformation magnification was set to 30. Furthermore, a part of the log files of the analysis results is shown below as numerical data of the analysis.
 
-![Analysis results of deformation and Mises stress](./media/tutorial06_03.png){: .center width="350px"}
+![Analysis results of deformation and Mises stress](./media/tutorial06_03.png){.center width="350px"}
 <div style="text-align: center;">
 Fig. 4.6.3: Analysis results of deformation and Mises stress
 </div>

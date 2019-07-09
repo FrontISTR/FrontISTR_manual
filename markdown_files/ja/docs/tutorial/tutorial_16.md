@@ -7,12 +7,12 @@
 解析対象は穴あきブロックで、形状を図4.16.1に、メッシュデータを図4.16.2に示します。
 メッシュには六面体1次要素を用い、メッシュ規模は要素数32,160、節点数37,386です。
 
-![穴あきブロックの形状](./media/tutorial16_01.png){: .center width="350px"}
+![穴あきブロックの形状](./media/tutorial16_01.png){.center width="350px"}
 <div style="text-align: center;">
 図4.16.1　穴あきブロックの形状
 </div>
 
-![穴あきブロックのメッシュデータ](./media/tutorial16_02.png){: .center width="350px"}
+![穴あきブロックのメッシュデータ](./media/tutorial16_02.png){.center width="350px"}
 <div style="text-align: center;">
 図4.16.2　穴あきブロックのメッシュデータ
 </div>
@@ -25,7 +25,7 @@
 
 温度のコンター図をREVOCAP_PrePostで作成して図4.16.3に示します。また、解析結果の数値データとして、解析結果ログファイルの一部を以下に示します。
 
-![温度の解析結果](./media/tutorial16_03.png){: .center width="350px"}
+![温度の解析結果](./media/tutorial16_03.png){.center width="350px"}
 <div style="text-align: center;">
 図4.16.3　温度の解析結果
 </div>
