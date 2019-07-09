@@ -133,9 +133,9 @@ MLは下記のWEBサイトからダウンロードすることができます。
 | UV2000               | Linux (SUSE Linux Enterprise 10)  | Intel Xeon          | Intel compiler       | SGI MPT       |
 | PC cluster           | Linux (CentOS-7)                  | Intel Xeon          | Intel compiler       | Intel MPI     |
 | PC cluster           | Linux (RedHat Enterprise Linux 7) | Intel Xeon          | Intel compiler       | OpenMPI       |
-| Desktop PC           | Linux (ubuntu 16.04)              | AMD Ryzen           | GNU compiler         | OpenMPI       |
-| Desktop PC           | Linux (ubuntu 16.04)              | AMD Ryzen           | PGI compiler         | OpenMPI       |
-| Desktop PC           | Linux (ubuntu 16.04)              | Intel Core-i7       | GNU compiler         | OpenMPI       |
+| Desktop PC           | Linux (ubuntu 16.04, 18.04)       | AMD Ryzen           | GNU compiler         | OpenMPI       |
+| Desktop PC           | Linux (ubuntu 16.04, 18.04)       | AMD Ryzen           | PGI compiler         | OpenMPI       |
+| Desktop PC           | Linux (ubuntu 16.04, 18.04)       | Intel Core-i7       | GNU compiler         | OpenMPI       |
 | Desktop PC           | Windows (7, 10)                   | Intel Core-i7       | GNU compiler (mingw) | Microsoft MPI |
 | Raspberry PI 3 B+    | Linux (raspbian 32bit)            | ARM Cortex-A53      | GNU compiler         | OpenMPI       |
 | Notebook PC          | macOS Mojave                      | Intel Core i7       | GNU Compiler         | OpenMPI       |

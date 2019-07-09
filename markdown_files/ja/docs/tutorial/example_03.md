@@ -20,13 +20,13 @@
 | EX10A    | 731        | ワイングラス(coarse) | 7,240   | 43,440   |
 | EX10B    | 731        | ワイングラス(midium) | 48,803  | 292,818  |
 
+![タービンロータ（EX07）](./media/example03_01.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/example03_01.png" width="350px"><br>
 図 9.3.1　タービンロータ（EX07）
 </div>
 
+![スプリング（EX08）](./media/example03_02.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/example03_02.png" width="350px"><br>
 図 9.3.2　スプリング（EX08）
 </div>
 
@@ -38,12 +38,11 @@
 
 |                                                    |                                                    |
 |----------------------------------------------------|----------------------------------------------------|
-| <img src="./media/example03_03.png" width="200px"> | <img src="./media/example03_04.png" width="200px"> |
+| ![(a) モード 1 (1170 kHz)](./media/example03_03.png){width="200px"} | ![(b) モード 2(3250kHz](./media/example03_04.png){width="200px"} |
 | (a) モード 1 (1170 kHz)                            | (b) モード 2(3250kHz)                              |
-|                                                    |                                                    |
-| <img src="./media/example03_05.png" width="200px"> | <img src="./media/example03_06.png" width="200px"> |
+| ![(c) モード 3(4130kHz)](./media/example03_05.png){width="200px"}   | ![(d) モード 4(4140kHz)](./media/example03_06.png){width="200px"} |
 | (c) モード 3(4130kHz)                              | (d) モード 4(4140kHz)                              |
-| <img src="./media/example03_07.png" width="200px"> |                                                    |
+| ![(e) モード 5(8210kHz)](./media/example03_07.png){width="200px"} |                                                    |
 | (e) モード 5(8210kHz)                              |                                                    |
 
 <div style="text-align: center;">
@@ -54,13 +53,13 @@
 
 |                                                    |                                                    |
 |----------------------------------------------------|----------------------------------------------------|
-| <img src="./media/example03_08.png" width="300px"> | <img src="./media/example03_09.png" width="300px"> |
+| ![(a) モード 1(1067Hz)](./media/example03_08.png){width="300px"} | ![(b) モード 2(1072Hz)](./media/example03_09.png){width="300px"} |
 | (a) モード 1(1067Hz)                               | (b) モード 2(1072Hz)                               |
 |                                                    |                                                    |
-| <img src="./media/example03_10.png" width="300px"> | <img src="./media/example03_11.png" width="300px"> |
+| ![(c) モード 3(1072Hz)](./media/example03_10.png){width="300px"} | ![(d) モード 4(1093Hz)](./media/example03_11.png){width="300px"} |
 | (c) モード 3(1072Hz)                               | (d) モード 4(1093Hz)                               |
 |                                                    |                                                    |
-| <img src="./media/example03_12.png" width="300px"> |                                                    |
+| ![(e) モード 5(1093Hz)](./media/example03_12.png){width="300px"} |                                                    |
 | (e) モード 5(1093Hz)                               |                                                    |
 |                                                    |                                                    |
 
@@ -73,10 +72,10 @@
 |                                                    |                                                    |                                                    |
 |----------------------------------------------------|----------------------------------------------------|----------------------------------------------------|
 | モード 1 (445Hz)                                   | モード 2 (446Hz)                                   | モード 3 (908Hz)                                   |
-| <img src="./media/example03_13.png" width="160px"> | <img src="./media/example03_14.png" width="160px"> | <img src="./media/example03_15.png" width="160px"> |
+| ![モード 1 (445Hz)](./media/example03_13.png){width="160px"} | ![モード 2 (446Hz)](./media/example03_14.png){width="160px"} | ![モード 3 (908Hz)](./media/example03_15.png){width="160px"} |
 |                                                    |                                                    |
 | モード 4 (985Hz)                                   | モード 5 (1819Hz)                                  |                                                    |
-| <img src="./media/example03_16.png" width="160px"> | <img src="./media/example03_17.png" width="160px"> |                                                    |
+| ![モード 4 (985Hz)](./media/example03_16.png){width="160px"} | ![モード 5 (1819Hz)](./media/example03_17.png){width="160px"} |                                                    |
 
 |   | FrontISTR | NASTRAN |
 |---|----------:|--------:|
@@ -92,18 +91,18 @@
 
 #### EX09 円筒シェル
 
+![(a) モード 1, 2 (109 Hz)](./media/example03_18.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/example03_18.png" width="350px"><br>
 (a) モード 1, 2 (109 Hz)
 </div>
 
+![(b) モード 3,4(570Hz)](./media/example03_19.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/example03_19.png" width="350px"><br>
 (b) モード 3,4(570Hz)
 </div>
 
+![(c) モード 5(615Hz)](./media/example03_20.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/example03_20.png" width="350px"><br>
 (c) モード 5(615Hz)
 </div>
 
@@ -115,10 +114,10 @@
 
 |                                                    |                                                    |                                                    |
 |----------------------------------------------------|----------------------------------------------------|----------------------------------------------------|
-| <img src="./media/example03_21.png" width="120px"> | <img src="./media/example03_22.png" width="120px"> | <img src="./media/example03_23.png" width="120px"> |
+| ![(a) モード 1(101Hz)](./media/example03_21.png){width="120px"} | ![(b) モード 2(102Hz)](./media/example03_22.png){width="120px"} | ![(c) モード 3(354Hz)](./media/example03_23.png){width="120px"} |
 | (a) モード 1(101Hz)                                | (b) モード 2(102Hz)                                | (c) モード 3(354Hz)                                |
 |                                                    |                                                    |                                                    |
-| <img src="./media/example03_24.png" width="120px"> | <img src="./media/example03_25.png" width="120px"> |                                                    |
+| ![(d) モード 4(1335Hz)](./media/example03_24.png){width="120px"} | ![(e) モード 5(1336Hz)](./media/example03_25.png){width="120px"} |                                                    |
 | (d) モード 4(1335Hz)                               | (e) モード 5(1336Hz)                               |                                                    |
 
 <div style="text-align: center;">

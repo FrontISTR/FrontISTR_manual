@@ -6,13 +6,13 @@ This analysis uses the data of `tutorial/14_dynamic_plate_contact`.
 
 The target of this analysis is the falling impact of a square material on the floor surface. The shape and mesh data of the material are shown in Figs. 4.14.1 and 4.14.2, respectively. The mesh is a hexahedral primary element with 8232 elements and 10712 nodes.
 
+![Shape of the floor surface and square material](./media/tutorial14_01.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial14_01.png" width="350px"><br>
 Fig. 4.14.1: Shape of the floor surface and square material
 </div>
 
+![Mesh data of the floor surface and square material](./media/tutorial14_02.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial14_02.png" width="350px"><br>
 Fig. 4.14.2: Mesh data of the floor surface and square material
 </div>
 
@@ -61,8 +61,8 @@ A contact dynamic analysis is performed with the analysis target (square materia
 
 A contour diagram of a Mises stress of the falling impact is shown in Fig. 4.14.3. Furthermore, a part of the energy output files of the monitoring nodes (dyna_energy.txt) is shown below as numerical data of the analysis.
 
+![ Mises stress of the falling impact](./media/tutorial14_03.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial14_03.png" width="350px"><br>
 Fig. 4.14.3: Mises stress of the falling impact
 </div>
 

@@ -6,13 +6,13 @@ This analysis uses the data of `tutorial/03_hyperelastic_cylinder`.
 
 The target of this analysis is a 1/8 model of a round bar whose shape and mesh data are shown in Figs. 4.3.1 and 4.3.2, respectively. The mesh is a hexahedral primary element with 432 elements and 629 nodes.
 
+![Shape of the round bar (1/8 model)](./media/tutorial03_01.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial03_01.png" width="350px"><br>
 Fig. 4.3.1 : Shape of the round bar (1/8 model)
 </div>
 
+![Shape of the round bar (1/8 model)](./media/tutorial03_02.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial03_02.png" width="350px"><br>
 Fig. 4.3.2: Shape of the round bar (1/8 model)
 </div>
 
@@ -50,10 +50,10 @@ In this stress analysis, an axial tensile displacement is given to a round bar. 
 
 ### Analysis results
 
-The analysis results of the fifth sub-step are shown in Fig. 4.3.3 as a deformation diagram with a Mises stress contour created with REVOCAP\_PrePost. Furthermore, a part of the log files of the analysis results is shown below as numerical data of the analysis.
+The analysis results of the fifth sub-step are shown in Fig. 4.3.3 as a deformation diagram with a Mises stress contour created with REVOCAP_PrePost. Furthermore, a part of the log files of the analysis results is shown below as numerical data of the analysis.
 
+![Analysis results of deformation and Mises stress](./media/tutorial03_03.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial03_03.png" width="350px"><br>
 Fig. 4.3.3: Analysis results of deformation and Mises stress
 </div>
 

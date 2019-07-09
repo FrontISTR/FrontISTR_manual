@@ -15,8 +15,8 @@ Table 9.5.1: Verification Example of Actual Model for Linear Dynamic Analysis
 | EX31C    | 342        |                | Square wave pulse (F1) | No     | 15,214 | 45,642 |
 | EX31D    | 342        |                | Square wave pulse (F1) | Yes    | 15,214 | 45,642 |
 
+![Mesh Model](./media/example05_01.png){.center width="512px"}
 <div style="text-align: center;">
-<img src="./media/example05_01.png" width="512px"><br>
 Fig. 9.5.1 : Mesh Model
 </div>
 
@@ -24,29 +24,29 @@ Fig. 9.5.1 : Mesh Model
 
 Examples of the analysis results are shown in Fig. 9.5.2 ~ Fig. 9.5.3.
 
+![(a) In the case of Step Load](./media/example05_02.png){.center width="512px"}
 <div style="text-align: center;">
-<img src="./media/example05_02.png" width="512px"><br>
 (a) In the case of Step Load
 </div>
 
+![(b) In the case of Square Wave Pulse Load](./media/example05_03.png){.center width="512px"}
 <div style="text-align: center;">
-<img src="./media/example05_03.png" width="512px"><br>
 (b) In the case of Square Wave Pulse Load
 </div>
 
 <div style="text-align: center;">
-Fig. 9.5.2: Time history of vibration point displacement $u_z$
+Fig. 9.5.2: Time history of vibration point displacement \(u_z\)
 </div>
 
 ---
 
+![(a) t=5.0E-04(s)](./media/example05_04.png){.center width="350px"}
 <div style="text-align: center;margin-bottom:3em;">
-<img src="./media/example05_04.png" width="350px"><br>
 (a) t=5.0E-04(s)
 </div>
 
+![(b) t=4.0E-03(s)](./media/example05_05.png){.center width="350px"}
 <div style="text-align: center;margin-bottom:3em;">
-<img src="./media/example05_05.png" width="350px"><br>
 (b) t=4.0E-03(s)
 </div>
 

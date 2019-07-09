@@ -7,13 +7,13 @@
 解析対象は丸棒の1/8モデルで、形状を図4.3.1に、メッシュデータを図4.3.2に示します。
 メッシュには六面体1次要素を用い、メッシュ規模は要素数432、節点数629です。
 
+![丸棒(1/8モデル)の形状](./media/tutorial03_01.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial03_01.png" width="350px"><br>
 図4.3.1　丸棒(1/8モデル)の形状
 </div>
 
+![丸棒(1/8モデル)のメッシュデータ](./media/tutorial03_02.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial03_02.png" width="350px"><br>
 図4.3.2　丸棒(1/8モデル)のメッシュデータ
 </div>
 
@@ -27,8 +27,8 @@
 5サブステップ目の解析結果について、ミーゼス応力のコンターを付加した変形図をREVOCAP\PrePostで作成して図4.3.3に示します。
 また、解析結果の数値データとして、解析結果ログファイルの一部を以下に示します。
 
+![変形およびミーゼス応力の解析結果](./media/tutorial03_03.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial03_03.png" width="350px"><br>
 図4.3.3　変形およびミーゼス応力の解析結果
 </div>
 

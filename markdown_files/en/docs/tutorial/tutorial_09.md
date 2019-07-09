@@ -6,13 +6,13 @@ This analysis uses the data of `tutorial/09_contact_hertz`.
 
 This analysis is a Hertz contact problem with a target whose shape and mesh data of the analysis are shown in Figs. 4.9.1 and 4.9.2, respectively. The mesh is a hexahedral primary element with 168 elements and 408 nodes.
 
+![Shape of the analysis target](./media/tutorial09_01.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial09_01.png" width="350px"><br>
 Fig. 4.9.1: Shape of the analysis target
 </div>
 
+![Mesh data of the analysis target](./media/tutorial09_02.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial09_02.png" width="350px"><br>
 Fig. 4.9.2: Mesh data of the analysis target
 </div>
 
@@ -48,8 +48,8 @@ This is a contact analysis performed with the expanded method of Lagrange multip
 
 The analysis results of the fifth sub-step are shown in Fig. 4.9.3 as a deformation diagram with a y-direction displacement contour created with REVOCAP_PrePost. Furthermore, a part of the log files of the analysis results is shown below as numerical data of the analysis.
 
+![Analysis results of deformation and y-direction displacement](./media/tutorial09_03.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial09_03.png" width="350px"><br>
 Fig. 4.9.3: Analysis results of deformation and y-direction displacement
 </div>
 

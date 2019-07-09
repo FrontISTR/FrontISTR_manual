@@ -6,8 +6,8 @@ This analysis uses the data of `tutorial/11_contact_2beam`.
 
 This analysis is a contact problem of two beams. The outline of the analysis model is shown in Fig. 4.11.1. The mesh is a hexahedral primary element with 80 elements and 252 nodes.
 
+![Outline of Analysis Model](./media/tutorial11_01.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial11_01.png" width="350px"><br>
 Fig. 4.11.1 Outline of Analysis Model
 </div>
 
@@ -46,8 +46,8 @@ CONTACT, 1
 
 The analysis results of the 100<sub>th</sub> sub-step are shown in Fig. 4.11.2 as a deformation diagram with a Mises stress contour created with REVOCAP\_PrePost. Furthermore, a part of the log files of the analysis results is illustrated below as numerical data of the analysis.
 
+![Analysis results of deformation and Mises stress](./media/tutorial11_02.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial11_02.png" width="350px"><br>
 Fig. 4.11.2: Analysis results of deformation and Mises stress
 </div>
 

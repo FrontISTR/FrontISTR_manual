@@ -1,14 +1,3 @@
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    processEscapes: true
-  },
-  CommonHTML: { matchFontHeight: true },
-  displayAlign: "center"
-});
-</script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 ## 解析制御データ
 
@@ -16,7 +5,7 @@ MathJax.Hub.Config({
 
 FrontISTRは、解析制御データファイルを入力して、下図に示す計算制御データ、ソルバー制御データおよびポスト処理（可視化）制御データを取得し、解析計算を実施する。
 
-<div style="text-align:center;"><img alt="解析制御データ" src="media/analysis05_01.png" width="50%"/></div>
+![解析制御データ](media/analysis05_01.png){.center width="50%"}
 
 解析制御データファイルの特徴は以下のとおりである。
 
@@ -78,48 +67,47 @@ FrontISTRは、解析制御データファイルを入力して、下図に示�
 
 ヘッダー行には必ず一つのヘッダーが含まれる。
 
-<dl>
-  <dt>ヘッダー</dt>
-    <dd>解析制御データ内で、データの意味とデータブロックを特定する。</dd>
-    <dd>行頭が "`!`" で始まる場合、ヘッダーであるとみなされる。</dd>
 
-  <dt>ヘッダー行</dt>
-    <dd>ヘッダーとそれに伴うパラメータを記述する。</dd>
-    <dd>ヘッダー行はヘッダーで始まっていなければならない。パラメータが必要な場合は、"`,`" を用いてその後に続けなければならない。パラメータが値をとる場合は、パラメータの後に "`=`" が続き、その後に値を記述する。<dd>
-    <dd>ヘッダー行を複数行にわたって記述することはできない。</dd>
+ヘッダー
+:   解析制御データ内で、データの意味とデータブロックを特定する。
+:   行頭が "`!`" で始まる場合、ヘッダーであるとみなされる。
 
-  <dt>データ行</dt>
-    <dd>ヘッダー行の次の行から開始され、必要なデータを記述する。</dd>
-    <dd>データ行は複数行にわたる可能性があるが、それは各ヘッダーで定義されるデータ記述の規則により決定される。</dd>
-    <dd>データ行は必要ない場合もある。</dd>
+ヘッダー行
+:   ヘッダーとそれに伴うパラメータを記述する。
+:   ヘッダー行はヘッダーで始まっていなければならない。パラメータが必要な場合は、"`,`" を用いてその後に続けなければならない。パラメータが値をとる場合は、パラメータの後に "`=`" が続き、その後に値を記述する。
+:    ヘッダー行を複数行にわたって記述することはできない。
 
-  <dt>区切り文字</dt>
-    <dd>データの区切り文字にはカンマ "`,`" を用いる。</dd>
+データ行
+:    ヘッダー行の次の行から開始され、必要なデータを記述する。
+:    データ行は複数行にわたる可能性があるが、それは各ヘッダーで定義されるデータ記述の規則により決定される。
+:    データ行は必要ない場合もある。
 
-  <dt>空白の扱い</dt>
-    <dd>空白は無視される。</dd>
+区切り文字
+:    データの区切り文字にはカンマ "`,`" を用いる。
 
-  <dt>名前</dt>
-    <dd>名前に使用可能な文字は、アンダースコア "`_`"、ハイフン "`-`"、英数字 "`a-z A-Z 0-9`" であるが、最初の一文字は "`_`" または英字 "`a-z A-Z`" で始まっていなければならない。大文字小文字の区別はなく、内部的にはすべて大文字として扱われる。</dd>
-    <dd>また、名前の最大長は63文字である。</dd>
+空白の扱い
+:    空白は無視される。
 
-  <dt>ファイル名</dt>
-    <dd>ファイル名に使用可能な文字は、アンダースコア "`_`"、ハイフン "`-`"、ピリオド "`.`"、スラッシュ "`/`"、英数字 "`a-z A-Z 0-9`" である。</dd>
-    <dd>ファイル名は、特に記述がない限りパスを含んでもよい。相対パス、絶対パスのいずれも指定可能である。</dd>
-    <dd>また、ファイル名の最大長は1023文字である。</dd>
+名前
+:    名前に使用可能な文字は、アンダースコア "`_`"、ハイフン "`-`"、英数字 "`a-z A-Z 0-9`" であるが、最初の一文字は "`_`" または英字 "`a-z A-Z`" で始まっていなければならない。大文字小文字の区別はなく、内部的にはすべて大文字として扱われる。
+:    また、名前の最大長は63文字である。
 
-  <dt>浮動小数点データ</dt>
-    <dd>指数はあってもなくてもよい。指数の前には、"`E`" または "`e`" の記号をつけなければならない。</dd>
-    <dd>"`E`" または "`e`" どちらを使用してもかまわない。</dd>
+ファイル名
+:    ファイル名に使用可能な文字は、アンダースコア "`_`"、ハイフン "`-`"、ピリオド "`.`"、スラッシュ "`/`"、英数字 "`a-z A-Z 0-9`" である。
+:    ファイル名は、特に記述がない限りパスを含んでもよい。相対パス、絶対パスのいずれも指定可能である。
+:    また、ファイル名の最大長は1023文字である。
 
-  <dt>コメント行</dt>
-    <dd>行頭が "`!!`" または"`#`" で始まる行はコメント行とみなされ、無視される。</dd>
-    <dd>コメント行はファイル中の任意の位置に挿入でき、その数に制限はない。</dd>
+浮動小数点データ
+:    指数はあってもなくてもよい。指数の前には、"`E`" または "`e`" の記号をつけなければならない。
+:    "`E`" または "`e`" どちらを使用してもかまわない。
 
-  <dt>`!END`</dt>
-    <dd>メッシュデータの終端</dd>
-    <dd>このヘッダーが表れると、メッシュデータの読み込みを終了する。</dd>
-</dl>
+コメント行
+:    行頭が "`!!`" または"`#`" で始まる行はコメント行とみなされ、無視される。
+:    コメント行はファイル中の任意の位置に挿入でき、その数に制限はない。
+
+`!END`
+:    メッシュデータの終端
+:    このヘッダーが表れると、メッシュデータの読み込みを終了する。
 
 ### 解析制御データ
 
@@ -147,6 +135,7 @@ FrontISTRでは、計算制御データに使用できる境界条件として�
 ** 表 7.3.1 全解析に共通な制御データ **
 
 | ヘッダー             | 意味                           | 備考 | 説明番号 |
+|----------------------|--------------------------------|------|----------|
 | `!VERSION`           | ソルバーバージョン番号         |      | 1-1      |
 | `!SOLUTION`          | 解析の種別の指定               | 必須 | 1-2      |
 | `!WRITE,VISUAL`      | 可視化データ出力の指定         |      | 1-3      |
@@ -629,7 +618,7 @@ TYPE＝解析の種類
 |t_start     |t_end       |n_step  |t_delta |
 |<font color="Red">0.0</font>|<font color="Red">1.0</font>|<font color="Red">500</font>|<font color="Red">1.0000e-5</font>|
 
-| Newmark-$\beta$法のパラメータ $\gamma$ | Newmark-$\beta$法のパラメータ $\beta$ |
+| Newmark-i\(\beta\)法のパラメータ \(\gamma\) | Newmark-\(\beta\)法のパラメータ \(\beta\) |
 |----------------------------------------|---------------------------------------|
 | gamma                                  | beta                                  |
 |<font color="Red">0.5</font>            |<font color="Red">0.25</font>          |
@@ -1226,7 +1215,7 @@ DEFINITION = COORDINATES (Default値)/NODES
 |------------|-------|--------|
 | a, b, c    | I     |節点番号|
 
-<div style="text-align:center;"><img alt="Orientation" src="media/analysis05_02.png" width="50%"/></div>
+![Orientation](media/analysis05_02.png){.center width="50%"}
 
 ##### `!SECTION` (1-11)
 
@@ -1352,7 +1341,6 @@ DEPENDENCIES = 0 (Default値) / 1
 (2行目) E1, E2, E3, ν12, ν13, ν23, G12, G13, G23, Tempreature
 ```
 
-$$
 \begin{bmatrix}
   \varepsilon_{11} \\\
   \varepsilon_{22} \\\
@@ -1378,7 +1366,6 @@ $$
   \sigma_{23} \\\
   \sigma_{31}
 \end{bmatrix}
-$$
 
 ####### `TYPE = USER`の場合
 
@@ -1465,8 +1452,8 @@ DEPENDENCIES = 0 (Default値) / 1
 | H          | R    | 硬化係数            |
 | PSTRAIN 　 | R    | 塑性ひずみ          |
 | YIELD      | R    | 降伏応力            |
-| $\varepsilon0, K, n$   | R    |$\overline{\sigma} = k\left( \varepsilon_{0} + \overline{\varepsilon} \right)^{n}$|
-| $\varepsilon0, D, n$   | R    |$\varepsilon = \frac{\sigma}{E} + \varepsilon_{0}\left( \frac{\sigma}{D} \right)^{n}$|
+| \(varepsilon0, K, n\)   | R    |\(\overline{\sigma} = k\left( \varepsilon_{0} + \overline{\varepsilon} \right)^{n}\)|
+| \(\varepsilon0, D, n\)   | R    |\(\varepsilon = \frac{\sigma}{E} + \varepsilon_{0}\left( \frac{\sigma}{D} \right)^{n}\)|
 | FAI        | R    | 内部摩擦角          |
 | c          | R    | 粘着力              |
 | C          | R    | 線形移動硬化係数    |
@@ -1774,7 +1761,7 @@ ROT_CENTER = 回転変位拘束の中心節点番号または節点集合名。
   ROT_NODES, 2, 2, -4.188
 ```
 
-`ROT_NODES`に対して、節点7を中心とし、大きさ $||(3.141, -4.188)|| = 5.233[rad]$、回転軸 $(3/5, -4/5, 0)$ の回転を加える。
+`ROT_NODES`に対して、節点7を中心とし、大きさ \(||(3.141, -4.188)|| = 5.233[rad]\)、回転軸 \((3/5, -4/5, 0)\) の回転を加える。
 
 `ROT_CENTER`による回転は並進3自由度に対する変位拘束であり、シェル要素に対する 4, 5, 6 自由度拘束とは異なる。
 
@@ -1848,7 +1835,7 @@ ROT_CENTER = 回転中心節点番号または節点集合名。指定した場�
   TORQUE_NODES, 3, -4
 ```
 
-`ROT_NODES`に対して、節点7を中心とし、大きさ$||(3, 0, -4)|| = 5$、回転軸$(3/5, 0, -4/5)$のトルク荷重を加える。
+`ROT_NODES`に対して、節点7を中心とし、大きさ\(||(3, 0, -4)|| = 5\)、回転軸\((3/5, 0, -4/5)\)のトルク荷重を加える。
 
 `ROT_CENTER`によるトルク荷重は、内部的には指定したトルク相当の節点荷重を与えるものであり、シェル要素に対する4, 5, 6自由度への節点荷重とは異なる。
 
@@ -2901,7 +2888,7 @@ ISTEP =   ステップ数
 WINDOW => 0 ：流体力にウィンドウ関数(*)を乗じて適用
 ```
 
-(\*) $\frac{1}{2}(1 - \cos\frac{2\pi i}{N}),(i: 現ステップ、N: 現在の解析の総ステップ数)$
+(\*) \(\frac{1}{2}(1 - \cos\frac{2\pi i}{N}),(i: 現ステップ、N: 現在の解析の総ステップ数)\)
 
 ** 2行目以降 **
 
@@ -3100,8 +3087,7 @@ METHOD = PSR             : サーフェスレンダリング
 
 例: 図7.4.1は4つのサーフェスがあり、2つは等値面でpressure=1000.0 とpressure=-1000.0、 2つは平面の切り口で z= -1.0 とz= 1.0である。
 
-<div style="text-align:center;"><img src="media/analysis05_03.png" width="50%"/></div>
-
+![surface_numの設定例](media/analysis05_03.png){.center width="50%"}
 図7.4.1 `surface_num`の設定例
 
 ##### `!surface` (P1-2)
@@ -3110,7 +3096,7 @@ METHOD = PSR             : サーフェスレンダリング
 
 例： 図7.4.2は4つのサーフェスがありその内容は以下の通りである。
 
-<div style="text-align:center;"><img src="media/analysis05_04.png" width="50%"/></div>
+![surfaceの設定例](media/analysis05_04.png){.center width="50%"}
 
 図7.4.2 `surface`の設定例
 
@@ -3137,9 +3123,9 @@ METHOD = PSR             : サーフェスレンダリング
 
   1. 境界面
   2. 等値面
-  3. 任意の2次曲面<br/>coef\[1\]x2 + coef\[2\]y2 + coef\[3\]z2 + coef\[4\]xy + coef\[5\]xz<br/>+ coef\[6\]yz + coef\[7\]x + coef\[8\]y + coef\[9\]z + coef\[10\]=0
+  3. 任意の2次曲面<br/>coef[1]x2 + coef[2]y2 + coef[3]z2 + coef[4]xy + coef[5]xz<br/>+ coef[6]yz + coef[7]x + coef[8]y + coef[9]z + coef[10]=0
 
-<div style="text-align:center;"><img src="media/analysis05_05.png" width="80%"/></div>
+![surface/styleの設定例](media/analysis05_05.png){.center width="80%"}
 
 図7.4.3　surface/styleの設定例
 
@@ -3153,7 +3139,7 @@ METHOD = PSR             : サーフェスレンダリング
   4. 指定色一色の表示
   5. 色分けにによる等値線表示
 
-<div style="text-align:center;"><img src="media/analysis05_06.png" width="80%"/></div>
+![display_methodの設定例](media/analysis05_06.png){.center width="80%"}
 
 図7.4.4　display_methodの設定例
 
@@ -3216,7 +3202,7 @@ Then you can define which one you hope to map into color by
 |----------|------|--------|------|
 | 自由度数 | 3    | 6      | 7    |
 
-<div style="text-align:center;"><img src="media/analysis05_07.png" width="80%"/></div>
+![color_comp, color_subcompおよびcolor_comp_nameの設定例](media/analysis05_07.png){.center width="80%"}
 
 図7.4.5 `color_comp`, `color_subcomp`および`color_comp_name`の設定例
 
@@ -3224,7 +3210,7 @@ Then you can define which one you hope to map into color by
 
 `display_method=2`,`3`または`5`の時
 
-<div style="text-align:center;"><img src="media/analysis05_08.png" width="80%"/></div>
+![isoline_numberとisoline_colorの設定例](media/analysis05_08.png){.center width="80%"}
 
 図7.4.6 `isoline_number`と`isoline_color`の設定例
 
@@ -3246,11 +3232,11 @@ Default: 自動
 
 `standard_scale` = 0.1 * sqrt(`x_range`<sup>2</sup> + `y_range`<sup>2</sup> + `z_range`<sup>2</sup>) / `max_deform`
 
-<div style="text-align:center;"><img src="media/analysis05_09.png" width="80%"/></div>
+![display_stylesの設定例](media/analysis05_09.png){.center width="80%"}
 
 図7.4.7 `display_styles`の設定例
 
-<div style="text-align:center;"><img src="media/analysis05_10.png" width="50%"/></div>
+![deform_scaleの設定例](media/analysis05_10.png){.center width="50%"}
 
 図7.4.8 `deform_scale`の設定例
 
@@ -3269,7 +3255,7 @@ BIN_COMPLETE_AVS      : COMPLETE_AVSをバイナリー形式で出力する
 FSTR_FEMAP_NEUTRAL    : FEMAP用ニュートラルファイル
 ```
 
-<div style="text-align:center;"><img src="media/analysis05_11.png" width="80%"/></div>
+![output_typeの例](media/analysis05_11.png){.center width="80%"}
 
 図7.4.9　output_typeの例
 
@@ -3277,7 +3263,7 @@ FSTR_FEMAP_NEUTRAL    : FEMAP用ニュートラルファイル
 
 `output_type=BMP`の時、解像度を指定する。
 
-<div style="text-align:center;"><img src="media/analysis05_12.png" width="80%"/></div>
+![x_resolutionとy_resolutionの設定例](media/analysis05_12.png){.center width="80%"}
 
 図7.4.10 `x_resolution`と`y_resolution`の設定例
 
@@ -3307,10 +3293,12 @@ View coordinate frame:
               y軸     : z axis × x axis
 ```
 
-<div style="text-align:center;"><img src="media/analysis05_15.png" width="50%"/></div>
+![ビューフレームの決定法](media/analysis05_15.png){.center width="50%"}
+
 図7.4.11　ビューフレームの決定法
 
-<div style="text-align:center;"><img src="media/analysis05_13.png" width="80%"/></div>
+![!viewpoint, !look_at_pointとup_directionの設定例](media/analysis05_13.png){.center width="80%"}
+
 図7.4.12 `!viewpoint`, `!look_at_point`と`up_direction`の設定例
 
 ##### `!ambient_coef`, `!diffuse_coef`, `!specular_coef` (P2-8, P2-9, P2-10)
@@ -3319,7 +3307,7 @@ View coordinate frame:
 
 `ambient_coef`を増加すると3次元の奥行き方向の情報が損なわれる。
 
-<div style="text-align:center;"><img src="media/analysis05_14.png" width="80%"/></div>
+![照明モデルパラメータの設定例](media/analysis05_14.png){.center width="80%"}
 
 図7.4.13 照明モデルパラメータの設定例
 
@@ -3336,7 +3324,7 @@ View coordinate frame:
                          (省略値: 3)
 ```
 
-<div style="text-align:center;"><img src="media/analysis05_16.png" width="80%"/></div>
+![color_mapping_barの表示の例](media/analysis05_16.png){.center width="80%"}
 
 図7.4.14 `color_mapping_bar`の表示の例
 
@@ -3344,7 +3332,7 @@ View coordinate frame:
 
 背景色や文字フォントを指定する。
 
-<div style="text-align:center"><img src="media/analysis05_17.png" width="80%"/></div>
+![backgroundとfontの設定例](media/analysis05_17.png){.center width="80%"}
 
 図7.4.15 `background`と`font`の設定例
 
@@ -3352,7 +3340,7 @@ View coordinate frame:
 
 `surface_style=2`の時、可視化する等値面の物理量を指定する。
 
-<div style="text-align:center;"><img src="media/analysis05_18.png" width="80%"/></div>
+![data_comp, data_subcomp及びdata_comp_nameの設定例](media/analysis05_18.png){.center width="80%"}
 
 図7.4.16 `data_comp`, `data_subcomp`及び`data_comp_name`の設定例
 

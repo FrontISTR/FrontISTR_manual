@@ -36,8 +36,8 @@ The displacement of the constrained surface shown in Fig. 4.4.1 is restrained, a
 
 The third vibration mode (compression and decompression in y-direction of the spring,) created with REVOCAP_PrePost using the analysis result data file spring.res.0.3, is shown in Fig. 4.15.1. The deformation magnification was set to 1000. Furthermore, a list of eigenfrequency output to the analysis result log file is shown below as numerical data of the analysis.
 
+![Third vibration mode of a spring](./media/tutorial15_01.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial15_01.png" width="350px"><br>
 Fig. 4.15.1: Third vibration mode of a spring
 </div>
 

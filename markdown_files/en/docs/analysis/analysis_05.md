@@ -1,14 +1,3 @@
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    processEscapes: true
-  }, 
-  CommonHTML: { matchFontHeight: true },
-  displayAlign: "center"
-});
-</script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 ## Analysis Control Data
 
@@ -16,7 +5,7 @@ MathJax.Hub.Config({
 
 In FrontISTR, an analysis control data file is input to acquire the computing control data, solver control data and post process (visualization) control data as shown in the following figure, in order to implement the analytical calculations.
 
-<div style="text-align:center;"><img alt="Analysis Control Data" src="./media/analysis05_01.png" width="50%"/></div>
+![Analysis Control Data](media/analysis05_01.png){.center width="50%"}
 
 The features of the analysis control data file are as follows.
 
@@ -632,12 +621,12 @@ Controlling the linear dynamic analysis
 | t_start                      | t_end                        | n_step                       | t_delta                            |
 | <font color="Red">0.0</font> | <font color="Red">1.0</font> | <font color="Red">500</font> | <font color="Red">1.0000e-5</font> |
 
-| Parameter $\gamma$ of Newmark-$\beta$ Method | Parameter $\beta$ of Newmark-$\beta$ Method |
+| Parameter \(\gamma\) of Newmark-\(\beta\) Method | Parameter \(\beta\) of Newmark-\(\beta\) Method |
 |----------------------------------------------|---------------------------------------------|
 | gamma                                        | beta                                        |
 | <font color="Red">0.5</font>                 | <font color="Red">0.25</font>               |
 
-| Type of Mass Matrix        | Type of Damping            | Parameter $R_m$ of Rayleigh Damping | Parameter of $R_k$ of Rayleigh Damping |
+| Type of Mass Matrix        | Type of Damping            | Parameter \(R_m\) of Rayleigh Damping | Parameter of \(R_k\) of Rayleigh Damping |
 |----------------------------|----------------------------|-------------------------------------|----------------------------------------|
 | idx_mass                   | idx_dmp                    | ray_m                               | ray_k                                  |
 | <font color="Red">1</font> | <font color="Red">1</font> | <font color="Red">0.0</font>        | <font color="Red">0.0</font>           |
@@ -733,7 +722,7 @@ Controlling the frequency response analysis
 |------------------------------|---------------------------------|
 | <font color="Red">0.0</font> | <font color="Red">6.6e-5</font> |
 
-| Type of Mass Matrix        | Type of Damping            | Parameter $R_m$ of Rayleigh Damping | Parameter $R_k$ of Rayleigh Damping |
+| Type of Mass Matrix        | Type of Damping            | Parameter \(R_m\) of Rayleigh Damping | Parameter \(R_k\) of Rayleigh Damping |
 |----------------------------|----------------------------|-------------------------------------|-------------------------------------|
 | idx_mass                   | idx_dmp                    | ray_m                               | ray_k                               |
 | <font color="Red">1</font> | <font color="Red">1</font> | <font color="Red">0.0</font>        | <font color="Red">7.2E-7</font>     |
@@ -1219,7 +1208,7 @@ DEFINITION = COORDINATES (Default)/NODES
 |c1, c2, c3    |R           |coodinate of point c          |
 |a,b,c         |I           |Node ID of a,b,c, respectively|
 
-<div style="text-align:center;"><img src="media/analysis05_02.png" width="50%"/></div>
+![Analysis Control Data](media/analysis05_02.png){.center width="50%"}
 
 
 ##### (11) `!SECTION` (1-11)
@@ -1335,7 +1324,6 @@ DEPENDENCIES = 0 (Default)/1
 
 (2nd Line) E1, E2, E3, &nu;12, &nu;13, &nu;23, G12, G13, G23, Temperature
 
-$$
 \begin{equation}
 \begin{bmatrix}
   \varepsilon\_{11} \\\
@@ -1363,7 +1351,6 @@ $$
   \sigma\_{31}
 \end{bmatrix}
 \end{equation}
-$$
 
 - In the case of `TYPE=USER`
 
@@ -1452,8 +1439,8 @@ DEPENDENCIES = 0 (Default)/1
 | H          | R    | Hardening factor                               |
 | PSTRAIN 　 | R    | Plastic strain                                 |
 | YIELD      | R    | Yield stress                                   |
-| $\varepsilon0, K, n$   | R    |$\overline{\sigma} = k\left( \varepsilon_{0} + \overline{\varepsilon} \right)^{n}$|
-| $\varepsilon0, D, n$   | R    |$\varepsilon = \frac{\sigma}{E} + \varepsilon_{0}\left( \frac{\sigma}{D} \right)^{n}$|
+| \(\varepsilon0, K, n\)   | R    |\(\overline{\sigma} = k\left( \varepsilon_{0} + \overline{\varepsilon} \right)^{n}\)|
+| \(\varepsilon0, D, n\)   | R    |\(\varepsilon = \frac{\sigma}{E} + \varepsilon_{0}\left( \frac{\sigma}{D} \right)^{n}\)|
 | FAI        | R    | Internal frictional angle                      |
 | c          | R    | Viscosity                                      |
 | C          | R    | Linear motion hardening factor                 |
@@ -2709,7 +2696,7 @@ ISTEP = Step No.
 WINDOW => 0 ：Multiply window function(*) to input fluid traction
 ```
 
-(\*) $\frac{1}{2}(1 - \cos\frac{2\pi i}{N})$, $i$: current step, $N$: no. of steps of current analysis
+(\*) \(\frac{1}{2}(1 - \cos\frac{2\pi i}{N})\), \(i\): current step, \(N\): no. of steps of current analysis
 
 ** 2nd line or later **
 
@@ -2908,7 +2895,7 @@ No. of surfaces in one surface rendering
 
 Ex.: There are four surfaces in Figure 7.4.1, which includes two isosurfaces pressure = 1000.0 and pressure = -1000.0, and two cut end plane surfaces z = -1.0 and z = 1.0.
 
-<div style="text-align:center;"><img alt="Figure 7.4.1: Example of surface_num Setting" src="media/analysis05_03.png" width="50%"/></div>
+![Example of surface_num Setting](media/analysis05_03.png){.center width="50%"}
 
 **Figure 7.4.1: Example of surface_num Setting**
 
@@ -2918,7 +2905,7 @@ Sets the contents of the surface.
 
 Ex: Then contents of the four surface in Figure 7.4.2 are as follows.
 
-<div style="text-align:center;"><img alt="Figure 7.4.2: Example of Surface Setting" src="media/analysis05_04.png" width="50%"/></div>
+![Example of Surface Setting](media/analysis05_04.png){.center width="50%"}
 
 Figure 7.4.2: Example of Surface Setting
 
@@ -2945,9 +2932,9 @@ Specifies the style of the surface.
 
   1. Boundary plane
   2. Isosurface
-  3. Arbitary quadric surface<br/>coef\[1\]x2 + coef\[2\]y2 + coef\[3\]z2 + coef\[4\]xy + coef\[5\]xz<br/>+ coef\[6\]yz + coef\[7\]x + coef\[8\]y + coef\[9\]z + coef\[10\]=0
+  3. Arbitary quadric surface<br/>coef[1]x2 + coef[2]y2 + coef[3]z2 + coef[4]xy + coef[5]xz<br/>+ coef[6]yz + coef[7]x + coef[8]y + coef[9]z + coef[10]=0
 
-<div style="text-align:center;"><img alt="Figure 7.4.3: Example of surface_style Setting" src="media/analysis05_05.png" width="80%"/></div>
+![Example of surface_style Setting](media/analysis05_05.png){.center width="80%"}
 
 **Figure 7.4.3: Example of surface_style Setting**
 
@@ -2961,7 +2948,7 @@ Display method (Default: 1)
   4. Display of 1 specified color
   5. Isopleth line display by classification of color
 
-<div style="text-align:center;"><img alt="Figure 7.4.4:Example of display_method Setting" src="media/analysis05_06.png" width="80%"/></div>
+![Example of display_method Setting](media/analysis05_06.png){.center width="80%"}
 
 **Figure 7.4.4:Example of display_method Setting**
 
@@ -3026,7 +3013,7 @@ In the structural analysis, for example;
 |---------------------------|--------------|--------|--------|
 | No. of degrees of freedom | 3            | 6      | 7      |
 
-<div style="text-align:center;"><img alt="Figure 7.4.5: Example of color_comp, color_subcomp and color_comp_name Setting" src="media/analysis05_07.png" width="80%"/></div>
+![Example of color_comp, color_subcomp and color_comp_name Setting](media/analysis05_07.png){.center width="80%"}
 
 **Figure 7.4.5: Example of color_comp, color_subcomp and color_comp_name Setting**
 
@@ -3034,7 +3021,7 @@ In the structural analysis, for example;
 
 When `display_method=2`,`3` or `5`
 
-<div style="text-align:center;"><img alt="Figure 7.4.6: Example of isoline_number and isoline_color Setting" src="media/analysis05_08.png" width="80%"/></div>
+![Example of isoline_number and isoline_color Setting](media/analysis05_08.png){.center width="80%"}
 
 **Figure 7.4.6: Example of isoline_number and isoline_color Setting**
 
@@ -3056,11 +3043,11 @@ Default: Auto
 
 `standard_scale` = 0.1 * sqrt(`x_range`<sup>2</sup> + `y_range`<sup>2</sup> + `z_range`<sup>2</sup>) / `max_deform`
 
-<div style="text-align:center;"><img alt="Figure 7.4.7: Example of Display Styles Setting" src="media/analysis05_09.png" width="80%"/></div>
+![Example of Display Styles Setting](media/analysis05_09.png){.center width="80%"}
 
 **Figure 7.4.7: Example of display_styles Setting**
 
-<div style="text-align:center;"><img alt="Figure 7.4.8: Example of deform_scale Setting" src="media/analysis05_10.png" width="50%"/></div>
+![Example of deform_scale Setting](media/analysis05_10.png){.center width="50%"}
 
 **Figure 7.4.8: Example of deform_scale Setting**
 
@@ -3079,7 +3066,7 @@ BIN_COMPLETE_AVS      : Outputs COMPLETE_AVS in binary format
 FSTR_FEMAP_NEUTRAL    : Neutral file for FEMAP
 ```
 
-<div style="text-align:center;"><img alt="Figure 7.4.9: Example of output_type" src="media/analysis05_11.png" width="80%"/></div>
+![Example of output_type](media/analysis05_11.png){.center width="80%"}
 
 Figure 7.4.9: Example of output_type
 
@@ -3087,7 +3074,7 @@ Figure 7.4.9: Example of output_type
 
 Specifies the resolution when `output_type=BMP`
 
-<div style="text-align:center;"><img alt="Figure 7.4.10: Example of x_resolution and y_resolution Setting" src="media/analysis05_12.png" width="80%"/></div>
+![Example of x_resolution and y_resolution Setting](media/analysis05_12.png){.center width="80%"}
 
 **Figure 7.4.10: Example of x_resolution and y_resolution Setting**
 
@@ -3117,11 +3104,11 @@ default: 0.0 0.0 1.0
   - Z-axis: `viewpoint` - `look_at_point`
   - X-axis: `up_direction` &times; z axis
 
-<div style="text-align:center;"><img alt="Figure 7.4.11: View Frame Determination Method" src="media/analysis05_13.png" width="50%"/></div>
+![View Frame Determination Method](media/analysis05_13.png){.center width="50%"}
 
-**[Figure 7.4.11: View Frame Determination Method**
+**Figure 7.4.11: View Frame Determination Method**
 
-<div style="text-align:center;"><img alt="Figure 7.4.12: Example of !viewpoint, look_at_point and up_direction Setting" src="media/analysis05_14.png" width="80%"/></div>
+![Example of !viewpoint, look_at_point and up_direction Setting](media/analysis05_14.png){.center width="80%"}
 
 **Figure 7.4.12: Example of !viewpoint, look_at_point and up_direction Setting**
 
@@ -3132,7 +3119,7 @@ Coefficient setting of lighting model
 
 When the ambient_coef is increased, information on the 3D depth direction is impaired.
 
-<div style="text-align:center;"><img alt="Figure 7.4.13: Example of Lighting Model Parameter Setting" src="media/analysis05_15.png" width="80%"/></div>
+![Example of Lighting Model Parameter Setting](media/analysis05_15.png){.center width="80%"}
 
 ##### (12) '!color_mapping_bar_on' '!scale_marking_on' '!num_of_scales' (P2-16 P2-17 P2-18)
 
@@ -3142,13 +3129,13 @@ When the ambient_coef is increased, information on the 3D depth direction is imp
 |`!scale_marking_on`    |`color_mapping_bar`のメモリの有無を指定する<br/>0: off 1: on (省略値: 0)|
 |`!num_of_scales`       |メモリの数を指定する。<br/> (省略値: 3)|
 
-<div style="text-align:center;"><img alt="Figure 7.4.14: Example of Color Mapping Bar Display" src="media/analysis05_16.png" width="80%"/></div>
+![Example of Color Mapping Bar Display](media/analysis05_16.png){.center width="80%"}
 
 ##### (13) `!font_size` `!font_color` `!backgroud_color` (P2-19 P2-20 P2-21)
 
 Specifies the background color and character font.
 
-<div style="text-align:center;"><img alt="Figure 7.4.15: Example of Background and Font Setting" src="media/analysis05_17.png" width="80%"/></div>
+![Example of Background and Font Setting](media/analysis05_17.png){.center width="80%"}
 
 **Figure 7.4.15: Example of Background and Font Setting**
 
@@ -3156,7 +3143,7 @@ Specifies the background color and character font.
 
 Specifies the physical values of the isosurface to be visualized when `surface_style=2`.
 
-<div style="text-align:center;"><img alt="Figure 7.4.16: Example of data_comp, data_subcomp and data_comp_name Setting" src="media/analysis05_18.png" width="80%"/></div>
+![Example of data_comp, data_subcomp and data_comp_name Setting](media/analysis05_18.png){.center width="80%"}
 
 **Figure 7.4.16: Example of data_comp, data_subcomp and data_comp_name Setting**
 

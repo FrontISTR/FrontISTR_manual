@@ -1,8 +1,12 @@
-.center {
+p img.center {
   display: block;
   margin: 0 auto;
+  text-align: center;
 }
 
+td, th {
+  padding: 0.2em 0.6em;
+}
 
 @media print {
   @page {

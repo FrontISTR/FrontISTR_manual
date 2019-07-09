@@ -11,7 +11,7 @@ mkdocsの他、Python-MarkdownとMath extension for Python-Markdownを利用す�
 
 ~~~
 % pip install mkdocs mkdocs-windmill
-% pip install python-markdown python-markdown-math
+% pip install python-markdown-math
 ~~~
 
 ## フォルダ構成

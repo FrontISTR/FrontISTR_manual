@@ -6,13 +6,13 @@ This analysis uses the data of `tutorial/12_dynamic_beam`.
 
 The target of this analysis is a cantilever whose shape and mesh data are shown in Figs. 4.12.1 and 4.12.2, respectively. The mesh is a tetrahedral secondary element with 240 elements and 525 nodes.
 
+![Shape of the cantilever](./media/tutorial12_01.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial12_01.png" width="350px"><br>
 Fig. 4.12.1: Shape of the cantilever
 </div>
 
+![Mesh data of the cantilever](./media/tutorial12_02.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial12_02.png" width="350px"><br>
 Fig. 4.12.2: Mesh data of the cantilever
 </div>
 
@@ -51,8 +51,8 @@ A linear dynamic analysis is performed after restraining the displacement of the
 
 The time-series display of the displacement of the monitoring nodes, specified with the analysis control data (load nodes, nodal number 3121) and created with Microsoft Excel, is shown in Fig. 4.12.3. Furthermore, a part of the displacement output files of the monitoring nodes (dyna\_disp\_p1.out) is shown in Fig. 4.12.3 as numerical data of the analysis.
 
+![Time-series displacement of monitoring nodes](./media/tutorial12_03.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial12_03.png" width="350px"><br>
 Fig. 4.12.3: Time-series displacement of monitoring nodes
 </div>
 

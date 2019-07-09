@@ -15,8 +15,8 @@
 解析制御データで指定したモニタリング節点（荷重節点、節点番号3121）の変位の時系列表示をMicrosoft
 Excelで作成して図4.13.1に示します。また、解析結果の数値データとして、モニタリング節点の変位出力ファイル（dyna_disp_p1.out）の一部を以下に示します。
 
+![モニタリング節点の変位時系列](./media/tutorial13_01.png){.center width="350px"}
 <div style="text-align: center;">
-<img src="./media/tutorial13_01.png" width="350px"><br>
 図4.13.1　モニタリング節点の変位時系列
 </div>
 
