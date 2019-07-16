@@ -8,17 +8,17 @@
 固体力学の平衡方程式、力学的境界条件、幾何学的境界条件（基本境界条件）は次式で与えられる（図2.1.1参照）。
 
 \begin{equation}
-\nabla \cdot \sigma + \overline{b} = 0 \; in \; V
+\nabla \cdot \sigma + \overline{b} = 0 \quad in \ V
 \label{eq:2.1.1}
 \end{equation}
 
 \begin{equation}
-\sigma \cdot n = \overline{t} \; on \; S_t
+\sigma \cdot n = \overline{t} \quad on \ S_t
 \label{eq:2.1.2}
 \end{equation}
 
 \begin{equation}
-u = \overline{u} \; on \; S_u
+u = \overline{u} \quad on \ S_u
 \label{eq:2.1.3}
 \end{equation}
 
@@ -31,7 +31,7 @@ u = \overline{u} \; on \; S_u
 微小変形問題におけるひずみ・変位関係式は次式で与えられる。
 
 \begin{equation}
-\varepsilon = \nabla _s u
+\varepsilon = \nabla_S u
 \label{eq:2.1.4}
 \end{equation}
 
@@ -42,26 +42,26 @@ u = \overline{u} \; on \; S_u
 \label{eq:2.1.5}
 \end{equation}
 
-ここで\( C \)は4階の弾性テンソルである。
+ここで\(C\)は4階の弾性テンソルである。
 
 ### 仮想仕事の原理
 
 基礎方程式\( \eqref{eq:2.1.1} \)、式 \( \eqref{eq:2.1.2} \)、式\( \eqref{eq:2.1.3} \)と等価である、微小変形線形弾性問題についての仮想仕事の原理は次式のように表される。
 
 \begin{equation}
-\int_V \sigma : \delta \varepsilon dV = \int_{S_t} \overline{t} \cdot \delta u dS + \int_V \overline{b} \cdot \delta u dV
+\int_V \sigma : \delta \varepsilon\, dV = \int_{S_t} \overline{t} \cdot \delta u\, dS + \int_V \overline{b} \cdot \delta u\,dV
 \label{eq:2.1.6}
 \end{equation}
 
 \begin{equation}
-\delta u = 0 \; on \; S_u
+\delta u = 0 \quad on \ S_u
 \label{eq:2.1.7}
 \end{equation}
 
 さらに構成式\( \eqref{eq:2.1.5} \)を考慮して式\( \eqref{eq:2.1.6} \)は次式のように表される。
 
 \begin{equation}
-\int_V (C : \varepsilon) : \delta \varepsilon dV = \int_{S_t} \overline{t} \cdot \delta u dS + \int_V \overline{b} \cdot \delta u dV
+\int_V (C : \varepsilon) : \delta \varepsilon\, dV = \int_{S_t} \overline{t} \cdot \delta u\, dS + \int_V \overline{b} \cdot \delta u\, dV
 \label{eq:2.1.8}
 \end{equation}
 

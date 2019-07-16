@@ -69,34 +69,25 @@ If Eq.\(\eqref{eq:2.4.1}\) is discretized with the Galerkin method,
 
 However,
 
-\begin{align}
-[K] &= \int
-\left(
-kxx \frac{\partial \lbrace N \rbrace^\mathrm{T}}{\partial x}
-    \frac{\partial \lbrace N \rbrace}{\partial x}
-+
-kyy \frac{\partial \lbrace N \rbrace^\mathrm{T}}{\partial y}
-    \frac{\partial \lbrace N \rbrace}{\partial y}
-+
-kzz \frac{\partial \lbrace N \rbrace^\mathrm{T}}{\partial z}
-    \frac{\partial \lbrace N \rbrace}{\partial z}
-\right)
-dV \nonumber \\\
-&+ \int hc \lbrace N \rbrace^\mathrm{T} \lbrace N \rbrace ds
- + \int hr \lbrace N \rbrace^\mathrm{T} \lbrace N \rbrace ds
+\begin{equation}
+K = \int\left( k_x \frac{\partial N^T}{\partial x}\frac{\partial N}{\partial x}
++ k_y \frac{\partial N^T}{\partial y}\frac{\partial N}{\partial y}
++ k_z \frac{\partial N^T}{\partial z}\frac{\partial N}{\partial z} \right) dV
++ \int hc N^T N ds + \int hr N^T N ds
 \label{eq:2.4.9}
-\end{align}
+\end{equation}
 
 \begin{equation}
-[M] = \int \rho c \lbrace N \rbrace^\mathrm{T} \lbrace N \rbrace dV
+M = \int \rho c N^T N dV
 \label{eq:2.4.10}
 \end{equation}
 
-\begin{align}
-\lbrace F\rbrace &= \int Q \lbrace N \rbrace^\mathrm{T} dV - \int q_s \lbrace N \rbrace^\mathrm{T} dS + \int{hc} T c \lbrace N \rbrace^\mathrm{T} dS \nonumber \\\
-&+ \int{hrTr} ({T+Tr}) ({T^2 + T r^2}) \lbrace N \rbrace^\mathrm{T} dS
+\begin{equation}
+F = \int Q N^T dV - \int q_s N^T dS
++ \int{hc} T c N^T dS
++ \int{hcTr} ({T+Tr}) ({T^2 + T r^2}) N^T dS
 \label{eq:2.4.11}
-\end{align}
+\end{equation}
 
 \begin{equation}
 \lbrace N \rbrace = (N^1, N^2, \ldots, Ni)

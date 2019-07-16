@@ -32,18 +32,18 @@ K \overline{U_J} &= \overline{\lambda_J} M \overline{U_J}
 \label{eq:2.6.4}
 \end{align}
 
-If this multiplied by \(\overline{U_J}^\mathrm{T}\), the following equation is obtained:
+If this multiplied by \(\overline{U_J}^T\), the following equation is obtained:
 
 \begin{align}
-{U_j}^\mathrm{T} K \overline{U_J} &= \overline{\lambda_J} {U_j}^\mathrm{T} M \overline{U_J} \nonumber \\\
-{\overline{U_J}}^\mathrm{T} K U_j &= \lambda_j \overline{U_J}^\mathrm{T} M U_j
+{U_j}^T K \overline{U_J} &= \overline{\lambda_J} {U_j}^T M \overline{U_J} \nonumber \\\
+{\overline{U_J}}^T K U_j &= \lambda_j \overline{U_J}^T M U_j
 \label{eq:2.6.5}
 \end{align}
 
 From Eq.\(\eqref{eq:2.6.5}\), it becomes
 
 \begin{equation}
-0 = (\lambda_j - \overline{\lambda_J}) \overline{U_J}^\mathrm{T} M U_j
+0 = (\lambda_j - \overline{\lambda_J}) \overline{U_J}^T M U_j
 \label{eq:2.6.6}
 \end{equation}
 
@@ -72,14 +72,14 @@ K U_j &= \lambda_j M U_j
 From this, the following is obtained:
 
 \begin{equation}
-(\lambda_i - \lambda_j) {U_j}^\mathrm{T} M U_j = 0
+(\lambda_i - \lambda_j) {U_j}^T M U_j = 0
 \label{eq:2.6.10}
 \end{equation}
 
 If the eigenvalue is different, it becomes
 
 \begin{equation}
-{U_j}^\mathrm{T} M U_i = 0
+{U_j}^T M U_i = 0
 \label{eq:2.6.11}
 \end{equation}
 
@@ -129,14 +129,14 @@ If the real and imaginary parts of the expansion coefficient of \(b_i(t)\) are d
 
 \begin{equation}
 b_{jR} =
-\frac{ {U_j}^\mathrm{T}F_R({\omega_j}^2 - \Omega^2) + {U_j}^\mathrm{T}F_I(\alpha+\beta{\omega_j}^2)\Omega }
+\frac{ {U_j}^T F_R({\omega_j}^2 - \Omega^2) + {U_j}^T F_I(\alpha+\beta{\omega_j}^2)\Omega }
      { ({\omega_j}^2 - \Omega^2)^2 + (\alpha + \beta{\omega_j}^2)^2 \Omega^2 }
 \label{eq:2.6.18}
 \end{equation}
 
 \begin{equation}
 b_{jI} =
-\frac{ {U_j}^\mathrm{T}F_I({\omega_j}^2 - \Omega^2) + {U_j}^\mathrm{T}F_R(\alpha+\beta{\omega_j}^2)\Omega }
+\frac{ {U_j}^T F_I({\omega_j}^2 - \Omega^2) + {U_j}^T F_R(\alpha+\beta{\omega_j}^2)\Omega }
      { ({\omega_j}^2 - \Omega^2)^2 + (\alpha + \beta{\omega_j}^2)^2 \Omega^2 }
 \label{eq:2.6.19}
 \end{equation}

@@ -173,7 +173,7 @@ In this case, if mass matrix \(M\) is set as a concentrated mass matrix, and the
 Therefore, from Eq.\(\eqref{eq:2.5.15}\), \(U(t+\Delta t)\) can be determined by the following equation:
 
 \begin{equation}
-U(t + \Delta t)  = \\
+U(t + \Delta t)  = 
 \frac{1}{\left(\cfrac{1}{\Delta t^2}M + \cfrac{1}{2\Delta t}C\right)} \\
 \left \{
 F(t) - Q(t) - \frac{1}{\Delta t^2} M [2U(t) - U(t-\Delta t)] - \frac{1}{2\Delta t} C(t-\Delta t) U

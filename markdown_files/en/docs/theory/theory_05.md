@@ -59,7 +59,7 @@ k_{ij} = \bar{k}_{ji}
 In this study, it is assumed that the matrices are symmetric and positive definite. A positive definite matrix is a symmetric matrix with all positive eigenvalues; that is, it always satisfies Eq.\(\eqref{eq:2.3.7}\):
 
 \begin{equation}
-x^\mathrm{T} A x > 0
+x^{t} A x > 0
 \label{eq:2.3.7}
 \end{equation}
 

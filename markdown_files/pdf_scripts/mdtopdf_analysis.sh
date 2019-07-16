@@ -5,18 +5,32 @@ FILES="index.md analysis_01.md analysis_02.md analysis_03.md analysis_04.md anal
 
 for i in en ja
 do
+  echo $i
+  if [ $i = "ja" ]; then
+    docclass="bxjsarticle"
+  else
+    docclass="article"
+  fi
+
   cd ../$i/docs/analysis
   cat $FILES > tmp.md
-  pandoc -f markdown+link_attributes+tex_math_dollars \
+  pandoc \
     tmp.md \
-    -t html5 \
-    -o ../../../pdf/analysis_$i.pdf \
-    -s --mathjax --pdf-engine=wkhtmltopdf \
-    --metadata pagetitle="FrontISTR Analysis flow manual" \
-	  --toc --number-sections --css ../css/extra.css \
-    -V papersize:a4 -V margin-left:18.7mm -V margin-right:18.7mm \
-	  -V margin-top:18.7mm -V margin-bottom:18.7mm
-    rm -rf tmp.md *.html
-    cd $CWD
+    -o analysis_$i.pdf \
+    -f markdown+header_attributes+fenced_code_blocks+link_attributes+tex_math_single_backslash-tex_math_dollars+definition_lists \
+    -t latex-smart \
+    --pdf-engine=lualatex \
+    -V documentclass=$docclass \
+    -V classoption=pandoc,ja=standard \
+    -s --toc --number-sections \
+    -V papersize=a4 \
+    -V geometry:left=18.7mm,right=18.7mm,top=18.7mm,bottom=25.4mm \
+    --css ../css/extra.css \
+    --listings \
+    --wrap=preserve \
+    --highlight-style tango \
+    -V titlepage=true
+  rm -rf tmp.md *.html
+  cd $CWD
 done
 

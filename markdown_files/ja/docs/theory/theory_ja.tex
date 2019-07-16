@@ -1,0 +1,1870 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[a4paper,pandoc,ja=standard]{bxjsarticle}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={FrontISTR 理論マニュアル},
+            pdfauthor={FrontISTR Commons},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[left=18.7mm,right=18.7mm,top=18.7mm,bottom=25.4mm]{geometry}
+\usepackage{listings}
+\newcommand{\passthrough}[1]{#1}
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\title{FrontISTR 理論マニュアル}
+\author{FrontISTR Commons}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\hypertarget{frontistr-ux7406ux8ad6ux30deux30cbux30e5ux30a2ux30eb}{%
+\section{FrontISTR 理論マニュアル}\label{frontistr-ux7406ux8ad6ux30deux30cbux30e5ux30a2ux30eb}}
+
+本ソフトウェアは文部科学省次世代IT基盤構築のための研究開発「イノベーション基盤シミュレーションソフトウェアの研究開発」プロジェクトによる成果をシーズとして，継続的に開発されている並列有限要素解析プログラムです。
+本ソフトウェアを無償または営利目的でご使用になる場合、「MITライセンス」をご了承頂くことが前提となります。
+
+\href{https://www.frontistr.com}{\includegraphics[width=3.64583in,height=\textheight]{../image/FrontISTR_logo.png}}
+
+\begin{longtable}[]{@{}cl@{}}
+\toprule
+\begin{minipage}[b]{0.55\columnwidth}\centering
+項目\strut
+\end{minipage} & \begin{minipage}[b]{0.39\columnwidth}\raggedright
+説明\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.55\columnwidth}\centering
+ソフトウェア名称\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\raggedright
+FrontISTR\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.55\columnwidth}\centering
+バージョン\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\raggedright
+5.0\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.55\columnwidth}\centering
+ライセンス形態\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\raggedright
+MIT License\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.55\columnwidth}\centering
+問い合わせ先\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\raggedright
+一般社団法人 FrontISTR Commons東京都文京区弥生二丁目11番16号(東京大学大学院工学系研究科 総合研究機構内)E-mail：support@frontistr.com\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{ux30deux30cbux30e5ux30a2ux30ebux30eaux30b9ux30c8}{%
+\subsection{マニュアルリスト}\label{ux30deux30cbux30e5ux30a2ux30ebux30eaux30b9ux30c8}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{../intro/index.md}{イントロダクション}
+\item
+  \href{../install/index.md}{インストールマニュアル}
+\item
+  \href{../theory/index.md}{理論マニュアル}
+\item
+  \href{../analysis/index.md}{解析マニュアル}
+\item
+  \href{../tutorial/index.md}{チュートリアル}
+\end{itemize}
+
+本マニュアルでは、大規模並列FEM非線形構造解析プログラムFrontISTRで用いられる、有限要素法（Finite Element Method）による解析手法について説明します。
+
+固体の応力解析手法については、まず微小変形線形弾性静解析手法について示し、引き続き大変形問題を扱う際に必要となる幾何学的非線形解析手法、弾塑性解析手法について示します。
+さらにFEMによる応力解析の結果を利用して得られる破壊力学パラメータを評価する方法についてまとめたものを示します。
+次に、固有値解析および熱伝導解析手法について示します。
+
+\hypertarget{ux672cux30deux30cbux30e5ux30a2ux30ebux306eux8a18ux8f09ux5185ux5bb9}{%
+\subsection{本マニュアルの記載内容}\label{ux672cux30deux30cbux30e5ux30a2ux30ebux306eux8a18ux8f09ux5185ux5bb9}}
+
+\begin{itemize}
+\tightlist
+\item
+  静的解析
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{theory_01.md}{微小変形線形弾性静解析}
+  \item
+    \href{theory_02.md}{非線形静解析手法}
+  \end{itemize}
+\item
+  動的解析
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{theory_03.md}{動的解析手法}
+  \item
+    \href{theory_05.md}{固有値解析}
+  \item
+    \href{theory_06.md}{周波数応答解析}
+  \end{itemize}
+\item
+  \href{theory_04.md}{熱伝導解析}
+\item
+  \href{theory_07.md}{参考文献}
+\end{itemize}
+
+\hypertarget{ux5faeux5c0fux5909ux5f62ux7ddaux5f62ux5f3eux6027ux9759ux89e3ux6790}{%
+\subsection{微小変形線形弾性静解析}\label{ux5faeux5c0fux5909ux5f62ux7ddaux5f62ux5f3eux6027ux9759ux89e3ux6790}}
+
+ここでは微小変形理論に基づく弾性静解析についての定式化を示す。応力・ひずみ関係として線形弾性を仮定している。
+
+\hypertarget{ux57faux790eux65b9ux7a0bux5f0f}{%
+\subsubsection{基礎方程式}\label{ux57faux790eux65b9ux7a0bux5f0f}}
+
+固体力学の平衡方程式、力学的境界条件、幾何学的境界条件（基本境界条件）は次式で与えられる（図2.1.1参照）。
+
+\begin{equation}
+\nabla \cdot \sigma + \overline{b} = 0 \quad in \ V
+\label{eq:2.1.1}
+\end{equation}
+
+\begin{equation}
+\sigma \cdot n = \overline{t} \quad on \ S_t
+\label{eq:2.1.2}
+\end{equation}
+
+\begin{equation}
+u = \overline{u} \quad on \ S_u
+\label{eq:2.1.3}
+\end{equation}
+
+ここで、\(\sigma\)は応力、\(\overline{t}\)は表面力、\(S_t\)は物体力であり、\(S_t\)は力学的境界、\(S_u\)は幾何学的境界を表す。
+
+\begin{figure}
+\centering
+\includegraphics[width=0.3\textwidth,height=\textheight]{media/theory01_01.png}
+\caption{固体力学における境界値問題(微小変形問題)}
+\end{figure}
+
+図 2.1.1 固体力学における境界値問題(微小変形問題)
+
+微小変形問題におけるひずみ・変位関係式は次式で与えられる。
+
+\begin{equation}
+\varepsilon = \nabla_S u
+\label{eq:2.1.4}
+\end{equation}
+
+また、線形弾性体での応力・ひずみ関係式（構成式）は次式で与えられる。
+
+\begin{equation}
+\sigma = C : \varepsilon
+\label{eq:2.1.5}
+\end{equation}
+
+ここで\(C\)は4階の弾性テンソルである。
+
+\hypertarget{ux4eeeux60f3ux4ed5ux4e8bux306eux539fux7406}{%
+\subsubsection{仮想仕事の原理}\label{ux4eeeux60f3ux4ed5ux4e8bux306eux539fux7406}}
+
+基礎方程式\(\eqref{eq:2.1.1}\)、式 \(\eqref{eq:2.1.2}\)、式\(\eqref{eq:2.1.3}\)と等価である、微小変形線形弾性問題についての仮想仕事の原理は次式のように表される。
+
+\begin{equation}
+\int_V \sigma : \delta \varepsilon\, dV = \int_{S_t} \overline{t} \cdot \delta u\, dS + \int_V \overline{b} \cdot \delta u\,dV
+\label{eq:2.1.6}
+\end{equation}
+
+\begin{equation}
+\delta u = 0 \quad on \ S_u
+\label{eq:2.1.7}
+\end{equation}
+
+さらに構成式\(\eqref{eq:2.1.5}\)を考慮して式\(\eqref{eq:2.1.6}\)は次式のように表される。
+
+\begin{equation}
+\int_V (C : \varepsilon) : \delta \varepsilon\, dV = \int_{S_t} \overline{t} \cdot \delta u\, dS + \int_V \overline{b} \cdot \delta u\, dV
+\label{eq:2.1.8}
+\end{equation}
+
+式\(\eqref{eq:2.1.8}\)において、\(\varepsilon\)はひずみテンソル、\(C\)は4階の弾性テンソルである。
+ここで、応力テンソル\(\sigma\)とひずみテンソル\(\varepsilon\)を、
+それぞれベクトル形式で\(\hat{\sigma}\)、\(\hat{\varepsilon}\)と表すと、構成式\(\eqref{eq:2.1.5}\)は次式のように表される。
+
+\begin{equation}
+\hat{\sigma} = D \hat{\varepsilon}
+\label{eq:2.1.9}
+\end{equation}
+
+ここで、\(D\) は弾性マトリクスである。
+
+ベクトル形式で表された応力\(\hat{\sigma}\)、\(\hat{\varepsilon}\)および式\(\eqref{eq:2.1.9}\)を考慮して、式\(\eqref{eq:2.1.8}\)は次式のように表わされる。
+
+\begin{equation}
+\int_V \hat{\varepsilon}^T D \delta \hat{\varepsilon} dV = \int_{S_t}
+\delta u^T \overline{t} dS + \int_V \delta u^T \overline{b} dV
+\label{eq:2.1.10}
+\end{equation}
+
+式\(\eqref{eq:2.1.10}\)および式\(\eqref{eq:2.1.7}\)が、本開発コードにおいて離散化される仮想仕事の原理である。
+
+\hypertarget{ux5b9aux5f0fux5316}{%
+\subsubsection{定式化}\label{ux5b9aux5f0fux5316}}
+
+仮想仕事の原理式\(\eqref{eq:2.1.10}\)を有限要素ごとに離散化して次式を得る。
+
+\begin{equation}
+\sum_{e} = \int_{V^e} \hat{\varepsilon}^T D \delta \hat{\varepsilon} dV = \sum_{e} \int_{S^e_t}
+\delta u^T \overline{t} dS + \sum_{e} \int_{V^e} \delta u^T \overline{b} dV
+\label{eq:2.1.11}
+\end{equation}
+
+要素ごとに、要素を構成する節点の変位を用いて変位場を次式のように内挿する。
+
+\begin{equation}
+u = \sum^m_{i=1} N_i u_i = N U
+\label{eq:2.1.12}
+\end{equation}
+
+このときひずみは、式\(\eqref{eq:2.1.4}\)を用いて次式のように与えられる。
+
+\begin{equation}
+\hat{\varepsilon} = B U
+\label{eq:2.1.13}
+\end{equation}
+
+式\(\eqref{eq:2.1.12}\)、式\(\eqref{eq:2.1.13}\)を式\(\eqref{eq:2.1.11}\)に代入して、次式を得る。
+
+\begin{equation}
+\sum_e \delta U^T ( \int_{V^e} B^T DB dV )
+U = \sum_e \delta U^T \cdot \int_{S_t^e}
+N^T \overline{t} dS + \sum_{e} \delta U^T \int_{V^e} N^T
+\overline{b} dV
+\label{eq:2.1.14}
+\end{equation}
+
+式\(\eqref{eq:2.1.14}\)は次式のようにまとめることができる。
+
+\begin{equation}
+\delta U^T K U = \delta U^T F
+\label{eq:2.1.15}
+\end{equation}
+
+ここで、
+式\(\eqref{eq:2.1.16}\)、式\(\eqref{eq:2.1.17}\)で定義されるマトリクスおよびベクトルの成分は、有限要素ごとに計算し、重ねあわせることができる。
+
+\begin{equation}
+K = \sum_e \int_{V^e} B^T DB dV
+\label{eq:2.1.16}
+\end{equation}
+
+\begin{equation}
+F = \sum_e (\int_{S_t^e} N^T \overline{t} dS + \int_{V^e} N^T \overline{b} dV )
+\label{eq:2.1.17}
+\end{equation}
+
+式\(\eqref{eq:2.1.15}\)が、任意の仮想変位\(\delta U\)について成立することにより次式を得る。
+
+\begin{equation}
+K U = F
+\label{eq:2.1.18}
+\end{equation}
+
+一方、変位境界条件式\(\eqref{eq:2.1.3}\)は次式のように表される。
+
+\begin{equation}
+U = \overline{U}
+\label{eq:2.1.19}
+\end{equation}
+
+式\(\eqref{eq:2.1.18}\)を拘束条件式\(\eqref{eq:2.1.19}\)のもとで解くことにより、節点変位\(U\)を決定することができる。
+
+\hypertarget{ux975eux7ddaux5f62ux9759ux89e3ux6790ux624bux6cd5}{%
+\subsection{非線形静解析手法}\label{ux975eux7ddaux5f62ux9759ux89e3ux6790ux624bux6cd5}}
+
+前述したように微小変形問題の解析においては、平衡方程式などの基礎方程式と等価な仮想仕事の原理を用いて、この式を有限要素により離散化することによって有限要素解析を行うことができる。 構造物の大変形を扱う有限変形問題の解析においても基本的には仮想仕事の原理が用いられる点は同様である。
+
+しかしながら、有限変形問題においては、たとえ材料の線形性を仮定しても仮想仕事の原理式は変位に関して非線形な方程式になる。
+非線形式を解くためには通常、反復法による繰り返し計算が用いられる。
+
+その反復計算においては、ある小さな荷重増分に対して区分的に行なわれ、それを積み重ねて最終的な変形状態へと至る増分解析手法が用いられる。
+微小変形問題を仮定した場合、ひずみや応力を定義するための配置は、変形前と変形後とでとくに区別を行なっていなかった。
+すなわち、微小変形を仮定している場合には基礎方程式を記述する配置は変形前であっても変形後であっても問題にはならなかった。
+
+しかしながら、有限変形問題において増分解析を実施する場合、参照配置として最初の状態を参照するか、増分の開始点を参照するかの選択が可能である。
+前者をtotal Lagrange法、後者をupdated Lagrange法と呼ぶ。詳細については章末参考文献などを参照されたい。
+
+本開発コードでは、total Lagrange法およびupdated Lagrange法の双方を採用している。
+
+\hypertarget{ux5e7eux4f55ux5b66ux7684ux975eux7ddaux5f62ux89e3ux6790ux624bux6cd5}{%
+\subsubsection{幾何学的非線形解析手法}\label{ux5e7eux4f55ux5b66ux7684ux975eux7ddaux5f62ux89e3ux6790ux624bux6cd5}}
+
+\hypertarget{ux4eeeux60f3ux4ed5ux4e8bux5f0fux306eux5897ux5206ux5206ux89e3}{%
+\paragraph{仮想仕事式の増分分解}\label{ux4eeeux60f3ux4ed5ux4e8bux5f0fux306eux5897ux5206ux5206ux89e3}}
+
+時刻\(t\)までの状態が既知であり、時刻\(t’=t + \Delta t\)の状態を未知とする増分解析を想定する（図2.2.1参照）。
+静的境界値問題の平衡方程式、力学的境界条件、幾何学的境界条件（基本境界条件）は次の通りである。
+
+\begin{equation}
+\nabla_{t'_x} \cdot ^{t'} \sigma +^{t'} \overline{b} =0 \; in \; V
+\label{eq:2.2.1}
+\end{equation}
+
+\begin{equation}
+^{t'} \sigma \cdot^{t'} n = ^{t'} \overline{t} \; on \; ^{t'}s_t
+\label{eq:2.2.2}
+\end{equation}
+
+\begin{equation}
+^{t'} u = ^{t'} \overline{u} \; on \; ^{t'} s_u
+\label{eq:2.2.3}
+\end{equation}
+
+ただし\(^{t'} \sigma\)，\(^{t'} \overline{b}\)，\(^{t'} n\)，\(^{t'} \overline{t}\)，\(^{t'} \overline{u}\)は、それぞれ時刻\(t’\)におけるCauchy応力(真応力)、物体力、物体表面での外向き単位法線ベクトル、既定された表面力、既定された変位である。
+これらの式は、時刻\(t’\)での配置\(^{t'}v\), \(^{t'}s_t\), \(^{t'}s_u\)に対して記述されるものである。
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth,height=\textheight]{media/theory02_01.png}
+\caption{増分解析の概念}
+\end{figure}
+
+図 2.2.1　増分解析の概念
+
+\hypertarget{ux4eeeux60f3ux4ed5ux4e8bux306eux539fux7406-1}{%
+\subsubsection{仮想仕事の原理}\label{ux4eeeux60f3ux4ed5ux4e8bux306eux539fux7406-1}}
+
+式\(\eqref{eq:2.2.1}\)の平衡方程式と式\(\eqref{eq:2.2.2}\)の力学的境界条件と等価な仮想仕事の原理は次式で与えられる。
+
+\begin{equation}
+\int_{^{t'}v}{^{t'} \sigma} : \delta^{t'} A_{(L)} \, d^{t'}v =
+\int_{^{t'} s_t}^{t'}
+\overline{t}
+\cdot \delta u \, d^{t'}s +
+\int_{V}^{t'}
+\overline{b} \cdot \delta u \, d^{t'}v
+\label{eq:2.2.4}
+\end{equation}
+
+ここで、\(^{t'} A_L\)はAlmansiひずみテンソルの線形部分であり、具体的には次式で表される。
+
+\begin{equation}
+^{t'} A_{(L)} = \frac{1}{2}
+\left\lbrace \frac{\partial ^{t'} u}{\partial ^{t'} x} + \left( \frac{ \partial ^{t'} u}{\partial ^{t'} x} \right) ^T \right\rbrace
+\label{eq:2.2.5}
+\end{equation}
+
+式\(\eqref{eq:2.2.4}\)を幾何学的境界条件、ひずみ変位関係式、応力ひずみ関係式とともに解けばよいのであるが、
+式\(\eqref{eq:2.2.4}\)は時刻\(t’\)の配置で記述されており、現段階で時刻\(t’\)の配置は未知である。
+そこで、時刻 \(0\) の配置 \(V\) または時刻 \(t\) での配置 \(^{t'} v\) を参照した定式化が行われる。
+
+\hypertarget{total-lagrangeux6cd5ux306eux5b9aux5f0fux5316}{%
+\paragraph{total Lagrange法の定式化}\label{total-lagrangeux6cd5ux306eux5b9aux5f0fux5316}}
+
+ここでは、開発コードで用いられるtotal Lagrange法に基づく定式化を示す。
+
+時刻 \(0\) の初期配置を基準とする時刻 \(t'\) での仮想仕事の原理式は、次式で与えられる。
+
+\begin{equation}
+\int_{V}\,^{t'}_{0} S:\delta_0^{t'}
+E dV=^{t'}\delta R
+\label{eq:2.2.6}
+\end{equation}
+
+\begin{equation}
+^{t'} \delta R =
+\int_{S_t} \,
+^{t'}_0 \overline{t} \cdot \delta u dS+
+\int_{V} \,
+^{t'}_{0} \overline{b} \cdot \delta u dV
+\label{eq:2.2.7}
+\end{equation}
+
+ただし\(^{t'}_0 S\), \(^{t'}_0 E\)は、それぞれ時刻\(0\)の初期配置を基準とする時刻\(t’\)での2nd Piola-Kirchhoff応力テンソル、Green-Lagrangeひずみテンソルを表す。
+また、\(_{0}^{t'}\overline{t}\), \(\,_0^{t'}\overline{b}\)は、公称表面力ベクトル、初期配置の単位体積あたりに換算した物体力であり、式\(\eqref{eq:2.2.1}\)、式\(\eqref{eq:2.2.2}\)、式\(\eqref{eq:2.2.3}\)と関連させて、次式で与えられる。
+
+\begin{equation}
+^{t'}_0\overline{t}=\frac{d^{t'}s_{t'}}{dS}\overline{t}
+\label{eq:2.2.8}
+\end{equation}
+
+\begin{equation}
+^{t'}_0\overline{b}=\frac{d^{t'}v_{t'}}{dV}\overline{b}
+\label{eq:2.2.9}
+\end{equation}
+
+時刻\(t\)におけるGreen-Lagrangeひずみテンソルは次式で定義される。
+
+\begin{equation}
+^{t'}_{0} E=\frac{1}{2}
+\left\lbrace
+  \frac{\partial ^{t}u}{\partial X}
+ +\left(\frac{\partial ^{t} u}{\partial X} \right)^T
+ +\left(\frac{\partial ^{t} u}{\partial X}\right)^T
+ \cdot \frac{\partial ^{t} u}{\partial X}
+\right\rbrace
+\label{eq:2.2.10}
+\end{equation}
+
+ここで、時刻\(t'\)における変位、2nd Piola-Kirchhoff応力\(^{t'} u\), \(_{0}^{t'} S\)を次式のように増分分解して表す。
+
+\begin{equation}
+^{t'} u =^{t} u + \Delta u
+\label{eq:2.2.11}
+\end{equation}
+
+\begin{equation}
+_{0}^{t'} S = _{0}^{t} S + \Delta S
+\label{eq:2.2.12}
+\end{equation}
+
+このとき、変位増分に関連して、Green-Lagrangeひずみの増分は次式で定義される。
+
+\begin{equation}
+_{0}^{t'} E = _{0}^{t} E + \Delta E
+\label{eq:2.2.13}
+\end{equation}
+
+\begin{equation}
+\Delta E = \Delta E_{L} + \Delta E_{NL}
+\label{eq:2.2.14}
+\end{equation}
+
+\begin{equation}
+\Delta E_L=\frac{1}{2}
+\left\lbrace
+\frac{\partial \Delta u}{\partial X}
++\left(\frac{\partial \Delta u}{\partial X}\right)^T
++\left(\frac{\partial \Delta u}{\partial X} \right)^T\cdot
+\frac{\partial ^{t} u}{\partial X}
++\left(\frac{\partial ^{t} u}{\partial X} \right)^T
+\cdot\frac{\partial \Delta u}{\partial X} \right\rbrace
+\label{eq:2.2.15}
+\end{equation}
+
+\begin{equation}
+\Delta E_{NL} = \frac{1}{2}\left(\frac{\partial \Delta u}{\partial X}\right)^T\cdot\frac{\partial \Delta u}{\partial X}
+\label{eq:2.2.16}
+\end{equation}
+
+式\(\eqref{eq:2.2.11}\)、式\(\eqref{eq:2.2.12}\)、式\(\eqref{eq:2.2.13}\)、式\(\eqref{eq:2.2.14}\)、式\(\eqref{eq:2.2.15}\)、式\(\eqref{eq:2.2.16}\)を、式\(\eqref{eq:2.2.6}\)、式\(\eqref{eq:2.2.7}\)に代入して次式を得る。
+
+\begin{equation}
+\int_{V} \Delta S: (\delta \Delta E_L + \delta \Delta E_{NL})dV + \int_{V}\,_0^{t} S : \delta \Delta E_{NL} dV = ^{t'} \delta R - \int_V{_0^t S} : \delta \Delta E_LdV
+\label{eq:2.2.17}
+\end{equation}
+
+ここで、\(\Delta S\)は、\(\Delta E_L\)と4階テンソル\(^{t}_{0} C\)と関連づけて次式のように表されると仮定する。
+
+\begin{equation}
+\Delta S=^t_0 C:\Delta_t E_{L}
+\label{eq:2.2.18}
+\end{equation}
+
+式\(\eqref{eq:2.2.17}\)に式\(\eqref{eq:2.2.18}\)を代入し、\(\Delta u\) の二次以上の項を有する \(\Delta S :\delta \Delta E_{NL}\) を省略して次式を得る。
+
+\begin{equation}
+\int_V ( ^t_{0}
+C \Delta E_L ) : \delta \Delta E_L dV + \int_V\,^t_0 S : \delta \Delta E_{NL} dV = _0^{t'}\delta R - \int_V{_0^t S} : \delta \Delta E_{L} dV
+\label{eq:2.2.19}
+\end{equation}
+
+式\(\eqref{eq:2.2.19}\)を有限要素により離散化して次式を得る。
+
+\begin{equation}
+\delta U^T ( ^t_0 K_L + ^t_0 K_{NL} ) \Delta U = \delta U^{T}\,_{0}^{t'} F - \partial U^T\,^t_{0} Q
+\label{eq:2.2.20}
+\end{equation}
+
+ここで、\(^t_0\ K_L\), \(^t_0 K_{NL}\), \(_0^{t'} F\), \(^t_0 Q\) は、それぞれ、初期変位マトリクス、初期応力マトリクス、外力ベクトル、内力ベクトルである。
+
+したがって、時刻\(t\)の状態から、時刻\(t’\)の状態を求めるための漸化式は次式で与えられる。
+
+\(i = 0\)
+
+Step1 :
+\(\,^{t'}_0 K^{(0)}=^{t}_0 K_L+^{t}_0 K_{NL};\,^{t'}_0 Q^{(0)}=^{t}_0 Q;\, U^{(0)}=^{t} U\)
+
+Step2 :
+\(^{t'}_0 K^{(i)}\Delta U^{(i)}=^{t'}_0 F-^{t'}_0 Q^{(i-1)}\)
+
+Step3 :
+\(\,^{t'} U^{(i)}=^{t'} U^{(i-1)} + \Delta U^{(i)}\)
+
+\(i=i+1\)
+
+\hypertarget{updated-lagrangeux6cd5ux306eux5b9aux5f0fux5316}{%
+\paragraph{updated Lagrange法の定式化}\label{updated-lagrangeux6cd5ux306eux5b9aux5f0fux5316}}
+
+時刻\(t\)の現配置を基準とする時刻\(t’\)での仮想仕事の原理式は、次式で与えられる。
+
+\begin{equation}
+\int_{V}\,^{t'}_{t} S:\delta_t^{t'}
+E dV=\,^{t'}\delta R
+\label{eq:2.2.21}
+\end{equation}
+
+\begin{equation}
+^{t'}\delta R = \int_{S_t}\,^{t'}_t\overline{t} \cdot \delta u dS + \int_{V}\,^{t'}_t\overline{b} \cdot \delta u dV
+\label{eq:2.2.22}
+\end{equation}
+
+ただし
+
+\begin{equation}
+^{t'}_{t} \overline{t} = \frac{d^{t'}s_{t'}}{d^ts}\overline{t}
+\label{eq:2.2.23}
+\end{equation}
+
+\begin{equation}
+^{t'}_{t} \overline{b} = \frac{d^{t'}v_{t'}}{d^tv}\overline{b}
+\label{eq:2.2.24}
+\end{equation}
+
+テンソル\(^{t'}_{t} S\),\(^{t'}_{t} E\)やベクトル、\(^{t'}_t\overline{t}\)、\(^{t'}_t\overline{b}\)が時刻\(t\)の現配置を基準としているが、Green-Lagrangeひずみについては初期変位(時刻\(t\)までの変位)\(^t u\)を含まず
+
+\begin{equation}
+^{t'}_{t} E = \Delta_{t} E_{L} + \Delta_{t} E_{NL}
+\label{eq:2.2.25}
+\end{equation}
+
+ただし
+
+\begin{equation}
+\Delta_{t} E_{L}=\frac{1}{2}
+\left\lbrace \frac{\partial \Delta u}{\partial^t\, x} + \left(\frac{ \partial \Delta u}{\partial ^t\,x}\right)^T \right\rbrace
+\label{eq:2.2.26}
+\end{equation}
+
+\begin{equation}
+\Delta_t E_{NL} = \frac{1}{2} \left( \frac{ \partial \Delta u}{\partial ^t\,x}\right)^T \cdot \frac{ \partial \Delta u}{\partial^t\,x}
+\label{eq:2.2.27}
+\end{equation}
+
+の形になる。一方
+
+\begin{equation}
+_{t'}^{t} S = _{t}^{t} S + \Delta _{t} S
+\label{eq:2.2.28}
+\end{equation}
+
+であるから、これを式\(\eqref{eq:2.2.21}\)、式\(\eqref{eq:2.2.22}\)と式\(\eqref{eq:2.2.25}\)に代入し整理すると解くべき方程式が次のように与えられる。
+
+\begin{equation}
+\int_{t_{v}} \Delta_{t} S : (\delta \Delta_{t}{E_{L}} + \delta \Delta_t{E_{NL}})d^t{v} + \int_{t_{v}}{_{t}^{t'}S} : \delta \Delta_{t} {E_{NL}}d^t{v}=^{t'} \delta R - \int_{t_{v}}{_{t}^t S} : \delta \Delta_{t} E_{L}d^t{v}
+\label{eq:2.2.29}
+\end{equation}
+
+ここで、\(\Delta_t S\)は、\(\Delta_{t}{E_{L}}\)と4階テンソル\(^t_t C\)と関連づけて次式のように表されると仮定する。
+
+\begin{equation}
+\Delta_t S = ^t_t C : \Delta_t E_{L}
+\label{eq:2.2.30}
+\end{equation}
+
+これを式\(\eqref{eq:2.2.29}\)に代入し、次式を得る。
+
+\begin{equation}
+\int_V ( ^t_t C \Delta_{t} E_{L} ) : \delta \Delta_{t} E_{L} dV+\int_V{^t_{t} S} : \delta \Delta_{t} E_{NL} dV = ^{t'} \delta R - \int_V{_{t}^t S} : \delta \Delta_t E_{L} dV
+\label{eq:2.2.31}
+\end{equation}
+
+式\(\eqref{eq:2.2.31}\)を有限要素により離散化して次式を得る。
+
+\begin{equation}
+\delta U^T ( ^t_t K_{L} + ^t_t K_{NL} ) \Delta U = \delta U^{T}\, {_{t}^{t'}} F - \partial U^T\, {^t_{t} Q}
+\label{eq:2.2.32}
+\end{equation}
+
+ここで、\(^t_t K_L\), \(^t_t K_{NL}\), \({_t^{t'}} F\), \({^t_t Q}\)は、それぞれ、初期変位マトリクス、初期応力マトリクス、外力ベクトル、内力ベクトルである。
+
+したがって、時刻\(t\)の状態から、時刻\(t’\)の状態を求めるための漸化式は次式で与えられる。
+
+\(i = 0\)
+
+Step1 :
+\(\,\,\,^{t'}_t K^{(i)}=\,^{t}_t K_L+^{t}_t K_{NL};\,^{t'}_t Q^{(i)}=\, ^{t}_t Q;\, U^{(i)}=\,^{t} U\)
+
+Step2 :
+\(\,\,\,^{t'}_t K^{(i)} \Delta U^{(i)}=\, ^{t'}_t F - ^{t'}_t Q^{(i-1)}\)
+
+Step3 :
+\(\,\,\,^{t'} U^{(i)}=\, ^{t'} U^{(i-1)} + \Delta U^{(i)}\)
+
+\(i = i + 1\)
+
+\hypertarget{ux6750ux6599ux975eux7ddaux5f62ux89e3ux6790ux624bux6cd5}{%
+\subsubsection{材料非線形解析手法}\label{ux6750ux6599ux975eux7ddaux5f62ux89e3ux6790ux624bux6cd5}}
+
+本開発コードでは、等方性超弾性および弾塑性二種類の非線形材料を解析することができる。
+
+解析で対象とする材料は弾塑性材である場合では、updated Lagrange法を適用し、超弾性材である場合では、total Lagrange法を適用している。
+また、反復解析手法にはNewton-Raphson法を適用している。
+
+以下にこれらの材料構成式の概要を示す。
+
+\hypertarget{ux8d85ux5f3eux6027ux6750ux6599}{%
+\paragraph{超弾性材料}\label{ux8d85ux5f3eux6027ux6750ux6599}}
+
+等方性超弾性材料における弾性ポテンシャルエネルギーは、応力の作用していない初期状態からの等方性を持った応答から得られるものであり、
+右Cauchy-Green変形テンソル\(C\)の主不変量\(( I_1, I_2, I_3 )\)、または体積変化を除いた変形テンソルの主不変量\((\overline{I}_1 , \overline{I}_2 , \overline{I}_3)\)の関数,つまり、\(W = W ( I_1, I_2, I_3 )\) あるいは \(W = W ( \overline{I}_1 , \overline{I}_2 , \overline{I}_3)\) として表すことができる。
+
+超弾性材の構成式は2nd Piola-Kirchhoff応力とGreen-Lagrangeひずみの関係で定義され、その変形解析はtotal Lagrange法を適用する。
+
+以下では本開発コードに含まれた超弾性モデルの弾性ポテンシャルエネルギー\(W\)を列挙する。
+弾性ポテンシャルエネルギー\(W\)がわかれば、以下のように2nd Piola-Kirchhoff応力および応力－ひずみ関係を計算できる
+
+\begin{equation}
+S = 2\frac{\partial W}{\partial C}
+\label{eq:2.2.33}
+\end{equation}
+
+\begin{equation}
+C = 4 \frac{ \partial^2 W}{\partial C \partial C}
+\label{eq:2.2.34}
+\end{equation}
+
+\hypertarget{neo-hookeanux8d85ux5f3eux6027ux30e2ux30c7ux30eb}{%
+\subparagraph{(1) Neo Hookean超弾性モデル}\label{neo-hookeanux8d85ux5f3eux6027ux30e2ux30c7ux30eb}}
+
+Neo-Hookean超弾性モデルは等方性を持つ線形則(Hooke則)を大変形問題へ対応できるように拡張したものである。
+その弾性ポテンシャルは以下のとおりである。
+
+\begin{equation}
+W = C_{10} ( {\overline I_{1}} - 3 ) + \frac{1}{D_1} ( J - 1 )^2
+\label{eq:2.2.35}
+\end{equation}
+
+ここで、\(C_{10}\)と\(D_1\)は材料定数である。
+
+\hypertarget{mooney-rivlinux8d85ux5f3eux6027ux30e2ux30c7ux30eb}{%
+\subparagraph{(2) Mooney Rivlin超弾性モデル}\label{mooney-rivlinux8d85ux5f3eux6027ux30e2ux30c7ux30eb}}
+
+\begin{equation}
+W = C_{10} ( \overline{I}_1 - 3 ) + C_{01} ( \overline{I}_2 - 3 ) + \frac{1}{D_1} ( J - 1 )^2
+\label{eq:2.2.36}
+\end{equation}
+
+ここで、\(C_{10}\), \(C_{01}\)と\(D_1\)は材料定数である。
+
+\hypertarget{arruda-boyceux8d85ux5f3eux6027ux30e2ux30c7ux30eb}{%
+\subparagraph{(3) Arruda Boyce超弾性モデル}\label{arruda-boyceux8d85ux5f3eux6027ux30e2ux30c7ux30eb}}
+
+\begin{align}
+W&=\mu
+  \left[
+    \frac{1}{2}(\overline{I_1}-3) 
+    + \frac{1}{20\lambda_m^2}(\overline{I_1}^2-9) \nonumber
+    + \frac{11}{1050\lambda_m^2}(\overline{I_1}^3-27) \right. \\
+    & \left. + \frac{19}{7000\lambda_m^2}(\overline{I_1}^4-81)
+    + \frac{519}{673750\lambda_m^2}(\overline{I_1}^5-243)
+  \right ]
+  + \frac{1}{D} \left(\frac{J^2-1}{2}-\ln J\right)
+\label{eq:2.2.37}
+\end{align}
+
+\begin{equation}
+\mu = \frac{\mu_0}{1 + \frac{3}{5 \lambda_m^2} + \frac{99}{175 \lambda_m^4} + \frac{513}{875 \lambda_m^6} + \frac{42039}{67375 \lambda_m^8}}
+\label{eq:2.2.38}
+\end{equation}
+
+ここで、\(\mu\), \(\lambda_m\)と\(D\)は材料定数である。
+
+\hypertarget{ux5f3eux5851ux6027ux6750ux6599}{%
+\paragraph{弾塑性材料}\label{ux5f3eux5851ux6027ux6750ux6599}}
+
+本開発コードでは、関連流れ則に準じる弾塑性構成式を適用している。
+また、その構成式はKirchhoff応力のJaumman速度と変形速度テンソルの関係を表し、その変形解析はupdated Lagrange法を適用する。
+
+\hypertarget{ux5f3eux5851ux6027ux69cbux6210ux5f0f}{%
+\subparagraph{(1) 弾塑性構成式}\label{ux5f3eux5851ux6027ux69cbux6210ux5f0f}}
+
+弾塑性体の降伏条件が次のように与えられるものとする。
+
+初期の降伏条件
+
+\begin{equation}
+F( \sigma, \sigma_{y_0})
+\label{eq:2.2.39}
+\end{equation}
+
+後続の降伏条件
+
+\begin{equation}
+F(\sigma, \sigma_y (\overline{e}^p))
+\label{eq:2.2.40}
+\end{equation}
+
+ここで、
+
+\begin{itemize}
+\tightlist
+\item
+  \(F\) : 降伏関数
+\item
+  \(\sigma_{y_0}\) : 初期降伏応力
+\item
+  \(\sigma_y\) : 後続の降伏応力
+\item
+  \(\sigma\) : 応力テンソル
+\item
+  \(e\) : 微小ひずみテンソル
+\item
+  \(e^p\) : 塑性ひずみテンソル
+\item
+  \(\overline{e}^p\) : 相当塑性ひずみ
+\end{itemize}
+
+降伏応力-相当塑性ひずみ関係が、単軸状態での応力-塑性ひずみ関係に一致するものとする。
+
+\textbf{単軸状態での応力-塑性ひずみ関係}
+
+\begin{equation}
+\sigma = H(e^p)
+\label{eq:2.2.41}
+\end{equation}
+
+\begin{equation}
+\frac{d \sigma}{d e^p} = H'
+\label{eq:2.2.42}
+\end{equation}
+
+ここで、\(H'\)は歪硬化係数である
+
+\textbf{相当応力-相当塑性ひずみ関係}
+
+\begin{equation}
+\overline{\sigma} = H(\overline{e}^p)
+\label{eq:2.2.43}
+\end{equation}
+
+\begin{equation}
+\dot{\overline{\sigma}} = H' \dot{\overline{e}^p}
+\label{eq:2.2.44}
+\end{equation}
+
+後続の降伏関数は一般には温度、塑性ひずみ仕事の関数であるが、ここでは簡単のため相当塑性ひずみ\(\overline{e}^p\)のみの関数であるものとする。
+塑性変形の進行中は\(F=0\)が満たされ続ける為、次式が成立しなければならない。
+
+\begin{equation}
+\dot{F} = \frac{\partial F}{\partial \sigma} : \dot{\sigma} + \frac{\partial F}{\partial e^p} : \dot{e}^p = 0
+\label{eq:2.2.45}
+\end{equation}
+
+式\(\eqref{eq:2.2.45}\)中の\(\dot{F}\)は\(F\)の時間導関数を表しており、以後、ある量\(A\)の時間導関数を\(\dot{A}\)で表す。
+
+ここで、塑性ポテンシャル\(\Theta\)の存在を仮定し、塑性ひずみ速度を次式で表すものとする。
+
+\begin{equation}
+\dot{e}^p=\dot{\lambda}\frac{\partial \Theta}{\partial \sigma}
+\label{eq:2.2.46}
+\end{equation}
+
+ここで\(\dot{\lambda}\)は係数である。
+
+さらに、塑性ポテンシャル\(\Theta\)が降伏関数\(F\)に等しいものとして、次式の関連流れ則を仮定する。
+
+\begin{equation}
+\dot{e}^p = \dot{\lambda} \frac{\partial F}{\partial \sigma}
+\label{eq:2.2.47}
+\end{equation}
+
+この式を式\(\eqref{eq:2.2.45}\)に代入し、下式が得られる。
+
+\begin{equation}
+\dot{\lambda} = \frac{a^T : d_D }{A + a^T : D : a}\dot{e}
+\label{eq:2.2.48}
+\end{equation}
+
+ここで、\(D\)は弾性マトリクスであり、
+
+\begin{align}
+  a^T &= \frac{\partial F}{\partial \sigma}
+& d_D &= D a^T
+&   A &= -\frac{ a }{\dot{\lambda}} \frac{\partial F}{\partial e^p} : \dot{e}^p
+\label{eq:2.2.49}
+\end{align}
+
+弾塑性の応力―ひずみ関係式は以下のように書ける。
+
+\begin{equation}
+\sigma = \left\lbrace D - \frac{ d_D \otimes d^T_D}{ A + d^T_D a} \right\rbrace : \dot{e}
+\label{eq:2.2.50}
+\end{equation}
+
+弾塑性材の降伏関数\(F\)がわかれば、この式からその構成式が得られる。
+
+\hypertarget{ux964dux4f0fux95a2ux6570}{%
+\subparagraph{(1) 降伏関数}\label{ux964dux4f0fux95a2ux6570}}
+
+以下では本開発コードに含まれた弾塑性降伏関数を列挙する
+
+\begin{itemize}
+\tightlist
+\item
+  Von Mises降伏関数
+\end{itemize}
+
+\begin{equation}
+F = \sqrt{3 J_2} - \sigma_y = 0
+\label{2.2.51}
+\end{equation}
+
+\begin{itemize}
+\tightlist
+\item
+  Mohr-Coulomb降伏関数
+\end{itemize}
+
+\begin{equation}
+F = \sigma_1 - \sigma_3 + \ ( \ \sigma_1 + \sigma_3\  )\sin \phi - 2 \ c \cos \phi = 0
+\label{eq:2.2.52}
+\end{equation}
+
+\begin{itemize}
+\tightlist
+\item
+  Drucker-Prager降伏関数
+\end{itemize}
+
+\begin{equation}
+F = \sqrt{J_2} - \ \alpha\ \sigma \ : I - \sigma_y = 0
+\label{eq:2.2.53}
+\end{equation}
+
+ここでは、材料定数\(\alpha\)と\(\sigma_{y}\)は材料の粘着力と摩擦角から以下のように計算する
+
+\begin{align}
+  \alpha &= \frac{2 \sin \phi}{3 + \sin \phi}\
+& \sigma_y &= \frac{6\ c \cos \phi}{3 + \sin \phi}
+\label{eq:2.2.54}
+\end{align}
+
+\hypertarget{ux7c98ux5f3eux6027ux6750ux6599}{%
+\paragraph{粘弾性材料}\label{ux7c98ux5f3eux6027ux6750ux6599}}
+
+本開発コードでは、一般化されたMaxwellモデルを適用している。
+その構成式は以下のように偏差ひずみ\(e\)と偏差粘性ひずみ\(q\)の関数になる。
+
+\begin{equation}
+\sigma \ (t) = Ktr \varepsilon I + 2 G ( \mu_0 e + \mu q )
+\label{eq:2.2.55}
+\end{equation}
+
+ここでは
+
+\begin{equation}
+\mu q = \sum_{m = 1}^{M} \mu_{m} q^{(m)} \sum_{m = 0}^{M} \mu_{m} = 1
+\label{eq:2.2.56}
+\end{equation}
+
+である。また、\(q\)は
+
+\begin{equation}
+{\dot{q}}^{(m)} + \frac{1}{\lambda_{m}} q^{(m)} = \dot{e}
+\label{eq:2.2.57}
+\end{equation}
+
+から求められる。ここでは\(\lambda_m\)はリラクゼーションである。また、リラクゼーション係数\(G\)は、以下のProny級数で表す。
+
+\begin{equation}
+G (t) = G \left[ \mu_0 + \sum_{i = 1}^M {\mu_m \exp\left( \frac{-t}{\lambda_m \ } \right)} \right]
+\label{eq:2.2.58}
+\end{equation}
+
+\hypertarget{ux30afux30eaux30fcux30d7ux6750ux6599}{%
+\paragraph{クリープ材料}\label{ux30afux30eaux30fcux30d7ux6750ux6599}}
+
+応力一定の状況下において時間依存性のある変位は「クリープ」と呼ばれる現象である。
+
+前述した粘弾性挙動も一種の線形なクリープ現象と考えることができる。
+ここでは、いくつかの非線形なクリープの説明を行うこととする。この現象は瞬間的に発生するひずみに追加することで構成式とする方法が一般的に用いられ、
+ある定荷重が継続している間のひずみをクリープひずみ\(\varepsilon^c\ \)とする。
+クリープを考慮した構成式は、通常、応力と全クリープひずみの関数として定義されるクリープひずみ速度\({\dot{\varepsilon}}^c\ \)が用いられる。
+
+\begin{equation}
+{\dot{\varepsilon}}^c \equiv \frac{\partial \varepsilon^c}{\partial t} = \beta ( \,\sigma,\ \varepsilon^c\  )
+\label{eq:2.2.59}
+\end{equation}
+
+ここで、瞬間的に発生するひずみが弾性ひずみ\(\varepsilon^e\)であるとすると、全ひずみはクリープひずみを加えた次式のように表される。
+
+\begin{equation}
+\varepsilon = \varepsilon^e + \varepsilon^c
+\label{eq:2.2.60}
+\end{equation}
+
+ここで、
+
+\begin{equation}
+\varepsilon^e = {c^e}^{-1}\ : \sigma
+\label{eq:2.2.61}
+\end{equation}
+
+である。
+
+前述の塑性材料でも示したように、クリープを示す構成式に対して数値解析上の時間積分の方法を示さなければならい。
+クリープを考慮したときの構成式は、
+
+\begin{equation}
+\sigma_{n + 1} = c\ :\ ( \varepsilon_{n + 1} - \varepsilon_{n + 1}^c )
+\label{eq:2.2.62}
+\end{equation}
+
+\begin{equation}
+\varepsilon_{n + 1}^c = \varepsilon_n^c + \ \Delta t\ \beta_{n + \theta}
+\label{eq:2.2.63}
+\end{equation}
+
+ここで、\(\ \beta_{n + \theta}\ \)は、
+
+\begin{equation}
+\beta_{n + \theta} = ( 1 - \theta  ) \beta_n + \theta \beta_{n + 1}
+\label{eq:2.2.64}
+\end{equation}
+
+とする。また、クリープひずみ増分\(\Delta \varepsilon^c\ \)は、非線形方程式を単純化した
+
+\begin{equation}
+R_{n + 1} = \varepsilon_{n + 1} - \ c^{- 1}\ : \sigma_{n + 1} - \ \varepsilon_n^c - \ \Delta t\ \beta_{n + \theta} = \mathbf{0}
+\label{eq:2.2.65}
+\end{equation}
+
+とする。
+
+Newton-Raphson法での反復計算では、初期値を\(\sigma_{n + 1} = \sigma_n\ \)および有限要素法から求められるひずみ増分として、反復解と増分解は次式とする。
+
+\begin{equation}
+R_{n + 1}^{(k + 1)} = \mathbf{0} = \ R_{n + 1}^{(k)} - ( \ c^{- 1} + \Delta t\ c_{n + 1}^c\  ) d \sigma_{n + 1}^{(k)}
+\label{eq:2.2.66}
+\end{equation}
+
+ここで、
+
+\begin{equation}
+c_{n + 1}^c = \frac{ \partial \beta} {\partial \sigma}\  |_{n + \theta} = \theta \frac{ \partial \beta}{\partial \sigma}\ |_{n + 1}
+\label{eq:2.2.67}
+\end{equation}
+
+とする。
+式\(\eqref{eq:2.2.65}\)と式\(\eqref{eq:2.2.66}\)の解を使って残差\(R\)が\(\mathbf{0}\)になるまで反復解法を行うとき、応力\(\sigma_{n + 1}\)と接線係数
+
+\begin{equation}
+c_{n + 1}^* = ( c^{-1} + \Delta t c_{n + 1}^c )^{- 1}
+\label{eq:2.2.68}
+\end{equation}
+
+を用いる。
+
+式\(\eqref{eq:2.2.59}\)の具体的な式として、本開発コードは、以下のようなNortonモデルを適用している。
+その構成式は下式のような相当クリープひずみ\({\dot{\varepsilon}}^{cr}\)がmises応力\(q\)と時間\(t\)の関数と表す。
+
+\begin{equation}
+{\dot{\varepsilon}}^{cr} = A q^n t^m
+\label{eq:2.2.69}
+\end{equation}
+
+ここでは、\(A\),\(m\),\(n\)は材料定数である。
+
+\hypertarget{ux63a5ux89e6ux89e3ux6790ux624bux6cd5}{%
+\subsubsection{接触解析手法}\label{ux63a5ux89e6ux89e3ux6790ux624bux6cd5}}
+
+2つの物体が接触すると、接触面を介して接触力\(t_c\)が伝達される。
+仮想仕事の原理式（2.2.4）を以下のように書きかえる。
+
+\begin{equation}
+\int^{t'}_{^{t'}v}\,^{t'} \sigma : \delta^{t'} A_{(L)} d^{t'}v = \int^{t'}_{^{t'}S_{t}}\,^{t'} \overline{t} \cdot \delta u d^{t'}s+ \int^{t'}_{V} \overline{b} \cdot \delta u d^{t'}v + \int^{t'}_{^{t'} S _{c}}t_{c}[\delta u^{(1)} - u^{(2)}]
+\label{eq:2.2.70}
+\end{equation}
+
+ここで、\(S_c\)は接触面積、\(u^{(1)}\)と\(u^{(2)}\)はそれぞれ接触物体1と接触物体2の変位を表している。
+
+接触解析では、接触する可能性のある面を対にして指定する。
+この面の対の片方をマスター面、もう片方をスレーブ面とする。
+このマスタースレーブ解析手法では、接触拘束条件を以下のように仮定する。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  スレーブ節点は，マスター面を貫通しない。
+\item
+  接触があった時、スレーブ節点は接触位置とし、この接触点を通じマスター面とスレーブ面が互いに接触力，摩擦力を伝達する。
+\end{enumerate}
+
+式\(\eqref{eq:2.2.70}\)の最後の項を有限要素により離散化して次式を得る
+
+\begin{equation}
+\int^{t'}_{^{t'}S_{c}} t_c [\delta u^{(1)} - \delta u^{(2)}] \approx \delta UK_c \Delta U + \delta UF_c
+\label{eq:2.2.71}
+\end{equation}
+
+ここでは、\(K_c\)と\(F_c\)はそれぞれ接触剛性マトリクスおよび接触力を表す。
+この式を式\(\eqref{eq:2.2.20}\)あるいは\(\eqref{eq:2.2.32}\)に代入すると、接触拘束を考慮したtotal Lagrange法およびupdated Lagrange法の有限要素法定式は以下のようになる。
+
+\begin{equation}
+\delta U^T ( ^t_0 K_L + ^t_0 K_{NL} + K_c ) \Delta U = \delta U^T {_0^{t'} F} - \partial U^T {^t_0 Q} + \delta UF_c
+\label{eq:2.2.72}
+\end{equation}
+
+\begin{equation}
+\delta U^T (^t_t K_L + ^t_t K_{NL} + K_c ) \Delta U = \delta U^T {_{t} ^{t'} F} - \partial U^T {^t_t Q}+ \delta UF_c
+\label{eq:2.2.73}
+\end{equation}
+
+本開発ソフトは変形体同士間の接触変形解析ができ、ユーザーから以下の解析機能を選択できる。
+
+\begin{itemize}
+\tightlist
+\item
+  微小すべり接触問題：この解析では接触点の位置変化がないと仮定している。
+\item
+  有限すべり接触問題：この解析は、変形と伴い接触位置変化のある場合に対応している。
+\item
+  摩擦なし接触問題
+\item
+  摩擦あり接触問題：この解析はCoulomb摩擦則に対応している。
+\end{itemize}
+
+ただし、微小変形線形弾性解析を選択した場合は、微小すべり摩擦なし問題となる。
+
+また、現時点では一次ソリッド要素（要素番号341, 351, 361）の接触解析のみ対応している。
+
+\hypertarget{ux52d5ux7684ux89e3ux6790ux624bux6cd5}{%
+\subsection{動的解析手法}\label{ux52d5ux7684ux89e3ux6790ux624bux6cd5}}
+
+本節では直接時間積分法を適用した動的問題解析手法について示す。以下に示すように、本開発コードでは、陰解法及び陽解法による時刻歴応答解析が可能である。
+
+\hypertarget{ux9670ux89e3ux6cd5ux306eux5b9aux5f0fux5316ux306bux3064ux3044ux3066}{%
+\subsubsection{陰解法の定式化について}\label{ux9670ux89e3ux6cd5ux306eux5b9aux5f0fux5316ux306bux3064ux3044ux3066}}
+
+動的問題を対象として、下式に示す運動方程式の解法に直接時間積分法を適用した。
+
+\begin{equation}
+M( t + \Delta t ) \ddot{U} (t + \Delta t) + C( t + \Delta t ) \dot{U}(t + \Delta t) + Q( t + \Delta t ) = F( t + \Delta t )
+\label{eq:2.5.1}
+\end{equation}
+
+ここでは、\(M\)は質量マトリクス，\(C\)は減衰マトリクス、\(Q\)は内力ベクトル，\(F\)は外力ベクトルである。
+なお、本ソフトは質量の変化を考慮せず、質量マトリクスは非線形において変形によらず一定となる。
+
+時間増分\(\Delta t\)内での変位、速度及び加速度の変化は、Newmark-\(\beta\)法を用いて式\(\eqref{eq:2.5.2}\)及び式\(\eqref{eq:2.5.3}\)に示すように近似している。
+
+\begin{equation}
+\dot{U}(t + \Delta t) =
+\frac{\gamma}{\beta \Delta t} \Delta U( t + \Delta t ) - \frac{\gamma - \beta}{\beta} \dot{U}( t ) - \Delta t \frac{\gamma - 2\beta}{2\beta} \ddot{U}(t)
+\label{eq:2.5.2}
+\end{equation}
+
+\begin{equation}
+\ddot{U}(t + \Delta t) = \frac{1}{\beta \Delta t^2}\Delta U(t + \Delta t) - \frac{1}{\beta \Delta t} \dot{U}(t) - \frac{1 - 2\beta}{2\beta} \ddot {U}(t)
+\label{eq:2.5.3}
+\end{equation}
+
+ここで、\(\gamma\)，\(\beta\)はNewmark-\(\beta\)法のパラメータである．
+
+よく知られているように、\(\gamma\)及び\(\beta\)を以下の値にした場合、線形加速度法あるいは台形則に一致する。
+
+\(\gamma = \displaystyle \frac{1}{2}\)，\(\gamma = \displaystyle \frac{1}{6}\)（線形加速度法）
+
+\(\gamma = \displaystyle \frac{1}{2}\)，\(\gamma = \displaystyle \frac{1}{4}\)（台形則）
+
+式\(\eqref{eq:2.5.2}\)、式\(\eqref{eq:2.5.3}\)を式\(\eqref{eq:2.5.1}\)に代入すると次式が得られる。
+
+\begin{align}
+\nonumber \left( \frac{1}{\beta \Delta t^2} \mathbf{M} + \frac{\gamma}{\beta \Delta t} C + K \right) \Delta U ( t + \Delta t ) &= F ( t + \Delta t )
+- Q ( t + \Delta t ) \\\
+\nonumber &+ \frac{1}{\beta \Delta t} M \dot{U} ( t )
+           + \frac{1 - 2\beta}{2\beta} M \ddot{U} ( t ) \\\
+&+ \frac{\gamma - \beta}{\beta} C \dot{U} (t)
+           + \Delta t \frac{\gamma - 2\beta}{2 \beta} C \ddot{U}(t)
+\label{eq:2.5.4}
+\end{align}
+
+特に、線形問題に対しては\(K_L\)は線形剛性マトリクスとし、\(Q ( t + \Delta t ) = K_L U (t + \Delta t)\)となり、この式を上式に代入すると次式が得られる。
+
+\begin{align}
+\nonumber M \left\lbrace -\frac{1}{\beta \Delta t^2} U(t) -\frac{1}{\beta \Delta t}\dot U(t) - \frac{2\beta}{1-2\beta} \ddot U(t) \right\rbrace
+&+ C\left\lbrace - \frac{\gamma}{\beta \Delta t} U(t) + \left(1 - \frac{\gamma}{\beta}\right) \dot U(t) + \Delta{t}\frac{ 2\beta-\gamma}{2\beta}\ddot U(t)\right\rbrace \\\
+ & + \frac{1}{\beta \Delta{t}^2} M + \frac{\gamma}{\beta \Delta{t}} C + K_L U(t+\Delta{t}) = F(t+\Delta{t})
+\label{eq:2.5.5}
+\end{align}
+
+なお、幾何学的境界条件として加速度が指定されている箇所では、式\(\eqref{eq:2.5.2}\)から次式の変位を得る。
+
+\begin{equation}
+u_{is} (t+\Delta{t}) = u_{is} (t) + \Delta t \dot{u}(t) + \Delta t^2 \left(\frac{1}{2} -\beta \right) {\ddot{u}}_{is} (t + \Delta t)
+\label{eq:2.5.6}
+\end{equation}
+
+同様に、速度が指定されている箇所では、式\(\eqref{eq:2.5.6}\)から次式の変位を得る。
+
+\begin{equation}
+u_{is}(t+\Delta{t})= u_{is}(t)+\Delta t
+\frac{ \gamma - \beta}{ \gamma}\dot{u_{is}}(t)
++(\Delta{t})^2 \frac{ \gamma - 2\beta}{ 2\gamma}
+\ddot{u_{is}}(t)
++\Delta t \frac{\beta}{ \gamma}\dot{u_{is}}(t+\Delta{t})
+\label{eq:2.5.7}
+\end{equation}
+
+ここで、
+\(u_{is}(t+\Delta{t})\)は時刻\(t+\Delta{t}\)における節点変位、\(\dot{u_{is}}(t+\Delta{t})\)は時刻\(t+\Delta{t}\)の節点速度、
+\(\ddot{u_{is}}(t+\Delta{t})\)は時刻\(t+\Delta{t}\)の節点加速度、\(i\)は節点自由度番号、\(s\)は節点番号である．
+また、質量項及び減衰項の取り扱いは次のとおりとした。
+
+\hypertarget{ux8ceaux91cfux9805ux306eux53d6ux308aux6271ux3044}{%
+\paragraph{質量項の取り扱い}\label{ux8ceaux91cfux9805ux306eux53d6ux308aux6271ux3044}}
+
+質量マトリックスについては原則として集中質量マトリックスとして扱っている。
+
+\hypertarget{ux6e1bux8870ux9805ux306eux53d6ux308aux6271ux3044}{%
+\paragraph{減衰項の取り扱い}\label{ux6e1bux8870ux9805ux306eux53d6ux308aux6271ux3044}}
+
+減衰項については式\(\eqref{eq:2.5.8}\)で表されるRayleigh減衰として扱っている。
+
+\begin{equation}
+C = R_m M + R_k K_L
+\label{eq:2.5.8}
+\end{equation}
+
+ここで、\(R_m\)、\(R_k\)はRayleigh減衰のパラメータである。
+
+\hypertarget{ux967dux89e3ux6cd5ux306eux5b9aux5f0fux5316ux306bux3064ux3044ux3066}{%
+\subsubsection{陽解法の定式化について}\label{ux967dux89e3ux6cd5ux306eux5b9aux5f0fux5316ux306bux3064ux3044ux3066}}
+
+陽解法では下式に示す時刻tにおける運動方程式を基にする。
+
+\begin{equation}
+M \ddot{U}(t) + C (t) \dot{U}(t) + Q(t) = F(t)
+\label{eq:2.5.9}
+\end{equation}
+
+ここでは、時刻\(t + \Delta t\)及び時刻\(t - \Delta t\)における変位を時刻\$t\$におけるTaylor展開により表し、\(\Delta t\)に関する2次項までとると、次のようになる。
+
+\begin{equation}
+U(t+\Delta{t}) = U(t)+\dot{U}(t)(\Delta{t})
++\frac{1}{2!}\ddot{U}(\Delta{t})^2
+\label{eq:2.5.10}
+\end{equation}
+
+\begin{equation}
+U(t-\Delta{t})=U(t)-\dot{U}(t)(\Delta{t})
++\frac{1}{2!}\ddot{U}(\Delta{t})^2
+\label{eq:2.5.11}
+\end{equation}
+
+式\(\eqref{eq:2.5.3}\)、式\(\eqref{eq:2.5.4}\)の差及び和から次式が得られる。
+
+\begin{equation}
+\dot{U}(t)=\frac{1}{2\Delta{t}}
+(U(t+\Delta{t})-U(t-\Delta{t}))
+\label{eq:2.5.12}
+\end{equation}
+
+\begin{equation}
+\ddot{U}=
+\frac{1}{(2\Delta{t})^2}
+(U(t+\Delta{t})-2U(t)+U(t-\Delta{t}))
+\label{eq:2.5.13}
+\end{equation}
+
+式\(\eqref{eq:2.5.12}\)、式\(\eqref{eq:2.5.13}\)を式\(\eqref{eq:2.5.9}\)に代入すると次式が得られる。
+
+\begin{equation}
+\left( \frac{1}{\Delta t^{2}} M + \frac{1}{2\Delta t} C \right) U ( t + \Delta t ) \\\
+= F(t) - Q(t) - \frac{1}{\Delta t^{2}} 2 U(t) - U( t - \Delta t) - \frac{1}{2\Delta t} C U(t - \Delta t)
+\label{eq:2.5.14}
+\end{equation}
+
+特に、線形問題に対しては\(Q(t) = K_L U(t)\)となり、上式は以下になる
+
+\begin{equation}
+\left( \frac{1}{\Delta t^{2}} M + \frac{1}{2\Delta t} C \right) U( t + \Delta t ) \\\
+= F(t) - K_L U(t) - \frac{1}{\Delta t^{2}} M U(t) - U(t - \Delta t) - \frac{1}{2\Delta t} C U (t - \Delta t)
+\label{eq:2.5.15}
+\end{equation}
+
+ここで、質量マトリックス\(M\)を集中質量マトリックス、減衰マトリックスを比例減衰マトリックス \(C = R_m M\)のようにおくと、式\(\eqref{eq:2.5.15}\)は連立方程式の求解操作を不要とする。
+
+従って、式\(\eqref{eq:2.5.15}\)から\(U(t+\Delta t)\)は次式により求めることができる。
+
+\begin{equation}
+U( t + \Delta t ) \\\
+= \frac{1}{( \frac{1}{\Delta t^{2}} M + \frac{1}{2\Delta t} C )} \{ F(t) - Q(t) - \frac{1}{\Delta t^{2}} M U(t) - U(t - \Delta t) - \frac{1}{2\Delta t} C U(t - \Delta t) \}
+\label{eq:2.5.17}
+\end{equation}
+
+\hypertarget{ux71b1ux4f1dux5c0eux89e3ux6790}{%
+\subsection{熱伝導解析}\label{ux71b1ux4f1dux5c0eux89e3ux6790}}
+
+本開発コードで用いられる有限要素法（Finite ElementMethod）による固体についての熱伝導解析手法を示す。
+
+\hypertarget{ux57faux790eux65b9ux7a0bux5f0f-1}{%
+\subsubsection{基礎方程式}\label{ux57faux790eux65b9ux7a0bux5f0f-1}}
+
+連続体中での熱伝導方程式は以下のようになる。
+
+\begin{equation}
+  \rho c \frac{\partial T}{\partial t} =
+  \frac{\partial}{\partial x}\left(k_x \frac{\partial T}{\partial x}\right)
++ \frac{\partial}{\partial y}\left(k_y \frac{\partial T}{\partial y}\right)
++ \frac{\partial}{\partial z}\left(k_z \frac{\partial T}{\partial z}\right) + Q
+\label{eq:2.4.1}
+\end{equation}
+
+ここで、\(\rho=\rho(x)\)は質量（密度）、\(c=c(x,T)\)は比熱、\(T=T(x,t)\)は温度、\(k=k(x,T)\)は熱伝導率、\(Q=Q(x,T,t)\)は発熱量、
+\(x\)は位置、\(T\)は温度、\(t\)は時間を表す。
+
+考慮している領域を\(S\)、その周囲を\(\Gamma\)とする。
+\(\Gamma\)上では、Dirichet型かNeumann型のいずれかの境界条件が、いたるところで与えられるものと仮定すると境界条件は以下のようになる。
+
+\begin{equation}
+T = T_1(x,t), \; x \in \Gamma_1
+\label{eq:2.4.2}
+\end{equation}
+
+\begin{equation}
+k \frac{\partial T}{\partial n} = q(x,T,t), \; x \in \Gamma_2
+\label{eq:2.4.3}
+\end{equation}
+
+ただし、\(T_1\)，\(q\)は関数形が既知とする。\(q\)は境界からの流出熱流束である。
+本プログラムでは、3種類の熱流束が考慮できる。
+
+\begin{equation}
+q=-q_s+q_c+q_r
+\label{eq:2.4.4}
+\end{equation}
+
+\begin{equation}
+q_s=q_s(x,t)
+\label{eq:2.4.5}
+\end{equation}
+
+\begin{equation}
+q_c=hc(T-Tc)
+\label{eq:2.4.6}
+\end{equation}
+
+\begin{equation}
+q_r=hr(T^4-Tr^4)
+\label{eq:2.4.7}
+\end{equation}
+
+ここで、\(q_s\)は分布熱流束、\(q_c\)は対流熱伝達による熱流束、\(q_r\)は輻射熱伝達による熱流束である。
+
+ただし、
+\(Tc=Tc(x,t)\)は対流熱伝達率雰囲気温度、
+\(hc=hc(x,t)\)は対流熱伝達係数、
+\(Tr=Tr(x,t)\)は輻射熱伝達率雰囲気温度、
+\(hr=\varepsilon \sigma F = {hr(x,t)}\)は輻射熱伝達係数、
+\(\varepsilon\)は輻射率，\(\sigma\)はStefanBoltzmann定数、\(F\)は形態係数である．
+
+\hypertarget{ux96e2ux6563ux5316}{%
+\subsubsection{離散化}\label{ux96e2ux6563ux5316}}
+
+方程式\(\eqref{eq:2.4.1}\)をGalerkin法によって離散化すると、
+
+\begin{equation}
+K T + M \frac{\partial T}{\partial t} = F
+\label{eq:2.4.8}
+\end{equation}
+
+ただし、
+
+\begin{equation}
+K = \int\left( k_x \frac{\partial N^T}{\partial x}\frac{\partial N}{\partial x}
++ k_y \frac{\partial N^T}{\partial y}\frac{\partial N}{\partial y}
++ k_z \frac{\partial N^T}{\partial z}\frac{\partial N}{\partial z} \right) dV
++ \int hc N^T N ds + \int hr N^T N ds
+\label{eq:2.4.9}
+\end{equation}
+
+\begin{equation}
+M = \int \rho c N^T N dV
+\label{eq:2.4.10}
+\end{equation}
+
+\begin{equation}
+F = \int Q N^T dV - \int q_s N^T dS
++ \int{hc} T c N^T dS
++ \int{hcTr} ({T+Tr}) ({T^2 + T r^2}) N^T dS
+\label{eq:2.4.11}
+\end{equation}
+
+\begin{equation}
+N = (N^1, N^2, \ldots, Ni)
+\label{eq:2.4.12}
+\end{equation}
+
+方程式\(\eqref{eq:2.4.8}\)は非線形かつ非定常の方程式である。
+いま、時間に関して後退オイラー法により離散化して、時刻\(t=t_0\)における温度が既知のとき時刻\(t=t_{0+\Delta t}\)での温度を次式を用いて計算することにする。
+
+\begin{equation}
+K_{t=t_{0+\Delta t}} T_{t=t_{0+\Delta t}} + M_{t=t_{0 + \Delta t}} \frac{T_{t=t_{0 + \Delta t}} - T_{t=t_0}}{\Delta t} = F_{t=t_{0+\Delta t}}
+\label{eq:2.4.13}
+\end{equation}
+
+ここでの式\(\eqref{eq:2.4.13}\)を近似的にみたす温度ベクトル\(T_{t=t_{0+\Delta t}}^{(i)}\)
+を改善して、精度の良い解\(T_{t=t_{0+\Delta t}}^{(i)+1}\)を求めることを考える。
+
+そのために、まず、温度ベクトルを次のようにあらわす。
+
+\begin{equation}
+T_{t=t_{0+\Delta t}}=
+T_{t=t_{0+\Delta t}}^{(i)} + \Delta T_{t=t_{0+\Delta t}}^{(i)}
+\label{eq:2.4.14}
+\end{equation}
+
+熱伝導マトリクスと温度ベクトルとの積、質量マトリクスなどを次式のように近似的にあらわす。
+
+\begin{equation}
+K_{t=t_{0+\Delta t}} T_{t=t_{0+\Delta t}}
+K_{t=t_{0+\Delta t}}^{(i)} T_{t=t_{0+\Delta t}}^{(i)}
+\frac{\partial K_{t=t_{0+\Delta t}}^{(i)}}{T_{t=t_{0+\Delta t}}^{(i)}}
+\partial T_{t=t_{0+\Delta t}}^{(i)} \Delta T_{t=t_{0+\Delta t}}^{(i)}
+\label{eq:2.4.15}
+\end{equation}
+
+\begin{equation}
+M_{t=t_{0+\Delta t}}
+M_{t=t_{0+\Delta t}}^{(i)}
++ \frac{\partial M_{t=t_{0+\Delta t}}^{(i)}}{\partial T_{t=t_{0+\Delta t}}^{(i)}}
+\Delta T_{t=t_{0+\Delta t}}^{(i)}
+\label{eq:2.4.16}
+\end{equation}
+
+式\(\eqref{eq:2.4.14}\)、式\(\eqref{eq:2.4.15}\)、式\(\eqref{eq:2.4.16}\)を式\(\eqref{eq:2.4.13}\)に代入して二次以上の項を省略すると次式を得る。
+
+\begin{equation}
+(\frac{M_{t=t_{0+\Delta t}}^{(i)}}{\Delta t}
++ \partial M_{t=t_{0+\Delta t}}^{(i)} T_{t=t_{0+\Delta t}}^{(i)}
+\partial T_{t=t_{0+\Delta t}}^{(i)}
+\frac{T_{t=t_{0+\Delta t}}^{(i)} - T_{t=t_0}}{\Delta t}
++ \frac{\partial K_{t=t_{0+\Delta t}}^{(i)}}{T_{t=t_{0+\Delta t}}^{(i)}}
+\partial T_{t=t_{0+\Delta t}}^{(i)})
+\Delta T_{t=t_{0+\Delta t}}^{(i)} \\\ 
+= F_{t=t_0+\Delta t} - M_{t=t_{0+\Delta t}}^{(i)}
+\frac{T_{t=t_{0+\Delta t}}^{(i)} - T_{t=t_0}}{\Delta t}
+- K_{t=t_{0+\Delta t}}^{(i)} T_{t=t_{0+\Delta t}}^{(i)}
+\label{eq:2.4.17}
+\end{equation}
+
+さらに左辺の係数マトリクスを次式を用いて近似評価する。
+
+\[
+K^{(i)} = \frac{M_{t=t_0+\Delta t}^{(i)}}{\Delta t} +
+\frac{\partial K_{t=t_0+\Delta t}^{(i)}}{\partial T^{(i)}_{t=t_0+\Delta t}}
+\]
+
+\begin{equation}
+T_{t=t_0+\Delta t}^{(i)}
+= \frac{M_{t=t_0+\Delta t}^{(i)}}{\Delta t} + K_{T_{t=t_0+\Delta t}^{(i)}}
+\label{eq:2.4.18}
+\end{equation}
+
+ここで\(K_{T_{t=t_0+\Delta t}}^{(i)}\)は接線剛性マトリクスである。
+
+結局次式を用いて反復計算を行うことによって時刻 \(t=t_0+\Delta t\)での温度を計算することができる。
+
+\begin{equation}
+K^{(i)} T_{t=t_{0+\Delta t}}^{(i)} = F_{t=t_0+\Delta t} - M_{t=t_{0+\Delta t}}^{(i)} \frac{T_{t=t_{0+\Delta t}}^{(i)} - T_{t=t_0}}{\Delta t} - K^{(i)} T_{t=t_{0+\Delta t}}^{(i)}
+\label{eq:2.4.19}
+\end{equation}
+
+特に定常解析においては次式を用いて反復計算を行う。
+
+\[
+K_T^{(i)} \Delta T_{t=\infty}^{(i)} = F_{t=\infty} - K_T^{(i)} \Delta T_{t=\infty}^{(i)}
+\]
+
+\begin{equation}
+T_{t=\infty}^{(i+1)} = T_{t=\infty}^{(i)} + \Delta{T}_{t=\infty}^{(i)}
+\label{eq:2.4.20}
+\end{equation}
+
+非定常解析において時間増分\$\Delta t\$の選び方は、時間に関する離散化に陰解法を採用しているので、一般にその大きさの制約を受けない。ただし時間増分\(\Delta t\)が大きすぎると、反復計算における収束回数は増加する。
+そこで本プログラムは、反復計算過程における残差ベクトルの大きさをつねにモニターし、反復計算の収束がおそすぎれば時間増分\(\Delta t\)を減少させ、反復計算回数が少なくなると時間増分\(\Delta t\)を増加される自動増分機能を備えている。
+
+\hypertarget{ux56faux6709ux5024ux89e3ux6790}{%
+\subsection{固有値解析}\label{ux56faux6709ux5024ux89e3ux6790}}
+
+\hypertarget{ux4e00ux822cux5316ux56faux6709ux5024ux554fux984c}{%
+\subsubsection{一般化固有値問題}\label{ux4e00ux822cux5316ux56faux6709ux5024ux554fux984c}}
+
+連続体の自由振動解析を行う場合、空間的離散化を行い、図2.3.1に示すような集中質点による多自由度系でモデル化さられる。
+減衰のない自由振動問題の場合、支配方程式（運動方程式）は以下のとおりである。
+
+\begin{equation}
+M u + K \ddot{u} = 0
+\label{eq:2.3.1}
+\end{equation}
+
+ただし、\(u\) は一般化変位ベクトル、\(M\) は質量マトリックス、\(K\)は剛性マトリックスである。
+ところで、固有角振動数を\(\omega\)とし、\(a\)、\(b\)、\(c\)を任意定数、\(x\)をベクトルとして、関数
+
+\begin{equation}
+u(t) = (a \sin \omega t + b \cos \omega t ) x
+\label{eq:2.3.2}
+\end{equation}
+
+を定義する。ここで、この式と、この2階の微分、すなわち、
+
+\begin{equation}
+\ddot{u}(t) = -\omega^2 (a \sin \omega t + b \cos \omega t) x
+\label{eq:2.3.3}
+\end{equation}
+
+を式\(\eqref{eq:2.3.1}\)に代入すれば、
+
+\begin{equation}
+M u + K \ddot{u} = (a \sin \omega t + b \cos \omega t) (- \omega^2 M + K x ) =  ( -\lambda M + K x) = 0
+\label{eq:2.3.4}
+\end{equation}
+
+となる。すなわち、
+
+\begin{equation}
+K x = \lambda M x
+\label{eq:2.3.5}
+\end{equation}
+
+を得る。
+
+つまり、方程式\(\eqref{eq:2.3.5}\)を満たす係数\(\lambda = \omega^2\)
+およびベクトル\(x\)を見つけられれば、関数\(u(t)\)は、方程式\(\eqref{eq:2.3.1}\)の解となっている。
+
+係数\(\lambda\)を固有値、ベクトル\(x\)を固有ベクトルと呼び、これらを式\(\eqref{eq:2.3.1}\)から求める問題を一般化固有値問題と呼ぶ。
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth,height=\textheight]{media/theory05_01.png}
+\caption{減衰のない自由振動の多自由度系の例}
+\end{figure}
+
+図 2.3.1　減衰のない自由振動の多自由度系の例
+
+\hypertarget{ux554fux984cux8a2dux5b9a}{%
+\subsubsection{問題設定}\label{ux554fux984cux8a2dux5b9a}}
+
+式\(\eqref{eq:2.3.5}\)は任意の次数に拡張でき、多くの場面で登場する。多くの物理問題を扱う上では行列はエルミート（対称）であることが多い。
+即ち、複素行列においては、転置行列が共役複素数になっており、実行列においては対称行列である。つまり、行列\(K\)の\(ij\)成分を\(k_{ij}\)とした時、\(k\)の共役複素数を\(\bar{k}\)とおけば、
+
+\begin{equation}
+k_{ij} = \bar{k}_{ji}
+\label{eq:2.3.6}
+\end{equation}
+
+の関係にある。
+
+このマニュアル内では、行列は対称で正定値を仮定する。正定値とは固有値がすべて正、言い換えれば下記の式\(\eqref{eq:2.3.7}\)を常に満足する行列である。
+
+\begin{equation}
+x^{t} A x > 0
+\label{eq:2.3.7}
+\end{equation}
+
+\hypertarget{ux30b7ux30d5ux30c8ux4ed8ux9006ux53cdux5fa9ux6cd5}{%
+\subsubsection{シフト付逆反復法}\label{ux30b7ux30d5ux30c8ux4ed8ux9006ux53cdux5fa9ux6cd5}}
+
+有限要素法による構造解析では、実用上、全ての固有値は必要とせず、高々数個の低次の固有値で十分な場合が多い。
+ところで、HEC-MWでは大規模な問題を扱うことを想定しており、行列はサイズが大きく非常に疎（零要素が多い）である。
+したがって、この事を念頭に低次のモードの固有値を効率よく求めることが重要である。
+
+固有値の下限を\(\sigma\)とした時、式\(\eqref{eq:2.3.5}\)を次式のように変形する（数学的には等価な式である）。
+
+\begin{equation}
+(K - \sigma M)^{-1} M x = \frac{1}{(\lambda-\sigma)} x
+\label{eq:2.3.8}
+\end{equation}
+
+この時、計算に当たっては次のような好都合な性質がある。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  モードが反転している。
+\item
+  \(\rho\)周辺の固有値が最大化されている。
+\end{enumerate}
+
+実際の計算では最大固有値が最初に求まることが多い。そのため主要な収束計算を式\(\eqref{eq:2.3.5}\)よりむしろ式\(\eqref{eq:2.3.8}\)に適用し、\(\rho\)周辺の固有値から求めることを狙うものとする。この手法は、シフト付逆反復と呼ばれている。
+
+\hypertarget{ux56faux6709ux5024ux89e3ux6cd5ux306eux305fux3081ux306eux7b97ux6cd5}{%
+\subsubsection{固有値解法のための算法}\label{ux56faux6709ux5024ux89e3ux6cd5ux306eux305fux3081ux306eux7b97ux6cd5}}
+
+古典的な方法ではJacobi法がよく知られている。
+
+この方法は、行列サイズが小さく密行列である時、有効である。
+しかしながら、HEC-MWで扱う行列は大規模で疎であるため、この方法は採用せずランチョス(Lanczos)反復解法を採用している。
+
+\hypertarget{ux30e9ux30f3ux30c1ux30e7ux30b9ux6cd5}{%
+\subsubsection{ランチョス法}\label{ux30e9ux30f3ux30c1ux30e7ux30b9ux6cd5}}
+
+1950年台にC. Lanczosにより提案されたこの手法は、行列を3重対角化する計算算法であり、下記のような特徴を有している。
+
+\begin{itemize}
+\tightlist
+\item
+  反復収束解法であり、行列を疎のまま計算を進めることができる。
+\item
+  算法は行列、ベクトル積が中心となっており並列化に適している。
+\item
+  有限要素メッシュに伴う幾何学的領域分割法に適している。
+\item
+  求める固有値の個数やモード範囲を限定して効率よい計算を行える。
+\end{itemize}
+
+ランチョス法は、初期ベクトルからスタートして順次直交ベクトルを作成し部分空間の基底を求める計算を行うものである。
+この方法は、別の反復解法であるサブスペース法より高速であると言われ、有限要素法プログラムにて広く使われている。
+しかしこの手法では、計算機の誤差の影響を受けやすく、ベクトルの直交性が損なわれ、途中で破綻する恐れを避けられない。
+そのため誤差に対する対策は不可欠である。
+
+\hypertarget{ux30e9ux30f3ux30c1ux30e7ux30b9ux6cd5ux304cux6301ux3064ux5e7eux4f55ux5b66ux7684ux610fux5473}{%
+\subsubsection{ランチョス法が持つ幾何学的意味}\label{ux30e9ux30f3ux30c1ux30e7ux30b9ux6cd5ux304cux6301ux3064ux5e7eux4f55ux5b66ux7684ux610fux5473}}
+
+式\(\eqref{eq:2.3.8}\)を次のように変数変換することにより
+
+\[
+A = (K - \sigma M)^{-1} M
+\]
+
+\begin{equation}
+\frac{1}{\lambda-\sigma}= \zeta
+\label{eq:2.3.9}
+\end{equation}
+
+問題を書き直すと
+
+\begin{equation}
+A x = \zeta x
+\label{eq:2.3.10}
+\end{equation}
+
+を得る。
+
+適当なベクトル \(q_0\)に対して行列\(A\)による一次変換を行う（図2.3.2参照）。
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth,height=\textheight]{media/theory05_02.png}
+\caption{行列\(A\)による\(q_0\)の一次変換}
+\end{figure}
+
+図 2.3.2　行列\(A\)による\(q_0\)の一次変換
+
+変換されたベクトルは、元のベクトルとつくる空間の中で直交化される。
+すなわち、図2.3.2のようないわゆるグラム・シュミットの直交化を行う。
+そうして得られたベクトルを\(r_1\)としてそれを正規化（長さ1に）して\(q_1\)を得る（図2.3.3）。
+同様な算法により\(q_1\)から\(q_2\)を得る。
+このとき\(q_2\)は\(q_1\), \(q_0\) 両方に直交している（図2.3.4）。
+同様の計算を続けると互いに直交するベクトルが最大行列の次数まで求まる。
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth,height=\textheight]{media/theory05_03.png}
+\caption{\(q_0\)に直交なベクトル\(q_1\)}
+\end{figure}
+
+図 2.3.3　 \(q_0\)に直交なベクトル\(q_1\)
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth,height=\textheight]{media/theory05_04.png}
+\caption{\(q_1\)と\(q_0\)に直交なベクトル\(q_2\)}
+\end{figure}
+
+図 2.3.4　 \(q_1\)と\(q_0\)に直交なベクトル\(q_2\)
+
+特にランチョス法の算法はベクトル列 \(A q_0\), \(A q_1\), \(A q_2\)
+
+言い換えて \(A q_0\), \(A^2 q_0\), \(A^3 q_0\), ,\(A^n q_0\)
+
+に対するグラム・シュミットの直交化である。
+このベクトル列をKrylov列と呼び、それがつくる空間をKrylov部分空間とよぶ。
+この空間においてグラム・シュミットの直交化を行うと、直近の２つのベクトルを用いることによりベクトルが求まる。
+これをランチョスの原理と呼ぶ。
+
+\hypertarget{ux4e09ux91cdux5bfeux89d2ux5316}{%
+\subsubsection{三重対角化}\label{ux4e09ux91cdux5bfeux89d2ux5316}}
+
+上記繰り返しの中でi+1番目の計算は
+
+\begin{equation}
+\beta_{i+1} q_{i+1} + \alpha_{i+1} q_{i} + \gamma_{i+1} q_{i-1} = Aq_{i}
+\label{eq:2.3.11}
+\end{equation}
+
+と表せる。ただし、
+
+\[
+\beta_{i+1} = \frac{1}{||r_{i+1}||}
+\]
+
+\[
+\alpha_{i+1} = \frac{(q_i, Aq_i)}{(q_i, q_i)}
+\]
+
+\begin{equation}
+\gamma_{i+1} = \frac{(q_{i-1}, Aq_i)}{(q_{i-1}, q_{i-1})}
+\label{eq:2.3.12}
+\end{equation}
+
+である。これを行列表記すると
+
+\begin{equation}
+AQ_m = Q_m T_m
+\label{eq:2.3.13}
+\end{equation}
+
+となる。ここで、
+
+\[
+Q_m = [q_{1}, q_{2}, q_{3}, \ldots ,q_{m}]
+\]
+
+\begin{equation}
+T=
+\begin{pmatrix}
+  \alpha_{1} & \gamma_{1} & & &\\
+  \beta_{2}  & \alpha_{2} & \gamma_{2} & &  \\
+             & \cdots & & &\\
+  & & & \beta_{m} & \alpha_{m}
+\end{pmatrix}
+\label{2.3.14}
+\end{equation}
+
+である。すなわち、式\(\eqref{eq:2.3.13}\)で得られる3重対角行列について固有値計算を行うことにより固有値が得られる。
+
+\hypertarget{ux5468ux6ce2ux6570ux5fdcux7b54ux89e3ux6790}{%
+\subsection{周波数応答解析}\label{ux5468ux6ce2ux6570ux5fdcux7b54ux89e3ux6790}}
+
+\hypertarget{ux5b9aux5f0fux5316-1}{%
+\subsubsection{定式化}\label{ux5b9aux5f0fux5316-1}}
+
+減衰を考慮しない場合の周波数応答解析の運動方程式は式のようになる。
+
+\begin{equation}
+M \ddot{U} + K U = 0
+\label{eq:2.6.1}
+\end{equation}
+
+これを固有モードごとに展開すると、
+
+\begin{equation}
+U = U_j e^{i \omega_j t}
+\label{eq:2.6.2}
+\end{equation}
+
+となる。これを式\(\eqref{eq:2.6.1}\)に代入すると、
+
+\begin{equation}
+K U_j = \omega_j^2 M U_j
+\label{eq:2.6.3}
+\end{equation}
+
+を得る。この固有振動数が実数になることを以下のように証明する。\(\omega_j^2 = \lambda_j\)とおき、式\(\eqref{eq:2.6.3}\)の複素共役をとると式\(\eqref{eq:2.6.4}\)を得る。
+
+\begin{equation}
+K U_j = \lambda_j M U_j
+K \overline{UJ} = \overline{\lambda_J} M \overline{U_J}
+\label{eq:2.6.4}
+\end{equation}
+
+これに\(\overline{U}_J^T\)をかけると、
+
+\begin{equation}
+U_j^T K \overline{U}_J = \overline{\lambda}_J
+U_j^T M \overline{U}_J
+\overline{U}_J^T K U_j = \lambda_j \overline{U}_J^T M U_j
+\label{eq:2.6.5}
+\end{equation}
+
+を得る。式\(\eqref{eq:2.6.5}\)より、
+
+\begin{equation}
+0 = ( \lambda_j - \overline{\lambda_J} ) \overline{U_J}^T M U_j
+\label{eq:2.6.6}
+\end{equation}
+
+となる。ここで、質量マトリクスは正定値対称なのでゼロベクトルでない固有ベクトルについて
+
+\begin{equation}
+\overline{U_J} M U_j > 0
+\label{eq:2.6.7}
+\end{equation}
+
+が成り立つ。ゆえに、
+
+\begin{equation}
+\lambda_j =\overline{\lambda_J}
+\label{eq:2.6.8}
+\end{equation}
+
+となり、\(\omega_j^2 = \lambda_j\)は実数となる。ここで、2つの違うモードについて考える。
+
+\begin{equation}
+K U_i = \lambda_i M U_i
+K U_j = \lambda_j M U_j
+\label{eq:2.6.9}
+\end{equation}
+
+これより、
+
+\begin{equation}
+( \lambda_i - \lambda_j ) U_j^T M U_i = 0
+\label{eq:2.6.10}
+\end{equation}
+
+が得られ、固有値が異なる場合には、
+
+\begin{equation}
+U_j^T M U_i = 0
+\label{eq:2.6.11}
+\end{equation}
+
+となる。すなわち異なる固有モードは質量マトリクスについて直交する。
+同じモードについては質量マトリクスについて規格化する(式\(\eqref{eq:2.6.12}\))ことによって取り扱いが容易になる利点がある。
+
+\begin{equation}
+U_i^T M U_i = 1
+\label{eq:2.6.12}
+\end{equation}
+
+次に、減衰を考慮した場合の周波数応答解析についての定式化を示す。対象とする運動方程式を式\(\eqref{eq:2.6.13}\)に示す。
+
+\begin{equation}
+M \ddot{U} + C \dot{U} + K U = F
+\label{eq:2.6.13}
+\end{equation}
+
+ここでの減衰項はRayleigh型を想定して\(\eqref{eq:2.6.14}\)のようにして表せるものとする。
+
+\begin{equation}
+C = \alpha M + \beta K
+\label{eq:2.6.14}
+\end{equation}
+
+固有値解析で得られた固有ベクトルにより変位ベクトルは時刻\emph{t}において式\(\eqref{eq:2.6.15}\)のように展開できる。
+
+\begin{equation}
+U(t) = \sum_i b_i(t) U_i
+\label{eq:2.6.15}
+\end{equation}
+
+このとき、外力項が調和振動子式の
+
+\begin{equation}
+F(t) = ( F_R + i F_I )e^{i \Omega t}
+\label{eq:2.6.16}
+\end{equation}
+
+場合において\(b_{j}(t)\)を決定する。運動方程式\(\eqref{eq:2.6.13}\)は強制振動の形になるので
+
+\begin{equation}
+b_j (t) = (b_{jR} + b_{jI}) e^{i \Omega t}
+\label{eq:2.6.17}
+\end{equation}
+
+が成り立つ。\(b_{j}(t)\)の展開係数の実部および虚部を求めると式\(\eqref{eq:2.6.18}i\)および式\(\eqref{eq:2.6.19}\)の形になる。
+
+\begin{equation}
+b_{jR} = \frac{ U^T_j F_R (\omega^2_j - \Omega^2) + U^T_j F_I (\alpha + \beta \omega_j^2) \Omega}{ (\omega^2_j - \Omega^2)^2 + (\alpha + \beta \omega_j^2)^2 \Omega^2}
+\label{eq:2.6.18}
+\end{equation}
+
+\begin{equation}
+b_{jI} = \frac{ U^T_j F_I(\omega^2_j - \Omega^2) - U^T_j F_R(\alpha + \beta \omega_j^2) \Omega}{ (\omega^2_j - \Omega^2)^2 + (\alpha + \beta \omega_j^2)^2 \Omega^2}
+\label{eq:2.6.19}
+\end{equation}
+
+となる。
+
+\hypertarget{ux53c2ux8003ux6587ux732e}{%
+\subsection{参考文献}\label{ux53c2ux8003ux6587ux732e}}
+
+\begin{itemize}
+\tightlist
+\item
+  久田・野口、非線形有限要素法の基礎と応用、丸善(1995).
+\item
+  O.C.Zienkiewicz, R.L.Taylor: The Finite Element Method, 6th Ed., Vol.2: McGraw-Hill, 2005
+\item
+  計算力学ハンドブック 第I巻 有限要素法（構造編）、日本機械学会(1998).
+\item
+  鷲津久一郎・宮本博・山田嘉昭・山本善之・川井忠彦、有限要素法ハンドブック,（I基礎編）、培風館(1982).
+\item
+  森正武・杉原正顕・室田一雄、線形計算、岩波書店(1994)．
+\item
+  Lois Komzsik:The Lanczos Method Evolution and Application:Siam、2003.
+\item
+  戸川隼人、有限要素法による振動解析、サイエンス社(1997)
+\item
+  矢川元基・宮崎則幸、有限要素法による熱応力・クリープ。熱伝導解析、サイエンス社（1985）
+\end{itemize}
+
+\end{document}
