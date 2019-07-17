@@ -18,19 +18,21 @@ do
     tmp.md \
     -o theory_$i.pdf \
     -f markdown+header_attributes+fenced_code_blocks+link_attributes+tex_math_single_backslash-tex_math_dollars+definition_lists \
-    -t latex-smart \
+    -t latex \
     --pdf-engine=lualatex \
-    -V documentclass=$docclass \
-    -V classoption=pandoc,ja=standard \
     -s --toc --number-sections \
-    -V papersize=a4 \
-    -V geometry:left=18.7mm,right=18.7mm,top=18.7mm,bottom=25.4mm \
     --css ../css/extra.css \
     --listings \
     --wrap=preserve \
     --highlight-style tango \
+    -V documentclass=$docclass \
+    -V classoption=pandoc,ja=standard \
+    -V fontsize=10pt \
+    -V papersize=a4 \
+    -V geometry:left=18.7mm,right=18.7mm,top=18.7mm,bottom=25.4mm \
     -V titlepage=true
   rm -rf tmp.md *.html
+  mv *.pdf $CWD
   cd $CWD
 done
 
