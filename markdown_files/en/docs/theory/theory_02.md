@@ -142,19 +142,20 @@ _{0}^{t'} E = _{0}^{t} E + \Delta E
 \end{equation}
 
 \begin{equation}
-\Delta E_{L}=\frac{1}{2}
+\Delta E_L=\frac{1}{2}
 \left\lbrace
 \frac{\partial \Delta u}{\partial X}
-+\left(\frac{\partial \Delta u}{\partial X}\right)^\mathrm{T}
-+\left(\frac{\partial \Delta u}{\partial X} \right)^\mathrm{T}\cdot
++\left(\frac{\partial \Delta u}{\partial X} \right)^T
++\left(\frac{\partial \Delta u}{\partial X} \right)^T\cdot
 \frac{\partial ^{t} u}{\partial X}
-+\left(\frac{\partial ^{t} u}{\partial X} \right)^\mathrm{T}
-\cdot\frac{\partial \Delta u}{\partial X} \right\rbrace
++\left(\frac{\partial ^{t} u}{\partial X} \right)^T
+\cdot\frac{\partial \Delta u}{\partial X}
+\right\rbrace
 \label{eq:2.2.15}
 \end{equation}
 
 \begin{equation}
-\Delta E_{NL} = \frac{1}{2}\left(\frac{\partial \Delta u}{\partial X}\right)^\mathrm{T}\cdot\frac{\partial \Delta u}{\partial X}
+\Delta E_{NL} = \frac{1}{2}\left(\frac{\partial \Delta u}{\partial X}\right)^T\cdot\frac{\partial \Delta u}{\partial X}
 \label{eq:2.2.16}
 \end{equation}
 
@@ -242,12 +243,12 @@ Further, this becomes
 
 \begin{equation}
 \Delta_{t} E_{L}=\frac{1}{2}
-\left\lbrace \frac{\partial \Delta u}{\partial^t\, x} + \left(\frac{ \partial \Delta u}{\partial ^t\,x}\right)^\mathrm{T} \right\rbrace
+\left\lbrace \frac{\partial \Delta u}{\partial^t\, x} + \left(\frac{ \partial \Delta u}{\partial ^t\,x}\right)^T \right\rbrace
 \label{eq:2.2.26}
 \end{equation}
 
 \begin{equation}
-\Delta_t E_{NL} = \frac{1}{2} \left( \frac{ \partial \Delta u}{\partial ^t\,x}\right)^\mathrm{T} \cdot \frac{ \partial \Delta u}{\partial^t\,x}
+\Delta_t E_{NL} = \frac{1}{2} \left( \frac{ \partial \Delta u}{\partial ^t\,x}\right)^T \cdot \frac{ \partial \Delta u}{\partial^t\,x}
 \label{eq:2.2.27}
 \end{equation}
 
@@ -352,12 +353,15 @@ where, \(C_{10}, C_{01}\) and \(D_1\) are the material constants.
 ##### (3) Arruda Boyce hyperelasticity model
 
 \begin{align}
-W &= \mu \left[ \frac{1}{2} ( {\overline{I}}_1 - 3 )
-   + \frac{1}{20 {\lambda_m}^2} ( \ {{\overline{I}}_1}^2 - 9 )
-   + \frac{11}{1050 {\lambda_m}^2} ( {{\overline{I}}_1}^3 - 27 ) \nonumber \\\
-  \qquad + \frac{19}{7000 {\lambda_m}^2} ( {{\overline{I}}_1}^4 - 81 )
-   + \frac{519}{673750 {\lambda_m}^2} ( {{\overline{I}}_1}^5 - 243 ) \right] \\\
-  &+ \frac{1}{D} \left( \frac{J^2 - 1}{2} - \ln J \right)
+W&=\mu
+  \left[
+    \frac{1}{2}(\overline{I_1}-3)
+    + \frac{1}{20\lambda_m^2}(\overline{I_1}^2-9) \nonumber
+    + \frac{11}{1050\lambda_m^2}(\overline{I_1}^3-27) \right. \\
+    & \left. + \frac{19}{7000\lambda_m^2}(\overline{I_1}^4-81)
+    + \frac{519}{673750\lambda_m^2}(\overline{I_1}^5-243)
+  \right ]
+  + \frac{1}{D} \left(\frac{J^2-1}{2}-\ln J\right)
 \label{eq:2.2.37}
 \end{align}
 
@@ -472,13 +476,7 @@ Where \(D\) is an elasticity matrix,
 The stress-strain relationship equation of elastoplasticity can be expressed as follows
 
 \begin{equation}
-\dot{\sigma} =
-\left\{
-D -
-\frac{d_D \otimes {d_D}^\mathrm{T}}
-     {A + {d_D}^\mathrm{T} a}
-\right\}
-\colon \dot{e}
+\sigma = \left\lbrace D - \frac{ d_D \otimes d^T_D}{ A + d^T_D a} \right\rbrace : \dot{e}
 \label{eq:2.2.50}
 \end{equation}
 

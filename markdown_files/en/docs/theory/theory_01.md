@@ -26,9 +26,8 @@ u = \overline{u} \quad on \ S_u
 where \(\sigma\), \(\overline{t}\) and \(S_t\) denote stress, surface force, and body force, respectively. \(S_t\) and \(S_u\) represent the geometric and mechanical boundaries, respectively.
 
 ![Boundary value problem in solid mechanics (infinitesimal deformation problem)](media/theory01_01.png){.center width="30%"}
-<div style="text-align:center;">
+
 Fig. 2.1.1 Boundary value problem in solid mechanics (infinitesimal deformation problem)
-</div>
 
 The strain-displacement relation in infinitesimal deformation problems is given by the following equation:
 

@@ -1,3 +1,8 @@
+---
+title: FrontISTR 理論マニュアル
+date: \today
+author: FrontISTR Commons
+---
 <!-- 表記は FrontISTR ver. 0.0 で統一します -->
 # FrontISTR 理論マニュアル
 

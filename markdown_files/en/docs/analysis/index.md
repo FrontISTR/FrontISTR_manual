@@ -1,3 +1,9 @@
+---
+title: FrontISTR Analysis Flow Manual
+date: \today
+author: FrontISTR Commons
+---
+
 <!-- 表記は FrontISTR ver. 0.0 で統一します -->
 # FrontISTR Analysis Flow Manual
 

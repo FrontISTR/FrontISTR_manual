@@ -357,12 +357,15 @@ W = C_{10} ( \overline{I}_1 - 3 ) + C_{01} ( \overline{I}_2 - 3 ) + \frac{1}{D_1
 ##### (3) Arruda Boyce超弾性モデル
 
 \begin{align}
-W &= \mu \left[ \frac{1}{2} ( {\overline{I}}_1 - 3 )
-   + \frac{1}{20 {\lambda_m}^2} ( \ {{\overline{I}}_1}^2 - 9 )
-   + \frac{11}{1050 {\lambda_m}^2} ( {{\overline{I}}_1}^3 - 27 ) \\\
-   + \frac{19}{7000 {\lambda_m}^2} ( {{\overline{I}}_1}^4 - 81 )
-   + \frac{519}{673750 {\lambda_m}^2} ( {{\overline{I}}_1}^5 - 243 ) \right] \\\
-  &+ \frac{1}{D} \left( \frac{J^2 - 1}{2} - \ln J \right)
+W&=\mu
+  \left[
+    \frac{1}{2}(\overline{I_1}-3) 
+    + \frac{1}{20\lambda_m^2}(\overline{I_1}^2-9) \nonumber
+    + \frac{11}{1050\lambda_m^2}(\overline{I_1}^3-27) \right. \\
+    & \left. + \frac{19}{7000\lambda_m^2}(\overline{I_1}^4-81)
+    + \frac{519}{673750\lambda_m^2}(\overline{I_1}^5-243)
+  \right ]
+  + \frac{1}{D} \left(\frac{J^2-1}{2}-\ln J\right)
 \label{eq:2.2.37}
 \end{align}
 
