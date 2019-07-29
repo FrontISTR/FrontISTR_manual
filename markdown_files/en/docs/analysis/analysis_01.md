@@ -67,19 +67,19 @@ The details of the mesh data are described in Chapter 6
 **(Example)**
 
 ```
-!HEADER                                         ----- Setting of mesh title
+!HEADER                             ----- Setting of mesh title
  TEST MODEL A361
-!NODE                                           ----- Definition of node coordinates
+!NODE                               ----- Definition of node coordinates
  0.0,0.0,0.0
-!ELEMENT,TYPE=361                               ----- Definition of element connectivity
+!ELEMENT,TYPE=361                   ----- Definition of element connectivity
  1001,1,2,3,4,5,6,7,8
-!SECTION,TYPE=SOLID,EGRP=ALL,MATERIAL=M1        ----- Definition of section data
-!MATERIAL,NAME=M1,ITEM=1                        ----- Definition of material data
+!SECTION,TYPE=SOLID,EGRP=ALL,MATERIAL=M1  ----- Definition of section data
+!MATERIAL,NAME=M1,ITEM=1            ----- Definition of material data
 !ITEM=1,SUBITEM=2
  4000.,     0.3
-!NGROUP,NGRP=FIX,GENERATE                       ----- Definition of node group
+!NGROUP,NGRP=FIX,GENERATE           ----- Definition of node group
  1001,1201,50
-!EGROUP,EGRP=TOP,GENERATE                       ----- Definition of element group
+!EGROUP,EGRP=TOP,GENERATE           ----- Definition of element group
  1001,1201,1
 !END
 ```
@@ -95,27 +95,27 @@ The details of the analysis control data described in Chapter 7
 
 ```
 !! Analysis Type
-!SOLUTION,TYPE=STATIC                           ----- Specification of analysis type
+!SOLUTION,TYPE=STATIC            ----- Specification of analysis type
 !! Analysis control data
-!BOUNDARY                                       ----- Definition of displacement boundary conditions
+!BOUNDARY                        ----- Definition of displacement boundary conditions
  FIX,1,3,0.0
-!CLOAD                                          ----- Definition of concentrated load conditions
+!CLOAD                           ----- Definition of concentrated load conditions
  CL1,1,-1.0
-!DLOAD                                          ----- Definition of distributed load conditions
+!DLOAD                           ----- Definition of distributed load conditions
  ALL,BX,1.0
-!REFTEMP                                        ----- Definition of reference temperature
+!REFTEMP                         ----- Definition of reference temperature
  20.0
-!TEMPERATURE                                    ----- Definition of heat load (temperature) coditions
+!TEMPERATURE                     ----- Definition of heat load (temperature) coditions
  ALL,100.0
 !! Solver Control Data
 !SOLVER,METHOD=CG,PRECOND=1,TIMELOG=YES,ITERLOG=YES ----- Control of Solver
  10000,2
  1.0e-8,1.0,0.0
 !! Post Control Data
-!WRITE,RESULT                                   ----- Analysis results data output
-!WRITE,VISUAL                                   ----- Visualizer control
+!WRITE,RESULT                    ----- Analysis results data output
+!WRITE,VISUAL                    ----- Visualizer control
 !! Visualizer
-!visual                                         ----- Hereinafter, the control data of the visualizer
+!visual                          ----- Hereinafter, the control data of the visualizer
 !surface_num=1
 !surface_style=1
 !END

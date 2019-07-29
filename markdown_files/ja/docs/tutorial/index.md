@@ -33,6 +33,8 @@ author: FrontISTR Commons
 
 ## 本マニュアルの記載内容
 
+- [PDF](tutorial_ja.pdf)
+
 - チュートリアル:
     - [静解析 (弾性)](tutorial_01.md)
     - [静解析 (弾性、並列)](tutorial_02.md)

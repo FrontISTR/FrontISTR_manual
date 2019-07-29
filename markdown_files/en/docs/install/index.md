@@ -32,6 +32,8 @@ This manual explains the installation procedure for a large-scale structural ana
 
 ## List of description on this manual
 
+- [PDF](install_en.pdf)
+
 - Installation
   - [Required software](install_01.md)
   - [Extracting the Archive File](install_02.md)

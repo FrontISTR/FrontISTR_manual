@@ -79,23 +79,23 @@ Compile Option: -p --with-tools --with-metis --with-mumps --with-lapack --with-m
 
 cmakeコマンドを実行する際、オプションを指定することで挙動を明示的に指定することができます。
 
-| オプション(デフォルト) | 説明                                           | 備考                         |
-|:-----------------------|:-----------------------------------------------|:-----------------------------|
-| -DWITH_TOOLS=ON        | パーティショナなどのツールもコンパイル         | hecmw_part1などツール        |
-| -DWITH_MPI=ON          | MPIを有効                                      | ライブラリが必要             |
-| -DWITH_OPENMP=ON       | OpenMPを有効                                   | コンパイラの対応が必要       |
-| -DWITH_REFINER=ON      | REVOCAP_Refinerの機能を有効                    | ライブラリが必要             |
-| -DWITH_REVOCAP=ON      | REVOCAP_Couplerの機能を有効                    | ライブラリが必要             |
-| -DWITH_METIS=ON        | METISの機能を有効                              | 4.0.3と5.1.0に対応           |
-| -DMETIS_VER_4=OFF      | metis-4.0.3を使う場合に設定                    | metis-5.1.0の場合指定不要    |
-| -DWITH_PARMETIS=ON     | ParMETISの機能を有効                           | 3.2.0と4.0.3に対応           |
-| -DMETIS_VER_3=OFF      | ParMetis-3.2.0を使う場合に設定                 | parmetis-4.0.3の場合指定不要 |
-| -DWITH_MKL=ON          | MKL PARDISOの機能を有効                        | ライブラリが必要             |
-| -DWITH_MUMPS=ON        | MUMPSの機能を有効                              | ライブラリが必要             |
-| -DWITH_LAPACK=ON       | LAPACKの機能を有効                             | ライブラリが必要             |
-| -DWITH_ML=ON           | Trilinos MLの機能を有効                        | ライブラリが必要             |
-| -DWITH_DOC=OFF         | FrontISTRのソースコードをドキュメント化        | doxygenとgraphvizが必要      |
-| -DOLD_RES_FORMAT=OFF   | ONでresultファイルの旧フォーマット出力を有効化 |                              |
+| オプション(デフォルト)| 説明                                          | 備考                        |
+|-----------------------|-----------------------------------------------|-----------------------------|
+| -DWITH_TOOLS=ON       | パーティショナなどのツールもコンパイル        | hecmw_part1などツール        |
+| -DWITH_MPI=ON         | MPIを有効                                     | ライブラリが必要             |
+| -DWITH_OPENMP=ON      | OpenMPを有効                                  | コンパイラの対応が必要       |
+| -DWITH_REFINER=ON     | REVOCAP_Refinerの機能を有効                   | ライブラリが必要             |
+| -DWITH_REVOCAP=ON     | REVOCAP_Couplerの機能を有効                   | ライブラリが必要             |
+| -DWITH_METIS=ON       | METISの機能を有効                             | 4.0.3と5.1.0に対応           |
+| -DMETIS_VER_4=OFF     | metis-4.0.3を使う場合に設定                   | metis-5.1.0の場合指定不要    |
+| -DWITH_PARMETIS=ON    | ParMETISの機能を有効                          | 3.2.0と4.0.3に対応           |
+| -DMETIS_VER_3=OFF     | ParMetis-3.2.0を使う場合に設定                | parmetis-4.0.3の場合指定不要 |
+| -DWITH_MKL=ON         | MKL PARDISOの機能を有効                       | ライブラリが必要             |
+| -DWITH_MUMPS=ON       | MUMPSの機能を有効                             | ライブラリが必要             |
+| -DWITH_LAPACK=ON      | LAPACKの機能を有効                            | ライブラリが必要             |
+| -DWITH_ML=ON          | Trilinos MLの機能を有効                       | ライブラリが必要             |
+| -DWITH_DOC=OFF        | FrontISTRのソースコードをドキュメント化       | doxygenとgraphvizが必要      |
+| -DOLD_RES_FORMAT=OFF  | ONでresultファイルの旧フォーマット出力を有効化|                              |
 
 cmakeで設定されている変数の一覧は
 

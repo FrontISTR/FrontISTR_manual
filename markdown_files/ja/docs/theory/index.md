@@ -36,6 +36,8 @@ author: FrontISTR Commons
 
 ## 本マニュアルの記載内容
 
+- [PDF](theory_ja.pdf)
+
 - 静的解析
     - [微小変形線形弾性静解析](theory_01.md)
     - [非線形静解析手法](theory_02.md)

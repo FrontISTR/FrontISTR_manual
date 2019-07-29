@@ -33,6 +33,8 @@ author: FrontISTR Commons
 
 ## 本マニュアルの記載内容
 
+- [PDF](intro_ja.pdf)
+
 - 概要
     - [クイックスタートガイド]()
 - マニュアル

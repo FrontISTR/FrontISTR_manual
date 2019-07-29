@@ -34,6 +34,8 @@ Regarding the stress analysis method of solids, the infinitesimal deformation li
 
 ## List of description on this manual
 
+- [PDF](theory_en.pdf)
+
 - Static Analysis
     - [Infinitesimal Deformation Linear Elasticity Static Analysis](theory_01.md)
     - [Nonlinear Static Analysis Method](theory_02.md)

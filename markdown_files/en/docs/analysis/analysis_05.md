@@ -106,14 +106,12 @@ File Name
 :   The maximum length of the file name is 1,023 characters.
 
 Floating Point Data
-:   Exponents are optional. An "`E`" or "`e`" character must be added before the exponent.
-:   The selection of "`E`" or "`e`" is optional.
+:   Exponents are optional. An "`E`" or "`e`" character must be added before the exponent. The selection of "`E`" or "`e`" is optional.
 
-`!!`, `#`, Comment Line
-:   Lines starting with "`!!`" or "`#`" are considered to be comment lines, and are disregarded.
-:   A comment line can be inserted in any position in the file, and there are no restrictions on the number of lines.
+!!, #, Comment Line
+:   Lines starting with "`!!`" or "`#`" are considered to be comment lines, and are disregarded. A comment line can be inserted in any position in the file, and there are no restrictions on the number of lines.
 
-`!END`
+!END
 :   End of mesh data
 :   When this header is displayed, the reading of the mesh data is completed.
 
@@ -464,15 +462,15 @@ Definition of control data for calculation
 
 ```
 !HEAT
-  (No data)                                     ----- Steady calculation
+  (No data)                         ----- Steady calculation
 !HEAT
-  0.0                                           ----- Steady calculation
+  0.0                               ----- Steady calculation
 !HEAT
-  10.0, 3600.0                                  ----- Fixed time increment unsteady calculation
+  10.0, 3600.0                      ----- Fixed time increment unsteady calculation
 !HEAT
-  10.0, 3600.0, 1.0                             ----- Automatic time increment unsteady calculation
+  10.0, 3600.0, 1.0                 ----- Automatic time increment unsteady calculation
 !HEAT
-  10.0, 3600.0, 1.0, 20.0                       ----- Automatic time increment unsteady calculation
+  10.0, 3600.0, 1.0, 20.0           ----- Automatic time increment unsteady calculation
 ```
 
 ###### 4-2 `!FIXTEMP`
@@ -782,10 +780,11 @@ METHOD    = method
             in addition there are CG, BiCGSTAB, GMRES, GPBiCG, etc.)
 DUMPTYPE  = type of matrix dumping
 DUMPEXIT  = whether program exits right after dumping matrix
-
+```
 
 The following parameters will be disregarded when a direct solver is selected in the method.
 
+```
 PRECOND   = preconditioner
 ITERLOG   = whether solver convergence history is output
 TIMELOG   = whether solver computation time is output
@@ -2013,9 +2012,9 @@ AMP      = Time function name
 ** 3rd line or later **
 
 ```
-  BOUNDARY, id                   GRPID defined in id=!BOUNDARY
-  LOAD, id                       GRPID defined in id=!CLOAD, !DLOAD, !SPRING, !TEMPERATURE
-  CONTACT, id                    GRPID defined in id=!CONTACT
+  BOUNDARY, id          GRPID defined in id=!BOUNDARY
+  LOAD, id              GRPID defined in id=!CLOAD, !DLOAD, !SPRING, !TEMPERATURE
+  CONTACT, id           GRPID defined in id=!CONTACT
 ```
 
 ###### Parameter
@@ -2492,7 +2491,7 @@ TYPE = LINEAR    : Linear dynamic analysis
 Note: Regarding the information of the monitoring node specified in this line, the displacement is output to the file &lt;dyna_disp_NID.txt&gt;, where NID is the global ID of the monitoring node, and each line includes the step number, time of the step, NID, u1, u2, and u3 in this order. The velocity and acceleration are also output to &lt;dyna_velo_NID.txt&gt; and &lt;dyna_acce_NID.txt&gt;, respectively, in the same format as the displacement. The nodal strain is output to &lt;dyna_strain_NID.txt&gt; and each line includes the step number, time of the step, NID, e11, e22, e33, e12, e23, and e13 in this order.  The nodal stress is output to &lt;dyna_stress_NID.txt&gt; and each line includes the step number, time of the step, NID, s11, s22, s33, s12, s23, s13, and s_mises in this order. When monitoring nodes are specified by a node group, each of the files stated above is separately output for each node. When this output is specified, the kinetic energy, deformation energy and the overall energy of the overall analytic model will also be output to &lt;dyna_energy.txt&gt;.
 
 ```
-(7th line) iout_list(1), iout_list(2), iout_list(3), iout_list(4), iout_list(5), iout_list(6)
+(7th line) iout_list(1),iout_list(2),iout_list(3),iout_list(4),iout_list(5),iout_list(6)
 ```
 
 |Parameter Name|Attributions|Contents|
@@ -2560,7 +2559,7 @@ Note: Regarding the information of the monitoring node specified in this line, t
 | nodeout | I    |Monitoring NODE ID in frequency domain|
 
 ```
-(7th line) iout_list(1), iout_list(2), iout_list(3), iout_list(4), iout_list(5), iout_list(6)
+(7th line) iout_list(1),iout_list(2),iout_list(3),iout_list(4),iout_list(5),iout_list(6)
 ```
 
 |Parameter Name|Attributions|Contents|
@@ -2691,8 +2690,8 @@ TYPE =  1: One-way coupled (FrontISTR starts from receiving data)
         6: Iterative partitioned two-way coupled (FrontISTR starts from sending data)
 ISTEP = Step No.
         From the beginning of analysis to the step specified here, a linearly increasing
-        function from 0 to 1 is multiplied to the input fluid traction. After this step, the input
-        fluid traction is directly applied.
+        function from 0 to 1 is multiplied to the input fluid traction.
+        After this step, the input fluid traction is directly applied.
 WINDOW => 0 ：Multiply window function(*) to input fluid traction
 ```
 

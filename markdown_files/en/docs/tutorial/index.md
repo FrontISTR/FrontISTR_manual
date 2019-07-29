@@ -31,6 +31,8 @@ This manual describes the analysis implementation guidelines using a large-scale
 
 ## List of description on this manual
 
+- [PDF](tutorial_en.pdf)
+
 - Tutorials:
     - [Static Analysis (Elasticity)](tutorial_01.md)
     - [Static Analysis (Elasticity, Parallel)](tutorial_02.md)

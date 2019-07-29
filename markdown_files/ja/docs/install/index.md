@@ -32,6 +32,8 @@ author: FrontISTR Commons
 本マニュアルでは、大規模並列FEM非線形構造解析プログラムFrontISTRのインストール方法を説明します。
 
 ## 本マニュアルの記載内容
+  
+  - [PDF](install_ja.pdf)
 
   - [動作環境](install_01.md)
   - [アーカイブの解凍・展開](install_02.md)

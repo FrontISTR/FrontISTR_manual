@@ -34,6 +34,8 @@ Regarding the stress analysis method of solids, the infinitesimal deformation li
 
 ## List of description on this manual
 
+- [PDF](analysis_en.pdf)
+
 - [Analysis Flow](analysis_01.md)
 - [Input File](analysis_01.md)
     - [Overall Control Data](analysis_02.md)

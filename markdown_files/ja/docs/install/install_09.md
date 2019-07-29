@@ -42,7 +42,7 @@ $ export PATH=$HOME/local/bin:$PATH
 以下のソフトウェアをダウンロードし、作業ディレクトリ`$HOME/work`へ保存します。
 
 | ソフトウェア名                  | ダウンロード先                                        |
-|:--------------------------------|:------------------------------------------------------|
+|---------------------------------|-------------------------------------------------------|
 | REVOCAP_Refiner-1.1.04.tar.gz   | http://www.frontistr.com/                             |
 | FrontISTR_V50.tar.gz            | https://www.frontistr.com/                            |
 | OpenBLAS-0.2.20.tar.gz          | http://www.openblas.net/                              |
@@ -50,6 +50,7 @@ $ export PATH=$HOME/local/bin:$PATH
 | scalapack-2.0.2.tgz             | http://www.netlib.org/scalapack/                      |
 | MUMPS_5.1.2.tar.gz              | http://mumps.enseeiht.fr/                             |
 | trilinos-12.14.1-Source.tar.bz2 | https://trilinos.org/download/                        |
+
 
 #### REVOCAP_Refinerのコンパイル
 

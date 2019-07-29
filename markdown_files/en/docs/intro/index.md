@@ -36,6 +36,8 @@ FrontISTR is Open-Source Large-Scale Parallel FEM Program for Nonlinear Structur
 
 ## List of description on this manual
 
+- [PDF](intro_en.pdf)
+
 - Overview
     - [Quick Start Guide]()
 - Manuals

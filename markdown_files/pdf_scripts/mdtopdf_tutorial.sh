@@ -6,6 +6,12 @@ FILES="index.md tutorial_01.md tutorial_02.md tutorial_03.md tutorial_04.md tuto
 for i in en ja
 do
   echo $i
+  if [ $i = "ja" ]; then
+    docclass="bxjsarticle"
+  else
+    docclass="article"
+  fi
+
   cd ../$i/docs/tutorial
   cat $FILES > tmp.md
     pandoc \
@@ -14,19 +20,19 @@ do
     -f markdown+header_attributes+fenced_code_blocks+link_attributes+tex_math_single_backslash-tex_math_dollars+definition_lists \
     -t latex \
     -s --toc --number-sections \
-    --pdf-engine=lualatex \
+    --latex-engine=lualatex \
     --css ../css/extra.css \
     --listings \
     --wrap=preserve \
     --highlight-style tango \
-    -V documentclass=bxjsarticle \
+    -V documentclass=$docclass \
     -V classoption=pandoc,ja=standard \
     -V fontsize=10pt \
     -V papersize=a4 \
-    -V geometry:left=18.7mm,right=18.7mm,top=18.7mm,bottom=25.4mm \
+    -V geometry:left=18.7mm,right=18.7mm,top=18.7mm,bottom=30.0mm \
     -V titlepage=true
   rm -rf tmp.md *.html
-  mv *.pdf $CWD
+#  mv *.pdf $CWD
   cd $CWD
 done
 

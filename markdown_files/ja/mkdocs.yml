@@ -1,9 +1,17 @@
 site_name: FrontISTR ver. 5.0
 theme:
-    name: windmill
+    name: 'windmill'
     highlightjs: true
     hljs_languages:
         - fortran
+    language: 'ja'
+
+plugins:
+  - search:
+
+extra:
+  search:
+    language: 'jp'
 
 use_directory_urls: false
 
