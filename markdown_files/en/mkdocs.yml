@@ -22,10 +22,12 @@ extra_css:
 nav:
 - HOME: index.md
 - Introduction:
+    - PDF: intro/intro_en.pdf
     - TOC: intro/index.md
     - Release Notes: intro/00_release_note.md
     - Cheat Sheet: intro/00_cheat_sheet.md
 - Install:
+    - PDF: install/install_en.pdf
     - TOC: install/index.md
     - Required software: install/install_01.md
     - Extracting the Archive File: install/install_02.md
@@ -39,6 +41,7 @@ nav:
     - Installation procedure to Ubuntu18.04(Makefile.conf): install/install_10.md
     - Installation procedure to Windows10(Makefile.conf): install/install_11.md
 - Theory:
+    - PDF: theory/theory_en.pdf
     - TOC: theory/index.md
     - Infinitesimal Deformation Linear Elasticity Static Analysis: theory/theory_01.md
     - Nonlinear Static Analysis Method: theory/theory_02.md
@@ -48,6 +51,7 @@ nav:
     - Heat Conduction Analysis: theory/theory_04.md
     - References: theory/theory_07.md
 - Analysis:
+    - PDF: analysis/analysis_en.pdf
     - TOC: analysis/index.md
     - Analysis Flow: analysis/analysis_01.md
     - Element Library and Material Data: analysis/analysis_02.md
@@ -57,6 +61,7 @@ nav:
     - Analysis Control Data: analysis/analysis_05.md
     - User Subroutines: analysis/analysis_06.md
 - Tutorial:
+    - PDF: tutorial/tutorial_en.pdf
     - TOC: tutorial/index.md
     - Static Analysis (Elasticity) : tutorial/tutorial_01.md
     - Static Analysis (Elasticity, Parallel) : tutorial/tutorial_02.md

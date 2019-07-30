@@ -12,11 +12,11 @@ When using this software for free or for profit use, you need to agree "MIT lice
 
 [![FrontISTR](../image/FrontISTR_logo.png){.center width=350px}](https://www.frontistr.com)
 
-| Item                 | Content                |
-|:--------------------:|:-----------------------|
-| Name of Software     | FrontISTR              |
-| Version              | 5.0                    |
-| License              | MIT License            |
+| Item                 | Content                                                        |
+|----------------------|----------------------------------------------------------------|
+| Name of Software     | FrontISTR                                                      |
+| Version              | 5.0                                                            |
+| License              | MIT License                                                    |
 | Correnponding Clerks | FrontISTR Commons<br>2-11-16 Yayoi, Bunkyo-ku, Tokyo, Japan<br>c/o Institute of Engineering Innovation, School of Engineering<br>E-mail：support@frontistr.com | 
 
 ## Manuals
