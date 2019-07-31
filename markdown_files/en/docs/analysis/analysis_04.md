@@ -223,10 +223,10 @@ Example of Use
  205
 !EGROUP, EGRP=EA02
  101, 102
-!EGROUP, EGRP=EA01                              "501, 505" are added to group "EA01".
+!EGROUP, EGRP=EA01               "501, 505" are added to group "EA01".
  501, 505
-!EGROUP, EGRP=EA04, GENERATE                    "301, 303, 305, 307, 309, 311, 312, 313" are added to
- 301, 309, 2                                    group "NA04".
+!EGROUP, EGRP=EA04, GENERATE     "301, 303, 305, 307, 309, 311, 312, 313"
+ 301, 309, 2                     are added to group "NA04".
  311, 313
 ```
 
@@ -324,8 +324,8 @@ Definition of restricted node group
 |`INPUT`  |External file name (omissible)|
 
 
-|Parameter Name|Parameter Value |Contents |
-|--------------|----------------|---------|
+|Parameter Name|Parameter Value |Contents                            |
+|--------------|----------------|------------------------------------|
 |`INPUT`       |&lt;filename&gt;|External file name (omissible), can also be used together with the 2nd line or later|
 
 2nd Line or later
@@ -441,9 +441,9 @@ The table input can also be performed for the relationship of the stress strain 
 Hereinafter, the definition is repeated until "!ITEM=<ITEMnum>".
 ```
 
-|Subparameter (for "!ITEM")|   |
-|--------------------------|---|
-|`SUBITEM`                 |Number of sub physical property items defined in each of the physical property items<br/>(omissible, becomes "1" when omitted, used to define anisotropy and etc.)|
+|Subparameter (for "!ITEM") |                                           |
+|---------------------------|-------------------------------------------|
+|`SUBITEM`                  | Number of sub physical property items defined in each of the physical property items(omissible, becomes "1" when omitted, used to define anisotropy and etc.)|
 
 |Subparameter Name|Parameter Value   |Contents                                                |
 |-----------------|------------------|--------------------------------------------------------|
@@ -499,14 +499,14 @@ Example of Use
 
 ```
 !MATERIAL, NAME= STEEL, ITEM= 2
-!ITEM=1                                         ----- No temperature dependency
+!ITEM=1                            ----- No temperature dependency
  35.0
 !ITEM=2
  40.0, 0.0
  45.0, 100.0
  50.0, 200.0
-!MATERIAL, NAME= CUPPER                         ----- Number of items = 1 (Default value)
-!ITEM=1                                         ----- No temperature dependency
+!MATERIAL, NAME= CUPPER            ----- Number of items = 1 (Default value)
+!ITEM=1                            ----- No temperature dependency
  80.0
 ```
 Incorrect Example of Use
@@ -555,7 +555,8 @@ Elastic Static Analysis and Eigenvalue Analysis
 Example
 
 ```
-!! Intention of defining three types of property values in the material of material name M1
+!! Intention of defining three types of property values
+!! in the material of material name M1
 !MATERIAL, NAME=M1, ITEM=3
 
 !! The Young's modulus and Poisson's ratio is defined in !ITEM=1 (mandatory)
@@ -789,8 +790,8 @@ Definition of node group
 |`GENERATE`|Automatic generation of nodes belonging to the node group (omissible)|
 |`INPUT`   |External file name (omissible)                                       |
 
-|Parameter Name|Parameter Value |Contents|
-|--------------|----------------|--------|
+|Parameter Name|Parameter Value |Contents                                        |
+|--------------|----------------|------------------------------------------------|
 |`NGRP`        |&lt;ngrp&gt;    |Node group name GENERATE N/A Automatic generation of nodes belonging to the node group|
 |`INPUT`       |&lt;filename&gt;|External file name (omissible), can also be used together with the 2nd line or later|
 
@@ -835,12 +836,12 @@ Example of Use
  101, 102
 !NGROUP, NGRP=NA02
  101, 102
-!NGROUP, NGRP=NA01                              ----- "501 and 505" are added to group "NA01".
+!NGROUP, NGRP=NA01                   ----- "501 and 505" are added to group "NA01".
  501, 505
-!NGROUP, NGRP=NA02                              ----- "501 and 505" are added to group "NA02".
+!NGROUP, NGRP=NA02                   ----- "501 and 505" are added to group "NA02".
  501, 505
-!NGROUP, NGRP=NA04,GENERATE                     ----- "301, 303, 305, 307, 309, 311, 312, 313"
- 301, 309, 2                                          are added to group "NA04".
+!NGROUP, NGRP=NA04,GENERATE          ----- "301, 303, 305, 307, 309, 311, 312, 313"
+ 301, 309, 2                               are added to group "NA04".
  311, 313
 ```
 
@@ -1048,7 +1049,7 @@ Example of Use
  501, 1
 !SGROUP, SGRP= SUF02
  101, 2, 102, 2
-!SGROUP, SGRP= EA01                             "(601,1) and (602 2)" are added to group "SUF01".
+!SGROUP, SGRP= EA01     "(601,1) and (602 2)" are added to group "SUF01".
  601, 1
  602, 2
 ```
@@ -1073,8 +1074,8 @@ Incorrect Example of Use
 !SGROUP, SGRP= SUF01
 101, 1
 101, 2
-101, 4                  Since a 4th surface does not exist in a triangular element, this combination
-                        will be disregarded.
+101, 4                  Since a 4th surface does not exist in a triangular element,
+                        this combination will be disregarded.
 ```
 
 #### (11) `!ZERO` (M1-11)

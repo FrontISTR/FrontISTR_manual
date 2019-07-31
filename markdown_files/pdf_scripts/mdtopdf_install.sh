@@ -17,22 +17,22 @@ do
   pandoc \
     tmp.md \
     -o install_$i.pdf \
-    -f markdown+header_attributes+fenced_code_blocks+link_attributes+tex_math_single_backslash-tex_math_dollars+definition_lists \
+    -f markdown+header_attributes+fenced_code_blocks+link_attributes+tex_math_single_backslash-tex_math_dollars+definition_lists+multiline_tables \
     -t latex \
     -s --toc --number-sections \
-    --pdf-engine=xelatex \
+    --latex-engine=xelatex \
     --css ../css/extra.css \
     --listings \
-    --wrap=preserve \
+    --wrap=auto \
     --highlight-style tango \
     -V documentclass=$docclass \
     -V classoption=pandoc,ja=standard \
     -V fontsize=10pt \
     -V papersize=a4 \
-    -V geometry:left=18.7mm,right=18.7mm,top=18.7mm,bottom=25.4mm \
+    -V geometry:left=15.7mm,right=15.7mm,top=18.7mm,bottom=30.0mm \
     -V titlepage=true
   rm -rf tmp.md *.html
-  mv *.pdf $CWD
+#  mv *.pdf $CWD
   cd $CWD
 done
 

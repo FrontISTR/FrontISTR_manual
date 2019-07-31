@@ -20,7 +20,7 @@ do
     -f markdown+header_attributes+fenced_code_blocks+link_attributes+tex_math_single_backslash-tex_math_dollars+definition_lists \
     -t latex \
     -s --toc --number-sections \
-    --pdf-engine=lualatex \
+    --latex-engine=lualatex \
     --css ../css/extra.css \
     --listings \
     --wrap=preserve \
@@ -29,10 +29,10 @@ do
     -V classoption=pandoc,ja=standard \
     -V fontsize=10pt \
     -V papersize=a4 \
-    -V geometry:left=18.7mm,right=18.7mm,top=18.7mm,bottom=25.4mm \
+    -V geometry:left=15.7mm,right=15.7mm,top=18.7mm,bottom=30.0mm \
     -V titlepage=true
   rm -rf tmp.md *.html
-  mv *.pdf $CWD
+#  mv *.pdf $CWD
   cd $CWD
 done
 

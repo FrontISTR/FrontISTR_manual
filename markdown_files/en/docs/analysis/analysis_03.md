@@ -87,9 +87,9 @@ file
 |:---------------|:----------------|:----------------------|
 | `NAME`         | `fstrCNT`       | Analysis control data |
 
-|Parameter Name |Contents|
-|:--------------|:-------|
-| file          |Analysis control data file name (both the relative path and the absolute path can be specified. When the relative path is specified, it becomes the path from the current directory.)|
+| Parameter Name |Contents                                                          |
+|----------------|------------------------------------------------------------------|
+| file           |Analysis control data file name (both the relative path and the absolute path can be specified. When the relative path is specified, it becomes the path from the current directory.)|
 
 
 #### (2) `!MESH`

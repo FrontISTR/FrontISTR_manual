@@ -67,7 +67,7 @@ u = \overline{u} \quad on \ S_u
 
 式\(\eqref{eq:2.1.8}\)において、\(\varepsilon\)はひずみテンソル、\(C\)は4階の弾性テンソルである。
 ここで、応力テンソル\(\sigma\)とひずみテンソル\( \varepsilon \)を、
-それぞれベクトル形式で\( \hat{\sigma} \)、\( \hat{\varepsilon} \)と表すと、構成式\( \eqref{eq:2.1.5} \)は次式のように表される。
+それぞれベクトル形式で \(\hat{\sigma}\) 、 \(\hat{\varepsilon}\) と表すと、構成式 \(\eqref{eq:2.1.5}\)は次式のように表される。
 
 \begin{equation}
 \hat{\sigma} = D \hat{\varepsilon}
@@ -76,7 +76,7 @@ u = \overline{u} \quad on \ S_u
 
 ここで、\( D \) は弾性マトリクスである。
 
-ベクトル形式で表された応力\( \hat{\sigma} \)、\( \hat{\varepsilon} \)および式\( \eqref{eq:2.1.9} \)を考慮して、式\( \eqref{eq:2.1.8} \)は次式のように表わされる。
+ベクトル形式で表された応力 \(\hat{\sigma}\) 、 \(\hat{\varepsilon}\) および式 \(\eqref{eq:2.1.9}\)を考慮して、式\( \eqref{eq:2.1.8} \)は次式のように表わされる。
 
 \begin{equation}
 \int_V \hat{\varepsilon}^T D \delta \hat{\varepsilon} dV = \int_{S_t}

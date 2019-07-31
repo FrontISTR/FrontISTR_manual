@@ -41,7 +41,7 @@ Table 9.1.1: exA: Verification results of the concentrated load problem
 </div>
 
 | Case Name | Number of elements | | Predicated Value : \(\delta_{max}= -1.000\) | | Remarks |
-|:-:|:-:|:-:|:-:|:-:|:-:|
+|-----------|--------------------|-----|------|-------|-------------|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
 | A231 | 40  | -0.338 | -0.371 | -0.371 | 33 nodes / plane stress status problem |
 | A232 | 40  | -0.942 | -1.002 | -1.002 | 105 nodes / plane stress status problem |
@@ -61,7 +61,7 @@ Table 9.1.2: exB: Verification results of the surface-distributed load problem
 </div>
 
 | Case name | Number of elements | | Predicated value : \(\delta_{max}= -3.750\) | | Remarks |
-|:-:|:-:|:-:|:-:|:-:|:-:|
+|----------|----------|---------|---------|----------|----------|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
 | B231 | 40  | -1.281 | -1.403 | -1.403 | 33 nodes / plane stress status problem |
 | B232 | 40  | -3.579 | -3.763 | -3.763 | 105 nodes / plane stress status problem |
@@ -81,7 +81,7 @@ Table 9.1.3: exC: Verification results of the volume load problem
 </div>
 
 | Case Name | Number of elements | | Predicated Value : \(\delta_{max}= -2.944^{-5}\) | | Remarks |
-|:-:|:-:|:-:|:-:|:-:|:-:|
+|----------|----------|----------|----------|----------|----------|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
 | C231 | 40  | - | -1.101e-5 | -1.101e-5 | 33 nodes / plane stress problem |
 | C232 | 40  | - | -2.951e-5 | -2.951e-5 | 105 nodes / plane stress problem |
@@ -101,7 +101,7 @@ Table 9.1.4: exD: Verification results of the gravitation problem
 </div>
 
 | Case name | Number of elements | | Predicated Value : \(\delta_{max}= -2.944^{-5}\) | | Remarks |
-|:-:|:-:|:-:|:-:|:-:|:-:|
+|----------|----------|------------|----------|----------|----------|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
 | D231 | 40  | -1.101e-5 | -1.101e-5 | -1.101e-5 | 33 nodes / plane stress status problem |
 | D232 | 40  | -2.805e-5 | -2.951e-5 | -2.951e-5 | 105 nodes / plane stress status problem |
@@ -121,7 +121,7 @@ Table 9.1.5: exE: Verification results of the centrifugal force problem
 </div>
 
 | Case name | Number of elements | | Predicated value : \(\delta_{max}= 2.635^{-3}\) | | Remarks |
-|:-:|:-:|:-:|:-:|:-:|:-:|
+|-------------|-------------|----------|-----------|----------|-----------|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
 | E231 | 40  | 2.410e-3 | 2.616e-3 | 2.650e-3 | 33 nodes / plane stress status problem |
 | E232 | 40  | 2.447e-3 | 2.627e-3 | 2.628e-3 | 105 nodes / plane stress status problem |
@@ -141,7 +141,7 @@ Table 9.1.6: exF: Verification results of the thermal stress load problem
 </div>
 
 | Case name | Number of elements | | Predicated Value : \(\delta_{max}= 1.000^{-2}\) | | Remarks |
-|:-:|:-:|:-:|:-:|:-:|:-:|
+|------------|------------------|----------------|-------------|------------|-----------|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
 | F231 | 40  | - | 1.016e-2 | 1.007e-2 | 33 nodes / plane stress status problem |
 | F232 | 40  | - | 1.007e-2 | 1.007e-2 | 105 nodes / plane stress status problem |
@@ -159,7 +159,7 @@ Table 9.1.7: exG: Verification results of the direct method (concentrated load p
 </div>
 
 | Case name | Number of elements | | Predicated value : \(\delta_{max}= -1.000\) | | Remarks |
-|:-:|:-:|:-:|:-:|:-:|:-:|
+|-----------|----------------|-------------|-------------|-------------|-------------|
 |   |   | NASTRAN | ABAQUS | FrontISTR | |
 | G231 | 40  | -0.338 | -0.371 | -0.371 | 33 nodes / plane stress status problem |
 | G232 | 40  | -0.942 | -1.002 | -1.002 | 105 nodes / plane stress status problem |
@@ -240,7 +240,7 @@ Fig. 9.1.4: Elastoplasticity deformation analysis Model
 All the nodes that are not mentioned here are fully constrained. The theoretical solution for this problem is presented as follows:
 
 | Strain (\(\times10^{-4}\))<br/>[\(\varepsilon_x\), \(\varepsilon_y\), \(\varepsilon_z\)] | Equivalent Stress (\(MPa\))<br/>[\(H_i=0\ H_k=0\); \(H_i=62.5\ H_k=0\)] |
-|:--|:--|
+|:---------------------------|:-------------------------------------------|
 | 0.25, 0, 0    | 5.0; 5.0 | 
 | 0.50, 0, 0    | 5.0; 5.862 |
 | 0.50, 0.25, 0 | 5.0; 5.482 |
@@ -253,7 +253,7 @@ All the nodes that are not mentioned here are fully constrained. The theoretical
 The results of the calculations are as follows:
 
 | Strain (\(\times10^{-4}\))<br/>[\(\varepsilon_x\), \(\varepsilon_y\), \(\varepsilon_z\)] | Equivalent Stress (\(MPa\))<br/>[\(H_i=0\ H_k=0\); \(H_i=62.5\ H_k=0\)] |
-|:--|:--|
+|:-------------------------|:-----------------------------------------|
 | 0.25, 0, 0    | 5.0 (0.0%); 5.0 (0.0%) | 
 | 0.50, 0, 0    | 5.0 (0.0%); 5.862 (0.0%) |
 | 0.50, 0.25, 0 | 5.0 (0.0%); 5.482 (0.0%) |
@@ -325,6 +325,7 @@ where
 With the actual calculation, when the pressure is \(F=100\), the contact radius is \(a=1.36\).
 
 Fig. 9.1.7 shows the equivalent nodal force of the contact point. The contact radius is obtained by extrapolating this nodal force distribution. 
+
 ![Equivalent nodal force distribution of the contact point](./media/example01_12.png){.center width="512px"}
 <div style="text-align: center;">
 Fig. 9.1.7: Equivalent nodal force distribution of the contact point 
@@ -408,7 +409,7 @@ Table 9.1.9: exJ: Iteration method verification results with the primary eigenva
 </div>
 
 | Case Name |  Number of elements | Predicated value : n1=3.609e3 | | Remarks |
-|:-:|:-:|:-:|:-:|:-:|
+|:----------:|:---------------:|:--------------:|:-----------:|:-----------:|
 |   |   | NASTRAN | FrontISTR | |
 | J231 | 40  | 5.861e3 | 5.861e3 | 33 nodes / plane stress status problem |
 | J232 | 40  | 3.596e3 | 3.593e3 | 105 nodes / plane stress status problem |
@@ -426,7 +427,7 @@ Table 9.1.10: Iteration method verification results of exJ with the secondary ei
 </div>
 
 | Case name | Number of elements | Predicated value : n2=2.262e4 | | Remarks |
-|:-:|:-:|:-:|:-:|:-:|
+|:----------:|:------------------:|:---------------:|:----------:|:------------:|
 |   |   | NASTRAN | FrontISTR | |
 | J231 | 40  | 3.350e4 | 3.351e4 | 33 nodes / plane stress status problem |
 | J232 | 40  | 2.163e4 | 2.156e4 | 105 nodes / plane stress status problem |
@@ -528,7 +529,7 @@ Table 9.1.13: Verification results of exM (steady-state calculation of linear ma
 </div>
 
 | Case name | Element type | Number of elements/nodes | Distance from edge A (m) |  |  |  |  |  |  |
-|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|:------|:--------|:--------|:---------|:----------|:----------|:----------|:-----------|:----------|:----------|
 |   |   |   | Edge A | 2.0 | 4.0 | 6.0 | 8,0 | Edge B |
 | M361A | 361 | 40／33  | 0.0 | 100.0 | 200.0 | 300.0 | 400.0 | 500.0 |
 | M361B | 361 | 40／105 | 0.0 | 100.0 | 200.0 | 300.0 | 400.0 | 500.0 |
@@ -761,7 +762,7 @@ Table 9.1.21: Verification conditions of the linear dynamic analysis (continuati
 </div>
 
 | Case Name | Element Type | No. of Nodes | No. of Elements | Solution | Time Increment \(\Delta t\) [sec] |
-|:--|:--|:--|:--|:--|:--|
+|:----------|:-------------|:-------------|:----------------|:---------|:----------------------------------|
 | W361_c0_im_m2_t1 | 361 |  99 |  40 | Implicit method | 1.0E-06 |
 | W361_c0_im_m2_t2 | 361 |  99 |  40 | Implicit method | 1.0E-05 |
 | W361_c0_im_m2_t3 | 361 |  99 |  40 | Implicit method | 1.0E-04 |
@@ -780,7 +781,7 @@ Table 9.1.22: Verification results of linear dynamic analysis of exW (cantilever
 </div>
 
 | Case name | Element type | Number of nodes | Number of elements | Solution | z-direction displacement: \(u_z(mm)\) when time \(t = 0.002(s)\) |  |
-|:--|:--|:--|:--|:--|:--|:--|
+|:----------|:-------------|:----------------|:-------------------|:---------|:-----------------------------------------------------------------|:--|
 |                  |     |     |     |        |Theorical solution repeated to sextic equation|FrontISTR|
 | W361_c0_im_m2_t1 | 361 |  99 |  40 | Implicit method | 1.9753 | 1.9302 |
 | W361_c0_im_m2_t2 | 361 |  99 |  40 | Implicit method | 1.9753 | 1.8686 |

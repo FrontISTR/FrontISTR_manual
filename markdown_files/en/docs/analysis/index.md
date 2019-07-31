@@ -11,11 +11,11 @@ This software is the outcome of "Research and Development of Innovative Simulati
 
 [![FrontISTR](../image/FrontISTR_logo.png){.center width=350px}](https://www.frontistr.com)
 
-| Item                 | Content     |
-|:--------------------:|:------------|
-| Name of Software     | FrontISTR   |
-| Version              | 5.0         |
-| License              | MIT License |
+| Item                 | Content                                                        |
+|----------------------|----------------------------------------------------------------|
+| Name of Software     | FrontISTR                                                      |
+| Version              | 5.0                                                            |
+| License              | MIT License                                                    |
 | Correnponding Clerks | FrontISTR Commons<br>2-11-16 Yayoi, Bunkyo-ku, Tokyo<br>c/o Institute of Engineering Innovation, School of Engineering<br>E-mail：support@frontistr.com |
 
 ## Manuals
@@ -33,6 +33,8 @@ This manual describes the analysis method by the finite element method (FEM) use
 Regarding the stress analysis method of solids, the infinitesimal deformation linear elasticity static analyais method is described first, and geometric nonlinear analysis method and elastoplasticity analysis method which are required when handling finite deformation problems are described next. Furthermore, a summarized evaluation method of the facture mechanics parameters which can be acquired using the results of the stress analysis by FEM is described. Finally, th eigenvalue analysis and heat conduction analysis method is described.
 
 ## List of description on this manual
+
+- [PDF](analysis_en.pdf)
 
 - [Analysis Flow](analysis_01.md)
 - [Input File](analysis_01.md)

@@ -12,11 +12,11 @@ author: FrontISTR Commons
 
 [![FrontISTR](../image/FrontISTR_logo.png){.center width=350px}](https://www.frontistr.com)
 
-| 項目             | 説明        |
-|:----------------:|:------------|
-| ソフトウェア名称 | FrontISTR   |
-| バージョン       | 5.0         |
-| ライセンス形態   | MIT License |
+| 項目             | 説明                                                            |
+|------------------|-----------------------------------------------------------------|
+| ソフトウェア名称 | FrontISTR                                                       |
+| バージョン       | 5.0                                                             |
+| ライセンス形態   | MIT License                                                     |
 | 問い合わせ先     | 一般社団法人 FrontISTR Commons<br>東京都文京区弥生二丁目11番16号<br>(東京大学大学院工学系研究科 総合研究機構内)<br>E-mail：support@frontistr.com |
 
 ## マニュアルリスト
@@ -33,6 +33,8 @@ author: FrontISTR Commons
 
 ## 本マニュアルの記載内容
 
+- [PDF](analysis_ja.pdf)
+
 - [解析の流れと入出力データの概略](analysis_01.md)
 - [要素ライブラリおよび材料データ](analysis_02.md)
 - [ステップ制御](analysis_07.md)
@@ -40,5 +42,4 @@ author: FrontISTR Commons
 - [単一領域メッシュデータ](analysis_04.md)
 - [解析制御データ](analysis_05.md)
 - [ユーザーサブルーチン](analysis_06.md)
-
 

@@ -10,11 +10,11 @@ This software is the outcome of "Research and Development of Innovative Simulati
 
 [![FrontISTR](../image/FrontISTR_logo.png){.center width=350px}](https://www.frontistr.com)
 
-| Item                | Content     |
-|:-------------------:|:------------|
-| Name of Software    | FrontISTR   |
-| Version             | 5.0         |
-| License             | MIT License |
+| Item                | Content                                                        |
+|---------------------|----------------------------------------------------------------|
+| Name of Software    | FrontISTR                                                      |
+| Version             | 5.0                                                            |
+| License             | MIT License                                                    |
 | Corresonding Clerks | FrontISTR Commons<br>2-11-16 Yayoi, Bunkyo-ku, Tokyo<br>c/o Institute of Engineering Innovation, School of Engineering<br>E-mail：support@frontistr.com |
 
 ## Manuals
@@ -30,6 +30,8 @@ This software is the outcome of "Research and Development of Innovative Simulati
 This manual describes the analysis implementation guidelines using a large-scale structural analysis program using the finite elment method FrontISTR based on examples.
 
 ## List of description on this manual
+
+- [PDF](tutorial_en.pdf)
 
 - Tutorials:
     - [Static Analysis (Elasticity)](tutorial_01.md)

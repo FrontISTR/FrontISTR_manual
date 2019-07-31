@@ -9,7 +9,7 @@ Table 9.5.1: Verification Example of Actual Model for Linear Dynamic Analysis
 </div>
 
 | Case Name | Element Type | Verification Model | Loading Conditions | Damping Conditions | No. of Nodes | No. of Degrees of Freedom |
-|:--|:--|:--|:--|:--|:--|:--|
+|:----------|:-------------|:-------------------|:-------------------|:-------------------|:-------------|:--------------------------|
 | EX31A    | 342        | Mesh model     | Step load (F0)         | No     | 15,214 | 45,642 |
 | EX31B    | 342        |                | Step load (F0)         | Yes    | 15,214 | 45,642 |
 | EX31C    | 342        |                | Square wave pulse (F1) | No     | 15,214 | 45,642 |
