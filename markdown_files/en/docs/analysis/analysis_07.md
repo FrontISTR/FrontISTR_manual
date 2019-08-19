@@ -53,58 +53,53 @@ If any of the following cases occurs during the analysis, the nonlinear static a
 The first `dtime_base` of the step is set to the value of the specified initial time increment `initdt`.
 Otherwise, it is set as follows according to the convergence status of the previous sub-step.
 
-1. 収束に失敗した場合（カットバックされた場合）…dtime_baseにカットバック縮小率 R
-_C を乗じた値
-1. 収束に成功した場合
-    1. 減少条件に該当する場合：dtime_baseに減少率 R_S を乗じた値
-    2. 減少条件に該当せず、増加条件に該当する場合：dtime_baseに増加率 R_L を乗じ
-た値と、時間増分上限maxdtの小さい方
-    3. 減少条件にも増加条件にも該当しない場合：dtime_baseは変化しない
+1. When failed to converge (a.k.a. cut-back) the value `dtime_base` multiplyed by `R_C` (reduction ratio of cut-back).
+1. When be a successful to converge
+    1. Corresponds to the decrease condition : the value of `dtime_base` multiplyed by `R_S` (decrease ratio). 
+    2. In the case of an increase condition, not a decrease condition : the smaller value of 'dtime_base' multiplyed by 'R_L' (increase ratio) and the time increment upper limit `maxdt`.
+    3. If neither : `dtime_base` dose not change.
 
-#### 増加・減少条件
+#### Increase / decrease conditions
 
-自動増分調整機能では、増分を増加・減少させる条件を以下の変数を用いて判定する：
+In the automatic time incremental adjustment function uses the following variables to determine the increment / decrement conditions:
 
-- N_max：前サブステップにおけるNewton法反復回数の最大値
-- N_sum：前サブステップにおけるNewton法反復回数の合計値（接触反復が無い場合は N_
-max に一致）
-- N_cont：前サブステップにおける接触反復回数
+- N_max : Maximum number of Newton iterations of previous substep.
+- N_sum : Total number of Newton iterations in the previous substep(Same as `N_max`, when there is no repeated contact).
+- N_cont : Number of contact iterations in previous substep.
 
-減少条件は以下の両方が満たされるときである：
+Decrease condition is when both of the following are met:
 
-- N_max, N_sum,N_contの「いずれか一つ」が、各々の閾値NS_max, NS_sum,NS_contを上
-回る
-- 上記の状態が、N_S 回以上連続したサブステップで満たされる
+- One of `N_max`, `N_sum` or `N_cont` exceeds the respective threshold `NS_max`, `NS_sum` or `NS_cont`.
+- When the above conditions are satisfied by a substep that continues `N_S` times or more.
 
-増加条件は以下の両方が満たされるときである：
+Increase condition is when both of the following are met:
 
-- N_max, N_sum,N_contの「すべて」が、各々の閾値NL_max, NL_sum, NL_cont以内である
-- 上記の状態が、N_L 回以上連続したサブステップで満たされる
+- `N_max`, `N_sum` and `N_cont` are all within their respective threshold `NL_max`, `NL_sum` and `NL_cont`.
+- The above condition is met by substep that continues more than `N_L` times.
 
-#### 計算および出力時刻の指定
+#### Specify calculation time and output time
 
-自動時間増分は収束状況によって増分が変化するため、どの時刻につりあい計算および結
-果出力が行われるか事前に決定できない。これが不便である場合に、出力時刻のリストを
-与えることによって、希望する時刻におけるつり合い計算および結果出力を実行させるこ
-とができる。出力時刻のリストが与えられたステップでは、指定された時刻にて必ず計算
-が行われるように、時間増分dtimeの値が調整される。
+With automatic time increments, the increments change with the convergence state,
+so it is not possible to determine in advance when to run the equilibrium calculation and result output.
+If this is inconvenient, you can specify a list of output times to perform the equilibrium calculation
+and result output at the desired time.
 
-#### 時間増分の使用方法
+For steps that include a list of output times, `dtime` is adjusted so that the calculation is always performed at specified time.
 
-本機能に関する設定はすべて解析制御ファイルで行う。
-自動増分調整・カットバック機能は!STEPカードでTYPE_INC=AUTOを指定することで有効に
-なる。
-時間増分の調整関連のパラメータは、!AUTOINC_PARAMを定義の上、!STEP, AUTOINCPARAM
-パラメータで各ステップごとに指定する。指定がない場合は!AUTOINC_PARAMのデフォルト
-パラメータが使用される。
-出力時刻の指定は、!TIME_POINTSで時刻リストの定義の上、!STEP, TIMEPOINTSパラメー
-タで各ステップごとに行う。
+#### Usage of function of automatic time increments and cut-back
+
+Settings related to this function are made in the analysis control file.
+
+The function of automatic time increment and cut-back are enabled specified by `TYPE_INC=AUTO` on the `!STEP` card.
+For parameters that adjust the time increment, define `!AUTOINC_PARAM` and specify it in each step using the `!STEP, AUTOINCPARAM'.
+If not specified, the default value of `!AUTOINC_PARAM' is used.
+
+The output time is specified for each step with the `!STEP, TIMEPOINTS` parameter after defining the time list with `!TIME_POINTS`.
 
 ##### Example
 
-自動増分調整を有効にし、初期時間増分0.01、ステップ時間幅2.5、時間増分下限1E-5、
-時間増分上限0.3、最大サブステップ数を200に設定する。自動増分のパラメータセットは
-AP1（セット名）、出力時刻1.5, 2.7, 3.9を指定する。
+Enable automatic incremental adjustment and set initial time increment 0.01, step duration 2.5, time increment lower limit 1E-5, time increment upper limit 0.3, maximum substep number to 200.
+Specify `AP1` for the auto-incrment parameter set and 1.5, 2.7 and 3.9 for the output time.
 
 ```
     !AUTOINC_PARAM, NAME=AP1
@@ -121,7 +116,8 @@ AP1（セット名）、出力時刻1.5, 2.7, 3.9を指定する。
 
 ### Control for dynamic analysis
 
-本開発コードにおいて、動解析直接時間積分法は１つの解析ステップからなる。また動解
-析の増分制御は固定増分のみであり、自動時間増分機能を使用することはできない。
+In this development code, dynamic analysis direct time integration method consists of one analysis step.
+
+Incremental control for dynamic analysis is only fixed increments and automatic time increments are not available.
 
 
