@@ -31,6 +31,7 @@ Incremental control of static analysis could be choose from the following soluti
 Flow is automatic time increment and cut-back is as follows(Figure 4.7.2).
 
 ![Flow of automatic time increment and cut-back](media/analysis07_02.png){.center width="80%"}
+
 Figure 4.7.2 Flow of automatic time increment and cut-back
 
 Overview of program flows is as follows,
