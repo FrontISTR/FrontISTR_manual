@@ -124,9 +124,9 @@ fileheader
 | `REFINE`       | &lt;integer&gt; | Number of mesh subdivisions    |
 
 
-|Parameter Name|Contents |
-|:-------------|:---------------------------------------------------------------------|
-| fileheader   |Header of the mesh data file name (both the relative path and the absolute path can be specified. When the relative path is specified, it becomes the path from the current directory.)|
+|Parameter Name | Contents                                                                                         |
+|---------------|--------------------------------------------------------------------------------------------------|
+| fileheader    | Header of the mesh data file name (both the relative path and the absolute path can be specified. When the relative path is specified, it becomes the path from the current directory.)|
 
 > Note:
 >
