@@ -68,7 +68,7 @@ When the automatic time incremental adjustment function determines to increase/d
 - N_sum : Total number of Newton iterations in the previous substep(Same as `N_max`, when there is no repeated contact).
 - N_cont : Number of contact iterations in previous substep.
 
-Decrease condition is when both of the following are met:
+Time increment is decreased when both of the following are met:
 
 - One of `N_max`, `N_sum` or `N_cont` exceeds the respective threshold `NS_max`, `NS_sum` or `NS_cont`.
 - When the above conditions are satisfied by a substep that continues `N_S` times or more.
