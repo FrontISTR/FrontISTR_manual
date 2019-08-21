@@ -54,7 +54,7 @@ If any of the following cases occurs during the analysis, the nonlinear static a
 The first `dtime_base` of the step is set to the value of the specified initial time increment `initdt`.
 Otherwise, it is set as follows according to the convergence status of the previous sub-step.
 
-1. When failed to converge (a.k.a. cut-back) the value `dtime_base` multiplyed by `R_C` (reduction ratio of cut-back).
+1. If analysis failed to converge and a cutback is made, the value `dtime_base` multiplied by `R_C` (reduction ratio of cutback).
 1. When be a successful to converge
     1. Corresponds to the decrease condition : the value of `dtime_base` multiplyed by `R_S` (decrease ratio). 
     2. In the case of an increase condition, not a decrease condition : the smaller value of 'dtime_base' multiplyed by 'R_L' (increase ratio) and the time increment upper limit `maxdt`.
