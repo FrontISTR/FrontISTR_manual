@@ -45,7 +45,7 @@ Overview of program flows is as follows,
 
 If any of the following cases occurs during the analysis, the nonlinear static analysis is considered to have failed and an error is terminated.
 
-- When the number of sub-steps reaches the upper limit before `time` reaches the step end time.
+- The number of sub-steps reaches the upper limit before `time` reaches the step end time.
 - When the time increment `dtime_base` falls below the time increment lower limit `mindt`.
 - When does not converge continuously for the specified number (`N_C`) of times.
 
