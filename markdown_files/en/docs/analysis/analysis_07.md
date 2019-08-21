@@ -21,7 +21,7 @@ A static analysis in FrontISTR consists of one or more (continuous) analysis ste
 
 Below, iteration of analysis is called "step loop", and incremental method is called "sub-step loop".
 
-Incremental control of static analysis could be choose from the following solution.
+Incremental control of static analysis could be chosen from the following solution.
 
 - Analyze with fixed time increments. If convergence fails, the calculation will be stoped immediately.
 - Automatic time increment and cutback. Depending on the convergence, change the increment width. If the calculation fails, recalculate after decreasing the increment width.
