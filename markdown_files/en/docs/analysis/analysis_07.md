@@ -17,7 +17,7 @@ Figure 4.7.1 Definition of terms for analysis time
 
 ### Control for static analysis
 
-In static analysis of FrontISTR holds one analysis step  or multiple continuous analysis steps. In each step, analysis gives a  pair of  basic boundary condition that is incremental method analysis.
+A static analysis in FrontISTR consists of one or more (continuous) analysis steps. A set of boundary conditions is given in each step and the analysis step is solved with incremental solving strategy which is mentioned previously.
 
 Below, iteration of analysis is called "step loop", and incremental method is called "sub-step loop".
 
