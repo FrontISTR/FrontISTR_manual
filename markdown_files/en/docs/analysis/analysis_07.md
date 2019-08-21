@@ -47,7 +47,7 @@ If any of the following cases occurs during the analysis, the nonlinear static a
 
 - The number of sub-steps reaches the upper limit before `time` reaches the step end time.
 - The time increment `dtime_base` falls below the time increment lower limit `mindt`.
-- When does not converge continuously for the specified number (`N_C`) of times.
+- Analysis fails to converge consecutively for specified number (`N_C`) of times.
 
 #### Adjust time increment baseline `dtime_base`
 
