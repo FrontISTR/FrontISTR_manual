@@ -73,7 +73,7 @@ Time increment is decreased when both of the following are met:
 - One of `N_max`, `N_sum` or `N_cont` exceeds the respective threshold `NS_max`, `NS_sum` or `NS_cont`.
 - When the above conditions are satisfied by a substep that continues `N_S` times or more.
 
-Increase condition is when both of the following are met:
+Time increment is increased when both of the following are met:
 
 - `N_max`, `N_sum` and `N_cont` are all within their respective threshold `NL_max`, `NL_sum` and `NL_cont`.
 - The above condition is met by substep that continues more than `N_L` times.
