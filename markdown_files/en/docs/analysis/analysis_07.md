@@ -57,7 +57,7 @@ Otherwise, it is set as follows according to the convergence status of the previ
 1. If analysis failed to converge and a cutback is made, the value `dtime_base` multiplied by `R_C` (reduction ratio of cutback).
 1. When be a successful to converge
     1. Corresponds to the decrease condition : the value of `dtime_base` multiplied by `R_S` (decrease ratio). 
-    2. In the case of an increase condition, not a decrease condition : the smaller value of 'dtime_base' multiplyed by 'R_L' (increase ratio) and the time increment upper limit `maxdt`.
+    2. In the case of an increase condition, not a decrease condition : the smaller value of 'dtime_base' multiplied by 'R_L' (increase ratio) and the time increment upper limit `maxdt`.
     3. If neither : `dtime_base` dose not change.
 
 #### Increase / decrease conditions
