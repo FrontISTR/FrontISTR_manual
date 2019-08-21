@@ -62,7 +62,7 @@ Otherwise, it is set as follows according to the convergence status of the previ
 
 #### Increase / decrease conditions
 
-In the automatic time incremental adjustment function uses the following variables to determine the increment / decrement conditions:
+When the automatic time incremental adjustment function determines to increase/decrease time increment, the following variables are used:
 
 - N_max : Maximum number of Newton iterations of previous substep.
 - N_sum : Total number of Newton iterations in the previous substep(Same as `N_max`, when there is no repeated contact).
