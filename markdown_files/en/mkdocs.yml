@@ -55,7 +55,7 @@ nav:
     - TOC: analysis/index.md
     - Analysis Flow: analysis/analysis_01.md
     - Element Library and Material Data: analysis/analysis_02.md
-    - ステップ制御: analysis/analysis_07.md
+    - Step control: analysis/analysis_07.md
     - Overall Control Data: analysis/analysis_03.md
     - Single Domeain Mesh Data: analysis/analysis_04.md
     - Analysis Control Data: analysis/analysis_05.md
