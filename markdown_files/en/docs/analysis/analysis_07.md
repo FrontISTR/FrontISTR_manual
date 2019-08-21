@@ -43,7 +43,7 @@ Overview of program flows is as follows,
 1. If converge, the time is forward by `dtime`, when it fails, restore time and  return to 2.
 1. Step ends when time reachs step end time.
 
-If any of the following cases occurs during the analysis, the nonlinear static analysis is considered to have failed and an error is terminated.
+If any of the following cases occurs during the analysis, the nonlinear static analysis is considered to have failed and the program terminates with error: 
 
 - The number of sub-steps reaches the upper limit before `time` reaches the step end time.
 - The time increment `dtime_base` falls below the time increment lower limit `mindt`.
