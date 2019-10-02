@@ -19,7 +19,7 @@ do
     -o theory_$i.pdf \
     -f markdown+header_attributes+fenced_code_blocks+link_attributes+tex_math_single_backslash-tex_math_dollars+definition_lists \
     -t latex \
-    --latex-engine=lualatex \
+    --pdf-engine=lualatex \
     -s --toc --number-sections \
     --css ../css/extra.css \
     --listings \
