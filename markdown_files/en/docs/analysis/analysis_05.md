@@ -32,9 +32,8 @@ The features of the analysis control data file are as follows.
 ##### (2) Solver control data portion #######################
 #############################################################
 ### Solver Control
-!SOLVER,METHOD=1,PRECOND=2,ITERLOG=NO,TIMELOG=NO
-100,
-2
+!SOLVER,METHOD=1,PRECOND=1,ITERLOG=NO,TIMELOG=NO
+100, 1
 1.0e-8,1.0,0.0
 
 #############################################################
@@ -764,7 +763,7 @@ Defining external forces applied in frequency response analysis
 ```
 ### SOLVER CONTROL
 !SOLVER, METHOD=CG, PRECOND=1, ITERLOG=YES, TIMELOG=YES        6-1
-  10000, 2                                                     6-2
+  10000, 1                                                     6-2
   1.0e-8, 1.0, 0.0
 ```
 
@@ -776,8 +775,12 @@ Defining external forces applied in frequency response analysis
 
 ```
 METHOD    = method
-           (DIRECT is the direct method,
-            in addition there are CG, BiCGSTAB, GMRES, GPBiCG, etc.)
+           (CG, BiCGSTAB, GMRES, GPBiCG, etc.)
+TIMELOG   = whether solver computation time is output
+MPCMETHOD = method for multipoint constraints
+            (1: Penalty method,
+             2: MPC-CG method,
+             3: Explicit master-slave elimination)
 DUMPTYPE  = type of matrix dumping
 DUMPEXIT  = whether program exits right after dumping matrix
 ```
@@ -787,13 +790,8 @@ The following parameters will be disregarded when a direct solver is selected in
 ```
 PRECOND   = preconditioner
 ITERLOG   = whether solver convergence history is output
-TIMELOG   = whether solver computation time is output
 SCALING   = whether matrix is scaled so that each diagonal element becomes 1
 USEJAD    = whether matrix ordering optimized for vector processors is performed
-MPCMETHOD = method for multipoint constraints
-            (1: Penalty method,
-             2: MPC-CG method,
-             3: Explicit master-slave elimination)
 ESTCOND   = frequency for estimating condition number
             (Estimation performed at every specified number of iterations and
              at the last iteration.  No estimation when 0 is specified.)
@@ -801,10 +799,10 @@ ESTCOND   = frequency for estimating condition number
 
 ###### 6-2
 
-| No. of Iterations              | Iteration Count of Preconditioning | No. of Krylov Subspaces | No. of Colors for Multi-Color ordering |
-|--------------------------------|------------------------------------|-------------------------|----------------------------------------|
-| NIER                           | iterPREMAX                         | NREST                   | NCOLOR_IN                              |
-| <font color="Red">10000</font> | <font color="Red">10000</font>     |                         |                                        |
+| No. of Iterations              | Iteration Count of Preconditioning | No. of Krylov Subspaces | No. of Colors for Multi-Color ordering | No. of Recycling Set-Up Info for Preconditioning |
+|--------------------------------|------------------------------------|-------------------------|----------------------------------------|--------------------------------------------------|
+| NIER                           | iterPREMAX                         | NREST                   | NCOLOR_IN                              | RECYCLEPRE                                       |
+| <font color="Red">10000</font> | <font color="Red">10000</font>     |                         |                                        |                                                  |
 
 ###### 6-3
 
@@ -2785,25 +2783,25 @@ Mandatory control data
 ##### Parameter
 
 ```
-METHOD =    Method(CG, BiCGSTAB, GMRES, GPBiCG, DIRECT, DIRECTmkl, MUMPS)
+METHOD =    Method (CG, BiCGSTAB, GMRES, GPBiCG, DIRECT, DIRECTmkl, MUMPS)
             DIRECT: Direct method other than contact analysis (serial processing only)
-            DIRECTmkl: Direct method by Intel MKL in contact analysis (serial processing only)
-            MUMPS    : Parallel direct method by MUMPS
+            DIRECTmkl: Direct method by Intel MKL
+            MUMPS    : Direct method by MUMPS
             When any of direct methods is selected, the data lines will be disregarded.
             In 1D and 2D problems, only CG, DIRECT and MUMPS are valid.
             In shell problems, only DIRECT and MUMPS are valid.
             Thread-parallel computation by OpenMP is available in iterative methods
             for 3D problems.
 
-PRECOND =   Preconditioner(1, 2, 3, 5, 10, 11, 12)
-            1, 2       : (Block) SSOR
+PRECOND =   Preconditioner for iterative methods (1, 2, 3, 5, 10, 11, 12)
+            1, 2       : (Block) SSOR (with multi-color ordering only for 3D problems)
             3          : (Block) Diagonal Scaling
-            5          : AMG by multigrid preconditioner package ML (experimental)
+            5          : AMG by multigrid preconditioner package ML
             10         : Block ILU(0)
             11         : Block ILU(1)
             12         : Block ILU(2)
             10､11 and 12 are available only in 3D problems.
-            In thread-parallel computation, SSOR or Diagonal Scaling is recommended.
+            In thread-parallel computation, SSOR, Diagonal Scaling or ML is recommended.
 
 ITERLOG =   Whether solver convergence history is output (YES/NO) (Default: NO)
 
@@ -2827,16 +2825,18 @@ DUMPEXIT =  Whether the program terminates right after matrix dumping (YES/NO)
             (Default: NO)
 
 MPCMETHOD = Method for multipoint constraints
-            1: Penalty method
+            1: Penalty method (Default for direct methods)
             2: MPC-CG method
-            3: Explicit master-slave elimination (Default)
-            Valid only in 3D problems with iterative solvers.
-            (Penalty method is always used for direct solvers and 1D and 2D iterative
-             solvers, and MPC-CG method is always used for 4D and 6D iterative solvers.)
+            3: Explicit master-slave elimination (Default for iterative methods)
 
 ESTCOND =   Frequency of condition number estimation (experimental)
             Estimation is performed at every specified number of iterations and at the last
             iteration.  No estimation when 0 is specified.
+            
+METHOD2 =   Secondary method (BiCGSTAB, GMRES, GPBiCG) (experimental)
+            Valid only when CG is specified as METHOD.
+            When specified, the method is swithced and solution continues when CG diverged.
+            All the other parameters and data lines are shared with the CG method.
 ```
 
 ** 2nd line or later **
@@ -2851,6 +2851,7 @@ ESTCOND =   Frequency of condition number estimation (experimental)
 | iterPREmax | I    |No. of iteration of preconditioning based on Additive Schwarz<br/>(Default: 1)<br/>(recommended value : 1 for serial computation,<br/> parallel computation with Diagonal scaling,<br/> and serial/parallel computation of problems with MPC, 2 for other parallel computation)|
 | NREST      | I    |No. of Krylov subspaces (Default: 10)<br/>(Valid only when GMRES is selected as the solution)|
 | NCOLOR_IN  | I    |No. of Colors for Multi-Color ordering (Default: 10)<br/>(Valid only when no. of OpenMP threads >= 2)|
+| RECYCLEPRE | I    |No. of recycling set-up info for preconditioning (Default: 3)<br/>(Valid only in nonlinear analyses)|
 
 ```
 (3rd line) RESID, SIGMA_DIAG, SIGMA
@@ -2866,7 +2867,7 @@ ESTCOND =   Frequency of condition number estimation (experimental)
 
 ```
 !SOLVER, METHOD=CG, PRECOND=1, ITERLOG=YES, TIMELOG=YES
-  10000, 2
+  10000, 1
   1.0e-8, 1.0, 0.0
 ```
 
