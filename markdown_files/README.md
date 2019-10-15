@@ -10,7 +10,7 @@
 mkdocsの他、Python-MarkdownとMath extension for Python-Markdownを利用する。
 
 ~~~
-% pip install mkdocs mkddocs-windmill
+% pip install mkdocs mkddocs-material
 % pip install python-markdown-math
 ~~~
 
@@ -34,19 +34,31 @@ mkdocsの他、Python-MarkdownとMath extension for Python-Markdownを利用す�
 [mkdocs](http://www.mkdocs.org)をインストールしておく。英語版・日本語版それぞれでビルドを実行する
 
 1. enまたはjaフォルダ以下のマニュアルディレクトリに移動
-   ``` $ cd en/analysis ```
-   ``` $ cd en/install ```
-   ``` $ cd en/theory ```
-   ``` $ cd en/tutorial ```
-   ``` $ cd en/user ```
+
+   ```
+   $ cd en/analysis
+   $ cd en/install
+   $ cd en/theory
+   $ cd en/tutorial
+   $ cd en/user
+   ```
+
    または
-   ``` $ cd ja/analysis ```
-   ``` $ cd ja/install ```
-   ``` $ cd ja/theory ```
-   ``` $ cd ja/tutorial ```
-   ``` $ cd ja/user ```
+
+   ```
+   $ cd ja/analysis
+   $ cd ja/install
+   $ cd ja/theory
+   $ cd ja/tutorial
+   $ cd ja/user
+   ```
+
 2. build実行
-   ``` $ mkdocs build --clean ```
+
+   ```
+   $ mkdocs build --clean
+   ```
+
 3. siteフォルダが生成されるので、中身一式を取得してupする
 
 ## その他
