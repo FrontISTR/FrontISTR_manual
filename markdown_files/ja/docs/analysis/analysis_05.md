@@ -29,7 +29,7 @@ FrontISTRは、解析制御データファイルを入力して、下図に示�
 ########## ソルバー制御データ部分 ##########
 ### Solver Control
 !SOLVER,METHOD=CG,PRECOND=1,ITERLOG=NO,TIMELOG=NO
- 100, 2
+ 100, 1
  1.0e-8,1.0,0.0
 
 ########## ポスト制御(可視化)データ部分 ##########
@@ -766,7 +766,7 @@ TYPE＝解析の種類
 ```
 ### SOLVER CONTROL
 !SOLVER, METHOD=CG, PRECOND=1, ITERLOG=YES, TIMELOG=YES        6-1
-  10000, 2                                                     6-2
+  10000, 1                                                     6-2
   1.0e-8, 1.0, 0.0                                             6-3
 ```
 
@@ -778,28 +778,28 @@ TYPE＝解析の種類
 
 ```
     METHOD=    解析方法
-               (DIRECTは直接法、そのほかCG、BiCGSTAB、GMRES、GPBiCGなどがある)
+               (CG、BiCGSTAB、GMRES、GPBiCGなどがある)
+    TIMELOG=   ソルバー計算時間出力の有無
+    MPCMETHOD= 多点拘束処理の手法
+               (1: ペナルティ法、2: MPC-CG法、3: 陽的自由度消去法)
     DUMPTYPE=  行列ダンプ型式
     DUMPEXIT=  行列ダンプ直後にプログラムを終了するか
 
     以下のパラメータは解析方法で直接法を選択するとすべて無視される。
     PRECOND=   前処理の手法
     ITERLOG=   ソルバー収束履歴出力の有無
-    TIMELOG=   ソルバー計算時間出力の有無
     SCALING=   行列の対角成分が1となるスケーリングの有無
     USEJAD=    ベクトル機向けオーダリングの有無
-    MPCMETHOD= 多点拘束処理の手法
-               (1: ペナルティ法、2: MPC-CG法、3: 陽的自由度消去法)
     ESTCOND=   条件数推定の頻度
                (指定された反復回数ごと、および、反復終了時に推定を実施。0の場合は推定なし。)
 ```
 
 ###### 6-2
 
-|反復回数,|前処理の繰り返し数,|クリロフ部分空間数|マルチカラーの色数|
-|---------|-------------------|------------------|------------------|
-| NIER    |iterPREMAX         |NREST             |NCOLOR_IN         |
-|<font color="Red">10000</font>|<font color="Red">2</font>|    |    |
+|反復回数,|前処理の繰り返し数,|クリロフ部分空間数|マルチカラーの色数|前処理セットアップ情報の再利用回数|
+|---------|-------------------|------------------|------------------|----------------------------------|
+| NIER    |iterPREMAX         |NREST             |NCOLOR_IN         |RECYCLEPRE                        |
+|<font color="Red">10000</font>|<font color="Red">2</font>|    |    |                                  |
 
 ###### 6-3
 
@@ -2986,8 +2986,8 @@ LOAD CASE = (実部の指定: 1, 虚部の指定: 2)
 ```
 METHOD =    解法 (CG、BiCGSTAB、GMRES、GPBiCG、DIRECT、DIRECTmkl、MUMPS)
             DIRECT     : 接触解析以外での直接法(逐次処理のみ)
-            DIRECTmkl  : 接触解析におけるIntel MKLによる直接法(逐次処理のみ)
-            MUMPS      : 並列直接法パッケージMUMPSによる直接法
+            DIRECTmkl  : Intel MKLによる直接法
+            MUMPS      : MUMPSによる直接法
             直接法を選択したとき、データ行は無視される。
             1、2自由度問題では、CG、DIRECT、MUMPSのみ有効
             シェル要素は、DIRECT、MUMPSのみ有効
@@ -2996,12 +2996,12 @@ METHOD =    解法 (CG、BiCGSTAB、GMRES、GPBiCG、DIRECT、DIRECTmkl、MUMPS)
 PRECOND =   反復法の前処理手法 (1､2､3､5､10､11､12)
             1, 2       : (Block) SSOR (3自由度用のみマルチカラーオーダリング付き)
             3          : (Block) Diagonal Scaling
-            5          : マルチグリッド前処理パッケージMLによるAMG(試験的)
+            5          : マルチグリッド前処理パッケージMLによるAMG
             10         : Block ILU(0)
             11         : Block ILU(1)
             12         : Block ILU(2)
             10､11､12は3自由度問題でのみ利用可能
-            OpenMPによるスレッド並列時はSSORまたはDiagonal Scalingを推奨
+            OpenMPによるスレッド並列時はSSOR, Diagonal ScalingまたはMLを推奨
 
 ITERLOG =   反復法ソルバー収束履歴出力の有無          (YES/NO)(デフォルト: NO)
 
@@ -3030,7 +3030,7 @@ ESTCOND =   条件数推定の頻度 (試験的)
             指定された反復ごと、および、反復終了時に条件数推定を実施
             0の場合は推定を行わない
 
-METHOD2 =   第2の解法 (BiCGSTAB、GMRES、GPBiCG)
+METHOD2 =   第2の解法 (BiCGSTAB、GMRES、GPBiCG) (試験的)
             METHODにCGを指定した場合のみ有効
             CG法が発散した場合に自動的に切り替えて求解を行う
             他のパラメータやデータ行の情報は同じものが利用される
@@ -3048,6 +3048,7 @@ METHOD2 =   第2の解法 (BiCGSTAB、GMRES、GPBiCG)
 | iterPREmax | I    | Additive Schwarzによる前処理の繰り返し数(デフォルト: 1)<br/>(推奨値は、逐次計算、前処理に対角スケーリングを用いる場合、<br/>および、MPCを含むモデルの計算では1、その他の並列計算では2)|
 | NREST      | I    | クリロフ部分空間数(デフォルト: 10) <br/>(解法としてGMRESを選択したときのみ有効) |
 | NCOLOR_IN  | I    | マルチカラーオーダリングにおける目標色数(デフォルト: 10)<br/> (OpenMPのスレッド数が2以上の時のみ有効) |
+| RECYCLEPRE | I    | 前処理セットアップ情報の再利用回数(デフォルト: 3)<br/> (非線形解析でのみ有効) |
 
 ```
 (3行目) RESID, SIGMA_DIAG, SIGMA
@@ -3063,7 +3064,7 @@ METHOD2 =   第2の解法 (BiCGSTAB、GMRES、GPBiCG)
 
 ```
 !SOLVER, METHOD=CG, PRECOND=1, ITERLOG=YES, TIMELOG=YES
-  10000, 2
+  10000, 1
   1.0e-8, 1.0, 0.0
 ```
 

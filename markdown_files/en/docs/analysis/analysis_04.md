@@ -1146,6 +1146,16 @@ Definition of contact surface pair used for contact analysis
 |`SLAVE_GRP`   |C           |Slave surface node / surface group name |
 |`MASTER_GRP`  |C           |Surface group name of the master surface|
 
+> Note:
+>
+> - When using mesh-refinement functionality, always use "`TYPE=SURF-SURF`".
+> - Even when "`TYPE=SURF-SURF`" is used, the internal contact algorithm within FrontISTR is one for point-to-surface type contact.
+
+Reference
+
+  - When "`TYPE=SURF-SURF`" is used, the contact pair is converted to a node-surface type contact pair within FrontISTR by automatically generating a node-group from the slave surface-group.
+  - The group-name of the automatically generated node group is concatenation of "`FSTR_S2N_`" and the group-name of the original slave surface-group.
+
 #### (13) `!END` (M1-13)
 
 End of mesh data
