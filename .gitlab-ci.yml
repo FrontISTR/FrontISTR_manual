@@ -19,10 +19,10 @@ mkdocs:
     - pip install --upgrade python-markdown-math
     - pip install --upgrade mkdocs-material
     - cd markdown_files/ja
-    - python ../numbering.py
+      #    - python ../numbering.py
     - mkdocs build
     - cd ../en
-    - python ../numbering.py
+      #    - python ../numbering.py
     - mkdocs build
 
 pages:

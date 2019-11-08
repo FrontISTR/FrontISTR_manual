@@ -20,7 +20,7 @@ do
     -f markdown+header_attributes+fenced_code_blocks+link_attributes+tex_math_single_backslash-tex_math_dollars+definition_lists+multiline_tables \
     -t latex \
     -s --toc --number-sections \
-    --pdf-engine=lualatex \
+    --latex-engine=lualatex \
     --css ../css/extra.css \
     --listings \
     --wrap=preserve \
