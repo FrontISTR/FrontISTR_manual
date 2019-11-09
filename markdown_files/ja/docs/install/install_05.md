@@ -79,26 +79,6 @@ METISがインストールされている環境では、さらに以下のよう
 $ ./setup.sh –p --with-tools --with-metis
 ```
 
-#### 接触解析用にコンパイルする場合
-
-接触解析用にコンパイルする場合、並列なしの場合と並列ありの場合の2通りの方法があります。並列なしの場合は、Intel MKLまたはMUMPSの利用が必要となります。
-
-```txt
-$ ./setup.sh --with-mkl
-```
-
-または、
-
-```txt
-$ ./setup.sh --with-mumps
-```
-
-並列ありで接触解析を行う場合は、** -p **、** --with-metis  **オプションも必要となります。また並列ありの場合はIntel MKLは使えません。
-
-```txt
-$ ./setup.sh –p --with-metis --with-mumps
-```
-
 ### makeの実行
 
 `${FSTRBUILDDIR}` にて、以下のようにmakeを実行します。

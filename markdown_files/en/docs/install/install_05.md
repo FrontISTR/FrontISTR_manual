@@ -72,28 +72,6 @@ If METIS is used with a partitioner in an environment where METIS has been insta
 $ ./setup.sh –p --with-tools --with-metis
 ```
 
-#### Compiling for contact analysis
-
-If this software is used in a sequential processing with contact analysis, execute `setup.sh` with the `--with-mkl` or `--with-mumps` option specified, as below.
-
-Sequential processing
-
-```txt
-$ ./setup.sh --with-mkl
-```
-
-or
-
-```txt
-$ ./setup.sh --with-mumps
-```
-
-If this software is used in a parallel processing with contact analysis, execute `setup.sh` with `-p`, `--with-metis` and `--with-mumps` options specified, as below.
-
-```txt
-$ ./setup.sh –p --with-metis --with-mumps
-```
-
 ### Executing make
 
 Execute make in `${FSTRBUILDDIR}` as below.
