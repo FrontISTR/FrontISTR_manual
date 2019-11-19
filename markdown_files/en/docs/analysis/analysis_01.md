@@ -171,15 +171,7 @@ In the Windows ver., it is necessary to download the library of MPICH2 from the 
 
   - [http://www-unix.mcs.anl.gov/mpi/mpich/](http://www-unix.mcs.anl.gov/mpi/mpich/)
 
-####  6. Execution of Parallel Domain Contact Analysis
+####  6. Execution of Parallel Domain Contact Analysis (Note for users from Ver.3.x)
 
-FrontISTR requires `hecmw_ctrl.dat`, analysis control data and distributed domain mesh data for parallel execution in general. Parallel domain contact analysis does not requires distributed domain mesh as it partitions the domain after reading the single domain mesh data.
-
-```
-!MESH,NAME=fstrMSH,TYPE=HECMW-ENTIRE
-```
-
-The all other processes of execution procedure are the same as the other analysis.
-
-
-
+Until Ver.3.x, only when performing contact analysis, users had to always specify single domain mesh file as input mesh no matter if it is serial or parallel analysis.
+Starting from Ver.5.x, this exception was removed; i.e. users have to specify single domain mesh file as input mesh when performing serial contact analysis, distributed domain mesh file as input mesh when performing parallel contact analysis, just like other analysis types.
