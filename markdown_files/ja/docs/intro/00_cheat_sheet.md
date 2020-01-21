@@ -3,8 +3,12 @@
 ### インストール
 
 ~~~
-$ ./setup.sh -p --with-tools --with-metis
-$ make
+$ tar xzf FrontISTR_V50.tar.gz
+$ cd FrontISTR
+$ mkdir build
+$ cd build
+$ cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/local
+$ make -j2
 $ make install
 ~~~
 
@@ -24,7 +28,8 @@ $ mpirun -np <4> fistr1
 | 解析制御データ     | <ModelName>.cnt     | 入     |
 | 領域分割制御データ | hecmw_part_ctrl.dat | 入     |
 | ログファイル       | <0>.log             | 出     |
-| 解析結果ファイル   | <ModelName>.res     | 出     |
+| 解析結果ファイル   | <ModelName>.res.<0>.<Step> | 出     |
+| 可視化用ファイル   | <ModelName>_vis_psf.<Step>.pvtu | 出     |
 
 ### 全体制御ファイル
 
@@ -35,12 +40,17 @@ $ mpirun -np <4> fistr1
  <ModelName>.msh
 !MESH, NAME=part_out, TYPE=HECMW-DIST
  <ModelName_p4>
-!MESH, NAME=fstrMSH, TYPE=HECMW-DIST
+!MESH, NAME=fstrMSH, TYPE=HECMW-DIST, REFINE=<1>
  <ModelName_p4>
 !CONTROL, NAME=fstrCNT
  <ModelName>.cnt
-!RESULT, NAME=fstrRES, IO=OUT
+!RESTART, NAME=restart_in, IO=INOUT
+ <ModelName>.restart
+!RESULT, NAME=fstrRES, IO=OUT, TYPE=BINARY
  <ModelName>.res
+!RESULT, NAME=vis_out, IO=OUT
+ <ModelName>_vis
+!SUBDIR, ON
 ~~~
 
 ### 領域分割制御データ
@@ -55,11 +65,25 @@ $ mpirun -np <4> fistr1
 
 ~~~
 !HEADER
-<TITLE>
+ <TITLE>
 !NODE
  NODE_ID, x, y, z
 !ELEMENT, TYPE=<341>
  ELEM_ID, node1, node2, node3, ...
+!MATERIAL, NAME=<STRMAT>, ITEM=<3>
+!ITEM=1, SUBITEM=2
+ <YoungModulus>, <PoissonRatio>
+!ITEM=2
+ <Density>
+!ITEM=3
+ <ExpansionCoeff>
+!MATERIAL, NAME=<HEATMAT>, ITEM=<3>
+!ITEM=1, SUBITEM=2
+ <Density>, <Temperature>
+!ITEM=2, SUBITEM=2
+ <SpecificHeat>, <Temperature>
+!ITEM=3, SUBITEM=2
+ <Conductivity>, <Temperature>
 !SECTION, TYPE=<SOLID>, EGRP=<EG1>, MATERIAL=<MAT1>
 !NGROUP, NGRP=<NG1>
  node1, node2, ...
@@ -71,12 +95,11 @@ $ mpirun -np <4> fistr1
  <Slave_NodeGroup>, <Master_SurfaceGroup>
 !AMPLITUDE, NAME=<AMP1>, VALUE=<RELATIVE|ABSOLUTE>
  value1, time1, value2, time2, ...
-!INITIAL CONDITION, TYPE=TEMPERATURE
- NODE_ID, value
 !EQUATION
  <項数>, <右辺値>
  NODE_ID, <dof>, <係数>, ...
 !ZERO
+ <AbsoluteZero>
 !END
 ~~~
 
@@ -84,7 +107,7 @@ $ mpirun -np <4> fistr1
 
 ~~~
 !VERSION
- 3.7
+ 5
 !WRITE, VISUAL, FREQUENCY=<出力間隔>
 !WRITE, RESULT, FREQUENCY=<出力間隔>
 !OUTPUT_VIS
@@ -111,6 +134,21 @@ $ mpirun -np <4> fistr1
 | PL_ISTRAIN | 積分点塑性ひずみ | RES     |
 | VEL        | 速度             | VIS,RES |
 | ACC        | 加速度           | VIS,RES |
+| TEMP       | 温度             | VIS,RES |
+| PRINC_NSTRESS | 節点主応力（スカラ値）| VIS,RES |
+| PRINCV_NSTRESS | 節点主応力（ベクトル値）| VIS,RES |
+| PRINC_NSTRAIN | 節点主ひずみ（スカラ値）| VIS,RES |
+| PRINCV_NSTRAIN | 節点主ひずみ（ベクトル値）| VIS,RES |
+| PRINC_ESTRESS | 要素主応力（スカラ値）| RES |
+| PRINCV_ESTRESS | 要素主応力（ベクトル値）| RES |
+| PRINC_ESTRAIN | 要素主ひずみ（スカラ値）| RES |
+| PRINCV_ESTRAIN | 要素主ひずみ（ベクトル値）| RES |
+| SHELL_LAYER | 積層シェル | VIS,RES |
+| SHELL_SURFACE | シェル要素表面 | VIS,RES |
+| CONTACT_NFORCE | 接触法線力（ベクトル値） | VIS,RES |
+| CONTACT_FRICTION | 接触摩擦力（ベクトル値） | VIS,RES |
+| CONTACT_RELVEL | 接触相対滑り速度（ベクトル値） | VIS,RES |
+| CONTACT_STATE | 接触状態（スカラ値） | VIS,RES |
 
 ### 解析制御ファイル（静解析）
 
@@ -156,6 +194,8 @@ $ mpirun -np <4> fistr1
 ~~~
 !HEAT
  <DT>, <計算時間>, <時間増分>, <許容変化>, <最大反復>, <判定値>
+!INITIAL_CONDITION, TYPE=<TEMPERATURE>
+ NODE_ID, value
 !FIXTEMP
  NODE_ID, <温度>
 !CFLUX
@@ -172,6 +212,9 @@ $ mpirun -np <4> fistr1
  ELEMENT_ID, <荷重タイプ>, <輻射係数>, <雰囲気温度>
 !SRADIATE
  SGRP, <輻射係数>, <雰囲気温度>
+!WELD_LINE
+ <電流>, <電圧>, <入熱効率>, <トーチ移動速度>
+ EGRP, DOF, <始点座標>, <終点座標>, <溶接源の幅>, <溶接開始時刻> 
 ~~~
 
 ### 解析制御ファイル（動解析共通）
@@ -180,15 +223,17 @@ $ mpirun -np <4> fistr1
 !BOUNDARY
 !CLOAD
 !VELOCITY, TYPE=<INITIAL|TRANSIT>, AMP=<NAME>
- Node_ID, <自由度>, <自由度>, <拘束値>
+ NODE_ID, <自由度>, <自由度>, <拘束値>
 !ACCELERATION, TYPE=<INITIAL|TRANSIT>, AMP=<NAME>
- Node_ID, <自由度>, <自由度>, <拘束値>
+ NODE_ID, <自由度>, <自由度>, <拘束値>
+!INITIAL_CONDITION, TYPE=<VELOCITY|ACCELERATION>
+ NODE_ID, DOF, value
 ~~~
 
 ### 解析制御ファイル（時刻歴応答）
 
 ~~~
-!DYNAMIC, TYPE=NONLINEAR
+!DYNAMIC, TYPE=<LINEAR|NONLINEAR>
  <陰解法1|陽解法11>, <時刻歴1>
  <開始時刻>, <終了時刻>, <全ステップ数>, <時間増分>
  <γ>, <β>
@@ -217,8 +262,22 @@ $ mpirun -np <4> fistr1
 ### 解析ステップ
 
 ~~~
-!STEP, TYPE=<STATIC|VISCO>, SUBSTEPS=<分割数>, CONVERG=<判定値>
- <時間増分値>, <時間増分終値>
+!STEP, TYPE=<STATIC|VISCO>, SUBSTEPS=<最大サブステップ数>, CONVERG=<判定値>, MAXITER=<最大反復回数>
+ <時間増分値>, <ステップ時間幅>
+ BOUNDARY, <GRPID>
+ LOAD, <GRPID>
+ CONTACT, <GRPID>
+~~~
+
+~~~
+!AUTOINC_PARAM, NAME=<AP1>
+ <時間増分減少率>, <最大反復数>, <合計反復数>, <接触反復数>, <減少条件成立サブステップ>
+ <時間増分増加率>, <最大反復数>, <合計反復数>, <接触反復数>, <増加条件成立サブステップ>
+ <カットバック時間増分減少率>, <カットバック回数> 
+!TIME_POINTS, NAME=<時刻リスト>, TIME=<STEP|TOTAL>
+ <TIME>
+!STEP, TYPE=<STATIC|VISCO>, SUBSTEPS=<最大サブステップ数>, CONVERG=<判定値>, MAXITER=<最大反復回数>, INC_TYPE=AUTO
+ <初期時間増分値>, <ステップ時間幅>, <時間増分下限>, <時間増分上限>
  BOUNDARY, <GRPID>
  LOAD, <GRPID>
  CONTACT, <GRPID>
@@ -229,6 +288,12 @@ $ mpirun -np <4> fistr1
 | BOUNDARY     | !BOUNDARY, !SPRING           |
 | LOAD         | !CLOAD, !DLOAD, !TEMPERATURE |
 | CONTACT      | !CONTACT                     |
+
+### リスタート
+
+~~~
+!RESTART, FREQUENCY=<n>
+~~~
 
 ### 材料物性値
 
@@ -283,7 +348,7 @@ $ mpirun -np <4> fistr1
 
 ~~~
 !SOLVER, METHOD=<CG>, PRECOND=<1>, MPCMETHOD=<3>
- <反復回数>, <前処理繰り返し数>, <クリロフ>, <目標色数>
+ <反復回数>, <前処理繰り返し数>, <クリロフ>, <目標色数>, <セットアップ再利用>
  <打切り誤差>, <対角成分倍率>, 0.0
 ~~~
 
@@ -312,11 +377,11 @@ $ mpirun -np <4> fistr1
 | 2  | MPC-CG法         |
 | 3  | 陽的自由度消去法 |
 
-### ポスト処理（AVS用データ出力）
+### ポスト処理（ParaView用データ出力）
 
 ~~~
 !VISUAL
-!output_type=COMPLETE_REORDER_AVS
+!output_type=VTK
 ~~~
 
 ### ポスト処理（BMP画像出力）
