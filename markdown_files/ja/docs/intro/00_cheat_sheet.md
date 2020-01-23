@@ -31,9 +31,7 @@ $ mpirun -np <4> fistr1
 | 解析結果ファイル   | <ModelName>.res.<0>.<Step> | 出     |
 | 可視化用ファイル   | <ModelName>_vis_psf.<Step>.pvtu | 出     |
 
-### 全体制御ファイル
-
-####（hecmw_ctrl.dat）
+### 全体制御ファイル（hecmw_ctrl.dat）
 
 ~~~
 !MESH, NAME=part_in, TYPE=HECMW-ENTIRE
@@ -53,9 +51,7 @@ $ mpirun -np <4> fistr1
 !SUBDIR, ON
 ~~~
 
-### 領域分割制御データ
-
-#### (hecmw_part_ctrl.dat)
+### 領域分割制御データ(hecmw_part_ctrl.dat)
 
 ~~~
 !PARTITION, TYPE=NODE-BASED, METHOD=PMETIS, DOMAIN=<4>
