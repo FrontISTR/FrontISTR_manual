@@ -56,14 +56,6 @@ Floating Point Data
 
 The single domain mesh data consists of the following headers.
 
-| Header Name | Contents                          |
-|:------------|:----------------------------------|
-| `!CONTROL`  | Specify of analysis control file  |
-| `!MESH`     | Specify of mesh file              |
-| `!RESTART`  | Specify of restart file           |
-| `!RESULT`   | Specify of analysis results file  |
-| `!SUBDIR`   | Specify of making sub-directories |
-
 | Header Name     | Contents              | Description No. |
 |-----------------|-----------------------|-----------------|
 | `!AMPLITUDE`    | Unsteady load         | M1-1            |
@@ -1177,6 +1169,5 @@ When this header is displayed, the reading of the mesh data is completed.
 |Parameter|
 |---------|
 |N/A      |
-
 
 
