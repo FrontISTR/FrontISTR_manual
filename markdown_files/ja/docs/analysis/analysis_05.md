@@ -1143,8 +1143,8 @@ FREQUENCY = 出力するステップ間隔 (デフォルト: 1)
 | PRINCV_NSTRAIN | 節点主ひずみ(ベクトル値)         |
 | PRINC_ESTRESS  | 要素主応力(スカラ値)             |
 | PRINCV_ESTRESS | 要素主応力(ベクトル値)           |
-| PRINC_ESTRAIN  | 要素ひずみ(スカラ値)             |
-| PRINCV_ESTRAIN | 要素ひずみ(スカラ値)             |
+| PRINC_ESTRAIN  | 要素主ひずみ(スカラ値)             |
+| PRINCV_ESTRAIN | 要素主ひずみ(ベクトル値)             |
 | SHELL_LAYER    | 積層シェル要素の積層ごとの出力   |
 | SHELL_SURFACE  | シェル要素の表面情報の出力       |
 |CONTACT_NFORCE | 接触法線力（ベクトル値）         |
@@ -3362,5 +3362,4 @@ View coordinate frame:
 図7.4.17 `method`の設定例
 
 これにより平面z=0.35 とz=-0.35. の切り口が可視化される。
-
 

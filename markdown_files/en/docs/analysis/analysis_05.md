@@ -1133,8 +1133,8 @@ The following parameter names can be specified.
 |`PRINCV_NSTRAIN`| Nodal principal strain(Vector value)|
 |`PRINC_ESTRESS` | Elemental principal stress(Scalar value)|
 |`PRINCV_ESTRESS`| Elemental principal stress(Vector value)|
-|`PRINC_ESTRAIN` | Elemental strain(Scalar value)|
-|`PRINCV_ESTRAIN`| Elemental strain(Scalar value)|
+|`PRINC_ESTRAIN` | Elemental principal strain(Scalar value)|
+|`PRINCV_ESTRAIN`| Elemental principal strain(Vector value)|
 |`SHELL_LAYER`   | Output per layer of layerd shell element|
 |`SHELL_SURFACE` | Output of surface information of shell element|
 
@@ -3162,5 +3162,4 @@ When specifying the surfaces and cut end, specifies the setting method of the su
 **Figure 7.4.17: Example of Setting Method**
 
 Accordingly, the cut end of the plane surface z = 0.35 and z = -0.35 will be visualized.
-
 
