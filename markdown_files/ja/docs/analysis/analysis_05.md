@@ -3249,6 +3249,7 @@ Default: 自動
 ```
 AVS                   : AVS用UCDデータ（物体表面上のみ）
 BMP                   : イメージデータ（BMPフォーマット）
+VTK                   : ParaView用VTKデータ
 COMPLETE_AVS          : AVS用UCDデータ
 COMPLETE_REORDER_AVS  : AVS用UCDデータで 節点・要素番号を並び替える
 SEPARATE_COMPLETE_AVS : 分割領域ごとのAVS用UCDデータ
@@ -3362,4 +3363,3 @@ View coordinate frame:
 図7.4.17 `method`の設定例
 
 これにより平面z=0.35 とz=-0.35. の切り口が可視化される。
-

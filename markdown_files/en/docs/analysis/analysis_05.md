@@ -3058,6 +3058,7 @@ Specifies the type of output file. (Default: AVS)
 ```
 AVS                   : UCD data for AVS (only on object surface)
 BMP                   : Image data (BMP format)
+VTK                   : VTK data for ParaView
 COMPLETE_AVS          : UCD data for AVS
 COMPLETE_REORDER_AVS  : Rearranges the node and element ID in the UCD data for AVS
 SEPARATE_COMPLETE_AVS : UCD data for AVS for each decomposed domain
@@ -3162,4 +3163,3 @@ When specifying the surfaces and cut end, specifies the setting method of the su
 **Figure 7.4.17: Example of Setting Method**
 
 Accordingly, the cut end of the plane surface z = 0.35 and z = -0.35 will be visualized.
-
