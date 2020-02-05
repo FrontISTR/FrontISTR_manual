@@ -31,7 +31,7 @@ $ mpirun -np <4> fistr1
 | 解析結果ファイル   | <ModelName>.res.<0>.<Step> | 出     |
 | 可視化用ファイル   | <ModelName>_vis_psf.<Step>.pvtu | 出     |
 
-### 全体制御ファイル（hecmw_ctrl.dat）
+### 全体制御ファイル(hecmw_ctrl.dat)
 
 ~~~
 !MESH, NAME=part_in, TYPE=HECMW-ENTIRE
@@ -149,7 +149,7 @@ $ mpirun -np <4> fistr1
 ### 解析制御ファイル（静解析）
 
 ~~~
-!SOLUTION, TYPE=<STATIC|NLSTATIC>
+!SOLUTION, TYPE=STATIC
 !STATIC
 !BOUNDARY,GRPID=<1>
  NODE_ID, <開始自由度>, <終了自由度>, <拘束値>
@@ -180,6 +180,7 @@ $ mpirun -np <4> fistr1
 ### 解析制御ファイル（固有値）
 
 ~~~
+!SOLUTION, TYPE=EIGEN
 !EIGEN
  <固有値数>, <許容差>, <最大反復数>
 !BOUNDARY
@@ -188,6 +189,7 @@ $ mpirun -np <4> fistr1
 ### 解析制御ファイル（熱伝導）
 
 ~~~
+!SOLUTION, TYPE=HEAT
 !HEAT
  <DT>, <計算時間>, <時間増分>, <許容変化>, <最大反復>, <判定値>
 !INITIAL_CONDITION, TYPE=<TEMPERATURE>
@@ -216,6 +218,7 @@ $ mpirun -np <4> fistr1
 ### 解析制御ファイル（動解析共通）
 
 ~~~
+!SOLUTION, TYPE=DYNAMIC
 !BOUNDARY
 !CLOAD
 !VELOCITY, TYPE=<INITIAL|TRANSIT>, AMP=<NAME>
@@ -397,10 +400,9 @@ $ mpirun -np <4> fistr1
 
 ### 非線形解析
 
-| 解析の種類 | 関連するカード                                                    |
-|:-----------|:------------------------------------------------------------------|
-| 静解析     | !SOLUTION, TYPE=NLSTATIC<BR>!STEP                                 |
-| 動解析     | !DYNAMIC, TYPE=NONLINEAR<BR>!STEP                                 |
-| 材料非線形 | !MATERIAL<BR>!PLASTIC<BR>!HYPERELASTIC<BR>!VISCOELASTIC<BR>!CREEP |
-
-
+| 解析の種類 | 関連するカード                                                      |
+|:-----------|:----------------------------------------------------------------|
+| 静解析     | !STEP                                                            |
+| 動解析     | !DYNAMIC, TYPE=NONLINEAR<BR>!STEP                                |
+| 接触解析   | !CONTACT<BR>!CONTACT_ALGO<BR>!STEP                               |
+| 材料非線形 | !PLASTIC<BR>!HYPERELASTIC<BR>!VISCOELASTIC<BR>!CREEP              |
