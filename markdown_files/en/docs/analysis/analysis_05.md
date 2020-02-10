@@ -1994,6 +1994,11 @@ MAXITER  = Maximum number of iterative calculations in nonlinear analysis
            (Default: 50)
 AMP      = Time function name
            (specified in !AMPLITUDE)
+INC_TYPE = FIXED (fixed increments, default value) / AUTO (automatic time increments)
+MAXRES   = Maximum allowable residual (default value : 1.0e+10)
+TIMEPOINTS = Name of the time list (specify with !TIME_POINTS, NAME)
+AUTOINCPARAM = Name of automatic time increments (specify with !AUTOINC_PARAM, NAME)
+MAXCONTITER = Maximum number of contact iterations in contact analysis (default value : 10)
 ```
 
 ** 2nd line or later **

@@ -2033,7 +2033,7 @@ AMP      = 時間関数名(!AMPLITUDEで指定)
 INC_TYPE = FIXED（固定増分・default値） / AUTO（自動増分）
 MAXRES   = 最大許容残差の設定（デフォルト：1.0e+10）
 TIMEPOINTS = 時刻リスト名（!TIME_POINTS, NAMEで指定）
-AUTOINCPARAM = 自動接触パラメータセット名（!AUTOINC_PARAM, NAMEで指定）
+AUTOINCPARAM = 自動増分パラメータセット名（!AUTOINC_PARAM, NAMEで指定）
 MAXCONTITER = 接触解析における最大接触反復回数（デフォルト：10）
 ```
 
@@ -2099,7 +2099,7 @@ INC_TYPE=AUTOの場合（TYPEによらず指定）
 ###### 備考
 
 - 自動増分調整の場合、SUBSTEPSは最大サブステップ数として扱われる
-- 時刻リスト名TIMEPOINTSおよび自動接触パラメータセット名AUTOINCPARAMの指定はINC_TYPE=AUTOのときのみ有効
+- 時刻リスト名TIMEPOINTSおよび自動増分パラメータセット名AUTOINCPARAMの指定はINC_TYPE=AUTOのときのみ有効
 - TIMEPOINTSを指定する場合、指定先の!TIME_POINTは!STEPカードより前に定義されていなければならない。
 - AUTOINCPARAMを指定する場合、指定先の!AUTOINC_PARAMは!STEPカードより前に定義されていなければならない。また、本パラメータ省略時はデフォルトの自動増分パラメータセットが使用される
 
