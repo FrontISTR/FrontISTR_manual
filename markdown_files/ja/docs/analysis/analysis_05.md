@@ -1635,6 +1635,13 @@ DEPENDENCIES = 依存する変数の数(未実装)
 
 線膨張係数の定義
 
+ここで入力する線膨張係数は、各温度における線膨張係数\(\alhpa\)の値そのものではなく、
+次式に示す、参照温度\(T_{ref}\)から各温度\(T\)までの区間平均値である。
+
+\begin{equation}
+\overline{\alpha}(T)=\frac{1}{T-T_{ref}} \int_{T_{ref}}^T \alpha(T) dT
+\end{equation}
+
 ###### パラメータ
 
 ```

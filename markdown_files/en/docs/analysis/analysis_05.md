@@ -1618,6 +1618,13 @@ DEPENDENCIES = the number of parameters depended upon (Not included)
 
 Definition of coefficient of linear expansion
 
+The coefficient to be input here is not the coefficient of linear expansion \(\alpha\) at each temperature,
+but its averaged value between the reference temperature \(T_{ref}\) and each temperature \(T\) as follows:
+
+\begin{equation}
+\overline{\alpha}(T)=\frac{1}{T-T_{ref}} \int_{T_{ref}}^T \alpha(T) dT
+\end{equation}
+
 ###### Parameter
 
 ```
