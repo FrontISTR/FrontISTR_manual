@@ -1935,7 +1935,19 @@ SSTEP      = First step number that performs the reading
              of the heat conduction analysis results (Default: 1)
 INTERVAL   = Step interval that performs the reading
              of the heat conduction analysis results (Default: 1)
+READTYPE   = STEP(Default) / TIME
+             When TIME is specified, analysis time of the stress
+             analysis is synchronized with the heat conduction
+             analysis (value of INTERVAL is ignored, and the
+             temperature is linearly interpolated from results of the
+             heat conduction analysis right before and after the
+             current analysis time)
 ```
+
+When unsteady heat conduction analysis using auto time increment was
+performed, and the results were output at specified time points using
+!TIME_POINTS, READTYPE=TIME needs to be specified because the step
+interval of the results is not constant.
 
 ** 2nd line or later **
 
@@ -2069,7 +2081,9 @@ Definition of control data regarding calculation
 
 ###### Parameter
 
-N/A
+```
+TIMEPOINTS = Time list name (specify with !TIME_POINTS, NAME)
+```
 
 ** 2nd line or later **
 
@@ -2100,6 +2114,13 @@ N/A
 !HEAT
   10.0, 3600.0, 1.0, 20.0 ----- Auto time increment unsteady calculation
 ```
+
+###### Remarks
+
+Only when performing auto time increment unsteady calculation,
+TIMEPOINTS parameter can be used to specify time points at which
+results and/or visualization files are output.
+
 
 ##### (2) `!FIXTEMP` (4-2)
 
