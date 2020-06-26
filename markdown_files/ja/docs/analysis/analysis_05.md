@@ -3006,12 +3006,10 @@ LOAD CASE = (実部の指定: 1, 虚部の指定: 2)
 
 ```
 METHOD =    解法 (CG、BiCGSTAB、GMRES、GPBiCG、DIRECT、DIRECTmkl、MUMPS)
-            DIRECT     : 接触解析以外での直接法(逐次処理のみ)
+            DIRECT     : 接触解析以外での直接法(逐次処理のみ) (現在使用不可)
             DIRECTmkl  : Intel MKLによる直接法
             MUMPS      : MUMPSによる直接法
             直接法を選択したとき、データ行は無視される。
-            1、2自由度問題では、CG、DIRECT、MUMPSのみ有効
-            シェル要素は、DIRECT、MUMPSのみ有効
             3自由度用の反復法はOpenMPによるスレッド並列が利用可能
 
 PRECOND =   反復法の前処理手法 (1､2､3､5､10､11､12)
@@ -3026,7 +3024,7 @@ PRECOND =   反復法の前処理手法 (1､2､3､5､10､11､12)
 
 ITERLOG =   反復法ソルバー収束履歴出力の有無          (YES/NO)(デフォルト: NO)
 
-TIMELOG =   ソルバー計算時間出力の有無                (YES/NO)(デフォルト: NO）
+TIMELOG =   ソルバー計算時間出力の有無                (YES/NO/VERBOSE)(デフォルト: NO）
 
 USEJAD =    ベクトル機向けオーダリングの有無          (YES/NO)(デフォルト: NO)
             3自由度問題で反復法使用時のみ有効
@@ -3066,7 +3064,7 @@ METHOD2 =   第2の解法 (BiCGSTAB、GMRES、GPBiCG) (試験的)
 | 変数名     | 属性 | 内容                      |
 |------------|------|---------------------------|
 | NIER 　    | I    | 反復回数(デフォルト: 100) |
-| iterPREmax | I    | Additive Schwarzによる前処理の繰り返し数(デフォルト: 1)<br/>(推奨値は、逐次計算、前処理に対角スケーリングを用いる場合、<br/>および、MPCを含むモデルの計算では1、その他の並列計算では2)|
+| iterPREmax | I    | Additive Schwarzによる前処理の繰り返し数(デフォルト: 1)<br/>(推奨値は1 (並列計算では2が有効な場合もある))|
 | NREST      | I    | クリロフ部分空間数(デフォルト: 10) <br/>(解法としてGMRESを選択したときのみ有効) |
 | NCOLOR_IN  | I    | マルチカラーオーダリングにおける目標色数(デフォルト: 10)<br/> (OpenMPのスレッド数が2以上の時のみ有効) |
 | RECYCLEPRE | I    | 前処理セットアップ情報の再利用回数(デフォルト: 3)<br/> (非線形解析でのみ有効) |
@@ -3078,16 +3076,86 @@ METHOD2 =   第2の解法 (BiCGSTAB、GMRES、GPBiCG) (試験的)
 | 変数名     | 属性 | 内容                                 |
 |------------|------|--------------------------------------|
 | RESID      | R    | 打ち切り誤差(デフォルト値: 1.0e-8)   |
-| SIGMA_DIAG | R    | 前処理行列計算時に対角成分にかける倍率(デフォルト値: 1.0) |
+| SIGMA_DIAG | R    | 前処理行列計算時に対角成分にかける倍率(デフォルト値: 1.0) <br/>(ILU前処理でゼロ割や発散が起きる場合に1.0より大きい値を設定すると解ける場合がある) |
 | SIGMA      | R    | 未使用(デフォルト値： 0.0)           |
 
+
+###### PRECOND=5の場合(省略可)
+
+```
+(4行目) ML_CoarseSolver, ML_Smoother, ML_MGCycle, ML_MaxLevels, ML_CoarseningScheme, ML_NumSweep
+```
+
+| 変数名              | 属性 | 内容                                 |
+|---------------------|------|--------------------------------------|
+| ML_CoarseSolver     | I    | MLの粗グリッド用ソルバ(1: スムーザーで代用、2: KLU(逐次直接法)、3: MUMPS(並列直接法))(デフォルト値: 1) <br/>(推奨値は、解き難い問題では3または2、通常の問題では1)  |
+| ML_Smoother         | I    | MLのスムーザー(1: Cheby、2: SymBlockGaussSeidel、3: Jacobi)(デフォルト値: 1) <br/>(推奨値は1)  |
+| ML_MGCycle          | I    | MLのマルチグリッドサイクル(1: V-cycle、2: W-cycle、3: Full-V-cycle)(デフォルト値: 1) <br/>(推奨値は、解き難い問題では2、通常の問題では1)  |
+| ML_MaxLevels        | I    | MLの最大レベル数(デフォルト値: 10) <br/>(推奨値は、特に解き難い問題では、コースソルバを直接法にして、2(メモリが足りない場合は3)、通常の問題では10)  |
+| ML_CoarseningScheme | I    | MLのコースニングスキーム(1: UncoupledMIS、2: METIS、3: ParMETIS、4: Zoltan、5: DD)(デフォルト値: 1) <br/>(推奨値は1または5)  |
+| ML_NumSweep         | I    | MLのスムーザーのスウィープ数(Chebyの場合は多項式の次数)(デフォルト値: 2) <br/>(推奨値は、Chebyの場合は2、SymBlockGaussSeidelの場合は1)   |
+
 ##### 使用例
+
+SSOR前処理付きCG法を利用し、最大反復階数を10000、打ち切り誤差を1.0e-8に設定する
 
 ```
 !SOLVER, METHOD=CG, PRECOND=1, ITERLOG=YES, TIMELOG=YES
   10000, 1
   1.0e-8, 1.0, 0.0
 ```
+
+SSOR前処理付きGMRES法を利用し、クリロフ部分空間数を40、マルチカラーオーダリングの目標色数を100に設定する
+
+```
+!SOLVER, METHOD=GMRES, PRECOND=1, ITERLOG=YES, TIMELOG=YES
+  10000, 1, 40, 100
+  1.0e-8, 1.0, 0.0
+```
+
+ILU(0)前処理付きCG法を利用し、前処理行列計算時に対角成分にかける倍率を1.1に設定する
+
+```
+!SOLVER, METHOD=CG, PRECOND=10, ITERLOG=YES, TIMELOG=YES
+  10000, 1
+  1.0e-8, 1.1, 0.0
+```
+
+CG法の前処理をMLによるAMG法とする
+
+```
+!SOLVER, METHOD=CG, PRECOND=5, ITERLOG=YES, TIMELOG=YES
+  10000, 1
+  1.0e-8, 1.0, 0.0
+```
+
+CG法の前処理をMLによるAMG法とし、粗グリッド用ソルバをMUMPSとする(解き難い問題向け)
+
+```
+!SOLVER, METHOD=CG, PRECOND=5, ITERLOG=YES, TIMELOG=YES
+  10000, 1
+  1.0e-8, 1.0, 0.0
+  3
+```
+
+CG法の前処理をMLによるAMG法とし、マルチグリッドサイクルをW-cycleとする(解き難い問題向け)
+
+```
+!SOLVER, METHOD=CG, PRECOND=5, ITERLOG=YES, TIMELOG=YES
+  10000, 1
+  1.0e-8, 1.0, 0.0
+  1, 1, 2
+```
+
+CG法の前処理をMLによるAMG法とし、粗グリッド用ソルバをMUMPS、最大レベル数を2とする(非常に解き難い問題向け)
+
+```
+!SOLVER, METHOD=CG, PRECOND=5, ITERLOG=YES, TIMELOG=YES
+  10000, 1
+  1.0e-8, 1.0, 0.0
+  3, 1, 1, 2
+```
+
 
 ### ポスト処理(可視化)制御データ
 
