@@ -1618,6 +1618,13 @@ DEPENDENCIES = the number of parameters depended upon (Not included)
 
 Definition of coefficient of linear expansion
 
+The coefficient to be input here is not the coefficient of linear expansion \(\alpha\) at each temperature,
+but its averaged value between the reference temperature \(T_{ref}\) and each temperature \(T\) as follows:
+
+\begin{equation}
+\overline{\alpha}(T)=\frac{1}{T-T_{ref}} \int_{T_{ref}}^T \alpha(T) dT
+\end{equation}
+
 ###### Parameter
 
 ```
@@ -1928,7 +1935,19 @@ SSTEP      = First step number that performs the reading
              of the heat conduction analysis results (Default: 1)
 INTERVAL   = Step interval that performs the reading
              of the heat conduction analysis results (Default: 1)
+READTYPE   = STEP(Default) / TIME
+             When TIME is specified, analysis time of the stress
+             analysis is synchronized with the heat conduction
+             analysis (value of INTERVAL is ignored, and the
+             temperature is linearly interpolated from results of the
+             heat conduction analysis right before and after the
+             current analysis time)
 ```
+
+When unsteady heat conduction analysis using auto time increment was
+performed, and the results were output at specified time points using
+!TIME_POINTS, READTYPE=TIME needs to be specified because the step
+interval of the results is not constant.
 
 ** 2nd line or later **
 
@@ -2062,7 +2081,9 @@ Definition of control data regarding calculation
 
 ###### Parameter
 
-N/A
+```
+TIMEPOINTS = Time list name (specify with !TIME_POINTS, NAME)
+```
 
 ** 2nd line or later **
 
@@ -2093,6 +2114,13 @@ N/A
 !HEAT
   10.0, 3600.0, 1.0, 20.0 ----- Auto time increment unsteady calculation
 ```
+
+###### Remarks
+
+Only when performing auto time increment unsteady calculation,
+TIMEPOINTS parameter can be used to specify time points at which
+results and/or visualization files are output.
+
 
 ##### (2) `!FIXTEMP` (4-2)
 
@@ -2784,12 +2812,10 @@ Mandatory control data
 
 ```
 METHOD =    Method (CG, BiCGSTAB, GMRES, GPBiCG, DIRECT, DIRECTmkl, MUMPS)
-            DIRECT: Direct method other than contact analysis (serial processing only)
+            DIRECT: Direct method other than contact analysis (serial processing only) (currently unavailable)
             DIRECTmkl: Direct method by Intel MKL
             MUMPS    : Direct method by MUMPS
             When any of direct methods is selected, the data lines will be disregarded.
-            In 1D and 2D problems, only CG, DIRECT and MUMPS are valid.
-            In shell problems, only DIRECT and MUMPS are valid.
             Thread-parallel computation by OpenMP is available in iterative methods
             for 3D problems.
 
@@ -2805,7 +2831,7 @@ PRECOND =   Preconditioner for iterative methods (1, 2, 3, 5, 10, 11, 12)
 
 ITERLOG =   Whether solver convergence history is output (YES/NO) (Default: NO)
 
-TIMELOG =   Whether solver computation time is output (YES/NO) (Default: NO)
+TIMELOG =   Whether solver computation time is output (YES/NO/VERBOSE) (Default: NO)
 
 USEJAD =    Whether matrix ordering optimized for vector processors are performed
             (YES/NO) (Default: NO)
@@ -2848,7 +2874,7 @@ METHOD2 =   Secondary method (BiCGSTAB, GMRES, GPBiCG) (experimental)
 |Parameter Name|Attributions|Contents|
 |------------|------|---------------------------|
 | NIER 　    | I    |No. of iterations (Default: 100)
-| iterPREmax | I    |No. of iteration of preconditioning based on Additive Schwarz<br/>(Default: 1)<br/>(recommended value : 1 for serial computation,<br/> parallel computation with Diagonal scaling,<br/> and serial/parallel computation of problems with MPC, 2 for other parallel computation)|
+| iterPREmax | I    |No. of iteration of preconditioning based on Additive Schwarz<br/>(Default: 1)<br/>(recommended value : 1 (2 might be efficient in some parallel computation))|
 | NREST      | I    |No. of Krylov subspaces (Default: 10)<br/>(Valid only when GMRES is selected as the solution)|
 | NCOLOR_IN  | I    |No. of Colors for Multi-Color ordering (Default: 10)<br/>(Valid only when no. of OpenMP threads >= 2)|
 | RECYCLEPRE | I    |No. of recycling set-up info for preconditioning (Default: 3)<br/>(Valid only in nonlinear analyses)|
@@ -2860,16 +2886,88 @@ METHOD2 =   Secondary method (BiCGSTAB, GMRES, GPBiCG) (experimental)
 |Parameter Name|Attributions|Contents|
 |------------|------|--------------------------------------|
 | RESID      | R    |Truncation error (Default: 1.0e-8)|
-| SIGMA_DIAG | R    |Scale factor for diagonal elements when computing preconditioning matrix (Default: 1.0)|
+| SIGMA_DIAG | R    |Scale factor for diagonal elements when computing preconditioning matrix (Default: 1.0)<br/>(When divide-by-zero or divergence occurs with ILU preconditioning, convergence might be obtained by setting number greater than 1.0)|
 | SIGMA      | R    |Not used (Default: 0.0)|
 
+
+####### In case of `PRECOND=5` (Optional)
+
+```
+(4th line) ML_CoarseSolver, ML_Smoother, ML_MGCycle, ML_MaxLevels, ML_CoarseningScheme, ML_NumSweep
+```
+
+| 変数名              | 属性 | 内容                                 |
+|---------------------|------|--------------------------------------|
+| ML_CoarseSolver     | I    | Coarse solver of ML (1: smoother, 2: KLU (serial direct solver), 3: MUMPS (parallel direct solver)) (Default: 1) <br/>(recommended value : 3 or 2 for stiff problems, 1 for other problems)  |
+| ML_Smoother         | I    | Smoother of ML (1: Chebyshev, 2: SymBlockGaussSeidel, 3: Jacobi) (Default: 1) <br/>(recommended value : 1)  |
+| ML_MGCycle          | I    | Multigrid cycle of ML (1: V-cycle, 2: W-cycle, 3: Full-V-cycle) (Default: 1) <br/>(recommended value : 2 for stiff problems, 1 for other problems)  |
+| ML_MaxLevels        | I    | Max No. of levels of ML (Default: 10) <br/>(recommended value : 2 (or 3 when memory is not sufficient) with direct coarse solver for very stiff problems, 10 for other problems)  |
+| ML_CoarseningScheme | I    | Coarsening scheme of ML (1: UncoupledMIS, 2: METIS, 3: ParMETIS, 4: Zoltan, 5: DD) (Default: 1) <br/>(recommended value : 1 or 5)  |
+| ML_NumSweep         | I    | No. of smoother sweeps of ML (polinomial degree for Chebyshev) (Default: 2) <br/>(recommended value : 2 for Chebyshev, 1 for SymBlockGaussSeidel)   |
+
+
+
 ###### Example of Use
+
+Use CG with SSOR preconditioning, and set No. of iteration to 10000 and truncation error to 1.0e-8
 
 ```
 !SOLVER, METHOD=CG, PRECOND=1, ITERLOG=YES, TIMELOG=YES
   10000, 1
   1.0e-8, 1.0, 0.0
 ```
+
+Use GMRES with SSOR preconditioning, and set No. of Krylov subspace to 40 and No. of colors for Multi-Color ordering to 100
+
+```
+!SOLVER, METHOD=GMRES, PRECOND=1, ITERLOG=YES, TIMELOG=YES
+  10000, 1, 40, 100
+  1.0e-8, 1.0, 0.0
+```
+
+Use CG with ILU(0) preconditioning, and set scale factor for diagonal elements when computing preconditioning matrix to 1.1
+
+```
+!SOLVER, METHOD=CG, PRECOND=10, ITERLOG=YES, TIMELOG=YES
+  10000, 1
+  1.0e-8, 1.1, 0.0
+```
+
+Use CG with AMG preconditioning by ML
+
+```
+!SOLVER, METHOD=CG, PRECOND=5, ITERLOG=YES, TIMELOG=YES
+  10000, 1
+  1.0e-8, 1.0, 0.0
+```
+
+Use CG with AMG preconditioning by ML, and set coarse solver to MUMPS (for stiff problems)
+
+```
+!SOLVER, METHOD=CG, PRECOND=5, ITERLOG=YES, TIMELOG=YES
+  10000, 1
+  1.0e-8, 1.0, 0.0
+  3
+```
+
+Use CG with AMG preconditioning by ML, and set multigrid cycle to W-cycle (for stiff problems)
+
+```
+!SOLVER, METHOD=CG, PRECOND=5, ITERLOG=YES, TIMELOG=YES
+  10000, 1
+  1.0e-8, 1.0, 0.0
+  1, 1, 2
+```
+
+Use CG with AMG preconditioning by ML, and set coarse solver to MUMPS and max No. of levels to 2 (for very stiff problems)
+
+```
+!SOLVER, METHOD=CG, PRECOND=5, ITERLOG=YES, TIMELOG=YES
+  10000, 1
+  1.0e-8, 1.0, 0.0
+  3, 1, 1, 2
+```
+
 
 #### Post Process (Visualization) Control Data
 
