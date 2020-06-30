@@ -1635,7 +1635,7 @@ DEPENDENCIES = 依存する変数の数(未実装)
 
 線膨張係数の定義
 
-ここで入力する線膨張係数は、各温度における線膨張係数\(\alhpa\)の値そのものではなく、
+ここで入力する線膨張係数は、各温度における線膨張係数\(\alpha\)の値そのものではなく、
 次式に示す、参照温度\(T_{ref}\)から各温度\(T\)までの区間平均値である。
 
 \begin{equation}
@@ -3089,11 +3089,11 @@ METHOD2 =   第2の解法 (BiCGSTAB、GMRES、GPBiCG) (試験的)
 | 変数名              | 属性 | 内容                                 |
 |---------------------|------|--------------------------------------|
 | ML_CoarseSolver     | I    | MLの粗グリッド用ソルバ(1: スムーザーで代用、2: KLU(逐次直接法)、3: MUMPS(並列直接法))(デフォルト値: 1) <br/>(推奨値は、解き難い問題では3または2、通常の問題では1)  |
-| ML_Smoother         | I    | MLのスムーザー(1: Cheby、2: SymBlockGaussSeidel、3: Jacobi)(デフォルト値: 1) <br/>(推奨値は1)  |
+| ML_Smoother         | I    | MLのスムーザー(1: Chebyshev、2: SymBlockGaussSeidel、3: Jacobi)(デフォルト値: 1) <br/>(推奨値は1)  |
 | ML_MGCycle          | I    | MLのマルチグリッドサイクル(1: V-cycle、2: W-cycle、3: Full-V-cycle)(デフォルト値: 1) <br/>(推奨値は、解き難い問題では2、通常の問題では1)  |
 | ML_MaxLevels        | I    | MLの最大レベル数(デフォルト値: 10) <br/>(推奨値は、特に解き難い問題では、コースソルバを直接法にして、2(メモリが足りない場合は3)、通常の問題では10)  |
 | ML_CoarseningScheme | I    | MLのコースニングスキーム(1: UncoupledMIS、2: METIS、3: ParMETIS、4: Zoltan、5: DD)(デフォルト値: 1) <br/>(推奨値は1または5)  |
-| ML_NumSweep         | I    | MLのスムーザーのスウィープ数(Chebyの場合は多項式の次数)(デフォルト値: 2) <br/>(推奨値は、Chebyの場合は2、SymBlockGaussSeidelの場合は1)   |
+| ML_NumSweep         | I    | MLのスムーザーのスウィープ数(Chebyshevの場合は多項式の次数)(デフォルト値: 2) <br/>(推奨値は、Chebyshevの場合は2、SymBlockGaussSeidelの場合は1)   |
 
 ##### 使用例
 
