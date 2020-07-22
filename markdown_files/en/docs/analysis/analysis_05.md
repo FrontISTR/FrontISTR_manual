@@ -801,8 +801,8 @@ ESTCOND   = frequency for estimating condition number
 
 | No. of Iterations              | Iteration Count of Preconditioning | No. of Krylov Subspaces | No. of Colors for Multi-Color ordering | No. of Recycling Set-Up Info for Preconditioning |
 |--------------------------------|------------------------------------|-------------------------|----------------------------------------|--------------------------------------------------|
-| NIER                           | iterPREMAX                         | NREST                   | NCOLOR_IN                              | RECYCLEPRE                                       |
-| <font color="Red">10000</font> | <font color="Red">10000</font>     |                         |                                        |                                                  |
+| NITER                          | iterPREMAX                         | NREST                   | NCOLOR_IN                              | RECYCLEPRE                                       |
+| <font color="Red">10000</font> | <font color="Red">1</font>         |                         |                                        |                                                  |
 
 ###### 6-3
 
@@ -2868,12 +2868,12 @@ METHOD2 =   Secondary method (BiCGSTAB, GMRES, GPBiCG) (experimental)
 ** 2nd line or later **
 
 ```
-(2nd line) NIER, iterPREmax, NREST, NCOLOR_IN
+(2nd line) NITER, iterPREmax, NREST, NCOLOR_IN, RECYCLEPRE
 ```
 
 |Parameter Name|Attributions|Contents|
 |------------|------|---------------------------|
-| NIER 　    | I    |No. of iterations (Default: 100)
+| NITER      | I    |No. of iterations (Default: 100)
 | iterPREmax | I    |No. of iteration of preconditioning based on Additive Schwarz<br/>(Default: 1)<br/>(recommended value : 1 (2 might be efficient in some parallel computation))|
 | NREST      | I    |No. of Krylov subspaces (Default: 10)<br/>(Valid only when GMRES is selected as the solution)|
 | NCOLOR_IN  | I    |No. of Colors for Multi-Color ordering (Default: 10)<br/>(Valid only when no. of OpenMP threads >= 2)|
