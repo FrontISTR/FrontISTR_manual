@@ -11,8 +11,6 @@ stages:
 
 mkdocs:
   stage: build
-  only:
-    - tags
   script:
     - pip install --upgrade mkdocs
     - pip install --upgrade pyyaml
@@ -28,11 +26,11 @@ mkdocs:
 pages:
   stage: deploy
   only:
-    - tags
+    - master
   script:
-    - mkdir -p public/$CI_COMMIT_TAG
+    - mkdir -p public
     - cp -r markdown_files/ja/site public/$CI_COMMIT_TAG/ja
     - cp -r markdown_files/en/site public/$CI_COMMIT_TAG/en
   artifacts:
     paths:
-    - public/$CI_COMMIT_TAG
+    - public
