@@ -798,8 +798,8 @@ TYPE＝解析の種類
 
 |反復回数,|前処理の繰り返し数,|クリロフ部分空間数|マルチカラーの色数|前処理セットアップ情報の再利用回数|
 |---------|-------------------|------------------|------------------|----------------------------------|
-| NIER    |iterPREMAX         |NREST             |NCOLOR_IN         |RECYCLEPRE                        |
-|<font color="Red">10000</font>|<font color="Red">2</font>|    |    |                                  |
+| NITER   |iterPREMAX         |NREST             |NCOLOR_IN         |RECYCLEPRE                        |
+|<font color="Red">10000</font>|<font color="Red">1</font>|    |    |                                  |
 
 ###### 6-3
 
@@ -3058,12 +3058,12 @@ METHOD2 =   第2の解法 (BiCGSTAB、GMRES、GPBiCG) (試験的)
 ** 2行目以降 **
 
 ```
-(2行目) NIER, iterPREmax, NREST, NCOLOR_IN
+(2行目) NITER, iterPREmax, NREST, NCOLOR_IN, RECYCLEPRE
 ```
 
 | 変数名     | 属性 | 内容                      |
 |------------|------|---------------------------|
-| NIER 　    | I    | 反復回数(デフォルト: 100) |
+| NITER      | I    | 反復回数(デフォルト: 100) |
 | iterPREmax | I    | Additive Schwarzによる前処理の繰り返し数(デフォルト: 1)<br/>(推奨値は1 (並列計算では2が有効な場合もある))|
 | NREST      | I    | クリロフ部分空間数(デフォルト: 10) <br/>(解法としてGMRESを選択したときのみ有効) |
 | NCOLOR_IN  | I    | マルチカラーオーダリングにおける目標色数(デフォルト: 10)<br/> (OpenMPのスレッド数が2以上の時のみ有効) |
