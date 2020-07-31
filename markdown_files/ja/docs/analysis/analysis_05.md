@@ -3082,6 +3082,8 @@ METHOD2 =   第2の解法 (BiCGSTAB、GMRES、GPBiCG) (試験的)
 
 ###### PRECOND=5の場合(省略可)
 
+PRECOND にその他の値が指定された場合は、4行目は無視される。
+
 ```
 (4行目) ML_CoarseSolver, ML_Smoother, ML_MGCycle, ML_MaxLevels, ML_CoarseningScheme, ML_NumSweep
 ```
