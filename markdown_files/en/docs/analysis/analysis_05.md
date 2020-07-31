@@ -2892,11 +2892,13 @@ METHOD2 =   Secondary method (BiCGSTAB, GMRES, GPBiCG) (experimental)
 
 ####### In case of `PRECOND=5` (Optional)
 
+When any other value is specified for PRECOND, the 4th line will be disregarded.
+
 ```
 (4th line) ML_CoarseSolver, ML_Smoother, ML_MGCycle, ML_MaxLevels, ML_CoarseningScheme, ML_NumSweep
 ```
 
-| 変数名              | 属性 | 内容                                 |
+|Parameter Name|Attributions|Contents|
 |---------------------|------|--------------------------------------|
 | ML_CoarseSolver     | I    | Coarse solver of ML (1: smoother, 2: KLU (serial direct solver), 3: MUMPS (parallel direct solver)) (Default: 1) <br/>(recommended value : 3 or 2 for stiff problems, 1 for other problems)  |
 | ML_Smoother         | I    | Smoother of ML (1: Chebyshev, 2: SymBlockGaussSeidel, 3: Jacobi) (Default: 1) <br/>(recommended value : 1)  |
