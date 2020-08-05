@@ -225,7 +225,7 @@ Each of the above headers is described in the following with examples of data cr
 ```
 ### Control File for FISTR
 !VERSION                                        1-1
-  3
+  5
 !SOLUTION, TYPE=STATIC                          1-2
 !WRITE, VISUAL                                  1-3
 !WRITE, RESULT                                  1-4
@@ -970,13 +970,13 @@ The analysis control data is classified as follow.
 
 ##### (1) `!VERSION` (1-1)
 
-Specifies the solver version number. The current version number is 3.
+Specifies the solver version number. The current version number is 5.
 
 ###### Example of Use
 
 ```
 !VERSION
- 3
+ 5
 ```
 
 ##### (2) `!SOLUTION` (1-2)

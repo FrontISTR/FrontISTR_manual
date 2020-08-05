@@ -223,7 +223,7 @@ FrontISTRでは、計算制御データに使用できる境界条件として�
 ```
 ### Control File for FISTR
 !VERSION                                        1-1
-  3
+  5
 !SOLUTION, TYPE=STATIC                          1-2
 !WRITE, VISUAL                                  1-3
 !WRITE, RESULT                                  1-4
@@ -597,7 +597,6 @@ TYPE＝解析の種類
 !END                                            1-12
 ```
 
-2-11　!STEP, CONVERG=1.E-10, MAXITER=20
 ##### ヘッダーの説明
 
 ◆非線形動解析の制御（線形解析の場合省略可、陽解法の場合は不要）
@@ -973,13 +972,13 @@ TYPE＝解析の種類
 
 ##### `!VERSION` (1-1)
 
-ソルバーバージョン番号を指定する。現時点ではバージョン番号3
+ソルバーバージョン番号を指定する。現時点ではバージョン番号5
 
 ###### 使用例
 
 ```
 !VERSION
-  3
+  5
 ```
 
 ##### `!SOLUTION` (1-2)
@@ -1453,7 +1452,7 @@ DEPENDENCIES = 0 (Default値) / 1
 | H          | R    | 硬化係数            |
 | PSTRAIN 　 | R    | 塑性ひずみ          |
 | YIELD      | R    | 降伏応力            |
-| \(varepsilon0, K, n\)   | R    |\(\overline{\sigma} = k\left( \varepsilon_{0} + \overline{\varepsilon} \right)^{n}\)|
+| \(\varepsilon0, K, n\)   | R    |\(\overline{\sigma} = k\left( \varepsilon_{0} + \overline{\varepsilon} \right)^{n}\)|
 | \(\varepsilon0, D, n\)   | R    |\(\varepsilon = \frac{\sigma}{E} + \varepsilon_{0}\left( \frac{\sigma}{D} \right)^{n}\)|
 | FAI        | R    | 内部摩擦角          |
 | c          | R    | 粘着力              |
@@ -2047,7 +2046,7 @@ AMP      = 時間関数名(!AMPLITUDEで指定)
 INC_TYPE = FIXED（固定増分・default値） / AUTO（自動増分）
 MAXRES   = 最大許容残差の設定（デフォルト：1.0e+10）
 TIMEPOINTS = 時刻リスト名（!TIME_POINTS, NAMEで指定）
-AUTOINCPARAM = 自動接触パラメータセット名（!AUTOINC_PARAM, NAMEで指定）
+AUTOINCPARAM = 自動増分パラメータセット名（!AUTOINC_PARAM, NAMEで指定）
 MAXCONTITER = 接触解析における最大接触反復回数（デフォルト：10）
 ```
 

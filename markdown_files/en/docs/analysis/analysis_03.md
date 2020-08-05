@@ -211,7 +211,7 @@ Specifies storing input/output files into subdirectories
 ```
 !SUBDIR, ON [,optional parameter]
 
-# Example of Ud
+# Example of Use
 !SUBDIR, ON, LIMIT=8000
 ```
 
