@@ -183,10 +183,6 @@ fileheader
 result.out
 ```
 
-```
-!RESULT, NAME=<name> [,optional parameter]
-```
-
 | パラメータ  | 内容               |
 |:------------|:-------------------|
 | `NAME`      |識別子（必須）      |
@@ -220,8 +216,6 @@ result.out
 #使用例
 !SUBDIR, ON, LIMIT=8000
 ```
-
-!SUBDIR, ON \[,optional parameter\]
 
 | パラメータ  |内容                |
 |:------------|:-------------------|
