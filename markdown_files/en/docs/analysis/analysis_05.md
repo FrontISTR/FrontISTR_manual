@@ -138,81 +138,81 @@ The header list of the common control data is shown in the following Table 7.3.1
 
 **Table 7.3.1: Control Data Common to All Analysis**
 
-| Header               | Meaning                                                           | Remarks   | Description No. |
-|----------------------|-------------------------------------------------------------------|-----------|-----------------|
-| `!VERSION`           | Solver version number                                             |           | 1-1             |
-| `!SOLUTION`          | Specification of analysis type                                    | Mandatory | 1-2             |
-| `!WRITE,VISUAL`      | Specification of visualization output                             |           | 1-3             |
-| `!WRITE,RESULT`      | Specification of results output                                   |           | 1-4             |
-| `!WRITE,LOG`         | Specification of results output                                   |           | 1-5             |
-| `!OUTPUT_VIS`        | Control of visualization output items                             |           | 1-6             |
-| `!OUTPUT_RES`        | Control of results output items                                   |           | 1-7             |
-| `!RESTART`           | Control of restarting                                             |           | 1-8             |
-| `!ECHO`              | Echo output                                                       |           | 1-9             |
-| `!ORIENTATION`       | Definition of local coordinate system                             |           | 1-10            |
-| `!SECTION`           | Definition of local coordinate system the sction correspondent to |           | 1-11            |
-| `!INITIAL_CONDITION` | Definition of initial condition                                   |           | 1-12            |
-| `!END`               | Ending specification of control data                              |           | 1-13            |
+| Header                                             | Meaning                                                           | Remarks   | Description No. |
+|----------------------------------------------------|-------------------------------------------------------------------|-----------|-----------------|
+| [`!VERSION`](#1-version-1-1)                       | Solver version number                                             |           | 1-1             |
+| [`!SOLUTION`](#2-solution-1-2)                     | Specification of analysis type                                    | Mandatory | 1-2             |
+| [`!WRITE,VISUAL`](#3-write-visual-1-3)             | Specification of visualization output                             |           | 1-3             |
+| [`!WRITE,RESULT`](#4-write-result-1-4)             | Specification of results output                                   |           | 1-4             |
+| [`!WRITE,LOG`](#5-write-log-1-5)                   | Specification of results output                                   |           | 1-5             |
+| [`!OUTPUT_VIS`](#6-output_vis-1-6)                 | Control of visualization output items                             |           | 1-6             |
+| [`!OUTPUT_RES`](#7-output_res-1-7)                 | Control of results output items                                   |           | 1-7             |
+| [`!RESTART`](#8-restart-1-8)                       | Control of restarting                                             |           | 1-8             |
+| [`!ECHO`](#9-echo-1-9)                             | Echo output                                                       |           | 1-9             |
+| [`!ORIENTATION`](#10-orientation-1-10)             | Definition of local coordinate system                             |           | 1-10            |
+| [`!SECTION`](#11-section-1-11)                     | Definition of local coordinate system the sction correspondent to |           | 1-11            |
+| [`!INITIAL_CONDITION`](#12-initial_condition-1-12) | Definition of initial condition                                   |           | 1-12            |
+| [`!END`](#13-end-1-13)                             | Ending specification of control data                              |           | 1-13            |
 
 **Table 7.3.2: Control Data for Static Analysis**
 
-| Header             | Meaning                                                  | Remarks | Description No. |
-|--------------------|----------------------------------------------------------|---------|-----------------|
-| `!STATIC`          | Static analysis control                                  |         | 2-1             |
-| `!MATERIAL`        | Material name                                            |         | 2-2             |
-| `!ELASTIC`         | Elastic material physical properties                     |         | 2-2-1           |
-| `!PLASTIC`         | Plastic material physical properties                     |         | 2-2-2           |
-| `!HYPERELASTIC`    | Hyperelastic material physical properties                |         | 2-2-3           |
-| `!VISCOELASTIC`    | Viscoelastic material physical properties                |         | 2-2-4           |
-| `!CREEP`           | Creep material physical properties                       |         | 2-2-5           |
-| `!DENSITY`         | Mass density                                             |         | 2-2-6           |
-| `!EXPANSION_COEFF` | Coefficient of linear expansion                          |         | 2-2-7           |
-| `!TRS`             | Tempearture dependent behaviour of viscoelastic material |         | 2-2-8           |
-| `!FLUID`           | Flow Condition                                           |         | 2-2-9           |
-| `!USE_MATERIAL`    | User defined material                                    |         | 2-2-10          |
-| `!BOUNDARY`        | Displacement boundary conditions                         |         | 2-3             |
-| `!SPRING`          | Spring boundary conditions                               |         | 2-3-1           |
-| `!CLOAD`           | Concentrated load                                        |         | 2-4             |
-| `!DLOAD`           | Distributed load                                         |         | 2-5             |
-| `!ULOAD`           | User defined external load                               |         | 2-6             |
-| `!CONTACT_ALGO`    | Contact analytic algorithm                               |         | 2-7             |
-| `!CONTACT`         | Contact                                                  |         | 2-8             |
-| `!TEMPERATURE`     | Nodal temperature in thermal stress analysis             |         | 2-9             |
-| `!REFTEMP`         | Reference temperature in thermal stress analysis         |         | 2-10            |
-| `!STEP`            | Analysis step control                                    |         | 2-11            |
+| Header                                          | Meaning                                                  | Remarks | Description No. |
+|-------------------------------------------------|----------------------------------------------------------|---------|-----------------|
+| [`!STATIC`](#1-static-2-1)                      | Static analysis control                                  |         | 2-1             |
+| [`!MATERIAL`](#2-material-2-2)                  | Material name                                            |         | 2-2             |
+| [`!ELASTIC`](#3-elastic-2-2-1)                  | Elastic material physical properties                     |         | 2-2-1           |
+| [`!PLASTIC`](#4-plastic-2-2-2)                  | Plastic material physical properties                     |         | 2-2-2           |
+| [`!HYPERELASTIC`](#5-hyperelastic-2-2-3)        | Hyperelastic material physical properties                |         | 2-2-3           |
+| [`!VISCOELASTIC`](#6-viscoelastic-2-2-4)        | Viscoelastic material physical properties                |         | 2-2-4           |
+| [`!CREEP`](#7-creep-2-2-5)                      | Creep material physical properties                       |         | 2-2-5           |
+| [`!DENSITY`](#8-density-2-2-6)                  | Mass density                                             |         | 2-2-6           |
+| [`!EXPANSION_COEFF`](#9-expansion_coeff-2-2-7)  | Coefficient of linear expansion                          |         | 2-2-7           |
+| [`!TRS`](#10-trs-2-2-8)                         | Tempearture dependent behaviour of viscoelastic material |         | 2-2-8           |
+| [`!FLUID`](#11-fluid-2-2-9)                     | Flow Condition                                           |         | 2-2-9           |
+| [`!USE_MATERIAL`](#12-use_material-2-2-10)      | User defined material                                    |         | 2-2-10          |
+| [`!BOUNDARY`](#13-boundary-2-3)                 | Displacement boundary conditions                         |         | 2-3             |
+| [`!SPRING`](#14-spring-2-3-1)                   | Spring boundary conditions                               |         | 2-3-1           |
+| [`!CLOAD`](#15-cload-2-4)                       | Concentrated load                                        |         | 2-4             |
+| [`!DLOAD`](#16-dload-2-5)                       | Distributed load                                         |         | 2-5             |
+| [`!ULOAD`](#17-uload-2-6)                       | User defined external load                               |         | 2-6             |
+| [`!CONTACT_ALGO`](#18-contact_algo-2-7)         | Contact analytic algorithm                               |         | 2-7             |
+| [`!CONTACT`](#19-contact-2-8)                   | Contact                                                  |         | 2-8             |
+| [`!TEMPERATURE`](#20-temperature-2-9)           | Nodal temperature in thermal stress analysis             |         | 2-9             |
+| [`!REFTEMP`](#21-reftemp-2-10)                  | Reference temperature in thermal stress analysis         |         | 2-10            |
+| [`!STEP`](#22-step-2-11)                        | Analysis step control                                    |         | 2-11            |
 
 **Table 7.3.3: Control Data for Eigenvalue Analysis**
 
-| Header   | Meaning                     | Remarks                          | Description No. |
-|----------|-----------------------------|----------------------------------|-----------------|
-| `!EIGEN` | Eigenvalue analysis control | Mandatory in eigenvalue analysis | 3-1             |
+| Header                   | Meaning                     | Remarks                          | Description No. |
+|--------------------------|-----------------------------|----------------------------------|-----------------|
+| [`!EIGEN`](#1-eigen-3-1) | Eigenvalue analysis control | Mandatory in eigenvalue analysis | 3-1             |
 
 
 **Table 7.3.4: Control Data for Heat Conduction Analysis**
 
-| Header       | Meaning                                                                   | Remarks                               | Description No. |
-|--------------|---------------------------------------------------------------------------|---------------------------------------|-----------------|
-| `!HEAT`      | Heat conduction analysis control                                          | Mandatory in heat conduction analysis | 4-1             |
-| `!FIXTEMP`   | Nodal temperature                                                         |                                       | 4-2             |
-| `!CFLUX`     | Concentrated heat flux given to node                                      |                                       | 4-3             |
-| `!DFLUX`     | Distributed heat flux / internal heat generation given to element surface |                                       | 4-4             |
-| `!SFLUX`     | Distributed heat flux by surface group                                    |                                       | 4-5             |
-| `!FILM`      | Heat transfer coefficient given to boundary plain                         |                                       | 4-6             |
-| `!SFILM`     | Heat transfer coefficient by surface group                                |                                       | 4-7             |
-| `!RADIATE`   | Radiation factor given to boundary plane                                  |                                       | 4-8             |
-| `!SRADIATE`  | Radiation factor by surface group                                         |                                       | 4-9             |
-| `!WELD_LINE` | Weld line                                                                 |                                       | 4-10            |
+| Header                             | Meaning                                                                   | Remarks                               | Description No. |
+|------------------------------------|---------------------------------------------------------------------------|---------------------------------------|-----------------|
+| [`!HEAT`](#1-heat-4-1)             | Heat conduction analysis control                                          | Mandatory in heat conduction analysis | 4-1             |
+| [`!FIXTEMP`](#2-fixtemp-4-2)       | Nodal temperature                                                         |                                       | 4-2             |
+| [`!CFLUX`](#3-cflux-4-3)           | Concentrated heat flux given to node                                      |                                       | 4-3             |
+| [`!DFLUX`](#4-dflux-4-4)           | Distributed heat flux / internal heat generation given to element surface |                                       | 4-4             |
+| [`!SFLUX`](#5-sflux-4-5)           | Distributed heat flux by surface group                                    |                                       | 4-5             |
+| [`!FILM`](#6-film-4-6)             | Heat transfer coefficient given to boundary plain                         |                                       | 4-6             |
+| [`!SFILM`](#7-sfilm-4-7)           | Heat transfer coefficient by surface group                                |                                       | 4-7             |
+| [`!RADIATE`](#8-radiate-4-8)       | Radiation factor given to boundary plane                                  |                                       | 4-8             |
+| [`!SRADIATE`](#9-sradiate-4-9)     | Radiation factor by surface group                                         |                                       | 4-9             |
+| [`!WELD_LINE`](#10-weld_line-4-10) | Weld line                                                                 |                                       | 4-10            |
 
 **Table 7.3.5: Control Data for Dynamic Analysis**
 
-| Header          | Meaning                                                         | Remarks                                  | Description No. |
-|-----------------|-----------------------------------------------------------------|------------------------------------------|-----------------|
-| `!DYNAMIC`      | Dynamic analysis control                                        | Mandatory in dynamic analysis            | 5-1             |
-| `!VELOCITY`     | Velocity boundary conditions                                    |                                          | 5-2             |
-| `!ACCELERATION` | Acceleration boundary conditions                                |                                          | 5-3             |
-| `!COUPLE`       | Coupled surface definition Required in coupled analysis         |                                          | 5-4             |
-| `!EIGENREAD`    | Specification of eigenvalues and eigenvectors                   | Mandatory in frequency response analysis | 5-5             |
-| `!FLOAD`        | Definition of concentrated load for frequency response analysis |                                          | 5-6             |
+| Header                                 | Meaning                                                         | Remarks                                  | Description No. |
+|----------------------------------------|-----------------------------------------------------------------|------------------------------------------|-----------------|
+| [`!DYNAMIC`](#1-dynamic-5-1)           | Dynamic analysis control                                        | Mandatory in dynamic analysis            | 5-1             |
+| [`!VELOCITY`](#2-velocity-5-2)         | Velocity boundary conditions                                    |                                          | 5-2             |
+| [`!ACCELERATION`](#3-acceleration-5-3) | Acceleration boundary conditions                                |                                          | 5-3             |
+| [`!COUPLE`](#4-couple-5-4)             | Coupled surface definition Required in coupled analysis         |                                          | 5-4             |
+| [`!EIGENREAD`](#5-eigenread-5-5)       | Specification of eigenvalues and eigenvectors                   | Mandatory in frequency response analysis | 5-5             |
+| [`!FLOAD`](#6-fload-5-6)               | Definition of concentrated load for frequency response analysis |                                          | 5-6             |
 
 In each header, there are data items which comply with the parameter and each header.
 
@@ -801,8 +801,8 @@ ESTCOND   = frequency for estimating condition number
 
 | No. of Iterations              | Iteration Count of Preconditioning | No. of Krylov Subspaces | No. of Colors for Multi-Color ordering | No. of Recycling Set-Up Info for Preconditioning |
 |--------------------------------|------------------------------------|-------------------------|----------------------------------------|--------------------------------------------------|
-| NIER                           | iterPREMAX                         | NREST                   | NCOLOR_IN                              | RECYCLEPRE                                       |
-| <font color="Red">10000</font> | <font color="Red">10000</font>     |                         |                                        |                                                  |
+| NITER                          | iterPREMAX                         | NREST                   | NCOLOR_IN                              | RECYCLEPRE                                       |
+| <font color="Red">10000</font> | <font color="Red">1</font>         |                         |                                        |                                                  |
 
 ###### 6-3
 
@@ -1133,8 +1133,8 @@ The following parameter names can be specified.
 |`PRINCV_NSTRAIN`| Nodal principal strain(Vector value)|
 |`PRINC_ESTRESS` | Elemental principal stress(Scalar value)|
 |`PRINCV_ESTRESS`| Elemental principal stress(Vector value)|
-|`PRINC_ESTRAIN` | Elemental strain(Scalar value)|
-|`PRINCV_ESTRAIN`| Elemental strain(Scalar value)|
+|`PRINC_ESTRAIN` | Elemental principal strain(Scalar value)|
+|`PRINCV_ESTRAIN`| Elemental principal strain(Vector value)|
 |`SHELL_LAYER`   | Output per layer of layerd shell element|
 |`SHELL_SURFACE` | Output of surface information of shell element|
 
@@ -1618,6 +1618,13 @@ DEPENDENCIES = the number of parameters depended upon (Not included)
 
 Definition of coefficient of linear expansion
 
+The coefficient to be input here is not the coefficient of linear expansion \(\alpha\) at each temperature,
+but its averaged value between the reference temperature \(T_{ref}\) and each temperature \(T\) as follows:
+
+\begin{equation}
+\overline{\alpha}(T)=\frac{1}{T-T_{ref}} \int_{T_{ref}}^T \alpha(T) dT
+\end{equation}
+
 ###### Parameter
 
 ```
@@ -1928,7 +1935,19 @@ SSTEP      = First step number that performs the reading
              of the heat conduction analysis results (Default: 1)
 INTERVAL   = Step interval that performs the reading
              of the heat conduction analysis results (Default: 1)
+READTYPE   = STEP(Default) / TIME
+             When TIME is specified, analysis time of the stress
+             analysis is synchronized with the heat conduction
+             analysis (value of INTERVAL is ignored, and the
+             temperature is linearly interpolated from results of the
+             heat conduction analysis right before and after the
+             current analysis time)
 ```
+
+When unsteady heat conduction analysis using auto time increment was
+performed, and the results were output at specified time points using
+!TIME_POINTS, READTYPE=TIME needs to be specified because the step
+interval of the results is not constant.
 
 ** 2nd line or later **
 
@@ -2062,7 +2081,9 @@ Definition of control data regarding calculation
 
 ###### Parameter
 
-N/A
+```
+TIMEPOINTS = Time list name (specify with !TIME_POINTS, NAME)
+```
 
 ** 2nd line or later **
 
@@ -2093,6 +2114,13 @@ N/A
 !HEAT
   10.0, 3600.0, 1.0, 20.0 ----- Auto time increment unsteady calculation
 ```
+
+###### Remarks
+
+Only when performing auto time increment unsteady calculation,
+TIMEPOINTS parameter can be used to specify time points at which
+results and/or visualization files are output.
+
 
 ##### (2) `!FIXTEMP` (4-2)
 
@@ -2784,12 +2812,10 @@ Mandatory control data
 
 ```
 METHOD =    Method (CG, BiCGSTAB, GMRES, GPBiCG, DIRECT, DIRECTmkl, MUMPS)
-            DIRECT: Direct method other than contact analysis (serial processing only)
+            DIRECT: Direct method other than contact analysis (serial processing only) (currently unavailable)
             DIRECTmkl: Direct method by Intel MKL
             MUMPS    : Direct method by MUMPS
             When any of direct methods is selected, the data lines will be disregarded.
-            In 1D and 2D problems, only CG, DIRECT and MUMPS are valid.
-            In shell problems, only DIRECT and MUMPS are valid.
             Thread-parallel computation by OpenMP is available in iterative methods
             for 3D problems.
 
@@ -2805,7 +2831,7 @@ PRECOND =   Preconditioner for iterative methods (1, 2, 3, 5, 10, 11, 12)
 
 ITERLOG =   Whether solver convergence history is output (YES/NO) (Default: NO)
 
-TIMELOG =   Whether solver computation time is output (YES/NO) (Default: NO)
+TIMELOG =   Whether solver computation time is output (YES/NO/VERBOSE) (Default: NO)
 
 USEJAD =    Whether matrix ordering optimized for vector processors are performed
             (YES/NO) (Default: NO)
@@ -2842,13 +2868,13 @@ METHOD2 =   Secondary method (BiCGSTAB, GMRES, GPBiCG) (experimental)
 ** 2nd line or later **
 
 ```
-(2nd line) NIER, iterPREmax, NREST, NCOLOR_IN
+(2nd line) NITER, iterPREmax, NREST, NCOLOR_IN, RECYCLEPRE
 ```
 
 |Parameter Name|Attributions|Contents|
 |------------|------|---------------------------|
-| NIER 　    | I    |No. of iterations (Default: 100)
-| iterPREmax | I    |No. of iteration of preconditioning based on Additive Schwarz<br/>(Default: 1)<br/>(recommended value : 1 for serial computation,<br/> parallel computation with Diagonal scaling,<br/> and serial/parallel computation of problems with MPC, 2 for other parallel computation)|
+| NITER      | I    |No. of iterations (Default: 100)
+| iterPREmax | I    |No. of iteration of preconditioning based on Additive Schwarz<br/>(Default: 1)<br/>(recommended value : 1 (2 might be efficient in some parallel computation))|
 | NREST      | I    |No. of Krylov subspaces (Default: 10)<br/>(Valid only when GMRES is selected as the solution)|
 | NCOLOR_IN  | I    |No. of Colors for Multi-Color ordering (Default: 10)<br/>(Valid only when no. of OpenMP threads >= 2)|
 | RECYCLEPRE | I    |No. of recycling set-up info for preconditioning (Default: 3)<br/>(Valid only in nonlinear analyses)|
@@ -2860,16 +2886,90 @@ METHOD2 =   Secondary method (BiCGSTAB, GMRES, GPBiCG) (experimental)
 |Parameter Name|Attributions|Contents|
 |------------|------|--------------------------------------|
 | RESID      | R    |Truncation error (Default: 1.0e-8)|
-| SIGMA_DIAG | R    |Scale factor for diagonal elements when computing preconditioning matrix (Default: 1.0)|
+| SIGMA_DIAG | R    |Scale factor for diagonal elements when computing preconditioning matrix (Default: 1.0)<br/>(When divide-by-zero or divergence occurs with ILU preconditioning, convergence might be obtained by setting number greater than 1.0)|
 | SIGMA      | R    |Not used (Default: 0.0)|
 
+
+####### In case of `PRECOND=5` (Optional)
+
+When any other value is specified for PRECOND, the 4th line will be disregarded.
+
+```
+(4th line) ML_CoarseSolver, ML_Smoother, ML_MGCycle, ML_MaxLevels, ML_CoarseningScheme, ML_NumSweep
+```
+
+|Parameter Name|Attributions|Contents|
+|---------------------|------|--------------------------------------|
+| ML_CoarseSolver     | I    | Coarse solver of ML (1: smoother, 2: KLU (serial direct solver), 3: MUMPS (parallel direct solver)) (Default: 1) <br/>(recommended value : 3 or 2 for stiff problems, 1 for other problems)  |
+| ML_Smoother         | I    | Smoother of ML (1: Chebyshev, 2: SymBlockGaussSeidel, 3: Jacobi) (Default: 1) <br/>(recommended value : 1)  |
+| ML_MGCycle          | I    | Multigrid cycle of ML (1: V-cycle, 2: W-cycle, 3: Full-V-cycle) (Default: 1) <br/>(recommended value : 2 for stiff problems, 1 for other problems)  |
+| ML_MaxLevels        | I    | Max No. of levels of ML (Default: 10) <br/>(recommended value : 2 (or 3 when memory is not sufficient) with direct coarse solver for very stiff problems, 10 for other problems)  |
+| ML_CoarseningScheme | I    | Coarsening scheme of ML (1: UncoupledMIS, 2: METIS, 3: ParMETIS, 4: Zoltan, 5: DD) (Default: 1) <br/>(recommended value : 1 or 5)  |
+| ML_NumSweep         | I    | No. of smoother sweeps of ML (polinomial degree for Chebyshev) (Default: 2) <br/>(recommended value : 2 for Chebyshev, 1 for SymBlockGaussSeidel)   |
+
+
+
 ###### Example of Use
+
+Use CG with SSOR preconditioning, and set No. of iteration to 10000 and truncation error to 1.0e-8
 
 ```
 !SOLVER, METHOD=CG, PRECOND=1, ITERLOG=YES, TIMELOG=YES
   10000, 1
   1.0e-8, 1.0, 0.0
 ```
+
+Use GMRES with SSOR preconditioning, and set No. of Krylov subspace to 40 and No. of colors for Multi-Color ordering to 100
+
+```
+!SOLVER, METHOD=GMRES, PRECOND=1, ITERLOG=YES, TIMELOG=YES
+  10000, 1, 40, 100
+  1.0e-8, 1.0, 0.0
+```
+
+Use CG with ILU(0) preconditioning, and set scale factor for diagonal elements when computing preconditioning matrix to 1.1
+
+```
+!SOLVER, METHOD=CG, PRECOND=10, ITERLOG=YES, TIMELOG=YES
+  10000, 1
+  1.0e-8, 1.1, 0.0
+```
+
+Use CG with AMG preconditioning by ML
+
+```
+!SOLVER, METHOD=CG, PRECOND=5, ITERLOG=YES, TIMELOG=YES
+  10000, 1
+  1.0e-8, 1.0, 0.0
+```
+
+Use CG with AMG preconditioning by ML, and set coarse solver to MUMPS (for stiff problems)
+
+```
+!SOLVER, METHOD=CG, PRECOND=5, ITERLOG=YES, TIMELOG=YES
+  10000, 1
+  1.0e-8, 1.0, 0.0
+  3
+```
+
+Use CG with AMG preconditioning by ML, and set multigrid cycle to W-cycle (for stiff problems)
+
+```
+!SOLVER, METHOD=CG, PRECOND=5, ITERLOG=YES, TIMELOG=YES
+  10000, 1
+  1.0e-8, 1.0, 0.0
+  1, 1, 2
+```
+
+Use CG with AMG preconditioning by ML, and set coarse solver to MUMPS and max No. of levels to 2 (for very stiff problems)
+
+```
+!SOLVER, METHOD=CG, PRECOND=5, ITERLOG=YES, TIMELOG=YES
+  10000, 1
+  1.0e-8, 1.0, 0.0
+  3, 1, 1, 2
+```
+
 
 #### Post Process (Visualization) Control Data
 
@@ -3058,6 +3158,7 @@ Specifies the type of output file. (Default: AVS)
 ```
 AVS                   : UCD data for AVS (only on object surface)
 BMP                   : Image data (BMP format)
+VTK                   : VTK data for ParaView
 COMPLETE_AVS          : UCD data for AVS
 COMPLETE_REORDER_AVS  : Rearranges the node and element ID in the UCD data for AVS
 SEPARATE_COMPLETE_AVS : UCD data for AVS for each decomposed domain
@@ -3162,5 +3263,3 @@ When specifying the surfaces and cut end, specifies the setting method of the su
 **Figure 7.4.17: Example of Setting Method**
 
 Accordingly, the cut end of the plane surface z = 0.35 and z = -0.35 will be visualized.
-
-
