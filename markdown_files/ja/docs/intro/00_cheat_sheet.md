@@ -1,3 +1,8 @@
+---
+title: FrontISTR Ver.5.1 チートシート(2020/08/06)
+# pandoc -s ../ja/docs/intro/00_cheat_sheet.md -c css/mystyle.css -o 00_cheat_sheet.html
+---
+
 ## チートシート
 
 ### インストール
@@ -5,11 +10,9 @@
 ~~~
 $ tar xzf FrontISTR-v5.1.tar.gz
 $ cd FrontISTR-v5.1
-$ mkdir build
-$ cd build
+$ mkdir build; cd build
 $ cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/local
-$ make -j2
-$ make install
+$ make -j2; make install
 ~~~
 
 ### 並列実行
@@ -22,7 +25,7 @@ $ mpirun -np <4> fistr1
 ### 入力
 
 | ファイルの種類     | ファイル名          |
-|:-------------------|:--------------------|
+|:--------------|:--------------------|
 | 全体制御ファイル   | hecmw_ctrl.dat      |
 | メッシュデータ     | <ModelName>.msh     |
 | 解析制御データ     | <ModelName>.cnt     |
@@ -31,7 +34,7 @@ $ mpirun -np <4> fistr1
 ### 出力
 
 | ファイルの種類     | ファイル名          |
-|:-------------------|:--------------------|
+|:--------------|:--------------------|
 | ログファイル       | <0>.log             |
 | 解析結果ファイル   | <ModelName>.res.<0>.<Step> |
 | 可視化用ファイル   | <ModelName>_vis_psf.<Step>.pvtu |
@@ -71,7 +74,7 @@ $ mpirun -np <4> fistr1
  <TITLE>
 !NODE
  NODE_ID, x, y, z
-!ELEMENT, TYPE=<341>
+!ELEMENT, TYPE=<341>, EGRP=<E1>
  ELEM_ID, node1, node2, node3, ...
 !MATERIAL, NAME=<STRMAT>, ITEM=<3>
 !ITEM=1, SUBITEM=2
@@ -87,7 +90,7 @@ $ mpirun -np <4> fistr1
  <SpecificHeat>, <Temperature>
 !ITEM=3, SUBITEM=2
  <Conductivity>, <Temperature>
-!SECTION, TYPE=<SOLID>, EGRP=<EG1>, MATERIAL=<MAT1>
+!SECTION, TYPE=<SOLID>, EGRP=<E1>, MATERIAL=<STRMAT>
 !NGROUP, NGRP=<NG1>
  node1, node2, ...
 !SGROUP, SGRP=<SG1>
@@ -160,7 +163,7 @@ $ mpirun -np <4> fistr1
 !HEAT
  <DT>, <計算時間>, <時間増分>, <許容変化>, <最大反復>, <判定値>
 !INITIAL_CONDITION, TYPE=<TEMPERATURE>
- NODE_ID, value
+ NODE_ID, <温度>
 !FIXTEMP
  NODE_ID, <温度>
 !CFLUX
@@ -236,6 +239,8 @@ $ mpirun -np <4> fistr1
  LOAD, <GRPID>
  CONTACT, <GRPID>
 ~~~
+
+### 自動時間増分
 
 ~~~
 !AUTOINC_PARAM, NAME=<AP1>
@@ -390,6 +395,8 @@ a,b,c
 | 1  | ペナルティ法     |
 | 2  | MPC-CG法         |
 | 3  | 陽的自由度消去法 |
+
+### ソルバー制御（AMG）
 
 ~~~
 !SOLVER, METHOD=<CG>, PRECOND=5, MPCMETHOD=<3>

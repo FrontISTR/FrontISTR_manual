@@ -1,6 +1,6 @@
 @page {
   size: A4 landscape;
-  margin: 5mm;
+  margin: 4mm;
 }
 @font-face {
   font-family: 'rounded-mgenplus-1pp-regular';
@@ -17,6 +17,23 @@
 @font-face {
   font-family: 'rounded-mgenplus-1m-bold';
   src: url('/fonts/rounded-mgenplus-1m-bold.woff') format('woff');
+}
+@media print{
+  body{
+    columns: 4;
+    column-gap: 1mm;
+    column-rule: dashed #69d 1px;
+    font-size: 8pt;
+    font-family: 'rounded-mgenplus-1pp-regular';
+  }
+  h2{
+    display: none;
+  }
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+  }
 }
 
 body * {
@@ -36,13 +53,14 @@ body * {
 }
 h1 {
   font-family: 'rounded-mgenplus-1pp-bold';
-  height: 160px;
+  height: 130px;
   text-align: center;
   text-shadow:0 -1px 0 rgba(34,85,136,0.9);
-  font-size: 200%;
+  font-size: 150%;
   color: #eeeeee;
-  background: #285397 url('/image/FrontISTR_logo.svg') no-repeat center 80%;
-  background-size: 100%;
+  background: #285397 url('../../../logo/FrontISTR_logo.png') no-repeat;
+  background-position: 0px 50px;
+  background-size: contain;
   box-shadow: 3px 3px rgba(0,0,0,0.1);
   margin: 0;
   padding-top: 0.8em;
