@@ -1,256 +1,338 @@
-## Cheat sheet
+---
+title: FrontISTR Ver.5.1 CheatSheet(2020/08/24)
+# pandoc -s ../en/docs/intro/00_cheat_sheet.md -c css/mystyle.css -o 00_cheat_sheet.html
+---
 
-### Installation
+## Cheat Sheet
+
+### Install
 
 ~~~
-$ ./setup.sh -p --with-tools --with-metis
-$ make
-$ make install
+$ tar xzf FrontISTR-v5.1.tar.gz
+$ cd FrontISTR-v5.1
+$ mkdir build; cd build
+$ cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/local
+$ make -j2; make install
 ~~~
 
-### Parallel execution
+### Parallel Execution
 
 ~~~
 $ hecmw_part1
 $ mpirun -np <4> fistr1
 ~~~
 
-### Input/Output
+### Input
 
-| File type                      | File name           | I/O |
-|:-------------------------------|:--------------------|:----|
-| Overall control data           | hecmw_ctrl.dat      | I   |
-| Mesh data                      | <ModelName\>.msh    | I   |
-| Analysis control file          | <ModelName\>.cnt    | I   |
-| Mesh partitioning control file | hecmw_part_ctrl.dat | I   |
-| Log file                       | <0>.log             | O   |
-| Results file                   | <ModelName\>.res    | O   |
+| File Type     | File Name          |
+|:--------------|:--------------------|
+| Overall Control Data | hecmw_ctrl.dat      |
+| Mesh Data     | <ModelName>.msh     |
+| Analysis Control Data | <ModelName>.cnt     |
+| Partitioning Control Data | hecmw_part_ctrl.dat |
 
-### Overall control data
+### Output
 
-####（hecmw_ctrl.dat）
+| File Type     | File Name          |
+|:--------------|:--------------------|
+| Log File       | <0>.log             |
+| Analysis Result File | <ModelName>.res.<0>.<Step> |
+| Visualization File | <ModelName>_vis_psf.<Step>.pvtu |
+
+### Overall Control Data (hecmw_ctrl.dat)
 
 ~~~
 !MESH, NAME=part_in, TYPE=HECMW-ENTIRE
  <ModelName>.msh
 !MESH, NAME=part_out, TYPE=HECMW-DIST
- <ModelName_p4>
-!MESH, NAME=fstrMSH, TYPE=HECMW-DIST
- <ModelName_p4>
+ <ModelName>.p
+!MESH, NAME=fstrMSH, TYPE=HECMW-DIST, REFINE=<1>
+ <ModelName>.p
 !CONTROL, NAME=fstrCNT
  <ModelName>.cnt
-!RESULT, NAME=fstrRES, IO=OUT
+!RESTART, NAME=restart_in, IO=INOUT
+ <ModelName>.restart
+!RESULT, NAME=fstrTEMP, IO=IN
  <ModelName>.res
+!RESULT, NAME=fstrRES, IO=OUT, TYPE=BINARY
+ <ModelName>.res
+!RESULT, NAME=vis_out, IO=OUT
+ <ModelName>_vis
+!SUBDIR, ON
 ~~~
 
-### Mesh partitioning control data
-
-####(hecmw_part_ctrl.dat)
+### Partitioning Control Data (hecmw_part_ctrl.dat)
 
 ~~~
 !PARTITION, TYPE=NODE-BASED, METHOD=PMETIS, DOMAIN=<4>
 ~~~
 
-### Mesh data
+### MeshData
 
 ~~~
 !HEADER
-<TITLE>
+ <TITLE>
 !NODE
- NODE_ID, x, y, z
-!ELEMENT, TYPE=<341>
- ELEM_ID, node1, node2, node3, ...
-!SECTION, TYPE=<SOLID>, EGRP=<EG1>, MATERIAL=<MAT1>
+ <NODE_ID>, <x>, <y>, <z>
+!ELEMENT, TYPE=<341>, EGRP=<E1>
+ <ELEM_ID>, <node1>, <node2>, <node3>, ...
+!MATERIAL, NAME=<STRMAT>, ITEM=<3>
+!ITEM=1, SUBITEM=2
+ <YoungModulus>, <PoissonRatio>
+!ITEM=2
+ <Density>
+!ITEM=3
+ <ExpansionCoeff>
+!MATERIAL, NAME=<HEATMAT>, ITEM=<3>
+!ITEM=1, SUBITEM=2
+ <Density>, <Temperature>
+!ITEM=2, SUBITEM=2
+ <SpecificHeat>, <Temperature>
+!ITEM=3, SUBITEM=2
+ <Conductivity>, <Temperature>
+!SECTION, TYPE=<SOLID>, EGRP=<E1>, MATERIAL=<STRMAT>
 !NGROUP, NGRP=<NG1>
- node1, node2, ...
+ <node1>, <node2>, ...
 !SGROUP, SGRP=<SG1>
- elem1, localsurf1, elem2, localsurf2, ...
+ <elem1>, <localsurf1>, <elem2>, <localsurf2>, ...
 !EGROUP, EGRP=<EG1>
- elem1, elem2, ...
+ <elem1>, <elem2>, ...
 !CONTACT PAIR, NAME=<CP1>
  <Slave_NodeGroup>, <Master_SurfaceGroup>
 !AMPLITUDE, NAME=<AMP1>, VALUE=<RELATIVE|ABSOLUTE>
- value1, time1, value2, time2, ...
-!INITIAL CONDITION, TYPE=TEMPERATURE
- NODE_ID, value
+ <value1>, <time1>, <value2>, <time2>, ...
 !EQUATION
- <number of terms>, <right-hand value>
- NODE_ID, <dof>, <coefficient>, ...
+ <Num_terms>, <RHS>
+ <NODE_ID>, <dof>, <coeff>, ...
 !ZERO
+ <AbsoluteZero>
 !END
 ~~~
 
-### Analysis control file (common)
+### Version
 
 ~~~
 !VERSION
- 3.7
-!WRITE, VISUAL, FREQUENCY=<output interval>
-!WRITE, RESULT, FREQUENCY=<output interval>
-!OUTPUT_VIS
- <Name of Output variable>, <ON|OFF>
-!OUTPUT_RES
- <Name of Output variable>, <ON|OFF>
-!RESTART, FREQUENCY=<output interval>
-!END
+ 5
 ~~~
 
-| Variable name | Physical value                   | Target  |
-|:--------------|:---------------------------------|:--------|
-| DISP          | displacement                     | VIS,RES |
-| ROT           | rotation                         | VIS,RES |
-| REACTION      | nodal reactive force             | VIS,RES |
-| NSTRAIN       | nodal strain                     | VIS,RES |
-| NSTRESS       | nodal stress                     | VIS,RES |
-| NMISES        | nodal mises stress               | VIS,RES |
-| ESTRAIN       | elemental strain                 | RES     |
-| ESTRESS       | elemental stress                 | RES     |
-| EMISES        | elemental mises stress           | RES     |
-| ISTRAIN       | integration point strain         | RES     |
-| ISTRESS       | integration point stress         | RES     |
-| PL_ISTRAIN    | integration point plastic strain | RES     |
-| VEL           | velocity                         | VIS,RES |
-| ACC           | acceleration                     | VIS,RES |
-
-### Analysis control file (Static analysis)
+### Static Analysis
 
 ~~~
-!SOLUTION, TYPE=<STATIC|NLSTATIC>
+!SOLUTION, TYPE=STATIC
 !STATIC
 !BOUNDARY,GRPID=<1>
- NODE_ID, <Start of DOF>, <End of DOF>, <Constraint value>
+ <NODE_ID>, <StartDOF>, <EndDOF>, <Value>
 !CLOAD,GRPID=<1>
- NODE_ID, <DOF>, <Load value>
+ <NODE_ID>, <DOF>, <LoadValue>
 !DLOAD,GRPID=<1>
- SGRP, <Load type>, <Load parameter>
+ <SGRP>, <LoadType>, <LoadParameter>
 !SPRING,GRPID=<1>
- NODE_ID, <Constraint DOF>, <Spring constant>
+ <NODE_ID>, <DOF>, <SpringConstant>
 ~~~
 
-### Analysis control file (Contact)
+### Contact
 
 ~~~
 !CONTACT_ALGO, TYPE=<SLAGRANGE|ALAGRANGE>
-!CONTACT, GRPID=<1>, NTOL=<法線方向閾値>, TTOL=<接線方向閾値>, NPENALTY=<法線方向ペナルティ>, TPENALTY=<接線方向ペナルティ>
- <Name of contact pair>, <friction coefficient>, <摩擦のペナルティ剛性>
+!CONTACT, GRPID=<1>, NTOL=<NormalThreshold>, TTOL=<TangentThreshold>, NPENALTY=<NormalPenalty>, TPENALTY=<TangentPenalty>
+ <ContactPair>, <FrictionCoeff>, <FrictionPenalty>
 ~~~
 
-### Analysis control file (Heat stress)
+### Thermal Stress
 
 ~~~
 !REFTEMP
- <temperature>
-!TEMPERATURE, READRESULT=<Total number of steps>, SSTEP=<Start step>, INTERVAL=<step interval>
+ <Temperature>
+!TEMPERATURE, READRESULT=<ResultStep>, SSTEP=<FirstStep>, INTERVAL=<StepInterval>
 ~~~
 
-### Analysis control file (Eigenvalue)
+### Eigen
 
 ~~~
+!SOLUTION, TYPE=EIGEN
 !EIGEN
- <Nuber of eigenvalue>, <allowable value>, <maximum number of iteration>
+ <NumOfEigenvalues>, <Allowance>, <MaxIterations>
 !BOUNDARY
 ~~~
 
-### Analysis control file (Heat conduction)
+### Heat Conduction
 
 ~~~
+!SOLUTION, TYPE=HEAT
 !HEAT
- <DT>, <計算時間>, <時間増分>, <許容変化>, <最大反復>, <判定値>
+ <DT>, <CalcTime>, <TimeIncrement>, <Allowable>, <MaxIteration>, <Allowance>
+!INITIAL_CONDITION, TYPE=<TEMPERATURE>
+ <NODE_ID>, <Temperature>
 !FIXTEMP
- NODE_ID, <温度>
+ <NODE_ID>, <Temperature>
 !CFLUX
- NODE_ID, <熱流束>
+ <NODE_ID>, <HeatFlux>
 !DFLUX
- ELEMENT_ID, <荷重タイプ>, <熱流束>
+ <ELEMENT_ID>, <LoadType>, <HeatFlux>
 !SFLUX
- SGRP, <熱流束>
+ <SGRP>, <HeatFlux>
 !FILM
- ELEMENT_ID, <荷重タイプ>, <熱伝達係数>, <雰囲気温度>
+ <ELEMENT_ID>, <LoadType>, <HeatTransferCoeff>, <AmbientTemp>
 !SFLIM
- SGRP, <熱伝達係数>, <雰囲気温度>
+ SGRP, <HeatTransferCoeff>, <AmbientTemp>
 !RADIATE
- ELEMENT_ID, <荷重タイプ>, <輻射係数>, <雰囲気温度>
+ ELEMENT_ID, <LoadType>, <RadiationFactor>, <AmbientTemp>
 !SRADIATE
- SGRP, <輻射係数>, <雰囲気温度>
+ SGRP, <RadiationFactor>, <AmbientTemp>
+!WELD_LINE
+ <Current>, <Voltage>, <HeatInput>, <TorchSpeed>
+ EGRP, <DOF>, <StartPoint>, <EndPoint>, <TorchWidth>, <StartTime> 
 ~~~
 
-### 解析制御ファイル（動解析共通）
+### Dynamic Analysis
 
 ~~~
+!SOLUTION, TYPE=DYNAMIC
 !BOUNDARY
 !CLOAD
+!DLOAD
+!SPRING
 !VELOCITY, TYPE=<INITIAL|TRANSIT>, AMP=<NAME>
- Node_ID, <自由度>, <自由度>, <拘束値>
+ NODE_ID, <DOF>, <DOF>, <RestrictedValue>
 !ACCELERATION, TYPE=<INITIAL|TRANSIT>, AMP=<NAME>
- Node_ID, <自由度>, <自由度>, <拘束値>
+ NODE_ID, <DOF>, <DOF>, <RestrictedValue>
+!INITIAL_CONDITION, TYPE=<VELOCITY|ACCELERATION>
+ NODE_ID, <DOF>, value
 ~~~
 
-### 解析制御ファイル（時刻歴応答）
+### Time History Response Analysis
+
+~~~
+!DYNAMIC, TYPE=<LINEAR|NONLINEAR>
+ <ImplicitMethod1|ExplicitMethod11>, 1
+ <StartTime>, <EndTime>, <NumberOfSteps>, <TimeIncrement>
+ <gamma>, <beta>
+ <LumpedMass1|ConsistentMass2>, 1, <Rm>, <Rk>
+ 1, <MonitoringNode>, <OutputInterval>
+ <Displacement>, <Velocity>, <Acceleration>, <Reaction>, <Strain>, <Stress>
+~~~
+
+### Frequency Response Analysis
 
 ~~~
 !DYNAMIC, TYPE=NONLINEAR
- <陰解法1|陽解法11>, <時刻歴1>
- <開始時刻>, <終了時刻>, <全ステップ数>, <時間増分>
- <γ>, <β>
- <集中質量|consistent質量2>, 1, <Rm>, <Rk>
- 1, <モニタリング節点>, <モニタリング出力間隔>
- <変位>, <速度>, <加速度>, <反力>, <ひずみ>, <応力>
-~~~
-
-### 解析制御ファイル（周波数応答）
-
-~~~
-!DYNAMIC, TYPE=NONLINEAR
- <陰解法1|陽解法11>, <周波数2>
- <下限周波数>, <上限周波数>, <応答計算点数>, <変位測定周波数>
- <振動開始時刻>, <振動終了時刻>
- <集中質量1>, 1, <Rm>, <Rk>
- <サンプリング数>, <モード空間1|物理空間2>, <モニタリング節点>
- <変位>, <速度>, <加速度>, 0, 0, 0
+ <ImplicitMethod1|ExplicitMethod11>, 2
+ <MinFrequency>, <MaxFrequency>, <NumOfDivisions>, <MeasurementFrequency>
+ <StartTime>, <EndTime>
+ <LumpedMass1>, 1, <Rm>, <Rk>
+ <ResultInterval>, <Mode1|TimeHistory2>, <MonitoringNode>
+ <Displacement>, <Velocity>, <Acceleration>, 0, 0, 0
 !EIGENREAD
- <固有値解析のログファイル>
- <モード始点>, <モード終点>
+ <EigenAnalysisLog>
+ <StartMode>, <EndMode>
 !FLOAD
- NODE_ID, <自由度>, <荷重値>
+ NODE_ID, <DOC>, <LoadValue>
 ~~~
 
-### 解析ステップ
+### Analysis Step
 
 ~~~
-!STEP, TYPE=<STATIC|VISCO>, SUBSTEPS=<分割数>, CONVERG=<判定値>
- <時間増分値>, <時間増分終値>
+!STEP, TYPE=<STATIC|VISCO>, SUBSTEPS=<NumOfSubsteps>, CONVERG=<Threshold>, MAXITER=<MaxIteration>
+ <TimeIncrement>, <EndValueOfTimeIncrement>
  BOUNDARY, <GRPID>
  LOAD, <GRPID>
  CONTACT, <GRPID>
 ~~~
 
-| 境界条件種類 | 属するカード                 |
+### Auto Time Increment
+
+~~~
+!AUTOINC_PARAM, NAME=<AP1>
+ <DecreaseRate>, <MaxIteration>, <TotalIteration>, <ContactIteration>, <NumOfDecreaseSubsteps>
+ <IncreaseRate>, <MaxIteration>, <TotalIteration>, <ContactIteration>, <NumOfIncreaseSubsteps>
+ <CutbackRate>, <NumberOfCutbacks> 
+!TIME_POINTS, NAME=<NameofList>, TIME=<STEP|TOTAL>
+ <TIME>
+!STEP, TYPE=<STATIC|VISCO>, SUBSTEPS=<MaxSubsteps>, CONVERG=<Threshold>, MAXITER=<MaxIteration>, INC_TYPE=AUTO, MAXRES=<MaxAllowance>, TIME_POINTS=<NameOfTimeList>, AUTOINCPARAM=<NameOfAutoIncrementParameter>, MAXCONTITER=<ContactIteration>
+ <InitialTimeIncrement>, <StepIncrement>, <UpperLimitOfTimeIncrement>, <LowerLimitOfTimeIncrement>
+ BOUNDARY, <GRPID>
+ LOAD, <GRPID>
+ CONTACT, <GRPID>
+~~~
+
+| Boundary Condition Type | Card              |
 |:-------------|:-----------------------------|
 | BOUNDARY     | !BOUNDARY, !SPRING           |
 | LOAD         | !CLOAD, !DLOAD, !TEMPERATURE |
 | CONTACT      | !CONTACT                     |
 
-### 材料物性値
+### Output
 
 ~~~
-!MATERIAL, NAME=<材料名>
+!WRITE, VISUAL, FREQUENCY=<OutputInterval>
+!WRITE, RESULT, FREQUENCY=<OutputInterval>
+!OUTPUT_VIS
+ <OutputVariableName>, <ON|OFF>
+!OUTPUT_RES
+ <OutputVariableName>, <ON|OFF>
+!OUTPUT_SSTYPE, TYPE=<SOLUTION|MATERIAL>
+~~~
+
+| VariableName | Physical Value  | Target    |
+|:-----------|:-----------------|:--------|
+| DISP       | Displacement   | VIS,RES |
+| REACTION   | Nodal Reaction Force  | VIS,RES |
+| NSTRAIN    | Nodal Strain       | VIS,RES |
+| NSTRESS    | Nodal Stress       | VIS,RES |
+| NMISES     | Nodal Mises Stress | VIS,RES |
+| ESTRAIN    | Elemental Strain   | RES     |
+| ESTRESS    | Elemental Stress   | RES     |
+| EMISES     | Elemental Mises Stress | RES     |
+| VEL        | Velocity       | VIS,RES |
+| ACC        | Acceleration    | VIS,RES |
+| TEMP       | Temperature     | VIS,RES |
+
+### Restart
+
+~~~
+!RESTART, FREQUENCY=<n>
+~~~
+
+### Local Coordinate
+
+~~~
+!ORIENTATION, NAME=<CoordinateSystem>, DEFINITION=COORDINATES
+<ax,ay,az>,<bx,by,bz>,<cx,cy,cz>
+~~~
+
+~~~
+!ORIENTATION, NAME=<CoordinateSystem>, DEFINITION=NODES
+<a,b,c>
+~~~
+
+### Section
+
+~~~
+!SECTION, SECNUM=<IndexOfSectionOfMeshData>, ORIENTATION=<CoordinateSystem>, FORM361=<FBAR|IC|BBAR|FI>
+~~~
+
+### Material Property
+
+~~~
+!MATERIAL, NAME=<NameOfMaterial>
 !ELASTIC, TYPE=<ISOTROPIC|ORTHOTROPIC>, DEPENDENCIES=<0>
- <ヤング率>, <ポアソン比>
+ <YoungsModulus>, <PoissonRatio>
 !DENSITY
- <質量密度>
+ <MassDensity>
 !EXPANSION_COEFF, TYPE=<ISOTROPIC|ORTHOTROPIC>, DEPENDENCIES=<0>
- <線膨張係数>
+ <LinearExpansion>
 ~~~
 
 ~~~
 !PLASTIC, YIELD=MISES, HARDEN=BILINEAR, DEPENDENCIES=<0>
- <初期降伏応力>, <硬化係数>
+ <InitialYieldStress>, <CuringCoefficient>
 ~~~
 
 ~~~
 !PLASTIC, YIELD=MISES, HARDEN=MULTILINEAR, DEPENDENCIES=<0>
- <降伏応力>, <塑性ひずみ>
- <降伏応力>, <塑性ひずみ>
+ <YieldStress>, <PlasticStrain>
+ <YieldStress>, <PlasticStrain>
  ...
 ~~~
 
@@ -261,7 +343,7 @@ $ mpirun -np <4> fistr1
 
 ~~~
 !PLASTIC, YIELD=<Mohr-Coulomb|Drucker-Prager>, HARDEN=BILIENAR, DEPENDENCIES=<0>
- <粘着力>, <内部摩擦角>, <硬化係数>
+ <Adhesive>, <InternalFrictionAngle>, <Curing>
 ~~~
 
 ~~~
@@ -271,7 +353,7 @@ $ mpirun -np <4> fistr1
 
 ~~~
 !VISCOELASTIC
- <せん断緩和弾性率>, <緩和時間>
+ <ShearRelaxationModulus>, <RelaxationTime>
 ~~~
 
 ~~~
@@ -279,25 +361,25 @@ $ mpirun -np <4> fistr1
  <A>, <n>, <m>
 ~~~
 
-### ソルバー制御
+### Solver Control
 
 ~~~
 !SOLVER, METHOD=<CG>, PRECOND=<1>, MPCMETHOD=<3>
- <反復回数>, <前処理繰り返し数>, <クリロフ>, <目標色数>
- <打切り誤差>, <対角成分倍率>, 0.0
+ <MaxIteration>, <PreIteration>, <Krilov>, <Color>, <ReuseSetup>
+ <TruncationError>, <DiagonalScale>, 0.0
 ~~~
 
-| 解法      | 備考                             |
+| Method     | Notes                          |
 |:----------|:---------------------------------|
 | CG        |                                  |
 | BiCGSTAB  |                                  |
-| GMRES     | クリロフ部分空間数を設定すること |
+| GMRES     | Enable Number Of Krilov Subspaces |
 | GPBiCG    |                                  |
 | DIRECT    |                                  |
-| DIRECTmkl | 接触解析で使う                   |
+| DIRECTmkl | Use for Contact Analysis         |
 | MUMPS     |                                  |
 
-| 値  | 前処理           |
+| Value | Precondition     |
 |:----|:-----------------|
 | 1,2 | SSOR             |
 | 3   | Diagonal Scaling |
@@ -306,20 +388,29 @@ $ mpirun -np <4> fistr1
 | 11  | Block ILU(1)     |
 | 12  | Block ILU(2)     |
 
-| 値 | MPC手法          |
+| Value | Method of MPC   |
 |:---|:-----------------|
-| 1  | ペナルティ法     |
-| 2  | MPC-CG法         |
-| 3  | 陽的自由度消去法 |
+| 1  | Penalty     |
+| 2  | MPC-CG      |
+| 3  | Explicit Elimination |
 
-### Post-process (Output of AVS format)
+### Solver Control （AMG）
+
+~~~
+!SOLVER, METHOD=<CG>, PRECOND=5, MPCMETHOD=<3>
+ <MaxIteration>, <PreIteration>, <Krilov>, <Color>, <ReuseSetup>
+ <TruncationError>, <DiagonalScale>, 0.0
+ <CoarseSolver>, <Smoother>, <MultigridCycle>, <MaxLevel>, <Scheme>, <Sweep>
+~~~
+
+### Post Process （for ParaView）
 
 ~~~
 !VISUAL
-!output_type=COMPLETE_REORDER_AVS
+!output_type=VTK
 ~~~
 
-### Post-process (Output of BMP format)
+### Post Process （output BMP）
 
 ~~~
 !VISUAL, method=PSR
@@ -334,13 +425,11 @@ $ mpirun -np <4> fistr1
 !output_type=BMP
 ~~~
 
-### Non-linear analysis
+### Nonlinear Analysis
 
-| Type of analysis       | Related card                                                      |
-|:-----------------------|:------------------------------------------------------------------|
-| Static analysis        | !SOLUTION, TYPE=NLSTATIC<BR>!STEP                                 |
-| Dynamic analysis       | !DYNAMIC, TYPE=NONLINEAR<BR>!STEP                                 |
-| Material nonlinearlity | !MATERIAL<BR>!PLASTIC<BR>!HYPERELASTIC<BR>!VISCOELASTIC<BR>!CREEP |
-
-
-
+| Analysis Type | Related Cards                                                      |
+|:-----------|:----------------------------------------------------------------|
+| Static Analysis | !SOLUTION, TYPE=NLSTATIC<BR>!STEP                                                            |
+| Dynamic Analysis | !DYNAMIC, TYPE=NONLINEAR<BR>!STEP                                |
+| Contact Analysis | !CONTACT<BR>!CONTACT_ALGO<BR>!STEP                               |
+| Material Nonlinear | !PLASTIC<BR>!HYPERELASTIC<BR>!VISCOELASTIC<BR>!CREEP              |

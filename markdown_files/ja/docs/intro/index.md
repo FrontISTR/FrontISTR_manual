@@ -43,6 +43,6 @@ author: FrontISTR Commons
     - [解析マニュアル](../analysis/index.md)
     - [チュートリアル](../tutorial/index.md)
 - [リリースノート](00_release_note.md)
-- [チートシート (コマンド早見表)](00_cheat_sheet.md)
+- [チートシート (コマンド早見表)](00_cheat_sheet.md) [PDF](FrontISTR_cheat_sheet_ja.pdf)
 
 
