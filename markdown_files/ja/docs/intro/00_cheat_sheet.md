@@ -73,9 +73,9 @@ $ mpirun -np <4> fistr1
 !HEADER
  <TITLE>
 !NODE
- NODE_ID, x, y, z
+ <NODE_ID>, <x>, <y>, <z>
 !ELEMENT, TYPE=<341>, EGRP=<E1>
- ELEM_ID, node1, node2, node3, ...
+ <ELEM_ID>, <node1>, <node2>, <node3>, ...
 !MATERIAL, NAME=<STRMAT>, ITEM=<3>
 !ITEM=1, SUBITEM=2
  <YoungModulus>, <PoissonRatio>
@@ -92,18 +92,18 @@ $ mpirun -np <4> fistr1
  <Conductivity>, <Temperature>
 !SECTION, TYPE=<SOLID>, EGRP=<E1>, MATERIAL=<STRMAT>
 !NGROUP, NGRP=<NG1>
- node1, node2, ...
+ <node1>, <node2>, ...
 !SGROUP, SGRP=<SG1>
- elem1, localsurf1, elem2, localsurf2, ...
+ <elem1>, <localsurf1>, <elem2>, <localsurf2>, ...
 !EGROUP, EGRP=<EG1>
- elem1, elem2, ...
+ <elem1>, <elem2>, ...
 !CONTACT PAIR, NAME=<CP1>
  <Slave_NodeGroup>, <Master_SurfaceGroup>
 !AMPLITUDE, NAME=<AMP1>, VALUE=<RELATIVE|ABSOLUTE>
- value1, time1, value2, time2, ...
+ <value1>, <time1>, <value2>, <time2>, ...
 !EQUATION
  <Num_terms>, <RHS>
- NODE_ID, <dof>, <coeff>, ...
+ <NODE_ID>, <dof>, <coeff>, ...
 !ZERO
  <AbsoluteZero>
 !END
@@ -122,13 +122,13 @@ $ mpirun -np <4> fistr1
 !SOLUTION, TYPE=STATIC
 !STATIC
 !BOUNDARY,GRPID=<1>
- NODE_ID, <開始自由度>, <終了自由度>, <拘束値>
+ <NODE_ID>, <開始自由度>, <終了自由度>, <拘束値>
 !CLOAD,GRPID=<1>
- NODE_ID, <自由度>, <荷重値>
+ <NODE_ID>, <自由度>, <荷重値>
 !DLOAD,GRPID=<1>
- SGRP, <荷重タイプ>, <荷重パラメータ>
+ <SGRP>, <荷重タイプ>, <荷重パラメータ>
 !SPRING,GRPID=<1>
- NODE_ID, <拘束自由度>, <ばね定数>
+ <NODE_ID>, <拘束自由度>, <ばね定数>
 ~~~
 
 ### 接触
@@ -163,26 +163,26 @@ $ mpirun -np <4> fistr1
 !HEAT
  <DT>, <計算時間>, <時間増分>, <許容変化>, <最大反復>, <判定値>
 !INITIAL_CONDITION, TYPE=<TEMPERATURE>
- NODE_ID, <温度>
+ <NODE_ID>, <温度>
 !FIXTEMP
- NODE_ID, <温度>
+ <NODE_ID>, <温度>
 !CFLUX
- NODE_ID, <熱流束>
+ <NODE_ID>, <熱流束>
 !DFLUX
- ELEMENT_ID, <荷重タイプ>, <熱流束>
+ <ELEMENT_ID>, <荷重タイプ>, <熱流束>
 !SFLUX
- SGRP, <熱流束>
+ <SGRP>, <熱流束>
 !FILM
- ELEMENT_ID, <荷重タイプ>, <熱伝達係数>, <雰囲気温度>
+ <ELEMENT_ID>, <荷重タイプ>, <熱伝達係数>, <雰囲気温度>
 !SFLIM
- SGRP, <熱伝達係数>, <雰囲気温度>
+ <SGRP>, <熱伝達係数>, <雰囲気温度>
 !RADIATE
- ELEMENT_ID, <荷重タイプ>, <輻射係数>, <雰囲気温度>
+ <ELEMENT_ID>, <荷重タイプ>, <輻射係数>, <雰囲気温度>
 !SRADIATE
- SGRP, <輻射係数>, <雰囲気温度>
+ <SGRP>, <輻射係数>, <雰囲気温度>
 !WELD_LINE
  <電流>, <電圧>, <入熱効率>, <トーチ移動速度>
- EGRP, DOF, <始点座標>, <終点座標>, <溶接源の幅>, <溶接開始時刻> 
+ <EGRP>, <DOF>, <始点座標>, <終点座標>, <溶接源の幅>, <溶接開始時刻> 
 ~~~
 
 ### 動解析
@@ -194,11 +194,11 @@ $ mpirun -np <4> fistr1
 !DLOAD
 !SPRING
 !VELOCITY, TYPE=<INITIAL|TRANSIT>, AMP=<NAME>
- NODE_ID, <自由度>, <自由度>, <拘束値>
+ <NODE_ID>, <自由度>, <自由度>, <拘束値>
 !ACCELERATION, TYPE=<INITIAL|TRANSIT>, AMP=<NAME>
- NODE_ID, <自由度>, <自由度>, <拘束値>
+ <NODE_ID>, <自由度>, <自由度>, <拘束値>
 !INITIAL_CONDITION, TYPE=<VELOCITY|ACCELERATION>
- NODE_ID, DOF, value
+ <NODE_ID>, <DOF>, <value>
 ~~~
 
 ### 時刻歴応答
@@ -208,7 +208,7 @@ $ mpirun -np <4> fistr1
  <陰解法1|陽解法11>, <時刻歴1>
  <開始時刻>, <終了時刻>, <全ステップ数>, <時間増分>
  <γ>, <β>
- <集中質量|consistent質量2>, 1, <Rm>, <Rk>
+ <集中質量1|consistent質量2>, 1, <Rm>, <Rk>
  1, <モニタリング節点>, <モニタリング出力間隔>
  <変位>, <速度>, <加速度>, <反力>, <ひずみ>, <応力>
 ~~~
@@ -227,7 +227,7 @@ $ mpirun -np <4> fistr1
  <固有値解析のログファイル>
  <モード始点>, <モード終点>
 !FLOAD
- NODE_ID, <自由度>, <荷重値>
+ <NODE_ID>, <自由度>, <荷重値>
 ~~~
 
 ### 解析ステップ
@@ -300,12 +300,12 @@ $ mpirun -np <4> fistr1
 
 ~~~
 !ORIENTATION, NAME=<座標系名>, DEFINITION=COORDINATES
-ax,ay,az,bx,by,bz,cx,cy,cz
+<ax,ay,az>,<bx,by,bz>,<cx,cy,cz>
 ~~~
 
 ~~~
 !ORIENTATION, NAME=<座標系名>, DEFINITION=NODES
-a,b,c
+<a,b,c>
 ~~~
 
 ### セクション
