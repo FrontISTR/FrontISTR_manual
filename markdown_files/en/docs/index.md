@@ -19,6 +19,7 @@ This software is the outcome of "Research and Development of Innovative Simulati
   - [Theory](./theory/index.md)
   - [User's manual](./analysis/index.md)
   - [Tutorial](./tutorial/index.md)
+  - [FAQ](./faq/index.md)
 
 <!-- ここまでテンプレート -->
 

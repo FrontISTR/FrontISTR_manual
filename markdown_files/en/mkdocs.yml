@@ -86,5 +86,6 @@ nav:
     - Example of Actual Model for Eigenvalue Analysis: tutorial/example_03.md
     - Example of Actual Model for Heat Conduction Analysis: tutorial/example_04.md
     - Example of Actual Model for Linear Dynamic Analysis: tutorial/example_05.md
+- FAQ: faq/index.md
 
 
