@@ -94,3 +94,4 @@ nav:
     - 固有値解析用実モデル例題: tutorial/example_03.md
     - 熱伝導解析用実モデル例題: tutorial/example_04.md
     - 線形動的解析用実モデル例題: tutorial/example_05.md
+- FAQ: faq/index.md

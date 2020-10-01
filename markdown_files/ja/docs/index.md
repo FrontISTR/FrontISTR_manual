@@ -20,6 +20,7 @@
 - [理論マニュアル](./theory/index.md)
 - [解析マニュアル](./analysis/index.md)
 - [チュートリアル](./tutorial/index.md)
+- [FAQ](./faq/index.md)
 
 <!-- ここまでテンプレート -->
 
