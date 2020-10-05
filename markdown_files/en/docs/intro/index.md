@@ -26,6 +26,7 @@ When using this software for free or for profit use, you need to agree "MIT lice
   - [Theory](../theory/index.md)
   - [User's manual](../analysis/index.md)
   - [Tutorial](../tutorial/index.md)
+  - [FAQ](../faq/index.md)
 
 <!-- ここまでテンプレート -->
 ---
