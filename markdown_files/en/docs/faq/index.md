@@ -7,6 +7,8 @@ author: FrontISTR Commons
 <!-- 表記は FrontISTR ver. 0.0 で統一します -->
 # FrontISTR FAQ
 
+- [PDF](faq_en.pdf)
+
 ## General questions
 
 ### What is FrontISTR?
@@ -41,3 +43,8 @@ and others are supported.
 ### What is the license for FrontISTR?
 
 The license is [MIT License](https://gitlab.com/FrontISTR-Commons/FrontISTR/-/blob/master/License.txt).
+
+### Where can I find FrontISTR manual?
+
+Please see [FrontISTR Manual](https://frontistr-commons.gitlab.io/FrontISTR_manual/en/).
+

@@ -7,6 +7,8 @@ author: FrontISTR Commons
 <!-- 表記は FrontISTR ver. 0.0 で統一します -->
 # FrontISTR FAQ
 
+- [PDF](faq_ja.pdf)
+
 ## 一般的な質問
 
 ### FrontISTRとは何ですか?
@@ -43,4 +45,6 @@ FrontISTR(フロントアイスター)とは、WindowsやLinuxのPCクラスタ�
 
 ライセンスは[MITライセンス](https://gitlab.com/FrontISTR-Commons/FrontISTR/-/blob/master/License.txt)です。
 
+### FrontISTRのマニュアルは何処にありますか?
 
+[FrontISTR マニュアル](https://frontistr-commons.gitlab.io/FrontISTR_manual/ja/)を参照してください。
