@@ -6,15 +6,15 @@
 
 解析対象はヒンジ部品で、形状を図4.1.1に、メッシュデータを図4.1.2に示します。
 
-|項目|内容|備考|
-|----|----|----|
-|解析の種別|線形静解析||
-|節点数|84,056||
-|要素数|49,871||
-|要素タイプ|四面体2次要素||
-|材料物性名|STEEL|ELASTIC||
-|境界条件|拘束,集中荷重||
-|行列解法|CG/SSOR||
+| 項目       | 内容                | 備考     | 参照 |
+|------------|---------------------|----------|------|
+| 解析の種別 | 線形静解析          |          |      |
+| 節点数     | 84,056              |          |      |
+| 要素数     | 49,871              |          |      |
+| 要素タイプ | 10節点四面体2次要素 | TYPE=342 |[要素ライブラリ](../analysis/analysis_02.html#_2) |
+| 材料物性名 | STEEL               | ELASTIC  |[材料データ](../analysis/analysis_02.html#_12)|
+| 境界条件   | 拘束,集中荷重       |          |      |
+| 行列解法   | CG/SSOR             |          |      |
 
 ![ヒンジ部品の形状](./media/tutorial01_01.png){.center width="350px"}
 <div style="text-align: center;">
@@ -57,13 +57,13 @@ hecmw_ctrl.dat  hinge.cnt  hinge.msh
 #
 # for solver
 #
-!MESH, NAME=fstrMSH, TYPE=HECMW-ENTIRE
+!MESH, NAME=fstrMSH, TYPE=HECMW-ENTIRE # 単一メッシュデータを指定
  hinge.msh
-!CONTROL, NAME=fstrCNT
+!CONTROL, NAME=fstrCNT                 # 解析制御データを指定
  hinge.cnt
-!RESULT, NAME=fstrRES, IO=OUT
+!RESULT, NAME=fstrRES, IO=OUT          # 結果データを指定
  hinge.res
-!RESULT, NAME=vis_out, IO=OUT
+!RESULT, NAME=vis_out, IO=OUT          # 可視化データを指定
  hinge_vis
 ```
 
@@ -74,11 +74,11 @@ hecmw_ctrl.dat  hinge.cnt  hinge.msh
 ```
 #  Control File for FISTR
 ## Analysis Control
-!VERSION
+!VERSION                   # ファイルフォーマットのバージョンを指定
  3
-!SOLUTION, TYPE=STATIC
-!WRITE,RESULT              # 結果データを出力する
-!WRITE,VISUAL              # 可視化データを出力する
+!SOLUTION, TYPE=STATIC     # 解析の種別を指定
+!WRITE,RESULT              # 結果データ出力の指定
+!WRITE,VISUAL              # 可視化データの出力を指定
 ## Solver Control
 ### Boundary Conditon
 !BOUNDARY
@@ -88,21 +88,21 @@ hecmw_ctrl.dat  hinge.cnt  hinge.msh
 !CLOAD
  CL0, 1, 0.01000           # 強制面を指定
 ### Material
-!MATERIAL, NAME=STEEL
-!ELASTIC
+!MATERIAL, NAME=STEEL      # 材料物性の指定
+!ELASTIC                   # 弾性物質の定義
  210000.0, 0.3
-!DENSITY
+!DENSITY                   # 質量密度の定義
  7.85e-6
 ### Solver Setting
-!SOLVER,METHOD=CG,PRECOND=1,ITERLOG=YES,TIMELOG=YES
+!SOLVER,METHOD=CG,PRECOND=1,ITERLOG=YES,TIMELOG=YES  # ソルバーの制御
  10000, 1
  1.0e-08, 1.0, 0.0
 ## Post Control
-!VISUAL,metod=PSR
-!surface_num=1
-!surface 1
-!output_type=VTK        # 可視化データのフォーマットをVTKに指定
-!END
+!VISUAL,metod=PSR           # 可視化手法の指定
+!surface_num=1              # 1つのサーフェースレンダリング内のサーフェース数
+!surface 1                  # サーフェースの内容の指定
+!output_type=VTK            # 可視化ファイルの型の指定
+!END                        # 解析制御データの終わりを示す
 ```
 
 ### 解析手順
@@ -111,12 +111,14 @@ hecmw_ctrl.dat  hinge.cnt  hinge.msh
 FrontISTRの実行コマンド `fistr1` を実行します。
 
 ```
-$ fistr1
+$ fistr1 -t 4
+(4スレッドで実行)
 ```
 
 ```
 ##################################################################
-#                         FrontISTR                              #
+#                         FrontISTR
+#
 ##################################################################
 ---
 version:    5.1.0
@@ -128,10 +130,10 @@ build:
   option:   "-p --with-tools --with-refiner --with-metis --with-mumps --with-lapack --with-ml --with-mkl "
   HECMW_METIS_VER: 5
 execute:
-  date:       2020-10-05T16:44:34+0900
+  date:       2020-10-07T10:01:16+0900
   processes:  1
-  threads:    8
-  cores:      8
+  threads:    4
+  cores:      4
   host:
     0: flow-p06
 ---
@@ -147,32 +149,30 @@ execute:
       1    1.903375E+00
       2    1.974378E+00
       3    2.534627E+00
-      4    3.004045E+00
 ...
 ...
-   2966    1.140489E-08
-   2967    1.078356E-08
-   2968    1.003516E-08
-   2969    9.370323E-09
-### Relative residual = 9.39272E-09
+   2967    1.080216E-08
+   2968    1.004317E-08
+   2969    9.375729E-09
+### Relative residual = 9.39429E-09
 
 ### summary of linear solver
-      2969 iterations      9.392724E-09
-    set-up time      :     1.874421E-01
-    solver time      :     6.882245E+01
-    solver/comm time :     5.145272E-01
-    solver/matvec    :     2.284206E+01
-    solver/precond   :     3.756793E+01
-    solver/1 iter    :     2.318035E-02
-    work ratio (%)   :     9.925238E+01
+      2969 iterations      9.394286E-09
+    set-up time      :     1.953022E-01
+    solver time      :     5.704201E+01
+    solver/comm time :     5.145826E-01
+    solver/matvec    :     2.306329E+01
+    solver/precond   :     2.632665E+01
+    solver/1 iter    :     1.921253E-02
+    work ratio (%)   :     9.909789E+01
 
  Start visualize PSF 1 at timestep 1
 ### FSTR_SOLVE_NLGEOM FINISHED!
 
  ====================================
-    TOTAL TIME (sec) :     71.55
-           pre (sec) :      0.70
-         solve (sec) :     70.86
+    TOTAL TIME (sec) :     59.99
+           pre (sec) :      0.71
+         solve (sec) :     59.29
  ====================================
  FrontISTR Completed !!
 ```
@@ -203,4 +203,28 @@ FSTR.sta    hinge.msh       hinge_vis_psf.0000.pvtu
 図4.1.3　ミーゼス応力の解析結果
 </div>
 
+`0.log`
 
+```
+ fstr_setup: OK
+#### Result step=     0
+ ##### Local Summary @Node    :Max/IdMax/Min/IdMin####
+ //U1    0.0000E+00         1  0.0000E+00         1
+ //U2    0.0000E+00         1  0.0000E+00         1
+ //U3    0.0000E+00         1  0.0000E+00         1
+ //E11   0.0000E+00         1  0.0000E+00         1
+ //E22   0.0000E+00         1  0.0000E+00         1
+ //E33   0.0000E+00         1  0.0000E+00         1
+ //E12   0.0000E+00         1  0.0000E+00         1
+ //E23   0.0000E+00         1  0.0000E+00         1
+ //E31   0.0000E+00         1  0.0000E+00         1
+ //S11   0.0000E+00         1  0.0000E+00         1
+ //S22   0.0000E+00         1  0.0000E+00         1
+ //S33   0.0000E+00         1  0.0000E+00         1
+ //S12   0.0000E+00         1  0.0000E+00         1
+ //S23   0.0000E+00         1  0.0000E+00         1
+ //S31   0.0000E+00         1  0.0000E+00         1
+ //SMS   0.0000E+00         1  0.0000E+00         1
+ ##### Local Summary @Element :Max/IdMax/Min/IdMin####
+ //E11   0.0000E+00         1  0.0000E+00         1
+```
