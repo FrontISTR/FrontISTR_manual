@@ -214,6 +214,7 @@ execute:
 解析が完了すると、幾つかのファイルが新たに作成されます。
 
 ```
+$ ls
 0.log       FSTR.dbg.3           hinge.cnt      hinge.res.2.1  hinge_vis_psf.0000
 1.log       FSTR.msg             hinge.msh      hinge.res.3.0  hinge_vis_psf.0000.pvtu
 2.log       FSTR.sta             hinge.res.0.0  hinge.res.3.1  hinge_vis_psf.0001

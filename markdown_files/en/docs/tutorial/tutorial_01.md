@@ -1,10 +1,18 @@
 ## Static Analysis (Elasticity)
 
-This analysis uses the data of `tutorial/01_elastic_hinge`.
+For this analysis, the data in `tutorial/01_elastic_hinge` is used.
 
 ### Analysis target
 
-The target of this analysis is a hinge part whose shape and mesh data are shown in Figs. 4.1.1 and 4.1.2, respectively. The mesh is a tetrahedral secondary element with 49871 elements and 84056 nodes.
+The analysis object is a hinge part, and the geometry is shown in Figure 4.1.1 and the mesh data in Figure 4.1.2.
+
+ | Item             | Content                | Notes | Reference |
+ |------------------|------------------------|-------|-----------|
+ | Type of analysis | Linear static analysis | | |
+ | Number of nodes  | 84,056                 | | |
+ | Number of elements | 49,871               | | |
+ | Element Type     | 10-node tetrahedron quadratic element | TYPE=342 | [Element Library](../analysis/analysis_02.html#_2)|
+ | Material Property Name | STEEL | ELASTIC |[Material Data](../analysis/analysis_02.html#12)|
 
 ![Shape of the hinge part](./media/tutorial01_01.png){.center width="350px"}
 <div style="text-align: center;">
@@ -16,66 +24,204 @@ Fig. 4.1.1 : Shape of the hinge part
 Fig. 4.1.2 : Mesh data of the hinge part
 </div>
 
-### Analysis contents
+### Analysis target
 
-In this stress analysis, the displacement of the constrained surface shown in Fig. 4.1.1 is restrained, and a concentrated load is applied to the forced surface. The analysis control data are presented below.
+Extract the source code of FrontISTR and go to the directory of this example to see if you can find the files necessary for analysis.
+
+ | File name        | Type                  |
+ |------------------|-----------------------|
+ | `hecmw_ctrl.dat` | Global control data   |
+ | `hinge.cnt`      | Analysis control data |
+ | `hinge.msh`      | Mesh data             |
 
 ```
-# Control File for FISTR
+$ tar xvf FrontISTR.tar.gz
+$ cd FrontISTR/tutorial/01_elastic_hinge
+$ ls
+hecmw_ctrl.dat  hinge.cnt  hinge.msh
+```
+
+A stress analysis is performed to constrain the displacement of the constrained surface shows in Figure 4.1.1 and to apply concentrated loads to the forcing surface.
+
+The overall control data and analytical control data are shown below.
+
+#### `hecmw_ctrl.dat`
+
+Global control data
+
+```
+#
+# for solver
+#
+!MESH, NAME=fstrMSH, TYPE=HECMW-ENTIRE # Specify a single mesh data
+ hinge.msh
+!CONTROL, NAME=fstrCNT                 # Specify analysis control data
+ hinge.cnt
+!RESULT, NAME=fstrRES, IO=OUT          # Specify the result data
+ hinge.res
+!RESULT, NAME=vis_out, IO=OUT          # Specify visualization data
+ hinge_vis
+```
+
+#### `hinge.cnt`
+
+Analysis control data
+
+```
+#  Control File for FISTR
 ## Analysis Control
-!VERSION
-                  3
-!SOLUTION, TYPE=STATIC
-!WRITE,RESULT
-!WRITE,VISUAL
+!VERSION                   # Specify the version of the file format
+ 3
+!SOLUTION, TYPE=STATIC     # Specify the type of analysis
+!WRITE,RESULT              # Specify the output of the result data
+!WRITE,VISUAL              # Specify the output of the visualization data
 ## Solver Control
 ### Boundary Conditon
 !BOUNDARY
-  BND0, 1, 3, 0.000000
+ BND0, 1, 3, 0.000000      # Restrained surface 1
 !BOUNDARY
-  BND1, 1, 3, 0.000000
+ BND1, 1, 3, 0.000000      # Restrained surface 2
 !CLOAD
-  CL0, 1, 1.00000
+ CL0, 1, 0.01000           # Specify a forced surface
 ### Material
-!MATERIAL, NAME=STEEL
-!ELASTIC
-  210000.0, 0.3
-!DENSITY
-  7.85e-6
+!MATERIAL, NAME=STEEL      # Specify material properties
+!ELASTIC                   # Definition of elastic substances
+ 210000.0, 0.3
+!DENSITY                   # Definition of mass density
+ 7.85e-6
 ### Solver Setting
-!SOLVER,METHOD=CG,PRECOND=1,ITERLOG=YES,TIMELOG=YES
-  10000, 2
-  1.0e-8, 1.0, 0.0
+!SOLVER,METHOD=CG,PRECOND=1,ITERLOG=YES,TIMELOG=YES  # Solver control
+ 10000, 1
+ 1.0e-08, 1.0, 0.0
+## Post Control
+!VISUAL,metod=PSR           # Specify the visualization method
+!surface_num=1              # Number of surfaces in one surface rendering
+!surface 1                  # Specify the contents of the surface
+!output_type=VTK            # Specify the type of the visualization file
+!END                        # Indicates the end of the analysis control data
 ```
+
+### Analysis procedure
+
+Execute the FrontISTR command `fistr1`.
+
+```
+$ fistr1 -t 4
+(Runs in 4 threads.)
+```
+
+```
+##################################################################
+#                         FrontISTR
+#
+##################################################################
+---
+version:    5.1.0
+git_hash:   acab000c8c633b7b9d596424769e14363f720841
+build:
+  date:     2020-10-05T07:39:55Z
+  MPI:      enabled
+  OpenMP:   enabled
+  option:   "-p --with-tools --with-refiner --with-metis --with-mumps --with-lapack --with-ml --with-mkl "
+  HECMW_METIS_VER: 5
+execute:
+  date:       2020-10-07T10:01:16+0900
+  processes:  1
+  threads:    4
+  cores:      4
+  host:
+    0: flow-p06
+---
+...
+ Step control not defined! Using default step=1
+ fstr_setup: OK
+ Start visualize PSF 1 at timestep 0
+
+ loading step=    1
+ sub_step= 1,   current_time=  0.0000E+00, time_inc=  0.1000E+01
+ loading_factor=    0.0000000   1.0000000
+### 3x3 BLOCK CG, SSOR, 1
+      1    1.903375E+00
+      2    1.974378E+00
+      3    2.534627E+00
+...
+...
+   2967    1.080216E-08
+   2968    1.004317E-08
+   2969    9.375729E-09
+### Relative residual = 9.39429E-09
+
+### summary of linear solver
+      2969 iterations      9.394286E-09
+    set-up time      :     1.953022E-01
+    solver time      :     5.704201E+01
+    solver/comm time :     5.145826E-01
+    solver/matvec    :     2.306329E+01
+    solver/precond   :     2.632665E+01
+    solver/1 iter    :     1.921253E-02
+    work ratio (%)   :     9.909789E+01
+
+ Start visualize PSF 1 at timestep 1
+### FSTR_SOLVE_NLGEOM FINISHED!
+
+ ====================================
+    TOTAL TIME (sec) :     59.99
+           pre (sec) :      0.71
+         solve (sec) :     59.29
+ ====================================
+ FrontISTR Completed !!
+```
+
+The analysis is completed when `FrontISTR Completed!` is displayed, the analysis is done.
 
 ### Analysis results
 
-The contour diagram of a Mises stress created with REVOCAP_PrePost is shown in Fig. 4.1.3. Furthermore, a part of the log files of the analysis results is shown below as numerical data of the analysis.
+Once the analysis is complete, several new files will be created.
+
+```
+$ ls
+0.log       hecmw_ctrl.dat  hinge.res.0.0            hinge_vis_psf.0001
+FSTR.dbg.0  hecmw_vis.ini   hinge.res.0.1            hinge_vis_psf.0001.pvtu
+FSTR.msg    hinge.cnt       hinge_vis_psf.0000
+FSTR.sta    hinge.msh       hinge_vis_psf.0000.pvtu
+```
+
+The `*.res.*` is the result data of FrontISTR, which can be displayed by REVOCAP_PrePost and so on.
+
+The `*_vis_*` is called visualization data, and can be displayed by general-purpose visualization software. In this example, the data is output in VTK format, so it can be displayed using ParaView and other visualization software.
+
+A contour plot for the Mises stresses is created by REVOCAP_PrePost and shown in Figure 4.1.3.
+A portion of the analysis results log file  is also shown below as numerical data for the analysis results.
 
 ![Analysis results of Mises stress](./media/tutorial01_03.png){.center width="350px"}
 <div style="text-align: center;">
 Fig. 4.1.3 : Analysis results of Mises stress
 </div>
 
+`0.log`
+
 ```
-#### Result step=     1
+ fstr_setup: OK
+#### Result step=     0
  ##### Local Summary @Node    :Max/IdMax/Min/IdMin####
- //U1    3.9115E+00     82452 -7.1083E-02     65233
- //U2    7.4504E-03       354 -5.8813E-02       696
- //U3    5.9493E-02        84 -5.8751E-01     61080
- //E11   1.3777E-01       130 -1.3653E-01     77625
- //E22   4.9199E-02        61 -5.4370E-02       102
- //E33   6.8634E-02     51036 -6.1176E-02     30070
- //E12   7.1556E-02     27808 -6.8093E-02     27863
- //E23   5.3666E-02        56 -5.4347E-02        82
- //E31   7.2396E-02     36168 -9.6621E-02       130
- //S11   3.8626E+04       130 -3.6387E+04     28580
- //S22   1.6628E+04       130 -1.5743E+04     28580
- //S33   1.6502E+04     30033 -1.5643E+04     28580
- //S12   5.7795E+03     27808 -5.4998E+03     27863
- //S23   4.3345E+03        56 -4.3896E+03        82
- //S31   5.8474E+03     36168 -7.8040E+03       130
- //SMS   2.8195E+04     77625  1.2755E+00     75112
+ //U1    0.0000E+00         1  0.0000E+00         1
+ //U2    0.0000E+00         1  0.0000E+00         1
+ //U3    0.0000E+00         1  0.0000E+00         1
+ //E11   0.0000E+00         1  0.0000E+00         1
+ //E22   0.0000E+00         1  0.0000E+00         1
+ //E33   0.0000E+00         1  0.0000E+00         1
+ //E12   0.0000E+00         1  0.0000E+00         1
+ //E23   0.0000E+00         1  0.0000E+00         1
+ //E31   0.0000E+00         1  0.0000E+00         1
+ //S11   0.0000E+00         1  0.0000E+00         1
+ //S22   0.0000E+00         1  0.0000E+00         1
+ //S33   0.0000E+00         1  0.0000E+00         1
+ //S12   0.0000E+00         1  0.0000E+00         1
+ //S23   0.0000E+00         1  0.0000E+00         1
+ //S31   0.0000E+00         1  0.0000E+00         1
+ //SMS   0.0000E+00         1  0.0000E+00         1
+ ##### Local Summary @Element :Max/IdMax/Min/IdMin####
+ //E11   0.0000E+00         1  0.0000E+00         1
 ```
 
 
