@@ -32,6 +32,8 @@
 丸棒に軸方向の引張変位を与える応力解析を実施します。
 超弾性の材料構成式にはMooney-Rivlinモデルを用います。解析制御データを以下に示します。
 
+#### 解析制御データ `cylinder.cnt`
+
 ```
 #  Control File for FISTR
 ## Analysis Control
@@ -76,7 +78,7 @@
 図4.3.3　変形およびミーゼス応力の解析結果
 </div>
 
-#### `0.log`
+#### 解析結果ログ `0.log`
 
 ```
  fstr_setup: OK

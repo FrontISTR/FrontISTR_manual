@@ -71,14 +71,14 @@ nav:
 - チュートリアル:
     - PDF: tutorial/tutorial_ja.pdf
     - 目次: tutorial/index.md
-    - 静解析 (弾性): tutorial/tutorial_01.md
-    - 静解析 (弾性、並列): tutorial/tutorial_02.md
-    - 静解析 (超弾性1): tutorial/tutorial_03.md
-    - 静解析 (超弾性2): tutorial/tutorial_04.md
-    - 静解析 (弾塑性1): tutorial/tutorial_05.md
-    - 静解析 (弾塑性2): tutorial/tutorial_06.md
-    - 静解析 (粘弾性): tutorial/tutorial_07.md
-    - 静解析 (クリープ): tutorial/tutorial_08.md
+    - 線形静解析 (弾性): tutorial/tutorial_01.md
+    - 線形静解析 (弾性、並列): tutorial/tutorial_02.md
+    - 非線形静解析 (超弾性1): tutorial/tutorial_03.md
+    - 非線形静解析 (超弾性2): tutorial/tutorial_04.md
+    - 非線形静解析 (弾塑性1): tutorial/tutorial_05.md
+    - 非線形静解析 (弾塑性2): tutorial/tutorial_06.md
+    - 非線形静解析 (粘弾性): tutorial/tutorial_07.md
+    - 非線形静解析 (クリープ): tutorial/tutorial_08.md
     - 接触解析 (1): tutorial/tutorial_09.md
     - 接触解析 (2): tutorial/tutorial_10.md
     - 接触解析 (3): tutorial/tutorial_11.md

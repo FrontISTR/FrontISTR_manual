@@ -1,4 +1,4 @@
-## 静解析 (弾性、並列)
+## 線形静解析 (弾性、並列)
 
 静解析(弾性)を4並列で実施するには、`tutorial/02_elastic_hinge_parallel` のデータを用います。
 
@@ -44,9 +44,7 @@ hecmw_ctrl.dat  hecmw_part_ctrl.dat  hinge.cnt  hinge.msh
 
 全体制御データ、解析制御データと領域分割制御データを以下に示します。
 
-#### `hecmw_ctrl.dat`
-
-全体制御データ
+#### 全体制御データ `hecmw_ctrl.dat`
 
 ```
 #
@@ -69,9 +67,7 @@ hecmw_ctrl.dat  hecmw_part_ctrl.dat  hinge.cnt  hinge.msh
  hinge_vis
 ```
 
-#### `hinge.cnt`
-
-解析制御データ
+#### 解析制御データ `hinge.cnt`
 
 ```
 #  Control File for FISTR

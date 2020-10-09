@@ -1,4 +1,4 @@
-## 静解析 (弾性)
+## 線形静解析 (弾性)
 
 本解析の実施には、`tutorial/01_elastic_hinge` のデータを用います。
 
@@ -50,9 +50,7 @@ hecmw_ctrl.dat  hinge.cnt  hinge.msh
 図4.1.1に示す拘束面の変位を拘束し、強制面に集中荷重を負荷する応力解析を実施します。
 全体制御データと解析制御データを以下に示します。
 
-#### `hecmw_ctrl.dat`
-
-全体制御データ
+#### 全体制御データ `hecmw_ctrl.dat`
 
 ```
 #
@@ -68,9 +66,7 @@ hecmw_ctrl.dat  hinge.cnt  hinge.msh
  hinge_vis
 ```
 
-#### `hinge.cnt`
-
-解析制御データ
+#### 解析制御データ `hinge.cnt`
 
 ```
 #  Control File for FISTR
@@ -204,7 +200,7 @@ FSTR.sta    hinge.msh       hinge_vis_psf.0000.pvtu
 図4.1.3　ミーゼス応力の解析結果
 </div>
 
-`0.log`
+#### 解析結果ログ `0.log`
 
 ```
  fstr_setup: OK

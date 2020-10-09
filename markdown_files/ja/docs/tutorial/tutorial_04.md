@@ -31,6 +31,8 @@
 
 図4.4.1に示す拘束面の変位を拘束し、強制面に変位を与える応力解析を実施します。超弾性の材料構成式にはArruda-Boyceモデルを用います。解析制御データを以下に示します。
 
+#### 解析制御データ `spring.cnt`
+
 ```
 #  Control File for FISTR
 ## Analysis Control
@@ -82,7 +84,7 @@ $ fistr1 -t 4
 図4.4.3　変形および変位の解析結果
 </div>
 
-#### `0.log`
+#### 解析結果ログ `0.log`
 
 ```
  fstr_setup: OK
