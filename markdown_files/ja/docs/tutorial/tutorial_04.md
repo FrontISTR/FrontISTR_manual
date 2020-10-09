@@ -1,4 +1,4 @@
-## 静解析（超弾性その２）
+## 非線形静解析 (超弾性その2)
 
 本解析の実施には、`tutorial/04_hyperelastic_spring` のデータを用います。
 
@@ -8,13 +8,14 @@
 
  | 項目       | 内容                 | 備考                            | 参照 |
  |------------|----------------------|---------------------------------|------|
- | 解析の種別 | 静解析(超弾性)       |                                 |      |
+ | 解析の種別 | 非線形静解析(超弾性) | !SOLUTION,TYPE=NLSTATIC         |      |
  | 節点数     | 78,771               |                                 |      |
  | 要素数     | 46,454               |                                 |      |
- | 要素タイプ | 10節点四面体二次要素 | TYPE=342                        |      |
- | 材料物性名 | MAT1                 | HYPERELASTIC, TYPE=ARRUDA-BOYCE |      |
- | 境界条件   | 拘束, 集中荷重       |                                 |      |
- | 行列解法   | CG/SSOR              |                                 |      |
+ | 要素タイプ | 10節点四面体二次要素 | !ELEMENT,TYPE=342               |      |
+ | 材料物性名 | MAT1                 | !MATERIAL,NAME=MAT1             |      |
+ | 材料性質   | HYPERELASTIC         | !HYPERELASTIC,TYPE=ARRUDA-BOYCE |      |
+ | 境界条件   | 拘束/強制変位        |                                 |      |
+ | 行列解法   | CG/SSOR              | !SOLVER,METHOD=CG,PRECOND=1     |      |
 
 ![スプリングの形状](./media/tutorial04_01.png){.center width="350px"}
 <div style="text-align: center;">

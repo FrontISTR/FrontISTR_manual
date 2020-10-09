@@ -1,18 +1,19 @@
-## 静解析（弾性、並列）
+## 静解析 (弾性、並列)
 
 静解析(弾性)を4並列で実施するには、`tutorial/02_elastic_hinge_parallel` のデータを用います。
 
 ### 解析対象
 
- | 項目       | 内容                | 備考     | 参照 |
- |------------|---------------------|----------|------|
- | 解析の種別 | 線形静解析          |          |      |
- | 節点数     | 84,056              |          |      |
- | 要素数     | 49,871              |          |      |
- | 要素タイプ | 10節点四面体2次要素 | TYPE=342 |[要素ライブラリ](../analysis/analysis_02.html#_2) |
- | 材料物性名 | STEEL               | ELASTIC  |[材料データ](../analysis/analysis_02.html#_12)|
- | 境界条件   | 拘束,集中荷重       |          |      |
- | 行列解法   | CG/SSOR             |          |      |
+ | 項目       | 内容                | 備考                        | 参照 |
+ |------------|---------------------|-----------------------------|------|
+ | 解析の種別 | 線形静解析          | !SOLUTION,TYPE=STATIC       |      |
+ | 節点数     | 84,056              |                             |      |
+ | 要素数     | 49,871              |                             |      |
+ | 要素タイプ | 10節点四面体2次要素 | !ELEMENT,TYPE=342 |[要素ライブラリ](../analysis/analysis_02.html#_2) |
+ | 材料物性名 | STEEL               | !MATERIAL,NAME=STEEL |[材料データ](../analysis/analysis_02.html#_12)|
+ | 材料性質   | ELASTIC             | !ELASTIC                    |      |
+ | 境界条件   | 拘束,集中荷重       |                             |      |
+ | 行列解法   | CG/SSOR             | !SOLVER,METHOD=CG,PRECOND=1 |      |
 
 ![各ノードの計算領域](./media/tutorial02_01.png){.center width="350px"}
 <div style="text-align: center;">
