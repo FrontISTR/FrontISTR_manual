@@ -24,12 +24,12 @@
 
 FrontISTRのコードを展開し、本例題のディレクトリへ移動し、解析に必要なファイル
 
- | ファイル名          | 種別               |
- |---------------------|--------------------|
- | hecmw_ctrl.dat      | 全体制御データ     |
- | hinge.cnt           | 解析制御データ     |
- | hinge.msh           | メッシュデータ     |
- | hecmw_part_ctrl.dat | 領域分割制御データ |
+ | ファイル名          | 種別               | 役割 |
+ |---------------------|--------------------|------|
+ | hecmw_ctrl.dat      | 全体制御データ     |      |
+ | hinge.cnt           | 解析制御データ     |      |
+ | hinge.msh           | メッシュデータ     |      |
+ | hecmw_part_ctrl.dat | 領域分割制御データ | `hecmw_part1` でメッシュデータを領域分割ときの制御データ |
 
 が有るか確認してください。
 
@@ -103,9 +103,7 @@ hecmw_ctrl.dat  hecmw_part_ctrl.dat  hinge.cnt  hinge.msh
 !END                       # 解析制御データの終わりを示す
 ```
 
-#### `hecmw_part_ctrl.dat`
-
-領域分割制御データ
+#### 領域分割制御データ `hecmw_part_ctrl.dat`
 
 ```
 !PARTITION,TYPE=NODE-BASED,METHOD=PMETIS,DOMAIN=4,UCD=part.inp

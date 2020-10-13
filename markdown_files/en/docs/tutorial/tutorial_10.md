@@ -4,7 +4,18 @@ This analysis uses the data of `tutorial/10_contact_2tubes`.
 
 ### Analysis target
 
-This analysis is a pushing problem of a cylinder with a target whose shape and mesh data are shown in Figs. 4.10.1 and 4.10.2, respectively. The mesh is a hexahedral primary element with 2888 elements and 4000 nodes.
+The analysis is a cylindrical indentation problem, and the geometry of the analysis target is shown in Figure 4.10.1 and the mesh data is shown in Figure 4.10.2.
+
+ | Item              | Description                               | Notes                          | Reference |
+ |-------------------|-------------------------------------------|--------------------------------|-----------|
+ |Type of analysis   |Non-linear static analysis(elastic,contact)|!SOLUTION,TYPE=NLSTATIC !CONTACT|           |
+ |Number of nodes    |4,000                                      |                                |           |
+ |Number of elements |2,888                                      |                                |           |
+ |Element type       |Eight node hexahedral element              |!ELEMENT,TYPE=361               |           |
+ |Material name      |M1                                         |!MATERIAL,NAME=M1               |           |
+ |Material property  |ELASTIC                                    |!ELASTIC                        |           |
+ |Boundary conditions|Restraint,Forced displacement              |                                |           |
+ |Matrix solution    |Direct method                              |!!SOLVER,METHOD=MUMPS           |           |
 
 ![Shape of the analysis target](./media/tutorial10_01.png){.center width="350px"}
 <div style="text-align: center;">
@@ -18,13 +29,15 @@ Fig. 4.10.2: Mesh data of the analysis target
 
 ### Analysis content
 
-This is a contact analysis performed with the method of Lagrange multipliers. A forced displacement in the pushing direction is applied to the forced surface shown in Fig. 4.10.1. The analysis control data are presented below.
+The Lagrangian multiplier method is used to perform contact analysis to give the forced displacement in the push-in direction to the forced surface shown in Figure 4.10.1. The analytical control data is shown below.
+
+#### Analysis control data `2tubes.cnt`.
 
 ```
-# Control File for FISTR
+#  Control File for FISTR
 ## Analysis Control
 !VERSION
-  3
+ 3
 !SOLUTION, TYPE=NLSTATIC
 !WRITE,RESULT
 !WRITE,VISUAL
@@ -40,48 +53,70 @@ This is a contact analysis performed with the method of Lagrange multipliers. A 
   X1, 1, 1, -1.0
 !CONTACT_ALGO, TYPE=SLAGRANGE
 !CONTACT, GRPID=1, INTERACTION=FSLID, NPENALTY=1.0e+2
-CP1, 0.0, 1.0e+5
+  CP1, 0.0, 1.0e+5
 ### STEP
 !STEP, SUBSTEPS=4, CONVERG=1.0e-5
-BOUNDARY, 1
-BOUNDARY, 3
-CONTACT, 1
+ BOUNDARY, 1
+ BOUNDARY, 3
+ CONTACT, 1
 ### Material
 !MATERIAL, NAME=M1
 !ELASTIC
-2.1e+5, 0.3
+ 2.1e+5, 0.3
 ### Solver Setting
 !SOLVER,METHOD=MUMPS
+## Post Control
+!VISUAL,metod=PSR
+!surface_num=1
+!surface 1
+!output_type=VTK
+!END
+```
+
+### Analysis procedure
+
+Execute the FrontISTR execution command `fistr1`.
+
+```
+$ cd FrontISTR/tutorial/10_contact_2tubes
+$ fistr1 -t 4
+(Runs in 4 threads.)
 ```
 
 ### Analysis results
 
-The analysis results of the fourth sub-step are shown in Fig. 4.10.3 as a deformation diagram with a Mises stress contour created with REVOCAP\_PrePost. Furthermore, a part of the log files of the analysis results is shown below as numerical data of the analysis.
+The results of the fourth substep are shown in Figure 4.10.3. A deformation diagram with Mises stress contours is created by REVOCAP_PrePost. A part of the analysis results log file is shown below as numerical data for the analysis results.
 
 ![Analysis results of deformation and Mises stress](./media/tutorial10_03.png){.center width="350px"}
 <div style="text-align: center;">
 Fig. 4.10.3: Analysis results of deformation and Mises stress
 </div>
 
+#### Analysis results log `0.log`.
+
 ```
-#### Result step=     4
+ fstr_setup: OK
+#### Result step=     0
  ##### Local Summary @Node    :Max/IdMax/Min/IdMin####
- //U1    8.6939E-04        32 -1.0021E+00      2006
- //U2    8.7641E-03       104 -7.0520E-03      2006
- //U3    8.7641E-03         4 -7.0519E-03      1901
- //E11   7.5294E-04      1901 -4.1253E-04       105
- //E22   9.8421E-04         2 -9.2894E-04      2058
- //E33   9.8423E-04       102 -9.2886E-04      3843
- //E12   5.3499E-04       133 -2.8306E-04       278
- //E23   1.2480E-03      1901 -1.4177E-03         4
- //E31   5.3509E-04        33 -2.8312E-04      1678
- //S11   7.7145E+01       103 -8.9999E+01       101
- //S22   2.0117E+02         2 -2.2935E+02      1905
- //S33   2.0117E+02       102 -2.2937E+02      2010
- //S12   4.3211E+01       133 -2.2863E+01       278
- //S23   1.0080E+02      1901 -1.1451E+02         4
- //S31   4.3219E+01        33 -2.2867E+01      1678
- //SMS   2.9963E+02      1901  3.1611E+00      2454
+ //U1    0.0000E+00         1  0.0000E+00         1
+ //U2    0.0000E+00         1  0.0000E+00         1
+ //U3    0.0000E+00         1  0.0000E+00         1
+ //E11   0.0000E+00         1  0.0000E+00         1
+ //E22   0.0000E+00         1  0.0000E+00         1
+ //E33   0.0000E+00         1  0.0000E+00         1
+ //E12   0.0000E+00         1  0.0000E+00         1
+ //E23   0.0000E+00         1  0.0000E+00         1
+ //E31   0.0000E+00         1  0.0000E+00         1
+ //S11   0.0000E+00         1  0.0000E+00         1
+ //S22   0.0000E+00         1  0.0000E+00         1
+ //S33   0.0000E+00         1  0.0000E+00         1
+ //S12   0.0000E+00         1  0.0000E+00         1
+ //S23   0.0000E+00         1  0.0000E+00         1
+ //S31   0.0000E+00         1  0.0000E+00         1
+ //SMS   0.0000E+00         1  0.0000E+00         1
+ ##### Local Summary @Element :Max/IdMax/Min/IdMin####
+ //E11   0.0000E+00         1  0.0000E+00         1
+ //E22   0.0000E+00         1  0.0000E+00         1
 ```
 
 

@@ -17,9 +17,6 @@
  | 境界条件   | 拘束, 初期速度   | !VELOCITY,TYPE=INITIAL                                      |      |
  | 行列解法   | 直接法           | !SOLVER,METHOD=MUMPS                                        |      |
 
-
-メッシュには六面体1次要素を用い、メッシュ規模は要素数8,232、節点数10,712です。
-
 ![床面と角材の形状](./media/tutorial14_01.png){.center width="350px"}
 <div style="text-align: center;">
 図4.14.1　床面と角材の形状

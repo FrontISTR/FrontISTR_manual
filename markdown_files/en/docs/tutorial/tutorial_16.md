@@ -4,7 +4,17 @@ This analysis uses the data of `tutorial/16_heat_block`.
 
 ### Analysis target
 
-The target of this analysis is a perforated block whose shape and mesh data are shown in Figs. 4.16.1 and 4.16.2, respectively. The mesh is a hexahedral primary element with 32160 elements and 37386 nodes.
+The analysis target is a perforated block, the geometry is shown in Figure 4.16.1 and the mesh data is shown in Figure 4.16.2.
+
+ | Item              | Description                 | Notes                     | Reference |
+ |-------------------|-----------------------------|---------------------------|-----------|
+ |Type of analysis   |Heat conduction analysis     |!SOLUTION,TYPE=HEAT        |           |
+ |Number of nodes    |37,386                       |                           |           |
+ |Number of elements |32,160                       |                           |           |
+ |Element type       |Eight node hexahedral element|!ELEMENT,TYPE=361          |           |
+ |Material name      |AL                           |!MATERIAL,NAME=AL          |           |
+ |Boundary conditions|Prescribed temperature       |!FIXTEMP                   |           |
+ |Matrix solution    |CG/SSOR                      |!SOLVER,METHOD=CG,PRECOND=1|           |
 
 ![Shape of the perforated block](./media/tutorial16_01.png){.center width="350px"}
 <div style="text-align: center;">
@@ -18,7 +28,9 @@ Fig. 4.16.2: Mesh data of the perforated block
 
 ### Analysis content
 
-This is a steady-state heat conduction analysis wherein a heat source is provided to the cylindric internal surface of the analysis target. The analysis control data are presented below.
+Steady-state heat conduction analysis is performed to provide a heat source to the cylindrical inner surface of the object. The analysis control data are shown below.
+
+#### Analysis control data `block.cnt`.
 
 ```
 #  Control File for FISTR
@@ -44,24 +56,47 @@ This is a steady-state heat conduction analysis wherein a heat source is provide
 !SOLVER,METHOD=CG,PRECOND=1,ITERLOG=YES,TIMELOG=YES
  100, 1
  1.0e-8, 1.0, 0.0
+## Post Control
+!VISUAL,metod=PSR
+!surface_num=1
+!surface 1
+!output_type=VTK
+!END
+```
+
+### Analysis procedure
+
+Execute the FrontISTR execution command `fistr1`.
+
+```
+$ cd FrontISTR/tutorial/16_heat_block
+$ fistr1 -t 4
+(Runs in 4 threads.)
 ```
 
 ### Analysis results
 
-This analysis uses the data of `tutorial/17_freq_beam`. The first step of the analysis is to change the overall control data for eigenvalue analysis, `hecmw_ctrl_eigen.dat`, to `hecmw_ctrl.dat` and perform eigenvalue analysis. Further, change the overall control data for frequency response analysis, `hecmw_ctrl_freq.dat`, to `hecmw_ctrl.dat`, and the eigenvalue analysis result log file, `0.log`, to \`eigen_0.log` (which is specified within the analysis control data for frequency response analysis.) Finally, frequency response analysis is performed.
+A temperature contour plot was created by REVOCAP_PrePost and is shown in Figure 4.16.3. A part of the analysis results log file is shown below as numerical data for the analysis results.
+
 
 ![Analysis results of temperature](./media/tutorial16_03.png){.center width="350px"}
 <div style="text-align: center;">
 Fig. 4.16.3: Analysis results of temperature
 </div>
 
+#### Analysis results log `0.log`.
+
 ```
+ fstr_setup: OK
+
  ISTEP =     1
  Time  =     0.000
  Maximum Temperature :   100.000
  Maximum Node No.    :         9
  Minimum Temperature :    20.000
  Minimum Node No.    :        85
+ Maximum Temperature(global) :   100.000
+ Minimum Temperature(global) :    20.000
 ```
 
 

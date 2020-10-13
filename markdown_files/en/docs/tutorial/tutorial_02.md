@@ -1,18 +1,19 @@
-## Static Analysis (Elasticity, Parallel)
+## Linear Static Analysis (Elasticity, Parallel)
 
 To run 4 parallel static analysis(elasticity), and you can use the data in `tutorial/02_elastic_hinge_parallel`.
 
 ### Analysis target
 
- | Item               | Content                | Notes    | Reference   |
- |--------------------|------------------------|----------|-------------|
- | Type of analysis   | Linear static analysis | | |
- | Number of nodes    | 84,056                 | | |
- | Number of elements | 49,871                 | | |
- | Element type       | 10-node tetrahedron quadratic element | TYPE=342 | [Element Library](../analysis/analysis_02.html#element-library) |
- | Material property name | STEEL | ELASTIC | [Material Data](../analysis/analysis_02.html#material-data)|
- | Boundary conditions | Restraint, Concentrated load | | |
- | Matrix solution     | CG/SSOR                | | |
+ | Item                | Description                           | Notes                     | Reference   |
+ |---------------------|---------------------------------------|---------------------------|-------------|
+ | Type of analysis    | Linear static analysis                |!SOLUTION,TYPE=STATIC      |             |
+ | Number of nodes     | 84,056                                |                           |             |
+ | Number of elements  | 49,871                                |                           |             |
+ | Element type        | 10-node tetrahedron quadratic element |!ELEMNT,TYPE=342           |[Element Library](../analysis/analysis_02.html#element-library) |
+ | Material name       | STEEL                                 |!MATERIAL,NAME=STEEL       |[Material Data](../analysis/analysis_02.html#material-data)|
+ | Material property   | ELASTIC                               |!ELASTIC                   |             |
+ | Boundary conditions | Restraint, Concentrated force         |                           |             |
+ | Matrix solution     | CG/SSOR                               |!SOLVER,METHOD=CG,PRECOND=1|             |
 
 ![Analysis area of each node](./media/tutorial02_01.png){.center width="350px"}
 
@@ -24,12 +25,12 @@ Fig. 4.2.1 : Analysis area of each node
 
 Extract the code FrontISTR code and go to the directory in this example to check if you have the files necessary for analysis.
 
- | File name             | Type                  |
- |-----------------------|-----------------------|
- | `hecmw_ctrl.dat`      | Global control data   |
- | `hinge.cnt`           | Analysis control data |
- | `hinge.msh`           | Mesh data             |
- | `hecmw_part_ctrl.dat` | Domain segmentation control data |
+ | File name             | Type                  | Role |
+ |-----------------------|-----------------------|------|
+ | `hecmw_ctrl.dat`      | Global control data   |      |
+ | `hinge.cnt`           | Analysis control data |      |
+ | `hinge.msh`           | Mesh data             |      |
+ | `hecmw_part_ctrl.dat` | Domain segmentation control data | Control data to divide the mesh data into regions by `hecmw_part1` |
 
 ``` 
 $ tar xvf FrontISTR.tar.gz
@@ -42,9 +43,7 @@ A stress analysis is performed to constrain the displacement of the constrained 
 
 The overall control data, analysis control data and domain division control data are shown below.
 
-#### `hecmw_ctrl.dat`
-
-Global control data
+#### Global control data `hecmw_ctrl.dat`
 
 ```
 #
@@ -67,9 +66,7 @@ Global control data
  hinge_vis
 ```
 
-#### `hinge.cnt`
-
-Analysis control data
+#### Analysis control data `hinge.cnt`
 
 ```
 #  Control File for FISTR
@@ -105,9 +102,7 @@ Analysis control data
 !END                       # Indicates the end of the analysis control data
 ```
 
-#### `hecmw_part_ctrl.dat`
-
-Domain division control data
+#### Domain division control data `hecmw_part_ctrl.dat`
 
 ```
 !PARTITION,TYPE=NODE-BASED,METHOD=PMETIS,DOMAIN=4,UCD=part.inp

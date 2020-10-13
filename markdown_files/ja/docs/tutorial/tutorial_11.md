@@ -8,16 +8,16 @@
 
 解析はふたつの梁の接触問題で、解析モデルの概要を図4.11.1に示します。
 
- | 項目       | 内容                    | 備考                              | 参照 |
- |------------|-------------------------|-----------------------------------|------|
- | 解析の種別 | 非線形静解析(弾性,接触) | !SOLUTION,TYPE=NLSTATIC  !CONTACT |      |   
- | 節点数     | 252                     |                                   |      |
- | 要素数     | 80                      |                                   |      |
- | 要素タイプ | 8節点六面体一次要素     | !ELEMENT,TYPE=361                 |      |
- | 材料物性名 | M1                      | !MATERIAL,NAME=M1                 |      |
- | 材料性質   | ELASTIC, PLASTIC        | !ELASTIC   !PLASTIC               |      |
- | 境界条件   | 拘束, 強制変位          |                                   |      |
- | 行列解法   | 直接法                  | !SOLVER,METHOD=MUMPS              |      |
+ | 項目       | 内容                      | 備考                              | 参照 |
+ |------------|---------------------------|-----------------------------------|------|
+ | 解析の種別 | 非線形静解析(弾塑性,接触) | !SOLUTION,TYPE=NLSTATIC  !CONTACT |      |   
+ | 節点数     | 252                       |                                   |      |
+ | 要素数     | 80                        |                                   |      |
+ | 要素タイプ | 8節点六面体一次要素       | !ELEMENT,TYPE=361                 |      |
+ | 材料物性名 | M1                        | !MATERIAL,NAME=M1                 |      |
+ | 材料性質   | ELASTIC, PLASTIC          | !ELASTIC   !PLASTIC               |      |
+ | 境界条件   | 拘束, 強制変位            |                                   |      |
+ | 行列解法   | 直接法                    | !SOLVER,METHOD=MUMPS              |      |
 
 ![解析モデルの概要](./media/tutorial11_01.png){.center width="350px"}
 <div style="text-align: center;">
