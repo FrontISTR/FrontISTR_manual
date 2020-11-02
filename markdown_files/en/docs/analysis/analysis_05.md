@@ -1992,39 +1992,54 @@ N/A
 
 ##### (22) `!STEP` (2-11)
 
-Setting of analysis steps
+Analysis step settings
 
-Setting is mandatory in the nonlinear static analysis and nonlinear dynamic analysis.
+Required for nonlinear static and nonlinear dynamic analysis
 
-When this definition is omitted in analyses other than the above, all the boundary conditions will become valid and is calculated in 1 step.
+If you omit this definition for any analysis other than the above, all boundary conditions are in effect and the calculation is done in one step
 
-When the material characteristics have viscoelasticity and creep, specify `TYPE=VISCO` and set the computation time conditions.
+If the material properties are visco-elasticity and creep, specify `TYPE=VISCO` and set the calculation time condition to
 
 ###### Parameter
 
 ```
-TYPE     = STATIC (default)/VISCO
-           (semi-static analysis)
-SUBSTEPS = Number of substeps of the boundary conditions
-           (Default: 1)
-CONVERG  = Convergence judgment threshold
-           (Default: 1.0e-6)
-MAXITER  = Maximum number of iterative calculations in nonlinear analysis
-           (Default: 50)
-AMP      = Time function name
-           (specified in !AMPLITUDE)
+TYPE     = STATIC (default)/VISCO (quasi-static analysis)
+SUBSTEPS = Number of substeps of the boundary conditions (Default: 1)
+CONVERG  = Convergence threshold (Default: 1.0e-6)
+MAXITER  = Maximum number of iterations in nonelinear analysis (Default: 50)
+AMP      = Time function name (specified in !AMPLITUDE)
+INC_TYPE = FIXED (fixed increment, default) / AUTO (automatic increment)
+MAXRES   = Setting of maximum allowable residuals (default: 1.0e+10)
+TIMEPOINTS = Name of the time list (specified by `!TIME_POINTS, NAME`)
+AUTOINC_PARAM = auto-incremental parameter set name (specified by `!AUTOINC_PARAM, NAME`)
+MAXCONTITER = Maximum number of contact iterations in contact analysis (default: 10)
 ```
 
 ** 2nd line or later **
 
+In case of `INC_TYPE=FIXED` (If `TYPE=STATIC`, it can be omitted.)
+
 ```
-(2nd line) DTIME, ETIME (specified when TYPE=VISCO)
+(2nd line) DTIME, ETIME
 ```
 
 |Parameter Name|Attribution|Contents|
 |--------|------|-----------------------------------------|
-| DTIME  | R    |Time increment value (Default: 1)|
+| DTIME  | R    |Time increment value (Default: 1/SUBSTEPS)|
 | ETIME  | R    |End value of time increment in this step (Default: 1)|
+
+In case of `INC_TYPE=AUTO` (regardless of `TYPE`)
+
+```
+(2nd line) DTIME_INIT, ETIME, MINDT, MAXDT
+```
+
+|Parameter Name|Attribution|Contents|
+|--------------|-----------|----------------------------------|
+| DTIME_INIT   | R         | Initial time increment           |
+| ETIME        | R         | Step time width                  |
+| MINDT        | R         | Lower limit of time increments   |
+| MAXDT        | R         | Maximum limit of time increments |
 
 ** 3rd line or later **
 
@@ -2034,7 +2049,9 @@ AMP      = Time function name
   CONTACT, id           GRPID defined in id=!CONTACT
 ```
 
-###### Parameter
+###### example
+
+####### Examples of fixed time increment usage
 
 ```
 !STEP, CONVERG=1.E-8
@@ -2043,6 +2060,140 @@ AMP      = Time function name
   LOAD, 1
   CONTACT, 1
 ```
+
+Enable automatic incremental adjustment, set the initial time increment to 0.01, step time width to 2.5, lower time increment 1E-5, upper time increment 0.3, and maximum number of sub-steps to 200.
+
+```
+!STEP, INC_TYPE=AUTO, SUBSTEPS=200
+   0.01, 2.5, 1E-5, 0.3
+```
+
+Enable automatic incremental adjustment and specify time list TP1 as the calculated and resulting output time
+
+```
+!STEP, INC_TYPE=AUTO, TIMEPOINTS=TP1
+    0.1, 2.0, 1E-3, 0.2
+```
+
+####### Note
+
+  - In the case of automatic incremental adjustment, `SUBSTEPS` is treated as the maximum number of substeps
+  - Time-list name `TIMEPOINTS` and automatic contact parameter set `AUTOINCPARAM` are valid only when `INC_TYPE=AUTO`.
+  - if `TIMEPOINTS` is specified, the destination `!TIME_POINT` must be defined before the `!STEP` card.
+  - if `AUTOINC_PARAM` is specified, the destination `!AUTOINC_PARAM` must be defined prior to the `!STEP` card. If this parameter is omitted, the default auto-incremental parameter set is used.
+
+##### `!AUTOINC_PARAM` (2-12)
+
+Specify auto-incremental parameters.
+
+###### Parameter
+
+|Parameter Name|Attribution|Contents|
+|--------------|-----------|--------|
+|NAME          | C         | Automatic incremental parameter name (required) |
+
+** 2nd line **
+
+Specify the reduction conditions and the rate of time incremental reduction.
+
+```
+(2nd line) RS, NS_MAX, NS_SUM, NS_COUT, N_S
+```
+
+|Parameter Name|Attribution|Contents|
+|--------------|-----------|--------|
+|RS            | R         | Time incremantal rate of decline (default:0.25) |
+|NS_MAX        | I         | Threshold for maximum number of Netwon method iterations (default: 10) |
+|NS_SUM        | I         | Threshold for the total number of Netwon method iterations (default: 50) |
+|NS_CONT       | I         | Number of contact iterations threshold (default: 10) |
+|N_S           | I         | Number of sub-steps until the reduction condition is met (default: 1) |
+
+** 3rd line **
+
+Specifies the condition for the increase and the rate of increase of the time increment at that time.
+
+```
+(3rd line) RL, NL_MAX, NL_SUM, NL_COUT, N_L
+```
+
+|Parameter Name|Attribution|Contents|
+|--------------|-----------|--------|
+|RL            | R         | Incremental rate of increase by time (default:1.25) |
+|NL_MAX        | I         | Threshold for maximum number of Netwon method iterations (default: 1) |
+|NL_SUM        | I         | Threshold for the total number of Netwon method iterations (default: 1) |
+|NL_CONT       | I         | Number of contact iterations threshold (default: 1) |
+|N_L           | I         | Number of sub-steps until the increase condition is met (default: 2) |
+
+** 4th line **
+
+```
+(4th line) RC, N_C
+```
+
+|Parameter Name|Attribution|Contents|
+|--------------|-----------|--------|
+| RC           | R         | Decrease of time increment at cutback (default: 0.25)|
+| N_C          | I         | Maximum permissible number of continuous cutbacks (default: 5) |
+
+###### example
+
+With the same settings as the default settings
+
+```
+!AUTOINC_PARAM, NAME=AP1
+  0.25, 10, 50, 10, 1
+  1.25,  1,  1,  1, 2
+  0.25,  5
+```
+
+##### `TIME_POINTS` (2-13)
+
+###### Parameter
+
+|Parameter Name|Attribution|Contents|
+|--------------|-----------|--------|
+| NAME         | C         | Time list name (required) |
+| TIME         | C         | STEP (input based on the time from the step start time, default value) / TOTAL (input based on total time from the initial time) |
+| GENERATE     | -         | Automatic generationi of time points by start time, end time and time interval |
+
+
+** 2nd line or later **
+
+When don't use `GENERATE`
+
+```
+(2nd line or later) TIME
+```
+
+|Parameter Name|Attribution|Contents|
+|--------------|-----------|--------|
+| TIME         | R         | time   |
+
+When using `GENERATE`
+
+```
+(2nd line) STIME, ETIME, INTERVAL
+```
+
+|Parameter Name|Attribution|Contents|
+|--------------|-----------|--------|
+| STIME        | R         | start time |
+| ETIME        | R         | end time   |
+| INTERVAL     | R         | interval between time points |
+
+###### example
+
+Time 1.5, 2.7 and 3.9 are defined as total times without using `GENERATE`.
+
+```
+!TIME_POINTS, TIME=STEP, GENERATE, NAME=TP1
+1.5, 3.9, 1.2
+```
+
+###### note
+
+  - The time points must be entered in ascending order.
+
 
 #### Control Data for Eigenvalue Analysis
 
