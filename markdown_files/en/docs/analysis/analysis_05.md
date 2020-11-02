@@ -1664,11 +1664,11 @@ DEFINITION = WLF(Default) /ARRHENUS
 
 ** 2nd line or later **
 
-(2nd line) θ<sub>0</sub>, C<sub>1</sub>, C<sub>2</sub>
+(2nd line) $\theta$<sub>0</sub>, C<sub>1</sub>, C<sub>2</sub>
 
 | Parameter Name    | Attributions | Contents    |
 |------------------------------|------|----------|
-| θ<sub>0</sub>                | R    | Reference temperature |
+| $\theta$<sub>0</sub>                | R    | Reference temperature |
 | C<sub>1</sub>, C<sub>2</sub> | R    | Material constants    |
 
 ##### (11) `!FLUID` (2-2-9)
@@ -2869,7 +2869,7 @@ ISTEP = Step No.
         From the beginning of analysis to the step specified here, a linearly increasing
         function from 0 to 1 is multiplied to the input fluid traction.
         After this step, the input fluid traction is directly applied.
-WINDOW => 0 ：Multiply window function(*) to input fluid traction
+WINDOW => 0 : Multiply window function(*) to input fluid traction
 ```
 
 (\*) \(\frac{1}{2}(1 - \cos\frac{2\pi i}{N})\), \(i\): current step, \(N\): no. of steps of current analysis
