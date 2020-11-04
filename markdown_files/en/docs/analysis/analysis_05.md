@@ -1390,13 +1390,13 @@ DEPENDENCIES = 0 (Default)/1
 ** In case of `HARDEN = SWIFT` **
 
 ```
-(2nd line) ε0, K, n
+(2nd line) $\epsilon$0, K, n
 ```
 
 ** In case of `HARDEN = RAMBERG-OSGOOD` **
 
 ```
-(2nd line) ε0, D, n
+(2nd line) $\epsilon$0, D, n
 ```
 
 ** In case of `HARDEN = KINEMATIC` **
@@ -1512,7 +1512,7 @@ TYPE = NEOHOOKE (Default)
 
 ###### 2nd Line or later
 
-####### `TYPE = NEOHOOKE`の場合
+####### In the case of `TYPE = NEOHOOKE`
 
 (2nd line) C<sub>10</sub>, D
 
@@ -1592,7 +1592,7 @@ DEPENDENCIES = 0 (Default) / 1
 | A           | R    |Material modulus| 
 | n           | R    |Material modulus|
 | m           | R    |Material modulus|
-| Tempearture | R    |Temperature(required when `DEPENDENCIES=1`要) |
+| Tempearture | R    |Temperature(required when `DEPENDENCIES=1`) |
 
 ##### (8) `!DENSITY` (2-2-6)
 
@@ -1643,13 +1643,13 @@ DEPENDENCIES = 0(Default) / 1
 ####### In case of `TYPE=ORTHOTROPIC`
 
 ```
-(2nd line) α11, α22, α33, Temperature
+(2nd line) $\alpha$11, $\alpha$22, $\alpha$33, Temperature
 ```
 
 |Parameter Name|Attributions | Contents|
 |---------------|------|--------------------------------|
 | expansion     | R    | Coefficient of thermo expansion|
-| α11, α22, α33 | R    | Coefficient of thermo expansion|
+| $\alpha$11, $\alpha$22, $\alpha$33 | R    | Coefficient of thermo expansion|
 | Tempearture   | R    | Temperature (required when DEPENDENCIES = 1)|
 
 ##### (10) `!TRS` (2-2-8)
@@ -1664,12 +1664,12 @@ DEFINITION = WLF(Default) /ARRHENUS
 
 ** 2nd line or later **
 
-(2nd line) θ<sub>0</sub>, C<sub>1</sub>, C<sub>2</sub>
+(2nd line) $\theta_0$, C<sub>1</sub>, C<sub>2</sub>
 
-| Parameter Name    | Attributions | Contents    |
-|------------------------------|------|----------|
-| θ<sub>0</sub>                | R    | Reference temperature |
-| C<sub>1</sub>, C<sub>2</sub> | R    | Material constants    |
+| Parameter Name               | Attributions | Contents    |
+|------------------------------|--------------|-----------------------|
+| $\theta_0$                   | R            | Reference temperature |
+| C<sub>1</sub>, C<sub>2</sub> | R            | Material constants    |
 
 ##### (11) `!FLUID` (2-2-9)
 
@@ -2366,7 +2366,7 @@ AMP2 = Ambient temperature history table name (specified in !AMPLITUDE)
   RSURF, R1, 1.0E-9, 1.0
 ```
 
-####### 荷重パラメータ
+####### Load Parameters
 
 |Load Type No. | Applied Surface |Parameter|
 |----------------|----------|----------------------|
@@ -2718,7 +2718,7 @@ ISTEP = Step No.
         From the beginning of analysis to the step specified here, a linearly increasing
         function from 0 to 1 is multiplied to the input fluid traction.
         After this step, the input fluid traction is directly applied.
-WINDOW => 0 ：Multiply window function(*) to input fluid traction
+WINDOW => 0: Multiply window function(*) to input fluid traction
 ```
 
 (\*) \(\frac{1}{2}(1 - \cos\frac{2\pi i}{N})\), \(i\): current step, \(N\): no. of steps of current analysis
@@ -2726,7 +2726,7 @@ WINDOW => 0 ：Multiply window function(*) to input fluid traction
 ** 2nd line or later **
 
 ```
-(2行目) COUPLING_SURFACE_ID
+(2nd line) COUPLING_SURFACE_ID
 ```
 
 |Parameter Name|Attributions|Contents|
@@ -2973,7 +2973,7 @@ Use CG with AMG preconditioning by ML, and set coarse solver to MUMPS and max No
 
 #### Post Process (Visualization) Control Data
 
-##### (1) `!VISUAL` (P1-0）
+##### (1) `!VISUAL` (P1-0)
 
 Specifies the visualization method.
 
@@ -2987,7 +2987,7 @@ METHOD = PSR             : Surface rendering
                            (Default: 1)
 ```
 
-##### (2) `!surface_num`, `!surface`, `!surface_style` (P1-1 - 3）
+##### (2) `!surface_num`, `!surface`, `!surface_style` (P1-1 - 3)
 
 ###### `!surface_num` (P1-1)
 
@@ -3096,12 +3096,12 @@ Example:
         1: X Component,  2: Y Component, 3: Z Component
 
     When !color_comp_name=STRAIN is specified
-        1: εx,  2: εy,  3: εz
-        4: εxy, 5: εyz, 6: εzx
+        1: $\epsilon$x,  2: $\epsilon$y,  3: $\epsilon$z
+        4: $\epsilon$xy, 5: $\epsilon$yz, 6: $\epsilon$zx
 
     When !color_comp_name=STRESS is specified
-        1: σx,  2: σy,  3: σz
-        4: τxy, 5: τyz, 6: τzx
+        1: $\sigma$x,  2: $\sigma$y,  u: $\sigma$z
+        4: $\tau$xy, 5: $\tau$yz, 6: $\tau$zx
 
     When !color/comp\_name=TEMPERATURE is specified
         1: Temperature
@@ -3227,8 +3227,8 @@ When the ambient_coef is increased, information on the 3D depth direction is imp
 |      |      |
 |------|------|
 |`!color_mapping_bar_on`|Specifies whether to display the color mapping bar.<br/>0: off 1: on (Default: 0)|
-|`!scale_marking_on`    |`color_mapping_bar`のメモリの有無を指定する<br/>0: off 1: on (省略値: 0)|
-|`!num_of_scales`       |メモリの数を指定する。<br/> (省略値: 3)|
+|`!scale_marking_on`    |set the memory status of `color_mapping_bar`<br/>0: off 1: on (default: 0)|
+|`!num_of_scales`       |Specifies the number of memory. <br/> (default: 3)|
 
 ![Example of Color Mapping Bar Display](media/analysis05_16.png){.center width="80%"}
 
