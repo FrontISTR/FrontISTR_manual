@@ -68,6 +68,7 @@ nav:
     - 単一領域メッシュデータ: analysis/analysis_04.md
     - 解析制御データ: analysis/analysis_05.md
     - ユーザーサブルーチン: analysis/analysis_06.md
+    - ユーティリティー: analysis/analysis_08.md
 - チュートリアル:
     - PDF: tutorial/tutorial_ja.pdf
     - 目次: tutorial/index.md
