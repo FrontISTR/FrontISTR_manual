@@ -1,4 +1,7 @@
-image: python:3.7
+variables:
+  REGISTRY: registry.gitlab.com/frontistr-commons/frontistr_manual
+
+image: ${REGISTRY}/build:latest
 
 cache:
   paths:
@@ -12,16 +15,17 @@ stages:
 mkdocs:
   stage: build
   script:
-    - pip install --upgrade mkdocs
-    - pip install --upgrade pyyaml
-    - pip install --upgrade python-markdown-math
-    - pip install --upgrade mkdocs-material
     - cd markdown_files/ja
       #    - python ../numbering.py
     - mkdocs build
     - cd ../en
       #    - python ../numbering.py
     - mkdocs build
+    - cd ../pdf_scripts
+    - ./mdtopdf.sh
+  artifacts:
+    paths:
+    - markdown_files
 
 pages:
   stage: deploy
