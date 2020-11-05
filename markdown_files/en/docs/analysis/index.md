@@ -14,7 +14,7 @@ This software is the outcome of "Research and Development of Innovative Simulati
 | Item                 | Content                                                        |
 |----------------------|----------------------------------------------------------------|
 | Name of Software     | FrontISTR                                                      |
-| Version              | 5.1                                                            |
+| Version              | 5.1.1                                                          |
 | License              | MIT License                                                    |
 | Correnponding Clerks | FrontISTR Commons<br>2-11-16 Yayoi, Bunkyo-ku, Tokyo<br>c/o Institute of Engineering Innovation, School of Engineering<br>E-mail：support@frontistr.com |
 
