@@ -435,19 +435,19 @@ Definition of displacement boundary conditions
   XMIN, 0.0
   XMAX, 500.0
 !CFLUX                                          4-3
-　ALL, 1.0E-3
+  ALL, 1.0E-3
 !DFLUX                                          4-4
-　ALL, S1, 1.0
+  ALL, S1, 1.0
 !SFLUX                                          4-5
-　SURF, 1.0
+  SURF, 1.0
 !FILM                                           4-6
   FSURF, F1, 1.0, 800
 !SFILM                                          4-7
-　SFSURF, 1.0, 800.0
+  SFSURF, 1.0, 800.0
 !RADIATE                                        4-8
-　RSURF, R1, 1.0E-9, 800.0
+  RSURF, R1, 1.0E-9, 800.0
 !SRADIATE                                       4-9
-　RSURF, R1, 1.0E-9, 800.0
+  RSURF, R1, 1.0E-9, 800.0
 !END                                            1-12
 ```
 
@@ -823,7 +823,7 @@ Each description number (P1-0, P1-1, etc.) is linked to the number of the detail
   - The items indicated with two `!` like "`!!`", will be recognized as a comment and will not affect the analysis.
 
 ```
-### Post Control 　　                           Description No.
+### Post Control                                Description No.
 !VISUAL, method=PSR                             P1-0
 !surface_num = 1                                P1-1
 !surface 1                                      P1-2
@@ -1257,7 +1257,7 @@ TYPE = TEMPERATURE/VELOCITY/ACCELERATION
 |Parameter Name|Attributions|Contents                      |
 |---------------|-----------|---------------|
 | ng1,ng2, ...    | C/I         | name of node group/index of node |
-| dof1, dof2, ... | I         | dof number(1~6)　|
+| dof1, dof2, ... | I         | dof number(1-6) |
 | v1, v2, ...    | R         | velocity/acceleration |
 
 ##### (13) `!END` (1-13)
@@ -1432,9 +1432,9 @@ DEPENDENCIES = 0 (Default)/1
 
 | Parameter Name    | Attributions | Contents                        |
 |------------|------|------------------------------------------------|
-| YIELD0 　  | R    | Initial yield stress                           |
+| YIELD0     | R    | Initial yield stress                           |
 | H          | R    | Hardening factor                               |
-| PSTRAIN 　 | R    | Plastic strain                                 |
+| PSTRAIN    | R    | Plastic strain                                 |
 | YIELD      | R    | Yield stress                                   |
 | \(\varepsilon0, K, n\)   | R    |\(\overline{\sigma} = k\left( \varepsilon_{0} + \overline{\varepsilon} \right)^{n}\)|
 | \(\varepsilon0, D, n\)   | R    |\(\varepsilon = \frac{\sigma}{E} + \varepsilon_{0}\left( \frac{\sigma}{D} \right)^{n}\)|
@@ -1519,7 +1519,7 @@ TYPE = NEOHOOKE (Default)
 |Parameter Name|Attributions|Contents         |
 |--------------|-----------|---------------|
 |C<sub>10</sub>| R         |Material constant     |
-|D 　          | R         |Material constant     |
+|D             | R         |Material constant     |
 
 ####### In case of `TYPE = MOONEY-RIVLIN`
 
@@ -1909,8 +1909,8 @@ TPENALTY    = Contact tangential direction Penalty (Default: 1.e3)
 |Parameter Name|Attributions|Contacts|
 |--------------|------------|-----------------------------------------------|
 | PAIR_NAME    | C          |Contact pair name (Defined in `!CONTACT_PAIR`) |
-| fcoef 　     | R          |Friction coefficient (Default: 0.0)            |
-| factor 　    | R          |Friction penalty stiffness                     |
+| fcoef        | R          |Friction coefficient (Default: 0.0)            |
+| factor       | R          |Friction penalty stiffness                     |
 
 ###### Example of Use
 
@@ -2201,8 +2201,8 @@ AMP = Flux history table name (specified in !AMPLITUDE)
 |Paramater Name|Attributions|Contents|
 |------------------|------|------------------------------|
 | ELEMENT_GRP_NAME | C/I  |Element group name or element ID|
-| LOAD_type 　     | C    |Load type No.|
-| Value 　         | R    |Heat flux value|
+| LOAD_type        | C    |Load type No.|
+| Value            | R    |Heat flux value|
 
 ###### Parameter
 
@@ -2550,7 +2550,7 @@ Note: Regarding the information of the monitoring node specified in this line, t
 |Parameter Name |Attributions |Contents|
 |---------|------|----------------------|
 | f_start | R    |Minimum frequency|
-| f_end 　| R    |Maximum frequency|
+| f_end   | R    |Maximum frequency|
 | n_freq  | I    |Number of divisions for the frequency range|
 | f_disp  | R    |Frequency to obtain displacement|
 
@@ -2571,8 +2571,8 @@ Note: Regarding the information of the monitoring node specified in this line, t
 |---------|------|-------------------------------------------------|
 | idx_mas | I    | Type of mass matrix (Default: 1)<br/>1: Lumped mass matrix|
 | idx_dmp | I    | 1: Rayleigh damping (Default: 1)|
-| ray_m 　| R    | Parameter R<sub>m</sub> of Rayleigh damping (Default: 0.0)
-| ray_k 　| R    | Parameter R<sub>k</sub> of Rayleigh damping (Default: 0.0)|
+| ray_m   | R    | Parameter R<sub>m</sub> of Rayleigh damping (Default: 0.0)
+| ray_k   | R    | Parameter R<sub>k</sub> of Rayleigh damping (Default: 0.0)|
 
 ```
 (6th line) nout, vistype, nodeout
@@ -2826,7 +2826,7 @@ PRECOND =   Preconditioner for iterative methods (1, 2, 3, 5, 10, 11, 12)
             10         : Block ILU(0)
             11         : Block ILU(1)
             12         : Block ILU(2)
-            10､11 and 12 are available only in 3D problems.
+            10, 11 and 12 are available only in 3D problems.
             In thread-parallel computation, SSOR, Diagonal Scaling or ML is recommended.
 
 ITERLOG =   Whether solver convergence history is output (YES/NO) (Default: NO)

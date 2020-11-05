@@ -27,7 +27,7 @@ subroutine uElastoPlasticMatrix( matl, stress, istat, fstat, D )
 	REAL(KIND=kreal), INTENT(OUT) :: D(:,:)
 ```
 
-  - `matl`:　Array to save the material constants (100 max)
+  - `matl`: Array to save the material constants (100 max)
   - `stress`: 2nd Piola-Kirchhoff stress
   - `istat`: Yield state (0: not yielded; 1: yielded)
   - `fstat`: State variable, fstat(1) = plastic strain, fstat(2:7) = back stress (while moving or complex hardening)
@@ -88,13 +88,13 @@ The interface of the deformation analysis of general materials is provided irres
 ```
 subroutine uMatlMatrix( mname, matl, ftn, stress, fstat, D, temperature, dtime )
 	CHARACTER(len=\*), INTENT(IN) :: mname
-	REAL(KIND=kreal), INTENT(IN) 　 :: matl(:)
-	REAL(KIND=kreal), INTENT(IN) 　:: ftn(3,3)
-	REAL(KIND=kreal), INTENT(IN) 　 :: stress(6)
-	REAL(KIND=kreal), INTENT(IN) 　:: fstat(:)
-	REAL(KIND=kreal), INTENT(OUT)　:: D(:,:)
-	REAL(KIND=kreal), optional 　　 :: temperature
-	REAL(KIND=kreal), optional :: dtime
+	REAL(KIND=kreal), INTENT(IN)  :: matl(:)
+	REAL(KIND=kreal), INTENT(IN)  :: ftn(3,3)
+	REAL(KIND=kreal), INTENT(IN)  :: stress(6)
+	REAL(KIND=kreal), INTENT(IN)  :: fstat(:)
+	REAL(KIND=kreal), INTENT(OUT) :: D(:,:)
+	REAL(KIND=kreal), optional    :: temperature
+	REAL(KIND=kreal), optional    :: dtime
 ```
 
   - `mname`: Material name
@@ -110,14 +110,14 @@ subroutine uMatlMatrix( mname, matl, ftn, stress, fstat, D, temperature, dtime )
 
 ```
 subroutine uUpdate( mname, matl, ftn, strain, stress, fstat, temperature, dtime )
-	character(len=\*), intent(in) :: mname
-	real(KIND=kreal), intent(in) :: matl
-	real(kind=kreal), intent(in) 　 :: ftn(3,3)
+	character(len=\*), intent(in)   :: mname
+	real(KIND=kreal), intent(in)    :: matl
+	real(kind=kreal), intent(in)    :: ftn(3,3)
 	real(kind=kreal), intent(inout) :: strain(6)
 	real(kind=kreal), intent(inout) :: stress(6)
 	real(kind=kreal), intent(inout) :: fstat(:)
-	real(KIND=kreal), optional :: temperature
-	real(KIND=kreal), optional :: dtime
+	real(KIND=kreal), optional      :: temperature
+	real(KIND=kreal), optional      :: dtime
 ```
 
   - `mname`: Material name
