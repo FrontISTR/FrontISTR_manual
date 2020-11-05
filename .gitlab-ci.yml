@@ -15,14 +15,14 @@ stages:
 mkdocs:
   stage: build
   script:
-    - cd markdown_files/ja
+    - cd markdown_files/pdf_scripts
+    - ./mdtopdf.sh
+    - cd ../ja
       #    - python ../numbering.py
     - mkdocs build
     - cd ../en
       #    - python ../numbering.py
     - mkdocs build
-    - cd ../pdf_scripts
-    - ./mdtopdf.sh
   artifacts:
     paths:
     - markdown_files
