@@ -169,7 +169,7 @@ The header list of the common control data is shown in the following Table 7.3.1
 | [`!EXPANSION_COEFF`](#9-expansion_coeff-2-2-7)  | Coefficient of linear expansion                          |         | 2-2-7           |
 | [`!TRS`](#10-trs-2-2-8)                         | Tempearture dependent behaviour of viscoelastic material |         | 2-2-8           |
 | [`!FLUID`](#11-fluid-2-2-9)                     | Flow Condition                                           |         | 2-2-9           |
-| [`!USE_MATERIAL`](#12-use_material-2-2-10)      | User defined material                                    |         | 2-2-10          |
+| [`!USER_MATERIAL`](#12-user_material-2-2-10)    | User defined material                                    |         | 2-2-10          |
 | [`!BOUNDARY`](#13-boundary-2-3)                 | Displacement boundary conditions                         |         | 2-3             |
 | [`!SPRING`](#14-spring-2-3-1)                   | Spring boundary conditions                               |         | 2-3-1           |
 | [`!CLOAD`](#15-cload-2-4)                       | Concentrated load                                        |         | 2-4             |
@@ -1691,7 +1691,7 @@ TYPE = INCOMP_NEWTONIAN (Default)
 |--------|------|------|
 | mu     | R    |Viscosity |
 
-##### (12) `!USER/MATERIAL` (2-2-10)
+##### (12) `!USER_MATERIAL` (2-2-10)
 
 Input of user defined material
 

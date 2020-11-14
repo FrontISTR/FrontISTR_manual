@@ -166,7 +166,7 @@ FrontISTRでは、計算制御データに使用できる境界条件として�
 | [`!EXPANSION_COEFF`](#expansion_coeff-2-2-7) | 線膨張係数                 |      | 2-2-7    |
 | [`!TRS`](#trs-2-2-8)                         | 粘弾性温度依存性           |      | 2-2-8    |
 | [`!FLUID`](#fluid-2-2-9)                     | 流体物性                   |      | 2-2-9    |
-| [`!USE_MATERIAL`](#use_material-2-2-10)      | ユーザー定義材料           |      | 2-2-10   |
+| [`!USER_MATERIAL`](#user_material-2-2-10)    | ユーザー定義材料           |      | 2-2-10   |
 | [`!BOUNDARY`](#boundary-2-3)                 | 変位境界条件               |      | 2-3      |
 | [`!SPRING`](#spring-2-3-1)                   | ばね境界条件               |      | 2-3-1    |
 | [`!CLOAD`](#cload-2-4)                       | 集中荷重                   |      | 2-4      |
@@ -1710,7 +1710,7 @@ TYPE = INCOMP_NEWTONIAN (Default値)
 |--------|------|------|
 | mu     | R    | 粘度 |
 
-##### !USER/MATERIAL　(2-2-10)
+##### !USER_MATERIAL　(2-2-10)
 
 ユーザー定義材料の入力
 
