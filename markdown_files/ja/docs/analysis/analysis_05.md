@@ -165,7 +165,7 @@ FrontISTRでは、計算制御データに使用できる境界条件として�
 | [`!DENSITY`](#density-2-2-6)                 | 質量密度                   |      | 2-2-6    |
 | [`!EXPANSION_COEFF`](#expansion_coeff-2-2-7) | 線膨張係数                 |      | 2-2-7    |
 | [`!TRS`](#trs-2-2-8)                         | 粘弾性温度依存性           |      | 2-2-8    |
-| [`!FUILD`](#fluid-2-2-9)                     | 流体物性                   |      | 2-2-9    |
+| [`!FLUID`](#fluid-2-2-9)                     | 流体物性                   |      | 2-2-9    |
 | [`!USE_MATERIAL`](#use_material-2-2-10)      | ユーザー定義材料           |      | 2-2-10   |
 | [`!BOUNDARY`](#boundary-2-3)                 | 変位境界条件               |      | 2-3      |
 | [`!SPRING`](#spring-2-3-1)                   | ばね境界条件               |      | 2-3-1    |
@@ -1303,7 +1303,7 @@ TYPE = TEMPERATURE/VELOCITY/ACCELERATION
 
 材料物性の定義は`!MATERIAL`と以降に置く`!ELASTICITY`、`!PLASTICITY`などとセットで使用する。`!MATERIAL`の前に置く`!ELASTICITY`、`!PLASTICTY`などは無視される。
 
-注: 解析制御データで`!MATERIAL`を定義すると、メッシュデータ内の`!MATERIAL`定義は無視される。解析制御データで`!MATERIAL`を定義しない場合は、メッシュデータ内の`!MATERAIL`定義が用いられる。
+注: 解析制御データで`!MATERIAL`を定義すると、メッシュデータ内の`!MATERIAL`定義は無視される。解析制御データで`!MATERIAL`を定義しない場合は、メッシュデータ内の`!MATERIAL`定義が用いられる。
 
 ###### パラメータ
 
