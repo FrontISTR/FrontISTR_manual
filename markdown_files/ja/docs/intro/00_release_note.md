@@ -1,5 +1,71 @@
 ## リリースノート
 
+### Ver.5.1.1における更新内容
+
+- 機能追加 
+  - issue 108: 時系列のVTK出力時に時刻情報を合わせて出力したい
+- 仕様変更
+  - issue 156: testの誤差判定を相対的にする。
+  - issue 237: add cmake rules for new MUMPS version
+  - issue 247: autoinc example の修正
+  - issue 282: Dockerコンテナ提供FrontISTRでMPI並列するとエラーメッセージが大量にでる。
+  - issue 284: Gitlab CI/CD の DAG機能に対応する。
+  - issue 288: Intel MKLをcmakeでfindできるようになった。
+- 不具合修正
+  - issue 026: ELEMCHECK Sparsity Overflow
+  - issue 052: コンパイル時のワーニングつぶし(ongoing)
+  - issue 244: Compiling error by gfortran-10
+  - issue 245: bug : unable to compile in setup.sh
+  - issue 259: MPCで自由度消去を用いる場合の不具合修正
+  - issue 278: 細かい不具合の修正
+  - issue 279: cmakeでmklが見つからない
+  - issue 281: スペルミス
+  - issue 283: Fbar要素の微修正
+  - issue 285: 741 Shellでの固有値解析で落ちることがある。
+  - issue 287: macのbashでのテストが実行できない問題
+  - issue 289: test_hybridでheat/exU2が数値誤差により時々failする
+
+### Ver.5.1における更新内容
+
+-機能改良
+  - issue 207: ビルド時の日付を出力する機能追加
+  - issue 204: 非定常熱伝導解析のサンプル追加
+  - issue 195: リファイナ関係のデバッグ出力
+  - issue 194: MPCを含むモデルをリファインした際に陽的自由度消去が利用可能に
+  - issue 183: ML のインターフェースを整理・拡張
+  - issue 169: linux バイナリ配布
+  - issue 143: conrod モデルを tutorial に追加
+  - issue 140: CI による Manuals 生成
+  - issue 136: OpenMP thread 並列および MPI 並列へのテスト対応
+  - issue 132: OpenMP thread 並列および MPI 並列使⽤時の使用コア数出力
+  - issue 067: 弾塑性の consistent 接線剛性実装（Misesのみ）
+  - issue 036: ⾃動時間増分の熱伝導結果ファイルの読み込みにおける時刻情報を用いた補間
+- 外部仕様変更
+  - issue 131: FrontISTR starter の削除
+- 内部仕様変更
+  - issue 158: 接触⾯ペアを面-面で入力した際に内部で自動生成される節点グループの命名規則
+  - issue 122: テスト機能の拡充
+  - issue 121: gitlab-ci の 修正（テスト機能の拡充）
+  - issue 107: HCEMW を利⽤した FILM、RADIATE 関数の実装
+  - issue 056: 重複コード削除：fistr1/src/lib/physics/ElasticNeoHooke.f90
+  - issue 046: プログラマ情報の確認
+  - issue 044: 出⼒機能の統合（静的と動的）
+  - issue 037: res_bin_io.inc と res_txt_io.inc の拡張⼦変更
+- 不具合修正
+  - issue 203: 611 梁要素の不具合修正とテスト例題追加
+  - issue 185: 固有値解析の結果ファイル(.res) への書き出し不具合修正
+  - issue 184: 線形動解析（陰解法）の線形解析対応
+  - issue 181: 541 インターフェース要素使⽤時の質量⾏列の不具合修正
+  - issue 159: 内部変数の可読性向上（DISTCLR_CONT など）
+  - issue 123: 熱伝導解析への ML 前処理適⽤時の不具合修正
+  - issue 114: VTK ファイルの出⼒にサブディレクトリを設定した時の不具合修正
+  - issue 113: 出⼒に関するいくつかの不具合修正
+  - issue 055: サブルーチン fstr_solve_dynamic_nlimplicit の変数 iexit の初期化
+  - issue 054: 関数 read_user_matl で使⽤している fstr_ctrl_get_data_array_ex の引数修正
+  - issue 053: 動的非線形並列解析でメモリリークの修正（SOR 前処理との兼ね合い）
+  - issue 026: !ELEMCHECK の Sparsity 値の修正
+
+
 ### Ver.5.0における更新内容
 
 FrontISTR Ver.5.0において、以下に示す機能が追加された。
