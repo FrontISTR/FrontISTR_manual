@@ -29,13 +29,11 @@ FrontISTR(フロントアイスター)とは、WindowsやLinuxのPCクラスタ�
 
 などがあります。
 
-商用のソフトでは
+ソースは公開されていないが、無償で使えるソフトウェアは
 
-- A
-- B
-- C
+- [Advance/REVOCAP_PrePost(FrontISTR Commons正会員向け)](https://www.frontistr.com/download/)
 
-などが対応しています。
+また、商用ソフトで対応しているものがあります。
 
 ### FrontISTRはどこからダウンロード出来ますか?
 
