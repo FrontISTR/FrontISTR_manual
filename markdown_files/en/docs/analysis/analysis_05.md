@@ -1080,6 +1080,19 @@ The following parameter names can be specified.
 |`TH_NSTRAIN`|Thermal strain of nodes (Not included)|
 |`VEL`       |Velocity                              |
 |`ACC`       |Acceleration                          |
+|`TEMP`          | Temperature                      |
+|`PRINC_NSTRESS` | Nodal principal stress(Scalar value)|
+|`PRINCV_NSTRESS`| Nodal principal stress(Vector value)|
+|`PRINC_NSTRAIN` | Nodal principal strain(Scalar value)|
+|`PRINCV_NSTRAIN`| Nodal principal strain(Vector value)|
+|`SHELL_LAYER`   | Output per layer of layerd shell element|
+|`SHELL_SURFACE` | Output of surface information of shell element|
+|`CONTACT_NFORCE` | Contact normal force(Vector value) |
+|`CONTACT_FRICTION` | Contact friction force(Vector value) |
+|`CONTACT_RELVEL` | Contact relative displacement (Vector value / slave point only)|
+|`CONTACT_STATE`  | Contact state(Scalar value / -1, 0, 1 and 2 means free, undefined, stick and slip respectively)|
+|`CONTACT_NTRACTION` | Contact normal traction(Vector value)|
+|`CONTACT_FTRACTION` | Contact friction traction(Vector value)|
 
 ###### Example of Use
 
@@ -1137,6 +1150,12 @@ The following parameter names can be specified.
 |`PRINCV_ESTRAIN`| Elemental principal strain(Vector value)|
 |`SHELL_LAYER`   | Output per layer of layerd shell element|
 |`SHELL_SURFACE` | Output of surface information of shell element|
+|`CONTACT_NFORCE` | Contact normal force(Vector value) |
+|`CONTACT_FRICTION` | Contact friction force(Vector value) |
+|`CONTACT_RELVEL` | Contact relative displacement (Vector value / slave point only)|
+|`CONTACT_STATE`  | Contact state(Scalar value / -1, 0, 1 and 2 means free, undefined, stick and slip respectively)|
+|`CONTACT_NTRACTION` | Contact normal traction(Vector value)|
+|`CONTACT_FTRACTION` | Contact friction traction(Vector value)|
 
 ###### Example of Use
 
