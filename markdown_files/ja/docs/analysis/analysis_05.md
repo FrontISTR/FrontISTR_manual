@@ -992,19 +992,29 @@ TYPE＝解析の種類
 ```
 TYPE=
      STATIC       : 線形静解析
-     NLSTATIC     : 非線形静解析
+     NLSTATIC     : 非線形静解析（TYPE=STATIC, NONLINEARと同じ）
      HEAT         : 熱伝導解析
      EIGEN        : 固有値解析
      DYNAMIC      : 動解析
      STATICEIGEN  : 非線形静解析 -> 固有値解析
      ELEMCHECK    : 要素形状のチェック
+NONLINEAR         : 非線形を考慮する（TYPE=STATIC/DYNAMICのみ）
 ```
 
 ###### 使用例
 
+線形静解析
+
 ```
 !SOLUTION, TYPE=STATIC
 ```
+
+非線形静解析
+
+```
+!SOLUTION, TYPE=STATIC, NONLINEAR
+```
+
 
 ##### `!WRITE, VISUAL` (1-3)
 
