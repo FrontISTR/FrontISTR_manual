@@ -56,7 +56,7 @@ FrontISTR(フロントアイスター)とは、WindowsやLinuxのPCクラスタ�
 デフォルトでは、6面体1次要素は
 
  - 線形解析   非適合要素
- - 非線形解析 B-bar要素(< versin 5.0a)
- - 非線形解析 F-bar要素(> versin 5.0b)
+ - 非線形解析 B-bar要素(versin 5.0a以前)
+ - 非線形解析 F-bar要素(versin 5.0b以降)
 
-です。
+です。[解析制御データ !SECTION(1-11)](/analysis/analysis_05.html#section-1-11)
