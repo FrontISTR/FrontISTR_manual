@@ -988,18 +988,27 @@ Specifies the type of analysis.
 ```
 TYPE=
      STATIC      : Linear static analysis
-     NLSTATIC    : Nonlinear static analysis
+     NLSTATIC    : Nonlinear static analysis (same as TYPE=STATIC, NONLINEAR)
      HEAT        : Heat conduction analysis
      EIGEN       : Eigenvalue analysis
      DYNAMIC     : Dynamic analysis
      STATICEIGEN : Nonlinear static analysis &rarr; Eigenvalue analysis
      ELEMCHECK   : Element shape check
+NONLINEAR        : Consider Nonlinearity（only available when TYPE=STATIC/DYNAMIC ）
 ```
 
 ###### Example of Use
 
+Linear static analysis
+
 ```
 !SOLUTION, TYPE=STATIC
+```
+
+Nonlinear static analysis
+
+```
+!SOLUTION, TYPE=STATIC, NONLINEAR
 ```
 
 ##### (3) `!WRITE, VISUAL` (1-3)
