@@ -1387,6 +1387,8 @@ DEPENDENCIES = 0 (Default)/1
 
 Definition of plastic material
 
+`!PLASTIC` must be defined together with `!ELASTIC`.
+
 ###### Parameter
 
 ```
@@ -1581,6 +1583,8 @@ TYPE = NEOHOOKE (Default)
 
 Definition of viscoelastic material
 
+`!VISCOELASTIC` must be defined together with `!ELASTIC`.
+
 ###### Parameter
 
 ```
@@ -1601,6 +1605,8 @@ DEPENDENCIES = the number of parameters depended upon (Not included)
 ##### (7) `!CREEP` (2-2-5)
 
 Definition of creep material
+
+`!CREEP` must be defined together with `!ELASTIC`.
 
 ###### Parameter
 
@@ -1683,6 +1689,8 @@ DEPENDENCIES = 0(Default) / 1
 ##### (10) `!TRS` (2-2-8)
 
 Thermorheological Simplicity description on temperature behavior of viscoelastic materials
+
+This definition must be placed after `!VISCOELASTIC`. If not, this definition will be ignored.
 
 ###### Parameter
 
