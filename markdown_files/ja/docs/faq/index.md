@@ -29,11 +29,13 @@ FrontISTR(フロントアイスター)とは、WindowsやLinuxのPCクラスタ�
 
 などがあります。
 
-ソースは公開されていないが、無償で使えるソフトウェアは
+商用のソフトでは
 
-- [Advance/REVOCAP_PrePost(FrontISTR Commons正会員向け)](https://www.frontistr.com/download/)
+- A
+- B
+- C
 
-また、商用ソフトで対応しているものがあります。
+などが対応しています。
 
 ### FrontISTRはどこからダウンロード出来ますか?
 
@@ -46,3 +48,15 @@ FrontISTR(フロントアイスター)とは、WindowsやLinuxのPCクラスタ�
 ### FrontISTRのマニュアルは何処にありますか?
 
 [FrontISTR マニュアル](https://frontistr-commons.gitlab.io/FrontISTR_manual/ja/)を参照してください。
+
+## 要素タイプについて
+
+### デフォルトの要素タイプ
+
+デフォルトでは、6面体1次要素は
+
+ - 線形解析   非適合要素
+ - 非線形解析 B-bar要素(< versin 5.0a)
+ - 非線形解析 F-bar要素(> versin 5.0b)
+
+です。
