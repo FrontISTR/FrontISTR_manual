@@ -121,15 +121,15 @@ T_{t=t_{0+\Delta t}}^{(i)} + \Delta T_{t=t_{0+\Delta t}}^{(i)}
 熱伝導マトリクスと温度ベクトルとの積、質量マトリクスなどを次式のように近似的にあらわす。
 
 \begin{equation}
-K_{t=t_{0+\Delta t}} T_{t=t_{0+\Delta t}}
-K_{t=t_{0+\Delta t}}^{(i)} T_{t=t_{0+\Delta t}}^{(i)}
-\frac{\partial K_{t=t_{0+\Delta t}}^{(i)}}{T_{t=t_{0+\Delta t}}^{(i)}}
-\partial T_{t=t_{0+\Delta t}}^{(i)} \Delta T_{t=t_{0+\Delta t}}^{(i)}
+K_{t=t_{0+\Delta t}} T_{t=t_{0+\Delta t}} =
+K_{t=t_{0+\Delta t}}^{(i)} T_{t=t_{0+\Delta t}}^{(i)} +
+\frac{\partial \big(K_{t=t_{0+\Delta t}}^{(i)} T_{t=t_{0+\Delta t}}^{(i)}\big) }
+ {\partial T_{t=t_{0+\Delta t}}^{(i)} } \Delta T_{t=t_{0+\Delta t}}^{(i)}
 \label{eq:2.4.15}
 \end{equation}
 
 \begin{equation}
-M_{t=t_{0+\Delta t}}
+M_{t=t_{0+\Delta t}} =
 M_{t=t_{0+\Delta t}}^{(i)}
 + \frac{\partial M_{t=t_{0+\Delta t}}^{(i)}}{\partial T_{t=t_{0+\Delta t}}^{(i)}}
 \Delta T_{t=t_{0+\Delta t}}^{(i)}
@@ -139,12 +139,12 @@ M_{t=t_{0+\Delta t}}^{(i)}
 式\(\eqref{eq:2.4.14}\)、式\(\eqref{eq:2.4.15}\)、式\(\eqref{eq:2.4.16}\)を式\(\eqref{eq:2.4.13}\)に代入して二次以上の項を省略すると次式を得る。
 
 \begin{equation}
-(\frac{M_{t=t_{0+\Delta t}}^{(i)}}{\Delta t}
-+ \partial M_{t=t_{0+\Delta t}}^{(i)} T_{t=t_{0+\Delta t}}^{(i)}
-\partial T_{t=t_{0+\Delta t}}^{(i)}
+\bigg(\frac{M_{t=t_{0+\Delta t}}^{(i)}}{\Delta t}
++ \frac {\partial M_{t=t_{0+\Delta t}}^{(i)} }
+{ \partial T_{t=t_{0+\Delta t}}^{(i)} }
 \frac{T_{t=t_{0+\Delta t}}^{(i)} - T_{t=t_0}}{\Delta t}
-+ \frac{\partial K_{t=t_{0+\Delta t}}^{(i)}}{T_{t=t_{0+\Delta t}}^{(i)}}
-\partial T_{t=t_{0+\Delta t}}^{(i)})
++ \frac{\partial \big(K_{t=t_{0+\Delta t}}^{(i)} T_{t=t_{0+\Delta t}}^{(i)}\big)}
+{\partial T_{t=t_{0+\Delta t}}^{(i)}} \bigg)
 \Delta T_{t=t_{0+\Delta t}}^{(i)} \\\ 
 = F_{t=t_0+\Delta t} - M_{t=t_{0+\Delta t}}^{(i)}
 \frac{T_{t=t_{0+\Delta t}}^{(i)} - T_{t=t_0}}{\Delta t}
@@ -155,14 +155,10 @@ M_{t=t_{0+\Delta t}}^{(i)}
 
 さらに左辺の係数マトリクスを次式を用いて近似評価する。
 
-\[
-K^{(i)} = \frac{M_{t=t_0+\Delta t}^{(i)}}{\Delta t} +
-\frac{\partial K_{t=t_0+\Delta t}^{(i)}}{\partial T^{(i)}_{t=t_0+\Delta t}}
-\]
-
 \begin{equation}
-T_{t=t_0+\Delta t}^{(i)}
-= \frac{M_{t=t_0+\Delta t}^{(i)}}{\Delta t} + K_{T_{t=t_0+\Delta t}^{(i)}}
+K^{(i)} = \frac{M_{t=t_0+\Delta t}^{(i)}}{\Delta t} +
+\frac{\partial \big( K_{t=t_0+\Delta t}^{(i)} T_{t=t_0+\Delta t}^{(i)} \big)}{\partial T^{(i)}_{t=t_0+\Delta t}}
+= \frac{M_{t=t_0+\Delta t}^{(i)}}{\Delta t} + K_{T_{t=t_0+\Delta t}}^{(i)}
 \label{eq:2.4.18}
 \end{equation}
 
@@ -171,7 +167,7 @@ T_{t=t_0+\Delta t}^{(i)}
 結局次式を用いて反復計算を行うことによって時刻 \(t=t_0+\Delta t\)での温度を計算することができる。
 
 \begin{equation}
-K^{(i)} T_{t=t_{0+\Delta t}}^{(i)} = F_{t=t_0+\Delta t} - M_{t=t_{0+\Delta t}}^{(i)} \frac{T_{t=t_{0+\Delta t}}^{(i)} - T_{t=t_0}}{\Delta t} - K^{(i)} T_{t=t_{0+\Delta t}}^{(i)}
+K^{(i)} \Delta T_{t=t_{0+\Delta t}}^{(i)} = F_{t=t_0+\Delta t} - M_{t=t_{0+\Delta t}}^{(i)} \frac{T_{t=t_{0+\Delta t}}^{(i)} - T_{t=t_0}}{\Delta t} - K^{(i)} T_{t=t_{0+\Delta t}}^{(i)}
 \label{eq:2.4.19}
 \end{equation}
 
