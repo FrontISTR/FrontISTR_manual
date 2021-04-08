@@ -1539,6 +1539,7 @@ DEPENDENCIES = 0 (Default値) / 1
 TYPE = NEOHOOKE（Default値）
        MOONEY-RIVLIN
        ARRUDA-BOYCE
+       MOONEY-RIVLIN-ANISO
        USER
 ```
 
@@ -1574,6 +1575,18 @@ TYPE = NEOHOOKE（Default値）
 | mu       | R    | 材料定数 |
 | lambda_m | R    | 材料定数 |
 | D        | R    | 材料定数 |
+
+####### `TYPE = MOONEY-RIVLIN-ANISO`の場合
+
+(2行目) C<sub>10</sub>, C<sub>01</sub>, D, C<sub>42</sub>, C<sub>43</sub>
+
+| 変数名      | 属性       | 内容          |
+|-------------|------------|---------------|
+|C<sub>10</sub>| R         | 材料定数      |
+|C<sub>01</sub>| R         | 材料定数      |
+|D             | R         | 材料定数      |
+|C<sub>42</sub>| R         | 材料定数      |
+|C<sub>43</sub>| R         | 材料定数      |
 
 ####### `TYPE = USER`の場合
 

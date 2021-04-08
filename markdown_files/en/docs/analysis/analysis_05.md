@@ -1537,6 +1537,7 @@ Definition of hyperelastic material
 TYPE = NEOHOOKE (Default)
        MOONEY-RIVLIN
        ARRUDA-BOYCE
+       MOONEY-RIVLIN-ANISO
        USER
 ```
 
@@ -1572,6 +1573,18 @@ TYPE = NEOHOOKE (Default)
 | mu       | R    | Material constant |
 | lambda_m | R    | Material constant |
 | D        | R    | Material constant |
+
+####### `TYPE = MOONEY-RIVLIN-ANISO`の場合
+
+(2nd line) C<sub>10</sub>, C<sub>01</sub>, D, C<sub>42</sub>, C<sub>43</sub>
+
+| 変数名      | 属性       | 内容          |
+|-------------|------------|---------------|
+|C<sub>10</sub>| R         | Material constant|
+|C<sub>01</sub>| R         | Material constant|
+|D             | R         | Material constant|
+|C<sub>42</sub>| R         | Material constant|
+|C<sub>43</sub>| R         | Material constant|
 
 ####### In case of `TYPE = USER`
 
