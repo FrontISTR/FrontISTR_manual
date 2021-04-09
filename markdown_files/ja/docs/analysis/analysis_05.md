@@ -165,8 +165,8 @@ FrontISTRでは、計算制御データに使用できる境界条件として�
 | [`!DENSITY`](#density-2-2-6)                 | 質量密度                   |      | 2-2-6    |
 | [`!EXPANSION_COEFF`](#expansion_coeff-2-2-7) | 線膨張係数                 |      | 2-2-7    |
 | [`!TRS`](#trs-2-2-8)                         | 粘弾性温度依存性           |      | 2-2-8    |
-| [`!FUILD`](#fluid-2-2-9)                     | 流体物性                   |      | 2-2-9    |
-| [`!USE_MATERIAL`](#use_material-2-2-10)      | ユーザー定義材料           |      | 2-2-10   |
+| [`!FLUID`](#fluid-2-2-9)                     | 流体物性                   |      | 2-2-9    |
+| [`!USER_MATERIAL`](#user_material-2-2-10)    | ユーザー定義材料           |      | 2-2-10   |
 | [`!BOUNDARY`](#boundary-2-3)                 | 変位境界条件               |      | 2-3      |
 | [`!SPRING`](#spring-2-3-1)                   | ばね境界条件               |      | 2-3-1    |
 | [`!CLOAD`](#cload-2-4)                       | 集中荷重                   |      | 2-4      |
@@ -324,7 +324,7 @@ TYPE＝解析の種類
 
 変位境界条件の定義
 
-| 接点番号または接点グループ名  | 拘束自由度の開始番号        | 拘束自由度の終了番号          | 拘束値                         |
+| 節点番号または節点グループ名  | 拘束自由度の開始番号        | 拘束自由度の終了番号          | 拘束値                         |
 |-------------------------------|-----------------------------|-------------------------------|--------------------------------|
 | NODE_ID                       | DOF_idS                     | DOF_idE                       | Value                          |
 | <font color="Red">FIX</font>, | <font color="Red">1</font>, | <font color="color">3</font>, | <font color="color">0.0</font> |
@@ -992,19 +992,29 @@ TYPE＝解析の種類
 ```
 TYPE=
      STATIC       : 線形静解析
-     NLSTATIC     : 非線形静解析
+     NLSTATIC     : 非線形静解析（TYPE=STATIC, NONLINEARと同じ）
      HEAT         : 熱伝導解析
      EIGEN        : 固有値解析
      DYNAMIC      : 動解析
      STATICEIGEN  : 非線形静解析 -> 固有値解析
      ELEMCHECK    : 要素形状のチェック
+NONLINEAR         : 非線形を考慮する（TYPE=STATIC/DYNAMICのみ）
 ```
 
 ###### 使用例
 
+線形静解析
+
 ```
 !SOLUTION, TYPE=STATIC
 ```
+
+非線形静解析
+
+```
+!SOLUTION, TYPE=STATIC, NONLINEAR
+```
+
 
 ##### `!WRITE, VISUAL` (1-3)
 
@@ -1092,6 +1102,8 @@ FREQUENCY = 出力するステップ間隔 (デフォルト: 1)
 |CONTACT_FRICTION | 接触摩擦力（ベクトル値）       |
 |CONTACT_RELVEL | 接触相対滑り速度（ベクトル値）＊スレーブ節点のみ|
 |CONTACT_STATE  | 接触状態（スカラ値）＊スレーブ節点のみ。-1:解離, 0:未定義, 1:接触（固着）, 2:接触（滑り）|
+|CONTACT_NTRACTION | 単位面積あたりの接触法線力（ベクトル値）|
+|CONTACT_FTRACTION | 単位面積あたりの接触摩擦力（ベクトル値）|
 
 ###### 使用例
 
@@ -1150,6 +1162,8 @@ FREQUENCY = 出力するステップ間隔 (デフォルト: 1)
 |CONTACT_FRICTION | 接触摩擦力（ベクトル値）       |
 |CONTACT_RELVEL | 接触相対滑り速度（ベクトル値）＊スレーブ節点のみ|
 |CONTACT_STATE  | 接触状態（スカラ値）＊スレーブ節点のみ。-1:解離, 0:未定義, 1:接触（固着）, 2:接触（滑り）|
+|CONTACT_NTRACTION | 単位面積あたりの接触法線力（ベクトル値）|
+|CONTACT_FTRACTION | 単位面積あたりの接触摩擦力（ベクトル値）|
 
 ###### 使用例
 
@@ -1303,7 +1317,7 @@ TYPE = TEMPERATURE/VELOCITY/ACCELERATION
 
 材料物性の定義は`!MATERIAL`と以降に置く`!ELASTICITY`、`!PLASTICITY`などとセットで使用する。`!MATERIAL`の前に置く`!ELASTICITY`、`!PLASTICTY`などは無視される。
 
-注: 解析制御データで`!MATERIAL`を定義すると、メッシュデータ内の`!MATERIAL`定義は無視される。解析制御データで`!MATERIAL`を定義しない場合は、メッシュデータ内の`!MATERAIL`定義が用いられる。
+注: 解析制御データで`!MATERIAL`を定義すると、メッシュデータ内の`!MATERIAL`定義は無視される。解析制御データで`!MATERIAL`を定義しない場合は、メッシュデータ内の`!MATERIAL`定義が用いられる。
 
 ###### パラメータ
 
@@ -1376,6 +1390,8 @@ DEPENDENCIES = 0 (Default値) / 1
 ##### `!PLASTIC` (2-2-2)
 
 塑性材料の定義
+
+`!PLASTIC`を定義するときは、同じ`!MATERIAL`の中で`!ELASTIC`も同時に定義しなければならない。
 
 ###### パラメータ
 
@@ -1523,6 +1539,7 @@ DEPENDENCIES = 0 (Default値) / 1
 TYPE = NEOHOOKE（Default値）
        MOONEY-RIVLIN
        ARRUDA-BOYCE
+       MOONEY-RIVLIN-ANISO
        USER
 ```
 
@@ -1559,6 +1576,18 @@ TYPE = NEOHOOKE（Default値）
 | lambda_m | R    | 材料定数 |
 | D        | R    | 材料定数 |
 
+####### `TYPE = MOONEY-RIVLIN-ANISO`の場合
+
+(2行目) C<sub>10</sub>, C<sub>01</sub>, D, C<sub>42</sub>, C<sub>43</sub>
+
+| 変数名      | 属性       | 内容          |
+|-------------|------------|---------------|
+|C<sub>10</sub>| R         | 材料定数      |
+|C<sub>01</sub>| R         | 材料定数      |
+|D             | R         | 材料定数      |
+|C<sub>42</sub>| R         | 材料定数      |
+|C<sub>43</sub>| R         | 材料定数      |
+
 ####### `TYPE = USER`の場合
 
 ```
@@ -1568,6 +1597,8 @@ TYPE = NEOHOOKE（Default値）
 ##### `!VISCOELASTIC` (2-2-4)
 
 粘弾性材料の定義
+
+`!VISCOELASTIC`を定義するときは、同じ`!MATERIAL`の中で`!ELASTIC`も同時に定義しなければならない。
 
 ###### パラメータ
 
@@ -1589,6 +1620,8 @@ DEPENDENCIES = 依存する変数の数(未実装)
 ##### `!CREEP` (2-2-5)
 
 クリープ材料の定義
+
+`!CREEP`を定義するときは、同じ`!MATERIAL`の中で`!ELASTIC`も同時に定義しなければならない。
 
 ###### パラメータ
 
@@ -1710,7 +1743,7 @@ TYPE = INCOMP_NEWTONIAN (Default値)
 |--------|------|------|
 | mu     | R    | 粘度 |
 
-##### !USER/MATERIAL　(2-2-10)
+##### !USER_MATERIAL　(2-2-10)
 
 ユーザー定義材料の入力
 

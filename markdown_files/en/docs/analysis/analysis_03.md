@@ -145,7 +145,7 @@ fileheader
  restart.in
 ```
 
-| Parameter | 内容                                   |
+| Parameter | Contents                               |
 |:----------|:---------------------------------------|
 | `NAME`    | Identifier (mandatory)                 |
 | `IO`      | Input/output specification (mandatory) |

@@ -48,3 +48,13 @@ The license is [MIT License](https://gitlab.com/FrontISTR-Commons/FrontISTR/-/bl
 
 Please see [FrontISTR Manual](https://frontistr-commons.gitlab.io/FrontISTR_manual/en/).
 
+## About element types
+
+### Default element type
+
+By default, hexahedral first-order elements are
+
+ - Linear analysis, Non-conforming elements
+ - Non-linear analysis, B-bar elements(< version 5.0a)
+ - Non-linear analysis, F-bar elements(>version 5.0b)
+

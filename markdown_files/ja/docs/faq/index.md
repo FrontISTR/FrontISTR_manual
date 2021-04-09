@@ -29,11 +29,16 @@ FrontISTR(フロントアイスター)とは、WindowsやLinuxのPCクラスタ�
 
 などがあります。
 
+FrontISTR Commons正会員限定で提供しているツールは
+
+- [Advance REVOCAP_PrePost for FrontISTR](https://www.frontistr.com/download/)
+※サポートはありません。
+
+があります。
+
 商用のソフトでは
 
-- A
-- B
-- C
+- 
 
 などが対応しています。
 
@@ -48,3 +53,16 @@ FrontISTR(フロントアイスター)とは、WindowsやLinuxのPCクラスタ�
 ### FrontISTRのマニュアルは何処にありますか?
 
 [FrontISTR マニュアル](https://frontistr-commons.gitlab.io/FrontISTR_manual/ja/)を参照してください。
+
+## 解析機能についての質問
+
+### 6面体1次要素の定式化は、デフォルトで何が使用されますか?
+
+デフォルトでは、6面体1次要素は
+
+ - 線形解析   非適合要素
+ - 非線形解析 B-bar要素(version 5.0a以前)
+ - 非線形解析 F-bar要素(version 5.0b以降)
+
+です。[解析制御データ !SECTION(1-11)](../analysis/analysis_05.html#section-1-11)参照
+

@@ -169,7 +169,7 @@ The header list of the common control data is shown in the following Table 7.3.1
 | [`!EXPANSION_COEFF`](#9-expansion_coeff-2-2-7)  | Coefficient of linear expansion                          |         | 2-2-7           |
 | [`!TRS`](#10-trs-2-2-8)                         | Tempearture dependent behaviour of viscoelastic material |         | 2-2-8           |
 | [`!FLUID`](#11-fluid-2-2-9)                     | Flow Condition                                           |         | 2-2-9           |
-| [`!USE_MATERIAL`](#12-use_material-2-2-10)      | User defined material                                    |         | 2-2-10          |
+| [`!USER_MATERIAL`](#12-user_material-2-2-10)    | User defined material                                    |         | 2-2-10          |
 | [`!BOUNDARY`](#13-boundary-2-3)                 | Displacement boundary conditions                         |         | 2-3             |
 | [`!SPRING`](#14-spring-2-3-1)                   | Spring boundary conditions                               |         | 2-3-1           |
 | [`!CLOAD`](#15-cload-2-4)                       | Concentrated load                                        |         | 2-4             |
@@ -435,19 +435,19 @@ Definition of displacement boundary conditions
   XMIN, 0.0
   XMAX, 500.0
 !CFLUX                                          4-3
-　ALL, 1.0E-3
+  ALL, 1.0E-3
 !DFLUX                                          4-4
-　ALL, S1, 1.0
+  ALL, S1, 1.0
 !SFLUX                                          4-5
-　SURF, 1.0
+  SURF, 1.0
 !FILM                                           4-6
   FSURF, F1, 1.0, 800
 !SFILM                                          4-7
-　SFSURF, 1.0, 800.0
+  SFSURF, 1.0, 800.0
 !RADIATE                                        4-8
-　RSURF, R1, 1.0E-9, 800.0
+  RSURF, R1, 1.0E-9, 800.0
 !SRADIATE                                       4-9
-　RSURF, R1, 1.0E-9, 800.0
+  RSURF, R1, 1.0E-9, 800.0
 !END                                            1-12
 ```
 
@@ -823,7 +823,7 @@ Each description number (P1-0, P1-1, etc.) is linked to the number of the detail
   - The items indicated with two `!` like "`!!`", will be recognized as a comment and will not affect the analysis.
 
 ```
-### Post Control 　　                           Description No.
+### Post Control                                Description No.
 !VISUAL, method=PSR                             P1-0
 !surface_num = 1                                P1-1
 !surface 1                                      P1-2
@@ -988,18 +988,27 @@ Specifies the type of analysis.
 ```
 TYPE=
      STATIC      : Linear static analysis
-     NLSTATIC    : Nonlinear static analysis
+     NLSTATIC    : Nonlinear static analysis (same as TYPE=STATIC, NONLINEAR)
      HEAT        : Heat conduction analysis
      EIGEN       : Eigenvalue analysis
      DYNAMIC     : Dynamic analysis
      STATICEIGEN : Nonlinear static analysis &rarr; Eigenvalue analysis
      ELEMCHECK   : Element shape check
+NONLINEAR        : Consider Nonlinearity（only available when TYPE=STATIC/DYNAMIC ）
 ```
 
 ###### Example of Use
 
+Linear static analysis
+
 ```
 !SOLUTION, TYPE=STATIC
+```
+
+Nonlinear static analysis
+
+```
+!SOLUTION, TYPE=STATIC, NONLINEAR
 ```
 
 ##### (3) `!WRITE, VISUAL` (1-3)
@@ -1080,6 +1089,19 @@ The following parameter names can be specified.
 |`TH_NSTRAIN`|Thermal strain of nodes (Not included)|
 |`VEL`       |Velocity                              |
 |`ACC`       |Acceleration                          |
+|`TEMP`          | Temperature                      |
+|`PRINC_NSTRESS` | Nodal principal stress(Scalar value)|
+|`PRINCV_NSTRESS`| Nodal principal stress(Vector value)|
+|`PRINC_NSTRAIN` | Nodal principal strain(Scalar value)|
+|`PRINCV_NSTRAIN`| Nodal principal strain(Vector value)|
+|`SHELL_LAYER`   | Output per layer of layerd shell element|
+|`SHELL_SURFACE` | Output of surface information of shell element|
+|`CONTACT_NFORCE` | Contact normal force(Vector value) |
+|`CONTACT_FRICTION` | Contact friction force(Vector value) |
+|`CONTACT_RELVEL` | Contact relative displacement (Vector value / slave point only)|
+|`CONTACT_STATE`  | Contact state(Scalar value / -1, 0, 1 and 2 means free, undefined, stick and slip respectively)|
+|`CONTACT_NTRACTION` | Contact normal traction(Vector value)|
+|`CONTACT_FTRACTION` | Contact friction traction(Vector value)|
 
 ###### Example of Use
 
@@ -1137,6 +1159,12 @@ The following parameter names can be specified.
 |`PRINCV_ESTRAIN`| Elemental principal strain(Vector value)|
 |`SHELL_LAYER`   | Output per layer of layerd shell element|
 |`SHELL_SURFACE` | Output of surface information of shell element|
+|`CONTACT_NFORCE` | Contact normal force(Vector value) |
+|`CONTACT_FRICTION` | Contact friction force(Vector value) |
+|`CONTACT_RELVEL` | Contact relative displacement (Vector value / slave point only)|
+|`CONTACT_STATE`  | Contact state(Scalar value / -1, 0, 1 and 2 means free, undefined, stick and slip respectively)|
+|`CONTACT_NTRACTION` | Contact normal traction(Vector value)|
+|`CONTACT_FTRACTION` | Contact friction traction(Vector value)|
 
 ###### Example of Use
 
@@ -1257,7 +1285,7 @@ TYPE = TEMPERATURE/VELOCITY/ACCELERATION
 |Parameter Name|Attributions|Contents                      |
 |---------------|-----------|---------------|
 | ng1,ng2, ...    | C/I         | name of node group/index of node |
-| dof1, dof2, ... | I         | dof number(1~6)　|
+| dof1, dof2, ... | I         | dof number(1-6) |
 | v1, v2, ...    | R         | velocity/acceleration |
 
 ##### (13) `!END` (1-13)
@@ -1359,6 +1387,8 @@ DEPENDENCIES = 0 (Default)/1
 
 Definition of plastic material
 
+`!PLASTIC` must be defined together with `!ELASTIC`.
+
 ###### Parameter
 
 ```
@@ -1390,13 +1420,13 @@ DEPENDENCIES = 0 (Default)/1
 ** In case of `HARDEN = SWIFT` **
 
 ```
-(2nd line) ε0, K, n
+(2nd line) $\epsilon$0, K, n
 ```
 
 ** In case of `HARDEN = RAMBERG-OSGOOD` **
 
 ```
-(2nd line) ε0, D, n
+(2nd line) $\epsilon$0, D, n
 ```
 
 ** In case of `HARDEN = KINEMATIC` **
@@ -1432,9 +1462,9 @@ DEPENDENCIES = 0 (Default)/1
 
 | Parameter Name    | Attributions | Contents                        |
 |------------|------|------------------------------------------------|
-| YIELD0 　  | R    | Initial yield stress                           |
+| YIELD0     | R    | Initial yield stress                           |
 | H          | R    | Hardening factor                               |
-| PSTRAIN 　 | R    | Plastic strain                                 |
+| PSTRAIN    | R    | Plastic strain                                 |
 | YIELD      | R    | Yield stress                                   |
 | \(\varepsilon0, K, n\)   | R    |\(\overline{\sigma} = k\left( \varepsilon_{0} + \overline{\varepsilon} \right)^{n}\)|
 | \(\varepsilon0, D, n\)   | R    |\(\varepsilon = \frac{\sigma}{E} + \varepsilon_{0}\left( \frac{\sigma}{D} \right)^{n}\)|
@@ -1507,19 +1537,20 @@ Definition of hyperelastic material
 TYPE = NEOHOOKE (Default)
        MOONEY-RIVLIN
        ARRUDA-BOYCE
+       MOONEY-RIVLIN-ANISO
        USER
 ```
 
 ###### 2nd Line or later
 
-####### `TYPE = NEOHOOKE`の場合
+####### In the case of `TYPE = NEOHOOKE`
 
 (2nd line) C<sub>10</sub>, D
 
 |Parameter Name|Attributions|Contents         |
 |--------------|-----------|---------------|
 |C<sub>10</sub>| R         |Material constant     |
-|D 　          | R         |Material constant     |
+|D             | R         |Material constant     |
 
 ####### In case of `TYPE = MOONEY-RIVLIN`
 
@@ -1543,6 +1574,18 @@ TYPE = NEOHOOKE (Default)
 | lambda_m | R    | Material constant |
 | D        | R    | Material constant |
 
+####### `TYPE = MOONEY-RIVLIN-ANISO`の場合
+
+(2nd line) C<sub>10</sub>, C<sub>01</sub>, D, C<sub>42</sub>, C<sub>43</sub>
+
+| 変数名      | 属性       | 内容          |
+|-------------|------------|---------------|
+|C<sub>10</sub>| R         | Material constant|
+|C<sub>01</sub>| R         | Material constant|
+|D             | R         | Material constant|
+|C<sub>42</sub>| R         | Material constant|
+|C<sub>43</sub>| R         | Material constant|
+
 ####### In case of `TYPE = USER`
 
 ```
@@ -1552,6 +1595,8 @@ TYPE = NEOHOOKE (Default)
 ##### (6) `!VISCOELASTIC` (2-2-4)
 
 Definition of viscoelastic material
+
+`!VISCOELASTIC` must be defined together with `!ELASTIC`.
 
 ###### Parameter
 
@@ -1574,6 +1619,8 @@ DEPENDENCIES = the number of parameters depended upon (Not included)
 
 Definition of creep material
 
+`!CREEP` must be defined together with `!ELASTIC`.
+
 ###### Parameter
 
 ```
@@ -1592,7 +1639,7 @@ DEPENDENCIES = 0 (Default) / 1
 | A           | R    |Material modulus| 
 | n           | R    |Material modulus|
 | m           | R    |Material modulus|
-| Tempearture | R    |Temperature(required when `DEPENDENCIES=1`要) |
+| Tempearture | R    |Temperature(required when `DEPENDENCIES=1`) |
 
 ##### (8) `!DENSITY` (2-2-6)
 
@@ -1643,18 +1690,20 @@ DEPENDENCIES = 0(Default) / 1
 ####### In case of `TYPE=ORTHOTROPIC`
 
 ```
-(2nd line) α11, α22, α33, Temperature
+(2nd line) $\alpha$11, $\alpha$22, $\alpha$33, Temperature
 ```
 
 |Parameter Name|Attributions | Contents|
 |---------------|------|--------------------------------|
 | expansion     | R    | Coefficient of thermo expansion|
-| α11, α22, α33 | R    | Coefficient of thermo expansion|
+| $\alpha$11, $\alpha$22, $\alpha$33 | R    | Coefficient of thermo expansion|
 | Tempearture   | R    | Temperature (required when DEPENDENCIES = 1)|
 
 ##### (10) `!TRS` (2-2-8)
 
 Thermorheological Simplicity description on temperature behavior of viscoelastic materials
+
+This definition must be placed after `!VISCOELASTIC`. If not, this definition will be ignored.
 
 ###### Parameter
 
@@ -1664,12 +1713,12 @@ DEFINITION = WLF(Default) /ARRHENUS
 
 ** 2nd line or later **
 
-(2nd line) θ<sub>0</sub>, C<sub>1</sub>, C<sub>2</sub>
+(2nd line) $\theta_0$, C<sub>1</sub>, C<sub>2</sub>
 
-| Parameter Name    | Attributions | Contents    |
-|------------------------------|------|----------|
-| θ<sub>0</sub>                | R    | Reference temperature |
-| C<sub>1</sub>, C<sub>2</sub> | R    | Material constants    |
+| Parameter Name               | Attributions | Contents    |
+|------------------------------|--------------|-----------------------|
+| $\theta_0$                   | R            | Reference temperature |
+| C<sub>1</sub>, C<sub>2</sub> | R            | Material constants    |
 
 ##### (11) `!FLUID` (2-2-9)
 
@@ -1691,7 +1740,7 @@ TYPE = INCOMP_NEWTONIAN (Default)
 |--------|------|------|
 | mu     | R    |Viscosity |
 
-##### (12) `!USER/MATERIAL` (2-2-10)
+##### (12) `!USER_MATERIAL` (2-2-10)
 
 Input of user defined material
 
@@ -1909,8 +1958,8 @@ TPENALTY    = Contact tangential direction Penalty (Default: 1.e3)
 |Parameter Name|Attributions|Contacts|
 |--------------|------------|-----------------------------------------------|
 | PAIR_NAME    | C          |Contact pair name (Defined in `!CONTACT_PAIR`) |
-| fcoef 　     | R          |Friction coefficient (Default: 0.0)            |
-| factor 　    | R          |Friction penalty stiffness                     |
+| fcoef        | R          |Friction coefficient (Default: 0.0)            |
+| factor       | R          |Friction penalty stiffness                     |
 
 ###### Example of Use
 
@@ -1992,39 +2041,54 @@ N/A
 
 ##### (22) `!STEP` (2-11)
 
-Setting of analysis steps
+Analysis step settings
 
-Setting is mandatory in the nonlinear static analysis and nonlinear dynamic analysis.
+Required for nonlinear static and nonlinear dynamic analysis
 
-When this definition is omitted in analyses other than the above, all the boundary conditions will become valid and is calculated in 1 step.
+If you omit this definition for any analysis other than the above, all boundary conditions are in effect and the calculation is done in one step
 
-When the material characteristics have viscoelasticity and creep, specify `TYPE=VISCO` and set the computation time conditions.
+If the material properties are visco-elasticity and creep, specify `TYPE=VISCO` and set the calculation time condition to
 
 ###### Parameter
 
 ```
-TYPE     = STATIC (default)/VISCO
-           (semi-static analysis)
-SUBSTEPS = Number of substeps of the boundary conditions
-           (Default: 1)
-CONVERG  = Convergence judgment threshold
-           (Default: 1.0e-6)
-MAXITER  = Maximum number of iterative calculations in nonlinear analysis
-           (Default: 50)
-AMP      = Time function name
-           (specified in !AMPLITUDE)
+TYPE     = STATIC (default)/VISCO (quasi-static analysis)
+SUBSTEPS = Number of substeps of the boundary conditions (Default: 1)
+CONVERG  = Convergence threshold (Default: 1.0e-6)
+MAXITER  = Maximum number of iterations in nonelinear analysis (Default: 50)
+AMP      = Time function name (specified in !AMPLITUDE)
+INC_TYPE = FIXED (fixed increment, default) / AUTO (automatic increment)
+MAXRES   = Setting of maximum allowable residuals (default: 1.0e+10)
+TIMEPOINTS = Name of the time list (specified by `!TIME_POINTS, NAME`)
+AUTOINC_PARAM = auto-incremental parameter set name (specified by `!AUTOINC_PARAM, NAME`)
+MAXCONTITER = Maximum number of contact iterations in contact analysis (default: 10)
 ```
 
 ** 2nd line or later **
 
+In case of `INC_TYPE=FIXED` (If `TYPE=STATIC`, it can be omitted.)
+
 ```
-(2nd line) DTIME, ETIME (specified when TYPE=VISCO)
+(2nd line) DTIME, ETIME
 ```
 
 |Parameter Name|Attribution|Contents|
 |--------|------|-----------------------------------------|
-| DTIME  | R    |Time increment value (Default: 1)|
+| DTIME  | R    |Time increment value (Default: 1/SUBSTEPS)|
 | ETIME  | R    |End value of time increment in this step (Default: 1)|
+
+In case of `INC_TYPE=AUTO` (regardless of `TYPE`)
+
+```
+(2nd line) DTIME_INIT, ETIME, MINDT, MAXDT
+```
+
+|Parameter Name|Attribution|Contents|
+|--------------|-----------|----------------------------------|
+| DTIME_INIT   | R         | Initial time increment           |
+| ETIME        | R         | Step time width                  |
+| MINDT        | R         | Lower limit of time increments   |
+| MAXDT        | R         | Maximum limit of time increments |
 
 ** 3rd line or later **
 
@@ -2034,7 +2098,9 @@ AMP      = Time function name
   CONTACT, id           GRPID defined in id=!CONTACT
 ```
 
-###### Parameter
+###### example
+
+####### Examples of fixed time increment usage
 
 ```
 !STEP, CONVERG=1.E-8
@@ -2043,6 +2109,140 @@ AMP      = Time function name
   LOAD, 1
   CONTACT, 1
 ```
+
+Enable automatic incremental adjustment, set the initial time increment to 0.01, step time width to 2.5, lower time increment 1E-5, upper time increment 0.3, and maximum number of sub-steps to 200.
+
+```
+!STEP, INC_TYPE=AUTO, SUBSTEPS=200
+   0.01, 2.5, 1E-5, 0.3
+```
+
+Enable automatic incremental adjustment and specify time list TP1 as the calculated and resulting output time
+
+```
+!STEP, INC_TYPE=AUTO, TIMEPOINTS=TP1
+    0.1, 2.0, 1E-3, 0.2
+```
+
+####### Note
+
+  - In the case of automatic incremental adjustment, `SUBSTEPS` is treated as the maximum number of substeps
+  - Time-list name `TIMEPOINTS` and automatic contact parameter set `AUTOINCPARAM` are valid only when `INC_TYPE=AUTO`.
+  - if `TIMEPOINTS` is specified, the destination `!TIME_POINT` must be defined before the `!STEP` card.
+  - if `AUTOINC_PARAM` is specified, the destination `!AUTOINC_PARAM` must be defined prior to the `!STEP` card. If this parameter is omitted, the default auto-incremental parameter set is used.
+
+##### `!AUTOINC_PARAM` (2-12)
+
+Specify auto-incremental parameters.
+
+###### Parameter
+
+|Parameter Name|Attribution|Contents|
+|--------------|-----------|--------|
+|NAME          | C         | Automatic incremental parameter name (required) |
+
+** 2nd line **
+
+Specify the reduction conditions and the rate of time incremental reduction.
+
+```
+(2nd line) RS, NS_MAX, NS_SUM, NS_COUT, N_S
+```
+
+|Parameter Name|Attribution|Contents|
+|--------------|-----------|--------|
+|RS            | R         | Time incremantal rate of decline (default:0.25) |
+|NS_MAX        | I         | Threshold for maximum number of Netwon method iterations (default: 10) |
+|NS_SUM        | I         | Threshold for the total number of Netwon method iterations (default: 50) |
+|NS_CONT       | I         | Number of contact iterations threshold (default: 10) |
+|N_S           | I         | Number of sub-steps until the reduction condition is met (default: 1) |
+
+** 3rd line **
+
+Specifies the condition for the increase and the rate of increase of the time increment at that time.
+
+```
+(3rd line) RL, NL_MAX, NL_SUM, NL_COUT, N_L
+```
+
+|Parameter Name|Attribution|Contents|
+|--------------|-----------|--------|
+|RL            | R         | Incremental rate of increase by time (default:1.25) |
+|NL_MAX        | I         | Threshold for maximum number of Netwon method iterations (default: 1) |
+|NL_SUM        | I         | Threshold for the total number of Netwon method iterations (default: 1) |
+|NL_CONT       | I         | Number of contact iterations threshold (default: 1) |
+|N_L           | I         | Number of sub-steps until the increase condition is met (default: 2) |
+
+** 4th line **
+
+```
+(4th line) RC, N_C
+```
+
+|Parameter Name|Attribution|Contents|
+|--------------|-----------|--------|
+| RC           | R         | Decrease of time increment at cutback (default: 0.25)|
+| N_C          | I         | Maximum permissible number of continuous cutbacks (default: 5) |
+
+###### example
+
+With the same settings as the default settings
+
+```
+!AUTOINC_PARAM, NAME=AP1
+  0.25, 10, 50, 10, 1
+  1.25,  1,  1,  1, 2
+  0.25,  5
+```
+
+##### `TIME_POINTS` (2-13)
+
+###### Parameter
+
+|Parameter Name|Attribution|Contents|
+|--------------|-----------|--------|
+| NAME         | C         | Time list name (required) |
+| TIME         | C         | STEP (input based on the time from the step start time, default value) / TOTAL (input based on total time from the initial time) |
+| GENERATE     | -         | Automatic generationi of time points by start time, end time and time interval |
+
+
+** 2nd line or later **
+
+When don't use `GENERATE`
+
+```
+(2nd line or later) TIME
+```
+
+|Parameter Name|Attribution|Contents|
+|--------------|-----------|--------|
+| TIME         | R         | time   |
+
+When using `GENERATE`
+
+```
+(2nd line) STIME, ETIME, INTERVAL
+```
+
+|Parameter Name|Attribution|Contents|
+|--------------|-----------|--------|
+| STIME        | R         | start time |
+| ETIME        | R         | end time   |
+| INTERVAL     | R         | interval between time points |
+
+###### example
+
+Time 1.5, 2.7 and 3.9 are defined as total times without using `GENERATE`.
+
+```
+!TIME_POINTS, TIME=STEP, GENERATE, NAME=TP1
+1.5, 3.9, 1.2
+```
+
+###### note
+
+  - The time points must be entered in ascending order.
+
 
 #### Control Data for Eigenvalue Analysis
 
@@ -2201,8 +2401,8 @@ AMP = Flux history table name (specified in !AMPLITUDE)
 |Paramater Name|Attributions|Contents|
 |------------------|------|------------------------------|
 | ELEMENT_GRP_NAME | C/I  |Element group name or element ID|
-| LOAD_type 　     | C    |Load type No.|
-| Value 　         | R    |Heat flux value|
+| LOAD_type        | C    |Load type No.|
+| Value            | R    |Heat flux value|
 
 ###### Parameter
 
@@ -2366,7 +2566,7 @@ AMP2 = Ambient temperature history table name (specified in !AMPLITUDE)
   RSURF, R1, 1.0E-9, 1.0
 ```
 
-####### 荷重パラメータ
+####### Load Parameters
 
 |Load Type No. | Applied Surface |Parameter|
 |----------------|----------|----------------------|
@@ -2550,7 +2750,7 @@ Note: Regarding the information of the monitoring node specified in this line, t
 |Parameter Name |Attributions |Contents|
 |---------|------|----------------------|
 | f_start | R    |Minimum frequency|
-| f_end 　| R    |Maximum frequency|
+| f_end   | R    |Maximum frequency|
 | n_freq  | I    |Number of divisions for the frequency range|
 | f_disp  | R    |Frequency to obtain displacement|
 
@@ -2571,8 +2771,8 @@ Note: Regarding the information of the monitoring node specified in this line, t
 |---------|------|-------------------------------------------------|
 | idx_mas | I    | Type of mass matrix (Default: 1)<br/>1: Lumped mass matrix|
 | idx_dmp | I    | 1: Rayleigh damping (Default: 1)|
-| ray_m 　| R    | Parameter R<sub>m</sub> of Rayleigh damping (Default: 0.0)
-| ray_k 　| R    | Parameter R<sub>k</sub> of Rayleigh damping (Default: 0.0)|
+| ray_m   | R    | Parameter R<sub>m</sub> of Rayleigh damping (Default: 0.0)
+| ray_k   | R    | Parameter R<sub>k</sub> of Rayleigh damping (Default: 0.0)|
 
 ```
 (6th line) nout, vistype, nodeout
@@ -2718,7 +2918,7 @@ ISTEP = Step No.
         From the beginning of analysis to the step specified here, a linearly increasing
         function from 0 to 1 is multiplied to the input fluid traction.
         After this step, the input fluid traction is directly applied.
-WINDOW => 0 ：Multiply window function(*) to input fluid traction
+WINDOW => 0: Multiply window function(*) to input fluid traction
 ```
 
 (\*) \(\frac{1}{2}(1 - \cos\frac{2\pi i}{N})\), \(i\): current step, \(N\): no. of steps of current analysis
@@ -2726,7 +2926,7 @@ WINDOW => 0 ：Multiply window function(*) to input fluid traction
 ** 2nd line or later **
 
 ```
-(2行目) COUPLING_SURFACE_ID
+(2nd line) COUPLING_SURFACE_ID
 ```
 
 |Parameter Name|Attributions|Contents|
@@ -2826,7 +3026,7 @@ PRECOND =   Preconditioner for iterative methods (1, 2, 3, 5, 10, 11, 12)
             10         : Block ILU(0)
             11         : Block ILU(1)
             12         : Block ILU(2)
-            10､11 and 12 are available only in 3D problems.
+            10, 11 and 12 are available only in 3D problems.
             In thread-parallel computation, SSOR, Diagonal Scaling or ML is recommended.
 
 ITERLOG =   Whether solver convergence history is output (YES/NO) (Default: NO)
@@ -2973,7 +3173,7 @@ Use CG with AMG preconditioning by ML, and set coarse solver to MUMPS and max No
 
 #### Post Process (Visualization) Control Data
 
-##### (1) `!VISUAL` (P1-0）
+##### (1) `!VISUAL` (P1-0)
 
 Specifies the visualization method.
 
@@ -2987,7 +3187,7 @@ METHOD = PSR             : Surface rendering
                            (Default: 1)
 ```
 
-##### (2) `!surface_num`, `!surface`, `!surface_style` (P1-1 - 3）
+##### (2) `!surface_num`, `!surface`, `!surface_style` (P1-1 - 3)
 
 ###### `!surface_num` (P1-1)
 
@@ -3096,12 +3296,12 @@ Example:
         1: X Component,  2: Y Component, 3: Z Component
 
     When !color_comp_name=STRAIN is specified
-        1: εx,  2: εy,  3: εz
-        4: εxy, 5: εyz, 6: εzx
+        1: $\epsilon$x,  2: $\epsilon$y,  3: $\epsilon$z
+        4: $\epsilon$xy, 5: $\epsilon$yz, 6: $\epsilon$zx
 
     When !color_comp_name=STRESS is specified
-        1: σx,  2: σy,  3: σz
-        4: τxy, 5: τyz, 6: τzx
+        1: $\sigma$x,  2: $\sigma$y,  u: $\sigma$z
+        4: $\tau$xy, 5: $\tau$yz, 6: $\tau$zx
 
     When !color/comp\_name=TEMPERATURE is specified
         1: Temperature
@@ -3227,8 +3427,8 @@ When the ambient_coef is increased, information on the 3D depth direction is imp
 |      |      |
 |------|------|
 |`!color_mapping_bar_on`|Specifies whether to display the color mapping bar.<br/>0: off 1: on (Default: 0)|
-|`!scale_marking_on`    |`color_mapping_bar`のメモリの有無を指定する<br/>0: off 1: on (省略値: 0)|
-|`!num_of_scales`       |メモリの数を指定する。<br/> (省略値: 3)|
+|`!scale_marking_on`    |set the memory status of `color_mapping_bar`<br/>0: off 1: on (default: 0)|
+|`!num_of_scales`       |Specifies the number of memory. <br/> (default: 3)|
 
 ![Example of Color Mapping Bar Display](media/analysis05_16.png){.center width="80%"}
 

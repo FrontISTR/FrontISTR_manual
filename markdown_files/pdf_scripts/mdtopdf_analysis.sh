@@ -1,7 +1,7 @@
 #!/bin/sh
 
 CWD=`pwd`
-FILES="index.md analysis_01.md analysis_02.md analysis_07.md analysis_03.md analysis_04.md analysis_05.md analysis_06.md"
+FILES="index.md analysis_01.md analysis_02.md analysis_07.md analysis_03.md analysis_04.md analysis_05.md analysis_06.md analysis_08.md"
 
 for i in en ja
 do
