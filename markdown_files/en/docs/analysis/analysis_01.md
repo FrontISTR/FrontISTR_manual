@@ -121,15 +121,45 @@ The details of the analysis control data described in Chapter 7
 !END
 ```
 
-### Output File
+### Log File
 
-When the execution is completed, the log file (`Ext.log`) will be output. The analysis results file (`Ext.res`) for visualization will also be output by specifying the output.
+When the execution is completed, the log file (`Ext.log`) will be output.
 
 The contents of the log files shown in the following will be output.
 
   - Displacement, strain, Max/Min values of stress component
   - Eigenvalues
   - Engenvector values
+
+### Analysis Results File
+
+The analysis results file (`Ext.res`) for visualization will also be output by specifying the output.
+
+```
+*fstrresult 2.0
+*comment
+<comment>
+*global
+<the number of global parameters>
+<dof of global parameter> ...
+<label of global parameter>
+...
+<value of global parameter>
+...
+*data
+<the number of nodes> <the number of elements>
+<the number of node variables> <the number of element variables>
+<dof of node variable> ...
+<label of node variable>
+...
+<value of node variable>
+...
+<dof of element variable> ...
+<label of element variable>
+...
+<value of element variable>
+...
+```
 
 ### Execution Procedure
 
