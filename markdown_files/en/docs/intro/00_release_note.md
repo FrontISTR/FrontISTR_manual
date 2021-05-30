@@ -1,69 +1,103 @@
 ## Release Note
 
+### Contents updated in Ver. 5.2
+
+- Improvements
+    - issue 079: Output of contact normal force and friction force per unit area
+    - issue 142: Specify num of parts in hecmw_part1 command line argument
+    - issue 218: Describe the result (res) file format in the documentation.
+    - issue 298: Cluster Paradiso support for Docker containers.
+    - issue 303: Make Metis ordering available in internal direct method
+    - issue 305: Enable RCM ordering with internal direct method.
+    - issue 313: JAD SpMV is not OpenMP parallelized
+    - issue 314: BLAS Lv.1 operations are not OpenMP parallelized
+    - issue 315: Apply parallelized BLAS Lv.1 functions to CG methods
+    - issue 324: Anisotropic hyperelasticity
+- Specification changes
+    - issue 239: Different format of build date and execute date in standard output.
+    - issue 262: Exclude result output for internal patch elements created by contact and MPC.
+    - issue 274: Fix INFINITE to INFINITESIMAL.
+    - issue 302: Refactoring the internal direct method solver
+    - issue 307: Update mingw build image for Windows binary creation
+    - issue 309: FATAL error is too severe when you have MUMPS and no scalapack
+    - issue 326: Remove unnecessary or unimportant version notations
+- Bugs fixed
+    - issue 045: Weird behavior of internal direct method?
+    - issue 111: AMPLITUDE boundary condition can be specified with other than AMP=.
+    - issue 280: Can't compile on FrontISTR-5.1 or master branch with Trilinos-13.0.0.
+    - issue 290: The version number at runtime is different from the actual version.
+    - issue 292: The link to the manual in README.md has not been updated.
+    - issue 300: Bugin DLOAD when multiple face groups are set.
+    - issue 304: Fix for RCM ordering.
+    - issue 306: msmpi.dll is not shipped.
+    - issue 327: Bug fix for DEBUG build not going through.
+    - issue 328: Error when specifying ISTRESS/ISTRAIN output when defining SURF-SURF contact.
+    - issue 332: Couldn't build with setup.sh anymore.
+
 ### Contents updated in Ver. 5.1.1
 
-- additional features 
-  - issue 108: Output a time to VTK
-- specification change
-  - issue 156: Make test error detection relative to the reference.
-  - issue 237: add cmake rules for new MUMPS version
-  - Issue 247: Fix autoinc example
-  - issue 282: Massive error messages when running MPI in parallel with Docker container-provided FrontISTR.
-  - issue 284: Support DAG feature in Gitlab CI/CD.
-  - issue 288: Find Intel MKL with cmake.
+- Improvements
+    - issue 108: Output a time to VTK
+- Specification changes
+    - issue 156: Make test error detection relative to the reference.
+    - issue 237: add cmake rules for new MUMPS version
+    - issue 247: Fix autoinc example
+    - issue 282: Massive error messages when running MPI in parallel with Docker container-provided FrontISTR.
+    - issue 284: Support DAG feature in Gitlab CI/CD.
+    - issue 288: Find Intel MKL with cmake.
 - Bug fixes
-  - issue 026: ELEMCHECK Sparsity Overflow
-  - issue 052: Delete compile warnings (ongoing)
-  - issue 244: Compiling error by gfortran-10
-  - issue 245: bug : unable to compile in setup.sh
-  - issue 259: fix a bug in Positive DOF elimination with MPC
-  - issue 278: Minor bug fixes
-  - issue 279: mkl not found in cmake
-  - issue 281: Spelling mistakes
-  - issue 283: Minor fixes to the Fbar element
-  - issue 285: The 741 Shell eigenvalue parsing may fail.
-  - issue 287: Unable to run tests in bash on the mac
-  - issue 289: heat/exU2 sometimes fails on test_hybrid due to numerical error
+    - issue 026: ELEMCHECK Sparsity Overflow
+    - issue 052: Delete compile warnings (ongoing)
+    - issue 244: Compiling error by gfortran-10
+    - issue 245: bug : unable to compile in setup.sh
+    - issue 259: fix a bug in Positive DOF elimination with MPC
+    - issue 278: Minor bug fixes
+    - issue 279: mkl not found in cmake
+    - issue 281: Spelling mistakes
+    - issue 283: Minor fixes to the Fbar element
+    - issue 285: The 741 Shell eigenvalue parsing may fail.
+    - issue 287: Unable to run tests in bash on the mac
+    - issue 289: heat/exU2 sometimes fails on test_hybrid due to numerical error
 
 ### Contents updated in Ver. 5.1
 
--Improvement
-  - issue 207: Add build date output
-  - issue 204: Add samples for unsteady heat transfer analysis
-  - issue 195: Refiner-related debug output
-  - issue 194: Positive DOF elimination is now available when refining models with MPCs
-  - issue 183: Clean up and extend the ML interface
-  - issue 169: linux binary distribution
-  - issue 143: Add a conrod model to tutorial
-  - Issue 140: Manuals Generation by CI
-  - issue 136: Test support for OpenMP thread and MPI parallelism
-  - issue 132: Outputting the number of cores used when using OpenMP thread and MPI in parallel.
-  - issue 067: Elastoplastic consistent tangential stiffness implementation (Mises only)
-  - Issue 036: Interpolation using time information in reading heat transfer result files for automatic time increments
+- Improvement
+    - issue 207: Add build date output
+    - issue 204: Add samples for unsteady heat transfer analysis
+    - issue 195: Refiner-related debug output
+    - issue 194: Positive DOF elimination is now available when refining models with MPCs
+    - issue 183: Clean up and extend the ML interface
+    - issue 169: linux binary distribution
+    - issue 143: Add a conrod model to tutorial
+    - issue 140: Manuals Generation by CI
+    - issue 136: Test support for OpenMP thread and MPI parallelism
+    - issue 132: Outputting the number of cores used when using OpenMP thread and MPI in parallel.
+    - issue 067: Elastoplastic consistent tangential stiffness implementation (Mises only)
+    - issue 036: Interpolation using time information in reading heat transfer result files for automatic time increments
 - External specification changes
-  - issue 131: Removing the FrontISTR starter
+    - issue 131: Removing the FrontISTR starter
 - Internal Specifications Change
-  - Issue 158: Changed internally generated nodal group naming convention when entering a contact surface-surface pair
-  - issue 122: Enhanced Testing
-  - issue 121: gitlab-ci fix (extended testing)
-  - Issue 107: Implementing FILM and RADIATE functions using HCEMW
-  - issue 056: Duplicate code removed: fistr1/src/lib/physics/ElasticNeoHooke.f90
-  - Issue 046: Check programmer information
-  - issue 044: Output integration (static and dynamic)
-  - Issue 037: Change the res_bin_io.inc and res_txt_io.inc extensions.
+    - issue 158: Changed internally generated nodal group naming convention when entering a contact surface-surface pair
+    - issue 122: Enhanced Testing
+    - issue 121: gitlab-ci fix (extended testing)
+    - issue 107: Implementing FILM and RADIATE functions using HCEMW
+    - issue 056: Duplicate code removed: fistr1/src/lib/physics/ElasticNeoHooke.f90
+    - issue 046: Check programmer information
+    - issue 044: Output integration (static and dynamic)
+    - issue 037: Change the res_bin_io.inc and res_txt_io.inc extensions.
 - Bug Fixes
-  - issue 203: 611 Fixed a bug in a beam element and added a test example
-  - issue 185: Fix bug in eigenvalue analysis result file (.res)
-  - issue 184: Linear Dynamic Analysis (Implicit Method) for Linear Analysis
-  - issue 181: 541 Fixing the mass sequence when using interface elements
-  - issue 159: Improve readability of internal variables (e.g. DISTCLR_CONT)
-  - issue 123: Fixed a bug in applying ML preprocessing to heat transfer analysis.
-  - issue 114: Fixed a bug when setting a subdirectory to output VTK files.
-  - issue 113: Fixed some output issues
-  - issue 055: Initializing the variable iexit in subroutine fstr_solve_dynamic_nlimplicit
-  - issue 054: Fix the fstr_ctrl_get_data_array_ex argument used in the read_user_matl function
-  - issue 053: Dynamic nonlinear parallelism with memory leak correction (combined with SOR preprocessing)
-  - issue 026: Fix ELEMCHECK sparsity value
+    - issue 203: 611 Fixed a bug in a beam element and added a test example
+    - issue 185: Fix bug in eigenvalue analysis result file (.res)
+    - issue 184: Linear Dynamic Analysis (Implicit Method) for Linear Analysis
+    - issue 181: 541 Fixing the mass sequence when using interface elements
+    - issue 159: Improve readability of internal variables (e.g. DISTCLR_CONT)
+    - issue 123: Fixed a bug in applying ML preprocessing to heat transfer analysis.
+    - issue 114: Fixed a bug when setting a subdirectory to output VTK files.
+    - issue 113: Fixed some output issues
+    - issue 055: Initializing the variable iexit in subroutine fstr_solve_dynamic_nlimplicit
+    - issue 054: Fix the fstr_ctrl_get_data_array_ex argument used in the read_user_matl function
+    - issue 053: Dynamic nonlinear parallelism with memory leak correction (combined with SOR preprocessing)
+    - issue 026: Fix ELEMCHECK sparsity value
 
 
 ### Contents updated in Ver. 5.0
