@@ -14,7 +14,7 @@ v1, v2, v3, v4, v5, v6, v7, v8, v9, v10
 
 ### Subroutine regarding Elastoplasticity Deformation (`uyield.f90`)
 
-The subroutines are provided in order to calculate the elastoplasticity stiffness matrix and stress return mapping. When using the user defined yield function, first, it is necessary to set the `!PLASTIC`, `TYPE=USER` in the input file, input the required material constants and then, create the subroutines uElastoPlasticMatrix and uBackwardEuler.
+The subroutines are provided in order to calculate the elastoplasticity stiffness matrix and stress return mapping. When using the user defined yield function, first, it is necessary to set the `!PLASTIC`, `YIELD=USER` in the input file, input the required material constants and then, create the subroutines uElastoPlasticMatrix and uBackwardEuler.
 
 #### (1) Calculation subroutines of elastoplasticity stiffness matrix
 
@@ -82,58 +82,61 @@ subroutine uElasticUpdate ( matl, strain, stress )
 ### Subroutine regarding User Defined Materials (`umat.f`)
 
 The interface of the deformation analysis of general materials is provided irrespective of elastic, hyperelastic and elastoplastic materials.
+When using the user defined materials, first, it is necessary to set the `!USER_MATERIAL` in the input file, input the required material constants and then, create the subroutines uMatlMatrix and uUpdate.
 
 #### (1) Calculation subroutine of stiffness matrix
 
 ```
-subroutine uMatlMatrix( mname, matl, ftn, stress, fstat, D, temperature, dtime )
-	CHARACTER(len=\*), INTENT(IN) :: mname
-	REAL(KIND=kreal), INTENT(IN)  :: matl(:)
-	REAL(KIND=kreal), INTENT(IN)  :: ftn(3,3)
-	REAL(KIND=kreal), INTENT(IN)  :: stress(6)
-	REAL(KIND=kreal), INTENT(IN)  :: fstat(:)
-	REAL(KIND=kreal), INTENT(OUT) :: D(:,:)
-	REAL(KIND=kreal), optional    :: temperature
-	REAL(KIND=kreal), optional    :: dtime
+subroutine uMatlMatrix( mname, matl, strain, stress, fstat, D, dtime, ttime, temperature )
+        character(len=*), intent(in)  :: mname
+        real(kind=kreal), intent(in)  :: matl(:)
+        real(kind=kreal), intent(in)  :: strain(6)
+        real(kind=kreal), intent(in)  :: stress(6)
+        real(kind=kreal), intent(in)  :: fstat(:)
+        real(kind=kreal), intent(out) :: D(:,:)
+        real(kind=kreal), intent(in)  :: dtime
+        real(kind=kreal), intent(in)  :: ttime
+        real(kind=kreal), optional    :: temperature
 ```
 
   - `mname`: Material name
   - `matl`: Array to save the material constants (100 max)
-  - `ftn`: Deformation gradient tensor
+  - `strain`: Green-Lagrange strain
   - `stress`: 2nd Piola-Kirchhoff stress
   - `fstat`: State variable
   - `D`: Constitutive equation
-  - `temperature`: Temperature
   - `dtime`: Time increment
+  - `ttime`: Total time at the start of the current increment
+  - `temperature`: Temperature
 
 #### (2) Update calculation subroutine of strain and stress
 
 ```
-subroutine uUpdate( mname, matl, ftn, strain, stress, fstat, temperature, dtime )
-	character(len=\*), intent(in)   :: mname
-	real(KIND=kreal), intent(in)    :: matl
-	real(kind=kreal), intent(in)    :: ftn(3,3)
-	real(kind=kreal), intent(inout) :: strain(6)
-	real(kind=kreal), intent(inout) :: stress(6)
-	real(kind=kreal), intent(inout) :: fstat(:)
-	real(KIND=kreal), optional      :: temperature
-	real(KIND=kreal), optional      :: dtime
+subroutine uUpdate(  mname, matl, strain, stress, fstat, dtime, ttime, temperature )
+        character(len=\*), intent(in)    :: mname
+        real(kind=kreal), intent(in)    :: matl(:)
+        real(kind=kreal), intent(in)    :: strain(6)
+        real(kind=kreal), intent(inout) :: stress(6)
+        real(kind=kreal), intent(inout) :: fstat(:)
+        real(kind=kreal), intent(in)    :: dtime
+        real(kind=kreal), intent(in)    :: ttime
+        real(kind=kreal), optional      :: temperature
 ```
 
   - `mname`: Material name
   - `matl`: Array to save the material constants (100 max)
-  - `ftn`: Deformation gradient tensor
   - `strain`: Strain
   - `stress`: 2nd Piola-Kirchhoff stress
   - `fstat`: State variable
-  - `temperature`: Temperature
   - `dtime`: Time increment
+  - `ttime`: Total time at the start of the current increment
+  - `temperature`: Temperature
 
 ### Process Subroutine of User Defined External Load (`uload.f`)
 
 An interface is provided to process the external load defined by the user.
 
-In order to use the external load defined by the user, first, numerical structure tULoad is defined in order to define the external load, and the definition is read using the `!ULOAD` of the input file. Subsequently, the external load is incorporated using the following interfaces.
+In order to use the external load defined by the user, first, numerical structure tULoad is defined in order to define the external load, and the definition is read from a file, the filename of which is specified using the `!ULOAD, FILE=filename` of the input file. Subsequently, the external load is incorporated using the following interfaces.
 
 #### (1) Subroutine for reading external load
 

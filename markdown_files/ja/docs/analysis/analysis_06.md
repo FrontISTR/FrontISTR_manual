@@ -18,7 +18,7 @@ v1, v2, v3, v4, v5, v6, v7, v8, v9, v10
 ### 弾塑性変形に関わるサブルーチン (`uyield.f90`)
 
 弾塑性剛性マトリクスおよび応力のreturn mappingを計算するためのサブルーチンを提供している。
-ユーザー定義降伏関数を利用する場合、まず入力ファイルに`!PLASTIC, TYPE=USER`を設定して必要な材料定数を入力し、
+ユーザー定義降伏関数を利用する場合、まず入力ファイルに`!PLASTIC, YIELD=USER`を設定して必要な材料定数を入力し、
 次にサブルーチン`uElastoPlasticMatrix`および`uBackwardEuler`を作成する必要がある。
 
 #### (1) 弾塑性剛性マトリクスの計算サブルーチン
@@ -51,8 +51,7 @@ subroutine uBackwardEuler ( matl, stress, istat, fstat )
   - `matl`: 材料定数を保存する配列（最大100）
   - `stress`: trial stress弾性変形を仮定し得られた2nd Piola-Kirchhoff応力
   - `istat`: 降伏状態(0: 未降伏；　1: 降伏した)
-  - `fstat`: 状態変数.　fstat(1)=塑性ひずみ、fstat(2:7)= back
-  - `stress`(移動または複合硬化時)
+  - `fstat`: 状態変数.　`fstat(1)=`塑性ひずみ、`fstat(2:7)=` back stress(移動または複合硬化時)
 
 ### 弾性変形に関わるサブルーチン (`uelastic.f90`)
 
@@ -88,58 +87,61 @@ subroutine uElasticUpdate ( matl, strain, stress )
 ### ユーザー定義材料に関わるサブルーチン (`umat.f`)
 
 弾性、超弾性、弾塑性材に拘らず一般的な材料の変形解析のインターフェースを提供する。
+ユーザー定義材料を利用する場合、まず入力ファイルに`!USER_MATERIAL`を設定して必要な材料定数を入力し、次にサブルーチン`uMatlMatrix`および`uUpdate`を作成する必要がある。
 
 #### (1) 剛性マトリクスの計算サブルーチン
 
 ```
-subroutine uMatlMatrix( mname, matl, ftn, stress, fstat, D, temperature, dtime )
-	CHARACTER(len=\*), INTENT(IN) :: mname
-	REAL(KIND=kreal), INTENT(IN) 　 :: matl(:)
-	REAL(KIND=kreal), INTENT(IN) 　:: ftn(3,3)
-	REAL(KIND=kreal), INTENT(IN) 　 :: stress(6)
-	REAL(KIND=kreal), INTENT(IN) 　:: fstat(:)
-	REAL(KIND=kreal), INTENT(OUT)　:: D(:,:)
-	REAL(KIND=kreal), optional 　　 :: temperature
-	REAL(KIND=kreal), optional :: dtime
+subroutine uMatlMatrix( mname, matl, strain, stress, fstat, D, dtime, ttime, temperature )
+        character(len=*), intent(in)  :: mname
+        real(kind=kreal), intent(in)  :: matl(:)
+        real(kind=kreal), intent(in)  :: strain(6)
+        real(kind=kreal), intent(in)  :: stress(6)
+        real(kind=kreal), intent(in)  :: fstat(:)
+        real(kind=kreal), intent(out) :: D(:,:)
+        real(kind=kreal), intent(in)  :: dtime
+        real(kind=kreal), intent(in)  :: ttime
+        real(kind=kreal), optional    :: temperature
 ```
 
   - `mname`: 材料名
   - `matl`: 材料定数を保存する配列（最大100）
-  - `ftn`: 変形勾配テンソル
+  - `strain`: Green-Lagrangeひずみ
   - `stress`: 2nd Piola-Kirchhoff応力
   - `fstat`: 状態変数
   - `D`: 構成式
-  - `temperature`: 温度
   - `dtime`: 時間増分
+  - `ttime`: 現在の時間増分開始時点のトータル時刻
+  - `temperature`: 温度
 
 #### (2) ひずみおよび応力の更新計算サブルーチン
 
 ```
-subroutine uUpdate( mname, matl, ftn, strain, stress, fstat, temperature, dtime )
-	character(len=\*), intent(in) :: mname
-	real(KIND=kreal), intent(in) :: matl
-	real(kind=kreal), intent(in) 　 :: ftn(3,3)
-	real(kind=kreal), intent(inout) :: strain(6)
-	real(kind=kreal), intent(inout) :: stress(6)
-	real(kind=kreal), intent(inout) :: fstat(:)
-	real(KIND=kreal), optional :: temperature
-	real(KIND=kreal), optional :: dtime
+subroutine uUpdate(  mname, matl, strain, stress, fstat, dtime, ttime, temperature )
+        character(len=\*), intent(in)    :: mname
+        real(kind=kreal), intent(in)    :: matl(:)
+        real(kind=kreal), intent(in)    :: strain(6)
+        real(kind=kreal), intent(inout) :: stress(6)
+        real(kind=kreal), intent(inout) :: fstat(:)
+        real(kind=kreal), intent(in)    :: dtime
+        real(kind=kreal), intent(in)    :: ttime
+        real(kind=kreal), optional      :: temperature
 ```
 
   - `mname`: 材料名
   - `matl`: 材料定数を保存する配列（最大100）
-  - `ftn`: 変形勾配テンソル
   - `strain`: ひずみ
   - `stress`: 2nd Piola-Kirchhoff応力
   - `fstat`: 状態変数
-  - `temperature`: 温度
   - `dtime`: 時間増分
+  - `ttime`: 現在の時間増分開始時点のトータル時刻
+  - `temperature`: 温度
 
 ### ユーザー定義外部荷重の処理サブルーチン (`uload.f`)
 
 ユーザー定義外部荷重を処理するインターフェースを提供する。
 
-ユーザー定義外部荷重を利用するため、まず外部荷重を定義するための数値構造`tULoad`を定義し、入力ファイルの`!ULOAD`を利用してその定義を読み込む。
+ユーザー定義外部荷重を利用するため、まず外部荷重を定義するための数値構造`tULoad`を定義し、入力ファイルの`!ULOAD, FILE=ファイル名`を利用してファイル名で指定されたファイルからその定義を読み込む。
 その後、以下のインターフェースを利用して、外部荷重を組み込む。
 
 #### (1) 外部荷重の読み込みサブルーチン
