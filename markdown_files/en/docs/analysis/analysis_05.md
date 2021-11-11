@@ -2139,7 +2139,7 @@ Enable automatic incremental adjustment and specify time list TP1 as the calcula
   - if `TIMEPOINTS` is specified, the destination `!TIME_POINT` must be defined before the `!STEP` card.
   - if `AUTOINCPARAM` is specified, the destination `!AUTOINC_PARAM` must be defined prior to the `!STEP` card. If this parameter is omitted, the default auto-incremental parameter set is used.
 
-##### `!AUTOINC_PARAM` (2-12)
+##### (23) `!AUTOINC_PARAM` (2-12)
 
 Specify auto-incremental parameters.
 
@@ -2203,7 +2203,7 @@ With the same settings as the default settings
   0.25,  5
 ```
 
-##### `TIME_POINTS` (2-13)
+##### (24) `!TIME_POINTS` (2-13)
 
 ###### Parameter
 
@@ -2252,7 +2252,7 @@ Time 1.5, 2.7 and 3.9 are defined as total times without using `GENERATE`.
   - The time points must be entered in ascending order.
 
 
-##### `!CONTACT_PARAM` (2-14)
+##### (25) `!CONTACT_PARAM` (2-14)
 
 Specify contact scan parameter set.
 
