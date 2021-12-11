@@ -180,6 +180,9 @@ The header list of the common control data is shown in the following Table 7.3.1
 | [`!TEMPERATURE`](#20-temperature-2-9)           | Nodal temperature in thermal stress analysis             |         | 2-9             |
 | [`!REFTEMP`](#21-reftemp-2-10)                  | Reference temperature in thermal stress analysis         |         | 2-10            |
 | [`!STEP`](#22-step-2-11)                        | Analysis step control                                    |         | 2-11            |
+| [`!AUTOINC_PARAM`](#23-autoinc_param-2-12)      | Auto increment control                                   |         | 2-12            |
+| [`!TIME_POINTS`](#24-time_points-2-13)          | Output time point control                                |         | 2-13            |
+| [`!CONTACT_PARAM`](#25-contact_param-2-14)      | Contact scan control                                     |         | 2-14            |
 
 **Table 7.3.3: Control Data for Eigenvalue Analysis**
 
@@ -1947,6 +1950,7 @@ NTOL        = Contact normal direction convergence threshold (Default: 1.e-5)
 TTOL        = Contact tangential direction convergence threshold (Default: 1.e-3)
 NPENALTY    = Contact normal direction Penalty (Default: stiffness matrix 1.e3)
 TPENALTY    = Contact tangential direction Penalty (Default: 1.e3)
+CONTACTPARAM = Contact scan parameter set name（specified by `!CONTACT_PARAM, NAME`）
 ```
 
 **2nd line or later**
@@ -1968,6 +1972,10 @@ TPENALTY    = Contact tangential direction Penalty (Default: 1.e3)
 !CONTACT, GRPID=1, INTERACTION=FSLID
   CP1, 0.1, 1.0e+5
 ```
+
+####### Note
+
+  - if `CONTACTPARAM` is specified, the destination `!CONTACT_PARAM` must be defined prior to the `!CONTACT` card. If this parameter is omitted, the default contact scan parameter set is used.
 
 ##### (20) `!TEMPERATURE` (2-9)
 
@@ -2060,7 +2068,7 @@ AMP      = Time function name (specified in !AMPLITUDE)
 INC_TYPE = FIXED (fixed increment, default) / AUTO (automatic increment)
 MAXRES   = Setting of maximum allowable residuals (default: 1.0e+10)
 TIMEPOINTS = Name of the time list (specified by `!TIME_POINTS, NAME`)
-AUTOINC_PARAM = auto-incremental parameter set name (specified by `!AUTOINC_PARAM, NAME`)
+AUTOINCPARAM = auto-incremental parameter set name (specified by `!AUTOINC_PARAM, NAME`)
 MAXCONTITER = Maximum number of contact iterations in contact analysis (default: 10)
 ```
 
@@ -2129,9 +2137,9 @@ Enable automatic incremental adjustment and specify time list TP1 as the calcula
   - In the case of automatic incremental adjustment, `SUBSTEPS` is treated as the maximum number of substeps
   - Time-list name `TIMEPOINTS` and automatic contact parameter set `AUTOINCPARAM` are valid only when `INC_TYPE=AUTO`.
   - if `TIMEPOINTS` is specified, the destination `!TIME_POINT` must be defined before the `!STEP` card.
-  - if `AUTOINC_PARAM` is specified, the destination `!AUTOINC_PARAM` must be defined prior to the `!STEP` card. If this parameter is omitted, the default auto-incremental parameter set is used.
+  - if `AUTOINCPARAM` is specified, the destination `!AUTOINC_PARAM` must be defined prior to the `!STEP` card. If this parameter is omitted, the default auto-incremental parameter set is used.
 
-##### `!AUTOINC_PARAM` (2-12)
+##### (23) `!AUTOINC_PARAM` (2-12)
 
 Specify auto-incremental parameters.
 
@@ -2195,7 +2203,7 @@ With the same settings as the default settings
   0.25,  5
 ```
 
-##### `TIME_POINTS` (2-13)
+##### (24) `!TIME_POINTS` (2-13)
 
 ###### Parameter
 
@@ -2243,6 +2251,58 @@ Time 1.5, 2.7 and 3.9 are defined as total times without using `GENERATE`.
 
   - The time points must be entered in ascending order.
 
+
+##### (25) `!CONTACT_PARAM` (2-14)
+
+Specify contact scan parameter set.
+
+###### Parameter
+
+|Parameter Name|Attribution|Contents|
+|--------------|-----------|--------|
+| NAME         | C    | Contact scan parameter set name (required) |
+
+** 2nd line **
+
+Specify clearance values in in-surface directions.
+
+```
+(2nd line) CLEARANCE, CLR_SAME_ELEM, CLR_DIFFLPOS, CLR_CAL_NORM
+```
+
+|Parameter Name|Attribution|Contents|
+|--------------|-----------|--------|
+| CLEARANCE     | R    | ordinary clearance (Default: 1e-4)           |
+| CLR_SAME_ELEM | R    | clearance for already-in-contct elems (loosen to avoid moving too easily) (Default: 5e-3) |
+| CLR_DIFFLPOS  | R    | clearance to be recognized as different position (loosen to avoid oscillation) (Default: 1e-2)     |
+| CLR_CAL_NORM  | R    | clearance used when calculating surface normal (Default: 1e-40                |
+
+** 3rd line **
+
+Specify clearance values in directions vertical to the surface.
+
+```
+(3rd line) DISTCLR_INIT, DISTCLR_FREE, DISTCLR_NOCHECK, TENSILE_FORCE, BOX_EXP_RATE
+```
+
+|Parameter Name|Attribution|Contents|
+|--------------|-----------|--------|
+| DISTCLR_INIT    | R    | dist clearance for initial scan (Default: 1e-6)       |
+| DISTCLR_FREE    | R    | dist clearance for free nodes (wait until little penetration to be judged as contact) (Default: -1e-6) |
+| DISTCLR_NOCHECK | R    | dist clearance for skipping distance check for nodes already in contact (big value to keep contact because contact-to-free is judged by tensile force) (Default: 1.0) |
+| TENSILE_FORCE   | R    | tensile force to be judged as free node (Default: -1e-8)                 |
+| BOX_EXP_RATE    | R    | expansion rate of the box used for contact scan (the smaller the faster, the bigger the safer) (Default: 1.05) |
+
+
+###### Example of Use
+
+With the same settings as the default settings
+
+```
+!CONTACT_PARAM, NAME=CPARAM1
+ 1.0e-4,  5.0e-3,  1.0e-2,  1.0e-4
+ 1.0e-6, -1.0e-6,  1.0,    -1.0e-8,  1.05
+```
 
 #### Control Data for Eigenvalue Analysis
 
