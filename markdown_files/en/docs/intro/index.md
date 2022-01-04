@@ -7,15 +7,17 @@ author: FrontISTR Commons
 <!-- 表記は FrontISTR ver. 0.0 で統一します -->
 # Introduction to FrontISTR
 
+<figure markdown>
+  [![FrontISTR](../image/FrontISTR_logo.png){width="350"}](https://www.frontistr.com)
+</figure>
+
 This software is a parallel finite element analysis program that is being continuously developed with the result of research and development "Research and development of innovation platform simulation software" project for the construction of the next generation IT infrastructure of the Ministry of Education, Culture, Sports, Science and Technology, Japan.
 When using this software for free or for profit use, you need to agree "MIT license".
-
-[![FrontISTR](../image/FrontISTR_logo.png){.center width=350px}](https://www.frontistr.com)
 
 | Item                 | Content                                                        |
 |----------------------|----------------------------------------------------------------|
 | Name of Software     | FrontISTR                                                      |
-| Version              | 5.2                                                          |
+| Version              | 5.3                                                          |
 | License              | MIT License                                                    |
 | Correnponding Clerks | FrontISTR Commons<br>2-11-16 Yayoi, Bunkyo-ku, Tokyo, Japan<br>c/o Institute of Engineering Innovation, School of Engineering<br>E-mail：support@frontistr.org | 
 
