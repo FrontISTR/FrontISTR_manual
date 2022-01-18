@@ -1,4 +1,4 @@
-site_name: FrontISTR ver. 5.2
+site_name: FrontISTR ver. 5.3
 theme:
     name: 'material'
     highlightjs: true
@@ -17,8 +17,10 @@ use_directory_urls: false
 
 markdown_extensions:
     - attr_list
+    - md_in_html
     - def_list
     - mdx_math
+    - tables
 
 extra_javascript:
     - 'javascripts/extra.js'
