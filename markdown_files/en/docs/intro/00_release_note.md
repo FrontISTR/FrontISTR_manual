@@ -1,5 +1,45 @@
 ## Release Note
 
+### Contents updated in Ver. 5.4
+
+- Improvements
+- Specification changes
+- Bugs fixed
+
+### Contents updated in Ver. 5.3
+
+- Improvements
+    - issue 103: Allow contact parameters to be specified as input data
+    - issue 266: Enable MKL for windows executables.
+    - issue 339: Enable trilinos(AMG) amesos in windows binary.
+    - issue 364: Multi-arch CI
+    - issue 388: Illegal memory access when monitoring non-existent node with global id 0
+    - issue 387: Visualization of nodal and element numbers
+    - issue 384: Ability to specify parameter beta in heat transfer analysis3
+- Specification changes
+    - issue 352: Fix macro naming notation errors.
+    - issue 358: Rethinking the default settings of AMG preprocessing by ML
+    - issue 359: Output messages when Amesos and MUMPS are not available in ML.
+    - issue 360: Simplify ML configuration log.
+- Bugs fixed
+    - issue 125: Eigenvalues of 0 do not appear in constraint-free eigenvalue analysis
+    - issue 301: Discussion on how to handle serial version of MUMPS with FrontISTR cmake.
+    - issue 329: In iterative contact analysis with friction, convergence behavior of NR method is significantly different between sequential and distributed runs.
+    - issue 333: mumps solver does not work on Windows x64 executable (MPI ver.)
+    - issue 336: Binary VTK output by windows binary cannot be read by paraview.
+    - issue 340: Deviation of calculation results of eigenvalue analysis due to differences in usage environment.
+    - issue 343: The program crashes when a large number of contact points (about several thousand) are judged to be in contact.
+    - issue 350: When building serial version, if MKL is enabled, clustermkl is also enabled, resulting in link error.
+    - issue 351: When building serial version with setup.sh, MKL is not enabled even if --with-mkl is specified.
+    - issue 363: Ctrl+x does not work when starting FrontISTR with docker run.
+    - issue 365: Refiner in binary distribution (Docker/Windows binary) has a bug.
+    - issue 366: Error when specifying contact pressure visualization file output for models with no contact.
+    - issue 368: Enable parallel make when using setup.sh
+    - issue 369: Avoid error when element output is specified for !OUTPUT_VIS
+    - issue 376: Name resolution bug in setting up orthotropic anisotropic material
+    - issue 377: The default setting of DWITH_MPI option in cmake should be ON, but it is OFF.
+    - issue 380: Regarding the creation of hecmw_vis.ini, errors due to timing inconsistencies between MPI processes
+
 ### Contents updated in Ver. 5.2
 
 - Improvements
