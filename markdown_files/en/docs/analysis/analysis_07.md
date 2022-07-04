@@ -91,7 +91,7 @@ For steps that include a list of output times, `dtime` is adjusted so that the c
 
 Settings related to this function are made in the analysis control file.
 
-The function of automatic time increment and cut-back are enabled specified by `TYPE_INC=AUTO` on the `!STEP` card.
+The function of automatic time increment and cut-back are enabled specified by `INC_TYPE=AUTO` on the `!STEP` card.
 For parameters that adjust the time increment, define `!AUTOINC_PARAM` and specify it in each step using the `!STEP, AUTOINCPARAM'.
 If not specified, the default value of `!AUTOINC_PARAM' is used.
 
