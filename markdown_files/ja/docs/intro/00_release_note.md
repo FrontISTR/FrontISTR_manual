@@ -3,8 +3,33 @@
 ### Ver.5.4における更新内容
 
 - 機能改良
+    - issue 141: FLOPS値を出しておく
+    - issue 425: 接触解析のテストサンプル追加
+    - issue 459: hecmw_mat_conの効率化
 - 仕様変更
+    - issue 101: Lagrange乗数行列をHEC-MWで定義
+    - issue 316: Remove Document(Manual)-CI from FrontISTR's gitlab-ci.
+    - issue 421: 接触解析の行列構造体に常時 conMAT を利用する
+    - issue 422: fstr_matrix_con_contactのリファクタリング
+    - issue 423: fstrMAT を rename しミドルウェア側に移動する
+    - issue 424: FrontISTR 側の solve_LINEQ_contact 系ソルバのリファクタリング
+    - issue 438: cmake_minimum_requiredの整理
 - 不具合修正
+    - issue 205: シェル要素の層別結果出力においてmises応力が出力されない
+    - issue 338: 座標値に仮数部の有効数字が1桁である浮動小数点数が含まれるとエラー停止する
+    - issue 371: Occurrence of division by zero in certain development environments
+    - issue 378: SURF-SURF接触がある動解析のリスタート入出力の不具合
+    - issue 381: チュートリアル 04_hyperelastic_spring が収束しない問題
+    - issue 397: クリープNorton則の温度（2つ以上の温度）依存性物性値の読み込みエラー
+    - issue 409: 接触モデルのパーティショニング時のSIGSEGV
+    - issue 411: [bug] 並列計算における接触解析機能について（問い合わせ1220302050の続き） (1562686629)
+    - issue 427: 接触ありモデルの領域分割に失敗する
+    - issue 428: Rank 0よりもホスト名が長いRankがある場合にエラー
+    - issue 429: Lagrange乗数法と自由度消去法のMPC拘束を並列解析で併用すると、 各々の行列サイズ変更処理（hecmw_mpc_mat_ass等）が整合せず、解析失敗
+    - issue 439: 非定常熱伝導解析の複数ステップの解析で、totaltimeの進み方がおかしい
+    - issue 457: 接触ペアの名前解決の不具合
+    - issue 458: hecmw_solver_las_22でhecmw_update_3_Rではなく2_Rを呼ばなければならない
+    - issue 460: 逐次接触解析で内部直接法とDIRECTmklが使えない
 
 ### Ver.5.3における更新内容
 

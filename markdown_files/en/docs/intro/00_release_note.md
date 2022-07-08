@@ -3,8 +3,33 @@
 ### Contents updated in Ver. 5.4
 
 - Improvements
+    - Issue 141: FLOPS values should be provided.
+    - issue 425: Add test sample for contact analysis
+    - issue 459: Improve efficiency of hecmw_mat_con
 - Specification changes
+    - issue 101: Define Lagrange multiplier matrix in HEC-MW
+    - issue 316: Remove Document(Manual)-CI from FrontISTR's gitlab-ci.
+    - issue 421: Always use conMAT for matrix structures in contact analysis
+    - issue 422: Refactoring fstr_matrix_con_contact
+    - issue 423: rename fstrMAT and move it to the middleware side
+    - issue 424: Refactor solve_LINEQ_contact solvers on FrontISTR side
+    - issue 438: Clean up cmake_minimum_required
 - Bugs fixed
+    - Issue 205: Shell element stratified results output does not show mises stresses
+    - issue 338: coordinate values containing floating point numbers with one significant digit in the mantissa stop working in error
+    - issue 371: Occurrence of division by zero in certain development environments
+    - issue 378: Restart input/output problem for dynamic analysis with SURF-SURF contact
+    - issue 381: Tutorial 04_hyperelastic_spring does not converge
+    - issue 397: Error reading temperature (more than one temperature) dependent properties for creep Norton law
+    - issue 409: SIGSEGV during partitioning of contact model
+    - issue 411: [bug] Contact analysis functionality in parallel computing (continuation of query 1220302050) (1562686629)
+    - issue 427: Region partitioning fails for models with contact
+    - issue 428: Error when Rank has a hostname longer than Rank 0
+    - issue 429: When Lagrange multiplier method and MPC constraint with degrees of freedom elimination are used in parallel analysis, their matrix resizing processes (e.g. hecmw_mpc_mat_ass) do not match and the analysis fails
+    - Issue 439: In multi-step analysis of unsteady heat transfer, totaltime is not progressing properly.
+    - issue 457: contact pair name resolution bug
+    - issue 458: hecmw_solver_las_22 must call 2_R instead of hecmw_update_3_R
+    - issue 460: internal direct method and DIRECTmkl not working in sequential contact analysis
 
 ### Contents updated in Ver. 5.3
 
