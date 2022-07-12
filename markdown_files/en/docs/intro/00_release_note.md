@@ -1,5 +1,70 @@
 ## Release Note
 
+### Contents updated in Ver. 5.4
+
+- Improvements
+    - issue 141: Keep the FLOPS value out.
+    - issue 425: Add test sample for contact analysis
+    - issue 459: Improve efficiency of hecmw_mat_con
+- Specification changes
+    - issue 101: Define Lagrange multiplier matrix in HEC-MW.
+    - issue 316: Remove Document(Manual)-CI from FrontISTR's gitlab-ci.
+    - issue 421: Always use conMAT for matrix structures in contact analysis.
+    - issue 422: Refactoring fstr_matrix_con_contact
+    - issue 423: Rename fstrMAT and move it to the middleware side
+    - issue 424: Refactoring of solve_LINEQ_contact solvers on FrontISTR side
+    - issue 438: Clean up cmake_minimum_required
+- Bugs fixed
+    - issue 205: Shell element stratified results output does not output mises stresses.
+    - issue 338: Error stop when coordinate value contains a floating point number with one significant digit in the mantissa.
+    - issue 371: Occurrence of division by zero in certain development environments
+    - issue 378: Restart input/output problem for dynamic analysis with SURF-SURF contact
+    - issue 381: Tutorial 04_hyperelastic_spring does not converge
+    - issue 397: Error loading temperature (two or more temperatures) dependent property values for creep Norton law
+    - issue 409: SIGSEGV during partitioning of contact model
+    - issue 411: [bug] Contact analysis functionality in parallel computation (continued from inquiry 1220302050) (1562686629)
+    - issue 427: Region partitioning fails for models with contact
+    - issue 428: Error when hostname Rank is longer than Rank 0
+    - issue 429: When Lagrange multiplier method and MPC constraint with degrees of freedom elimination method are used together in parallel analysis, their matrix resizing processes (e.g. hecmw_mpc_mat_ass) are not consistent and the analysis fails.
+    - issue 439: In a multi-step analysis of unsteady heat transfer, the totaltime is not progressing properly.
+    - issue 457: Bug with contact pair name resolution.
+    - issue 458: Hecmw_solver_las_22 must call 2_R instead of hecmw_update_3_R
+    - issue 460: Internal direct method and DIRECTmkl are not available in sequential contact analysis
+
+### Contents updated in Ver. 5.3
+
+- Improvements
+    - issue 103: Allow contact parameters to be specified as input data
+    - issue 266: Enable MKL for windows executables.
+    - issue 339: Enable trilinos(AMG) amesos in windows binary.
+    - issue 364: Multi-arch CI
+    - issue 388: Illegal memory access when monitoring non-existent node with global id 0
+    - issue 387: Visualization of nodal and element numbers
+    - issue 384: Ability to specify parameter beta in heat transfer analysis
+- Specification changes
+    - issue 352: Fix macro naming notation errors.
+    - issue 358: Rethinking the default settings of AMG preprocessing by ML
+    - issue 359: Output messages when Amesos and MUMPS are not available in ML.
+    - issue 360: Simplify ML configuration log.
+- Bugs fixed
+    - issue 125: Eigenvalues of 0 do not appear in constraint-free eigenvalue analysis
+    - issue 301: Discussion on how to handle serial version of MUMPS with FrontISTR cmake.
+    - issue 329: In iterative contact analysis with friction, convergence behavior of NR method is significantly different between sequential and distributed runs.
+    - issue 333: mumps solver does not work on Windows x64 executable (MPI ver.)
+    - issue 336: Binary VTK output by windows binary cannot be read by paraview.
+    - issue 340: Deviation of calculation results of eigenvalue analysis due to differences in usage environment.
+    - issue 343: The program crashes when a large number of contact points (about several thousand) are judged to be in contact.
+    - issue 350: When building serial version, if MKL is enabled, clustermkl is also enabled, resulting in link error.
+    - issue 351: When building serial version with setup.sh, MKL is not enabled even if --with-mkl is specified.
+    - issue 363: Ctrl+x does not work when starting FrontISTR with docker run.
+    - issue 365: Refiner in binary distribution (Docker/Windows binary) has a bug.
+    - issue 366: Error when specifying contact pressure visualization file output for models with no contact.
+    - issue 368: Enable parallel make when using setup.sh
+    - issue 369: Avoid error when element output is specified for !OUTPUT_VIS
+    - issue 376: Name resolution bug in setting up orthotropic anisotropic material
+    - issue 377: The default setting of DWITH_MPI option in cmake should be ON, but it is OFF.
+    - issue 380: Regarding the creation of hecmw_vis.ini, errors due to timing inconsistencies between MPI processes
+
 ### Contents updated in Ver. 5.2
 
 - Improvements
