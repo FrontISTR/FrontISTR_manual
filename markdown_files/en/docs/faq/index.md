@@ -44,7 +44,7 @@ and others are supported.
 
 The license is [MIT License](https://gitlab.com/FrontISTR-Commons/FrontISTR/-/blob/master/License.txt).
 
-### Where can I find FrontISTR manual?
+### Where can I find FrontISTR manual
 
 Please see [FrontISTR Manual](https://frontistr-commons.gitlab.io/FrontISTR_manual/en/).
 
@@ -56,5 +56,15 @@ By default, hexahedral first-order elements are
 
  - Linear analysis, Non-conforming elements
  - Non-linear analysis, B-bar elements(< version 5.0a)
- - Non-linear analysis, F-bar elements(>version 5.0b)
+ - Non-linear analysis, F-bar elements(> version 5.0b)
 
+### Why do the direct and iterative methods give different results for multi-point constraints (MPC)
+
+`!SOLVER` changes the default method for handling multi-point constraints.
+
+    - Direct method (DIRECTmkl, MUMPS), the penalty method
+    - Iterative method (CG method, GMRES method, etc.), the explicit degree-of-freedom elimination method
+
+The penalty method will have an error of less than 10^{-4}. The explicit degrees-of-freedom elimination method does not produce errors because the constraints are strictly satisfied. However, it is more computationally demanding than the penalty method.
+
+The MPCMETHOD parameter can be changed (Deprecated due to lack of maintenance of the MPC-CG method).
