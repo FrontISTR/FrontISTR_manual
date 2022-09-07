@@ -782,7 +782,7 @@ METHOD    = method
 TIMELOG   = whether solver computation time is output
 MPCMETHOD = method for multipoint constraints
             (1: Penalty method,
-             2: MPC-CG method,
+             2: MPC-CG method (Deprecated),
              3: Explicit master-slave elimination)
 DUMPTYPE  = type of matrix dumping
 DUMPEXIT  = whether program exits right after dumping matrix
@@ -3112,7 +3112,7 @@ DUMPEXIT =  Whether the program terminates right after matrix dumping (YES/NO)
 
 MPCMETHOD = Method for multipoint constraints
             1: Penalty method (Default for direct methods)
-            2: MPC-CG method
+            2: MPC-CG method (Deprecated)
             3: Explicit master-slave elimination (Default for iterative methods)
 
 ESTCOND =   Frequency of condition number estimation (experimental)
