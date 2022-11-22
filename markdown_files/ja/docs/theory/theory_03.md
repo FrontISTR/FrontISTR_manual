@@ -32,9 +32,9 @@ M( t + \Delta t ) \ddot{U} (t + \Delta t) + C( t + \Delta t ) \dot{U}(t + \Delta
 
 よく知られているように、\(\gamma\)及び\(\beta\)を以下の値にした場合、線形加速度法あるいは台形則に一致する。
 
-\(\gamma = \displaystyle \frac{1}{2}\)，\(\gamma = \displaystyle \frac{1}{6}\)（線形加速度法）
+\(\gamma = \displaystyle \frac{1}{2}\)，\(\beta = \displaystyle \frac{1}{6}\)（線形加速度法）
 
-\(\gamma = \displaystyle \frac{1}{2}\)，\(\gamma = \displaystyle \frac{1}{4}\)（台形則）
+\(\gamma = \displaystyle \frac{1}{2}\)，\(\beta = \displaystyle \frac{1}{4}\)（台形則）
 
 式\(\eqref{eq:2.5.2}\)、式\(\eqref{eq:2.5.3}\)を式\(\eqref{eq:2.5.1}\)に代入すると次式が得られる。
 
