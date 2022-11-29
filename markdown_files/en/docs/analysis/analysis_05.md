@@ -1248,6 +1248,8 @@ Definition of local coordinate system the sction correspondent to.
 ```
 SECNUM = Index of section defined in M1-10 in chapter 6.3.
 ORIENTATION = Name of local coordinate system defined in (1-10) above.
+FORM361 = FBAR (Default in nonlinear analysis)/IC (Default in linear analysis)/BBAR/FI
+FORM341 = FI (Default)/SELECTIVE_ESNS(smoothed element)
 ```
 
 ###### 2nd Line or later

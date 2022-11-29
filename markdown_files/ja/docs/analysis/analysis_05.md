@@ -1242,6 +1242,7 @@ DEFINITION = COORDINATES (Default値)/NODES
 SECNUM = メッシュデータ中の!SECTION入力順番号
 ORIENTATION　=　局所座標系名
 FORM361 = FBAR (非線形解析におけるDefault値)/IC (線形解析におけるDefault値)/BBAR/FI
+FORM341 = FI (通常の四面体一次要素Default値)/SELECTIVE_ESNS(平滑化要素)
 ```
 
 ##### `!END` (1-12)
