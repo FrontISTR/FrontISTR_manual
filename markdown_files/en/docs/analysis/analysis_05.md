@@ -1711,7 +1711,7 @@ This definition must be placed after `!VISCOELASTIC`. If not, this definition wi
 ###### Parameter
 
 ```
-DEFINITION = WLF(Default) /ARRHENUS
+DEFINITION = WLF(Default) /ARRHENIUS
 ```
 
 ** 2nd line or later **

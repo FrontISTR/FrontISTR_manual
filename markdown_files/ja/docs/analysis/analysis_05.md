@@ -1712,7 +1712,7 @@ DEPENDENCIES = 0(Default値) / 1
 ###### パラメータ
 
 ```
-DEFINITION = WLF(Default値)／ARRHENUS
+DEFINITION = WLF(Default値)／ARRHENIUS
 ```
 
 ** 2行目以降 **
