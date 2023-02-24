@@ -1945,7 +1945,7 @@ Definition of contact conditions
 
 ```
 GRPID       = Boundary conditions group ID
-INTERACTION = SSLID(Default) / FSLID
+INTERACTION = SSLID (Infinitesimal slip contact, Default) / FSLID (Finite slip contact) / TIED (Tied)
 NTOL        = Contact normal direction convergence threshold (Default: 1.e-5)
 TTOL        = Contact tangential direction convergence threshold (Default: 1.e-3)
 NPENALTY    = Contact normal direction Penalty (Default: stiffness matrix 1.e3)
@@ -1954,6 +1954,8 @@ CONTACTPARAM = Contact scan parameter set name（specified by `!CONTACT_PARAM, N
 ```
 
 **2nd line or later**
+
+####### Using `INTERACTION = SSLID, FSLID`
 
 ```
 (2nd line) PAIR_NAME, fcoef, factor
@@ -1964,6 +1966,17 @@ CONTACTPARAM = Contact scan parameter set name（specified by `!CONTACT_PARAM, N
 | PAIR_NAME    | C          |Contact pair name (Defined in `!CONTACT_PAIR`) |
 | fcoef        | R          |Friction coefficient (Default: 0.0)            |
 | factor       | R          |Friction penalty stiffness                     |
+
+####### Using `INTERACTION = TIED`
+
+```
+(2nd line) PAIR_NAME
+```
+
+|Parameter Name|Attributions|Contacts|
+|-----------|------|--------------------------------------|
+| PAIR_NAME | C    |Contact pair name (Defined in `!CONTACT_PAIR`) |
+
 
 ###### Example of Use
 
