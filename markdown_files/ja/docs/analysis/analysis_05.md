@@ -1971,7 +1971,7 @@ TYPE = SLAGRANGE (Lagrange乗数法)
 
 ```
 GRPID       = 境界条件グループID
-INTERACTION = SSLID(Default値) / FSLID
+INTERACTION = SSLID(微小すべり接触・Default値) / FSLID(有限すべり接触) / TIED(結合拘束)
 NTOL        = 接触法線方向収束閾値(デフォルト：1.e-5)
 TTOL        = 接触切線方向収束閾値(デフォルト：1.e-3)
 NPENALTY    = 接触法線方向Penalty(デフォルト：剛性マトリクス×1.e3)
@@ -1980,6 +1980,8 @@ CONTACTPARAM = 接触判定パラメータセット名（!CONTACT_PARAM, NAMEで
 ```
 
 ** 2行目以降 **
+
+####### `INTERACTION = SSLID, FSLID` の場合
 
 ```
 (2行目) PAIR_NAME, fcoef, factor
@@ -1990,6 +1992,17 @@ CONTACTPARAM = 接触判定パラメータセット名（!CONTACT_PARAM, NAMEで
 | PAIR_NAME | C    | 接触ペア名 (`!CONTACT_PAIR`にて定義) |
 | fcoef 　  | R    | 摩擦係数 (デフォルト: 0.0)           |
 | factor 　 | R    | 摩擦のペナルティ剛性                 |
+
+####### `INTERACTION = TIED`の場合
+
+```
+(2行目) PAIR_NAME
+```
+
+| 変数名    | 属性 | 内容                                 |
+|-----------|------|--------------------------------------|
+| PAIR_NAME | C    | 接触ペア名 (`!CONTACT_PAIR`にて定義) |
+
 
 ###### 使用例
 
