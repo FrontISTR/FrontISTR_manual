@@ -796,10 +796,10 @@ TYPE＝解析の種類
 
 ###### 6-2
 
-|反復回数,|前処理の繰り返し数,|クリロフ部分空間数|マルチカラーの色数|前処理セットアップ情報の再利用回数|
-|---------|-------------------|------------------|------------------|----------------------------------|
-| NITER   |iterPREMAX         |NREST             |NCOLOR_IN         |RECYCLEPRE                        |
-|<font color="Red">10000</font>|<font color="Red">1</font>|    |    |                                  |
+|反復回数 |前処理の繰り返し数 |クリロフ部分空間数|マルチカラーの色数|前処理セットアップ情報の再利用回数|BFGS の基底の数|
+|---------|-------------------|------------------|------------------|----------------------------------|---------------|
+| NITER   |iterPREMAX         |NREST             |NCOLOR_IN         |RECYCLEPRE                        | N_BFGS        |
+|<font color="Red">10000</font>|<font color="Red">1</font>|    |    |                                  |               |
 
 ###### 6-3
 
@@ -3108,7 +3108,7 @@ LOAD CASE = (実部の指定: 1, 虚部の指定: 2)
 #### パラメータ
 
 ```
-METHOD =    解法 (CG、BiCGSTAB、GMRES、GPBiCG、DIRECT、DIRECTmkl、MUMPS)
+METHOD =    解法 (CG、BiCGSTAB、GMRES、GPBiCG、GMRESR、GMRESREN、DIRECT、DIRECTmkl、MUMPS)
             DIRECT     : 接触解析以外での直接法(逐次処理のみ) (現在使用不可)
             DIRECTmkl  : Intel MKLによる直接法
             MUMPS      : MUMPSによる直接法
@@ -3161,7 +3161,7 @@ METHOD2 =   第2の解法 (BiCGSTAB、GMRES、GPBiCG) (試験的)
 ** 2行目以降 **
 
 ```
-(2行目) NITER, iterPREmax, NREST, NCOLOR_IN, RECYCLEPRE
+(2行目) NITER, iterPREmax, NREST, NCOLOR_IN, RECYCLEPRE, N_BFGS
 ```
 
 | 変数名     | 属性 | 内容                      |
@@ -3171,6 +3171,7 @@ METHOD2 =   第2の解法 (BiCGSTAB、GMRES、GPBiCG) (試験的)
 | NREST      | I    | クリロフ部分空間数(デフォルト: 10) <br/>(解法としてGMRESを選択したときのみ有効) |
 | NCOLOR_IN  | I    | マルチカラーオーダリングにおける目標色数(デフォルト: 10)<br/> (OpenMPのスレッド数が2以上の時のみ有効) |
 | RECYCLEPRE | I    | 前処理セットアップ情報の再利用回数(デフォルト: 3)<br/> (非線形解析でのみ有効) |
+| N_BFGS     | I    | BFGS の基底の数 |
 
 ```
 (3行目) RESID, SIGMA_DIAG, SIGMA
