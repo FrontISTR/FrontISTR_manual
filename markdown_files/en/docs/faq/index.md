@@ -68,3 +68,9 @@ By default, hexahedral first-order elements are
 The penalty method will have an error of less than 10^{-4}. The explicit degrees-of-freedom elimination method does not produce errors because the constraints are strictly satisfied. However, it is more computationally demanding than the penalty method.
 
 The MPCMETHOD parameter can be changed (Deprecated due to lack of maintenance of the MPC-CG method).
+
+## Trouble at build
+
+### After updating gfortran, a compile error occurs and the build does not complete.
+
+If you update gfortran to version 10 or later, you may get a compile error may occur. adding `-fallow-argument-mismatch` to compile option flag may of gfortran allow may allow it  to compile.
