@@ -79,3 +79,8 @@ FrontISTR Commons正会員限定で提供しているツールは
 `MPCMETHOD`パラメータで変更することができます(※MPC-CG方法メンテナンスされていないため非推奨) 。
 [ソルバー制御データ 6-1 !SOLVER](https://manual.frontistr.com/ja/analysis/analysis_05.html#6-1-solver) 参照
 
+## ビルド時のトラブル
+
+### gfortran をアップデートしたらコンパイルエラーが出てビルドが完了しない
+
+gfortran を 10以降にアップデートするとコンパイルエラーが発生することがあります。gfortranのコンパイルフラグに `-fallow-argument-mismatch` を追加すると、コンパイルが出来るようになることがあります。
