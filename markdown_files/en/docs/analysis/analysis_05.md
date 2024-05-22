@@ -2319,6 +2319,41 @@ With the same settings as the default settings
  1.0e-6, -1.0e-6,  1.0,    -1.0e-8,  1.05
 ```
 
+##### `!EMBED` (2-15)
+
+Definition of embedding
+
+###### Parameters
+
+```
+GRPID = boundary condition group ID
+```
+
+** 2nd line or later **
+
+```
+(2nd line or later) PAIR_NAME
+```
+
+| Variable Name | Attribute | Contents |
+|-----------|------|--------------------------------------|
+| PAIR_NAME | C | embedded pair name (defined in `!EMBED PAIR`)
+
+
+###### Example usage
+
+```
+!CONTACT_ALGO, TYPE=SLAGRANGE
+!EMBED, GRPID=1
+  IP1
+!STEP
+CONTACT,1
+```
+
+###### Notes
+
+- To enable embedding in a step, specify the GRPID with the keyword “CONTACT” in the data line of the !STEP.
+
 #### Control Data for Eigenvalue Analysis
 
 ##### (1) `!EIGEN` (3-1)
