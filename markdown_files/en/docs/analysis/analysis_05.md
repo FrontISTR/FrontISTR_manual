@@ -1453,15 +1453,15 @@ INFINITESIMAL    When specified, infinitesimal deformation is assumed
 ** In case of `HARDEN = BILINEAR`(Default) **
 
 ```
-(2nd line) c, FAI, H
+(2nd line) c, $\phi$, H, $\psi$
 ```
 
 ** In case of `HARDEN = MULTILINEAR` **
 
 ```
-(2nd line) FAI
-(3nd line) PSTRAIN, c
-(4th line) PSTRAIN, c
+(2nd line) $\phi$, $\psi$
+(3nd line) c, PSTRAIN
+(4th line) c, PSTRAIN
 ...continues
 ```
 
@@ -1475,8 +1475,9 @@ INFINITESIMAL    When specified, infinitesimal deformation is assumed
 | YIELD      | R    | Yield stress                                   |
 | \(\varepsilon0, K, n\)   | R    |\(\overline{\sigma} = k\left( \varepsilon_{0} + \overline{\varepsilon} \right)^{n}\)|
 | \(\varepsilon0, D, n\)   | R    |\(\varepsilon = \frac{\sigma}{E} + \varepsilon_{0}\left( \frac{\sigma}{D} \right)^{n}\)|
-| FAI        | R    | Internal frictional angle                      |
-| c          | R    | Viscosity                                      |
+| $\phi$     | R    | Angle of internal friction                     |
+| $\psi$     | R    | Dilatancy angle (Default: same value as $\phi$)|
+| c          | R    | Cohesion                                       |
 | C          | R    | Linear motion hardening factor                 |
 | Tempearture| R    | Temperature (required when `DEPENDENCIES = 1`) |
 | v1, v2...v10 | R  | Material constant                              |

@@ -1453,15 +1453,15 @@ INFINITESIMAL    指定した場合、微小変形の前提が適用される
 ** `HARDEN = BILINEAR`(Default値)の場合 **
 
 ```
-(2行目) c, FAI, H
+(2行目) c, $\phi$, H, $\psi$
 ```
 
 ** `HARDEN = MULTILINEAR`の場合 **
 
 ```
-(2行目) FAI
-(3行目) PSTRAIN, c
-(4行目) PSTRAIN, c
+(2行目) $\phi$, $\psi$
+(3行目) c, PSTRAIN
+(4行目) c, PSTRAIN
 ...続く
 ```
 `HARDEN = `他は無視され、Default値(`BILINEAR`)になる。
@@ -1474,7 +1474,8 @@ INFINITESIMAL    指定した場合、微小変形の前提が適用される
 | YIELD      | R    | 降伏応力            |
 | \(\varepsilon0, K, n\)   | R    |\(\overline{\sigma} = k\left( \varepsilon_{0} + \overline{\varepsilon} \right)^{n}\)|
 | \(\varepsilon0, D, n\)   | R    |\(\varepsilon = \frac{\sigma}{E} + \varepsilon_{0}\left( \frac{\sigma}{D} \right)^{n}\)|
-| FAI        | R    | 内部摩擦角          |
+| $\phi$     | R    | 内部摩擦角          |
+| $\psi$     | R    | ダイレイタンシー角 (デフォルト: $\phi$と同じ値)|
 | c          | R    | 粘着力              |
 | C          | R    | 線形移動硬化係数    |
 | Tempearture|R     | 温度(DEPENDENCIES=1の時に必要) |
