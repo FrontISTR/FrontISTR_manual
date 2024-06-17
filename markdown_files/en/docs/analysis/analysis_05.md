@@ -3173,6 +3173,10 @@ METHOD2 =   Secondary method (BiCGSTAB, GMRES, GPBiCG) (experimental)
             Valid only when CG is specified as METHOD.
             When specified, the method is swithced and solution continues when CG diverged.
             All the other parameters and data lines are shared with the CG method.
+
+CONTACT_ELIM = Whether DOF elimination is performed in contact analysis (0, 1)
+               0: Perform DOF elimination only when using iterative methods (Default)
+               1: Always perform DOF elimination (even when using direct methods)
 ```
 
 ** 2nd line or later **
