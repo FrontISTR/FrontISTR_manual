@@ -1317,7 +1317,7 @@ TYPE = TEMPERATURE/VELOCITY/ACCELERATION
 
 ###### 材料物性の定義
 
-材料物性の定義は`!MATERIAL`と以降に置く`!ELASTICITY`、`!PLASTICITY`などとセットで使用する。`!MATERIAL`の前に置く`!ELASTICITY`、`!PLASTICTY`などは無視される。
+材料物性の定義は`!MATERIAL`と以降に置く`!ELASTIC`、`!PLASTIC`などとセットで使用する。`!MATERIAL`の前に置く`!ELASTIC`、`!PLASTIC`などは無視される。
 
 注: 解析制御データで`!MATERIAL`を定義すると、メッシュデータ内の`!MATERIAL`定義は無視される。解析制御データで`!MATERIAL`を定義しない場合は、メッシュデータ内の`!MATERIAL`定義が用いられる。
 
@@ -1336,6 +1336,7 @@ NAME = 材料名
 ```
 TYPE = ISOTROPIC (Default値) / ORTHOTROPIC / USER
 DEPENDENCIES = 0 (Default値) / 1
+INFINITESIMAL    指定した場合、微小変形の前提が適用される
 ```
 
 ** 2行目以降 **
@@ -1401,6 +1402,7 @@ DEPENDENCIES = 0 (Default値) / 1
 YIELD        = MISES (Default値)、Mohr-Coulomb、DRUCKER-PRAGER、USER
 HARDEN       = BILINEAR (Default値)、MULTILINEAR、SWIFT、RAMBERG-OSGOOD、KINEMATIC、COMBINED
 DEPENDENCIES = 0 (Default値) / 1
+INFINITESIMAL    指定した場合、微小変形の前提が適用される
 ```
 
 ** 2行目以降 **
@@ -1606,6 +1608,7 @@ TYPE = NEOHOOKE（Default値）
 
 ```
 DEPENDENCIES = 依存する変数の数(未実装)
+INFINITESIMAL    指定した場合、微小変形の前提が適用される
 ```
 
 ** 2行目以降 **

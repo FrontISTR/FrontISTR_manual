@@ -1315,7 +1315,7 @@ N/A
 
 Definition of material physical properties
 
-The definition of the material physical properties is used in a set with the `!MATERIAL` and the `!ELASTICITY`, `!PLASTICITY` and etc. entered next. The `!ELASTICITY`, `!PLASTICTY` and etc. entered before `!MATERIAL` will be disregarded.
+The definition of the material physical properties is used in a set with the `!MATERIAL` and the `!ELASTIC`, `!PLASTIC` and etc. entered next. The `!ELASTIC`, `!PLASTIC` and etc. entered before `!MATERIAL` will be disregarded.
 
 Note: When the `!MATERIAL` is defined in the analysis control data, the `!MATERIAL` definition in the mesh data will be disregarded. When the `!MATERIAL` is not defined in the analysis control data, the `!MATERIAL` definition in the mesh data is used.
 
@@ -1334,6 +1334,7 @@ Definition of elastic material
 ```
 TYPE = ISOTROPIC (Default)/ ORTHOTROPIC / USER
 DEPENDENCIES = 0 (Default)/1
+INFINITESIMAL    When specified, infinitesimal deformation is assumed
 ```
 
 ###### 2nd Line or later
@@ -1401,6 +1402,7 @@ YIELD        = MISES (Default), Mohr-Coulomb, DRUCKER-PRAGER, USER
 HARDEN       = BILINEAR (Default), MULTILINEAR, SWIFT, RAMBERG-OSGOOD,
                KINEMATIC, COMBINED
 DEPENDENCIES = 0 (Default)/1
+INFINITESIMAL    When specified, infinitesimal deformation is assumed
 ```
 
 ** 2nd line or later **
@@ -1607,6 +1609,7 @@ Definition of viscoelastic material
 
 ```
 DEPENDENCIES = the number of parameters depended upon (Not included)
+INFINITESIMAL    When specified, infinitesimal deformation is assumed
 ```
 
 ** 2nd Line or later **
