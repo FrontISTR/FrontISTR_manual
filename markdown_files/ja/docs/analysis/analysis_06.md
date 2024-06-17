@@ -19,39 +19,61 @@ v1, v2, v3, v4, v5, v6, v7, v8, v9, v10
 
 弾塑性剛性マトリクスおよび応力のreturn mappingを計算するためのサブルーチンを提供している。
 ユーザー定義降伏関数を利用する場合、まず入力ファイルに`!PLASTIC, YIELD=USER`を設定して必要な材料定数を入力し、
-次にサブルーチン`uElastoPlasticMatrix`および`uBackwardEuler`を作成する必要がある。
+次に関数`uElastoPlasticNumStatus`とサブルーチン`uElastoPlasticMatrix`および`uBackwardEuler`
+を作成する必要がある。
 
-#### (1) 弾塑性剛性マトリクスの計算サブルーチン
+#### (1) 実数の状態変数の数を返す関数
 
 ```
-subroutine uElastoPlasticMatrix( matl, stress, istat, fstat, D )
-	REAL(KIND=kreal), INTENT(IN) :: matl(:)
-	REAL(KIND=kreal), INTENT(IN) :: stress(6)
-	INTEGER, INTENT(IN) :: istat
-	REAL(KIND=kreal), INTENT(IN) :: fstat(:)
-	REAL(KIND=kreal), INTENT(OUT) :: D(:,:)
+integer function uElastoPlasticNumStatus( matl )
+    real(kind=kreal),   intent(in)  :: matl(:)
 ```
 
-  - `matl`:　材料定数を保存する配列（最大100）
+  - `matl`: 材料定数を保存する配列（1-100 : システム定義の材料定数、101-200 : ユーザー定義の材料定数）
+
+#### (2) 弾塑性剛性マトリクスの計算サブルーチン
+
+```
+  subroutine uElastoPlasticMatrix( matl, stress, istat, fstat, plstrain, D, temp, hdflag )
+    real(kind=kreal),   intent(in)  :: matl(:)
+    real(kind=kreal),   intent(in)  :: stress(6)
+    integer(kind=kint), intent(in)  :: istat
+    real(kind=kreal),   intent(in)  :: fstat(:)
+    real(kind=kreal),   intent(in)  :: plstrain
+    real(kind=kreal),   intent(out) :: D(:,:)
+    real(kind=kreal),   intent(in)  :: temp
+    integer(kind=kint), intent(in)  :: hdflag
+```
+
+  - `matl`: 材料定数を保存する配列（1-100 : システム定義の材料定数、101-200 : ユーザー定義の材料定数）
   - `stress`: 2nd Piola-Kirchhoff応力
-  - `istat`: 降伏状態(0: 未降伏；　1: 降伏した)
-  - `fstat`: 状態変数.　`fstat(1)=`塑性ひずみ、`fstat(2:7)=` back stress(移動または複合硬化時)
+  - `istat`: 整数の状態変数
+  - `fstat`: 実数の状態変数の配列
+  - `plstrain`: 現在のサブステップ開始時点の塑性ひずみ
   - `D`: 弾塑性マトリクス
+  - `temp`: 温度
+  - `hdflag`: 全成分(0)、偏差成分のみ(1)、体積成分のみ(2)を計算
 
-#### (2) 応力のReturn mapping計算サブルーチン
+#### (3) 応力のReturn mapping計算サブルーチン
 
 ```
-subroutine uBackwardEuler ( matl, stress, istat, fstat )
-	REAL(KIND=kreal), INTENT(IN) :: matl(:)
-	REAL(KIND=kreal), INTENT(INOUT) :: stress(6)
-	INTEGER, INTENT(INOUT) :: istat
-	REAL(KIND=kreal), INTENT(IN) :: fstat(:)
+  subroutine uBackwardEuler( matl, stress, plstrain, istat, fstat, temp, hdflag )
+    real(kind=kreal),   intent(in)    :: matl(:)
+    real(kind=kreal),   intent(inout) :: stress(6)
+    real(kind=kreal),   intent(in)    :: plstrain
+    integer(kind=kint), intent(inout) :: istat
+    real(kind=kreal),   intent(inout) :: fstat(:)
+    real(kind=kreal),   intent(in)    :: temp
+    integer(kind=kint), intent(in)    :: hdflag
 ```
 
-  - `matl`: 材料定数を保存する配列（最大100）
+  - `matl`: 材料定数を保存する配列（1-100 : システム定義の材料定数、101-200 : ユーザー定義の材料定数）
   - `stress`: trial stress弾性変形を仮定し得られた2nd Piola-Kirchhoff応力
-  - `istat`: 降伏状態(0: 未降伏；　1: 降伏した)
-  - `fstat`: 状態変数.　`fstat(1)=`塑性ひずみ、`fstat(2:7)=` back stress(移動または複合硬化時)
+  - `plstrain`: 現在のサブステップ開始時点の塑性ひずみ
+  - `istat`: 整数の状態変数
+  - `fstat`: 実数の状態変数の配列
+  - `temp`: 温度
+  - `hdflag`: 全成分(0)、偏差成分のみ(1)、体積成分のみ(2)を計算
 
 ### 弾性変形に関わるサブルーチン (`uelastic.f90`)
 
