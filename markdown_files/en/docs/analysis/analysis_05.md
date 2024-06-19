@@ -1772,6 +1772,9 @@ GRPID      = Group ID
 AMP        = Time function name (Specified in !AMPLITUDE, valid in dynamic analysis)
 ROT_CENTER = Node number of rotational constraint or node group name. 
              When specified it, this `!BOUNDARY` is recognized as rotational constraint. 
+TOTAL        When specified, the displacements are treated as total displacements from
+             the initial configuration (Default is relative displacements from the
+             configuration at the beginning of the step)
 ```
 
 ** 2nd line or later **
