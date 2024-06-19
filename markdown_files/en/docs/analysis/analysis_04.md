@@ -1148,7 +1148,38 @@ Reference
   - When "`TYPE=SURF-SURF`" is used, the contact pair is converted to a node-surface type contact pair within FrontISTR by automatically generating a node-group from the slave surface-group.
   - The group-name of the automatically generated node group is concatenation of "`FSTR_S2N_`" and the group-name of the original slave surface-group.
 
-#### (13) `!END` (M1-13)
+#### !EMBED PAIR　(M1-13)
+
+Definition of Embedded Pairs
+
+1行目
+
+```
+!EMBED PAIR, NAME=<name>
+```
+
+|Parameter|                             |
+|:------------|:-----------------|
+|`NAME`   |Embed pair name (mandatory)|
+
+|Parameter Name|Attributions|Contents                                |
+|:--------------|:-------------|:---------------|
+|`NAME`         |&lt;name&gt;  |Embed pair name  |
+
+2nd Line or later
+
+```
+(2nd Line or later) SLAVE_NGRP, MASTER_EGRP
+(Hereinafter the same)
+```
+
+|Parameter Name|Attributions|Contents                                |
+|:-------------|:------|:-----------------------------|
+| `SLAVE_GRP`  | C     | Slave node group name |
+| `MASTER_GRP` | C     | Element group name of the master volume  |
+
+
+#### (13) `!END` (M1-14)
 
 End of mesh data
 
