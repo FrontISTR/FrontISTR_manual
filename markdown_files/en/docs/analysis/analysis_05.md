@@ -1315,7 +1315,7 @@ N/A
 
 Definition of material physical properties
 
-The definition of the material physical properties is used in a set with the `!MATERIAL` and the `!ELASTICITY`, `!PLASTICITY` and etc. entered next. The `!ELASTICITY`, `!PLASTICTY` and etc. entered before `!MATERIAL` will be disregarded.
+The definition of the material physical properties is used in a set with the `!MATERIAL` and the `!ELASTIC`, `!PLASTIC` and etc. entered next. The `!ELASTIC`, `!PLASTIC` and etc. entered before `!MATERIAL` will be disregarded.
 
 Note: When the `!MATERIAL` is defined in the analysis control data, the `!MATERIAL` definition in the mesh data will be disregarded. When the `!MATERIAL` is not defined in the analysis control data, the `!MATERIAL` definition in the mesh data is used.
 
@@ -1334,6 +1334,7 @@ Definition of elastic material
 ```
 TYPE = ISOTROPIC (Default)/ ORTHOTROPIC / USER
 DEPENDENCIES = 0 (Default)/1
+INFINITESIMAL    When specified, infinitesimal deformation is assumed
 ```
 
 ###### 2nd Line or later
@@ -1401,6 +1402,7 @@ YIELD        = MISES (Default), Mohr-Coulomb, DRUCKER-PRAGER, USER
 HARDEN       = BILINEAR (Default), MULTILINEAR, SWIFT, RAMBERG-OSGOOD,
                KINEMATIC, COMBINED
 DEPENDENCIES = 0 (Default)/1
+INFINITESIMAL    When specified, infinitesimal deformation is assumed
 ```
 
 ** 2nd line or later **
@@ -1451,15 +1453,15 @@ DEPENDENCIES = 0 (Default)/1
 ** In case of `HARDEN = BILINEAR`(Default) **
 
 ```
-(2nd line) c, FAI, H
+(2nd line) c, $\phi$, H, $\psi$
 ```
 
 ** In case of `HARDEN = MULTILINEAR` **
 
 ```
-(2nd line) FAI
-(3nd line) PSTRAIN, c
-(4th line) PSTRAIN, c
+(2nd line) $\phi$, $\psi$
+(3nd line) c, PSTRAIN
+(4th line) c, PSTRAIN
 ...continues
 ```
 
@@ -1473,8 +1475,9 @@ DEPENDENCIES = 0 (Default)/1
 | YIELD      | R    | Yield stress                                   |
 | \(\varepsilon0, K, n\)   | R    |\(\overline{\sigma} = k\left( \varepsilon_{0} + \overline{\varepsilon} \right)^{n}\)|
 | \(\varepsilon0, D, n\)   | R    |\(\varepsilon = \frac{\sigma}{E} + \varepsilon_{0}\left( \frac{\sigma}{D} \right)^{n}\)|
-| FAI        | R    | Internal frictional angle                      |
-| c          | R    | Viscosity                                      |
+| $\phi$     | R    | Angle of internal friction                     |
+| $\psi$     | R    | Dilatancy angle (Default: same value as $\phi$)|
+| c          | R    | Cohesion                                       |
 | C          | R    | Linear motion hardening factor                 |
 | Tempearture| R    | Temperature (required when `DEPENDENCIES = 1`) |
 | v1, v2...v10 | R  | Material constant                              |
@@ -1607,6 +1610,7 @@ Definition of viscoelastic material
 
 ```
 DEPENDENCIES = the number of parameters depended upon (Not included)
+INFINITESIMAL    When specified, infinitesimal deformation is assumed
 ```
 
 ** 2nd Line or later **
@@ -1772,6 +1776,9 @@ GRPID      = Group ID
 AMP        = Time function name (Specified in !AMPLITUDE, valid in dynamic analysis)
 ROT_CENTER = Node number of rotational constraint or node group name. 
              When specified it, this `!BOUNDARY` is recognized as rotational constraint. 
+TOTAL        When specified, the displacements are treated as total displacements from
+             the initial configuration (Default is relative displacements from the
+             configuration at the beginning of the step)
 ```
 
 ** 2nd line or later **
@@ -3173,6 +3180,10 @@ METHOD2 =   Secondary method (BiCGSTAB, GMRES, GPBiCG) (experimental)
             Valid only when CG is specified as METHOD.
             When specified, the method is swithced and solution continues when CG diverged.
             All the other parameters and data lines are shared with the CG method.
+
+CONTACT_ELIM = Whether DOF elimination is performed in contact analysis (0, 1)
+               0: Perform DOF elimination only when using iterative methods (Default)
+               1: Always perform DOF elimination (even when using direct methods)
 ```
 
 ** 2nd line or later **

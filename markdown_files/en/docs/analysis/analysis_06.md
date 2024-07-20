@@ -14,39 +14,60 @@ v1, v2, v3, v4, v5, v6, v7, v8, v9, v10
 
 ### Subroutine regarding Elastoplasticity Deformation (`uyield.f90`)
 
-The subroutines are provided in order to calculate the elastoplasticity stiffness matrix and stress return mapping. When using the user defined yield function, first, it is necessary to set the `!PLASTIC`, `YIELD=USER` in the input file, input the required material constants and then, create the subroutines uElastoPlasticMatrix and uBackwardEuler.
+The subroutines are provided in order to calculate the elastoplasticity stiffness matrix and stress return mapping. When using the user defined yield function, first, it is necessary to set the `!PLASTIC`, `YIELD=USER` in the input file, input the required material constants and then, create function uElastoPlastocNumStatus and subroutines uElastoPlasticMatrix and uBackwardEuler.
 
-#### (1) Calculation subroutines of elastoplasticity stiffness matrix
+#### (1) Function returning number of real state variables
 
 ```
-subroutine uElastoPlasticMatrix( matl, stress, istat, fstat, D )
-	REAL(KIND=kreal), INTENT(IN) :: matl(:)
-	REAL(KIND=kreal), INTENT(IN) :: stress(6)
-	INTEGER, INTENT(IN) :: istat
-	REAL(KIND=kreal), INTENT(IN) :: fstat(:)
-	REAL(KIND=kreal), INTENT(OUT) :: D(:,:)
+integer function uElastoPlasticNumStatus( matl )
+    real(kind=kreal),   intent(in)    :: matl(:)
 ```
 
-  - `matl`: Array to save the material constants (100 max)
+  - `matl`: Array to save the material constants (1-100 : system defined constants, 101-200 : user defined constants)
+
+#### (2) Calculation subroutines of elastoplasticity stiffness matrix
+
+```
+subroutine uElastoPlasticMatrix( matl, stress, istat, fstat, plstrain, D, temp, hdflag )
+    real(kind=kreal),   intent(in)  :: matl(:)
+    real(kind=kreal),   intent(in)  :: stress(6)
+    integer(kind=kint), intent(in)  :: istat
+    real(kind=kreal),   intent(in)  :: fstat(:)
+    real(kind=kreal),   intent(in)  :: plstrain
+    real(kind=kreal),   intent(out) :: D(:,:)
+    real(kind=kreal),   intent(in)  :: temp
+    integer(kind=kint), intent(in)  :: hdflag
+```
+
+  - `matl`: Array to save the material constants (1-100 : system defined constants, 101-200 : user defined constants)
   - `stress`: 2nd Piola-Kirchhoff stress
-  - `istat`: Yield state (0: not yielded; 1: yielded)
-  - `fstat`: State variable, fstat(1) = plastic strain, fstat(2:7) = back stress (while moving or complex hardening)
+  - `istat`: Integer state variable
+  - `fstat`: Array of real state variables
+  - `plstrain`: Plastic strain at the beginning of current substep
   - `D`: Elastoplasticity matrix
+  - `temp`: Temperature
+  - `hdflag`: Return total(0), deviatoric term only(1), or hydraulic term only(2)
 
-#### (2) Return mapping calculation subroutine of stress
+#### (3) Return mapping calculation subroutine of stress
 
 ```
-subroutine uBackwardEuler ( matl, stress, istat, fstat )
-	REAL(KIND=kreal), INTENT(IN) :: matl(:)
-	REAL(KIND=kreal), INTENT(INOUT) :: stress(6)
-	INTEGER, INTENT(INOUT) :: istat
-	REAL(KIND=kreal), INTENT(IN) :: fstat(:)
+subroutine uBackwardEuler( matl, stress, plstrain, istat, fstat, temp, hdflag )
+    real(kind=kreal),   intent(in)    :: matl(:)
+    real(kind=kreal),   intent(inout) :: stress(6)
+    real(kind=kreal),   intent(in)    :: plstrain
+    integer(kind=kint), intent(inout) :: istat
+    real(kind=kreal),   intent(inout) :: fstat(:)
+    real(kind=kreal),   intent(in)    :: temp
+    integer(kind=kint), intent(in)    :: hdflag
 ```
 
-  - `matl`: Array to save the material constants (100 max)
+  - `matl`: Array to save the material constants (1-100 : system defined constants, 101-200 : user defined constants)
   - `stress`: 2nd Piola-Kirchhoff stress acquired by assuming trial stress elastic deformation
-  - `istat`: Yield state (0: not yielded; 1: yielded)
-  - `fstat`: State variable, fstat(1) = plastic strain, fstat(2:7) = back stress (while moving or complex hardening)
+  - `plstrain`: Plastic strain at the beginning of current substep
+  - `istat`: Integer state variable
+  - `fstat`: Array of real state variables
+  - `temp`: Temperature
+  - `hdflag`: Return total(0), deviatoric term only(1), or hydraulic term only(2)
 
 ### Subroutine regarding Elastic Deformation (`uelastic.f90`)
 

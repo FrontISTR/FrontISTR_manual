@@ -1317,7 +1317,7 @@ TYPE = TEMPERATURE/VELOCITY/ACCELERATION
 
 ###### 材料物性の定義
 
-材料物性の定義は`!MATERIAL`と以降に置く`!ELASTICITY`、`!PLASTICITY`などとセットで使用する。`!MATERIAL`の前に置く`!ELASTICITY`、`!PLASTICTY`などは無視される。
+材料物性の定義は`!MATERIAL`と以降に置く`!ELASTIC`、`!PLASTIC`などとセットで使用する。`!MATERIAL`の前に置く`!ELASTIC`、`!PLASTIC`などは無視される。
 
 注: 解析制御データで`!MATERIAL`を定義すると、メッシュデータ内の`!MATERIAL`定義は無視される。解析制御データで`!MATERIAL`を定義しない場合は、メッシュデータ内の`!MATERIAL`定義が用いられる。
 
@@ -1336,6 +1336,7 @@ NAME = 材料名
 ```
 TYPE = ISOTROPIC (Default値) / ORTHOTROPIC / USER
 DEPENDENCIES = 0 (Default値) / 1
+INFINITESIMAL    指定した場合、微小変形の前提が適用される
 ```
 
 ** 2行目以降 **
@@ -1401,6 +1402,7 @@ DEPENDENCIES = 0 (Default値) / 1
 YIELD        = MISES (Default値)、Mohr-Coulomb、DRUCKER-PRAGER、USER
 HARDEN       = BILINEAR (Default値)、MULTILINEAR、SWIFT、RAMBERG-OSGOOD、KINEMATIC、COMBINED
 DEPENDENCIES = 0 (Default値) / 1
+INFINITESIMAL    指定した場合、微小変形の前提が適用される
 ```
 
 ** 2行目以降 **
@@ -1451,15 +1453,15 @@ DEPENDENCIES = 0 (Default値) / 1
 ** `HARDEN = BILINEAR`(Default値)の場合 **
 
 ```
-(2行目) c, FAI, H
+(2行目) c, $\phi$, H, $\psi$
 ```
 
 ** `HARDEN = MULTILINEAR`の場合 **
 
 ```
-(2行目) FAI
-(3行目) PSTRAIN, c
-(4行目) PSTRAIN, c
+(2行目) $\phi$, $\psi$
+(3行目) c, PSTRAIN
+(4行目) c, PSTRAIN
 ...続く
 ```
 `HARDEN = `他は無視され、Default値(`BILINEAR`)になる。
@@ -1472,7 +1474,8 @@ DEPENDENCIES = 0 (Default値) / 1
 | YIELD      | R    | 降伏応力            |
 | \(\varepsilon0, K, n\)   | R    |\(\overline{\sigma} = k\left( \varepsilon_{0} + \overline{\varepsilon} \right)^{n}\)|
 | \(\varepsilon0, D, n\)   | R    |\(\varepsilon = \frac{\sigma}{E} + \varepsilon_{0}\left( \frac{\sigma}{D} \right)^{n}\)|
-| FAI        | R    | 内部摩擦角          |
+| $\phi$     | R    | 内部摩擦角          |
+| $\psi$     | R    | ダイレイタンシー角 (デフォルト: $\phi$と同じ値)|
 | c          | R    | 粘着力              |
 | C          | R    | 線形移動硬化係数    |
 | Tempearture|R     | 温度(DEPENDENCIES=1の時に必要) |
@@ -1606,6 +1609,7 @@ TYPE = NEOHOOKE（Default値）
 
 ```
 DEPENDENCIES = 依存する変数の数(未実装)
+INFINITESIMAL    指定した場合、微小変形の前提が適用される
 ```
 
 ** 2行目以降 **
@@ -1772,6 +1776,7 @@ GRPID      = グループID
 AMP        = 時間関数名 (!AMPLITUDEで指定、動解析で有効)
 ROT_CENTER = 回転変位拘束の中心節点番号または節点集合名。
              指定した場合、その !BOUNDARY は回転変位拘束であると認識される。
+TOTAL        指定した場合、変位量は初期配置からの総量として扱われる (デフォルトはステップ開始時の配置からの相対量)
 ```
 
 ** 2行目以降 **
@@ -3192,6 +3197,10 @@ METHOD2 =   第2の解法 (BiCGSTAB、GMRES、GPBiCG) (試験的)
             METHODにCGを指定した場合のみ有効
             CG法が発散した場合に自動的に切り替えて求解を行う
             他のパラメータやデータ行の情報は同じものが利用される
+
+CONTACT_ELIM = 接触解析において自由度消去を行うかどうかの指定 (0,1)
+               0: 反復法使用時のみ自由度消去を行う(デフォルト)
+               1: 常に(直接法使用時にも)自由度消去を行う
 ```
 
 ** 2行目以降 **
