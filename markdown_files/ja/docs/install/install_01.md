@@ -34,6 +34,11 @@ METISは下記のWEBサイトからダウンロードすることができます
 
 [http://glaros.dtc.umn.edu/gkhome/metis/metis/overview](http://glaros.dtc.umn.edu/gkhome/metis/metis/overview)
 
+または次のフォークしたリポジトリからダウンロードすることができます。
+
+- [https://gitlab.com/FrontISTR-Commons/METIS](https://gitlab.com/FrontISTR-Commons/METIS)
+- [https://gitlab.com/FrontISTR-Commons/GKlib](https://gitlab.com/FrontISTR-Commons/GKlib)
+
 #### HEC-MW
 
 本ソフトウェアは、「革新的シミュレーションソフトウェアの研究開発」プロジェクトおよび「イノベーション基盤シミュレーションソフトウェアの研究開発」プロジェクトで開発されたHEC-MWライブラリを利用しています。
