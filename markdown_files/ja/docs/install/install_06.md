@@ -33,14 +33,6 @@ MPI対応コンパイラーが自動参照している場合は、MPIに関す�
 | METISINCDIR | METISのヘッダーファイル群（metis.hなど）がインストールされているディレクトリのパスを指定する | `$(METISDIR)/include` |
 | METISLIBDIR | METISのライブラリ（libmetis.a）がインストールされているディレクトリのパスを指定する          | `$(METISDIR)/lib`     |
 
-#### ParMETISに関する設定
-
-| 変数名         | 説明                                                                                               | 既定値                   |
-|:---------------|:---------------------------------------------------------------------------------------------------|:-------------------------|
-| PARMETISDIR    | ParMETISがインストールされているディレクトリのパスを指定する。                                     | `$(HOME)/ParMetis`       |
-| PAEMETISINCDIR | ParMETISのヘッダーファイル群（parmetis.hなど）がインストールされているディレクトリのパスを指定する | `$(PARMETISDIR)/include` |
-| PARMETISLIBDIR | ParMETISのライブラリ（libparmetis.a）がインストールされているディレクトリのパスを指定する          | `$(PARMETISDIR)/lib`     |
-
 #### REVOCAP_Refinerに関する設定
 
 | 変数名        | 説明                                                                                    | 既定値                    |
@@ -134,11 +126,6 @@ INCLUDEDIR = $(PREFIX)/include
 METISDIR    = $(HOME)/Metis-4.0
 METISLIBDIR = $(METISDIR)
 METISINCDIR = $(METISDIR)/Lib
-
-# ParMetis
-PARMETISDIR    = $(HOME)/ParMetis-3.1
-PARMETISLIBDIR = $(PARMETISDIR)
-PARMETISINCDIR = $(PARMETISDIR)/ParMETISLib
 
 # Refiner
 REFINERDIR    = $(HOME)/REVOCAP_Refiner-1.1.0

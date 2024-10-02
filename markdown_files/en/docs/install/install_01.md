@@ -30,17 +30,6 @@ METIS - Serial Graph Partitioning and Fill-reducing Matrix Ordering
 
   - [http://glaros.dtc.umn.edu/gkhome/metis/metis/overview](http://glaros.dtc.umn.edu/gkhome/metis/metis/overview)
 
-
-#### ParMETIS
-
-We plan to use the ParMETIS library as the parallel domain decomposition utilities for this software.
-
-ParMETIS is not required at present.
-
-ParMETIS - Parallel Graph Partitioning and Fill-reducing Matrix Ordering
-
-  - [http://glaros.dtc.umn.edu/gkhome/metis/parmetis/overview](http://glaros.dtc.umn.edu/gkhome/metis/parmetis/overview)
-
 #### HEC-MW
 
 This software uses the HEC-MW library developed by the "Revolutionary Simulation Software" and "Research and Development of Innovative Simulation Software" projects.

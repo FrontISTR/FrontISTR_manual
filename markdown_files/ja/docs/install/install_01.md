@@ -34,16 +34,6 @@ METISは下記のWEBサイトからダウンロードすることができます
 
 [http://glaros.dtc.umn.edu/gkhome/metis/metis/overview](http://glaros.dtc.umn.edu/gkhome/metis/metis/overview)
 
-#### ParMETIS
-
-本ソフトウェアの並列領域分割ユーティリティは、ParMETISライブラリを使用する予定です。
-
-現時点ではParMETISは不要です。
-
-ParMETISは下記のWEBサイトからダウンロードすることができます。
-
-[http://glaros.dtc.umn.edu/gkhome/metis/parmetis/overview](http://glaros.dtc.umn.edu/gkhome/metis/parmetis/overview)
-
 #### HEC-MW
 
 本ソフトウェアは、「革新的シミュレーションソフトウェアの研究開発」プロジェクトおよび「イノベーション基盤シミュレーションソフトウェアの研究開発」プロジェクトで開発されたHEC-MWライブラリを利用しています。

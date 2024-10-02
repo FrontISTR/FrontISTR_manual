@@ -79,8 +79,6 @@ You can explicitly various options at configuration time.
 | -DWITH_REVOCAP=ON    | Enable REVOCAP_Coupler functionality         | require libraries                                                  |
 | -DWITH_METIS=ON      | Enable METIS functionality                   | 4.0.3 and 5.1.0 supported                                          |
 | -DMETIS_VER_4=OFF    | In case of using metis-4.0.3, specify ON     | In case of using metis-5.1.0, it isn't necessary to specify it.    |
-| -DWITH_PARMETIS=ON   | Enable ParMETIS functionality                | 3.2.0 and 4.0.3 supported                                          |
-| -DMETIS_VER_3=OFF    | In case of using ParMetis-3.2.0, specify ON  | In case of using parmetis-4.0.3, it isn't necessary to specify it. |
 | -DWITH_MKL=ON        | Enable MKL PARDISO functionality             | require libraries                                                  |
 | -DWITH_MUMPS=ON      | Enable MUMPS functionality                   | require libraries                                                  |
 | -DWITH_LAPACK=ON     | Enable LAPACK functionality                  | require libraries                                                  |
