@@ -32,7 +32,12 @@ MPICHは下記のWEBサイトからダウンロードすることができます
 
 METISは下記のWEBサイトからダウンロードすることができます。
 
-[METISのバックアップ](https://gitlab.com/FrontISTR-Commons/METIS) と [GKlibのバックアップ](https://gitlab.com/FrontISTR-Commons/GKlib)
+[http://glaros.dtc.umn.edu/gkhome/metis/metis/overview](http://glaros.dtc.umn.edu/gkhome/metis/metis/overview)
+
+または次のフォークしたリポジトリからダウンロードすることができます。
+
+- [https://gitlab.com/FrontISTR-Commons/METIS](https://gitlab.com/FrontISTR-Commons/METIS)
+- [https://gitlab.com/FrontISTR-Commons/GKlib](https://gitlab.com/FrontISTR-Commons/GKlib)
 
 #### HEC-MW
 

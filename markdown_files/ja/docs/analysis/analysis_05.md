@@ -3242,7 +3242,7 @@ PRECOND にその他の値が指定された場合は、4行目は無視され�
 | ML_Smoother         | I    | MLのスムーザー(1: Chebyshev、2: SymBlockGaussSeidel、3: Jacobi)(デフォルト値: 1) <br/>(推奨値は1)  |
 | ML_MGCycle          | I    | MLのマルチグリッドサイクル(1: V-cycle、2: W-cycle、3: Full-V-cycle)(デフォルト値: 1) <br/>(推奨値は、解き難い問題では2、通常の問題では1)  |
 | ML_MaxLevels        | I    | MLの最大レベル数(デフォルト値: 10) <br/>(推奨値は、特に解き難い問題では、コースソルバを直接法にして、2(メモリが足りない場合は3)、通常の問題では10)  |
-| ML_CoarseningScheme | I    | MLのコースニングスキーム(1: UncoupledMIS、2: METIS、3: ParMETIS、4: Zoltan、5: DD)(デフォルト値: 1) <br/>(推奨値は1または5)  |
+| ML_CoarseningScheme | I    | MLのコースニングスキーム(1: UncoupledMIS、2: METIS、4: Zoltan、5: DD)(デフォルト値: 1) <br/>(推奨値は1または5)  |
 | ML_NumSweep         | I    | MLのスムーザーのスウィープ数(Chebyshevの場合は多項式の次数)(デフォルト値: 2) <br/>(推奨値は、Chebyshevの場合は2、SymBlockGaussSeidelの場合は1)   |
 
 ##### 使用例
