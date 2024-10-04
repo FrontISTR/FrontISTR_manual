@@ -53,7 +53,7 @@ REVOCAP_Refinerの最新版は下記のWEBサイトからダウンロードす�
 
 本ソフトウェアは、「イノベーション基盤シミュレーションソフトウェアの研究開発」プロジェクトで開発された連成解析ツールREVOCAP_Couplerに対応しています。連成解析機能を利用する場合にはREVOCAP_Couplerが必要となります。REVOCAP_Couplerは下記のWEBサイトからダウンロードすることができます。
 
-[https://www.frontistr.com/download](https://www.frontistr.com/download)
+[http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php](http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php)
 
 #### LAPACK/BLAS
 

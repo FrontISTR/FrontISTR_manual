@@ -48,7 +48,7 @@ be downloaded from the following website:
 
 This software is compatible with the REVOCAP_Coupler coupled analysis tool developed by the "Research and Development of Innovative Simulation Software" project.REVOCAP_Coupler is required to use the coupled analysis function. REVOCAP_Coupler can be downloaded from the following website:
 
-- [https://www.frontistr.com/download/](https://www.frontistr.com/download/)
+- [http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php](http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php)
 
 #### LAPACK/BLAS
 
