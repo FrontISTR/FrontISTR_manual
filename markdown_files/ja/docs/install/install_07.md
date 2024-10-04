@@ -58,10 +58,10 @@ export PATH=$HOME/local/bin:$PATH
 |:--|:--|
 | REVOCAP_Refiner-1.1.04.tar.gz | <https://www.frontistr.com/> |
 | FrontISTR_V50.tar.gz | <https://www.frontistr.com/> |
-| OpenBLAS-0.2.20.tar.gz | <http://www.openblas.net/> |
+| OpenBLAS-0.2.20.tar.gz | <https://www.openblas.net/> or <https://github.com/OpenMathLib/OpenBLAS> |
 | metis-5.1.0.tar.gz | <https://gitlab.com/FrontISTR-Commons/METIS> <br/> <https://gitlab.com/FrontISTR-Commons/GKlib> |
-| scalapack-2.0.2.tgz | <http://www.netlib.org/scalapack/> |
-| MUMPS_5.1.2.tar.gz | <http://mumps.enseeiht.fr/> |
+| scalapack-2.0.2.tgz | <https://www.netlib.org/scalapack/> |
+| MUMPS_5.1.2.tar.gz | <https://mumps.enseeiht.fr/> |
 | trilinos-12.14.1-Source.tar.bz2 | <https://trilinos.org/download/> |
 
 #### REVOCAP_Refinerのコンパイル
