@@ -22,6 +22,11 @@ Recursive Coordinate Bisectionの略であり、座標値の大小の基準に�
 
 [METIS - Serial Graph Partitioning and Fill-reducing Matrix Ordering](http://glaros.dtc.umn.edu/gkhome/metis/metis/download)
 
+またはフォークしたリポジトリ
+
+[https://gitlab.com/FrontISTR-Commons/METIS](https://gitlab.com/FrontISTR-Commons/METIS)
+[https://gitlab.com/FrontISTR-Commons/GKlib](https://gitlab.com/FrontISTR-Commons/GKlib)
+
 ### 領域分割タイプ
 
 本ソフトウェアにおいては、単一領域メッシュの部分領域への分割の仕方として、以下の2種類の領域分割タイプに対応している。

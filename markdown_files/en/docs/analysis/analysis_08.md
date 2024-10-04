@@ -22,6 +22,11 @@ This open-sourced free software is widely used in the world because it is a fast
 
 [METIS - Serial Graph Partitioning and Fill-reducing Matrix Ordering](http://glaros.dtc.umn.edu/gkhome/metis/metis/download)
 
+or its forked repository
+
+[https://gitlab.com/FrontISTR-Commons/METIS](https://gitlab.com/FrontISTR-Commons/METIS)
+[https://gitlab.com/FrontISTR-Commons/GKlib](https://gitlab.com/FrontISTR-Commons/GKlib)
+
 ### Domain division type
 
 `hecmw_part1` supports the following two types of division of a single region mesh into subregions.

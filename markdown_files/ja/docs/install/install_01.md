@@ -34,15 +34,10 @@ METISは下記のWEBサイトからダウンロードすることができます
 
 [http://glaros.dtc.umn.edu/gkhome/metis/metis/overview](http://glaros.dtc.umn.edu/gkhome/metis/metis/overview)
 
-#### ParMETIS
+または次のフォークしたリポジトリからダウンロードすることができます。
 
-本ソフトウェアの並列領域分割ユーティリティは、ParMETISライブラリを使用する予定です。
-
-現時点ではParMETISは不要です。
-
-ParMETISは下記のWEBサイトからダウンロードすることができます。
-
-[http://glaros.dtc.umn.edu/gkhome/metis/parmetis/overview](http://glaros.dtc.umn.edu/gkhome/metis/parmetis/overview)
+- [https://gitlab.com/FrontISTR-Commons/METIS](https://gitlab.com/FrontISTR-Commons/METIS)
+- [https://gitlab.com/FrontISTR-Commons/GKlib](https://gitlab.com/FrontISTR-Commons/GKlib)
 
 #### HEC-MW
 

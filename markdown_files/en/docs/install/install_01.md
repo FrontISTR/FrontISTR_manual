@@ -29,17 +29,9 @@ For environments where METIS is not installed, domain decomposition is still pos
 METIS - Serial Graph Partitioning and Fill-reducing Matrix Ordering
 
   - [http://glaros.dtc.umn.edu/gkhome/metis/metis/overview](http://glaros.dtc.umn.edu/gkhome/metis/metis/overview)
+  - forked repository [https://gitlab.com/FrontISTR-Commons/METIS](https://gitlab.com/FrontISTR-Commons/METIS)[https://gitlab.com/FrontISTR-Commons/GKlib](https://gitlab.com/FrontISTR-Commons/GKlib)
 
 
-#### ParMETIS
-
-We plan to use the ParMETIS library as the parallel domain decomposition utilities for this software.
-
-ParMETIS is not required at present.
-
-ParMETIS - Parallel Graph Partitioning and Fill-reducing Matrix Ordering
-
-  - [http://glaros.dtc.umn.edu/gkhome/metis/parmetis/overview](http://glaros.dtc.umn.edu/gkhome/metis/parmetis/overview)
 
 #### HEC-MW
 
