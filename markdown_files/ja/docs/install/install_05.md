@@ -29,7 +29,7 @@
 Makefileを作成します。
 
 ```txt
-$ ./setup.sh
+./setup.sh
 ```
 
 並列計算用のライブラリを生成する場合などは、下記のオプションを指定してsetup.sh
@@ -55,26 +55,26 @@ $ ./setup.sh
 
 #### 並列処理用にコンパイルする場合
 
-MPIがインストールされている並列実行環境で本ソフトウェアを使用する場合、以下のように** -p **または** --parallel **オプションを付けてsetup.shを起動します。
+MPIがインストールされている並列実行環境で本ソフトウェアを使用する場合、以下のように**-p **または** --parallel**オプションを付けてsetup.shを起動します。
 
 ```txt
-$ ./setup.sh –p
+./setup.sh –p
 ```
 
 #### パーティショナーなどのツールを生成する場合
 
-パーティショナー(RCB)やビジュアライザーなどのプリ・ポスト処理用ツールが必要な場合、以下のように** --with-tools **オプションを付けてsetup.shを実行すると、各種ツールが生成されます。
+パーティショナー(RCB)やビジュアライザーなどのプリ・ポスト処理用ツールが必要な場合、以下のように**--with-tools**オプションを付けてsetup.shを実行すると、各種ツールが生成されます。
 
 ```txt
-$ ./setup.sh –p --with-tools
+./setup.sh –p --with-tools
 ```
 
 #### METISを使用する場合
 
-METISがインストールされている環境では、さらに以下のように** --with-metis **オプションを付けてsetup.shを実行すると、パーティショナーにおいてMETISの使用が可能となります。
+METISがインストールされている環境では、さらに以下のように**--with-metis**オプションを付けてsetup.shを実行すると、パーティショナーにおいてMETISの使用が可能となります。
 
 ```txt
-$ ./setup.sh –p --with-tools --with-metis
+./setup.sh –p --with-tools --with-metis
 ```
 
 ### makeの実行
@@ -82,7 +82,7 @@ $ ./setup.sh –p --with-tools --with-metis
 `${FSTRBUILDDIR}` にて、以下のようにmakeを実行します。
 
 ```txt
-$ make 2 > & 1 | tee make.log
+make 2 > & 1 | tee make.log
 ```
 
 makeの実行には、計算機環境によっては数十分かかる場合があります。実行中にエラーが生じた場合は、Makefile.confの設定の見直し等を行なって下さい。
@@ -93,7 +93,7 @@ makeの実行が正常に終了した後、Makefile.confで指定したディレ
 以下のようにmake installを実行します。
 
 ```txt
-$ make install
+make install
 ```
 
 ### Windows環境へのインストール
@@ -103,5 +103,3 @@ Windows環境では、以下のUNIXライク環境を用いることにより、
 - 逐次処理版：MinGW, Cygwin
 
 - 並列処理版：MinGW + Microsoft MPI, Cygwin + OpenMPI
-
-

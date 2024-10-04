@@ -9,6 +9,7 @@ Windows10上へ、本ソフトウェアとそれに必要な外部ライブラ�
 最初に本ソフトウェアをコンパイルするのに必要なツールやパッケージをインストールしてください。
 
 #### 開発環境の準備
+
 はじめに開発環境をインストールします。使用する開発環境は MSYS2 です。
 
 [https://www.msys2.org/](https://www.msys2.org/)
@@ -89,13 +90,13 @@ mpi.h  mpif.h  mpifptr.h  mpio.h  mspms.h  pmidbg.h
 
 | ソフトウェア名                  | ダウンロード先                                        |
 |:--------------------------------|:------------------------------------------------------|
-| REVOCAP_Refiner-1.1.04.tar.gz   | https://www.frontistr.com/                            |
-| FrontISTR_V50.tar.gz            | https://www.frontistr.com/                            |
-| OpenBLAS-0.2.20.tar.gz          | http://www.openblas.net/                              |
-| metis-5.1.0.tar.gz              | http://glaros.dtc.umn.edu/gkhome/metis/metis/download |
-| scalapack-2.0.2.tgz             | http://www.netlib.org/scalapack/                      |
-| MUMPS_5.1.2.tar.gz              | http://mumps.enseeiht.fr/                             |
-| trilinos-12.14.1-Source.tar.bz2 | https://trilinos.org/download/                        |
+| REVOCAP_Refiner-1.1.04.tar.gz   | <https://www.frontistr.com/>                            |
+| FrontISTR_V50.tar.gz            | <https://www.frontistr.com/>                            |
+| OpenBLAS-0.2.20.tar.gz          | <https://www.openblas.net/>                              |
+| metis-5.1.0.tar.gz              | <https://gitlab.com/FrontISTR-Commons/METIS> <br/> <https://gitlab.com/FrontISTR-Commons/GKlib> |
+| scalapack-2.0.2.tgz             | <https://www.netlib.org/scalapack/>                      |
+| MUMPS_5.1.2.tar.gz              | <https://mumps.enseeiht.fr/>                             |
+| trilinos-12.14.1-Source.tar.bz2 | <https://trilinos.org/download/>                        |
 
 #### REVOCAP_Refinerのコンパイル
 
@@ -487,5 +488,3 @@ C:\msys64\mingw64\bin
 の下にありますので、バイナリを実行するコンピュータにコピーします。
 
 また、Microsoft MPIのランタイムMSMpiSetup.exeも実行するコンピュータにインストールします。
-
-

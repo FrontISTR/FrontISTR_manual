@@ -23,7 +23,7 @@ Refer to Appendix A, “List of Makefile.conf Variables” for details on all va
 Create Makefile by executing the `setup.sh` shell script in `${FSTRBUILDDIR}`, as below.
 
 ```txt
-$ ./setup.sh
+./setup.sh
 ```
 
 To generate a library for parallel computing, for example, execute `setup.sh` with the following options specified.
@@ -51,7 +51,7 @@ Examples of `setup.sh` execution are shown below.
 If this software is used in parallel execution environment where MPI has installed, execute `setup.sh` with the `-p` or `--parallel` option specified, as below.
 
 ```txt
-$ ./setup.sh –p
+./setup.sh –p
 ```
 
 #### Generating a tool such as a partitioner
@@ -59,7 +59,7 @@ $ ./setup.sh –p
 If a processing or post-processing tool such as a partitioner (RCB) or visualizer is required, execute `setup.sh` with the `--with-tools` option specified, as below.
 
 ```txt
-$ ./setup.sh –p --with-tools
+./setup.sh –p --with-tools
 ```
 
 #### Using METIS
@@ -67,7 +67,7 @@ $ ./setup.sh –p --with-tools
 If METIS is used with a partitioner in an environment where METIS has been installed, execute `setup.sh` with the `--with-metis` option specified, as below.
 
 ```txt
-$ ./setup.sh –p --with-tools --with-metis
+./setup.sh –p --with-tools --with-metis
 ```
 
 ### Executing make
@@ -75,7 +75,7 @@ $ ./setup.sh –p --with-tools --with-metis
 Execute make in `${FSTRBUILDDIR}` as below.
 
 ```txt
-$ make 2 > & 1 | tee make.log
+make 2 > & 1 | tee make.log
 ```
 
 It may take sevral minutes to execute make, depending on the computer environment. If an error occurs during execution, take appropriate actions such as reviewing the `Makefile.conf`
@@ -85,7 +85,7 @@ It may take sevral minutes to execute make, depending on the computer environmen
 After make has finished executing normally, execute make install to install this software in the directory specified in `Makefile.conf`, as below.
 
 ```txt
-$ make install
+make install
 ```
 
 ### Installing in Windows environments
@@ -94,5 +94,3 @@ In Windows environments, the following UNIX-like environments can be used to ins
 
 - Sequential processing version : MinGW, Cygwin
 - Parallel processing version : MinGW + Microsoft MPI, Cygwin + OpenMPI
-
-

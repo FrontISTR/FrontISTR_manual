@@ -34,11 +34,11 @@ cmake version 2.8.12.2
 次にFrontISTRを構築します。
 
 ```
-$ cd `${FSTRBUILDDIR}`
-$ mkdir build
-$ cd build
-$ cmake ..
-$ make -j2
+cd `${FSTRBUILDDIR}`
+mkdir build
+cd build
+cmake ..
+make -j2
 ```
 
 `make` のオプション `-j2` は、並列コンパイルの数を示しています。構築するコンピュータのコア数に併せて数を増やすことで、コンパイル時間の短縮が期待できます。
@@ -48,16 +48,15 @@ $ make -j2
 makeの実行が正常に終了したあと、本ソフトウェアをインストールするため、以下のコマンドを実行します。
 
 ```
-$ make install
+make install
 ```
 
 以上で`/usr/local/bin`もしくは、`-DCMAKE_INSTALL_PREFIX`で指定したディレクトリに、本ソフトウェアがインストールされます。
 
 インストールする場所を変えるには、cmakeコマンドにオプションを追加します。
 
-
 ```
-$ cmake -DCMAKE_INSTALL_PREFIX=$HOME/local ..
+cmake -DCMAKE_INSTALL_PREFIX=$HOME/local ..
 ```
 
 などとオプションを追加してください。
@@ -98,7 +97,7 @@ cmakeコマンドを実行する際、オプションを指定することで挙
 cmakeで設定されている変数の一覧は
 
 ```
-$ cmake -L
+cmake -L
 ```
 
 で確認できます。
@@ -125,12 +124,12 @@ $ cmake -L
 `cmake`で本ソフトウェアをコンパイル後、以下のようにしてテストを実行します。
 
 ```
-$ make test
+make test
 ```
 
 テストは以下のように実行されます。
 
-``` 
+```
 /home/fistr/Work/FrontISTR/build$ make test
 Running tests...
 Test project /home/fistr/Work/FrontISTR/build
@@ -145,13 +144,13 @@ Test project /home/fistr/Work/FrontISTR/build
 更に詳細なメッセージを出力する場合
 
 ```
-$ make test ARGS="-VV -O test_log.txt"
+make test ARGS="-VV -O test_log.txt"
 ```
 
 とすると、`test_log.txt`ファイルの中に結果が出力されます。オプションの詳細は
 
 ```
-$ ctest --help
+ctest --help
 ```
 
 を参照してください。
@@ -165,14 +164,14 @@ $ ctest --help
 以下の手順でHTMLを構築します。
 
 ```
-$ cmake -DWITH_DOC=ON ..
-$ make doc
+cmake -DWITH_DOC=ON ..
+make doc
 ```
 
 作成されたHTMLを以下のようにして参照します。
 
 ```
-$ firefox doc/html/index.html
+firefox doc/html/index.html
 ```
 
 ![ドキュメンテーション](media/install04_01.png){.center width="80%"}
@@ -182,15 +181,13 @@ $ firefox doc/html/index.html
 デバッグを有効にするには、
 
 ```
-$ cmake -DCMAKE_BUILD_TYPE="DEBUG" ..
+cmake -DCMAKE_BUILD_TYPE="DEBUG" ..
 ```
 
 としてから`make`をします。更に高度なデバッグオプションを有効にするには
 
 ```
-$ cmake -DCMAKE_BUILD_TYPE="DEBUG" -DDEBUG_EXTRA=ON ..
+cmake -DCMAKE_BUILD_TYPE="DEBUG" -DDEBUG_EXTRA=ON ..
 ```
 
 とすると、メモリリークなどの検出に役立ちます。
-
-

@@ -177,10 +177,7 @@ Changes:
 
 Set the value of parameter `TotalSectorCacheSize` defined in the file to
 
-  - 12 on K-computer,
-  - 24 on FX10.
+- 12 on K-computer,
+- 24 on FX10.
 
 Initially, the parameter is set for K-computer.
-
-
-

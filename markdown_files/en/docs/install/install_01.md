@@ -14,15 +14,15 @@ This software executes parallel processing via MPI and requires an MPI library t
 
 Open MPI: Open Source High Performance Computing
 
-  - [https://www.open-mpi.org/](https://www.open-mpi.org/)
+- [https://www.open-mpi.org/](https://www.open-mpi.org/)
 
 High-Performance Portable MPI
 
-  - [http://www.mpich.org/](http://www.mpich.org/)
+- [https://www.mpich.org/](https://www.mpich.org/)
 
 #### METIS
 
-The domain decomposition utilities of this software use the METIS libraries to enable domain decomposition using pMETIS and kMETIS. METIS is required to use these domain decomposition functions. Supported versions of METIS are the newest version Ver.5 series and previous version Ver.4 series. 
+The domain decomposition utilities of this software use the METIS libraries to enable domain decomposition using pMETIS and kMETIS. METIS is required to use these domain decomposition functions. Supported versions of METIS are the newest version Ver.5 series and previous version Ver.4 series.
 
 For environments where METIS is not installed, domain decomposition is still possible using the RCB algorithm.
 
@@ -45,13 +45,13 @@ This software is compatible with the REVOCAP_Coupler coupled analysis tool devel
 REVOCAP_Coupler is required to use the coupled analysis function. REVOCAP_Coupler can
 be downloaded from the following website:
 
-  - [http://www.multi.k.u-tokyo.ac.jp/FrontISTR/](http://www.multi.k.u-tokyo.ac.jp/FrontISTR/)
+- [https://www.frontistr.com/download/](https://www.frontistr.com/download/)
 
 #### REVOCAP_Coupler
 
 This software is compatible with the REVOCAP_Coupler coupled analysis tool developed by the "Research and Development of Innovative Simulation Software" project.REVOCAP_Coupler is required to use the coupled analysis function. REVOCAP_Coupler can be downloaded from the following website:
 
-  - [http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php](http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php)
+- [http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php](http://www.ciss.iis.u-tokyo.ac.jp/dl/index.php)
 
 #### LAPACK/BLAS
 
@@ -61,15 +61,15 @@ When you use this function, LAPACK and BLAS libraries are required.
 
 Reference implements of LAPACK can be downloaded from the following website:
 
-  - [http://www.netlib.org/lapack/](http://www.netlib.org/lapack/)
+- [https://www.netlib.org/lapack/](https://www.netlib.org/lapack/)
 
 Reference implements of BLAS can be downloaded from the following website:
 
-  - [http://www.netlib.org/blas/](http://www.netlib.org/blas/)
+- [https://www.netlib.org/blas/](https://www.netlib.org/blas/)
 
 OpenBLAS is compatible, fast and Open-Sourced implements of LAPACK/BLAS. OpenBLAS can be downloaded from the following website:
 
-  - [http://www.openblas.net/](http://www.openblas.net/)
+- [https://www.openblas.net/](https://www.openblas.net/)
 
 If Intel MKL is installed, it is not necessary to install above software.
 
@@ -77,13 +77,13 @@ If Intel MKL is installed, it is not necessary to install above software.
 
 This software is compatible with a public domain parallel direct solver MUMPS (a MUltifrontal Massively Parallel sparse direct Solver). MUMPS is based on public domain software developed during the Esprit IV European project PARASOL (1996-1999). Since this first public domain version in 1999, research and developments have been supported by the following institutions: CERFACS, CNRS, ENS Lyon, INPT(ENSEEIHT)-IRIT, INRIA, and University of Bordeaux. MUMPS can be downloaded from the following website:
 
-  - [http://mumps.enseeiht.fr/](http://mumps.enseeiht.fr/)
+- [https://mumps.enseeiht.fr/](https://mumps.enseeiht.fr/)
 
 #### ScaLAPACK
 
 Therefore this software doesn't use this directly, MUMPS needs ScaLAPACK for compiling. ScaLAPACK can be downloaded from the following website:
 
-  - [http://www.netlib.org/scalapack/](http://www.netlib.org/scalapack/)
+- [https://www.netlib.org/scalapack/](https://www.netlib.org/scalapack/)
 
 If Intel MKL is installed, it is not necessary to install above software.
 
@@ -91,7 +91,7 @@ If Intel MKL is installed, it is not necessary to install above software.
 
 This software is compatible with multigrid preconditioner package ML (Multi-Level Preconditioner). ML is one of the packages developed under Trilinos project at Sandia National Laboratories. ML can be downloaded from the following website:
 
-  - [https://trilinos.org/](https://trilinos.org/)
+- [https://trilinos.org/](https://trilinos.org/)
 
 #### Intel MKL（Math Kernel Library）
 
@@ -117,6 +117,3 @@ Operations of this software have been verified in the following environment. How
 | Desktop PC           | Windows (7, 10)                   | Intel Core-i7       | GNU compiler (mingw) | Microsoft MPI                       |
 | Raspberry PI 3 B+    | Linux (raspbian 32bit)            | ARM Cortex-A53      | GNU compiler         | OpenMPI                             |
 | Notebook PC          | macOS Mojave                      | Intel Core i7       | GNU Compiler         | OpenMPI                             |
-
-
-

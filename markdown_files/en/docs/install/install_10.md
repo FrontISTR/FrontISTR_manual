@@ -9,7 +9,7 @@ More information for building each libraries, refer to their installation manual
 At first, install the basic build toolchains and libraries as follows.
 
 ```
-$ sudo apt install build-essential gfortran cmake openmpi-bin libopenmpi-dev
+sudo apt install build-essential gfortran cmake openmpi-bin libopenmpi-dev
 ```
 
 Please check compilers and compiler wrappers for MPI works propery.
@@ -30,12 +30,11 @@ Compile and install required libraries this software. Working directory is `$HOM
 
 And add `$HOME/local/bin` to PATH environment variable as follows.
 
-
 ```
-$ cd $HOME
-$ mkdir work
-$ mkdir -p local/bin local/lib local/include
-$ export PATH=$HOME/local/bin:$PATH
+cd $HOME
+mkdir work
+mkdir -p local/bin local/lib local/include
+export PATH=$HOME/local/bin:$PATH
 ```
 
 #### Downloads
@@ -44,43 +43,43 @@ Downloads the following software and save it to working directory `$HOME/work`.
 
 | Software                        | Link                                                  |
 |:--------------------------------|:------------------------------------------------------|
-| REVOCAP_Refiner-1.1.04.tar.gz   | https://www.frontistr.com/                            |
-| FrontISTR_V50.tar.gz            | https://www.frontistr.com/                            |
-| OpenBLAS-0.2.20.tar.gz          | http://www.openblas.net/                              |
-| metis-5.1.0.tar.gz              | http://glaros.dtc.umn.edu/gkhome/metis/metis/download |
-| scalapack-2.0.2.tgz             | http://www.netlib.org/scalapack/                      |
-| MUMPS_5.1.2.tar.gz              | http://mumps.enseeiht.fr/                             |
-| trilinos-12.14.1-Source.tar.bz2 | https://trilinos.org/download/                        |
+| REVOCAP_Refiner-1.1.04.tar.gz   | <https://www.frontistr.com/download/>                            |
+| FrontISTR_V50.tar.gz            | <https://www.frontistr.com/download/>                            |
+| OpenBLAS-0.2.20.tar.gz          | <https://www.openblas.net/>                              |
+| metis-5.1.0.tar.gz              | <https://gitlab.com/FrontISTR-Commons/METIS> <br/> <https://gitlab.com/FrontISTR-Commons/GKlib>          |
+| scalapack-2.0.2.tgz             | <https://www.netlib.org/scalapack/>                      |
+| MUMPS_5.1.2.tar.gz              | <https://mumps.enseeiht.fr/>                             |
+| trilinos-12.14.1-Source.tar.bz2 | <https://trilinos.org/download/>                        |
 
 #### Compiling REVOCAP_Refiner
 
 ```
-$ cd $HOME/work
-$ tar xvf REVOCAP_Refiner-1.1.04.tar.gz
-$ cd REVOCAP_Refiner-1.1.04
-$ make
-$ cp lib/x86_64-linux/libRcapRefiner.a $HOME/local/lib
-$ cp Refiner/rcapRefiner.h $HOME/local/include
+cd $HOME/work
+tar xvf REVOCAP_Refiner-1.1.04.tar.gz
+cd REVOCAP_Refiner-1.1.04
+make
+cp lib/x86_64-linux/libRcapRefiner.a $HOME/local/lib
+cp Refiner/rcapRefiner.h $HOME/local/include
 ```
 
 #### Compiling OpenBLAS
 
 ```
-$ cd $HOME/work
-$ tar xvf OpenBLAS-0.2.20.tar.gz
-$ make BINARY=64 NO_SHARED=1 USE_OPENMP=1
-$ make PREFIX=$HOME/local install
+cd $HOME/work
+tar xvf OpenBLAS-0.2.20.tar.gz
+make BINARY=64 NO_SHARED=1 USE_OPENMP=1
+make PREFIX=$HOME/local install
 ```
 
 #### Compiling METIS
 
 ```
-$ cd $HOME/work
-$ tar xvf metis-5.1.0.tar.gz
-$ cd metis-5.1.0
-$ make config prefix=$HOME/local cc=gcc openmp=1
-$ make
-$ make install
+cd $HOME/work
+tar xvf metis-5.1.0.tar.gz
+cd metis-5.1.0
+make config prefix=$HOME/local cc=gcc openmp=1
+make
+make install
 ```
 
 #### Compiling ScaLAPACK
@@ -103,10 +102,10 @@ $ make install
 #### Compiling MUMPS
 
 ```
-$ cd $HOME/work
-$ tar xvf MUMPS_5.1.2.tar.gz
-$ cd MUMPS_5.1.2
-$ cp Make.inc/Makefile.inc.generic Makefile.inc
+cd $HOME/work
+tar xvf MUMPS_5.1.2.tar.gz
+cd MUMPS_5.1.2
+cp Make.inc/Makefile.inc.generic Makefile.inc
 ```
 
 Change the following parts of copied `Makefile.inc`.
@@ -143,9 +142,9 @@ OPTL    = -O -fopenmp
 Then execute `make`.
 
 ```
-$ make
-$ cp lib/*.a $HOME/local/lib
-$ cp include/*.h $HOME/local/include
+make
+cp lib/*.a $HOME/local/lib
+cp include/*.h $HOME/local/include
 ```
 
 #### Compiling Trilinos ML
@@ -185,9 +184,9 @@ $ make install
 Finishing compiling above libraries, compile FrontISTR.
 
 ```
-$ cd $HOME/work
-$ tar xvf FrontISTR_V50.tar.gz
-$ cd FrontISTR
+cd $HOME/work
+tar xvf FrontISTR_V50.tar.gz
+cd FrontISTR
 ```
 
 #### Edit Makefile.conf
@@ -291,14 +290,13 @@ $ ./setup.sh -p --with-tools --with-refiner \
 Execute make command.
 
 ```
-$ make
+make
 ```
 
 #### Executing `make install`
 
-
 ```
-$ make install
+make install
 ```
 
 FrontISTR will be installed to `$(HOME)/FrontISTR/bin`.
@@ -360,5 +358,3 @@ When finished analysis, displayed message as follows.
  ====================================
  FrontISTR Completed !!
 ```
-
-

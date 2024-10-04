@@ -20,7 +20,7 @@ OpenMPIは下記のWEBサイトから
 
 MPICHは下記のWEBサイトからダウンロードすることができます。
 
-[http://www.mpich.org/](http://www.mpich.org/)
+[https://www.mpich.org/](https://www.mpich.org/)
 
 #### METIS
 
@@ -52,7 +52,7 @@ METISは下記のWEBサイトからダウンロードすることができます
 メッシュ細分化機能を利用する場合にはREVOCAP_Refinerが必要となります。
 REVOCAP_Refinerの最新版は下記のWEBサイトからダウンロードすることができます。
 
-[http://www.multi.k.u-tokyo.ac.jp/FrontISTR/](http://www.multi.k.u-tokyo.ac.jp/FrontISTR/)
+[https://www.frontistr.com/download](https://www.frontistr.com/download/)
 
 #### REVOCAP_Coupler
 
@@ -67,15 +67,15 @@ REVOCAP_Refinerの最新版は下記のWEBサイトからダウンロードす�
 
 LAPACKのリファレンス実装は下記WEBサイトからダウンロードすることができます。
 
-[http://www.netlib.org/lapack/](http://www.netlib.org/lapack/)
+[https://www.netlib.org/lapack/](https://www.netlib.org/lapack/)
 
 BLASのリファレンス実装は下記WEBサイトからダウンロードすることができます。
 
-[http://www.netlib.org/blas/](http://www.netlib.org/blas/)
+[https://www.netlib.org/blas/](https://www.netlib.org/blas/)
 
 高速なオープンソースの実装としてはOpenBLASなどが利用できます。OpenBLASは下記WEBサイトからダウンロードすることができます。
 
-[http://www.openblas.net/](http://www.openblas.net/)
+[https://www.openblas.net/](https://www.openblas.net/)
 
 なお、後述するIntel MKLがインストールされている場合、改めてインストールする必要はありません。
 
@@ -88,13 +88,13 @@ Solver）に対応しています。MUMPSは、Esprit IV European project PARASO
 Lyon, INPT(ENSEEIHT)-IRIT, INRIA および University of
 Bordeauxの各機関により研究開発されたものです。MUMPSは下記のWEBサイトからダウンロードすることができます。
 
-[http://mumps.enseeiht.fr/](http://mumps.enseeiht.fr/)
+[https://mumps.enseeiht.fr/](https://mumps.enseeiht.fr/)
 
 #### ScaLAPACK
 
 本ソフトウェアで直接利用していませんが、上述のMUMPSはScaLAPACKを利用します。ScaLAPACKは下記のWEBサイトからダウンロードすることができます。
 
-[http://www.netlib.org/scalapack/](http://www.netlib.org/scalapack/)
+[https://www.netlib.org/scalapack/](https://www.netlib.org/scalapack/)
 
 なお、後述するIntel MKLがインストールされScaLAPACKライブラリがインストールされている場合、改めてインストールする必要はありません。
 
@@ -105,7 +105,7 @@ Preconditioner）に対応しています。MLは、Sandia National
 Laboratoriesで進められているTrilinosプロジェクトで開発されているパッケージのひとつです。
 MLは下記のWEBサイトからダウンロードすることができます。
 
-[https://trilinos.org/](https://trilinos.org/)
+[https://trilinos.org/](https://trilinos.org/) or [https://github.com/trilinos/Trilinos](https://github.com/trilinos/Trilinos/)
 
 #### Intel MKL（Math Kernel Library）
 
@@ -134,6 +134,3 @@ MLは下記のWEBサイトからダウンロードすることができます。
 | Desktop PC           | Windows (7, 10)                   | Intel Core-i7       | GNU compiler (mingw) | Microsoft MPI |
 | Raspberry PI 3 B+    | Linux (raspbian 32bit)            | ARM Cortex-A53      | GNU compiler         | OpenMPI       |
 | Notebook PC          | macOS Mojave                      | Intel Core i7       | GNU Compiler         | OpenMPI       |
-
-
-

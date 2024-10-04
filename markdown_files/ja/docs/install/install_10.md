@@ -9,7 +9,7 @@ Ubuntu18.04上へ本ソフトウェアと、それに必要な外部ライブラ
 最初に本ソフトウェアをコンパイルするのに必要なツールやパッケージをインストールしてください。
 
 ```
-$ sudo apt install build-essential gfortran cmake openmpi-bin libopenmpi-dev
+sudo apt install build-essential gfortran cmake openmpi-bin libopenmpi-dev
 ```
 
 gcc/g++/gfortranおよびMPIのラッパーが正しくインストールされているか確認してください。
@@ -31,10 +31,10 @@ $ which gcc g++ gfortran mpicc mpic++ mpifort
 各ディレクトリを作成し、`$HOME/local/bin`をPATH環境変数に追加します。
 
 ```
-$ cd $HOME
-$ mkdir work
-$ mkdir -p local/bin local/lib local/include
-$ export PATH=$HOME/local/bin:$PATH
+cd $HOME
+mkdir work
+mkdir -p local/bin local/lib local/include
+export PATH=$HOME/local/bin:$PATH
 ```
 
 #### ダウンロード
@@ -43,43 +43,43 @@ $ export PATH=$HOME/local/bin:$PATH
 
 | ソフトウェア名                  | ダウンロード先                                        |
 |:--------------------------------|:------------------------------------------------------|
-| REVOCAP_Refiner-1.1.04.tar.gz   | https://www.frontistr.com/                            |
-| FrontISTR_V50.tar.gz            | http://www.frontistr.com/                             |
-| OpenBLAS-0.2.20.tar.gz          | http://www.openblas.net/                              |
-| metis-5.1.0.tar.gz              | http://glaros.dtc.umn.edu/gkhome/metis/metis/download |
-| scalapack-2.0.2.tgz             | http://www.netlib.org/scalapack/                      |
-| MUMPS_5.1.2.tar.gz              | http://mumps.enseeiht.fr/                             |
-| trilinos-12.14.1-Source.tar.bz2 | https://trilinos.org/download/                        |
+| REVOCAP_Refiner-1.1.04.tar.gz   | <https://www.frontistr.com/download/> |
+| FrontISTR_V50.tar.gz            | <https://www.frontistr.com/download/>  |
+| OpenBLAS-0.2.20.tar.gz          | <https://www.openblas.net/> or <https://https://github.com/OpenMathLib/OpenBLAS/> |
+| metis-5.1.0.tar.gz              | <https://gitlab.com/FrontISTR-Commons/METIS> <br/> <https://gitlab.com/FrontISTR-Commons/GKlib> |
+| scalapack-2.0.2.tgz             | <https://www.netlib.org/scalapack/> |
+| MUMPS_5.1.2.tar.gz              | <https://mumps.enseeiht.fr/> |
+| trilinos-12.14.1-Source.tar.bz2 | <https://trilinos.org/download/> or <https://github.com/trilinos/Trilinos/>|
 
 #### REVOCAP_Refinerのコンパイル
 
 ```
-$ cd $HOME/work
-$ tar xvf REVOCAP_Refiner-1.1.04.tar.gz
-$ cd REVOCAP_Refiner-1.1.04
-$ make
-$ cp lib/x86_64-linux/libRcapRefiner.a $HOME/local/lib
-$ cp Refiner/rcapRefiner.h $HOME/local/include
+cd $HOME/work
+tar xvf REVOCAP_Refiner-1.1.04.tar.gz
+cd REVOCAP_Refiner-1.1.04
+make
+cp lib/x86_64-linux/libRcapRefiner.a $HOME/local/lib
+cp Refiner/rcapRefiner.h $HOME/local/include
 ```
 
 #### OpenBLASのコンパイル
 
 ```
-$ cd $HOME/work
-$ tar xvf OpenBLAS-0.2.20.tar.gz
-$ make BINARY=64 NO_SHARED=1 USE_OPENMP=1
-$ make PREFIX=$HOME/local install
+cd $HOME/work
+tar xvf OpenBLAS-0.2.20.tar.gz
+make BINARY=64 NO_SHARED=1 USE_OPENMP=1
+make PREFIX=$HOME/local install
 ```
 
 #### METISのコンパイル
 
 ```
-$ cd $HOME/work
-$ tar xvf metis-5.1.0.tar.gz
-$ cd metis-5.1.0
-$ make config prefix=$HOME/local cc=gcc openmp=1
-$ make
-$ make install
+cd $HOME/work
+tar xvf metis-5.1.0.tar.gz
+cd metis-5.1.0
+make config prefix=$HOME/local cc=gcc openmp=1
+make
+make install
 ```
 
 #### ScaLAPACKのコンパイル
@@ -101,10 +101,10 @@ $ make install
 #### MUMPSのコンパイル
 
 ```
-$ cd $HOME/work
-$ tar xvf MUMPS_5.1.2.tar.gz
-$ cd MUMPS_5.1.2
-$ cp Make.inc/Makefile.inc.generic Makefile.inc
+cd $HOME/work
+tar xvf MUMPS_5.1.2.tar.gz
+cd MUMPS_5.1.2
+cp Make.inc/Makefile.inc.generic Makefile.inc
 ```
 
 コピーした`Makefile.inc`の以下の部分を書き換えます。
@@ -142,9 +142,9 @@ OPTL    = -O -fopenmp
 書き換えが完了したら保存しmakeします。
 
 ```
-$ make
-$ cp lib/*.a $HOME/local/lib
-$ cp include/*.h $HOME/local/include
+make
+cp lib/*.a $HOME/local/lib
+cp include/*.h $HOME/local/include
 ```
 
 #### Trilinos MLのコンパイル
@@ -184,9 +184,9 @@ $ make install
 上記ライブラリのコンパイルが済んだらFrontISTRをコンパイルします。
 
 ```
-$ cd $HOME/work
-$ tar xvf FrontISTR_V50.tar.gz
-$ cd FrontISTR
+cd $HOME/work
+tar xvf FrontISTR_V50.tar.gz
+cd FrontISTR
 ```
 
 #### Makefile.confの編集
@@ -290,7 +290,7 @@ $ ./setup.sh -p --with-tools --with-refiner \
 makeを実行します。
 
 ```
-$ make
+make
 ```
 
 #### make install の実行
@@ -298,7 +298,7 @@ $ make
 makeが完了したら、make installを実行しMakefile.confで指定したディレクトリへインストールします。この例では  `$(HOME)/FrontISTR/bin` になります。
 
 ```
-$ make install
+make install
 ```
 
 #### 動作確認
@@ -358,5 +358,3 @@ $ $HOME/FrontISTR/bin/fistr1
  ====================================
  FrontISTR Completed !!
 ```
-
-
