@@ -32,7 +32,7 @@ MPICHは下記のWEBサイトからダウンロードすることができます
 
 METISは下記のWEBサイトからダウンロードすることができます。
 
-[http://glaros.dtc.umn.edu/gkhome/metis/metis/overview](http://glaros.dtc.umn.edu/gkhome/metis/metis/overview)
+[METISのバックアップ](https://gitlab.com/FrontISTR-Commons/METIS) と [GKlibのバックアップ](https://gitlab.com/FrontISTR-Commons/GKlib)
 
 #### HEC-MW
 
