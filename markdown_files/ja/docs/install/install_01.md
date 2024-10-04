@@ -20,7 +20,7 @@ OpenMPIは下記のWEBサイトから
 
 MPICHは下記のWEBサイトからダウンロードすることができます。
 
-[http://www.mpich.org/](http://www.mpich.org/)
+[https://www.mpich.org/](https://www.mpich.org/)
 
 #### METIS
 
@@ -100,7 +100,7 @@ Preconditioner）に対応しています。MLは、Sandia National
 Laboratoriesで進められているTrilinosプロジェクトで開発されているパッケージのひとつです。
 MLは下記のWEBサイトからダウンロードすることができます。
 
-[https://trilinos.org/](https://trilinos.org/)
+[https://trilinos.org/](https://trilinos.org/) or [https://github.com/trilinos/Trilinos](https://github.com/trilinos/Trilinos/)
 
 #### Intel MKL（Math Kernel Library）
 
