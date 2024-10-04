@@ -28,7 +28,7 @@ For environments where METIS is not installed, domain decomposition is still pos
 
 METIS - Serial Graph Partitioning and Fill-reducing Matrix Ordering
 
-- [METIS source tree backup](https://gitlab.com/FrontISTR-Commons/METIS) and [GKLib source tree backup](https://gitlab.com/FrontISTR-Commons/GKLib)
+- [METIS source tree backup](https://gitlab.com/FrontISTR-Commons/METIS) and [GKlib source tree backup](https://gitlab.com/FrontISTR-Commons/GKlib)
 
 #### HEC-MW
 
