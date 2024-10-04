@@ -31,21 +31,13 @@
 | METISINCDIR   | This variable specifies the path to the directory where the header files (such as `metis.h`) of METIS have been installed. Normally, there is no need to change the value of this variable from the default value. | `$(METISDIR)/include` |
 | METISLIBDIR   | This variable specifies the path to the directory where the library (`libmetis.a`) of METIS has been installed. Normally, ther is no need to change the value of this variable from the default value.| `$(METISDIR)/lib` |
 
-#### Settings related to ParMETIS
-
-| Variable name | Description                                        | Default                |
-|---------------|----------------------------------------------------|------------------------|
-| PARMETISDIR | This variable specifies the path to the directory where ParMETIS has been installed. | `$(HOME)/ParMetis` |
-| PAEMETISINCDIR | This variable specifies the path to the directory where the header files (such as parmetis.h) of ParMETIS have been installed. Normally, there is no need to change the value of this variable from the default value. | `$(PARMETISDIR)/include` |
-| PARMETISLIBDIR | This variable specifies the path to the directory where the library (libparmetis.a) of ParMETIS has been installed. Normally, there is no need to change the value of this variable from the default value. | `$(PARMETISDIR)/lib` |
-
 #### Settings related to REVOCAP_Refiner
 
 | Variable name | Description                                        | Default                 |
 |---------------|----------------------------------------------------|-------------------------|
 | REFINERDIR | This variable specifies the path to the directory where REVOCAP_Refiner has been installed. | `$(HOME)/REVOCAP_Refiner` |
-| REFINERINCDIR | This variable specifies the path to the directory where REVOCAP_Refiner header files have been installed. Normally, there is no need to change the value of this variable from the default value. | `$(PARMETISDIR)/include` |
-| REFINERLIBDIR | This variable specifies the path to the directory where REVOCAP_Refiner libraries have been installed. Normally, there is no need to change the value of this variable from the default value.| `$(PARMETISDIR)/lib` |
+| REFINERINCDIR | This variable specifies the path to the directory where REVOCAP_Refiner header files have been installed. Normally, there is no need to change the value of this variable from the default value. | `$(REFINERDIR)/include` |
+| REFINERLIBDIR | This variable specifies the path to the directory where REVOCAP_Refiner libraries have been installed. Normally, there is no need to change the value of this variable from the default value.| `$(REFINERDIR)/lib` |
 
 #### Settings related to REVOCAP_Coupler
 
@@ -132,11 +124,6 @@ METISDIR    = $(HOME)/Metis-4.0
 METISLIBDIR = $(METISDIR)
 METISINCDIR = $(METISDIR)/Lib
 
-# ParMetis
-PARMETISDIR    = $(HOME)/ParMetis-3.1
-PARMETISLIBDIR = $(PARMETISDIR)
-PARMETISINCDIR = $(PARMETISDIR)/ParMETISLib
-
 # Refiner
 REFINERDIR    = $(HOME)/REVOCAP_Refiner-1.1.0
 REFINERINCDIR = $(REFINERDIR)/Refiner
@@ -190,10 +177,7 @@ Changes:
 
 Set the value of parameter `TotalSectorCacheSize` defined in the file to
 
-  - 12 on K-computer,
-  - 24 on FX10.
+- 12 on K-computer,
+- 24 on FX10.
 
 Initially, the parameter is set for K-computer.
-
-
-
