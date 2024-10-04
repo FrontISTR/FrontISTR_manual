@@ -19,8 +19,8 @@ $ su
 次にMPIの環境設定を行います。コマンドライン上で
 
 ```
-$ module purge
-$ module local mpi/openmpi-x86_64
+module purge
+module local mpi/openmpi-x86_64
 ```
 
 `$HOME/.bash_profile`に記述しておけば、次回ログイン時も設定が反映されます。
@@ -44,10 +44,10 @@ $ which gcc g++ gfortran mpicc mpic++ mpifort
 各ディレクトリを作成し、`$HOME/local/bin`をPATH環境変数に追加します。
 
 ```
-$ cd $HOME
-$ mkdir work
-$ mkdir -p local/bin local/lib local/include
-$ export PATH=$HOME/local/bin:$PATH
+cd $HOME
+mkdir work
+mkdir -p local/bin local/lib local/include
+export PATH=$HOME/local/bin:$PATH
 ```
 
 #### ダウンロード
@@ -56,43 +56,43 @@ $ export PATH=$HOME/local/bin:$PATH
 
 | ソフトウェア名                  | ダウンロード先                                        |
 |:--------------------------------|:------------------------------------------------------|
-| REVOCAP_Refiner-1.1.04.tar.gz   | https://www.frontistr.com/                            |
-| FrontISTR_V50.tar.gz            | https://www.frontistr.com/                            |
-| OpenBLAS-0.2.20.tar.gz          | http://www.openblas.net/                              |
-| metis-5.1.0.tar.gz              | http://glaros.dtc.umn.edu/gkhome/metis/metis/download |
-| scalapack-2.0.2.tgz             | http://www.netlib.org/scalapack/                      |
-| MUMPS_5.1.2.tar.gz              | http://mumps.enseeiht.fr/                             |
-| trilinos-12.14.1-Source.tar.bz2 | https://trilinos.org/download/                        |
+| REVOCAP_Refiner-1.1.04.tar.gz   | <https://www.frontistr.com/>                            |
+| FrontISTR_V50.tar.gz            | <https://www.frontistr.com/>                            |
+| OpenBLAS-0.2.20.tar.gz          | <http://www.openblas.net/>                              |
+| metis-5.1.0.tar.gz              | <http://glaros.dtc.umn.edu/gkhome/metis/metis/download> |
+| scalapack-2.0.2.tgz             | <http://www.netlib.org/scalapack/>                      |
+| MUMPS_5.1.2.tar.gz              | <http://mumps.enseeiht.fr/>                             |
+| trilinos-12.14.1-Source.tar.bz2 | <https://trilinos.org/download/>                        |
 
 #### REVOCAP_Refinerのコンパイル
 
 ```
-$ cd $HOME/work
-$ tar xvf REVOCAP_Refiner-1.1.04.tar.gz
-$ cd REVOCAP_Refiner-1.1.04
-$ make
-$ cp lib/x86_64-linux/libRcapRefiner.a ~/local/lib
-$ cp Refiner/rcapRefiner.h ~/local/include
+cd $HOME/work
+tar xvf REVOCAP_Refiner-1.1.04.tar.gz
+cd REVOCAP_Refiner-1.1.04
+make
+cp lib/x86_64-linux/libRcapRefiner.a ~/local/lib
+cp Refiner/rcapRefiner.h ~/local/include
 ```
 
 #### OpenBLASのコンパイル
 
 ```
-$ cd $HOME/work
-$ tar xvf OpenBLAS-0.2.20.tar.gz
-$ make BINARY=64 NO_SHARED=1 USE_OPENMP=1
-$ make PREFIX=~/local install
+cd $HOME/work
+tar xvf OpenBLAS-0.2.20.tar.gz
+make BINARY=64 NO_SHARED=1 USE_OPENMP=1
+make PREFIX=~/local install
 ```
 
 #### METISのコンパイル
 
 ```
-$ cd $HOME/work
-$ tar xvf metis-5.1.0.tar.gz
-$ cd metis-5.1.0
-$ make config prefix=~/local cc=gcc openmp=1
-$ make
-$ make install
+cd $HOME/work
+tar xvf metis-5.1.0.tar.gz
+cd metis-5.1.0
+make config prefix=~/local cc=gcc openmp=1
+make
+make install
 ```
 
 #### ScaLAPACKのコンパイル
@@ -114,10 +114,10 @@ $ make install
 #### MUMPSのコンパイル
 
 ```
-$ cd $HOME/work
-$ tar xvf MUMPS_5.1.2.tar.gz
-$ cd MUMPS_5.1.2
-$ cp Make.inc/Makefile.inc.generic Makefile.inc
+cd $HOME/work
+tar xvf MUMPS_5.1.2.tar.gz
+cd MUMPS_5.1.2
+cp Make.inc/Makefile.inc.generic Makefile.inc
 ```
 
 コピーした`Makefile.inc`の以下の部分を書き換えます。
@@ -154,9 +154,9 @@ OPTL    = -O -fopenmp
 書き換えが完了したら保存しmakeします。
 
 ```
-$ make
-$ cp lib/*.a $HOME/local/lib
-$ cp include/*.h $HOME/local/include
+make
+cp lib/*.a $HOME/local/lib
+cp include/*.h $HOME/local/include
 ```
 
 #### Trilinos MLのコンパイル
@@ -196,9 +196,9 @@ $ make install
 上記ライブラリのコンパイルが済んだらFrontISTRをコンパイルします。
 
 ```
-$ cd $HOME/work
-$ tar xvf FrontISTR_V50.tar.gz
-$ cd FrontISTR
+cd $HOME/work
+tar xvf FrontISTR_V50.tar.gz
+cd FrontISTR
 ```
 
 #### Makefile.confの編集
@@ -232,11 +232,6 @@ METISDIR       = $(HOME)/local
 METISLIBDIR    = $(METISDIR)/lib
 METISINCDIR    = $(METISDIR)/include
 HECMW_METIS_VER= 5
-
-# ParMetis
-PARMETISDIR    = $(HOME)/local
-PARMETISLIBDIR = $(PARMETISDIR)/lib
-PARMETISINCDIR = $(PARMETISDIR)/include
 
 # Refiner
 REFINERDIR     = $(HOME)/local
@@ -307,7 +302,7 @@ $ ./setup.sh -p --with-tools --with-refiner \
 makeを実行します。
 
 ```
-$ make
+make
 ```
 
 #### make install の実行
@@ -315,7 +310,7 @@ $ make
 makeが完了したら、make installを実行しMakefile.confで指定したディレクトリへインストールします。この例では  `$(HOME)/FrontISTR/bin` にインストールされます。
 
 ```
-$ make install
+make install
 ```
 
 #### 動作確認
@@ -375,5 +370,3 @@ $ $HOME/FrontISTR/bin/fistr1
  ====================================
  FrontISTR Completed !!
 ```
-
-
