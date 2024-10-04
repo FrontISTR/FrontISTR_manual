@@ -88,8 +88,6 @@ cmakeコマンドを実行する際、オプションを指定することで挙
 | -DWITH_REVOCAP=ON     | REVOCAP_Couplerの機能を有効                   | ライブラリが必要             |
 | -DWITH_METIS=ON       | METISの機能を有効                             | 4.0.3と5.1.0に対応           |
 | -DMETIS_VER_4=OFF     | metis-4.0.3を使う場合に設定                   | metis-5.1.0の場合指定不要    |
-| -DWITH_PARMETIS=ON    | ParMETISの機能を有効                          | 3.2.0と4.0.3に対応           |
-| -DMETIS_VER_3=OFF     | ParMetis-3.2.0を使う場合に設定                | parmetis-4.0.3の場合指定不要 |
 | -DWITH_MKL=ON         | MKL PARDISOの機能を有効                       | ライブラリが必要             |
 | -DWITH_MUMPS=ON       | MUMPSの機能を有効                             | ライブラリが必要             |
 | -DWITH_LAPACK=ON      | LAPACKの機能を有効                            | ライブラリが必要             |

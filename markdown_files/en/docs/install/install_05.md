@@ -9,7 +9,6 @@ Create `Makefile.conf` by editing `Makefile.conf.org` in ${FSTRBUILDDIR} to matc
 | MPIDIR      | Specifies the directory where MPI has been installed                                    |
 | PREFIX      | Specifies the directory where the executable module of this software is to be installed |
 | METISDIR    | Specifies the directory where METIS has been installed                                  |
-| PARMETISDIR | Specifies the directory where ParMETIS has been installed                               |
 | REFINERDIR  | Specifies the directory where REVOCAP_Refiner has been installed                        |
 | REVOCAPDIR  | Specifies the directory where REVOCAP_Coupler has been installed                        |
 | MUMPSDIR    | Specifies the directory where MUMPS has been installed                                  |
@@ -39,7 +38,6 @@ To generate a library for parallel computing, for example, execute `setup.sh` wi
 | --with-refiner   | Includes REVOCAP_Refiner                   |                                        |
 | --with-revocap   | Includes REVOCAP_Coupler                   |                                        |
 | --with-metis     | Uses METIS                                 |                                        |
-| --with-parmetis  | Uses ParMETIS                              | Disabled at present                    |
 | --with-mkl       | Uses Intel MKL                             |                                        |
 | --with-mumps     | Uses MUMPS                                 |                                        |
 | --with-lapack    | Uses Lapack                                | Needed for condition number estimation |

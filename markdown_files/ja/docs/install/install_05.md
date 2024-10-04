@@ -13,7 +13,6 @@
 | MPIDIR      | MPIがインストールされているディレクトリ                      |
 | PREFIX      | 本ソフトウェアの実行モジュールをインストールするディレクトリ |
 | METISDIR    | METISがインストールされているディレクトリ                    |
-| PARMETISDIR | ParMETISがインストールされているディレクトリ                 |
 | REFINERDIR  | REVOCAP_Refinerがインストールされているディレクトリ          |
 | REVOCAPDIR  | REVOCAP_Couplerがインストールされているディレクトリ          |
 | MUMPSDIR    | MUMPSがインストールされているディレクトリ                    |
@@ -46,7 +45,6 @@ $ ./setup.sh
 | --with-refiner       | REVOCAP_Refinerの組み込み                       |                                    |
 | --with-revocap       | REVOCAP_Couplerの組み込み                       |                                    |
 | --with-metis         | METISの使用                                     |                                    |
-| --with-parmetis      | ParMETISの使用                                  | 現時点では無効                     |
 | --with-mkl           | Intel MKLの使用                                 |                                    |
 | --with-mumps         | MUMPSの使用                                     |                                    |
 | --with-lapack        | Lapackルーチンの使用                            | 条件数推定機能を利用する場合に必要 |
