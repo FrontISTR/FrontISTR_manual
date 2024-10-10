@@ -3225,7 +3225,7 @@ When any other value is specified for PRECOND, the 4th line will be disregarded.
 | ML_Smoother         | I    | Smoother of ML (1: Chebyshev, 2: SymBlockGaussSeidel, 3: Jacobi) (Default: 1) <br/>(recommended value : 1)  |
 | ML_MGCycle          | I    | Multigrid cycle of ML (1: V-cycle, 2: W-cycle, 3: Full-V-cycle) (Default: 1) <br/>(recommended value : 2 for stiff problems, 1 for other problems)  |
 | ML_MaxLevels        | I    | Max No. of levels of ML (Default: 10) <br/>(recommended value : 2 (or 3 when memory is not sufficient) with direct coarse solver for very stiff problems, 10 for other problems)  |
-| ML_CoarseningScheme | I    | Coarsening scheme of ML (1: UncoupledMIS, 2: METIS, 3: ParMETIS, 4: Zoltan, 5: DD) (Default: 1) <br/>(recommended value : 1 or 5)  |
+| ML_CoarseningScheme | I    | Coarsening scheme of ML (1: UncoupledMIS, 2: METIS, 4: Zoltan, 5: DD) (Default: 1) <br/>(recommended value : 1 or 5)  |
 | ML_NumSweep         | I    | No. of smoother sweeps of ML (polinomial degree for Chebyshev) (Default: 2) <br/>(recommended value : 2 for Chebyshev, 1 for SymBlockGaussSeidel)   |
 
 
