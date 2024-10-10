@@ -69,7 +69,7 @@ Using the resulting data file spring.res.0.3, the third order vibration mode (co
 Fig. 4.15.1: Third vibration mode of a spring
 </div>
 
-#### Analysis results log `0.log`.
+#### Log file `0.log`.
 
 ```
  fstr_setup: OK
