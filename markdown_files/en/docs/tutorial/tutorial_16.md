@@ -84,7 +84,7 @@ A temperature contour plot was created by REVOCAP_PrePost and is shown in Figure
 Fig. 4.16.3: Analysis results of temperature
 </div>
 
-#### Analysis results log `0.log`.
+#### Log file `0.log`.
 
 ```
  fstr_setup: OK
