@@ -2,6 +2,17 @@
 title: FrontISTR 解析マニュアル
 date: \today
 author: FrontISTR Commons
+header-includes:
+  - |
+    ```{=latex}
+    \usepackage{float}
+    \floatplacement{figure}{H}
+    \floatplacement{table}{H}
+    \makeatletter
+    \let\oldparagraph\paragraph
+    \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+    \makeatother
+    ```
 ---
 
 <!-- 表記は FrontISTR ver. 0.0 で統一します -->
