@@ -43,7 +43,7 @@ The displacements of the constrained surfaces shown in Figure 4.4.1 are constrai
 ### Solver Setting
 !SOLVER,METHOD=DIRECT
 ## Post Control
-!VISUAL,metod=PSR
+!VISUAL,method=PSR
 !surface_num=1
 !surface 1
 !output_type=VTK

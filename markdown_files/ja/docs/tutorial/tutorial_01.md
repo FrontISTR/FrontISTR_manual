@@ -99,7 +99,7 @@ hecmw_ctrl.dat  hinge.cnt  hinge.msh
  10000, 1
  1.0e-08, 1.0, 0.0
 ## Post Control
-!VISUAL,metod=PSR           # 可視化手法の指定
+!VISUAL,method=PSR           # 可視化手法の指定
 !surface_num=1              # 1つのサーフェースレンダリング内のサーフェース数
 !surface 1                  # サーフェースの内容の指定
 !output_type=VTK            # 可視化ファイルの型の指定

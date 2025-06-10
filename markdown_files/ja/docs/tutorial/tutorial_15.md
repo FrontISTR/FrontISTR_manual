@@ -48,7 +48,7 @@
 ### Solver Setting
 !SOLVER,METHOD=DIRECT
 ## Post Control
-!VISUAL,metod=PSR
+!VISUAL,method=PSR
 !surface_num=1
 !surface 1
 !output_type=VTK

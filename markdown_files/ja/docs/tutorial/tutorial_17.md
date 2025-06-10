@@ -48,7 +48,7 @@ _PickedSet4, 1, 3, 0.0
 !SOLVER,METHOD=CG,PRECOND=1,ITERLOG=NO,TIMELOG=YES
  10000, 1
  1.0e-8, 1.0, 0.0
-!VISUAL,metod=PSR
+!VISUAL,method=PSR
 !surface_num=1
 !surface 1
 !output_type=VTK
@@ -83,7 +83,7 @@ _PickedSet6, 2, 1.
 !SOLVER,METHOD=CG,PRECOND=1,ITERLOG=NO,TIMELOG=YES
  10000, 1
  1.0e-8, 1.0, 0.0
-!VISUAL,metod=PSR
+!VISUAL,method=PSR
 !surface_num=1
 !surface 1
 !output_type=VTK

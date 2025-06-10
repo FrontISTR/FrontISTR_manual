@@ -93,7 +93,7 @@ The overall control data and analytical control data are shown below.
  10000, 1
  1.0e-08, 1.0, 0.0
 ## Post Control
-!VISUAL,metod=PSR           # Specify the visualization method
+!VISUAL,method=PSR           # Specify the visualization method
 !surface_num=1              # Number of surfaces in one surface rendering
 !surface 1                  # Specify the contents of the surface
 !output_type=VTK            # Specify the type of the visualization file

@@ -95,7 +95,7 @@ The overall control data, analysis control data and domain division control data
  10000, 2
  1.0e-08, 1.0, 0.0
 ## Post Control
-!VISUAL,metod=PSR          # Specify the visualization methods
+!VISUAL,method=PSR          # Specify the visualization methods
 !surface_num=1             # Number of surfaces in a surface rendering
 !surface 1                 # Specify the contents of the surface
 !output_type=VTK           # Specify the type of the visualization file

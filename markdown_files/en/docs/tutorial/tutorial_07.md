@@ -42,7 +42,7 @@ A stress relaxation analysis is performed by applying axial tensile displacement
  10000, 1
  1.0e-8, 1.0, 0.0
 ## Post Control
-!VISUAL,metod=PSR
+!VISUAL,method=PSR
 !surface_num=1
 !surface 1
 !output_type=VTK
