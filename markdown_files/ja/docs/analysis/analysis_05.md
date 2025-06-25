@@ -1245,6 +1245,10 @@ FORM361 = FBAR (非線形解析におけるDefault値)/IC (線形解析におけ
 FORM341 = FI (通常の四面体一次要素Default値)/SELECTIVE_ESNS(平滑化要素)
 ```
 
+###### 備考
+
+- FORM341=SELECTIVE_ESNSを使用して分散並列計算を実行する場合は、分割制御ファイルhecmw_part_ctrl.datにて!PARTITION,DEPTH=2を指定すること。selective esns要素は2つ隣の要素の情報を参照するため、領域分割における袖の深さを2以上に設定しなければならない。
+
 ##### `!END` (1-12)
 
 制御データの終わりを示す。

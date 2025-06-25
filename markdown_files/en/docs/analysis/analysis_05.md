@@ -1252,6 +1252,10 @@ FORM361 = FBAR (Default in nonlinear analysis)/IC (Default in linear analysis)/B
 FORM341 = FI (Default)/SELECTIVE_ESNS(smoothed element)
 ```
 
+###### Remarks
+
+- When using FORM341=SELECTIVE_ESNS for distributed parallel computations, you need to specify !PARTITION,DEPTH=2 in the partition control file hecmw_part_ctrl.dat. The SELECTIVE_ESNS elements refer to information from two neighboring elements, so the sleeve depth in domain partitioning must be set to at least 2.
+
 ###### 2nd Line or later
 
 N/A
