@@ -2802,12 +2802,12 @@ TYPE = LINEAR    : Linear dynamic analysis
 | t_delta | R    |Time increment (Default: 1.0)|
 
 ```
-(4th line) ganma , beta
+(4th line) gamma , beta
 ```
 
 |Parameter Name |Attributions |Contents
 |--------|------|--------------------------------------------|
-| ganma  | R    | Parameter &gamma; of Newmark-&beta; method (Default: 0.5)|
+| gamma  | R    | Parameter &gamma; of Newmark-&beta; method (Default: 0.5)|
 | beta   | R    | Parameter &beta; of Newmark-&gamma; method (Default: 0.25)|
 
 ```
