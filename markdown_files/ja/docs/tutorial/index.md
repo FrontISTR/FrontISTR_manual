@@ -39,11 +39,4 @@ author: FrontISTR Commons
 - [PDF](tutorial_ja.pdf)
 
 - チュートリアル: [新マニュアル](https://frontistr-commons.gitlab.io/frontistr_documents/examples/index.html)に移行しました。
-- 例題:
-    - [単純形状モデルによる検証](example_01.md)
-    - [弾性静解析用実モデル例題](example_02.md)
-    - [固有値解析用実モデル例題](example_03.md)
-    - [熱伝導解析用実モデル例題](example_04.md)
-    - [線形動的解析用実モデル例題](example_05.md)
-
-
+- 例題: [新マニュアル](https://frontistr-commons.gitlab.io/frontistr_documents/en/verification_and_validation/index.html)に移行しました。

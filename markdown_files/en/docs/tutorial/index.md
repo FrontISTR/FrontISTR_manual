@@ -38,11 +38,4 @@ This manual describes the analysis implementation guidelines using a large-scale
 - [PDF](tutorial_en.pdf)
 
 - Tutorials: migrated to [the new manual](https://frontistr-commons.gitlab.io/frontistr_documents/en/examples/index.html)
-- Example Verification:
-    - [Verification by Simple Geometric Model](example_01.md)
-    - [Example of Acutual Model for Elastic Static Analysis](example_02.md)
-    - [Example of Actual Model for Eigenvalue Analysis](example_03.md)
-    - [Example of Actual Model for Heat Conduction Analysis](example_04.md)
-    - [Example of Actual Model for Linear Dynamic Analysis](example_05.md)
-
-
+- Example Verification: migrated to [the new manual](https://frontistr-commons.gitlab.io/frontistr_documents/en/verification_and_validation/index.html)
