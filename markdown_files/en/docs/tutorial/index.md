@@ -35,7 +35,5 @@ This manual describes the analysis implementation guidelines using a large-scale
 
 ## List of description on this manual
 
-- [PDF](tutorial_en.pdf)
-
 - Tutorials: migrated to [the new manual](https://frontistr-commons.gitlab.io/frontistr_documents/en/examples/index.html)
 - Example Verification: migrated to [the new manual](https://frontistr-commons.gitlab.io/frontistr_documents/en/verification_and_validation/index.html)

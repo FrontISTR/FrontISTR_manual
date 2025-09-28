@@ -38,7 +38,5 @@ Regarding the stress analysis method of solids, the infinitesimal deformation li
 
 ## List of description on this manual
 
-- [PDF](analysis_en.pdf)
-
 - [Analysis Flow, Input File, Output File (new manual)](https://frontistr-commons.gitlab.io/frontistr_documents/en/execution_guide/index.html)
 - [User Subroutines (new manual)](https://frontistr-commons.gitlab.io/frontistr_documents/en/coding_guide/usersubroutine/overview.html)

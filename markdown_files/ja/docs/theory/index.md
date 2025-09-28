@@ -39,6 +39,4 @@ author: FrontISTR Commons
 
 ## 本マニュアルの記載内容
 
-- [PDF](theory_ja.pdf)
-
 [新マニュアル](https://frontistr-commons.gitlab.io/frontistr_documents/theory/index.html)を参照してください。
