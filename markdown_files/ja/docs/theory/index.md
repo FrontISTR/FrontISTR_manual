@@ -41,14 +41,4 @@ author: FrontISTR Commons
 
 - [PDF](theory_ja.pdf)
 
-- 静的解析
-    - [微小変形線形弾性静解析](theory_01.md)
-    - [非線形静解析手法](theory_02.md)
-- 動的解析
-    - [動的解析手法](theory_03.md)
-    - [固有値解析](theory_05.md)
-    - [周波数応答解析](theory_06.md)
-- [熱伝導解析](theory_04.md)
-- [参考文献](theory_07.md)
-
-
+[新マニュアル](https://frontistr-commons.gitlab.io/frontistr_documents/theory/index.html)を参照してください。
