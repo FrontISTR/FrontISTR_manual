@@ -37,24 +37,7 @@ This manual describes the analysis implementation guidelines using a large-scale
 
 - [PDF](tutorial_en.pdf)
 
-- Tutorials:
-    - [Static Analysis (Elasticity)](tutorial_01.md)
-    - [Static Analysis (Elasticity, Parallel)](tutorial_02.md)
-    - [Static Analysis (Hyperelasticity Part 1)](tutorial_03.md)
-    - [Static Analysis (Hyperelasticity Part 2)](tutorial_04.md)
-    - [Static Analysis (Elastoplasticity Part 1)](tutorial_05.md)
-    - [Static Analysis (Elastoplasticity Part 2)](tutorial_06.md)
-    - [Static Analysis (Viscoelasticity)](tutorial_07.md)
-    - [Static Analysis (Creep)](tutorial_08.md)
-    - [Contact Analysis (Part 1)](tutorial_09.md)
-    - [Contact Analysis (Part 2)](tutorial_10.md)
-    - [Contact Analysis (Part 3)](tutorial_11.md)
-    - [Linear Dynamic Analysis](tutorial_12.md)
-    - [Nonlinear Dynamic Analysis](tutorial_13.md)
-    - [Nonlinear Contact Dynamic Analysis](tutorial_14.md)
-    - [Eigenvalue Analysis](tutorial_15.md)
-    - [Heat Conduction Analysis](tutorial_16.md)
-    - [Frequency Response Analysis](tutorial_17.md)
+- Tutorials: migrated to [the new manual](https://frontistr-commons.gitlab.io/frontistr_documents/en/examples/index.html)
 - Example Verification:
     - [Verification by Simple Geometric Model](example_01.md)
     - [Example of Acutual Model for Elastic Static Analysis](example_02.md)

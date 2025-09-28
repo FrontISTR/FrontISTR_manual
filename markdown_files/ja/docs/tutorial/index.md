@@ -38,24 +38,7 @@ author: FrontISTR Commons
 
 - [PDF](tutorial_ja.pdf)
 
-- チュートリアル:
-    - [線形静解析 (弾性)](tutorial_01.md)
-    - [線形静解析 (弾性、並列)](tutorial_02.md)
-    - [非線形静解析 (超弾性1)](tutorial_03.md)
-    - [非線形静解析 (超弾性2)](tutorial_04.md)
-    - [非線形静解析 (弾塑性1)](tutorial_05.md)
-    - [非線形静解析 (弾塑性2)](tutorial_06.md)
-    - [非線形静解析 (粘弾性)](tutorial_07.md)
-    - [非線形静解析 (クリープ)](tutorial_08.md)
-    - [接触解析 (1)](tutorial_09.md)
-    - [接触解析 (2)](tutorial_10.md)
-    - [接触解析 (3)](tutorial_11.md)
-    - [線形動解析](tutorial_12.md)
-    - [非線形動解析](tutorial_13.md)
-    - [非線形接触動解析](tutorial_14.md)
-    - [固有値解析](tutorial_15.md)
-    - [熱伝導解析](tutorial_16.md)
-    - [周波数応答解析](tutorial_17.md)
+- チュートリアル: [新マニュアル](https://frontistr-commons.gitlab.io/frontistr_documents/examples/index.html)に移行しました。
 - 例題:
     - [単純形状モデルによる検証](example_01.md)
     - [弾性静解析用実モデル例題](example_02.md)
