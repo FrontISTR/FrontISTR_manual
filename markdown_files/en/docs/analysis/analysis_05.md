@@ -1,6 +1,9 @@
 
 ## Analysis Control Data
 
+Individual header descriptions have been moved to the [new manual](https://frontistr-commons.gitlab.io/frontistr_documents/en/keyword_reference/index.html).
+Only overviews and data definition examples are provided here.
+
 ### Outline of Analysis Control Data
 
 In FrontISTR, an analysis control data file is input to acquire the computing control data, solver control data and post process (visualization) control data as shown in the following figure, in order to implement the analytical calculations.

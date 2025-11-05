@@ -1,5 +1,8 @@
 ## 全体制御データ
 
+個別のヘッダーの記述は[新マニュアル](https://frontistr-commons.gitlab.io/frontistr_documents/keyword_reference/index.html)に移行しました。
+ここには概要とデータ定義例のみ記載しています。
+
 ### 全体制御データ概要
 
 全体制御データは、FrontISTRに対する入出力ファイルのファイル名を定義するものである。

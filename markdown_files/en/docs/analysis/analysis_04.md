@@ -1,5 +1,8 @@
 ## Single Domain Mesh Data
 
+Individual header descriptions have been moved to the [new manual](https://frontistr-commons.gitlab.io/frontistr_documents/en/keyword_reference/index.html).
+Only overviews and data definition examples are provided here.
+
 ### Outline of Single Mesh Data
 
 In order to acquire the mesh data of FrontISTR, there are two methods, such as the method to input the single domain mesh data file, and the method to input the distributed mesh data file to perform parallel processing. Single domain mesh data is described in this section.
