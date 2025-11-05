@@ -38,19 +38,5 @@ Regarding the stress analysis method of solids, the infinitesimal deformation li
 
 ## List of description on this manual
 
-- [PDF](analysis_en.pdf)
-
-- [Analysis Flow](analysis_01.md)
-- [Input File](analysis_01.md)
-    - [Overall Control Data](analysis_02.md)
-    - [Mesh Partitioning Data](analysis_03.md)
-    - [Mesh Data](analysis_04.md)
-    - [Analysis Control Data](analysis_05.md)
-    - [Visualization Control Data](analysis_05.md)
-- [Output File](analysis_01.md)
-    - [Log Data](analysis_05.md)
-    - [Restart Data](analysis_05.md)
-    - [Visualization Data](analysis_05.md)
-- [User Subroutines](analysis_06.md)
-
-
+- [Analysis Flow, Input File, Output File (new manual)](https://frontistr-commons.gitlab.io/frontistr_documents/en/execution_guide/index.html)
+- [User Subroutines (new manual)](https://frontistr-commons.gitlab.io/frontistr_documents/en/coding_guide/usersubroutine/overview.html)
