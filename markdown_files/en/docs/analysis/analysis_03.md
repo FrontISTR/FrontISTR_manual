@@ -1,5 +1,8 @@
 ## Overall Control Data
 
+Individual header descriptions have been moved to the [new manual](https://frontistr-commons.gitlab.io/frontistr_documents/en/keyword_reference/index.html).
+Only overviews and data definition examples are provided here.
+
 ### Outline of Overall Control Data
 
 The overall control data is for defining the file name of the input/output files for FrontISTR.  The features of the overall control data file are as follows.

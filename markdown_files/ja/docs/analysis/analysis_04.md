@@ -1,5 +1,8 @@
 ## 単一領域メッシュデータ
 
+個別のヘッダーの記述は[新マニュアル](https://frontistr-commons.gitlab.io/frontistr_documents/keyword_reference/index.html)に移行しました。
+ここには概要とデータ定義例のみ記載しています。
+
 ### 単一メッシュデータ概要
 
 FrontISTRのメッシュデータ取得には、単一領域メッシュデータファイルを入力する方法と並列処理するために分散メッシュデータファイルを入力する方法の二通りがある。
