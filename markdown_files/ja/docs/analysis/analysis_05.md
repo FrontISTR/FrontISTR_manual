@@ -1,7 +1,7 @@
 
 ## 解析制御データ
 
-個別のヘッダーの記述は[新マニュアル](https://frontistr-commons.gitlab.io/frontistr_documents/keyword_reference/index.html)に移行しました。
+個別のヘッダーの記述は[新マニュアル](https://frontistr-commons.gitlab.io/frontistr_documents/keyword_reference/cnt/index.html)に移行しました。
 ここには概要とデータ定義例のみ記載しています。
 
 ### 解析制御データ概要

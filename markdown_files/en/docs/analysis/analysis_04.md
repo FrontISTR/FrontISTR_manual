@@ -1,6 +1,6 @@
 ## Single Domain Mesh Data
 
-Individual header descriptions have been moved to the [new manual](https://frontistr-commons.gitlab.io/frontistr_documents/en/keyword_reference/index.html).
+Individual header descriptions have been moved to the [new manual](https://frontistr-commons.gitlab.io/frontistr_documents/en/keyword_reference/msh/index.html).
 Only overviews and data definition examples are provided here.
 
 ### Outline of Single Mesh Data
