@@ -37,4 +37,4 @@ author: FrontISTR Commons
 ## 本マニュアルの記載内容
 
 - チュートリアル: [新マニュアル](https://frontistr-commons.gitlab.io/frontistr_documents/examples/index.html)に移行しました。
-- 例題: [新マニュアル](https://frontistr-commons.gitlab.io/frontistr_documents/en/verification_and_validation/index.html)に移行しました。
+- 例題: [新マニュアル](https://frontistr-commons.gitlab.io/frontistr_documents/index.html)に移行しました。
